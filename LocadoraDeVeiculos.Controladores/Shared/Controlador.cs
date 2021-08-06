@@ -17,7 +17,5 @@ namespace LocadoraDeVeiculos.Controladores.Shared
         {
             return new Dictionary<string, object>() { { campo, valor } };
         }
-
-    }
     }
 }
