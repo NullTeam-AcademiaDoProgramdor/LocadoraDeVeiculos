@@ -8,7 +8,7 @@ namespace LocadoraDeVeiculos.Dominio.Shared
 {
     public abstract class EntidadeBase
     {
-        public int Id { get; set; }
+        public int id;
 
         public int Id { get => id; set => id = value; }
 
