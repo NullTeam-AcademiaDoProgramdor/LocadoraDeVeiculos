@@ -149,5 +149,25 @@ namespace LocadoraDeVeiculos.Tests.GrupoAutomovelModule
 
             resultado.Should().Be("O campo Preco Dia do Plano Km Livre não pode ser 0 ou negativo");
         }
+
+        [TestMethod]
+        public void DeveValidar_QuebraDeLinha_Nome_PlanoDiarioPrecoDia()
+        {
+            GrupoAutomovel grupoAutomovel = new GrupoAutomovel(
+                "",
+                new PlanoDiarioStruct(0, 5),
+                new PlanoKmControladoStruct(100, 15, 100),
+                new PlanoKmLivreStruct(200)
+            );
+
+            var resultado = grupoAutomovel.Validar();
+
+            var resultadoEsperado =
+                "O campo nome é obrigatorio"
+                + Environment.NewLine
+                + "O campo Preco Dia do Plano Diario não pode ser 0 ou negativo";
+
+            resultado.Should().Be(resultadoEsperado);
+        }
     }
 }
