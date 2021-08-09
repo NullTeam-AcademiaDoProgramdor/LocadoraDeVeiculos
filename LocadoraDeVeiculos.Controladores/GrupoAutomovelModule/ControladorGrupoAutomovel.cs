@@ -180,6 +180,8 @@ namespace LocadoraDeVeiculos.Controladores.GrupoAutomovelModule
         {
             var parametros = new Dictionary<string, object>();
 
+            parametros.Add("id", grupoAutomovel.id);
+
             parametros.Add("nome", grupoAutomovel.Nome);
 
             parametros.Add("planoDIario_precoDIa", grupoAutomovel.PlanoDiario.PrecoDia);
