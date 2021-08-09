@@ -1,4 +1,6 @@
-﻿using LocadoraDeVeiculos.WindowsApp.Shared;
+﻿using LocadoraDeVeiculos.Controladores.GrupoAutomovelModule;
+using LocadoraDeVeiculos.WindowsApp.Features.GruposAutomovel;
+using LocadoraDeVeiculos.WindowsApp.Shared;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,7 +19,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
         public static TelaPrincipalForm Instancia;
 
-        //Operacoes
+        OperacoesGrupoAutomovel operacoesGrupoAutomovel;
 
         public TelaPrincipalForm()
         {
@@ -25,7 +27,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             DesativarBotoesToolBoxAcoes();
 
-            //intancia das operacoes
+            operacoesGrupoAutomovel = new OperacoesGrupoAutomovel(new ControladorGrupoAutomovel());
 
             Instancia = this;
         }
@@ -97,6 +99,32 @@ namespace LocadoraDeVeiculos.WindowsApp
                 if (item is ToolStripButton)
                     (item as ToolStripButton).Enabled = false;
             }
+        }
+
+        private void menuItemGrupoAutomovel_Click(object sender, EventArgs e)
+        {
+            ConfiguracaoGrupoAutomovelToolBox configuracao = 
+                new ConfiguracaoGrupoAutomovelToolBox();
+
+            ConfigurarTooltips(configuracao.Tooltip);
+            ConfigurarBotoes(configuracao.Botoes);
+
+            AtualizarRodape(configuracao.Tooltip.TipoCadastro);
+
+            operacoes = operacoesGrupoAutomovel;
+
+            ConfigurarPainelRegistros();
+        }
+
+        private void ConfigurarPainelRegistros()
+        {
+            UserControl tabela = operacoes.ObterTabela();
+
+            tabela.Dock = DockStyle.Fill;
+
+            panelRegistros.Controls.Clear();
+
+            panelRegistros.Controls.Add(tabela);
         }
     }
 }
