@@ -99,5 +99,37 @@ namespace LocadoraDeVeiculos.Tests.GrupoAutomovelModule
             GrupoAutomovel grupoEncontrado = controlador.SelecionarPorId(grupo.id);
             grupoEncontrado.Should().Be(grupo);
         }
+
+        [TestMethod]
+        public void DeveSelecionar_TodosGruposAutomovel()
+        {
+            GrupoAutomovel g1 = new GrupoAutomovel(
+              "Economicos",
+              new PlanoDiarioStruct(150, 5),
+              new PlanoKmControladoStruct(100, 15, 100),
+              new PlanoKmLivreStruct(300)
+            );
+            controlador.InserirNovo(g1);
+
+            GrupoAutomovel g2 = new GrupoAutomovel(
+              "SUV",
+              new PlanoDiarioStruct(150, 5),
+              new PlanoKmControladoStruct(100, 15, 100),
+              new PlanoKmLivreStruct(500)
+            );
+            controlador.InserirNovo(g2);
+
+            GrupoAutomovel g3 = new GrupoAutomovel(
+              "Luxo",
+              new PlanoDiarioStruct(500, 5),
+              new PlanoKmControladoStruct(100, 15, 100),
+              new PlanoKmLivreStruct(1000)
+            );
+            controlador.InserirNovo(g3);
+
+            var grupos = controlador.SelecionarTodos();
+
+            grupos.Should().HaveCount(3);
+        }
     }
 }
