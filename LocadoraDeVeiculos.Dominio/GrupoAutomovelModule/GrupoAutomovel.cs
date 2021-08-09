@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Dominio.GrupoAutomovelModule
 {
-    class GrupoAutomovel : EntidadeBase, IEquatable<GrupoAutomovel>
+    public class GrupoAutomovel : EntidadeBase, IEquatable<GrupoAutomovel>
     {
 
         public string Nome { get; }
