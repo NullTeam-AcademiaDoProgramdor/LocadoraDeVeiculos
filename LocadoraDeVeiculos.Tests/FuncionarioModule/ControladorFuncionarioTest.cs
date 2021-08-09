@@ -42,5 +42,17 @@ namespace LocadoraDeVeiculos.Tests.FuncionarioModule
             var funcionarioAtualizado = controlador.SelecionarPorId(funcionario.Id);
             funcionarioAtualizado.Should().Be(novoFuncionario);
         }
+
+        [TestMethod]
+        public void DeveExcluirFuncionario()
+        {
+            var funcionario = new Funcionario("Pedro", new DateTime(2020, 01, 01), 1000, "password");
+            controlador.InserirNovo(funcionario);
+
+            controlador.Excluir(funcionario.Id);
+
+            var funcionarioExcluido = controlador.SelecionarPorId(funcionario.Id);
+            funcionarioExcluido.Should().BeNull();
+        }
     }
 }
