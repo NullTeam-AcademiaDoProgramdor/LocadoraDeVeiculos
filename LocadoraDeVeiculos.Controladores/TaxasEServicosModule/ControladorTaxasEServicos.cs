@@ -82,6 +82,20 @@ namespace LocadoraDeVeiculos.Controladores.TaxasEServicosModule
             return resultadoValidacao;
         }
 
+        public override bool Excluir(int id)
+        {
+            try
+            {
+                Db.Delete(sqlInserirTaxaEServico, AdicionarParametro("ID", id));
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
 
 
         private Dictionary<string, object> ObtemParametrosTaxaEServico(TaxasEServicos taxaOuServico)
