@@ -46,7 +46,7 @@ namespace LocadoraDeVeiculos.Controladores.TaxasEServicosModule
               FROM
                 [TAXAESERVICO]";
 
-        private const string sqlSelecionarTaxaPorNome =
+        private const string sqlSelecionarTaxaEServicoPorNome =
             @"SELECT 
                 [EHFIXO],       
                 [PRECO],             
@@ -55,6 +55,14 @@ namespace LocadoraDeVeiculos.Controladores.TaxasEServicosModule
                 [TAXAESERVICO]
              WHERE 
                 [NOME] = @NOME";
+
+        private const string sqlExisteTaxaEServico =
+            @"SELECT 
+                COUNT(*) 
+            FROM 
+                [TAXAESERVICO]
+            WHERE 
+                [ID] = @ID";
         #endregion
 
         public override string InserirNovo(TaxasEServicos taxaOuServico)
@@ -96,7 +104,10 @@ namespace LocadoraDeVeiculos.Controladores.TaxasEServicosModule
             return true;
         }
 
-
+        public override bool Existe(int id)
+        {
+            return Db.Exists(sqlExisteTaxaEServico, AdicionarParametro("ID", id));
+        }
 
         private Dictionary<string, object> ObtemParametrosTaxaEServico(TaxasEServicos taxaOuServico)
         {
