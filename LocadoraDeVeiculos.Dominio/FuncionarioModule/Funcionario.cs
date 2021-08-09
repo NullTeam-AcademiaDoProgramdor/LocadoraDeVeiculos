@@ -22,9 +22,26 @@ namespace LocadoraDeVeiculos.Dominio.FuncionarioModule
         public double Salario { get; }
         public string Senha { get; }
 
+        public override bool Equals(object obj)
+        {
+            return Equals(obj as Funcionario);
+        }
+
+        public bool Equals(Funcionario other)
+        {
+            return other != null &&
+                   Id == other.Id &&
+                   Nome == other.Nome &&
+                   DataAdmissao == other.DataAdmissao &&
+                   Salario == other.Salario &&
+                   Senha == other.Senha;
+        }
+
         public override string Validar()
         {
             return "ESTA_VALIDO";
         }
+
+
     }
 }
