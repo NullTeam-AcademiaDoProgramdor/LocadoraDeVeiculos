@@ -1,0 +1,48 @@
+﻿using LocadoraDeVeiculos.Dominio.GrupoAutomovelModule;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using FluentAssertions;
+
+namespace LocadoraDeVeiculos.Tests.GrupoAutomovelModule
+{
+    [TestClass]
+    public class GrupoAutomovelTest
+    {
+        [TestMethod]
+        public void DeveCriar_GrupoAutomovel()
+        {
+            GrupoAutomovel grupoAutomovel = new GrupoAutomovel(
+                "Economicos",
+                new PlanoDiarioStruct(150, 5),
+                new PlanoKmControladoStruct(100, 15, 100),
+                new PlanoKmLivreStruct(300)
+            );
+
+            grupoAutomovel.Nome.Should().Be("Economicos");
+
+            grupoAutomovel.PlanoDiario.PrecoDia.Should().Be(150);
+            grupoAutomovel.PlanoDiario.PrecoKm.Should().Be(5);
+
+            grupoAutomovel.PlanoKmControlado.PrecoDia.Should().Be(100);
+            grupoAutomovel.PlanoKmControlado.PrecoKmExtrapolado.Should().Be(15);
+            grupoAutomovel.PlanoKmControlado.KmDisponiveis.Should().Be(100);
+
+            grupoAutomovel.PlanoKmLivre.PrecoDia.Should().Be(300);
+        }
+
+        [TestMethod]
+        public void DeveRetornar_GrupoAutomovelValido()
+        {
+            GrupoAutomovel grupoAutomovel = new GrupoAutomovel(
+                "Economicos",
+                new PlanoDiarioStruct(150, 5),
+                new PlanoKmControladoStruct(100, 15, 100),
+                new PlanoKmLivreStruct(300)
+            );
+
+            var resultado = grupoAutomovel.Validar();
+
+            resultado.Should().Be("ESTA_VALIDO");
+        }
+    }
+}
