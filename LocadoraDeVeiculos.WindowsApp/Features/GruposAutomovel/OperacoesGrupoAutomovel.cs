@@ -39,7 +39,31 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GruposAutomovel
 
         public void EditarRegistro()
         {
-            throw new NotImplementedException();
+            int id = tabelaGrupoAutomovel.ObtemIdSelecionado();
+
+            if (id == 0)
+            {
+                MessageBox.Show("Selecione um Grupo para poder editar!", "Edição de Grupo de Automovel",
+                   MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            GrupoAutomovel grupoSelecionado = controlador.SelecionarPorId(id);
+
+            TelaGrupoAutomovelForm tela = new TelaGrupoAutomovelForm();
+
+            tela.GrupoAutomovel = grupoSelecionado;
+
+            if (tela.ShowDialog() == DialogResult.OK)
+            {
+                controlador.Editar(id, tela.GrupoAutomovel);
+
+                List<GrupoAutomovel> grupos = controlador.SelecionarTodos();
+
+                tabelaGrupoAutomovel.AtualizarRegistros(grupos);
+
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Grupo [{tela.GrupoAutomovel.Nome}] editado com sucesso");
+            }
         }
         public void ExcluirRegistro()
         {
