@@ -9,7 +9,7 @@ using System.Data;
 
 namespace LocadoraDeVeiculos.Controladores.TaxasEServicosModule
 {
-    class ControladorTaxasEServicos : Controlador<TaxasEServicos>
+    public class ControladorTaxasEServicos : Controlador<TaxaEServico>
     {
 
         #region Queries
@@ -22,8 +22,8 @@ namespace LocadoraDeVeiculos.Controladores.TaxasEServicosModule
                 )
             VALUES
                 (
-                   @EHFIXO
-                   @PRECO
+                   @EHFIXO,
+                   @PRECO,
                    @NOME
                  )";
 
@@ -79,7 +79,7 @@ namespace LocadoraDeVeiculos.Controladores.TaxasEServicosModule
 
         #endregion
 
-        public override string InserirNovo(TaxasEServicos taxaOuServico)
+        public override string InserirNovo(TaxaEServico taxaOuServico)
         {
             string resultadoValidacao = taxaOuServico.Validar();
 
@@ -91,7 +91,7 @@ namespace LocadoraDeVeiculos.Controladores.TaxasEServicosModule
             return resultadoValidacao;
         }
 
-        public override string Editar(int id, TaxasEServicos taxaOuServico)
+        public override string Editar(int id, TaxaEServico taxaOuServico)
         {
             string resultadoValidacao = taxaOuServico.Validar();
 
@@ -123,42 +123,42 @@ namespace LocadoraDeVeiculos.Controladores.TaxasEServicosModule
             return Db.Exists(sqlExisteTaxaEServico, AdicionarParametro("ID", id));
         }
 
-        public override List<TaxasEServicos> SelecionarTodos()
+        public override List<TaxaEServico> SelecionarTodos()
         {
             return Db.GetAll(sqlSelecionarTodasTaxasEServicos, ConverterEmTaxaEServico);
         }
 
-        public override TaxasEServicos SelecionarPorId(int id)
+        public override TaxaEServico SelecionarPorId(int id)
         {
             return Db.Get(sqlSelecionarTaxaEServicoPorId, ConverterEmTaxaEServico, AdicionarParametro("ID", id));
         }
 
-        public TaxasEServicos SelecionarPorNome(string nome)
+        public TaxaEServico SelecionarPorNome(string nome)
         {
             return Db.Get(sqlSelecionarTaxaEServicoPorNome, ConverterEmTaxaEServico, AdicionarParametro("NOME", nome));
         }
 
-        private TaxasEServicos ConverterEmTaxaEServico(IDataReader reader)
+        private TaxaEServico ConverterEmTaxaEServico(IDataReader reader)
         {
             var nome = Convert.ToString(reader["NOME"]);
-            var prioridade = Convert.ToDouble(reader["PRECO"]);
-            var dataCriacao = Convert.ToBoolean(reader["EHFIXO"]);
+            var preco = Convert.ToDouble(reader["PRECO"]);
+            var ehFixo = Convert.ToBoolean(reader["EHFIXO"]);
 
-            TaxasEServicos taxaOuServicos = new TaxasEServicos(nome, prioridade, dataCriacao);
+            TaxaEServico taxaOuServicos = new TaxaEServico(nome, preco, ehFixo);
 
             taxaOuServicos.Id = Convert.ToInt32(reader["ID"]);           
 
             return taxaOuServicos;
         }
 
-        private Dictionary<string, object> ObtemParametrosTaxaEServico(TaxasEServicos taxaOuServico)
+        private Dictionary<string, object> ObtemParametrosTaxaEServico(TaxaEServico taxaOuServico)
         {
             var parametros = new Dictionary<string, object>();
 
             parametros.Add("ID", taxaOuServico.Id);
             parametros.Add("NOME", taxaOuServico.Nome);
             parametros.Add("PRECO", taxaOuServico.Preco);
-            parametros.Add("DATACRIACAO", taxaOuServico.EhFixo);           
+            parametros.Add("EHFIXO", taxaOuServico.EhFixo);           
 
             return parametros;
         }

@@ -7,14 +7,14 @@ using LocadoraDeVeiculos.Dominio.Shared;
 
 namespace LocadoraDeVeiculos.Dominio.TaxasEServicosModule
 {
-    public class TaxasEServicos : EntidadeBase
+    public class TaxaEServico : EntidadeBase
     {
         int id;
         string nome;
         double preco;
         bool ehFixo;
 
-        public TaxasEServicos(string nome, double preco, bool ehFixo)
+        public TaxaEServico(string nome, double preco, bool ehFixo)
         {
             this.Nome = nome;
             this.Preco = preco;
@@ -28,7 +28,7 @@ namespace LocadoraDeVeiculos.Dominio.TaxasEServicosModule
 
         public override bool Equals(object obj)
         {
-            return obj is TaxasEServicos servicos &&
+            return obj is TaxaEServico servicos &&
                    Id == servicos.Id &&
                    nome == servicos.nome &&
                    preco == servicos.preco &&
@@ -40,16 +40,10 @@ namespace LocadoraDeVeiculos.Dominio.TaxasEServicosModule
 
         public override string Validar()
         {
-            string resultadoValidacao = "";
+            string resultadoValidacao = "";            
 
-            if(!(Nome is string))            
-                resultadoValidacao += " O campo nome está inválido";            
-
-            if(!(Preco is double))            
-                resultadoValidacao += " O campo preço está inválido";            
-
-            if(!(EhFixo is bool))            
-                resultadoValidacao += " O campo ehFixo está inválido";            
+            if(VerificaSeNomeEhNumero(Nome))            
+                resultadoValidacao += " O campo nome está inválido";                    
 
             if(resultadoValidacao == "")            
                 resultadoValidacao = "ESTA_VALIDO";            
@@ -66,6 +60,24 @@ namespace LocadoraDeVeiculos.Dominio.TaxasEServicosModule
             hashCode = hashCode * -1521134295 + EqualityComparer<bool>.Default.GetHashCode(EhFixo);            
             return hashCode;
         }
+
+        private bool VerificaSeNomeEhNumero(string nome)
+        {
+            bool verificador = true;
+            
+            try
+            {
+                double nomeDouble = Convert.ToDouble(nome);
+            }
+            catch (Exception)
+            {
+                return verificador = false;
+            }            
+
+            return verificador;
+        }
+
+        
 
     }
 }
