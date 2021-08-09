@@ -88,7 +88,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GruposAutomovel
             // txtNome
             // 
             this.txtNome.AccessibleName = "Nome";
-            this.txtNome.Enabled = false;
             this.txtNome.Location = new System.Drawing.Point(99, 48);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(135, 20);
