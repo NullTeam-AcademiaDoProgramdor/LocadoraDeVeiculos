@@ -89,5 +89,50 @@ namespace LocadoraDeVeiculos.Tests.GrupoAutomovelModule
 
             resultado.Should().Be("O campo Preco Km do Plano Diario não pode ser 0 ou negativo");
         }
+
+        [TestMethod]
+        public void DeveValidar_PlanoKmControlado_PrecoDia()
+        {
+            GrupoAutomovel grupoAutomovel = new GrupoAutomovel(
+                "Economicos",
+                new PlanoDiarioStruct(150, 5),
+                new PlanoKmControladoStruct(0, 15, 100),
+                new PlanoKmLivreStruct(300)
+            );
+
+            var resultado = grupoAutomovel.Validar();
+
+            resultado.Should().Be("O campo Preco Dia do Plano Km Controlado não pode ser 0 ou negativo");
+        }
+
+        [TestMethod]
+        public void DeveValidar_PlanoKmControlado_PrecokmExtrapolado()
+        {
+            GrupoAutomovel grupoAutomovel = new GrupoAutomovel(
+                "Economicos",
+                new PlanoDiarioStruct(150, 5),
+                new PlanoKmControladoStruct(100, 0, 100),
+                new PlanoKmLivreStruct(300)
+            );
+
+            var resultado = grupoAutomovel.Validar();
+
+            resultado.Should().Be("O campo Preco Km Extrapolado do Plano Km Controlado não pode ser 0 ou negativo");
+        }
+
+        [TestMethod]
+        public void DeveValidar_PlanoKmControlado_KmDisponiveis()
+        {
+            GrupoAutomovel grupoAutomovel = new GrupoAutomovel(
+                "Economicos",
+                new PlanoDiarioStruct(150, 5),
+                new PlanoKmControladoStruct(100, 15, 0),
+                new PlanoKmLivreStruct(300)
+            );
+
+            var resultado = grupoAutomovel.Validar();
+
+            resultado.Should().Be("O campo Km Disponivel do Plano Km Controlado não pode ser 0 ou negativo");
+        }
     }
 }
