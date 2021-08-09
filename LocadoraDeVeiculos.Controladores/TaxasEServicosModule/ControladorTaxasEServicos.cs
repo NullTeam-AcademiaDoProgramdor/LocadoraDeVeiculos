@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using LocadoraDeVeiculos.Controladores.Shared;
 using LocadoraDeVeiculos.Dominio.TaxasEServicosModule;
+using System.Data;
 
 namespace LocadoraDeVeiculos.Controladores.TaxasEServicosModule
 {
@@ -107,6 +108,24 @@ namespace LocadoraDeVeiculos.Controladores.TaxasEServicosModule
         public override bool Existe(int id)
         {
             return Db.Exists(sqlExisteTaxaEServico, AdicionarParametro("ID", id));
+        }
+
+        public override List<TaxasEServicos> SelecionarTodos()
+        {
+            return Db.GetAll(sqlSelecionarTodasTaxasEServicos, ConverterEmTaxaEServico);
+        }
+
+        private TaxasEServicos ConverterEmTaxaEServico(IDataReader reader)
+        {
+            var nome = Convert.ToString(reader["NOME"]);
+            var prioridade = Convert.ToDouble(reader["PRECO"]);
+            var dataCriacao = Convert.ToBoolean(reader["EHFIXO"]);
+
+            TaxasEServicos taxaOuServicos = new TaxasEServicos(nome, prioridade, dataCriacao);
+
+            taxaOuServicos.Id = Convert.ToInt32(reader["ID"]);           
+
+            return taxaOuServicos;
         }
 
         private Dictionary<string, object> ObtemParametrosTaxaEServico(TaxasEServicos taxaOuServico)
