@@ -88,6 +88,9 @@ namespace LocadoraDeVeiculos.Dominio.GrupoAutomovelModule
                     QuebraDeLinha(resultadoValidacao) +
                     "O campo Preco Dia do Plano Km Livre não pode ser 0 ou negativo";
 
+            if (resultadoValidacao == "")
+                resultadoValidacao = "ESTA_VALIDO";
+
             return resultadoValidacao;
         }
     }
