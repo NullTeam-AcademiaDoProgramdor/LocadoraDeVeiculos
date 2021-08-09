@@ -63,7 +63,20 @@ namespace LocadoraDeVeiculos.Controladores.TaxasEServicosModule
 
             if (resultadoValidacao == "ESTA_VALIDO")
             {
-                taxaOuServico.id = Db.Insert(sqlInserirTaxaEServico, ObtemParametrosTaxaEServico(taxaOuServico));
+                taxaOuServico.Id = Db.Insert(sqlInserirTaxaEServico, ObtemParametrosTaxaEServico(taxaOuServico));
+            }
+
+            return resultadoValidacao;
+        }
+
+        public override string Editar(int id, TaxasEServicos taxaOuServico)
+        {
+            string resultadoValidacao = taxaOuServico.Validar();
+
+            if (resultadoValidacao == "ESTA_VALIDO")
+            {
+                taxaOuServico.Id = id;
+                Db.Update(sqlInserirTaxaEServico, ObtemParametrosTaxaEServico(taxaOuServico));
             }
 
             return resultadoValidacao;
@@ -75,7 +88,7 @@ namespace LocadoraDeVeiculos.Controladores.TaxasEServicosModule
         {
             var parametros = new Dictionary<string, object>();
 
-            parametros.Add("ID", taxaOuServico.id);
+            parametros.Add("ID", taxaOuServico.Id);
             parametros.Add("NOME", taxaOuServico.Nome);
             parametros.Add("PRECO", taxaOuServico.Preco);
             parametros.Add("DATACRIACAO", taxaOuServico.EhFixo);           

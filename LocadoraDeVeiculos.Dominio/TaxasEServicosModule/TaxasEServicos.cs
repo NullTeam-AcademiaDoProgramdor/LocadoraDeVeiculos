@@ -9,6 +9,7 @@ namespace LocadoraDeVeiculos.Dominio.TaxasEServicosModule
 {
     public class TaxasEServicos : EntidadeBase
     {
+        int id;
         string nome;
         double preco;
         bool ehFixo;
@@ -22,12 +23,13 @@ namespace LocadoraDeVeiculos.Dominio.TaxasEServicosModule
 
         public string Nome { get => nome; set => nome = value; }
         public double Preco { get => preco; set => preco = value; }
-        public bool EhFixo { get => ehFixo; set => ehFixo = value; }        
+        public bool EhFixo { get => ehFixo; set => ehFixo = value; }
+        public int Id { get => id; set => id = value; }
 
         public override bool Equals(object obj)
         {
             return obj is TaxasEServicos servicos &&
-                   id == servicos.id &&
+                   Id == servicos.Id &&
                    nome == servicos.nome &&
                    preco == servicos.preco &&
                    ehFixo == servicos.ehFixo &&
@@ -58,7 +60,7 @@ namespace LocadoraDeVeiculos.Dominio.TaxasEServicosModule
         public override int GetHashCode()
         {
             int hashCode = 1695060689;
-            hashCode = hashCode * -1521134295 + id.GetHashCode();
+            hashCode = hashCode * -1521134295 + Id.GetHashCode();
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Nome);
             hashCode = hashCode * -1521134295 + EqualityComparer<double>.Default.GetHashCode(Preco);
             hashCode = hashCode * -1521134295 + EqualityComparer<bool>.Default.GetHashCode(EhFixo);            
