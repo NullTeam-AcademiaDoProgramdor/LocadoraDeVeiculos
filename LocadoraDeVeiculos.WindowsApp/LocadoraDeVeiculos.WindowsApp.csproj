@@ -54,6 +54,12 @@
     <Compile Include="Features\GruposAutomovel\TabelaGrupoAutomovelControl.Designer.cs">
       <DependentUpon>TabelaGrupoAutomovelControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\GruposAutomovel\TelaGrupoAutomovelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\GruposAutomovel\TelaGrupoAutomovelForm.Designer.cs">
+      <DependentUpon>TelaGrupoAutomovelForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Shared\ConfiguracoesBotoes.cs" />
     <Compile Include="Shared\ConfiguracoesTooltip.cs" />
     <Compile Include="Shared\DataGridViewExtensions.cs" />
@@ -69,6 +75,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Features\GruposAutomovel\TabelaGrupoAutomovelControl.resx">
       <DependentUpon>TabelaGrupoAutomovelControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\GruposAutomovel\TelaGrupoAutomovelForm.resx">
+      <DependentUpon>TelaGrupoAutomovelForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TelaPrincipalForm.resx">
       <DependentUpon>TelaPrincipalForm.cs</DependentUpon>
