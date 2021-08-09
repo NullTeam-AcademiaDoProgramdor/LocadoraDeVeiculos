@@ -46,6 +46,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Features\GruposAutomovel\ConfiguracaoGrupoAutomovelToolBox.cs" />
+    <Compile Include="Features\GruposAutomovel\OperacoesGrupoAutomovel.cs" />
+    <Compile Include="Features\GruposAutomovel\TabelaGrupoAutomovelControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Features\GruposAutomovel\TabelaGrupoAutomovelControl.Designer.cs">
+      <DependentUpon>TabelaGrupoAutomovelControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Shared\ConfiguracoesBotoes.cs" />
     <Compile Include="Shared\ConfiguracoesTooltip.cs" />
     <Compile Include="Shared\DataGridViewExtensions.cs" />
@@ -59,6 +67,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Features\GruposAutomovel\TabelaGrupoAutomovelControl.resx">
+      <DependentUpon>TabelaGrupoAutomovelControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TelaPrincipalForm.resx">
       <DependentUpon>TelaPrincipalForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -100,7 +111,14 @@
     <None Include="Resources\outline_expand_black_24dp.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Features\" />
+    <ProjectReference Include="..\LocadoraDeVeiculos.Controladores\LocadoraDeVeiculos.Controladores.csproj">
+      <Project>{C0CA9D0A-9EDB-41D2-AFC0-F27ABE5E84E7}</Project>
+      <Name>LocadoraDeVeiculos.Controladores</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LocadoraDeVeiculos.Dominio\LocadoraDeVeiculos.Dominio.csproj">
+      <Project>{5dbca542-da0b-4644-bffa-8f574e2c3f38}</Project>
+      <Name>LocadoraDeVeiculos.Dominio</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
