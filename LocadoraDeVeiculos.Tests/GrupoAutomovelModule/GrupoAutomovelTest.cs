@@ -9,6 +9,7 @@ namespace LocadoraDeVeiculos.Tests.GrupoAutomovelModule
     public class GrupoAutomovelTest
     {
         [TestMethod]
+        [TestCategory("Dominio")]
         public void DeveCriar_GrupoAutomovel()
         {
             GrupoAutomovel grupoAutomovel = new GrupoAutomovel(
