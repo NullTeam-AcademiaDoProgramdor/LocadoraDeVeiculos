@@ -10,6 +10,8 @@ namespace LocadoraDeVeiculos.Dominio.Shared
     {
         public int Id { get; set; }
 
+        public int Id { get => id; set => id = value; }
+
         public abstract string Validar();
 
         protected string QuebraDeLinha(string resultadoValidacao)
