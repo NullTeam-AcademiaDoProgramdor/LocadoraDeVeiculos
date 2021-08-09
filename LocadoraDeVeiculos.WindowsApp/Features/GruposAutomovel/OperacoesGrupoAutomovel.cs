@@ -21,6 +21,23 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GruposAutomovel
             this.controlador = controlador;
             tabelaGrupoAutomovel = new TabelaGrupoAutomovelControl();
         }
+        public void InserirNovoRegistro()
+        {
+            throw new NotImplementedException();
+        }
+        public void EditarRegistro()
+        {
+            throw new NotImplementedException();
+        }
+        public void ExcluirRegistro()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void FiltrarRegistros()
+        {
+            throw new NotImplementedException();
+        }
 
         public void AgruparRegistros()
         {
@@ -32,25 +49,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GruposAutomovel
             throw new NotImplementedException();
         }
 
-        public void EditarRegistro()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void ExcluirRegistro()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void FiltrarRegistros()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void InserirNovoRegistro()
-        {
-            throw new NotImplementedException();
-        }
 
         public UserControl ObterTabela()
         {
