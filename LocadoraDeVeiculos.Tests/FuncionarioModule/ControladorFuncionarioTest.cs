@@ -65,5 +65,25 @@ namespace LocadoraDeVeiculos.Tests.FuncionarioModule
 
             funcionarioEncontrado.Should().NotBeNull();
         }
+
+        [TestMethod]
+        public void DeveSelecionarTodosFuncionarios()
+        {
+            var f1 = new Funcionario("Pedro", new DateTime(2020, 01, 01), 1000, "password");
+            controlador.InserirNovo(f1);
+
+            var f2 = new Funcionario("João", new DateTime(2021, 02, 03), 5000, "senha");
+            controlador.InserirNovo(f2);
+
+            var f3 = new Funcionario("Eduardo", new DateTime(2021, 05, 08), 7000, "palavra passe");
+            controlador.InserirNovo(f3);
+
+            var funcionarios = controlador.SelecionarTodos();
+
+            funcionarios.Should().HaveCount(3);
+            funcionarios[0].Nome.Should().Be("Pedro");
+            funcionarios[1].Nome.Should().Be("João");
+            funcionarios[2].Nome.Should().Be("Eduardo");
+        }
     }
 }
