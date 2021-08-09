@@ -1,4 +1,5 @@
-﻿using LocadoraDeVeiculos.Dominio.PessoaJuridicaModule;
+﻿using LocadoraDeVeiculos.Controladores.PessoaJuridicaModule;
+using LocadoraDeVeiculos.Dominio.PessoaJuridicaModule;
 using LocadoraDeVeiculos.WindowsApp.Shared;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasJuridicas
 {
     public partial class TabelaPessoaJuridicaControl : UserControl
     {
+        Subro.Controls.DataGridViewGrouper gridPessoasJuridicasAgrupadas = new Subro.Controls.DataGridViewGrouper();
+        ControladorPessoaJuridica controlador = new ControladorPessoaJuridica();
         public TabelaPessoaJuridicaControl()
         {
             InitializeComponent();
@@ -45,15 +48,17 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasJuridicas
             return gridPessoasJuridicas.SelecionarId<int>();
         }
 
-        public void AtualizarRegistros(List<PessoaJuridica> pessoasJuridicas)
+        public void AtualizarRegistros()
         {
-            gridPessoasJuridicas.Rows.Clear();
+            var pessoasJuridicas = controlador.SelecionarTodos();
 
-            foreach (PessoaJuridica pessoaJuridica in pessoasJuridicas)
-            {
-                gridPessoasJuridicas.Rows.Add(pessoaJuridica.Id, pessoaJuridica.Nome, pessoaJuridica.Cnpj,
-                    pessoaJuridica.Endereco, pessoaJuridica.Telefone);
-            }
+            CarregarTabela(pessoasJuridicas);
+        }
+        private void CarregarTabela(List<PessoaJuridica> pessoasJuridicas)
+        {
+            gridPessoasJuridicas.DataSource = pessoasJuridicas.ConvertAll(c => c as PessoaJuridica);
+
+            gridPessoasJuridicasAgrupadas = new Subro.Controls.DataGridViewGrouper(gridPessoasJuridicas);
         }
     }
 }
