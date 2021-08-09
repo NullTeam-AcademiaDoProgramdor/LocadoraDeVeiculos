@@ -67,7 +67,28 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GruposAutomovel
         }
         public void ExcluirRegistro()
         {
-            throw new NotImplementedException();
+            int id = tabelaGrupoAutomovel.ObtemIdSelecionado();
+
+            if (id == 0)
+            {
+                MessageBox.Show("Selecione um Grupo para poder excluit!", "Exclusão de Grupo de Automovel",
+                   MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            GrupoAutomovel grupoSelecionado = controlador.SelecionarPorId(id);
+
+            if (MessageBox.Show($"Tem certeza que deseja excluir o grupo: [{grupoSelecionado.Nome}] ?",
+                "Exclusão de Grupo de Automovel", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                controlador.Excluir(id);
+
+                List<GrupoAutomovel> grupos = controlador.SelecionarTodos();
+
+                tabelaGrupoAutomovel.AtualizarRegistros(grupos);
+
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Grupo: [{grupoSelecionado.Nome}] removido com sucesso");
+            }
         }
 
         public void FiltrarRegistros()
