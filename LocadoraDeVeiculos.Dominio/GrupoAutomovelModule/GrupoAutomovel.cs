@@ -53,7 +53,42 @@ namespace LocadoraDeVeiculos.Dominio.GrupoAutomovelModule
 
         public override string Validar()
         {
-            throw new NotImplementedException();
+            string resultadoValidacao = string.Empty;
+
+            if (string.IsNullOrEmpty(Nome))
+                resultadoValidacao += "O campo nome é obrigatorio";
+
+            if (PlanoDiario.PrecoDia <= 0)
+                resultadoValidacao += 
+                    QuebraDeLinha(resultadoValidacao) + 
+                    "O campo Preco Dia do Plano Diario não pode ser 0 ou negativo";
+
+            if (PlanoDiario.PrecoKm <= 0)
+                resultadoValidacao +=
+                    QuebraDeLinha(resultadoValidacao) +
+                    "O campo Preco Km do Plano Diario não pode ser 0 ou negativo";
+
+            if (PlanoKmControlado.PrecoDia <= 0)
+                resultadoValidacao +=
+                    QuebraDeLinha(resultadoValidacao) +
+                    "O campo Preco Dia do Plano Km Controlado não pode ser 0 ou negativo";
+
+            if (PlanoKmControlado.KmDisponiveis <= 0)
+                resultadoValidacao +=
+                    QuebraDeLinha(resultadoValidacao) +
+                    "O campo Km Disponivel do Plano Km Controlado não pode ser 0 ou negativo";
+
+            if (PlanoKmControlado.PrecoKmExtrapolado <= 0)
+                resultadoValidacao +=
+                    QuebraDeLinha(resultadoValidacao) +
+                    "O campo Preco Km Extrapolado do Plano Km Controlado não pode ser 0 ou negativo";
+
+            if (PlanoKmLivre.PrecoDia <= 0)
+                resultadoValidacao +=
+                    QuebraDeLinha(resultadoValidacao) +
+                    "O campo Preco Dia do Plano Km Livre não pode ser 0 ou negativo";
+
+            return resultadoValidacao;
         }
     }
 }
