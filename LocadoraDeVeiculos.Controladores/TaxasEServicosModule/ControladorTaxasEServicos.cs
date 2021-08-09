@@ -41,6 +41,7 @@ namespace LocadoraDeVeiculos.Controladores.TaxasEServicosModule
 
         private const string sqlSelecionarTodasTaxasEServicos =
             @"SELECT 
+                [ID],
                 [EHFIXO],       
                 [PRECO],             
                 [NOME]
@@ -49,6 +50,7 @@ namespace LocadoraDeVeiculos.Controladores.TaxasEServicosModule
 
         private const string sqlSelecionarTaxaEServicoPorNome =
             @"SELECT 
+                [ID],
                 [EHFIXO],       
                 [PRECO],             
                 [NOME]
@@ -59,6 +61,7 @@ namespace LocadoraDeVeiculos.Controladores.TaxasEServicosModule
 
         private const string sqlSelecionarTaxaEServicoPorId =
             @"SELECT 
+                [ID],
                 [EHFIXO],       
                 [PRECO],             
                 [NOME]
@@ -108,7 +111,7 @@ namespace LocadoraDeVeiculos.Controladores.TaxasEServicosModule
         {
             try
             {
-                Db.Delete(sqlInserirTaxaEServico, AdicionarParametro("ID", id));
+                Db.Delete(sqlExcluirTaxaEServico, AdicionarParametro("ID", id));
             }
             catch (Exception)
             {

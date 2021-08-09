@@ -9,7 +9,7 @@ namespace LocadoraDeVeiculos.Dominio.TaxasEServicosModule
 {
     public class TaxaEServico : EntidadeBase
     {
-        int id;
+        
         string nome;
         double preco;
         bool ehFixo;
@@ -24,7 +24,7 @@ namespace LocadoraDeVeiculos.Dominio.TaxasEServicosModule
         public string Nome { get => nome; set => nome = value; }
         public double Preco { get => preco; set => preco = value; }
         public bool EhFixo { get => ehFixo; set => ehFixo = value; }
-        public int Id { get => id; set => id = value; }
+       
 
         public override bool Equals(object obj)
         {

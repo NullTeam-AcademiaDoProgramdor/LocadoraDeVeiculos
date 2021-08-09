@@ -28,5 +28,70 @@ namespace LocadoraDeVeiculos.Tests.TaxaEServicoModule.Teste_de_Controlador
 
             taxaEncontrada.Should().Be(novaTaxa);
         }
+
+        [TestMethod]
+        public void DeveEditar_UmaTaxa()
+        {
+
+            TaxaEServico novaTaxa = new TaxaEServico("a", 10, true);
+            controlador.InserirNovo(novaTaxa);
+
+            TaxaEServico outraTaxa = new TaxaEServico("b", 20, true);
+            controlador.InserirNovo(novaTaxa);
+
+            TaxaEServico novoServico = new TaxaEServico("lavacao", 50, false);
+            controlador.InserirNovo(novoServico);
+            
+            controlador.Editar(novaTaxa.Id, outraTaxa);
+            
+            TaxaEServico taxaEncontrada = controlador.SelecionarPorId(novaTaxa.Id);
+            taxaEncontrada.Should().Be(novaTaxa);
+        }
+
+        [TestMethod]
+        public void DeveEditar_UmServico()
+        {
+
+            TaxaEServico novaTaxa = new TaxaEServico("a", 10, true);
+            controlador.InserirNovo(novaTaxa);
+
+            TaxaEServico outraTaxa = new TaxaEServico("b", 20, true);
+            controlador.InserirNovo(novaTaxa);
+
+            TaxaEServico novoServico = new TaxaEServico("lavacao", 50, false);
+            controlador.InserirNovo(novoServico);
+
+            TaxaEServico outroServico = new TaxaEServico("lavacao", 50, false);
+            controlador.InserirNovo(novoServico);
+
+            controlador.Editar(novoServico.Id, outroServico);
+
+            TaxaEServico servicoEncontrado = controlador.SelecionarPorId(novoServico.Id);
+            servicoEncontrado.Should().Be(novoServico);
+        }
+
+        [TestMethod]
+        public void DeveExcluir_UmaTaxa()
+        {
+            TaxaEServico novaTaxa = new TaxaEServico("a", 10, true);
+            controlador.InserirNovo(novaTaxa);
+                      
+            controlador.Excluir(novaTaxa.Id);
+
+            TaxaEServico taxaEncontrada = controlador.SelecionarPorId(novaTaxa.Id);
+            taxaEncontrada.Should().BeNull();
+        }
+
+        [TestMethod]
+        public void DeveSelecionar_Taxa_PorId()
+        {
+            TaxaEServico novaTaxa = new TaxaEServico("a", 10, true);
+            controlador.InserirNovo(novaTaxa);
+
+            TaxaEServico taxaEncontrada = controlador.SelecionarPorId(novaTaxa.Id);
+
+
+            taxaEncontrada.Should().Be(novaTaxa);
+        }
     }
 }
