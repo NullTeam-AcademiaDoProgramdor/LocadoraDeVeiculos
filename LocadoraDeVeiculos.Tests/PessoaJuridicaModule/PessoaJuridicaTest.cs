@@ -26,5 +26,71 @@ namespace LocadoraDeVeiculos.Tests.PessoaJuridicaModule
             pessoaJuridica.Telefone.Should().Be("(49)000000000");
             pessoaJuridica.Endereco.Should().Be("Lagi");
         }
+
+        [TestMethod]
+        public void DeveRetornar_TarefaValida()
+        {
+            //arrange
+            PessoaJuridica pessoaJuridica = new PessoaJuridica("Matheus", "22.000.000/0001-00", "(49)000000000", "Lagi");
+            
+            //action
+            var resultado = pessoaJuridica.Validar();
+
+            //assert
+            resultado.Should().Be("ESTA_VALIDO");
+        }
+        [TestMethod]
+        public void DeveValidar_CampoNulo()
+        {
+            //arrange
+            PessoaJuridica pessoaJuridica = new PessoaJuridica(null, "22.000.000/0001-00", "(49)000000000", "Lagi");
+
+            //action
+            var resultado = pessoaJuridica.Validar();
+
+            //assert
+            resultado.Should().Be("Nenhum campo pode estar vazio.");
+        }
+        [TestMethod]
+        public void DeveValidar_Telefone()
+        {
+            //arrange
+            PessoaJuridica pessoaJuridica = new PessoaJuridica("Matheus", "22.000.000/0001-00", "000", "Lagi");
+
+            //action
+            var resultado = pessoaJuridica.Validar();
+
+            //assert
+            resultado.Should().Be("Número de telefone muito pequeno.");
+        }
+        [TestMethod]
+        public void DeveValidar_CNPJ()
+        {
+            //arrange
+            PessoaJuridica pessoaJuridica = new PessoaJuridica("Matheus", "00200", "(49)000000000", "Lagi");
+
+            //action
+            var resultado = pessoaJuridica.Validar();
+
+            //assert
+            resultado.Should().Be("Número de CNPJ inválido.");
+        }
+        [TestMethod]
+        public void DeveValidar_QuebraDeLinha_Telefone_CNPJ()
+        {
+            //arrange
+            PessoaJuridica pessoaJuridica = new PessoaJuridica("Matheus", "00200", "9000", "Lagi");
+
+            //action
+            var resultado = pessoaJuridica.Validar();
+
+            //assert
+            var resultadoEsperado =
+                "Número de telefone muito pequeno."
+                + Environment.NewLine
+                + "Número de CNPJ inválido.";
+
+            resultado.Should().Be(resultadoEsperado);
+        }
     }
 }
