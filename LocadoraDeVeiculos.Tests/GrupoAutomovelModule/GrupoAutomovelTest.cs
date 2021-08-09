@@ -134,5 +134,20 @@ namespace LocadoraDeVeiculos.Tests.GrupoAutomovelModule
 
             resultado.Should().Be("O campo Km Disponivel do Plano Km Controlado não pode ser 0 ou negativo");
         }
+
+        [TestMethod]
+        public void DeveValidar_PlanoKmLivre_PrecoDia()
+        {
+            GrupoAutomovel grupoAutomovel = new GrupoAutomovel(
+                "Economicos",
+                new PlanoDiarioStruct(150, 5),
+                new PlanoKmControladoStruct(100, 15, 100),
+                new PlanoKmLivreStruct(0)
+            );
+
+            var resultado = grupoAutomovel.Validar();
+
+            resultado.Should().Be("O campo Preco Dia do Plano Km Livre não pode ser 0 ou negativo");
+        }
     }
 }
