@@ -133,6 +133,11 @@ namespace LocadoraDeVeiculos.Controladores.TaxasEServicosModule
             return Db.Get(sqlSelecionarTaxaEServicoPorId, ConverterEmTaxaEServico, AdicionarParametro("ID", id));
         }
 
+        public TaxasEServicos SelecionarPorNome(string nome)
+        {
+            return Db.Get(sqlSelecionarTaxaEServicoPorNome, ConverterEmTaxaEServico, AdicionarParametro("NOME", nome));
+        }
+
         private TaxasEServicos ConverterEmTaxaEServico(IDataReader reader)
         {
             var nome = Convert.ToString(reader["NOME"]);
