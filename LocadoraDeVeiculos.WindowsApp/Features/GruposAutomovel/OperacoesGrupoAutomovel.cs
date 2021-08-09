@@ -23,8 +23,20 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GruposAutomovel
         }
         public void InserirNovoRegistro()
         {
-            throw new NotImplementedException();
+            TelaGrupoAutomovelForm tela = new TelaGrupoAutomovelForm();
+
+            if (tela.ShowDialog() == DialogResult.OK)
+            {
+                controlador.InserirNovo(tela.GrupoAutomovel);
+
+                List<GrupoAutomovel> grupos = controlador.SelecionarTodos();
+
+                tabelaGrupoAutomovel.AtualizarRegistros(grupos);
+
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Grupo [{tela.GrupoAutomovel.Nome}] inserido com sucesso");
+            }
         }
+
         public void EditarRegistro()
         {
             throw new NotImplementedException();
