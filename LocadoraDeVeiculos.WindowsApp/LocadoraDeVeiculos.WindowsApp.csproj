@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Features\PessoasJuridicas\ConfiguracaoPessoaJuridicaToolBox.cs" />
     <Compile Include="Features\PessoasJuridicas\TelaPessoaJuridicaForm.cs">
       <SubType>Form</SubType>
     </Compile>
