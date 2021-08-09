@@ -68,6 +68,23 @@ namespace LocadoraDeVeiculos.Tests.GrupoAutomovelModule
             grupoEncontrado.Should().Be(novoGrupo);
         }
 
-       
+        [TestMethod]
+        public void DeveExcluir_UmGrupoAutomovel()
+        {
+            GrupoAutomovel grupo = new GrupoAutomovel(
+               "Economicos",
+               new PlanoDiarioStruct(150, 5),
+               new PlanoKmControladoStruct(100, 15, 100),
+               new PlanoKmLivreStruct(300)
+            );
+            controlador.InserirNovo(grupo);
+
+            controlador.Excluir(grupo.id);
+
+            GrupoAutomovel grupoEncontrado = controlador.SelecionarPorId(grupo.id);
+            grupoEncontrado.Should().BeNull();
+        }
+
+      
     }
 }
