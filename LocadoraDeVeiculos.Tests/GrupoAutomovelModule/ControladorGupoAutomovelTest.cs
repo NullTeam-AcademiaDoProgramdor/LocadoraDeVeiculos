@@ -85,6 +85,19 @@ namespace LocadoraDeVeiculos.Tests.GrupoAutomovelModule
             grupoEncontrado.Should().BeNull();
         }
 
-      
+        [TestMethod]
+        public void DeveSelecionar_GrupoAutomovel_porId()
+        {
+            GrupoAutomovel grupo = new GrupoAutomovel(
+              "Economicos",
+              new PlanoDiarioStruct(150, 5),
+              new PlanoKmControladoStruct(100, 15, 100),
+              new PlanoKmLivreStruct(300)
+            );
+            controlador.InserirNovo(grupo);
+
+            GrupoAutomovel grupoEncontrado = controlador.SelecionarPorId(grupo.id);
+            grupoEncontrado.Should().Be(grupo);
+        }
     }
 }
