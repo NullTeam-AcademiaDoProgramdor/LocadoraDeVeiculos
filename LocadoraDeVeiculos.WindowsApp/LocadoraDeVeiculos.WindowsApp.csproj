@@ -47,6 +47,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Features\PessoasJuridicas\ConfiguracaoPessoaJuridicaToolBox.cs" />
+    <Compile Include="Features\PessoasJuridicas\OperacoesPessoaJuridica.cs" />
+    <Compile Include="Features\PessoasJuridicas\TabelaPessoaJuridicaControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Features\PessoasJuridicas\TabelaPessoaJuridicaControl.Designer.cs">
+      <DependentUpon>TabelaPessoaJuridicaControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Features\PessoasJuridicas\TelaPessoaJuridicaForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +73,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Features\PessoasJuridicas\TabelaPessoaJuridicaControl.resx">
+      <DependentUpon>TabelaPessoaJuridicaControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Features\PessoasJuridicas\TelaPessoaJuridicaForm.resx">
       <DependentUpon>TelaPessoaJuridicaForm.cs</DependentUpon>
     </EmbeddedResource>

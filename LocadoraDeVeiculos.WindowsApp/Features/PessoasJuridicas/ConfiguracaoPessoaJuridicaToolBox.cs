@@ -27,8 +27,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasJuridicas
             }
         }
 
-
-
         public ConfiguracoesBotoes Botoes
         {
             get
