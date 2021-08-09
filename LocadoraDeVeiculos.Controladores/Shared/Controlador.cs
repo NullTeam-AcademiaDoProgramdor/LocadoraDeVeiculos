@@ -19,5 +19,4 @@ namespace LocadoraDeVeiculos.Controladores.Shared
         }
 
     }
-    }
 }
