@@ -171,6 +171,8 @@ namespace LocadoraDeVeiculos.Controladores.GrupoAutomovelModule
 
             GrupoAutomovel grupoAutomovel = new GrupoAutomovel(nome, planoDiario, planoKmControlado, planoKmLivre);
 
+            grupoAutomovel.id = Convert.ToInt32(reader["id"]);
+
             return grupoAutomovel;
         }
 
