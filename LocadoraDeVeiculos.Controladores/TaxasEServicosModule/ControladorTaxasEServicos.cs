@@ -57,6 +57,16 @@ namespace LocadoraDeVeiculos.Controladores.TaxasEServicosModule
              WHERE 
                 [NOME] = @NOME";
 
+        private const string sqlSelecionarTaxaEServicoPorId =
+            @"SELECT 
+                [EHFIXO],       
+                [PRECO],             
+                [NOME]
+             FROM
+                [TAXAESERVICO]
+             WHERE 
+                [ID] = @ID";
+
         private const string sqlExisteTaxaEServico =
             @"SELECT 
                 COUNT(*) 
@@ -64,6 +74,9 @@ namespace LocadoraDeVeiculos.Controladores.TaxasEServicosModule
                 [TAXAESERVICO]
             WHERE 
                 [ID] = @ID";
+
+        
+
         #endregion
 
         public override string InserirNovo(TaxasEServicos taxaOuServico)
@@ -113,6 +126,11 @@ namespace LocadoraDeVeiculos.Controladores.TaxasEServicosModule
         public override List<TaxasEServicos> SelecionarTodos()
         {
             return Db.GetAll(sqlSelecionarTodasTaxasEServicos, ConverterEmTaxaEServico);
+        }
+
+        public override TaxasEServicos SelecionarPorId(int id)
+        {
+            return Db.Get(sqlSelecionarTaxaEServicoPorId, ConverterEmTaxaEServico, AdicionarParametro("ID", id));
         }
 
         private TaxasEServicos ConverterEmTaxaEServico(IDataReader reader)
