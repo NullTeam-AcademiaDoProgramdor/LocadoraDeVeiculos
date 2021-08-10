@@ -1,4 +1,6 @@
-﻿using LocadoraDeVeiculos.Controladores.PessoaJuridicaModule;
+﻿using LocadoraDeVeiculos.Controladores.GrupoAutomovelModule;
+using LocadoraDeVeiculos.WindowsApp.Features.GruposAutomovel;
+using LocadoraDeVeiculos.Controladores.PessoaJuridicaModule;
 using LocadoraDeVeiculos.WindowsApp.Features.PessoasJuridicas;
 using LocadoraDeVeiculos.WindowsApp.Shared;
 using System;
@@ -19,16 +21,17 @@ namespace LocadoraDeVeiculos.WindowsApp
 
         public static TelaPrincipalForm Instancia;
 
+        private OperacoesGrupoAutomovel operacoesGrupoAutomovel;
         private OperacoesPessoaJuridica operacoesPessoaJuridica;
         //Operacoes
 
         public TelaPrincipalForm()
         {
             InitializeComponent();
-            operacoesPessoaJuridica = new OperacoesPessoaJuridica(new ControladorPessoaJuridica());
             DesativarBotoesToolBoxAcoes();
 
-            //intancia das operacoes
+            operacoesPessoaJuridica = new OperacoesPessoaJuridica(new ControladorPessoaJuridica());
+            operacoesGrupoAutomovel = new OperacoesGrupoAutomovel(new ControladorGrupoAutomovel());
 
             Instancia = this;
         }
@@ -114,6 +117,32 @@ namespace LocadoraDeVeiculos.WindowsApp
                 if (item is ToolStripButton)
                     (item as ToolStripButton).Enabled = false;
             }
+        }
+
+        private void menuItemGrupoAutomovel_Click(object sender, EventArgs e)
+        {
+            ConfiguracaoGrupoAutomovelToolBox configuracao = 
+                new ConfiguracaoGrupoAutomovelToolBox();
+
+            ConfigurarTooltips(configuracao.Tooltip);
+            ConfigurarBotoes(configuracao.Botoes);
+
+            AtualizarRodape(configuracao.Tooltip.TipoCadastro);
+
+            operacoes = operacoesGrupoAutomovel;
+
+            ConfigurarPainelRegistros();
+        }
+
+        private void ConfigurarPainelRegistros()
+        {
+            UserControl tabela = operacoes.ObterTabela();
+
+            tabela.Dock = DockStyle.Fill;
+
+            panelRegistros.Controls.Clear();
+
+            panelRegistros.Controls.Add(tabela);
         }
 
        

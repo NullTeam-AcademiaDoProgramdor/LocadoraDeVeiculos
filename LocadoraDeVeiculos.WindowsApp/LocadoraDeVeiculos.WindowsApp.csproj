@@ -50,6 +50,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Features\GruposAutomovel\ConfiguracaoGrupoAutomovelToolBox.cs" />
+    <Compile Include="Features\GruposAutomovel\OperacoesGrupoAutomovel.cs" />
+    <Compile Include="Features\GruposAutomovel\TabelaGrupoAutomovelControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Features\GruposAutomovel\TabelaGrupoAutomovelControl.Designer.cs">
+      <DependentUpon>TabelaGrupoAutomovelControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\GruposAutomovel\TelaGrupoAutomovelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\GruposAutomovel\TelaGrupoAutomovelForm.Designer.cs">
+      <DependentUpon>TelaGrupoAutomovelForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Features\PessoasJuridicas\ConfiguracaoPessoaJuridicaToolBox.cs" />
     <Compile Include="Features\PessoasJuridicas\OperacoesPessoaJuridica.cs" />
     <Compile Include="Features\PessoasJuridicas\TabelaPessoaJuridicaControl.cs">
@@ -77,6 +91,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Features\GruposAutomovel\TabelaGrupoAutomovelControl.resx">
+      <DependentUpon>TabelaGrupoAutomovelControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\GruposAutomovel\TelaGrupoAutomovelForm.resx">
+      <DependentUpon>TelaGrupoAutomovelForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Features\PessoasJuridicas\TabelaPessoaJuridicaControl.resx">
       <DependentUpon>TabelaPessoaJuridicaControl.cs</DependentUpon>
     </EmbeddedResource>

@@ -46,6 +46,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.labelRodape = new System.Windows.Forms.ToolStripStatusLabel();
             this.panelRegistros = new System.Windows.Forms.Panel();
             this.pessoaJuridicaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemGrupoAutomovel = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolboxAcoes.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -64,7 +65,9 @@ namespace LocadoraDeVeiculos.WindowsApp
             // cadastrosToolStripMenuItem
             // 
             this.cadastrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.pessoaJuridicaToolStripMenuItem});
+            this.pessoaJuridicaToolStripMenuItem,
+            this.menuItemGrupoAutomovel
+            });
             this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
             this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.cadastrosToolStripMenuItem.Text = "Cadastros";
@@ -209,6 +212,13 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.panelRegistros.Size = new System.Drawing.Size(593, 363);
             this.panelRegistros.TabIndex = 5;
             // 
+            // menuItemGrupoAutomovel
+            // 
+            this.menuItemGrupoAutomovel.Name = "menuItemGrupoAutomovel";
+            this.menuItemGrupoAutomovel.Size = new System.Drawing.Size(185, 22);
+            this.menuItemGrupoAutomovel.Text = "Grupo de Automovel";
+            this.menuItemGrupoAutomovel.Click += new System.EventHandler(this.menuItemGrupoAutomovel_Click);
+            // 
             // pessoaJuridicaToolStripMenuItem
             // 
             this.pessoaJuridicaToolStripMenuItem.Name = "pessoaJuridicaToolStripMenuItem";
@@ -257,6 +267,7 @@ namespace LocadoraDeVeiculos.WindowsApp
         private System.Windows.Forms.ToolStripButton btnExcluir;
         private System.Windows.Forms.ToolStripButton btnFiltrar;
         private System.Windows.Forms.ToolStripButton btnAgrupar;
+        private System.Windows.Forms.ToolStripMenuItem menuItemGrupoAutomovel;
         private System.Windows.Forms.ToolStripMenuItem pessoaJuridicaToolStripMenuItem;
     }
 }

@@ -41,6 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GrupoAutomovelModule\GrupoAutomovel.cs" />
+    <Compile Include="GrupoAutomovelModule\PlanoDiarioStruct.cs" />
+    <Compile Include="GrupoAutomovelModule\PlanoKmControladoStruct.cs" />
+    <Compile Include="GrupoAutomovelModule\PlanoKmLivreStruct.cs" />
     <Compile Include="PessoaJuridicaModule\PessoaJuridica.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Shared\EntidadeBase.cs" />
