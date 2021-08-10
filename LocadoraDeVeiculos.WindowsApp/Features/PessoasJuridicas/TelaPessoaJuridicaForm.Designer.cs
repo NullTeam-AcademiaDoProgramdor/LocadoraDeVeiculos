@@ -57,7 +57,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasJuridicas
             this.txtNome.Location = new System.Drawing.Point(129, 75);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(100, 20);
-            this.txtNome.TabIndex = 1;
+            this.txtNome.TabIndex = 2;
             // 
             // label2
             // 
@@ -91,7 +91,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasJuridicas
             this.txtEndereco.Location = new System.Drawing.Point(129, 165);
             this.txtEndereco.Name = "txtEndereco";
             this.txtEndereco.Size = new System.Drawing.Size(162, 20);
-            this.txtEndereco.TabIndex = 6;
+            this.txtEndereco.TabIndex = 4;
             // 
             // txtCNPJ
             // 
@@ -99,7 +99,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasJuridicas
             this.txtCNPJ.Mask = "00.000.000/0000-00";
             this.txtCNPJ.Name = "txtCNPJ";
             this.txtCNPJ.Size = new System.Drawing.Size(100, 20);
-            this.txtCNPJ.TabIndex = 8;
+            this.txtCNPJ.TabIndex = 3;
             // 
             // txtTelefone
             // 
@@ -107,35 +107,39 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasJuridicas
             this.txtTelefone.Mask = "(00) 0 0000-0000";
             this.txtTelefone.Name = "txtTelefone";
             this.txtTelefone.Size = new System.Drawing.Size(100, 20);
-            this.txtTelefone.TabIndex = 9;
+            this.txtTelefone.TabIndex = 5;
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button1.Location = new System.Drawing.Point(80, 258);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 10;
+            this.button1.TabIndex = 7;
             this.button1.Text = "Cancelar";
             this.button1.UseVisualStyleBackColor = false;
             // 
             // btnGravar
             // 
             this.btnGravar.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnGravar.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnGravar.Location = new System.Drawing.Point(188, 258);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(75, 23);
-            this.btnGravar.TabIndex = 11;
+            this.btnGravar.TabIndex = 6;
             this.btnGravar.Text = "Gravar";
             this.btnGravar.UseVisualStyleBackColor = false;
             this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
             // 
             // txtId
             // 
+            this.txtId.BackColor = System.Drawing.Color.LightGreen;
+            this.txtId.Enabled = false;
             this.txtId.Location = new System.Drawing.Point(129, 34);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(100, 20);
-            this.txtId.TabIndex = 13;
+            this.txtId.TabIndex = 1;
             // 
             // label5
             // 
