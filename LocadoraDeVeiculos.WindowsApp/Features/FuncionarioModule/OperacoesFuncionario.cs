@@ -21,16 +21,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.FuncionarioModule
             tabelaFuncionario = new TabelaFuncionarioControl(); 
         }
 
-        public void AgruparRegistros()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DesagruparRegistros()
-        {
-            throw new NotImplementedException();
-        }
-
         public void EditarRegistro()
         {
             int id = tabelaFuncionario.ObtemIdSelecionado();
@@ -62,12 +52,28 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.FuncionarioModule
 
         public void ExcluirRegistro()
         {
-            throw new NotImplementedException();
-        }
+            int id = tabelaFuncionario.ObtemIdSelecionado();
 
-        public void FiltrarRegistros()
-        {
-            throw new NotImplementedException();
+            if (id == 0)
+            {
+                MessageBox.Show("Selecione um funcionário para poder excluir!", "Exclusão de funcionários",
+                   MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            Funcionario funcionarioSelecionado = controlador.SelecionarPorId(id);
+
+            if (MessageBox.Show($"Tem certeza que deseja excluir o funcionário: [{funcionarioSelecionado.Nome}] ?",
+                "Exclusão de de funcionários", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                controlador.Excluir(id);
+
+                List<Funcionario> funcionarios = controlador.SelecionarTodos();
+
+                tabelaFuncionario.AtualizarRegistros(funcionarios);
+
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Funcionário: [{funcionarioSelecionado.Nome}] removido com sucesso");
+            }
         }
 
         public void InserirNovoRegistro()
@@ -88,11 +94,24 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.FuncionarioModule
 
         public UserControl ObterTabela()
         {
-            List<Funcionario> grupos = controlador.SelecionarTodos();
+            List<Funcionario> funcionarios = controlador.SelecionarTodos();
 
-            tabelaFuncionario.AtualizarRegistros(grupos);
+            tabelaFuncionario.AtualizarRegistros(funcionarios);
 
             return tabelaFuncionario;
+        }
+
+        public void FiltrarRegistros()
+        {
+            throw new NotImplementedException();
+        }
+        public void AgruparRegistros()
+        {
+            throw new NotImplementedException();
+        }
+        public void DesagruparRegistros()
+        {
+            throw new NotImplementedException();
         }
     }
 }
