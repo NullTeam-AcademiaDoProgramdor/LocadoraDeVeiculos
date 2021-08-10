@@ -86,7 +86,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
             }
             catch (Exception)
             {
-                TelaPrincipalForm.Instancia.AtualizarRodape("Campo preço inválido");
+                MessageBox.Show("Campo preço inválido");
             }
 
             return 0;
