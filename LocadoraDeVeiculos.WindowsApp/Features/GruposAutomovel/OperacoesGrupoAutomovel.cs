@@ -71,7 +71,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GruposAutomovel
 
             if (id == 0)
             {
-                MessageBox.Show("Selecione um Grupo para poder excluit!", "Exclusão de Grupo de Automovel",
+                MessageBox.Show("Selecione um Grupo para poder excluir!", "Exclusão de Grupo de Automovel",
                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
