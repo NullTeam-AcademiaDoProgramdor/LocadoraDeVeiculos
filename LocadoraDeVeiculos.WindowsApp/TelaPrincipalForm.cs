@@ -100,22 +100,7 @@ namespace LocadoraDeVeiculos.WindowsApp
                 if (item is ToolStripButton)
                     (item as ToolStripButton).Enabled = false;
             }
-        }
-
-        private void menuItemTaxasEServicos_Click(object sender, EventArgs e)
-        {
-           ConfiguracaoTaxasEServicoToolBox configuracao =
-                new ConfiguracaoTaxasEServicoToolBox();
-
-            ConfigurarTooltips(configuracao.Tooltip);
-            ConfigurarBotoes(configuracao.Botoes);
-
-            AtualizarRodape(configuracao.Tooltip.TipoCadastro);
-
-            operacoes = operacoesTaxasEServicos;
-
-            ConfigurarPainelRegistros();
-        }
+        }       
 
         private void ConfigurarPainelRegistros()
         {
@@ -126,6 +111,21 @@ namespace LocadoraDeVeiculos.WindowsApp
             panelRegistros.Controls.Clear();
 
             panelRegistros.Controls.Add(tabela);
+        }
+
+        private void menuItemTaxasEServicos_Click(object sender, EventArgs e)
+        {
+            ConfiguracaoTaxasEServicoToolBox configuracao =
+                new ConfiguracaoTaxasEServicoToolBox();
+
+            ConfigurarTooltips(configuracao.Tooltip);
+            ConfigurarBotoes(configuracao.Botoes);
+
+            AtualizarRodape(configuracao.Tooltip.TipoCadastro);
+
+            operacoes = operacoesTaxasEServicos;
+
+            ConfigurarPainelRegistros();
         }
     }
 }

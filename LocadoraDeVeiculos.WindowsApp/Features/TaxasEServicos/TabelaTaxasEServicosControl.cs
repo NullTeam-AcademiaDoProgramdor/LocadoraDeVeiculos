@@ -51,7 +51,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
                     taxaOuServico.Id,
                     taxaOuServico.Nome,
                     taxaOuServico.Preco,
-                    taxaOuServico.EhFixo
+                    (taxaOuServico.EhFixo)? "Fixo":"Não é fixo"
                 );
             }
         }

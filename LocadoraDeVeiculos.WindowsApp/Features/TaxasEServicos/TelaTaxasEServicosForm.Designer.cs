@@ -55,6 +55,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
             // 
             this.txtId.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.txtId.BackColor = System.Drawing.Color.LightGreen;
+            this.txtId.Enabled = false;
             this.txtId.Location = new System.Drawing.Point(59, 24);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(59, 20);
@@ -125,23 +126,25 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
             // 
             // btnCancelar
             // 
+            this.btnCancelar.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancelar.Location = new System.Drawing.Point(15, 207);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 10;
             this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.UseVisualStyleBackColor = false;
             // 
             // btnGravar
             // 
+            this.btnGravar.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.btnGravar.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnGravar.Location = new System.Drawing.Point(107, 207);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(75, 23);
             this.btnGravar.TabIndex = 11;
             this.btnGravar.Text = "Gravar";
-            this.btnGravar.UseVisualStyleBackColor = true;
+            this.btnGravar.UseVisualStyleBackColor = false;
             this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
             // 
             // TelaTaxasEServicosForm

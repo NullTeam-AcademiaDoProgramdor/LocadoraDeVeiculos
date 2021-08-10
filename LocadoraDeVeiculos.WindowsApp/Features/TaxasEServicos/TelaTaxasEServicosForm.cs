@@ -37,7 +37,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
                 txtNome.Text = taxasEServicos.Nome;
 
                 txtPreco.Text = taxasEServicos.Preco.ToString();
-                
+
+                                
             }
         }
 
@@ -50,9 +51,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
 
             bool ehFixo = VerificarSeEhFixo();
 
-            TaxaEServico taxaOuServico = new TaxaEServico(nome, preco, ehFixo);
+            taxasEServicos = new TaxaEServico(nome, preco, ehFixo);
 
-            string resultadoValidacao = taxaOuServico.Validar();
+            string resultadoValidacao = taxasEServicos.Validar();
 
             if (resultadoValidacao != "ESTA_VALIDO")
             {

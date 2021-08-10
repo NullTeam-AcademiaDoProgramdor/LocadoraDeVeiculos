@@ -101,7 +101,7 @@ namespace LocadoraDeVeiculos.Controladores.TaxasEServicosModule
             if (resultadoValidacao == "ESTA_VALIDO")
             {
                 taxaOuServico.Id = id;
-                Db.Update(sqlInserirTaxaEServico, ObtemParametrosTaxaEServico(taxaOuServico));
+                Db.Update(sqlEditarTaxaEServico, ObtemParametrosTaxaEServico(taxaOuServico));
             }
 
             return resultadoValidacao;
