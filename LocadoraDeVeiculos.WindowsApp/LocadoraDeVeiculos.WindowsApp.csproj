@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Features\ConfiguracoesModule\ConfiguracoesControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Features\ConfiguracoesModule\ConfiguracoesControl.Designer.cs">
+      <DependentUpon>ConfiguracoesControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Shared\ConfiguracoesBotoes.cs" />
     <Compile Include="Shared\ConfiguracoesTooltip.cs" />
     <Compile Include="Shared\DataGridViewExtensions.cs" />
@@ -59,6 +65,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Features\ConfiguracoesModule\ConfiguracoesControl.resx">
+      <DependentUpon>ConfiguracoesControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TelaPrincipalForm.resx">
       <DependentUpon>TelaPrincipalForm.cs</DependentUpon>
     </EmbeddedResource>
