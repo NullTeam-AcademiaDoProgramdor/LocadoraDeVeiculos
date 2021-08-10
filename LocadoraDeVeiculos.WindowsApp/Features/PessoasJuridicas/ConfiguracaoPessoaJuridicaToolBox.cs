@@ -31,10 +31,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasJuridicas
         {
             get
             {
-                return new ConfiguracoesBotoes()
-                {
-                    BtnFiltrar = true,
-                };
+                return new ConfiguracoesBotoes();
             }
         }
     }
