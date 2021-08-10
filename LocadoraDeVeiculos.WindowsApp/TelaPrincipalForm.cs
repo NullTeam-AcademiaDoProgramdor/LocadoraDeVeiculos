@@ -1,4 +1,6 @@
-﻿using LocadoraDeVeiculos.WindowsApp.Shared;
+﻿using LocadoraDeVeiculos.Controladores.PessoaJuridicaModule;
+using LocadoraDeVeiculos.WindowsApp.Features.PessoasJuridicas;
+using LocadoraDeVeiculos.WindowsApp.Shared;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,17 +19,33 @@ namespace LocadoraDeVeiculos.WindowsApp
 
         public static TelaPrincipalForm Instancia;
 
+        private OperacoesPessoaJuridica operacoesPessoaJuridica;
         //Operacoes
 
         public TelaPrincipalForm()
         {
             InitializeComponent();
-
+            operacoesPessoaJuridica = new OperacoesPessoaJuridica(new ControladorPessoaJuridica());
             DesativarBotoesToolBoxAcoes();
 
             //intancia das operacoes
 
             Instancia = this;
+        }
+
+        private void pessoaJuridicaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            ConfiguracaoPessoaJuridicaToolBox configuracao = new ConfiguracaoPessoaJuridicaToolBox();
+            ConfiguracoesTooltip configuracaoToolTip = configuracao.Tooltip;
+
+            ConfigurarToolBox(configuracaoToolTip);
+
+            AtualizarRodape(configuracaoToolTip.TipoCadastro);
+
+            operacoes = operacoesPessoaJuridica;
+
+            ConfigurarPainelRegistros();
         }
 
         public void AtualizarRodape(string mensagem)
@@ -98,5 +116,29 @@ namespace LocadoraDeVeiculos.WindowsApp
                     (item as ToolStripButton).Enabled = false;
             }
         }
+
+       
+        private void ConfigurarPainelRegistros()
+        {
+            UserControl tabela = operacoes.ObterTabela();
+
+            tabela.Dock = DockStyle.Fill;
+
+            panelRegistros.Controls.Clear();
+
+            panelRegistros.Controls.Add(tabela);
+        }
+
+        private void ConfigurarToolBox(ConfiguracoesTooltip configuracaoToolTip)
+        {
+            toolboxAcoes.Enabled = true;
+            labelTipoCadastro.Text = configuracaoToolTip.TipoCadastro;
+
+            btnAdicionar.ToolTipText = configuracaoToolTip.ToolTipAdicionar;
+            btnEditar.ToolTipText = configuracaoToolTip.ToolTipEditar;
+            btnExcluir.ToolTipText = configuracaoToolTip.ToolTipExcluir;
+        }
+
+        
     }
 }
