@@ -72,7 +72,18 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.FuncionarioModule
 
         public void InserirNovoRegistro()
         {
-            throw new NotImplementedException();
+            TelaFuncionarioForm tela = new TelaFuncionarioForm();
+
+            if (tela.ShowDialog() == DialogResult.OK)
+            {
+                controlador.InserirNovo(tela.Funcionario);
+
+                List<Funcionario> funcionarios = controlador.SelecionarTodos();
+
+                tabelaFuncionario.AtualizarRegistros(funcionarios);
+
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Funcionario [{tela.Funcionario.Nome}] inserido com sucesso");
+            }
         }
 
         public UserControl ObterTabela()
