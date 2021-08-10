@@ -1,4 +1,6 @@
-﻿using LocadoraDeVeiculos.WindowsApp.Shared;
+﻿using LocadoraDeVeiculos.Controladores.FuncionarioModule;
+using LocadoraDeVeiculos.WindowsApp.Features.FuncionarioModule;
+using LocadoraDeVeiculos.WindowsApp.Shared;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,6 +20,7 @@ namespace LocadoraDeVeiculos.WindowsApp
         public static TelaPrincipalForm Instancia;
 
         //Operacoes
+        OperacoesFuncionario operacoesFuncionario;
 
         public TelaPrincipalForm()
         {
@@ -26,6 +29,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             DesativarBotoesToolBoxAcoes();
 
             //intancia das operacoes
+            operacoesFuncionario = new OperacoesFuncionario(new ControladorFuncionario());
 
             Instancia = this;
         }
@@ -33,6 +37,25 @@ namespace LocadoraDeVeiculos.WindowsApp
         public void AtualizarRodape(string mensagem)
         {
             labelRodape.Text = mensagem;
+        }
+
+        private void funcionáriosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConfiguacaoFuncionarioToolBox configuracao = new ConfiguacaoFuncionarioToolBox();
+            
+            ConfigurarTooltips(configuracao.Tooltip);
+            ConfigurarBotoes(configuracao.Botoes);
+
+            AtualizarRodape(configuracao.Tooltip.TipoCadastro);
+
+            operacoes = operacoesFuncionario;
+
+            ConfigurarPainelRegistros();
+        }
+
+        private void ConfigurarPainelRegistros()
+        {
+            throw new NotImplementedException();
         }
 
         private void btnAdicionar_Click(object sender, EventArgs e)
