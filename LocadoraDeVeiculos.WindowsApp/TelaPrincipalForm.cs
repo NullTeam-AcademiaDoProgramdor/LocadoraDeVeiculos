@@ -143,18 +143,6 @@ namespace LocadoraDeVeiculos.WindowsApp
             panelRegistros.Controls.Clear();
 
             panelRegistros.Controls.Add(tabela);
-        }
-
-       
-        private void ConfigurarPainelRegistros()
-        {
-            UserControl tabela = operacoes.ObterTabela();
-
-            tabela.Dock = DockStyle.Fill;
-
-            panelRegistros.Controls.Clear();
-
-            panelRegistros.Controls.Add(tabela);
-        }        
+        } 
     }
 }
