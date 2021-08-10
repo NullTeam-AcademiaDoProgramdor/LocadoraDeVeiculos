@@ -36,6 +36,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
             // gridTaxasEServicos
             // 
             this.gridTaxasEServicos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridTaxasEServicos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridTaxasEServicos.Location = new System.Drawing.Point(0, 0);
             this.gridTaxasEServicos.Name = "gridTaxasEServicos";
             this.gridTaxasEServicos.Size = new System.Drawing.Size(532, 463);
