@@ -146,9 +146,9 @@ namespace LocadoraDeVeiculos.Controladores.PessoaJuridicaModule
         {
             int id = Convert.ToInt32(reader["ID"]);
             string nome = Convert.ToString(reader["NOME"]);
-            string cnpj = Convert.ToString(reader["EMAIL"]);
-            string endereco = Convert.ToString(reader["TELEFONE"]);
-            string telefone = Convert.ToString(reader["CARGO"]);
+            string cnpj = Convert.ToString(reader["CNPJ"]);
+            string endereco = Convert.ToString(reader["ENDERECO"]);
+            string telefone = Convert.ToString(reader["TELEFONE"]);
 
             PessoaJuridica pessoaJuridica = new PessoaJuridica(nome, cnpj, telefone, endereco);
 
