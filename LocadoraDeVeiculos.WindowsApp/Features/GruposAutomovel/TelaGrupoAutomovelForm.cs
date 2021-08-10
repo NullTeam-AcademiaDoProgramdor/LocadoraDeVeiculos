@@ -111,8 +111,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GruposAutomovel
                 return Convert.ToDouble(textBox.Text);
             } catch (Exception)
             {
-                MessageBox.Show($"Digite um numero no campo {textBox.AccessibleName}",
-                    "Campo digitado invalido!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                TelaPrincipalForm.Instancia
+                    .AtualizarRodape($"Digite um numero no campo {textBox.AccessibleName}");
                 DialogResult = DialogResult.None;
             }
 
