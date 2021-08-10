@@ -118,11 +118,11 @@ namespace LocadoraDeVeiculos.Configuracoes
         {
             get
             {
-                return Convert.ToBoolean(appConfigControler.Ler("horaFechamento"));
+                return Convert.ToBoolean(appConfigControler.Ler("abreNoSabado"));
             }
             set
             {
-                appConfigControler.Setar("horaFechamento", value);
+                appConfigControler.Setar("abreNoSabado", value);
             }
         }
     }
