@@ -30,17 +30,100 @@ namespace LocadoraDeVeiculos.Configuracoes
             appConfigControler = new AppConfigControler(camposIniciais);
         }
 
-        public static double PrecoGasolina { get; set; }
+        public static double PrecoGasolina 
+        {
+            get
+            {
+                return Convert.ToDouble(appConfigControler.Ler("precoGasolina"));
+            }
+            set
+            {
+                appConfigControler.Setar("precoGasolina", value);
+            }
+        }
 
-        public static double PrecoGas { get; set; }
+        public static double PrecoGas 
+        {
+            get 
+            {
+                return Convert.ToDouble(appConfigControler.Ler("precoGas"));
+            }
+            set 
+            {
+                appConfigControler.Setar("precoGas", value);
+            }
+        }
 
-        public static double PrecoDiesel { get; set; }
-        public static double PrecoAlcool { get; set; }
+        public static double PrecoDiesel
+        {
+            get
+            {
+                return Convert.ToDouble(appConfigControler.Ler("precoDieses"));
+            }
+            set
+            {
+                appConfigControler.Setar("precoDieses", value);
+            }
+        }
 
-        public static TimeSpan HoraAbertura { get; set; }
-        public static TimeSpan HoraFechamento { get; set; }
+        public static double PrecoAlcool
+        {
+            get
+            {
+                return Convert.ToDouble(appConfigControler.Ler("precoAlcool"));
+            }
+            set
+            {
+                appConfigControler.Setar("precoAlcool", value);
+            }
+        }
 
-        public static bool AbreNoSabado { get; set; }
-        public static bool AbreNoDomingo { get; set; }
+        public static TimeSpan HoraAbertura
+        {
+            get
+            {
+                return TimeSpan.Parse(appConfigControler.Ler("horaAbertura"));
+            }
+            set
+            {
+                appConfigControler.Setar("horaAbertura", value);
+            }
+        }
+
+        public static TimeSpan HoraFechamento
+        {
+            get
+            {
+                return TimeSpan.Parse(appConfigControler.Ler("horaFechamento"));
+            }
+            set
+            {
+                appConfigControler.Setar("horaFechamento", value);
+            }
+        }
+
+        public static bool AbreNoSabado
+        {
+            get
+            {
+                return Convert.ToBoolean(appConfigControler.Ler("abreNoSabado"));
+            }
+            set
+            {
+                appConfigControler.Setar("abreNoSabado", value);
+            }
+        }
+
+        public static bool AbreNoDomingo
+        {
+            get
+            {
+                return Convert.ToBoolean(appConfigControler.Ler("horaFechamento"));
+            }
+            set
+            {
+                appConfigControler.Setar("horaFechamento", value);
+            }
+        }
     }
 }
