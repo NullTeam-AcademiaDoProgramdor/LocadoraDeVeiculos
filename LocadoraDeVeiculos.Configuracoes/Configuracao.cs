@@ -9,6 +9,9 @@ namespace LocadoraDeVeiculos.Configuracoes
     public static class Configuracao
     {
         public static double PrecoGasolina { get; set; }
+
+        public static double PrecoGas { get; set; }
+
         public static double PrecoDiesel { get; set; }
         public static double PrecoAlcool { get; set; }
 
