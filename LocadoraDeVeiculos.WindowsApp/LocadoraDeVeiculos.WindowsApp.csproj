@@ -48,6 +48,12 @@
   <ItemGroup>
     <Compile Include="Features\TaxasEServicos\ConfiguracaoTaxasEServicoToolBox.cs" />
     <Compile Include="Features\TaxasEServicos\OperacoesTaxasESevicos.cs" />
+    <Compile Include="Features\TaxasEServicos\TabelaTaxasEServicosControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Features\TaxasEServicos\TabelaTaxasEServicosControl.Designer.cs">
+      <DependentUpon>TabelaTaxasEServicosControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Shared\ConfiguracoesBotoes.cs" />
     <Compile Include="Shared\ConfiguracoesTooltip.cs" />
     <Compile Include="Shared\DataGridViewExtensions.cs" />
@@ -61,6 +67,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Features\TaxasEServicos\TabelaTaxasEServicosControl.resx">
+      <DependentUpon>TabelaTaxasEServicosControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TelaPrincipalForm.resx">
       <DependentUpon>TelaPrincipalForm.cs</DependentUpon>
     </EmbeddedResource>

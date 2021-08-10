@@ -12,7 +12,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
     class OperacoesTaxasESevicos : ICadastravel
     {
         private readonly ControladorTaxasEServicos controlador = null;
-       // private readonly TabelaTaxasEServicosControl tabelaTaxasEServicos = null;
+        private readonly TabelaTaxasEServicosControl tabelaTaxasEServicos = null;
 
         public OperacoesTaxasESevicos(ControladorTaxasEServicos controlador)
         {
