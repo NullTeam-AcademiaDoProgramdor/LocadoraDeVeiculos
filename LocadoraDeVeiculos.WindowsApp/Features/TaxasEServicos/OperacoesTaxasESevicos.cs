@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using LocadoraDeVeiculos.Controladores.TaxasEServicosModule;
 using LocadoraDeVeiculos.WindowsApp.Shared;
 using LocadoraDeVeiculos.Dominio.TaxasEServicosModule;
+using System.IO;
+using System.Windows.Forms;
 
 namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
 {
@@ -17,7 +19,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
         public OperacoesTaxasESevicos(ControladorTaxasEServicos controlador)
         {
             this.controlador = controlador;
-            //    tabelaTaxasEServicos = new TabelaTaxasEServicosControl();
+            tabelaTaxasEServicos = new TabelaTaxasEServicosControl();
         }
         public void InserirNovoRegistro()
         {
@@ -25,7 +27,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                controlador.InserirNovo(tela.GrupoAutomovel);
+                controlador.InserirNovo(tela.TaxasEServicos);
 
                 List<TaxaEServico> taxas = controlador.SelecionarTodos();
 
@@ -50,17 +52,17 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
 
             TelaTaxasEServicosForm tela = new TelaTaxasEServicosForm();
 
-            tela.TaxaEServico = taxaSelecionada;
+            tela.TaxasEServicos = taxaSelecionada;
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                controlador.Editar(id, tela.TaxaEServico);
+                controlador.Editar(id, tela.TaxasEServicos);
 
                 List<TaxaEServico> taxas = controlador.SelecionarTodos();
 
                 tabelaTaxasEServicos.AtualizarRegistros(taxas);
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Taxa/Serviço [{tela.TaxaEServico.Nome}] editado com sucesso");
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Taxa/Serviço [{tela.TaxasEServicos.Nome}] editado com sucesso");
             }
         }
         public void ExcluirRegistro()

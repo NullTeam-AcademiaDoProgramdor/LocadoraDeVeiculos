@@ -8,6 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LocadoraDeVeiculos.Controladores.TaxasEServicosModule;
+using LocadoraDeVeiculos.Dominio.TaxasEServicosModule;
+using LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos;
 
 namespace LocadoraDeVeiculos.WindowsApp
 {
@@ -17,7 +20,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
         public static TelaPrincipalForm Instancia;
 
-        //Operacoes
+        OperacoesTaxasESevicos operacoesTaxasEServicos;
 
         public TelaPrincipalForm()
         {
@@ -25,7 +28,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             DesativarBotoesToolBoxAcoes();
 
-            //intancia das operacoes
+            operacoesTaxasEServicos = new OperacoesTaxasESevicos(new ControladorTaxasEServicos());
 
             Instancia = this;
         }
@@ -97,6 +100,32 @@ namespace LocadoraDeVeiculos.WindowsApp
                 if (item is ToolStripButton)
                     (item as ToolStripButton).Enabled = false;
             }
+        }
+
+        private void menuItemTaxasEServicos_Click(object sender, EventArgs e)
+        {
+           ConfiguracaoTaxasEServicoToolBox configuracao =
+                new ConfiguracaoTaxasEServicoToolBox();
+
+            ConfigurarTooltips(configuracao.Tooltip);
+            ConfigurarBotoes(configuracao.Botoes);
+
+            AtualizarRodape(configuracao.Tooltip.TipoCadastro);
+
+            operacoes = operacoesTaxasEServicos;
+
+            ConfigurarPainelRegistros();
+        }
+
+        private void ConfigurarPainelRegistros()
+        {
+            UserControl tabela = operacoes.ObterTabela();
+
+            tabela.Dock = DockStyle.Fill;
+
+            panelRegistros.Controls.Clear();
+
+            panelRegistros.Controls.Add(tabela);
         }
     }
 }
