@@ -14,13 +14,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasJuridicas
     {
         private readonly ControladorPessoaJuridica controlador = null;
         private readonly TabelaPessoaJuridicaControl tabelaPessoasJuridicas = null;
-
-        public OperacoesPessoaJuridica(ControladorPessoaJuridica controlador)
-        {
-            this.controlador = controlador;
-            this.tabelaPessoasJuridicas = new TabelaPessoaJuridicaControl();
-        }
-
         public void InserirNovoRegistro()
         {
             TelaPessoaJuridicaForm tela = new TelaPessoaJuridicaForm();

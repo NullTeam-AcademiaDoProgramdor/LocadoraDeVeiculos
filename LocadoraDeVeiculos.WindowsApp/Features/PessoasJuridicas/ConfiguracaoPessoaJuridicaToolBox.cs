@@ -22,6 +22,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasJuridicas
                     ToolTipFiltrar = "Filtrar Pessoas Jurídicas",
                     ToolTipAgrupar = "Expandir Pessoa Jurídica",
                     ToolTípDesagrupar = "Esconder Pessoa Jurídica",
+
                 };
             }
         }
