@@ -12,7 +12,7 @@ using System.IO;
 
 namespace LocadoraDeVeiculos.WindowsApp.Features.FuncionarioModule
 {
-    public partial class TelaFuncionarioForm: Form
+    public partial class TelaFuncionarioForm : Form
     {
         private Funcionario funcionario;
         public TelaFuncionarioForm()
@@ -41,11 +41,20 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.FuncionarioModule
         {
             string nome = txtNome.Text;
             DateTime dataAdmissao = dtpDataAdmissao.Value;
-            double salario = Convert.ToDouble(txtSalario.Text);
+            double salario = 0;
+            try
+            {
+                salario = Convert.ToDouble(txtSalario.Text);
+            }
+            catch (Exception)
+            {
+                TelaPrincipalForm.Instancia.AtualizarRodape("Inserir um valor válido para o salário");
+                DialogResult = DialogResult.None;
+                return;
+            }
             string senha = txtSenha.Text;
 
             funcionario = new Funcionario(nome, dataAdmissao, salario, senha);
-
             string resultadoValidacao = funcionario.Validar();
 
             if (resultadoValidacao != "ESTA_VALIDO")

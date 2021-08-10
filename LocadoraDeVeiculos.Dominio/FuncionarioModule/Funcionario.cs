@@ -41,7 +41,7 @@ namespace LocadoraDeVeiculos.Dominio.FuncionarioModule
         {
             string resultadoValidacao = "";
 
-            if (DataAdmissao > DateTime.Today)
+            if (DataAdmissao > DateTime.Now)
                 resultadoValidacao = "O campo data de admissão não pode ser no futuro";            
 
             if (resultadoValidacao == "")
