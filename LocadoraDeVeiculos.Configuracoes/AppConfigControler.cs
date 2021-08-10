@@ -9,7 +9,16 @@ namespace LocadoraDeVeiculos.Configuracoes
 {
     internal class AppConfigControler
     {
-        internal void AdicionarCamposCasoNaoExisntente(Dictionary<string, string> campos)
+        private readonly Dictionary<string, string> camposIniciais;
+
+        internal AppConfigControler(Dictionary<string, string> camposIniciais)
+        {
+            this.camposIniciais = camposIniciais;
+
+            AdicionarCamposCasoNaoExistente(camposIniciais);
+        }
+
+        private void AdicionarCamposCasoNaoExistente(Dictionary<string, string> campos)
         {
             var configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
             var settings = configFile.AppSettings.Settings;
@@ -22,9 +31,28 @@ namespace LocadoraDeVeiculos.Configuracoes
 
             configFile.Save(ConfigurationSaveMode.Modified);
             ConfigurationManager.RefreshSection(configFile.AppSettings.SectionInformation.Name);
+
         }
 
 
+        public string Ler(string chave)
+        {
+            return ConfigurationManager.AppSettings[chave];
+        }
+
+        public void Setar(string chave, object valor)
+        {
+            var configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            var settings = configFile.AppSettings.Settings;
+
+            if (settings[chave] == null)
+                return;
+
+            settings[chave].Value = valor.ToString();
+
+            configFile.Save(ConfigurationSaveMode.Modified);
+            ConfigurationManager.RefreshSection(configFile.AppSettings.SectionInformation.Name);
+        }
 
     }
 }

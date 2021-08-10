@@ -27,9 +27,7 @@ namespace LocadoraDeVeiculos.Configuracoes
 
         static Configuracao()
         {
-            appConfigControler = new AppConfigControler();
-
-            appConfigControler.AdicionarCamposCasoNaoExisntente(camposIniciais);
+            appConfigControler = new AppConfigControler(camposIniciais);
         }
 
         public static double PrecoGasolina { get; set; }
