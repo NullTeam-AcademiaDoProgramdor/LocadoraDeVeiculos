@@ -37,10 +37,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.FuncionarioModule
             this.txtSalario = new System.Windows.Forms.TextBox();
             this.txtSenha = new System.Windows.Forms.TextBox();
             this.dtpDataAdmissao = new System.Windows.Forms.DateTimePicker();
-            this.btnGravar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
+            this.btnGravar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -107,31 +107,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.FuncionarioModule
             this.dtpDataAdmissao.Size = new System.Drawing.Size(177, 20);
             this.dtpDataAdmissao.TabIndex = 7;
             // 
-            // btnGravar
-            // 
-            this.btnGravar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnGravar.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btnGravar.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnGravar.Location = new System.Drawing.Point(216, 253);
-            this.btnGravar.Name = "btnGravar";
-            this.btnGravar.Size = new System.Drawing.Size(75, 23);
-            this.btnGravar.TabIndex = 8;
-            this.btnGravar.Text = "Gravar";
-            this.btnGravar.UseVisualStyleBackColor = false;
-            this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnCancelar.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(108, 253);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 9;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = false;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -150,15 +125,36 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.FuncionarioModule
             this.txtId.Size = new System.Drawing.Size(55, 20);
             this.txtId.TabIndex = 11;
             // 
+            // btnGravar
+            // 
+            this.btnGravar.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnGravar.Location = new System.Drawing.Point(81, 280);
+            this.btnGravar.Name = "btnGravar";
+            this.btnGravar.Size = new System.Drawing.Size(75, 23);
+            this.btnGravar.TabIndex = 12;
+            this.btnGravar.Text = "Gravar";
+            this.btnGravar.UseVisualStyleBackColor = true;
+            this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancelar.Location = new System.Drawing.Point(187, 280);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.TabIndex = 13;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            // 
             // TelaFuncionarioForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(365, 290);
-            this.Controls.Add(this.txtId);
-            this.Controls.Add(this.label5);
+            this.ClientSize = new System.Drawing.Size(355, 337);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGravar);
+            this.Controls.Add(this.txtId);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.dtpDataAdmissao);
             this.Controls.Add(this.txtSenha);
             this.Controls.Add(this.txtSalario);
@@ -184,9 +180,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.FuncionarioModule
         private System.Windows.Forms.TextBox txtSalario;
         private System.Windows.Forms.TextBox txtSenha;
         private System.Windows.Forms.DateTimePicker dtpDataAdmissao;
-        private System.Windows.Forms.Button btnGravar;
-        private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.Button btnGravar;
+        private System.Windows.Forms.Button btnCancelar;
     }
 }

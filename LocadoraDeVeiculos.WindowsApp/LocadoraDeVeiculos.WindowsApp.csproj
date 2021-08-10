@@ -54,10 +54,10 @@
     <Compile Include="Features\FuncionarioModule\TelaFuncionarioForm.Designer.cs">
       <DependentUpon>TelaFuncionarioForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Features\TabelaFuncionarioControl.cs">
+    <Compile Include="Features\FuncionarioModule\TabelaFuncionarioControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Features\TabelaFuncionarioControl.Designer.cs">
+    <Compile Include="Features\FuncionarioModule\TabelaFuncionarioControl.Designer.cs">
       <DependentUpon>TabelaFuncionarioControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Shared\ConfiguracoesBotoes.cs" />
@@ -76,7 +76,7 @@
     <EmbeddedResource Include="Features\FuncionarioModule\TelaFuncionarioForm.resx">
       <DependentUpon>TelaFuncionarioForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Features\TabelaFuncionarioControl.resx">
+    <EmbeddedResource Include="Features\FuncionarioModule\TabelaFuncionarioControl.resx">
       <DependentUpon>TabelaFuncionarioControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TelaPrincipalForm.resx">
