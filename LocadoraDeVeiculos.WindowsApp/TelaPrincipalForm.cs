@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using LocadoraDeVeiculos.WindowsApp.Features.ConfiguracoesModule;
+
 namespace LocadoraDeVeiculos.WindowsApp
 {
     public partial class TelaPrincipalForm : Form
@@ -18,6 +20,7 @@ namespace LocadoraDeVeiculos.WindowsApp
         public static TelaPrincipalForm Instancia;
 
         //Operacoes
+        private OperacoesConfiguracoes operacoesConfiguracoes;
 
         public TelaPrincipalForm()
         {
@@ -26,6 +29,8 @@ namespace LocadoraDeVeiculos.WindowsApp
             DesativarBotoesToolBoxAcoes();
 
             //intancia das operacoes
+
+            operacoesConfiguracoes = new OperacoesConfiguracoes();
 
             Instancia = this;
         }
@@ -97,6 +102,32 @@ namespace LocadoraDeVeiculos.WindowsApp
                 if (item is ToolStripButton)
                     (item as ToolStripButton).Enabled = false;
             }
+        }
+
+        private void configuraçõesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConfiguracaoConfiguracoesToolBox configuracoesToolBox = 
+                new ConfiguracaoConfiguracoesToolBox();
+
+            ConfigurarTooltips(configuracoesToolBox.Tooltip);
+            ConfigurarBotoes(configuracoesToolBox.Botoes);
+
+            AtualizarRodape(configuracoesToolBox.Tooltip.TipoCadastro);
+
+            operacoes = operacoesConfiguracoes;
+
+            ConfigurarPainelRegistros();
+        }
+
+        private void ConfigurarPainelRegistros()
+        {
+            UserControl tabela = operacoes.ObterTabela();
+
+            tabela.Dock = DockStyle.Fill;
+
+            panelRegistros.Controls.Clear();
+
+            panelRegistros.Controls.Add(tabela);
         }
     }
 }

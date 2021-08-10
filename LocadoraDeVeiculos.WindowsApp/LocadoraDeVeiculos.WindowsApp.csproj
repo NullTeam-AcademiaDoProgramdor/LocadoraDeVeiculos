@@ -46,12 +46,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Features\ConfiguracoesModule\ConfiguracaoConfiguracoesToolBox.cs" />
     <Compile Include="Features\ConfiguracoesModule\ConfiguracoesControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Features\ConfiguracoesModule\ConfiguracoesControl.Designer.cs">
       <DependentUpon>ConfiguracoesControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\ConfiguracoesModule\OperacoesConfiguracoes.cs" />
     <Compile Include="Shared\ConfiguracoesBotoes.cs" />
     <Compile Include="Shared\ConfiguracoesTooltip.cs" />
     <Compile Include="Shared\DataGridViewExtensions.cs" />
@@ -108,9 +110,7 @@
   <ItemGroup>
     <None Include="Resources\outline_expand_black_24dp.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Features\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\LocadoraDeVeiculos.Configuracoes\LocadoraDeVeiculos.Configuracoes.csproj">
       <Project>{12f59cd5-527f-4927-b9bd-dc8e91a14269}</Project>
