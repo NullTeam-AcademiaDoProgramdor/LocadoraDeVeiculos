@@ -19,8 +19,8 @@ namespace LocadoraDeVeiculos.Configuracoes
                 {"horaAbertura", new TimeSpan(8, 0, 0).ToString() },
                 {"horaFechamento", new TimeSpan(18, 0, 0).ToString() },
 
-                {"abreNoSabado", "0" },
-                {"abreNoDomingo", "0" },
+                {"abreNoSabado", "false" },
+                {"abreNoDomingo", "false" },
             };
 
         private static AppConfigControler appConfigControler;
@@ -118,11 +118,11 @@ namespace LocadoraDeVeiculos.Configuracoes
         {
             get
             {
-                return Convert.ToBoolean(appConfigControler.Ler("abreNoSabado"));
+                return Convert.ToBoolean(appConfigControler.Ler("abreNoDomingo"));
             }
             set
             {
-                appConfigControler.Setar("abreNoSabado", value);
+                appConfigControler.Setar("abreNoDomingo", value);
             }
         }
     }
