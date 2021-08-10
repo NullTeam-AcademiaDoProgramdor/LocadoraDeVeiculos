@@ -88,7 +88,11 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.FuncionarioModule
 
         public UserControl ObterTabela()
         {
-            throw new NotImplementedException();
+            List<Funcionario> grupos = controlador.SelecionarTodos();
+
+            tabelaFuncionario.AtualizarRegistros(grupos);
+
+            return tabelaFuncionario;
         }
     }
 }
