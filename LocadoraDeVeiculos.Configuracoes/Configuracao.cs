@@ -8,6 +8,30 @@ namespace LocadoraDeVeiculos.Configuracoes
 {
     public static class Configuracao
     {
+        private static readonly Dictionary<string, string> camposIniciais
+            = new Dictionary<string, string>()
+            {
+                {"precoGasolina", "0" },
+                {"precoGas", "0" },
+                {"precoDieses", "0" },
+                {"precoAlcool", "0" },
+
+                {"horaAbertura", new TimeSpan(8, 0, 0).ToString() },
+                {"horaFechamento", new TimeSpan(18, 0, 0).ToString() },
+
+                {"abreNoSabado", "0" },
+                {"abreNoDomingo", "0" },
+            };
+
+        private static AppConfigControler appConfigControler;
+
+        static Configuracao()
+        {
+            appConfigControler = new AppConfigControler();
+
+            appConfigControler.AdicionarCamposCasoNaoExisntente(camposIniciais);
+        }
+
         public static double PrecoGasolina { get; set; }
 
         public static double PrecoGas { get; set; }

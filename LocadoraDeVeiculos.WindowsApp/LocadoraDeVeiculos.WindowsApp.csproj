@@ -102,5 +102,11 @@
   <ItemGroup>
     <Folder Include="Features\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LocadoraDeVeiculos.Configuracoes\LocadoraDeVeiculos.Configuracoes.csproj">
+      <Project>{12f59cd5-527f-4927-b9bd-dc8e91a14269}</Project>
+      <Name>LocadoraDeVeiculos.Configuracoes</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
