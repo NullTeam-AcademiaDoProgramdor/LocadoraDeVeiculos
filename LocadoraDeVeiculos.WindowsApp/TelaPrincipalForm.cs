@@ -35,13 +35,12 @@ namespace LocadoraDeVeiculos.WindowsApp
 
         private void pessoaJuridicaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
             ConfiguracaoPessoaJuridicaToolBox configuracao = new ConfiguracaoPessoaJuridicaToolBox();
-            ConfiguracoesTooltip configuracaoToolTip = configuracao.Tooltip;
 
-            ConfigurarToolBox(configuracaoToolTip);
+            ConfigurarTooltips(configuracao.Tooltip);
+            ConfigurarBotoes(configuracao.Botoes);
 
-            AtualizarRodape(configuracaoToolTip.TipoCadastro);
+            AtualizarRodape(configuracao.Tooltip.TipoCadastro);
 
             operacoes = operacoesPessoaJuridica;
 
@@ -127,18 +126,6 @@ namespace LocadoraDeVeiculos.WindowsApp
             panelRegistros.Controls.Clear();
 
             panelRegistros.Controls.Add(tabela);
-        }
-
-        private void ConfigurarToolBox(ConfiguracoesTooltip configuracaoToolTip)
-        {
-            toolboxAcoes.Enabled = true;
-            labelTipoCadastro.Text = configuracaoToolTip.TipoCadastro;
-
-            btnAdicionar.ToolTipText = configuracaoToolTip.ToolTipAdicionar;
-            btnEditar.ToolTipText = configuracaoToolTip.ToolTipEditar;
-            btnExcluir.ToolTipText = configuracaoToolTip.ToolTipExcluir;
-        }
-
-        
+        }        
     }
 }
