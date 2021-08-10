@@ -6,6 +6,7 @@ using System.Windows.Forms;
 
 namespace LocadoraDeVeiculos.WindowsApp
 {
+
     static class Program
     {
         /// <summary>
@@ -19,4 +20,5 @@ namespace LocadoraDeVeiculos.WindowsApp
             Application.Run(new TelaPrincipalForm());
         }
     }
+
 }
