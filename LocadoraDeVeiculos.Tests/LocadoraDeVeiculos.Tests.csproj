@@ -68,6 +68,10 @@
       <Project>{c0ca9d0a-9edb-41d2-afc0-f27abe5e84e7}</Project>
       <Name>LocadoraDeVeiculos.Controladores</Name>
     </ProjectReference>
+    <ProjectReference Include="..\LocadoraDeVeiculos.DB\LocadoraDeVeiculos.DB.sqlproj">
+      <Project>{6645a77b-2a33-437f-bdff-12a7e2452220}</Project>
+      <Name>LocadoraDeVeiculos.DB</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LocadoraDeVeiculos.Dominio\LocadoraDeVeiculos.Dominio.csproj">
       <Project>{5dbca542-da0b-4644-bffa-8f574e2c3f38}</Project>
       <Name>LocadoraDeVeiculos.Dominio</Name>
