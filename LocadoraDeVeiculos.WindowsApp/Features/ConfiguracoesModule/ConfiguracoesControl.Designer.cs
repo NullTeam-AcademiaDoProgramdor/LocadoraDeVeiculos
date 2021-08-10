@@ -55,16 +55,20 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.ConfiguracoesModule
             // 
             // txtGasolina
             // 
+            this.txtGasolina.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtGasolina.Location = new System.Drawing.Point(107, 44);
             this.txtGasolina.Name = "txtGasolina";
-            this.txtGasolina.Size = new System.Drawing.Size(167, 20);
+            this.txtGasolina.Size = new System.Drawing.Size(186, 20);
             this.txtGasolina.TabIndex = 1;
             // 
             // txtGas
             // 
+            this.txtGas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtGas.Location = new System.Drawing.Point(107, 83);
             this.txtGas.Name = "txtGas";
-            this.txtGas.Size = new System.Drawing.Size(167, 20);
+            this.txtGas.Size = new System.Drawing.Size(186, 20);
             this.txtGas.TabIndex = 2;
             // 
             // label2
@@ -78,16 +82,20 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.ConfiguracoesModule
             // 
             // txtDiesel
             // 
+            this.txtDiesel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDiesel.Location = new System.Drawing.Point(107, 122);
             this.txtDiesel.Name = "txtDiesel";
-            this.txtDiesel.Size = new System.Drawing.Size(167, 20);
+            this.txtDiesel.Size = new System.Drawing.Size(186, 20);
             this.txtDiesel.TabIndex = 4;
             // 
             // txtAlcool
             // 
+            this.txtAlcool.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtAlcool.Location = new System.Drawing.Point(107, 161);
             this.txtAlcool.Name = "txtAlcool";
-            this.txtAlcool.Size = new System.Drawing.Size(167, 20);
+            this.txtAlcool.Size = new System.Drawing.Size(186, 20);
             this.txtAlcool.TabIndex = 5;
             // 
             // label3
@@ -110,6 +118,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.ConfiguracoesModule
             // 
             // checkBDomingos
             // 
+            this.checkBDomingos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBDomingos.AutoSize = true;
             this.checkBDomingos.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.checkBDomingos.Location = new System.Drawing.Point(107, 194);
@@ -121,6 +131,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.ConfiguracoesModule
             // 
             // checkBSabados
             // 
+            this.checkBSabados.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBSabados.AutoSize = true;
             this.checkBSabados.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.checkBSabados.Location = new System.Drawing.Point(107, 217);
@@ -132,9 +144,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.ConfiguracoesModule
             // 
             // btnCancelar
             // 
+            this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnCancelar.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(89, 251);
+            this.btnCancelar.Location = new System.Drawing.Point(89, 268);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 12;
@@ -143,9 +156,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.ConfiguracoesModule
             // 
             // btnGravar
             // 
+            this.btnGravar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnGravar.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.btnGravar.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnGravar.Location = new System.Drawing.Point(199, 251);
+            this.btnGravar.Location = new System.Drawing.Point(218, 268);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(75, 23);
             this.btnGravar.TabIndex = 13;
@@ -179,7 +193,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.ConfiguracoesModule
             this.Controls.Add(this.txtGasolina);
             this.Controls.Add(this.label1);
             this.Name = "ConfiguracoesControl";
-            this.Size = new System.Drawing.Size(356, 290);
+            this.Size = new System.Drawing.Size(375, 320);
             this.ResumeLayout(false);
             this.PerformLayout();
 
