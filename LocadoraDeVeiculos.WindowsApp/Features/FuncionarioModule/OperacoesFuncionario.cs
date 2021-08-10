@@ -49,7 +49,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.FuncionarioModule
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Funcionário [{tela.Funcionario.Nome}] editado com sucesso");
             }
         }
-
         public void ExcluirRegistro()
         {
             int id = tabelaFuncionario.ObtemIdSelecionado();
@@ -75,7 +74,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.FuncionarioModule
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Funcionário: [{funcionarioSelecionado.Nome}] removido com sucesso");
             }
         }
-
         public void InserirNovoRegistro()
         {
             TelaFuncionarioForm tela = new TelaFuncionarioForm();
@@ -91,7 +89,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.FuncionarioModule
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Funcionario [{tela.Funcionario.Nome}] inserido com sucesso");
             }
         }
-
         public UserControl ObterTabela()
         {
             List<Funcionario> funcionarios = controlador.SelecionarTodos();
@@ -100,7 +97,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.FuncionarioModule
 
             return tabelaFuncionario;
         }
-
         public void FiltrarRegistros()
         {
             throw new NotImplementedException();

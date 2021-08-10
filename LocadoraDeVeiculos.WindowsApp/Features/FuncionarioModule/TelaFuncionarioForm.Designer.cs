@@ -127,24 +127,26 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.FuncionarioModule
             // 
             // btnGravar
             // 
+            this.btnGravar.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.btnGravar.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnGravar.Location = new System.Drawing.Point(81, 280);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(75, 23);
             this.btnGravar.TabIndex = 12;
             this.btnGravar.Text = "Gravar";
-            this.btnGravar.UseVisualStyleBackColor = true;
+            this.btnGravar.UseVisualStyleBackColor = false;
             this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
             // 
             // btnCancelar
             // 
+            this.btnCancelar.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancelar.Location = new System.Drawing.Point(187, 280);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 13;
             this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.UseVisualStyleBackColor = false;
             // 
             // TelaFuncionarioForm
             // 
@@ -164,6 +166,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.FuncionarioModule
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "TelaFuncionarioForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Funcionários";
             this.ResumeLayout(false);
             this.PerformLayout();
