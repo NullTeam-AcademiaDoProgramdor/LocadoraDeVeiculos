@@ -91,7 +91,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GruposAutomovel
             this.txtNome.Location = new System.Drawing.Point(99, 48);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(135, 20);
-            this.txtNome.TabIndex = 3;
+            this.txtNome.TabIndex = 1;
             // 
             // label2
             // 
@@ -154,7 +154,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GruposAutomovel
             this.txtPlanoDiarioPrecoKm.Location = new System.Drawing.Point(89, 63);
             this.txtPlanoDiarioPrecoKm.Name = "txtPlanoDiarioPrecoKm";
             this.txtPlanoDiarioPrecoKm.Size = new System.Drawing.Size(135, 20);
-            this.txtPlanoDiarioPrecoKm.TabIndex = 4;
+            this.txtPlanoDiarioPrecoKm.TabIndex = 3;
             // 
             // label6
             // 
@@ -180,7 +180,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GruposAutomovel
             this.txtPlanoDiarioPrecoDia.Location = new System.Drawing.Point(89, 18);
             this.txtPlanoDiarioPrecoDia.Name = "txtPlanoDiarioPrecoDia";
             this.txtPlanoDiarioPrecoDia.Size = new System.Drawing.Size(135, 20);
-            this.txtPlanoDiarioPrecoDia.TabIndex = 1;
+            this.txtPlanoDiarioPrecoDia.TabIndex = 2;
             // 
             // label3
             // 
@@ -225,7 +225,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GruposAutomovel
             this.txtPlanoControladoPrecoKmExtrapolado.Location = new System.Drawing.Point(89, 73);
             this.txtPlanoControladoPrecoKmExtrapolado.Name = "txtPlanoControladoPrecoKmExtrapolado";
             this.txtPlanoControladoPrecoKmExtrapolado.Size = new System.Drawing.Size(135, 20);
-            this.txtPlanoControladoPrecoKmExtrapolado.TabIndex = 10;
+            this.txtPlanoControladoPrecoKmExtrapolado.TabIndex = 6;
             // 
             // label12
             // 
@@ -250,7 +250,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GruposAutomovel
             this.txtPlanoControladoPrecoDia.Location = new System.Drawing.Point(89, 43);
             this.txtPlanoControladoPrecoDia.Name = "txtPlanoControladoPrecoDia";
             this.txtPlanoControladoPrecoDia.Size = new System.Drawing.Size(135, 20);
-            this.txtPlanoControladoPrecoDia.TabIndex = 7;
+            this.txtPlanoControladoPrecoDia.TabIndex = 5;
             // 
             // label10
             // 
@@ -315,7 +315,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GruposAutomovel
             this.txtPlanoLivrePrecoDia.Location = new System.Drawing.Point(90, 43);
             this.txtPlanoLivrePrecoDia.Name = "txtPlanoLivrePrecoDia";
             this.txtPlanoLivrePrecoDia.Size = new System.Drawing.Size(135, 20);
-            this.txtPlanoLivrePrecoDia.TabIndex = 10;
+            this.txtPlanoLivrePrecoDia.TabIndex = 7;
             // 
             // label14
             // 
@@ -346,7 +346,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GruposAutomovel
             this.btnCancelar.Location = new System.Drawing.Point(64, 283);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 6;
+            this.btnCancelar.TabIndex = 9;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             // 
@@ -358,7 +358,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GruposAutomovel
             this.btnGravar.Location = new System.Drawing.Point(171, 283);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(75, 23);
-            this.btnGravar.TabIndex = 7;
+            this.btnGravar.TabIndex = 8;
             this.btnGravar.Text = "Gravar";
             this.btnGravar.UseVisualStyleBackColor = false;
             this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
