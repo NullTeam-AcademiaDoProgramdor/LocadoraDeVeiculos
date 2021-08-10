@@ -1,4 +1,8 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using FluentAssertions;
+using LocadoraDeVeiculos.Controladores.PessoaJuridicaModule;
+using LocadoraDeVeiculos.Controladores.Shared;
+using LocadoraDeVeiculos.Dominio.PessoaJuridicaModule;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,61 +13,74 @@ namespace LocadoraDeVeiculos.Tests.PessoaJuridicaModule
     /// Summary description for UnitTest1
     /// </summary>
     [TestClass]
+    [TestCategory("Controladores")]
     public class ControladorPessoaJuridicaTest
     {
+        ControladorPessoaJuridica controlador;
+
         public ControladorPessoaJuridicaTest()
         {
-            //
-            // TODO: Add constructor logic here
-            //
+            controlador = new ControladorPessoaJuridica();
+            Db.Update("DELETE FROM [PESSOAJURIDICA]");
         }
-
-        private TestContext testContextInstance;
-
-        /// <summary>
-        ///Gets or sets the test context which provides
-        ///information about and functionality for the current test run.
-        ///</summary>
-        public TestContext TestContext
+        [TestMethod]
+        public void DeveInserir_PessoaJuridica()
         {
-            get
-            {
-                return testContextInstance;
-            }
-            set
-            {
-                testContextInstance = value;
-            }
-        }
+            //arrange
+            PessoaJuridica pessoaJuridica = new PessoaJuridica("Matheus", "22.000.000/0001-00", "(49)000000000", "Lagi");
 
-        #region Additional test attributes
-        //
-        // You can use the following additional attributes as you write your tests:
-        //
-        // Use ClassInitialize to run code before running the first test in the class
-        // [ClassInitialize()]
-        // public static void MyClassInitialize(TestContext testContext) { }
-        //
-        // Use ClassCleanup to run code after all tests in a class have run
-        // [ClassCleanup()]
-        // public static void MyClassCleanup() { }
-        //
-        // Use TestInitialize to run code before running each test 
-        // [TestInitialize()]
-        // public void MyTestInitialize() { }
-        //
-        // Use TestCleanup to run code after each test has run
-        // [TestCleanup()]
-        // public void MyTestCleanup() { }
-        //
-        #endregion
+            //action
+            controlador.InserirNovo(pessoaJuridica);
+
+            //assert
+            PessoaJuridica pessoaJuridicaEncontrada = controlador.SelecionarPorId(pessoaJuridica.Id);
+            pessoaJuridicaEncontrada.Should().Be(pessoaJuridicaEncontrada);
+        }
 
         [TestMethod]
-        public void TestMethod1()
+        public void DeveEditar_UmaPessoaJuridica()
         {
-            //
-            // TODO: Add test logic here
-            //
+            //arrange
+            PessoaJuridica pessoaJuridica = new PessoaJuridica("Matheus", "22.000.000/0001-00", "(49)000000000", "Lagi");
+            controlador.InserirNovo(pessoaJuridica);
+
+            PessoaJuridica novaPessoaJuridica = new PessoaJuridica("Matheus", "22.000.000/0001-00", "(49)000000000", "Lagi");
+
+            //action
+            controlador.Editar(pessoaJuridica.Id, novaPessoaJuridica);
+
+            //assert
+            PessoaJuridica pessoaJuridicaEncontrada = controlador.SelecionarPorId(pessoaJuridica.Id);
+            pessoaJuridicaEncontrada.Should().Be(novaPessoaJuridica);
+        }
+
+        [TestMethod]
+        public void DeveExcluir_UmaPessoaJuridica()
+        {
+            //arrange            
+            PessoaJuridica pessoaJuridica = new PessoaJuridica("Matheus", "22.000.000/0001-00", "(49)000000000", "Lagi");
+            controlador.InserirNovo(pessoaJuridica);
+
+            //action            
+            controlador.Excluir(pessoaJuridica.Id);
+
+            //assert
+            PessoaJuridica pessoaJuridicaEncontrada = controlador.SelecionarPorId(pessoaJuridica.Id);
+            pessoaJuridicaEncontrada.Should().BeNull();
+        }
+
+        [TestMethod]
+        public void DeveSelecionar_Tarefa_PorId()
+        {
+            //arrange
+            PessoaJuridica pessoaJuridica = new PessoaJuridica("Matheus", "22.000.000/0001-00", "(49)000000000", "Lagi");
+            controlador.InserirNovo(pessoaJuridica);
+
+            //action
+            PessoaJuridica pessoaJuridicaEncontrada = controlador.SelecionarPorId(pessoaJuridica.Id);
+
+            //assert
+            pessoaJuridicaEncontrada.Should().Be(pessoaJuridica);
         }
     }
 }

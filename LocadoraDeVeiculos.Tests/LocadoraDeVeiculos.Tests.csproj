@@ -55,6 +55,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PessoaJuridicaModule\ControladorPessoaJuridicaTest.cs" />
     <Compile Include="PessoaJuridicaModule\PessoaJuridicaTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
