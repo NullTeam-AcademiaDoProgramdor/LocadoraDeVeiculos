@@ -90,7 +90,6 @@ namespace LocadoraDeVeiculos.Tests.TaxaEServicoModule.Teste_de_Controlador
 
             TaxaEServico taxaEncontrada = controlador.SelecionarPorId(novaTaxa.Id);
 
-
             taxaEncontrada.Should().Be(novaTaxa);
         }
     }
