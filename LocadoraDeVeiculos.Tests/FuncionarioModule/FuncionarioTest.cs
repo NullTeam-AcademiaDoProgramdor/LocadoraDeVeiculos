@@ -27,5 +27,15 @@ namespace LocadoraDeVeiculos.Tests.FuncionarioModule
 
             resultado.Should().Be("ESTA_VALIDO");
         }
+
+        [TestMethod]
+        public void DeveValidarDataAdmissao()
+        {
+            var funcionario = new Funcionario("Pedro", DateTime.Today.AddDays(1), 1000, "password");
+
+            var resultado = funcionario.Validar();
+
+            resultado.Should().Be("O campo data de admissão não pode ser no futuro");
+        }
     }
 }

@@ -39,7 +39,15 @@ namespace LocadoraDeVeiculos.Dominio.FuncionarioModule
 
         public override string Validar()
         {
-            return "ESTA_VALIDO";
+            string resultadoValidacao = "";
+
+            if (DataAdmissao > DateTime.Today)
+                resultadoValidacao = "O campo data de admissão não pode ser no futuro";            
+
+            if (resultadoValidacao == "")
+                resultadoValidacao = "ESTA_VALIDO";
+
+            return resultadoValidacao;
         }
 
 
