@@ -31,6 +31,7 @@ namespace LocadoraDeVeiculos.WindowsApp
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.cadastrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemTaxasEServicos = new System.Windows.Forms.ToolStripMenuItem();
             this.toolboxAcoes = new System.Windows.Forms.ToolStrip();
             this.btnAdicionar = new System.Windows.Forms.ToolStripButton();
             this.btnEditar = new System.Windows.Forms.ToolStripButton();
@@ -68,11 +69,19 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.cadastrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.funcionáriosToolStripMenuItem,
             this.menuItemGrupoAutomovel,
-            this.pessoaJuridicaToolStripMenuItem
+            this.pessoaJuridicaToolStripMenuItem,
+            this.menuItemTaxasEServicos
             });
             this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
             this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.cadastrosToolStripMenuItem.Text = "Cadastros";
+            // 
+            // menuItemTaxasEServicos
+            // 
+            this.menuItemTaxasEServicos.Name = "menuItemTaxasEServicos";
+            this.menuItemTaxasEServicos.Size = new System.Drawing.Size(180, 22);
+            this.menuItemTaxasEServicos.Text = "Taxas e Serviços";
+            this.menuItemTaxasEServicos.Click += new System.EventHandler(this.menuItemTaxasEServicos_Click);
             // 
             // toolboxAcoes
             // 
@@ -279,6 +288,7 @@ namespace LocadoraDeVeiculos.WindowsApp
         private System.Windows.Forms.ToolStripMenuItem menuItemGrupoAutomovel;
         private System.Windows.Forms.ToolStripMenuItem pessoaJuridicaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem funcionáriosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuItemTaxasEServicos;
     }
 }
 

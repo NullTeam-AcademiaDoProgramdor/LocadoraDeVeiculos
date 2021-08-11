@@ -14,6 +14,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LocadoraDeVeiculos.Controladores.TaxasEServicosModule;
+using LocadoraDeVeiculos.Dominio.TaxasEServicosModule;
+using LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos;
 
 namespace LocadoraDeVeiculos.WindowsApp
 {
@@ -22,11 +25,12 @@ namespace LocadoraDeVeiculos.WindowsApp
         private ICadastravel operacoes;
 
         public static TelaPrincipalForm Instancia;
-
-        private OperacoesGrupoAutomovel operacoesGrupoAutomovel;
-        private OperacoesPessoaJuridica operacoesPessoaJuridica;
+        
         //Operacoes
-        OperacoesFuncionario operacoesFuncionario;
+        private OperacoesGrupoAutomovel operacoesGrupoAutomovel;
+        private OperacoesPessoaJuridica operacoesPessoaJuridica;        
+        private OperacoesFuncionario operacoesFuncionario;
+        private OperacoesTaxasESevicos operacoesTaxasEServicos;
 
         public TelaPrincipalForm()
         {
@@ -37,6 +41,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             operacoesPessoaJuridica = new OperacoesPessoaJuridica(new ControladorPessoaJuridica());
             operacoesGrupoAutomovel = new OperacoesGrupoAutomovel(new ControladorGrupoAutomovel());            
             operacoesFuncionario = new OperacoesFuncionario(new ControladorFuncionario());
+            operacoesTaxasEServicos = new OperacoesTaxasESevicos(new ControladorTaxasEServicos());
 
             Instancia = this;
         }
@@ -162,6 +167,25 @@ namespace LocadoraDeVeiculos.WindowsApp
             panelRegistros.Controls.Clear();
 
             panelRegistros.Controls.Add(tabela);
-        } 
+        }
+
+        private void menuItemTaxasEServicos_Click(object sender, EventArgs e)
+        {
+            ConfiguracaoTaxasEServicoToolBox configuracao =
+                new ConfiguracaoTaxasEServicoToolBox();
+
+            ConfigurarTooltips(configuracao.Tooltip);
+            ConfigurarBotoes(configuracao.Botoes);
+
+            AtualizarRodape(configuracao.Tooltip.TipoCadastro);
+
+            operacoes = operacoesTaxasEServicos;
+
+            ConfigurarPainelRegistros();
+        }
+    }       
+
+        
+
+        
     }
-}

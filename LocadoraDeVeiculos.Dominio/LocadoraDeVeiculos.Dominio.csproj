@@ -49,6 +49,7 @@
     <Compile Include="FuncionarioModule\Funcionario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Shared\EntidadeBase.cs" />
+    <Compile Include="TaxasEServicosModule\TaxaEServico.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
