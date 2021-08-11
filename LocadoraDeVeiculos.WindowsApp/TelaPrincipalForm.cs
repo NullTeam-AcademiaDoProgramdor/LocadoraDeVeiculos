@@ -2,6 +2,8 @@
 using LocadoraDeVeiculos.WindowsApp.Features.GruposAutomovel;
 using LocadoraDeVeiculos.Controladores.PessoaJuridicaModule;
 using LocadoraDeVeiculos.WindowsApp.Features.PessoasJuridicas;
+using LocadoraDeVeiculos.Controladores.FuncionarioModule;
+using LocadoraDeVeiculos.WindowsApp.Features.FuncionarioModule;
 using LocadoraDeVeiculos.WindowsApp.Shared;
 using System;
 using System.Collections.Generic;
@@ -24,14 +26,17 @@ namespace LocadoraDeVeiculos.WindowsApp
         private OperacoesGrupoAutomovel operacoesGrupoAutomovel;
         private OperacoesPessoaJuridica operacoesPessoaJuridica;
         //Operacoes
+        OperacoesFuncionario operacoesFuncionario;
 
         public TelaPrincipalForm()
         {
             InitializeComponent();
             DesativarBotoesToolBoxAcoes();
 
+            //intancia das operacoes
             operacoesPessoaJuridica = new OperacoesPessoaJuridica(new ControladorPessoaJuridica());
-            operacoesGrupoAutomovel = new OperacoesGrupoAutomovel(new ControladorGrupoAutomovel());
+            operacoesGrupoAutomovel = new OperacoesGrupoAutomovel(new ControladorGrupoAutomovel());            
+            operacoesFuncionario = new OperacoesFuncionario(new ControladorFuncionario());
 
             Instancia = this;
         }
@@ -53,6 +58,31 @@ namespace LocadoraDeVeiculos.WindowsApp
         public void AtualizarRodape(string mensagem)
         {
             labelRodape.Text = mensagem;
+        }
+
+        private void funcionáriosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConfiguacaoFuncionarioToolBox configuracao = new ConfiguacaoFuncionarioToolBox();
+            
+            ConfigurarTooltips(configuracao.Tooltip);
+            ConfigurarBotoes(configuracao.Botoes);
+
+            AtualizarRodape(configuracao.Tooltip.TipoCadastro);
+
+            operacoes = operacoesFuncionario;
+
+            ConfigurarPainelRegistros();
+        }
+
+        private void ConfigurarPainelRegistros()
+        {
+            UserControl tabela = operacoes.ObterTabela();
+
+            tabela.Dock = DockStyle.Fill;
+
+            panelRegistros.Controls.Clear();
+
+            panelRegistros.Controls.Add(tabela);
         }
 
         private void btnAdicionar_Click(object sender, EventArgs e)

@@ -47,6 +47,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.panelRegistros = new System.Windows.Forms.Panel();
             this.pessoaJuridicaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemGrupoAutomovel = new System.Windows.Forms.ToolStripMenuItem();
+            this.funcionáriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolboxAcoes.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -65,8 +66,9 @@ namespace LocadoraDeVeiculos.WindowsApp
             // cadastrosToolStripMenuItem
             // 
             this.cadastrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.pessoaJuridicaToolStripMenuItem,
-            this.menuItemGrupoAutomovel
+            this.funcionáriosToolStripMenuItem,
+            this.menuItemGrupoAutomovel,
+            this.pessoaJuridicaToolStripMenuItem
             });
             this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
             this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
@@ -226,6 +228,13 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.pessoaJuridicaToolStripMenuItem.Text = "PessoaJuridica";
             this.pessoaJuridicaToolStripMenuItem.Click += new System.EventHandler(this.pessoaJuridicaToolStripMenuItem_Click);
             // 
+            // funcionáriosToolStripMenuItem
+            // 
+            this.funcionáriosToolStripMenuItem.Name = "funcionáriosToolStripMenuItem";
+            this.funcionáriosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.funcionáriosToolStripMenuItem.Text = "Funcionários";
+            this.funcionáriosToolStripMenuItem.Click += new System.EventHandler(this.funcionáriosToolStripMenuItem_Click);
+            // 
             // TelaPrincipalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -269,6 +278,7 @@ namespace LocadoraDeVeiculos.WindowsApp
         private System.Windows.Forms.ToolStripButton btnAgrupar;
         private System.Windows.Forms.ToolStripMenuItem menuItemGrupoAutomovel;
         private System.Windows.Forms.ToolStripMenuItem pessoaJuridicaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem funcionáriosToolStripMenuItem;
     }
 }
 
