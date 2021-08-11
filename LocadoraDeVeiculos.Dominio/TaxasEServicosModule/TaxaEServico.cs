@@ -46,10 +46,14 @@ namespace LocadoraDeVeiculos.Dominio.TaxasEServicosModule
                 resultadoValidacao += " O campo nome está inválido";
 
             if(VerificaSeNomeEhNumero(Nome))            
-                resultadoValidacao += " O campo nome está inválido";                  
+                resultadoValidacao += 
+                    QuebraDeLinha(resultadoValidacao) +
+                    " O campo nome está inválido";                  
 
             if(preco <= 0)
-                resultadoValidacao += " O campo preço está inválido";
+                resultadoValidacao +=
+                    QuebraDeLinha(resultadoValidacao) + 
+                    " O campo preço está inválido";
 
             if (resultadoValidacao == "")            
                 resultadoValidacao = "ESTA_VALIDO";            
