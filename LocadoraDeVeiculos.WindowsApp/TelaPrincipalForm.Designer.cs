@@ -31,7 +31,11 @@ namespace LocadoraDeVeiculos.WindowsApp
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.cadastrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.funcionáriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemGrupoAutomovel = new System.Windows.Forms.ToolStripMenuItem();
+            this.pessoaJuridicaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemTaxasEServicos = new System.Windows.Forms.ToolStripMenuItem();
+            this.configuraçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolboxAcoes = new System.Windows.Forms.ToolStrip();
             this.btnAdicionar = new System.Windows.Forms.ToolStripButton();
             this.btnEditar = new System.Windows.Forms.ToolStripButton();
@@ -46,10 +50,6 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.labelRodape = new System.Windows.Forms.ToolStripStatusLabel();
             this.panelRegistros = new System.Windows.Forms.Panel();
-            this.pessoaJuridicaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemGrupoAutomovel = new System.Windows.Forms.ToolStripMenuItem();
-            this.funcionáriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.configuraçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolboxAcoes.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -72,18 +72,54 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.funcionáriosToolStripMenuItem,
             this.menuItemGrupoAutomovel,
             this.pessoaJuridicaToolStripMenuItem,
-            this.menuItemTaxasEServicos
-            });
+            this.menuItemTaxasEServicos});
             this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
             this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.cadastrosToolStripMenuItem.Text = "Cadastros";
             // 
+            // funcionáriosToolStripMenuItem
+            // 
+            this.funcionáriosToolStripMenuItem.Name = "funcionáriosToolStripMenuItem";
+            this.funcionáriosToolStripMenuItem.ShortcutKeyDisplayString = "";
+            this.funcionáriosToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
+            this.funcionáriosToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.funcionáriosToolStripMenuItem.Text = "Funcionários";
+            this.funcionáriosToolStripMenuItem.Click += new System.EventHandler(this.funcionáriosToolStripMenuItem_Click);
+            // 
+            // menuItemGrupoAutomovel
+            // 
+            this.menuItemGrupoAutomovel.Name = "menuItemGrupoAutomovel";
+            this.menuItemGrupoAutomovel.ShortcutKeyDisplayString = "";
+            this.menuItemGrupoAutomovel.ShortcutKeys = System.Windows.Forms.Keys.F2;
+            this.menuItemGrupoAutomovel.Size = new System.Drawing.Size(204, 22);
+            this.menuItemGrupoAutomovel.Text = "Grupo de Automovel";
+            this.menuItemGrupoAutomovel.Click += new System.EventHandler(this.menuItemGrupoAutomovel_Click);
+            // 
+            // pessoaJuridicaToolStripMenuItem
+            // 
+            this.pessoaJuridicaToolStripMenuItem.Name = "pessoaJuridicaToolStripMenuItem";
+            this.pessoaJuridicaToolStripMenuItem.ShortcutKeyDisplayString = "";
+            this.pessoaJuridicaToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F3;
+            this.pessoaJuridicaToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.pessoaJuridicaToolStripMenuItem.Text = "PessoaJuridica";
+            this.pessoaJuridicaToolStripMenuItem.Click += new System.EventHandler(this.pessoaJuridicaToolStripMenuItem_Click);
+            // 
             // menuItemTaxasEServicos
             // 
             this.menuItemTaxasEServicos.Name = "menuItemTaxasEServicos";
-            this.menuItemTaxasEServicos.Size = new System.Drawing.Size(180, 22);
+            this.menuItemTaxasEServicos.ShortcutKeyDisplayString = "";
+            this.menuItemTaxasEServicos.ShortcutKeys = System.Windows.Forms.Keys.F4;
+            this.menuItemTaxasEServicos.Size = new System.Drawing.Size(204, 22);
             this.menuItemTaxasEServicos.Text = "Taxas e Serviços";
             this.menuItemTaxasEServicos.Click += new System.EventHandler(this.menuItemTaxasEServicos_Click);
+            // 
+            // configuraçõesToolStripMenuItem
+            // 
+            this.configuraçõesToolStripMenuItem.Name = "configuraçõesToolStripMenuItem";
+            this.configuraçõesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
+            this.configuraçõesToolStripMenuItem.Size = new System.Drawing.Size(96, 20);
+            this.configuraçõesToolStripMenuItem.Text = "Configurações";
+            this.configuraçõesToolStripMenuItem.Click += new System.EventHandler(this.configuraçõesToolStripMenuItem_Click);
             // 
             // toolboxAcoes
             // 
@@ -224,34 +260,6 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.panelRegistros.Name = "panelRegistros";
             this.panelRegistros.Size = new System.Drawing.Size(593, 363);
             this.panelRegistros.TabIndex = 5;
-            // 
-            // menuItemGrupoAutomovel
-            // 
-            this.menuItemGrupoAutomovel.Name = "menuItemGrupoAutomovel";
-            this.menuItemGrupoAutomovel.Size = new System.Drawing.Size(185, 22);
-            this.menuItemGrupoAutomovel.Text = "Grupo de Automovel";
-            this.menuItemGrupoAutomovel.Click += new System.EventHandler(this.menuItemGrupoAutomovel_Click);
-            // 
-            // pessoaJuridicaToolStripMenuItem
-            // 
-            this.pessoaJuridicaToolStripMenuItem.Name = "pessoaJuridicaToolStripMenuItem";
-            this.pessoaJuridicaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.pessoaJuridicaToolStripMenuItem.Text = "PessoaJuridica";
-            this.pessoaJuridicaToolStripMenuItem.Click += new System.EventHandler(this.pessoaJuridicaToolStripMenuItem_Click);
-            // 
-            // funcionáriosToolStripMenuItem
-            // 
-            this.funcionáriosToolStripMenuItem.Name = "funcionáriosToolStripMenuItem";
-            this.funcionáriosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.funcionáriosToolStripMenuItem.Text = "Funcionários";
-            this.funcionáriosToolStripMenuItem.Click += new System.EventHandler(this.funcionáriosToolStripMenuItem_Click);
-            // 
-            // configuraçõesToolStripMenuItem
-            // 
-            this.configuraçõesToolStripMenuItem.Name = "configuraçõesToolStripMenuItem";
-            this.configuraçõesToolStripMenuItem.Size = new System.Drawing.Size(96, 20);
-            this.configuraçõesToolStripMenuItem.Text = "Configurações";
-            this.configuraçõesToolStripMenuItem.Click += new System.EventHandler(this.configuraçõesToolStripMenuItem_Click);
             // 
             // TelaPrincipalForm
             // 
