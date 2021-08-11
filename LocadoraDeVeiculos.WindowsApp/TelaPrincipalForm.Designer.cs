@@ -101,7 +101,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.pessoaJuridicaToolStripMenuItem.ShortcutKeyDisplayString = "";
             this.pessoaJuridicaToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F3;
             this.pessoaJuridicaToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
-            this.pessoaJuridicaToolStripMenuItem.Text = "PessoaJuridica";
+            this.pessoaJuridicaToolStripMenuItem.Text = "Pessoa Juridica";
             this.pessoaJuridicaToolStripMenuItem.Click += new System.EventHandler(this.pessoaJuridicaToolStripMenuItem_Click);
             // 
             // menuItemTaxasEServicos
