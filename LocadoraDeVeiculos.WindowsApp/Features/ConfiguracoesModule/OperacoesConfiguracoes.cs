@@ -49,6 +49,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.ConfiguracoesModule
 
         public UserControl ObterTabela()
         {
+            configuracoesControl.CarregarConfiguracoes();
             return configuracoesControl;
         }
     }
