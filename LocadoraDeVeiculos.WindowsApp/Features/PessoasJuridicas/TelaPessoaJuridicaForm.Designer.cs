@@ -168,6 +168,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasJuridicas
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.label1);
             this.Name = "TelaPessoaJuridicaForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TelaPessoaJuridicaForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TelaPessoaJuridicaForm_FormClosing);
             this.ResumeLayout(false);
