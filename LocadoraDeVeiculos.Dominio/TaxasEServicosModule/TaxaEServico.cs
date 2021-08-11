@@ -42,10 +42,16 @@ namespace LocadoraDeVeiculos.Dominio.TaxasEServicosModule
         {
             string resultadoValidacao = "";            
 
-            if(VerificaSeNomeEhNumero(Nome))            
-                resultadoValidacao += " O campo nome está inválido";                    
+            if(string.IsNullOrEmpty(Nome))
+                resultadoValidacao += " O campo nome está inválido";
 
-            if(resultadoValidacao == "")            
+            if(VerificaSeNomeEhNumero(Nome))            
+                resultadoValidacao += " O campo nome está inválido";                  
+
+            if(preco <= 0)
+                resultadoValidacao += " O campo preço está inválido";
+
+            if (resultadoValidacao == "")            
                 resultadoValidacao = "ESTA_VALIDO";            
 
             return resultadoValidacao;

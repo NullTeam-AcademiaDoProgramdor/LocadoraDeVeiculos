@@ -23,6 +23,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
         public TelaTaxasEServicosForm()
         {
             InitializeComponent();
+
+            
         }
 
         public TaxaEServico TaxasEServicos
