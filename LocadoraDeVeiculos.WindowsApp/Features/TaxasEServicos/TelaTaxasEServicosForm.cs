@@ -24,7 +24,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
         {
             InitializeComponent();
 
-            
+            rdbSim.Checked = true;
         }
 
         public TaxaEServico TaxasEServicos
