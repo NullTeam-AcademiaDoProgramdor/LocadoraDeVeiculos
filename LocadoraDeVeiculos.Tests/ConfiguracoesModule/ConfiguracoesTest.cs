@@ -91,11 +91,23 @@ namespace LocadoraDeVeiculos.Tests.ConfiguracoesModule
 
             abreNoSabadoRecuperado.Should().Be(abreNoSabado);
         }
+        
+        [TestMethod]
+        public void DeveSetar_NaoAbreNoSabado()
+        {
+            bool abreNoSabado = false;
+
+            Configuracao.AbreNoSabado = abreNoSabado;
+
+            var abreNoSabadoRecuperado = Configuracao.AbreNoSabado;
+
+            abreNoSabadoRecuperado.Should().Be(abreNoSabado);
+        }
 
         [TestMethod]
-        public void DeveSetar_abreNoDomingo()
+        public void DeveSetar_NaoAbreNoDomingo()
         {
-            bool abreNoDomingo = true;
+            bool abreNoDomingo = false;
 
             Configuracao.AbreNoDomingo = abreNoDomingo;
 
