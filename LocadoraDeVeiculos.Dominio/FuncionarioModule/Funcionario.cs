@@ -42,7 +42,16 @@ namespace LocadoraDeVeiculos.Dominio.FuncionarioModule
             string resultadoValidacao = "";
 
             if (DataAdmissao > DateTime.Now)
-                resultadoValidacao = "O campo data de admissão não pode ser no futuro";            
+                resultadoValidacao = "O campo data de admissão não pode ser no futuro";
+
+            if (string.IsNullOrEmpty(Nome))
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo nome é obrigatório";
+
+            if(string.IsNullOrEmpty(Senha))
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo senha é obrigatório";
+
+            if(Salario <= 0)
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo Salário não pode ser 0 ou negativo";
 
             if (resultadoValidacao == "")
                 resultadoValidacao = "ESTA_VALIDO";
