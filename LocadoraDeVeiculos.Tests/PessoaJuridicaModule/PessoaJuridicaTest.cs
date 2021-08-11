@@ -40,7 +40,7 @@ namespace LocadoraDeVeiculos.Tests.PessoaJuridicaModule
             resultado.Should().Be("ESTA_VALIDO");
         }
         [TestMethod]
-        public void DeveValidar_CampoNulo()
+        public void DeveValidar_CampoNomeNulo()
         {
             //arrange
             PessoaJuridica pessoaJuridica = new PessoaJuridica(null, "22.000.000/0001-00", "(49)000000000", "Lagi");
@@ -49,8 +49,49 @@ namespace LocadoraDeVeiculos.Tests.PessoaJuridicaModule
             var resultado = pessoaJuridica.Validar();
 
             //assert
-            resultado.Should().Be("Nenhum campo pode estar vazio.");
+            resultado.Should().Be("O campo 'nome' não pode estar vazio.");
         }
+
+        [TestMethod]
+        public void DeveValidar_CampoCNPJNulo()
+        {
+            //arrange
+            PessoaJuridica pessoaJuridica = new PessoaJuridica("Math", null, "(49)000000000", "Lagi");
+
+            //action
+            var resultado = pessoaJuridica.Validar();
+
+            //assert
+            resultado.Should().Be("O campo 'CNPJ' não pode estar vazio.");
+        }
+        
+        [TestMethod]
+        public void DeveValidar_CampoEnderecoNulo()
+        {
+            //arrange
+            PessoaJuridica pessoaJuridica = new PessoaJuridica("Math", "22.000.000/0001-00", "(49)000000000", null);
+
+            //action
+            var resultado = pessoaJuridica.Validar();
+
+            //assert
+            resultado.Should().Be("O campo 'endereço' não pode estar vazio.");
+        }
+        
+        [TestMethod]
+        public void DeveValidar_CampoTelefoneNulo()
+        {
+            //arrange
+            PessoaJuridica pessoaJuridica = new PessoaJuridica("Math", "22.000.000/0001-00", null, "Lagi");
+
+            //action
+            var resultado = pessoaJuridica.Validar();
+
+            //assert
+            resultado.Should().Be("O campo 'telefone' não pode estar vazio.");
+        }
+
+
         [TestMethod]
         public void DeveValidar_Telefone()
         {
