@@ -42,6 +42,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.ConfiguracoesModule
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.dateHoraAbertura = new System.Windows.Forms.DateTimePicker();
+            this.label7 = new System.Windows.Forms.Label();
+            this.dateHoraFechamento = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // label1
@@ -59,7 +63,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.ConfiguracoesModule
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtGasolina.Location = new System.Drawing.Point(107, 44);
             this.txtGasolina.Name = "txtGasolina";
-            this.txtGasolina.Size = new System.Drawing.Size(186, 20);
+            this.txtGasolina.Size = new System.Drawing.Size(213, 20);
             this.txtGasolina.TabIndex = 1;
             // 
             // txtGas
@@ -68,7 +72,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.ConfiguracoesModule
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtGas.Location = new System.Drawing.Point(107, 83);
             this.txtGas.Name = "txtGas";
-            this.txtGas.Size = new System.Drawing.Size(186, 20);
+            this.txtGas.Size = new System.Drawing.Size(213, 20);
             this.txtGas.TabIndex = 2;
             // 
             // label2
@@ -86,7 +90,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.ConfiguracoesModule
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDiesel.Location = new System.Drawing.Point(107, 122);
             this.txtDiesel.Name = "txtDiesel";
-            this.txtDiesel.Size = new System.Drawing.Size(186, 20);
+            this.txtDiesel.Size = new System.Drawing.Size(213, 20);
             this.txtDiesel.TabIndex = 4;
             // 
             // txtAlcool
@@ -95,7 +99,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.ConfiguracoesModule
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtAlcool.Location = new System.Drawing.Point(107, 161);
             this.txtAlcool.Name = "txtAlcool";
-            this.txtAlcool.Size = new System.Drawing.Size(186, 20);
+            this.txtAlcool.Size = new System.Drawing.Size(213, 20);
             this.txtAlcool.TabIndex = 5;
             // 
             // label3
@@ -122,7 +126,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.ConfiguracoesModule
             | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBDomingos.AutoSize = true;
             this.checkBDomingos.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.checkBDomingos.Location = new System.Drawing.Point(107, 194);
+            this.checkBDomingos.Location = new System.Drawing.Point(91, 246);
             this.checkBDomingos.Name = "checkBDomingos";
             this.checkBDomingos.Size = new System.Drawing.Size(138, 17);
             this.checkBDomingos.TabIndex = 8;
@@ -135,7 +139,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.ConfiguracoesModule
             | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBSabados.AutoSize = true;
             this.checkBSabados.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.checkBSabados.Location = new System.Drawing.Point(107, 217);
+            this.checkBSabados.Location = new System.Drawing.Point(245, 245);
             this.checkBSabados.Name = "checkBSabados";
             this.checkBSabados.Size = new System.Drawing.Size(133, 17);
             this.checkBSabados.TabIndex = 10;
@@ -147,38 +151,80 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.ConfiguracoesModule
             this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnCancelar.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(89, 268);
+            this.btnCancelar.Location = new System.Drawing.Point(89, 341);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 12;
             this.btnCancelar.Text = "Cencelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnGravar
             // 
             this.btnGravar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnGravar.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.btnGravar.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnGravar.Location = new System.Drawing.Point(218, 268);
+            this.btnGravar.Location = new System.Drawing.Point(245, 341);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(75, 23);
             this.btnGravar.TabIndex = 13;
             this.btnGravar.Text = "Gravar";
             this.btnGravar.UseVisualStyleBackColor = false;
+            this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(28, 194);
+            this.label5.Location = new System.Drawing.Point(28, 246);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(57, 13);
             this.label5.TabIndex = 14;
             this.label5.Text = "Selecione:";
             // 
+            // label6
+            // 
+            this.label6.Location = new System.Drawing.Point(28, 198);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(57, 30);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "Hora de abertura";
+            // 
+            // dateHoraAbertura
+            // 
+            this.dateHoraAbertura.CustomFormat = "HH:mm";
+            this.dateHoraAbertura.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateHoraAbertura.Location = new System.Drawing.Point(107, 208);
+            this.dateHoraAbertura.Name = "dateHoraAbertura";
+            this.dateHoraAbertura.ShowUpDown = true;
+            this.dateHoraAbertura.Size = new System.Drawing.Size(57, 20);
+            this.dateHoraAbertura.TabIndex = 16;
+            // 
+            // label7
+            // 
+            this.label7.Location = new System.Drawing.Point(195, 198);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(68, 30);
+            this.label7.TabIndex = 17;
+            this.label7.Text = "Hora de fechamento";
+            // 
+            // dateHoraFechamento
+            // 
+            this.dateHoraFechamento.CustomFormat = "HH:mm";
+            this.dateHoraFechamento.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateHoraFechamento.Location = new System.Drawing.Point(269, 208);
+            this.dateHoraFechamento.Name = "dateHoraFechamento";
+            this.dateHoraFechamento.ShowUpDown = true;
+            this.dateHoraFechamento.Size = new System.Drawing.Size(51, 20);
+            this.dateHoraFechamento.TabIndex = 18;
+            // 
             // ConfiguracoesControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.dateHoraFechamento);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.dateHoraAbertura);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnGravar);
             this.Controls.Add(this.btnCancelar);
@@ -193,7 +239,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.ConfiguracoesModule
             this.Controls.Add(this.txtGasolina);
             this.Controls.Add(this.label1);
             this.Name = "ConfiguracoesControl";
-            this.Size = new System.Drawing.Size(375, 320);
+            this.Size = new System.Drawing.Size(402, 387);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -214,5 +260,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.ConfiguracoesModule
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnGravar;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DateTimePicker dateHoraAbertura;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DateTimePicker dateHoraFechamento;
     }
 }
