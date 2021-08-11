@@ -52,14 +52,25 @@ namespace LocadoraDeVeiculos.Dominio.PessoaJuridicaModule
         {
             string resultadoValidacao = "";
 
-            if(string.IsNullOrEmpty(Nome) || string.IsNullOrEmpty(Cnpj) || string.IsNullOrEmpty(Telefone) || string.IsNullOrEmpty(Endereco))
-                resultadoValidacao = "Nenhum campo pode estar vazio.";
+            if(string.IsNullOrEmpty(Nome))
+                resultadoValidacao = "O campo 'nome' não pode estar vazio.";
 
-            if (Telefone.Length < 8)
-                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "Número de telefone muito pequeno.";
+            if (string.IsNullOrEmpty(Cnpj))
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo 'CNPJ' não pode estar vazio.";
+            
+            if (string.IsNullOrEmpty(Telefone))
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo 'telefone' não pode estar vazio.";
+            
+            if (string.IsNullOrEmpty(Endereco))
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo 'endereço' não pode estar vazio.";
 
-            if (Cnpj.Length != 18)
-                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "Número de CNPJ inválido.";
+            if (!string.IsNullOrEmpty(Telefone))
+                if (Telefone.Length != 14 && Telefone.Length != 13)
+                    resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "Número de telefone muito pequeno.";
+
+            if (!string.IsNullOrEmpty(Cnpj))
+                if (Cnpj.Length != 18)
+                    resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "Número de CNPJ inválido.";
 
             if (resultadoValidacao == "")
                 resultadoValidacao = "ESTA_VALIDO";

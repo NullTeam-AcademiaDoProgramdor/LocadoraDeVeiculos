@@ -45,7 +45,11 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasJuridicas
             endereco = txtEndereco.Text;
             telefone = txtTelefone.Text;
 
-
+            if (txtCNPJ.Text == "  ,   ,   /    -")
+                cnpj = null;
+            
+            if (txtTelefone.Text == "(  )     -")
+                telefone = null;
 
             pessoaJuridica = new PessoaJuridica(nome, cnpj, telefone, endereco);
 

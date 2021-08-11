@@ -31,7 +31,7 @@ namespace LocadoraDeVeiculos.Tests.PessoaJuridicaModule
         public void DeveRetornar_TarefaValida()
         {
             //arrange
-            PessoaJuridica pessoaJuridica = new PessoaJuridica("Matheus", "22.000.000/0001-00", "(49)000000000", "Lagi");
+            PessoaJuridica pessoaJuridica = new PessoaJuridica("Matheus", "22.000.000/0001-00", "(49)00000-0000", "Lagi");
             
             //action
             var resultado = pessoaJuridica.Validar();
@@ -43,7 +43,7 @@ namespace LocadoraDeVeiculos.Tests.PessoaJuridicaModule
         public void DeveValidar_CampoNomeNulo()
         {
             //arrange
-            PessoaJuridica pessoaJuridica = new PessoaJuridica(null, "22.000.000/0001-00", "(49)000000000", "Lagi");
+            PessoaJuridica pessoaJuridica = new PessoaJuridica(null, "22.000.000/0001-00", "(49)00000-0000", "Lagi");
 
             //action
             var resultado = pessoaJuridica.Validar();
@@ -56,7 +56,7 @@ namespace LocadoraDeVeiculos.Tests.PessoaJuridicaModule
         public void DeveValidar_CampoCNPJNulo()
         {
             //arrange
-            PessoaJuridica pessoaJuridica = new PessoaJuridica("Math", null, "(49)000000000", "Lagi");
+            PessoaJuridica pessoaJuridica = new PessoaJuridica("Math", null, "(49)00000-0000", "Lagi");
 
             //action
             var resultado = pessoaJuridica.Validar();
@@ -69,7 +69,7 @@ namespace LocadoraDeVeiculos.Tests.PessoaJuridicaModule
         public void DeveValidar_CampoEnderecoNulo()
         {
             //arrange
-            PessoaJuridica pessoaJuridica = new PessoaJuridica("Math", "22.000.000/0001-00", "(49)000000000", null);
+            PessoaJuridica pessoaJuridica = new PessoaJuridica("Math", "22.000.000/0001-00", "(49)00000-0000", null);
 
             //action
             var resultado = pessoaJuridica.Validar();
@@ -108,7 +108,7 @@ namespace LocadoraDeVeiculos.Tests.PessoaJuridicaModule
         public void DeveValidar_CNPJ()
         {
             //arrange
-            PessoaJuridica pessoaJuridica = new PessoaJuridica("Matheus", "00200", "(49)000000000", "Lagi");
+            PessoaJuridica pessoaJuridica = new PessoaJuridica("Matheus", "00200", "(49)00000-0000", "Lagi");
 
             //action
             var resultado = pessoaJuridica.Validar();
