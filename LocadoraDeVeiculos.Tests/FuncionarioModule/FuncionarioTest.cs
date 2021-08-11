@@ -37,5 +37,16 @@ namespace LocadoraDeVeiculos.Tests.FuncionarioModule
 
             resultado.Should().Be("O campo data de admissão não pode ser no futuro");
         }
+
+        [TestMethod]
+        public void DeveValidarNome()
+        {
+            var funcionario = new Funcionario("", DateTime.Today, 1000, "password");
+
+            var resultado = funcionario.Validar();
+
+            resultado.Should().Be("O campo nome é obrigatório");
+        }
+        
     }
 }
