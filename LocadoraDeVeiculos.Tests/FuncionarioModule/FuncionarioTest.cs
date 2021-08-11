@@ -47,6 +47,16 @@ namespace LocadoraDeVeiculos.Tests.FuncionarioModule
 
             resultado.Should().Be("O campo nome é obrigatório");
         }
-        
+
+        [TestMethod]
+        public void DeveValidarSenha()
+        {
+            var funcionario = new Funcionario("Pedro", DateTime.Today, 1000, "");
+
+            var resultado = funcionario.Validar();
+
+            resultado.Should().Be("O campo senha é obrigatório");
+        }
+
     }
 }
