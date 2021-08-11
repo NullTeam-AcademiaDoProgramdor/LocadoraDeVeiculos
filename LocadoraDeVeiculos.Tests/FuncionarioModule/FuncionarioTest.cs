@@ -68,5 +68,19 @@ namespace LocadoraDeVeiculos.Tests.FuncionarioModule
             resultado.Should().Be("O campo Salário não pode ser 0 ou negativo");
         }
 
+        [TestMethod]
+        public void DeveValidarNome_Senha_Salario()
+        {
+            var funcionario = new Funcionario("", DateTime.Today, 0, "");
+
+            var resultado = funcionario.Validar();
+
+            resultado.Should().Be("O campo nome é obrigatório" +
+                Environment.NewLine +
+                "O campo senha é obrigatório" +
+                Environment.NewLine +
+                "O campo Salário não pode ser 0 ou negativo"); 
+        }
+
     }
 }
