@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using LocadoraDeVeiculos.WindowsApp.Features.ConfiguracoesModule;
+using LocadoraDeVeiculos.WindowsApp.Features.Configuracoes;
 
 namespace LocadoraDeVeiculos.WindowsApp
 {

@@ -1,5 +1,5 @@
 ﻿
-namespace LocadoraDeVeiculos.WindowsApp.Features.ConfiguracoesModule
+namespace LocadoraDeVeiculos.WindowsApp.Features.Configuracoes
 {
     partial class ConfiguracoesControl
     {

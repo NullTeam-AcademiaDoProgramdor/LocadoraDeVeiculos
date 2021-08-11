@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using LocadoraDeVeiculos.Configuracoes;
 
-namespace LocadoraDeVeiculos.WindowsApp.Features.ConfiguracoesModule
+namespace LocadoraDeVeiculos.WindowsApp.Features.Configuracoes
 {
     public partial class ConfiguracoesControl : UserControl
     {
