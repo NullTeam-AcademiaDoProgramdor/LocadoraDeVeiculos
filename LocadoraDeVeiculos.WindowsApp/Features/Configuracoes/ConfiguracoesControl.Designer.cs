@@ -73,6 +73,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Configuracoes
             // 
             // txtGasolina
             // 
+            this.txtGasolina.AccessibleName = "Preço gasolina";
             this.txtGasolina.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtGasolina.Location = new System.Drawing.Point(63, 3);
             this.txtGasolina.Name = "txtGasolina";
@@ -81,6 +82,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Configuracoes
             // 
             // txtGas
             // 
+            this.txtGas.AccessibleName = "Preço gás";
             this.txtGas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtGas.Location = new System.Drawing.Point(63, 34);
             this.txtGas.Name = "txtGas";
@@ -100,6 +102,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Configuracoes
             // 
             // txtDiesel
             // 
+            this.txtDiesel.AccessibleName = "Preço diesel";
             this.txtDiesel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtDiesel.Location = new System.Drawing.Point(63, 65);
             this.txtDiesel.Name = "txtDiesel";
@@ -108,6 +111,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Configuracoes
             // 
             // txtAlcool
             // 
+            this.txtAlcool.AccessibleName = "Preço alcool";
             this.txtAlcool.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtAlcool.Location = new System.Drawing.Point(63, 96);
             this.txtAlcool.Name = "txtAlcool";

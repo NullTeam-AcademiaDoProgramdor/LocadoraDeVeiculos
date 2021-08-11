@@ -55,15 +55,32 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Configuracoes
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
+            double? precoGasolina = PegarDoubleComVerificacao(txtGasolina);
+            if (precoGasolina == null)
+                return;
+
+            double? precoGas = PegarDoubleComVerificacao(txtGas);
+            if (precoGas == null)
+                return;
+
+            double? precoDiesel = PegarDoubleComVerificacao(txtDiesel);
+            if (precoDiesel == null)
+                return;
+
+            double? precoAlcool = PegarDoubleComVerificacao(txtAlcool);
+            if (precoAlcool == null)
+                return;
+
+
             if (MessageBox.Show("Tem certeza que deseja gravar as configurações atuais?",
                 "Configurações do Sistema",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                Configuracao.PrecoGasolina = Convert.ToDouble(txtGasolina.Text);
-                Configuracao.PrecoGas = Convert.ToDouble(txtGas.Text);
-                Configuracao.PrecoDiesel = Convert.ToDouble(txtDiesel.Text);
-                Configuracao.PrecoAlcool = Convert.ToDouble(txtAlcool.Text);
+                Configuracao.PrecoGasolina =(double) precoGasolina;
+                Configuracao.PrecoGas = (double) precoGas;
+                Configuracao.PrecoDiesel = (double) precoDiesel;
+                Configuracao.PrecoAlcool = (double) precoAlcool;
 
                 Configuracao.HoraAbertura = dateHoraAbertura.Value.TimeOfDay;
                 Configuracao.HoraFechamento = dateHoraFechamento.Value.TimeOfDay;
@@ -73,6 +90,21 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Configuracoes
 
                 TelaPrincipalForm.Instancia.AtualizarRodape("Configurações salvadas com sucesso!");
             }
+        }
+
+        private double? PegarDoubleComVerificacao(TextBox textBox)
+        {
+            try
+            {
+                return Convert.ToDouble(textBox.Text);
+            }
+            catch (Exception)
+            {
+                TelaPrincipalForm.Instancia
+                    .AtualizarRodape($"Digite um numero no campo {textBox.AccessibleName}");
+            }
+
+            return null;
         }
     }
 }
