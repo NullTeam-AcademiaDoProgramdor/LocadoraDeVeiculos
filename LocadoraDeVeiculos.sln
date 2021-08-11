@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocadoraDeVeiculos.WindowsA
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "LocadoraDeVeiculos.DB", "LocadoraDeVeiculos.DB\LocadoraDeVeiculos.DB.sqlproj", "{6645A77B-2A33-437F-BDFF-12A7E2452220}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocadoraDeVeiculos.Configuracoes", "LocadoraDeVeiculos.Configuracoes\LocadoraDeVeiculos.Configuracoes.csproj", "{12F59CD5-527F-4927-B9BD-DC8E91A14269}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{6645A77B-2A33-437F-BDFF-12A7E2452220}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6645A77B-2A33-437F-BDFF-12A7E2452220}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6645A77B-2A33-437F-BDFF-12A7E2452220}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{12F59CD5-527F-4927-B9BD-DC8E91A14269}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12F59CD5-527F-4927-B9BD-DC8E91A14269}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12F59CD5-527F-4927-B9BD-DC8E91A14269}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12F59CD5-527F-4927-B9BD-DC8E91A14269}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,6 +61,7 @@ Global
 		{9228AF4C-C57C-4903-BEEC-7A7A68C52602} = {0B6E14EC-C6E7-4A2F-B221-2E4F321992E4}
 		{66D0C03F-7909-4347-8FC7-D44C961EA3F7} = {C90BC848-DC4F-45A1-9E6D-EBBBC1C6C859}
 		{6645A77B-2A33-437F-BDFF-12A7E2452220} = {C90BC848-DC4F-45A1-9E6D-EBBBC1C6C859}
+		{12F59CD5-527F-4927-B9BD-DC8E91A14269} = {C90BC848-DC4F-45A1-9E6D-EBBBC1C6C859}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {538C4B65-C2C0-4534-8747-0B006E3B7EF1}

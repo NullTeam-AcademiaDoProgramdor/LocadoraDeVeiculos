@@ -106,6 +106,14 @@
     <Compile Include="Features\TaxasEServicos\TelaTaxasEServicosForm.Designer.cs">
       <DependentUpon>TelaTaxasEServicosForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\Configuracoes\ConfiguracaoConfiguracoesToolBox.cs" />
+    <Compile Include="Features\Configuracoes\ConfiguracoesControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Features\Configuracoes\ConfiguracoesControl.Designer.cs">
+      <DependentUpon>ConfiguracoesControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Configuracoes\OperacoesConfiguracoes.cs" />
     <Compile Include="Shared\ConfiguracoesBotoes.cs" />
     <Compile Include="Shared\ConfiguracoesTooltip.cs" />
     <Compile Include="Shared\DataGridViewExtensions.cs" />
@@ -142,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Features\TaxasEServicos\TelaTaxasEServicosForm.resx">
       <DependentUpon>TelaTaxasEServicosForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Configuracoes\ConfiguracoesControl.resx">
+      <DependentUpon>ConfiguracoesControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TelaPrincipalForm.resx">
       <DependentUpon>TelaPrincipalForm.cs</DependentUpon>
@@ -183,6 +194,7 @@
   <ItemGroup>
     <None Include="Resources\outline_expand_black_24dp.png" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\LocadoraDeVeiculos.Controladores\LocadoraDeVeiculos.Controladores.csproj">
       <Project>{c0ca9d0a-9edb-41d2-afc0-f27abe5e84e7}</Project>
@@ -205,6 +217,10 @@
     <ProjectReference Include="..\LocadoraDeVeiculos.Dominio\LocadoraDeVeiculos.Dominio.csproj">
       <Project>{5dbca542-da0b-4644-bffa-8f574e2c3f38}</Project>
       <Name>LocadoraDeVeiculos.Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LocadoraDeVeiculos.Configuracoes\LocadoraDeVeiculos.Configuracoes.csproj">
+      <Project>{12f59cd5-527f-4927-b9bd-dc8e91a14269}</Project>
+      <Name>LocadoraDeVeiculos.Configuracoes</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

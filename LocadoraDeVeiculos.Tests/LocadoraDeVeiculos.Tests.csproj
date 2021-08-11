@@ -61,6 +61,7 @@
     <Compile Include="GrupoAutomovelModule\GrupoAutomovelTest.cs" />
     <Compile Include="PessoaJuridicaModule\ControladorPessoaJuridicaTest.cs" />
     <Compile Include="PessoaJuridicaModule\PessoaJuridicaTest.cs" />
+    <Compile Include="ConfiguracoesModule\ConfiguracoesTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TaxaEServicoModule\Teste de Controlador\ControladorTaxasEServicosTest.cs" />
     <Compile Include="TaxaEServicoModule\Teste de Domínio\TaxasEServicosTest.cs" />
@@ -77,6 +78,10 @@
     <ProjectReference Include="..\LocadoraDeVeiculos.Dominio\LocadoraDeVeiculos.Dominio.csproj">
       <Project>{5dbca542-da0b-4644-bffa-8f574e2c3f38}</Project>
       <Name>LocadoraDeVeiculos.Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LocadoraDeVeiculos.Configuracoes\LocadoraDeVeiculos.Configuracoes.csproj">
+      <Project>{12f59cd5-527f-4927-b9bd-dc8e91a14269}</Project>
+      <Name>LocadoraDeVeiculos.Configuracoes</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

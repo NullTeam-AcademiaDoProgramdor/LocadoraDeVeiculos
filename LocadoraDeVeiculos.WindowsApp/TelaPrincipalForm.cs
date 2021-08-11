@@ -18,6 +18,8 @@ using LocadoraDeVeiculos.Controladores.TaxasEServicosModule;
 using LocadoraDeVeiculos.Dominio.TaxasEServicosModule;
 using LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos;
 
+using LocadoraDeVeiculos.WindowsApp.Features.Configuracoes;
+
 namespace LocadoraDeVeiculos.WindowsApp
 {
     public partial class TelaPrincipalForm : Form
@@ -31,6 +33,7 @@ namespace LocadoraDeVeiculos.WindowsApp
         private OperacoesPessoaJuridica operacoesPessoaJuridica;        
         private OperacoesFuncionario operacoesFuncionario;
         private OperacoesTaxasESevicos operacoesTaxasEServicos;
+        private OperacoesConfiguracoes operacoesConfiguracoes;
 
         public TelaPrincipalForm()
         {
@@ -42,6 +45,8 @@ namespace LocadoraDeVeiculos.WindowsApp
             operacoesGrupoAutomovel = new OperacoesGrupoAutomovel(new ControladorGrupoAutomovel());            
             operacoesFuncionario = new OperacoesFuncionario(new ControladorFuncionario());
             operacoesTaxasEServicos = new OperacoesTaxasESevicos(new ControladorTaxasEServicos());
+
+            operacoesConfiguracoes = new OperacoesConfiguracoes();
 
             Instancia = this;
         }
@@ -158,17 +163,6 @@ namespace LocadoraDeVeiculos.WindowsApp
             ConfigurarPainelRegistros();
         }
 
-        private void ConfigurarPainelRegistros()
-        {
-            UserControl tabela = operacoes.ObterTabela();
-
-            tabela.Dock = DockStyle.Fill;
-
-            panelRegistros.Controls.Clear();
-
-            panelRegistros.Controls.Add(tabela);
-        }
-
         private void menuItemTaxasEServicos_Click(object sender, EventArgs e)
         {
             ConfiguracaoTaxasEServicoToolBox configuracao =
@@ -183,9 +177,30 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             ConfigurarPainelRegistros();
         }
-    }       
+        private void configuraçõesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConfiguracaoConfiguracoesToolBox configuracoesToolBox = 
+                new ConfiguracaoConfiguracoesToolBox();
 
-        
+            ConfigurarTooltips(configuracoesToolBox.Tooltip);
+            ConfigurarBotoes(configuracoesToolBox.Botoes);
 
-        
+            AtualizarRodape(configuracoesToolBox.Tooltip.TipoCadastro);
+
+            operacoes = operacoesConfiguracoes;
+
+            ConfigurarPainelRegistros();
+        }
+
+        private void ConfigurarPainelRegistros()
+        {
+            UserControl tabela = operacoes.ObterTabela();
+
+            tabela.Dock = DockStyle.Fill;
+
+            panelRegistros.Controls.Clear();
+
+            panelRegistros.Controls.Add(tabela);
+        }
     }
+}
