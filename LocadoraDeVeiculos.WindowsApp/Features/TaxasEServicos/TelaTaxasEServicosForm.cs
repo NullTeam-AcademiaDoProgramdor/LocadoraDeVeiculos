@@ -40,7 +40,11 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
 
                 txtPreco.Text = taxasEServicos.Preco.ToString();
 
-                                
+                if (taxasEServicos.EhFixo == true)
+                    rdbSim.Checked = true;
+
+                if (taxasEServicos.EhFixo == false)
+                    rdbNao.Checked = true;
             }
         }
 
