@@ -9,12 +9,8 @@ namespace LocadoraDeVeiculos.Configuracoes
 {
     internal class AppConfigControler
     {
-        private readonly Dictionary<string, string> camposIniciais;
-
         internal AppConfigControler(Dictionary<string, string> camposIniciais)
         {
-            this.camposIniciais = camposIniciais;
-
             AdicionarCamposCasoNaoExistente(camposIniciais);
         }
 
@@ -34,11 +30,11 @@ namespace LocadoraDeVeiculos.Configuracoes
 
         }
 
-
         public string Ler(string chave)
         {
             return ConfigurationManager.AppSettings[chave];
         }
+
 
         public void Setar(string chave, object valor)
         {
