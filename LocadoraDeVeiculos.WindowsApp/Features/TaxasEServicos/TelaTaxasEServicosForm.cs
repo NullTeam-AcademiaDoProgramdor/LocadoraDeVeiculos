@@ -47,7 +47,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
            
             string nome = txtNome.Text;
 
-            double preco = CorrigirPreco();
+            double preco = 0;
+                
+            CorrigirPreco(ref preco);
+
+            if (preco == 0)
+                DialogResult = DialogResult.None;
 
             bool ehFixo = VerificarSeEhFixo();
 
@@ -77,19 +82,18 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
             }           
         }
 
-        public double CorrigirPreco()
+        public void CorrigirPreco(ref double preco)
         {
             try
             {
-                double preco = Convert.ToDouble(txtPreco.Text);
-                return preco;
+                preco = Convert.ToDouble(txtPreco.Text);
+                return;
             }
             catch (Exception)
             {
-                MessageBox.Show("Campo preço inválido");
+                TelaPrincipalForm.Instancia.AtualizarRodape("Campo preço inválido");
             }
-
-            return 0;
+            
         }
 
         private void TelaTaxasEServicosForm_FormClosing(object sender, FormClosingEventArgs e)
