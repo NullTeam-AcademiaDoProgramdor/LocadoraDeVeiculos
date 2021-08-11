@@ -104,7 +104,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasJuridicas
             // txtTelefone
             // 
             this.txtTelefone.Location = new System.Drawing.Point(129, 208);
-            this.txtTelefone.Mask = "(00) 0 0000-0000";
+            this.txtTelefone.Mask = "(00)00000-0000";
             this.txtTelefone.Name = "txtTelefone";
             this.txtTelefone.Size = new System.Drawing.Size(100, 20);
             this.txtTelefone.TabIndex = 5;

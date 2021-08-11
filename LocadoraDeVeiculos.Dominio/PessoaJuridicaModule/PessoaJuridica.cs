@@ -65,8 +65,9 @@ namespace LocadoraDeVeiculos.Dominio.PessoaJuridicaModule
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo 'endereço' não pode estar vazio.";
 
             if (!string.IsNullOrEmpty(Telefone))
-                if (Telefone.Length < 8)
+                if (Telefone.Length != 14 && Telefone.Length != 13)
                     resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "Número de telefone muito pequeno.";
+
             if (!string.IsNullOrEmpty(Cnpj))
                 if (Cnpj.Length != 18)
                     resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "Número de CNPJ inválido.";
