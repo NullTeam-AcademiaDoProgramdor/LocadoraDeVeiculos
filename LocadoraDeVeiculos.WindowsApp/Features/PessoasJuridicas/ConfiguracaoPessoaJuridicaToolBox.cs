@@ -19,9 +19,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasJuridicas
                     ToolTipAdicionar = "Adicionar uma nova Pessoa Jurídica",
                     ToolTipEditar = "Editar uma Pessoa Jurídica existente",
                     ToolTipExcluir = "Excluir uma Pessoa Jurídica existente",
-                    ToolTipFiltrar = "Filtrar Pessoas Jurídicas",
-                    ToolTipAgrupar = "Expandir Pessoa Jurídica",
-                    ToolTípDesagrupar = "Esconder Pessoa Jurídica",
 
                 };
             }
