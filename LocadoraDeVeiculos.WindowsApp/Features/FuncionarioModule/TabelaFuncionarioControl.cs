@@ -32,7 +32,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features
                 new DataGridViewTextBoxColumn {DataPropertyName = "Nome", HeaderText = "Nome"},
                 new DataGridViewTextBoxColumn {DataPropertyName = "Salario", HeaderText = "Salário"},
                 new DataGridViewTextBoxColumn {DataPropertyName = "DataAdmissao", HeaderText = "Data de Admissão"},
-                new DataGridViewTextBoxColumn {DataPropertyName = "Senha", HeaderText = "Senha"},
             };
 
             return colunas;
@@ -53,8 +52,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features
                     funcionario.Id,
                     funcionario.Nome,
                     funcionario.Salario,
-                    funcionario.DataAdmissao,
-                    funcionario.Senha
+                    funcionario.DataAdmissao
                 );
             }
 
