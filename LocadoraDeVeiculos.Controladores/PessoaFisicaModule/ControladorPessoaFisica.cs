@@ -133,7 +133,15 @@ namespace LocadoraDeVeiculos.Controladores.PessoaFisicaModule
 
         public override string Editar(int id, PessoaFisica registro)
         {
-            throw new NotImplementedException();
+            string resultadoValidacao = registro.Validar();
+
+            if (resultadoValidacao == "ESTA_VALIDO")
+            {
+                registro.Id = id;
+                Db.Update(sqlEditarPessoaFisica, ObtemParametrosPessoaJuridica(registro));
+            }
+
+            return resultadoValidacao;
         }
 
         public override bool Excluir(int id)
