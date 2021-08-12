@@ -51,7 +51,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features
                 gridFuncionario.Rows.Add(
                     funcionario.Id,
                     funcionario.Nome,
-                    funcionario.Salario,
+                    "R$" + funcionario.Salario,
                     funcionario.DataAdmissao
                 );
             }
