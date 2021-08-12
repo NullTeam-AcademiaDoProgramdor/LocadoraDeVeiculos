@@ -59,6 +59,7 @@
     <Compile Include="FuncionarioModule\FuncionarioTest.cs" />
     <Compile Include="GrupoAutomovelModule\ControladorGupoAutomovelTest.cs" />
     <Compile Include="GrupoAutomovelModule\GrupoAutomovelTest.cs" />
+    <Compile Include="PessoaFisicaModule\PessoaFisicaTest.cs" />
     <Compile Include="PessoaJuridicaModule\ControladorPessoaJuridicaTest.cs" />
     <Compile Include="PessoaJuridicaModule\PessoaJuridicaTest.cs" />
     <Compile Include="ConfiguracoesModule\ConfiguracoesTest.cs" />
