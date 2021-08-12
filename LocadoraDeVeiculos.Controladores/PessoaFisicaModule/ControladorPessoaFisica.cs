@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LocadoraDeVeiculos.Controladores.Shared;
+using LocadoraDeVeiculos.Dominio.PessoaFisicaModule;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Controladores.PessoaFisicaModule
 {
-    public class ControladorPessoaFisica
+    public class ControladorPessoaFisica : Controlador<PessoaFisica>
     {
         #region Queries
         private const string sqlInserirPessoaFisica =
@@ -99,6 +101,38 @@ namespace LocadoraDeVeiculos.Controladores.PessoaFisicaModule
                 [PessoaFisica]
             WHERE 
                 [ID] = @ID";
+
+        public override string Editar(int id, PessoaFisica registro)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override bool Excluir(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override bool Existe(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string InserirNovo(PessoaFisica registro)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override PessoaFisica SelecionarPorId(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override List<PessoaFisica> SelecionarTodos()
+        {
+            throw new NotImplementedException();
+        }
         #endregion
+
+
     }
 }
