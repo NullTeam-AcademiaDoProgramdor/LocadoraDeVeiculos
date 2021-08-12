@@ -11,24 +11,24 @@ namespace LocadoraDeVeiculos.Dominio.PessoaFisicaModule
     public class PessoaFisica : EntidadeBase, IEquatable<PessoaFisica>
     {
         public PessoaFisica(string nome, string cPF, string rG, string cNH,
-            string telefone, string endereco, PessoaJuridica pessoaJuridica = null)
+            DateTime vencimentoCNH, string telefone, string endereco,
+            PessoaJuridica pessoaJuridica = null)
         {
             Nome = nome;
             CPF = cPF;
             RG = rG;
             CNH = cNH;
+            VencimentoCNH = vencimentoCNH;
             Telefone = telefone;
             Endereco = endereco;
             PessoaJuridica = pessoaJuridica;
         }
 
-        //Dever ter o nome, CPF, RG, CNH, telefone, endereço
-        //Pode ser ligada a uma pessoa jurídica
-
         public string Nome { get; }
         public string CPF { get; }
         public string RG { get; }
         public string CNH { get; }
+        public DateTime VencimentoCNH { get; }
         public string Telefone { get; }
         public string Endereco { get; }
         public PessoaJuridica PessoaJuridica { get; }
@@ -41,10 +41,13 @@ namespace LocadoraDeVeiculos.Dominio.PessoaFisicaModule
         public bool Equals(PessoaFisica other)
         {
             return other != null &&
+                   id == other.id &&
+                   Id == other.Id &&
                    Nome == other.Nome &&
                    CPF == other.CPF &&
                    RG == other.RG &&
                    CNH == other.CNH &&
+                   VencimentoCNH == other.VencimentoCNH &&
                    Telefone == other.Telefone &&
                    Endereco == other.Endereco &&
                    EqualityComparer<PessoaJuridica>.Default.Equals(PessoaJuridica, other.PessoaJuridica);
@@ -52,11 +55,14 @@ namespace LocadoraDeVeiculos.Dominio.PessoaFisicaModule
 
         public override int GetHashCode()
         {
-            int hashCode = 1083796582;
+            int hashCode = 1053604776;
+            hashCode = hashCode * -1521134295 + id.GetHashCode();
+            hashCode = hashCode * -1521134295 + Id.GetHashCode();
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Nome);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(CPF);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(RG);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(CNH);
+            hashCode = hashCode * -1521134295 + VencimentoCNH.GetHashCode();
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Telefone);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Endereco);
             hashCode = hashCode * -1521134295 + EqualityComparer<PessoaJuridica>.Default.GetHashCode(PessoaJuridica);
@@ -78,12 +84,18 @@ namespace LocadoraDeVeiculos.Dominio.PessoaFisicaModule
             
             if (string.IsNullOrEmpty(CNH))
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo 'CNH' não pode estar vazio.";
-            
+
             if (string.IsNullOrEmpty(Telefone))
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo 'Telefone' não pode estar vazio.";
             
             if (string.IsNullOrEmpty(Endereco))
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo 'Endereço' não pode estar vazio.";
+
+            if (VencimentoCNH == DateTime.MinValue)
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo 'VencimentoCNH' não pode estar vazio.";
+
+            if (DateTime.Compare(VencimentoCNH, DateTime.Now) <= 0)
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "Data de vencimento não pode ser aceita.";
 
             if (resultadoValidacao == "")
                 resultadoValidacao = "ESTA_VALIDO";
