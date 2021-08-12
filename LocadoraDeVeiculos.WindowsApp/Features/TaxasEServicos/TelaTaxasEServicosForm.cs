@@ -24,7 +24,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
         {
             InitializeComponent();
 
-            rdbSim.Checked = true;
+            rdbTaxaFixa.Checked = true;
         }
 
         public TaxaEServico TaxasEServicos
@@ -41,10 +41,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
                 txtPreco.Text = taxasEServicos.Preco.ToString();
 
                 if (taxasEServicos.EhFixo == true)
-                    rdbSim.Checked = true;
+                    rdbTaxaFixa.Checked = true;
 
                 if (taxasEServicos.EhFixo == false)
-                    rdbNao.Checked = true;
+                    rdbTaxaPorDia.Checked = true;
             }
         }
 
@@ -78,7 +78,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
 
         public bool VerificarSeEhFixo()
         {
-            if(rdbSim.Checked == true)
+            if(rdbTaxaFixa.Checked == true)
             {
                 return true;
             }
@@ -106,5 +106,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
         {
             TelaPrincipalForm.Instancia.AtualizarRodape("");
         }
+       
     }
 }
