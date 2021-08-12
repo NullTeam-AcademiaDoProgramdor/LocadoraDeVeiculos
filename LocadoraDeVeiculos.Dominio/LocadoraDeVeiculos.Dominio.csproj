@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AutomovelModule\Automovel.cs" />
+    <Compile Include="AutomovelModule\TipoCombustivelEnum.cs" />
     <Compile Include="GrupoAutomovelModule\GrupoAutomovel.cs" />
     <Compile Include="GrupoAutomovelModule\PlanoDiarioStruct.cs" />
     <Compile Include="GrupoAutomovelModule\PlanoKmControladoStruct.cs" />
