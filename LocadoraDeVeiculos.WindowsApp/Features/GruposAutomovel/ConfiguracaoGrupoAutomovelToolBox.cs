@@ -18,7 +18,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GruposAutomovel
                     TipoCadastro = "Cadastro de Grupo de Automovel",
                     ToolTipAdicionar = "Adicionar um novo Grupo de Automovel",
                     ToolTipEditar = "Editar um Grupo de Automovel existente",
-                    ToolTipExcluir = "Excluir um Grupo de Automovel existente"
+                    ToolTipExcluir = "Excluir um Grupo de Automovel existente",
                 };
             }
         }
