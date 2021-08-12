@@ -55,12 +55,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GruposAutomovel
                 gridGrupoAutomovel.Rows.Add(
                     grupo.Id,
                     grupo.Nome,
-                    grupo.PlanoDiario.PrecoDia,
-                    grupo.PlanoDiario.PrecoKm,
-                    grupo.PlanoKmControlado.PrecoDia,
+                    "R$" + grupo.PlanoDiario.PrecoDia,
+                    "R$" + grupo.PlanoDiario.PrecoKm,
+                    "R$" + grupo.PlanoKmControlado.PrecoDia,
                     grupo.PlanoKmControlado.KmDisponiveis,
-                    grupo.PlanoKmControlado.PrecoKmExtrapolado,
-                    grupo.PlanoKmLivre.PrecoDia
+                    "R$" + grupo.PlanoKmControlado.PrecoKmExtrapolado,
+                    "R$" + grupo.PlanoKmLivre.PrecoDia
                 );
             }
         }
