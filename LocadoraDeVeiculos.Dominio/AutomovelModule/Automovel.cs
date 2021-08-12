@@ -36,6 +36,26 @@ namespace LocadoraDeVeiculos.Dominio.AutomovelModule
 
         public GrupoAutomovel Grupo { get; }
 
+        public Automovel(string modelo, string marca, string cor, string placa, 
+            string chassi, int ano, int portas, int capacidadeTanque, 
+            int tamanhoPortaMalas, TipoCombustivelEnum tipoCombustivel, 
+            CambioEnum cambio, DirecaoEnum direcao, GrupoAutomovel grupo)
+        {
+            Modelo = modelo;
+            Marca = marca;
+            Cor = cor;
+            Placa = placa;
+            Chassi = chassi;
+            Ano = ano;
+            Portas = portas;
+            CapacidadeTanque = capacidadeTanque;
+            TamanhoPortaMalas = tamanhoPortaMalas;
+            TipoCombustivel = tipoCombustivel;
+            Cambio = cambio;
+            Direcao = direcao;
+            Grupo = grupo;
+        }
+
         public override bool Equals(object obj)
         {
             return Equals(obj as Automovel);
