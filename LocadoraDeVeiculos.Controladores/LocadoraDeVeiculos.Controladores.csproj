@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GrupoAutomovelModule\ControladorGrupoAutomovel.cs" />
+    <Compile Include="PessoaFisicaModule\ControladorPessoaFisica.cs" />
     <Compile Include="PessoaJuridicaModule\ControladorPessoaJuridica.cs" />
     <Compile Include="FuncionarioModule\ControladorFuncionario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
