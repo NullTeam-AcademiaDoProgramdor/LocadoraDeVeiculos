@@ -50,8 +50,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
                 gridTaxasEServicos.Rows.Add(
                     taxaOuServico.Id,
                     taxaOuServico.Nome,
-                    taxaOuServico.Preco,
-                    (taxaOuServico.EhFixo)? "Fixo":"Não é fixo"
+                    "R$" + taxaOuServico.Preco,
+                    (taxaOuServico.EhFixo)? "Taxa fixa":"Taxa por dia"
                 );
             }
         }
