@@ -65,7 +65,27 @@ namespace LocadoraDeVeiculos.Dominio.PessoaFisicaModule
 
         public override string Validar()
         {
-            throw new NotImplementedException();
+            string resultadoValidacao = "";
+
+            if (string.IsNullOrEmpty(Nome))
+                resultadoValidacao = "O campo 'nome' não pode estar vazio.";
+
+            if (string.IsNullOrEmpty(CPF))
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo 'CPF' não pode estar vazio.";
+            
+            if (string.IsNullOrEmpty(RG))
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo 'RG' não pode estar vazio.";
+            
+            if (string.IsNullOrEmpty(CNH))
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo 'CNH' não pode estar vazio.";
+            
+            if (string.IsNullOrEmpty(Telefone))
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo 'Telefone' não pode estar vazio.";
+            
+            if (string.IsNullOrEmpty(Endereco))
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo 'Endereço' não pode estar vazio.";
+            
+            return resultadoValidacao;
         }
     }
 }
