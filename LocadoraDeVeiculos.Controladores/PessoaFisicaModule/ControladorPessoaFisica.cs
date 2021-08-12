@@ -102,6 +102,35 @@ namespace LocadoraDeVeiculos.Controladores.PessoaFisicaModule
             WHERE 
                 [ID] = @ID";
 
+        public override string InserirNovo(PessoaFisica registro)
+        {
+            string resultadoValidacao = registro.Validar();
+
+            if (resultadoValidacao == "ESTA_VALIDO")
+            {
+                registro.Id = Db.Insert(sqlInserirPessoaFisica, ObtemParametrosPessoaJuridica(registro));
+            }
+
+            return resultadoValidacao;
+        }
+
+        private Dictionary<string, object> ObtemParametrosPessoaJuridica(PessoaFisica pessoaFisica)
+        {
+            var parametros = new Dictionary<string, object>();
+
+            parametros.Add("ID", pessoaFisica.Id);
+            parametros.Add("NOME", pessoaFisica.Nome);
+            parametros.Add("CPF", pessoaFisica.CPF);
+            parametros.Add("RG", pessoaFisica.RG);
+            parametros.Add("CNH", pessoaFisica.CNH);
+            parametros.Add("VENCIMENTOCNH", pessoaFisica.VencimentoCNH);
+            parametros.Add("TELEFONE", pessoaFisica.Telefone);
+            parametros.Add("ENDERECO", pessoaFisica.Endereco);
+            parametros.Add("ID_EMPRESALIGADA", pessoaFisica.PessoaJuridica?.Id);
+
+            return parametros;
+        }
+
         public override string Editar(int id, PessoaFisica registro)
         {
             throw new NotImplementedException();
@@ -117,10 +146,6 @@ namespace LocadoraDeVeiculos.Controladores.PessoaFisicaModule
             throw new NotImplementedException();
         }
 
-        public override string InserirNovo(PessoaFisica registro)
-        {
-            throw new NotImplementedException();
-        }
 
         public override PessoaFisica SelecionarPorId(int id)
         {
