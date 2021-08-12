@@ -76,9 +76,66 @@ namespace LocadoraDeVeiculos.Dominio.AutomovelModule
 
         public override string Validar()
         {
-            throw new NotImplementedException();
+            string resultadoValidacao = "";
+
+            if (string.IsNullOrEmpty(Modelo))
+                resultadoValidacao += "O campo Modelo é obrigatorio";
+
+            if (string.IsNullOrEmpty(Marca))
+                resultadoValidacao +=
+                    QuebraDeLinha(resultadoValidacao) +
+                    "O campo Marca é obrigatorio";
+
+            if (string.IsNullOrEmpty(Cor))
+                resultadoValidacao +=
+                    QuebraDeLinha(resultadoValidacao) +
+                    "O campo Cor é obrigatorio";
+
+            if (string.IsNullOrEmpty(Placa))
+                resultadoValidacao +=
+                    QuebraDeLinha(resultadoValidacao) +
+                    "O campo Placa é obrigatorio";
+
+            if (string.IsNullOrEmpty(Chassi))
+                resultadoValidacao +=
+                    QuebraDeLinha(resultadoValidacao) +
+                    "O campo Chassi é obrigatorio";
+
+            if (Ano < 1900)
+                resultadoValidacao +=
+                    QuebraDeLinha(resultadoValidacao) +
+                    "O Ano informado é muito antigo";
+
+            if (Ano > PegarAnoFuturoValido())
+                resultadoValidacao +=
+                    QuebraDeLinha(resultadoValidacao) +
+                    $"O ano informado é invalido, você pode inserir carros de {PegarAnoFuturoValido()} até 1900";
+
+            if (NPortas <= 0)
+                resultadoValidacao +=
+                    QuebraDeLinha(resultadoValidacao) +
+                    $"O Numero de portas não pode ser 0 ou negativo";
+
+            if (CapacidadeTanque <= 0)
+                resultadoValidacao +=
+                    QuebraDeLinha(resultadoValidacao) +
+                    $"A capacidade do tanque não pode ser 0 ou negativo";
+
+            if (TamanhoPortaMalas <= 0)
+                resultadoValidacao +=
+                    QuebraDeLinha(resultadoValidacao) +
+                    $"O tamanho do porta malas não pode ser 0 ou negativo";
+
+            if (Grupo == null)
+                resultadoValidacao +=
+                    QuebraDeLinha(resultadoValidacao) +
+                    $"O Automovel obrigatoriamente precisa fazer parte de um Grupo";
         }
 
+        private int PegarAnoFuturoValido()
+        {
+            return DateTime.Now.AddYears(1).Year;
+        }
 
     }
 }
