@@ -84,7 +84,10 @@ namespace LocadoraDeVeiculos.Dominio.PessoaFisicaModule
             
             if (string.IsNullOrEmpty(Endereco))
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo 'Endereço' não pode estar vazio.";
-            
+
+            if (resultadoValidacao == "")
+                resultadoValidacao = "ESTA_VALIDO";
+
             return resultadoValidacao;
         }
     }
