@@ -8,6 +8,16 @@ namespace LocadoraDeVeiculos.WindowsApp.Shared
 {
     public class ConfiguracoesTooltip
     {
+        public ConfiguracoesTooltip()
+        {
+            ToolTipAdicionar = "Não é possivel inserir este cadastro";
+            ToolTipEditar = "Não é possivel editar este cadastro";
+            ToolTipExcluir = "Não é possivel excluir este cadastro";
+            ToolTipFiltrar = "Não é possivel filtrar este cadastro";
+            ToolTipAgrupar = "Não é possivel agrupar este cadastro";
+            ToolTípDesagrupar = "Não é possivel desagrupar este cadastro";
+        }
+
         public string TipoCadastro { get; internal set; }
         public string ToolTipAdicionar { get; internal set; }
         public string ToolTipEditar { get; internal set; }
