@@ -22,7 +22,7 @@ namespace LocadoraDeVeiculos.Dominio.AutomovelModule
 
         public int Ano { get; }
 
-        public int NPortas { get; }
+        public int Portas { get; }
 
         public int CapacidadeTanque { get; }
 
@@ -52,7 +52,7 @@ namespace LocadoraDeVeiculos.Dominio.AutomovelModule
                    Placa == other.Placa &&
                    Chassi == other.Chassi &&
                    Ano == other.Ano &&
-                   NPortas == other.NPortas &&
+                   Portas == other.Portas &&
                    CapacidadeTanque == other.CapacidadeTanque &&
                    TamanhoPortaMalas == other.TamanhoPortaMalas &&
                    TipoCombustivel == other.TipoCombustivel &&
@@ -70,7 +70,7 @@ namespace LocadoraDeVeiculos.Dominio.AutomovelModule
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Placa);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Chassi);
             hashCode = hashCode * -1521134295 + Ano.GetHashCode();
-            hashCode = hashCode * -1521134295 + NPortas.GetHashCode();
+            hashCode = hashCode * -1521134295 + Portas.GetHashCode();
             hashCode = hashCode * -1521134295 + CapacidadeTanque.GetHashCode();
             hashCode = hashCode * -1521134295 + TamanhoPortaMalas.GetHashCode();
             hashCode = hashCode * -1521134295 + TipoCombustivel.GetHashCode();
@@ -115,7 +115,7 @@ namespace LocadoraDeVeiculos.Dominio.AutomovelModule
                     QuebraDeLinha(resultadoValidacao) +
                     $"O ano informado é invalido, você pode inserir carros de {PegarAnoFuturoValido()} até 1900";
 
-            if (NPortas <= 0)
+            if (Portas <= 0)
                 resultadoValidacao +=
                     QuebraDeLinha(resultadoValidacao) +
                     $"O Numero de portas não pode ser 0 ou negativo";
