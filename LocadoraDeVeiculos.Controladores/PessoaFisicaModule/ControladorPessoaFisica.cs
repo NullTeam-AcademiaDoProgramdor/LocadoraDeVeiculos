@@ -1,7 +1,9 @@
 ﻿using LocadoraDeVeiculos.Controladores.Shared;
 using LocadoraDeVeiculos.Dominio.PessoaFisicaModule;
+using LocadoraDeVeiculos.Dominio.PessoaJuridicaModule;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -62,10 +64,10 @@ namespace LocadoraDeVeiculos.Controladores.PessoaFisicaModule
                     CP.[TELEFONE],     
                     CP.[ENDERECO],     
                     CP.[ID_EMPRESALIGADA],
-                    CT.[NOME], 
+                    CT.[NOMEPJ], 
                     CT.[CNPJ],
-                    CT.[ENDERECO],                    
-                    CT.[TELEFONE] 
+                    CT.[ENDERECOPJ],                    
+                    CT.[TELEFONEPJ] 
             FROM
                 [PessoaFisica] AS CP LEFT JOIN 
                 [PessoaJuridica] AS CT
@@ -82,10 +84,10 @@ namespace LocadoraDeVeiculos.Controladores.PessoaFisicaModule
                     CP.[TELEFONE],     
                     CP.[ENDERECO],     
                     CP.[ID_EMPRESALIGADA],
-                    CT.[NOME], 
+                    CT.[NOMEPJ], 
                     CT.[CNPJ],
-                    CT.[ENDERECO],                    
-                    CT.[TELEFONE] 
+                    CT.[ENDERECOPJ],                    
+                    CT.[TELEFONEPJ] 
             FROM
                 [PessoaFisica] AS CP LEFT JOIN 
                 [PessoaJuridica] AS CT
@@ -151,14 +153,41 @@ namespace LocadoraDeVeiculos.Controladores.PessoaFisicaModule
 
         public override PessoaFisica SelecionarPorId(int id)
         {
-            throw new NotImplementedException();
+            return Db.Get(sqlSelecionarPessoaFisicaPorId, ConverterEmPessoaFisica, AdicionarParametro("ID", id));
         }
 
         public override List<PessoaFisica> SelecionarTodos()
         {
             throw new NotImplementedException();
         }
-       
+        
+        private PessoaFisica ConverterEmPessoaFisica(IDataReader reader)
+        {
+            var nome = Convert.ToString(reader["NOME"]);
+            var CPF = Convert.ToString(reader["CPF"]);
+            var RG = Convert.ToString(reader["RG"]);
+            var CNH = Convert.ToString(reader["CNH"]);
+            var vencimentoCnh = Convert.ToDateTime(reader["HORATERMINO"]);
+            var telefone = Convert.ToString(reader["TELEFONE"]);
+            var endereco = Convert.ToString(reader["ENDERECO"]);
+
+            var nomePJuridica = Convert.ToString(reader["NOMEPJ"]);
+            var CNPJ = Convert.ToString(reader["CNPJ"]);
+            var enderecoPJuridica = Convert.ToString(reader["ENDERECOPJ"]);
+            var telefonePJuridica = Convert.ToString(reader["TELEFONEPJ"]);
+
+            PessoaJuridica pJuridica = null;
+            if (reader["ID_EMPRESALIGADA"] != DBNull.Value)
+            {
+                pJuridica = new PessoaJuridica(nomePJuridica, CNPJ, telefonePJuridica, enderecoPJuridica);
+                pJuridica.Id = Convert.ToInt32(reader["ID_EMPRESALIGADA"]);
+            }
+
+            PessoaFisica pessoaFisica = new PessoaFisica(nome, CPF, RG, CNH, vencimentoCnh, telefone, endereco, pJuridica);
+            pessoaFisica.Id = Convert.ToInt32(reader["ID"]);
+
+            return pessoaFisica;
+        }
         private Dictionary<string, object> ObtemParametrosPessoaJuridica(PessoaFisica pessoaFisica)
         {
             var parametros = new Dictionary<string, object>();

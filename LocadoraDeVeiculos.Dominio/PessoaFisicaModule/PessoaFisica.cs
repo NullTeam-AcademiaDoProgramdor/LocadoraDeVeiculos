@@ -12,7 +12,7 @@ namespace LocadoraDeVeiculos.Dominio.PessoaFisicaModule
     {
         public PessoaFisica(string nome, string cPF, string rG, string cNH,
             DateTime vencimentoCNH, string telefone, string endereco,
-            PessoaJuridica pessoaJuridica = null)
+            PessoaJuridica pessoaJuridica)
         {
             Nome = nome;
             CPF = cPF;
