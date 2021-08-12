@@ -46,74 +46,74 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasJuridicas
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(32, 75);
+            this.label1.Location = new System.Drawing.Point(29, 47);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(38, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Nome";
+            this.label1.Text = "Nome:";
             // 
             // txtNome
             // 
-            this.txtNome.Location = new System.Drawing.Point(129, 75);
+            this.txtNome.Location = new System.Drawing.Point(73, 47);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(100, 20);
+            this.txtNome.Size = new System.Drawing.Size(255, 20);
             this.txtNome.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(32, 119);
+            this.label2.Location = new System.Drawing.Point(30, 99);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(34, 13);
+            this.label2.Size = new System.Drawing.Size(37, 13);
             this.label2.TabIndex = 2;
-            this.label2.Text = "CNPJ";
+            this.label2.Text = "CNPJ:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(32, 165);
+            this.label3.Location = new System.Drawing.Point(11, 73);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 13);
+            this.label3.Size = new System.Drawing.Size(56, 13);
             this.label3.TabIndex = 3;
-            this.label3.Text = "Endereço";
+            this.label3.Text = "Endereço:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(32, 208);
+            this.label4.Location = new System.Drawing.Point(15, 125);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(49, 13);
+            this.label4.Size = new System.Drawing.Size(52, 13);
             this.label4.TabIndex = 4;
-            this.label4.Text = "Telefone";
+            this.label4.Text = "Telefone:";
             // 
             // txtEndereco
             // 
-            this.txtEndereco.Location = new System.Drawing.Point(129, 165);
+            this.txtEndereco.Location = new System.Drawing.Point(73, 73);
             this.txtEndereco.Name = "txtEndereco";
-            this.txtEndereco.Size = new System.Drawing.Size(162, 20);
+            this.txtEndereco.Size = new System.Drawing.Size(255, 20);
             this.txtEndereco.TabIndex = 4;
             // 
             // txtCNPJ
             // 
-            this.txtCNPJ.Location = new System.Drawing.Point(129, 119);
+            this.txtCNPJ.Location = new System.Drawing.Point(73, 99);
             this.txtCNPJ.Mask = "00.000.000/0000-00";
             this.txtCNPJ.Name = "txtCNPJ";
-            this.txtCNPJ.Size = new System.Drawing.Size(100, 20);
+            this.txtCNPJ.Size = new System.Drawing.Size(108, 20);
             this.txtCNPJ.TabIndex = 3;
             // 
             // txtTelefone
             // 
-            this.txtTelefone.Location = new System.Drawing.Point(129, 208);
+            this.txtTelefone.Location = new System.Drawing.Point(73, 125);
             this.txtTelefone.Mask = "(00)00000-0000";
             this.txtTelefone.Name = "txtTelefone";
-            this.txtTelefone.Size = new System.Drawing.Size(100, 20);
+            this.txtTelefone.Size = new System.Drawing.Size(108, 20);
             this.txtTelefone.TabIndex = 5;
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button1.Location = new System.Drawing.Point(80, 258);
+            this.button1.Location = new System.Drawing.Point(172, 171);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 7;
@@ -124,7 +124,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasJuridicas
             // 
             this.btnGravar.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnGravar.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnGravar.Location = new System.Drawing.Point(188, 258);
+            this.btnGravar.Location = new System.Drawing.Point(253, 171);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(75, 23);
             this.btnGravar.TabIndex = 6;
@@ -136,25 +136,25 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasJuridicas
             // 
             this.txtId.BackColor = System.Drawing.Color.LightGreen;
             this.txtId.Enabled = false;
-            this.txtId.Location = new System.Drawing.Point(129, 34);
+            this.txtId.Location = new System.Drawing.Point(73, 21);
             this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(100, 20);
+            this.txtId.Size = new System.Drawing.Size(255, 20);
             this.txtId.TabIndex = 1;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(32, 34);
+            this.label5.Location = new System.Drawing.Point(48, 21);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(16, 13);
+            this.label5.Size = new System.Drawing.Size(19, 13);
             this.label5.TabIndex = 12;
-            this.label5.Text = "Id";
+            this.label5.Text = "Id:";
             // 
             // TelaPessoaJuridicaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(340, 293);
+            this.ClientSize = new System.Drawing.Size(340, 209);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnGravar);
@@ -167,9 +167,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasJuridicas
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "TelaPessoaJuridicaForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "TelaPessoaJuridicaForm";
+            this.Text = "Cadastro de Pessoa Jurídica";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TelaPessoaJuridicaForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
