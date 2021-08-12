@@ -158,7 +158,7 @@ namespace LocadoraDeVeiculos.Controladores.PessoaFisicaModule
 
         public override List<PessoaFisica> SelecionarTodos()
         {
-            throw new NotImplementedException();
+            return Db.GetAll(sqlSelecionarTodasPessoasFisicas, ConverterEmPessoaFisica);
         }
         
         private PessoaFisica ConverterEmPessoaFisica(IDataReader reader)
@@ -188,6 +188,7 @@ namespace LocadoraDeVeiculos.Controladores.PessoaFisicaModule
 
             return pessoaFisica;
         }
+
         private Dictionary<string, object> ObtemParametrosPessoaJuridica(PessoaFisica pessoaFisica)
         {
             var parametros = new Dictionary<string, object>();
