@@ -102,6 +102,8 @@ namespace LocadoraDeVeiculos.Controladores.PessoaFisicaModule
             WHERE 
                 [ID] = @ID";
 
+        #endregion
+
         public override string InserirNovo(PessoaFisica registro)
         {
             string resultadoValidacao = registro.Validar();
@@ -114,22 +116,6 @@ namespace LocadoraDeVeiculos.Controladores.PessoaFisicaModule
             return resultadoValidacao;
         }
 
-        private Dictionary<string, object> ObtemParametrosPessoaJuridica(PessoaFisica pessoaFisica)
-        {
-            var parametros = new Dictionary<string, object>();
-
-            parametros.Add("ID", pessoaFisica.Id);
-            parametros.Add("NOME", pessoaFisica.Nome);
-            parametros.Add("CPF", pessoaFisica.CPF);
-            parametros.Add("RG", pessoaFisica.RG);
-            parametros.Add("CNH", pessoaFisica.CNH);
-            parametros.Add("VENCIMENTOCNH", pessoaFisica.VencimentoCNH);
-            parametros.Add("TELEFONE", pessoaFisica.Telefone);
-            parametros.Add("ENDERECO", pessoaFisica.Endereco);
-            parametros.Add("ID_EMPRESALIGADA", pessoaFisica.PessoaJuridica?.Id);
-
-            return parametros;
-        }
 
         public override string Editar(int id, PessoaFisica registro)
         {
@@ -160,9 +146,8 @@ namespace LocadoraDeVeiculos.Controladores.PessoaFisicaModule
 
         public override bool Existe(int id)
         {
-            throw new NotImplementedException();
+            return Db.Exists(sqlExistePessoaFisica, AdicionarParametro("ID", id));
         }
-
 
         public override PessoaFisica SelecionarPorId(int id)
         {
@@ -173,8 +158,22 @@ namespace LocadoraDeVeiculos.Controladores.PessoaFisicaModule
         {
             throw new NotImplementedException();
         }
-        #endregion
+       
+        private Dictionary<string, object> ObtemParametrosPessoaJuridica(PessoaFisica pessoaFisica)
+        {
+            var parametros = new Dictionary<string, object>();
 
+            parametros.Add("ID", pessoaFisica.Id);
+            parametros.Add("NOME", pessoaFisica.Nome);
+            parametros.Add("CPF", pessoaFisica.CPF);
+            parametros.Add("RG", pessoaFisica.RG);
+            parametros.Add("CNH", pessoaFisica.CNH);
+            parametros.Add("VENCIMENTOCNH", pessoaFisica.VencimentoCNH);
+            parametros.Add("TELEFONE", pessoaFisica.Telefone);
+            parametros.Add("ENDERECO", pessoaFisica.Endereco);
+            parametros.Add("ID_EMPRESALIGADA", pessoaFisica.PessoaJuridica?.Id);
 
+            return parametros;
+        }
     }
 }
