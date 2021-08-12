@@ -30,6 +30,10 @@ namespace LocadoraDeVeiculos.Dominio.AutomovelModule
 
         public TipoCombustivelEnum TipoCombustivel { get; }
 
+        public CambioEnum Cambio { get; }
+
+        public DirecaoEnum Direcao { get; }
+
         public GrupoAutomovel Grupo { get; }
 
         public override bool Equals(object obj)

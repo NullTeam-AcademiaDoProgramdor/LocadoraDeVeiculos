@@ -42,7 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutomovelModule\Automovel.cs" />
+    <Compile Include="AutomovelModule\CambioEnum.cs" />
     <Compile Include="AutomovelModule\TipoCombustivelEnum.cs" />
+    <Compile Include="AutomovelModule\DirecaoEnum.cs" />
     <Compile Include="GrupoAutomovelModule\GrupoAutomovel.cs" />
     <Compile Include="GrupoAutomovelModule\PlanoDiarioStruct.cs" />
     <Compile Include="GrupoAutomovelModule\PlanoKmControladoStruct.cs" />
