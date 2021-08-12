@@ -18,7 +18,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
                     TipoCadastro = "Cadastro de Taxas e Serviços",
                     ToolTipAdicionar = "Adicionar uma nova Taxa ou Serviço",
                     ToolTipEditar = "Editar uma Taxa ou Serviço existente",
-                    ToolTipExcluir = "Excluir uma Taxa ou Serviço existente"
+                    ToolTipExcluir = "Excluir uma Taxa ou Serviço existente"                    
                 };
             }
         }
