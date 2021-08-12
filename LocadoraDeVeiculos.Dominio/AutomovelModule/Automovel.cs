@@ -130,6 +130,11 @@ namespace LocadoraDeVeiculos.Dominio.AutomovelModule
                 resultadoValidacao +=
                     QuebraDeLinha(resultadoValidacao) +
                     $"O Automovel obrigatoriamente precisa fazer parte de um Grupo";
+
+            if (resultadoValidacao == "")
+                resultadoValidacao = "ESTA_VALIDO";
+
+            return resultadoValidacao;
         }
 
         private int PegarAnoFuturoValido()
