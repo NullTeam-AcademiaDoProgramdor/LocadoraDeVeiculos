@@ -146,7 +146,16 @@ namespace LocadoraDeVeiculos.Controladores.PessoaFisicaModule
 
         public override bool Excluir(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Db.Delete(sqlExistePessoaFisica, AdicionarParametro("ID", id));
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
         }
 
         public override bool Existe(int id)
