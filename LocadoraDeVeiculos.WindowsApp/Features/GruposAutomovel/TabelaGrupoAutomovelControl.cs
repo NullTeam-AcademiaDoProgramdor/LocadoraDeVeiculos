@@ -30,12 +30,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GruposAutomovel
             {
                 new DataGridViewTextBoxColumn {DataPropertyName = "Id", HeaderText = "Id"},
                 new DataGridViewTextBoxColumn {DataPropertyName = "Nome", HeaderText = "Nome"},
-                new DataGridViewTextBoxColumn {DataPropertyName = "PlanoDiario.PrecoDia", HeaderText = "Preço por dia (Plano Diario)"},
-                new DataGridViewTextBoxColumn {DataPropertyName = "PlanoDiario.PrecoKm", HeaderText = "Preço por Km (Plano Diario)"},
-                new DataGridViewTextBoxColumn {DataPropertyName = "PlanoKmControlado.PrecoDia", HeaderText = "Preço por Dia (Plano Controlado)"},
-                new DataGridViewTextBoxColumn {DataPropertyName = "PlanoKmControlado.KmDisponiveis", HeaderText = "Km Disponiveis (Plano Controlado)"},
-                new DataGridViewTextBoxColumn {DataPropertyName = "PlanoKmControlado.PrecoKmExtrapolado", HeaderText = "Preço Km Extrapolado (Plano Controlado)"},
-                new DataGridViewTextBoxColumn {DataPropertyName = "PlanoKmLivre.PrecoDia", HeaderText = "Preço por dia (Plano Livre)"},
+                new DataGridViewTextBoxColumn {DataPropertyName = "PlanoDiario.PrecoDia", HeaderText = "Preço por dia\n(Plano Diario)"},
+                new DataGridViewTextBoxColumn {DataPropertyName = "PlanoDiario.PrecoKm", HeaderText = "Preço por Km\n(Plano Diario)"},
+                new DataGridViewTextBoxColumn {DataPropertyName = "PlanoKmControlado.PrecoDia", HeaderText = "Preço por Dia\n(Plano Controlado)"},
+                new DataGridViewTextBoxColumn {DataPropertyName = "PlanoKmControlado.KmDisponiveis", HeaderText = "Km Disponiveis\n(Plano Controlado)"},
+                new DataGridViewTextBoxColumn {DataPropertyName = "PlanoKmControlado.PrecoKmExtrapolado", HeaderText = "Preço Km Extrapolado\n(Plano Controlado)"},
+                new DataGridViewTextBoxColumn {DataPropertyName = "PlanoKmLivre.PrecoDia", HeaderText = "Preço por dia\n(Plano Livre)"},
             };
 
             return colunas;

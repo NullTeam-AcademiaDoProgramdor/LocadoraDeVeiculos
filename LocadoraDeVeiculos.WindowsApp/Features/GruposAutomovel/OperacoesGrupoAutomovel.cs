@@ -33,7 +33,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GruposAutomovel
 
                 tabelaGrupoAutomovel.AtualizarRegistros(grupos);
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Grupo [{tela.GrupoAutomovel.Nome}] inserido com sucesso");
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Grupo: [{tela.GrupoAutomovel.Nome}] inserido com sucesso");
             }
         }
 
@@ -62,7 +62,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GruposAutomovel
 
                 tabelaGrupoAutomovel.AtualizarRegistros(grupos);
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Grupo [{tela.GrupoAutomovel.Nome}] editado com sucesso");
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Grupo: [{tela.GrupoAutomovel.Nome}] editado com sucesso");
             }
         }
         public void ExcluirRegistro()
