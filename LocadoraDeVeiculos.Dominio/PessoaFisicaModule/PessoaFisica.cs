@@ -1,4 +1,5 @@
 ﻿using LocadoraDeVeiculos.Dominio.PessoaJuridicaModule;
+using LocadoraDeVeiculos.Dominio.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Dominio.PessoaFisicaModule
 {
-    public class PessoaFisica : IEquatable<PessoaFisica>
+    public class PessoaFisica : EntidadeBase, IEquatable<PessoaFisica>
     {
         public PessoaFisica(string nome, string cPF, string rG, string cNH,
             string telefone, string endereco, PessoaJuridica pessoaJuridica = null)
@@ -60,6 +61,11 @@ namespace LocadoraDeVeiculos.Dominio.PessoaFisicaModule
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Endereco);
             hashCode = hashCode * -1521134295 + EqualityComparer<PessoaJuridica>.Default.GetHashCode(PessoaJuridica);
             return hashCode;
+        }
+
+        public override string Validar()
+        {
+            throw new NotImplementedException();
         }
     }
 }
