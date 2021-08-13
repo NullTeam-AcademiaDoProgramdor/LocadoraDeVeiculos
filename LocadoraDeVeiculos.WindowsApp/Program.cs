@@ -21,7 +21,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             var a = Configuracoes.Configuracao.AbreNoDomingo;
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TelaPrincipalForm(new Funcionario("Ricardo", new DateTime(10/08/2021), 100, "123")));
+            Application.Run(new TelaPrincipalForm());
         }
     }
 
