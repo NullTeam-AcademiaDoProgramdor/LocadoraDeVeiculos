@@ -34,7 +34,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
                 new DataGridViewTextBoxColumn {DataPropertyName = "Marca", HeaderText = "Marca"},
                 new DataGridViewTextBoxColumn {DataPropertyName = "Placa", HeaderText = "Placa"},
                 new DataGridViewTextBoxColumn {DataPropertyName = "Chassi", HeaderText = "Chassi"},
-                new DataGridViewTextBoxColumn {DataPropertyName = "Grupo.Nome", HeaderText = "Grupo"},
+                new DataGridViewTextBoxColumn {DataPropertyName = "Grupo", HeaderText = "Grupo"},
             };
 
             return colunas;
