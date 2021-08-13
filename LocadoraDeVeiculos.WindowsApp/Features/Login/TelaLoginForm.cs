@@ -23,15 +23,15 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
             controladorFuncionario = new ControladorFuncionario();
         }
 
-        public Funcionario Funcionario
+        private void btnEntrar_Click(object sender, EventArgs e)
         {
-            get { return funcionario; }
-            set
-            {
-                funcionario = value;
+            funcionario = controladorFuncionario.SelecionarPorNomeESenha(txtNome.Text, txtSenha.Text);
 
-                funcionario = controladorFuncionario.SelecionarPorNomeESenha(txtNome.Text, txtSenha.Text);
+            if(funcionario == null)
+            {
+                MessageBox.Show("Nome ou senha inválidos");
             }
+
         }
     }
 }
