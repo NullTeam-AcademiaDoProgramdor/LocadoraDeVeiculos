@@ -78,23 +78,30 @@ namespace LocadoraDeVeiculos.Dominio.PessoaFisicaModule
 
             if (string.IsNullOrEmpty(CPF))
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo 'CPF' não pode estar vazio.";
+            else if(CPF.Length != 14)
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "CPF inválido.";
             
             if (string.IsNullOrEmpty(RG))
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo 'RG' não pode estar vazio.";
-            
+            else if (RG.Length != 13)
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "RG inválido.";
+
             if (string.IsNullOrEmpty(CNH))
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo 'CNH' não pode estar vazio.";
+            else if (CNH.Length != 12)
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "CNH inválida.";
 
             if (string.IsNullOrEmpty(Telefone))
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo 'Telefone' não pode estar vazio.";
-            
+            else if (Telefone.Length != 14 && Telefone.Length != 13)
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "Número de telefone muito pequeno.";
+
             if (string.IsNullOrEmpty(Endereco))
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo 'Endereço' não pode estar vazio.";
 
             if (VencimentoCNH == DateTime.MinValue)
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo 'VencimentoCNH' não pode estar vazio.";
-
-            if (DateTime.Compare(VencimentoCNH, DateTime.Now) <= 0)
+            else if (DateTime.Compare(VencimentoCNH, DateTime.Now) <= 0)
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "Data de vencimento não pode ser aceita.";
 
             if (resultadoValidacao == "")
