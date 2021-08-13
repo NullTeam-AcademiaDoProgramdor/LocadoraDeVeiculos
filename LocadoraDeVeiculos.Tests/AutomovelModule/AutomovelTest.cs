@@ -35,7 +35,20 @@ namespace LocadoraDeVeiculos.Tests.AutomovelModule
             automovel.Direcao.Should().Be(DirecaoEnum.Mecanica);
 
             automovel.Grupo.Should().Be(grupo);
+        }
 
+        [TestMethod]
+        public void DeveRetornar_AutomovelValido()
+        {
+            GrupoAutomovel grupo = CriarGrupo();
+            Automovel automovel =
+                new Automovel("Gol", "Ford", "Branco", "ABCD123", "12YG2J31G23H123",
+                2020, 4, 100, 30, TipoCombustivelEnum.Gasolina, CambioEnum.Manual,
+                DirecaoEnum.Mecanica, grupo);
+
+            var resultado = automovel.Validar();
+
+            resultado.Should().Be("ESTA_VALIDO");
         }
 
         private GrupoAutomovel CriarGrupo()
