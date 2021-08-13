@@ -64,6 +64,11 @@ namespace LocadoraDeVeiculos.Controladores.AutomovelModule
 		        [grupo] = @grupo
 
 	        WHERE [id] = @id;";
+
+        private const string sqlExcluirAutomovel =
+            @"DELETE FROM [Automovel]
+	            WHERE [id] = @id";
+
         #endregion
 
         public override string InserirNovo(Automovel registro)
@@ -93,7 +98,16 @@ namespace LocadoraDeVeiculos.Controladores.AutomovelModule
 
         public override bool Excluir(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Db.Delete(sqlExcluirAutomovel, AdicionarParametro("id", id));
+            }
+            catch(Exception)
+            {
+                return false;
+            }
+
+            return true;
         }
 
         public override bool Existe(int id)
