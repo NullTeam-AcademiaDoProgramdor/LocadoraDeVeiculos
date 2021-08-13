@@ -65,6 +65,12 @@
       <DependentUpon>TelaGrupoAutomovelForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Features\PessoasFisicas\ConfiguracaoPessoaFisicaToolBox.cs" />
+    <Compile Include="Features\PessoasFisicas\TabelaPessoaFisicaControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Features\PessoasFisicas\TabelaPessoaFisicaControl.Designer.cs">
+      <DependentUpon>TabelaPessoaFisicaControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Features\PessoasFisicas\TelaPessoaFisicaForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +145,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Features\GruposAutomovel\TelaGrupoAutomovelForm.resx">
       <DependentUpon>TelaGrupoAutomovelForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\PessoasFisicas\TabelaPessoaFisicaControl.resx">
+      <DependentUpon>TabelaPessoaFisicaControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\PessoasFisicas\TelaPessoaFisicaForm.resx">
       <DependentUpon>TelaPessoaFisicaForm.cs</DependentUpon>
