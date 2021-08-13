@@ -219,6 +219,7 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="Lib\DataGridViewGrouper.dll" />
+    <None Include="Resources\AlugaRech2.0 %282%29.png" />
     <ProjectReference Include="..\LocadoraDeVeiculos.Controladores\LocadoraDeVeiculos.Controladores.csproj">
       <Project>{c0ca9d0a-9edb-41d2-afc0-f27abe5e84e7}</Project>
       <Name>LocadoraDeVeiculos.Controladores</Name>
