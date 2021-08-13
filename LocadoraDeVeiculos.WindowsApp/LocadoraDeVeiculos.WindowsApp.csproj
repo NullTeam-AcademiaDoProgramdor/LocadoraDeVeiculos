@@ -50,11 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Features\Automovel\ConfiguracaoAutomovelTooBox.cs" />
-    <Compile Include="Features\Automovel\TabelaAutomovelControl.cs">
+    <Compile Include="Features\Automoveis\ConfiguracaoAutomovelTooBox.cs" />
+    <Compile Include="Features\Automoveis\OperacoesAutomovel.cs" />
+    <Compile Include="Features\Automoveis\TabelaAutomovelControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Features\Automovel\TabelaAutomovelControl.Designer.cs">
+    <Compile Include="Features\Automoveis\TabelaAutomovelControl.Designer.cs">
       <DependentUpon>TabelaAutomovelControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Features\GruposAutomovel\ConfiguracaoGrupoAutomovelToolBox.cs" />
@@ -134,7 +135,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Features\Automovel\TabelaAutomovelControl.resx">
+    <EmbeddedResource Include="Features\Automoveis\TabelaAutomovelControl.resx">
       <DependentUpon>TabelaAutomovelControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\GruposAutomovel\TabelaGrupoAutomovelControl.resx">
