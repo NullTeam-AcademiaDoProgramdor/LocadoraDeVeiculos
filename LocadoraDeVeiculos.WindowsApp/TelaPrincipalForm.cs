@@ -19,6 +19,8 @@ using LocadoraDeVeiculos.Dominio.TaxasEServicosModule;
 using LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos;
 
 using LocadoraDeVeiculos.WindowsApp.Features.Configuracoes;
+using LocadoraDeVeiculos.WindowsApp.Features.Automoveis;
+using LocadoraDeVeiculos.Controladores.AutomovelModule;
 
 namespace LocadoraDeVeiculos.WindowsApp
 {
@@ -35,6 +37,8 @@ namespace LocadoraDeVeiculos.WindowsApp
         private OperacoesTaxasESevicos operacoesTaxasEServicos;
         private OperacoesConfiguracoes operacoesConfiguracoes;
 
+        private OperacoesAutomovel operacoesAutomovel;
+
         public TelaPrincipalForm()
         {
             InitializeComponent();
@@ -47,6 +51,8 @@ namespace LocadoraDeVeiculos.WindowsApp
             operacoesTaxasEServicos = new OperacoesTaxasESevicos(new ControladorTaxasEServicos());
 
             operacoesConfiguracoes = new OperacoesConfiguracoes();
+
+            operacoesAutomovel = new OperacoesAutomovel(new ControladorAutomovel());
 
             Instancia = this;
         }
@@ -192,6 +198,21 @@ namespace LocadoraDeVeiculos.WindowsApp
             ConfigurarPainelRegistros();
         }
 
+        private void automovelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConfiguracaoAutomovelTooBox configuracaoToolBox =
+                new ConfiguracaoAutomovelTooBox();
+
+            ConfigurarTooltips(configuracaoToolBox.Tooltip);
+            ConfigurarBotoes(configuracaoToolBox.Botoes);
+
+            AtualizarRodape(configuracaoToolBox.Tooltip.TipoCadastro);
+
+            operacoes = operacoesAutomovel;
+
+            ConfigurarPainelRegistros();
+        }
+
         private void ConfigurarPainelRegistros()
         {
             UserControl tabela = operacoes.ObterTabela();
@@ -202,5 +223,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             panelRegistros.Controls.Add(tabela);
         }
+
+       
     }
 }
