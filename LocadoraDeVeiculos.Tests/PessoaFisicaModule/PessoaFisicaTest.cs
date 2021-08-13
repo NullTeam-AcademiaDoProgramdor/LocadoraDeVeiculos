@@ -78,17 +78,6 @@ namespace LocadoraDeVeiculos.Tests.PessoaFisicaModule
             pessoaFisica.Validar().Should().Be("CPF inválido.");
         }
         [TestMethod]
-        public void DeveValidar_RGInvalido()
-        {
-            //arange
-            PessoaJuridica pessoaJuridica = new PessoaJuridica("Matheus", "22.000.000/0001-00", "(49)000000000", "Lagi");
-            //action
-            PessoaFisica pessoaFisica = new PessoaFisica("Matheus", "123.456.789-02", "8.098-02", "123456789123", new DateTime(2022, 02, 20), "(49)000000000", "Lagi", pessoaJuridica);
-
-            //assert
-            pessoaFisica.Validar().Should().Be("RG inválido.");
-        }
-        [TestMethod]
         public void DeveValidar_CNHInvalido()
         {
             //arange
