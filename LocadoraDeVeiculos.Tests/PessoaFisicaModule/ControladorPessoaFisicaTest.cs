@@ -61,5 +61,20 @@ namespace LocadoraDeVeiculos.Tests.PessoaFisicaModule
             PessoaFisica pessoaFisicaEncontrada = controlador.SelecionarPorId(pessoaFisica.Id);
             pessoaFisicaEncontrada.Should().Be(novaPessoaFisica);
         }
+
+        [TestMethod]
+        public void DeveSelecionar_Compromisso_PorId()
+        {
+            //arrange
+            PessoaFisica pessoaFisica = new PessoaFisica("Matheus", "123.456.789-02", "12.098.098-02",
+                "123456789123", new DateTime(2022, 02, 20), "(49)000000000", "Lagi", null);
+            controlador.InserirNovo(pessoaFisica);
+
+            //action
+            PessoaFisica pessoaFisicaEncontrada = controlador.SelecionarPorId(pessoaFisica.Id);
+
+            //assert
+            controlador.Should().NotBeNull();
+        }
     }
 }
