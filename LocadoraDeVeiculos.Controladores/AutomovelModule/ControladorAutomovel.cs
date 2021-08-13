@@ -109,6 +109,38 @@ namespace LocadoraDeVeiculos.Controladores.AutomovelModule
             ON
 	            G.id = A.grupo;";
 
+        private const string sqlSelecioneAutomovelPorId =
+            @"SELECT
+	            A.id,
+	            A.placa,
+	            A.chassi,
+	            A.marca,
+	            A.cor,
+	            A.modelo,
+	            A.tipoCombustivel,
+	            A.capacidadeTanque,
+	            A.ano,
+	            A.capacidadePortaMalas,
+	            A.n_portas,
+	            A.cambio,
+	            A.direcao,
+	            A.grupo,
+
+	            G.nome,
+	            G.planoDIario_precoDIa,
+	            G.planoDiario_precoKm,
+	            G.planoKmControlado_KmDisponiveis,
+	            G.planoKmControlado_precoDia,
+	            G.planoKmControlado_precoKmExtrapolado,
+	            G.planoKmLivre_precoDia
+            FROM
+	            [Automovel] as A LEFT JOIN
+	            [GrupoAutomovel] AS G
+            ON
+	            G.id = A.grupo
+            WHERE
+	            A.id = @id;";
+
         #endregion
 
         public override string InserirNovo(Automovel registro)
@@ -157,7 +189,7 @@ namespace LocadoraDeVeiculos.Controladores.AutomovelModule
 
         public override Automovel SelecionarPorId(int id)
         {
-            throw new NotImplementedException();
+            return Db.Get(sqlSelecioneAutomovelPorId, ConverterEmAutomovel, AdicionarParametro("id", id));
         }
 
         public override List<Automovel> SelecionarTodos()
