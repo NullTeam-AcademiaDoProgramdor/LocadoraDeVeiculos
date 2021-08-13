@@ -83,8 +83,6 @@ namespace LocadoraDeVeiculos.Dominio.PessoaFisicaModule
             
             if (string.IsNullOrEmpty(RG))
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo 'RG' não pode estar vazio.";
-            else if (RG.Length != 13)
-                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "RG inválido.";
 
             if (string.IsNullOrEmpty(CNH))
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo 'CNH' não pode estar vazio.";
