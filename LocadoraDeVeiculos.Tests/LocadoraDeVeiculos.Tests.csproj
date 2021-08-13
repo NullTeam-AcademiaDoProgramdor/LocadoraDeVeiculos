@@ -55,6 +55,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AutomovelModule\ControladorAutomovelTest.cs" />
     <Compile Include="FuncionarioModule\ControladorFuncionarioTest.cs" />
     <Compile Include="FuncionarioModule\FuncionarioTest.cs" />
     <Compile Include="GrupoAutomovelModule\ControladorGupoAutomovelTest.cs" />
