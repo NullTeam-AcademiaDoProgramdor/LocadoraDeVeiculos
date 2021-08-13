@@ -45,6 +45,25 @@ namespace LocadoraDeVeiculos.Controladores.AutomovelModule
 		        @direcao,
 		        @grupo
 	        );";
+
+        private const string sqlEditarAutomovel =
+            @"UPDATE [Automovel]
+	        SET
+		        [placa] = @placa,
+		        [chassi] = @chassi,
+		        [marca] = @marca,
+		        [cor] = @cor,
+		        [modelo] = @modelo,
+		        [tipoCombustivel] = @tipoCombustivel,
+	            [capacidadeTanque] = @capacidadeTanque,
+		        [ano] = @ano,
+		        [capacidadePortaMalas] = @capacidadePortaMalas,
+		        [n_portas] = @n_portas,
+		        [cambio] = @cambio,
+	            [direcao] = @direcao,
+		        [grupo] = @grupo
+
+	        WHERE [id] = @id;";
         #endregion
 
         public override string InserirNovo(Automovel registro)
@@ -61,7 +80,15 @@ namespace LocadoraDeVeiculos.Controladores.AutomovelModule
 
         public override string Editar(int id, Automovel registro)
         {
-            throw new NotImplementedException();
+            string resultadoValidacao = registro.Validar();
+
+            if (resultadoValidacao == "ESTA_VALIDO")
+            {
+                registro.id = id;
+                Db.Update(sqlEditarAutomovel, ObtemParametrosAutomovel(registro));
+            }
+
+            return resultadoValidacao;
         }
 
         public override bool Excluir(int id)
