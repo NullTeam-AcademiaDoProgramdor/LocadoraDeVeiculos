@@ -31,7 +31,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
             {
                 return new ConfiguracoesBotoes()
                 {
-                    BtnAgrupar = true;
+                    BtnAgrupar = true
                 };
             }
         }
