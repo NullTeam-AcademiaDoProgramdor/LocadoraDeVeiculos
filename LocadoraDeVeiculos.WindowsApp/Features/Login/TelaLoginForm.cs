@@ -28,7 +28,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
             if (txtNome.Text == "Admin" && txtSenha.Text == "Admin")
             {
                 TelaPrincipalForm telaPrincipal = new TelaPrincipalForm();
+                this.Hide();
                 telaPrincipal.ShowDialog();
+                this.Show();
                 return;
             }
 
@@ -41,8 +43,11 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
             else
             {
                 labelRodape.Text = "Bem Vindo!";
-                TelaPrincipalForm telaPrincipal = new TelaPrincipalForm(funcionario);                
-                telaPrincipal.ShowDialog();                
+                TelaPrincipalForm telaPrincipal = new TelaPrincipalForm(funcionario);
+                 
+                this.Hide(); 
+                telaPrincipal.ShowDialog();
+                this.Show();
             }
         }
     }
