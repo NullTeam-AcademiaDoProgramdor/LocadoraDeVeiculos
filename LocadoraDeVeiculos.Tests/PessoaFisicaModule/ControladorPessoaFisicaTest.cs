@@ -25,7 +25,7 @@ namespace LocadoraDeVeiculos.Tests.PessoaFisicaModule
         }
 
         [TestMethod]
-        public void DeveInserir_PessoaFisica()
+        public void DeveInserir_PessoaFisicaComPessoaJuridica()
         {
             //arrange
             PessoaJuridica pessoaJuridica = new PessoaJuridica("Matheus", "22.000.000/0001-00", "(49)000000000", "Lagi");
@@ -40,6 +40,26 @@ namespace LocadoraDeVeiculos.Tests.PessoaFisicaModule
             //assert
             var pessoaFisicaEncontrada = controlador.SelecionarPorId(pessoaFisica.Id);
             pessoaFisicaEncontrada.Should().Be(pessoaFisica);
+        }
+
+        [TestMethod]
+        public void DeveAtualizar_Compromisso()
+        {
+            //arrange
+            PessoaFisica pessoaFisica = new PessoaFisica("Matheus", "123.456.789-02", "12.098.098-02",
+                "123456789123", new DateTime(2022, 02, 20), "(49)000000000", "Lagi", null);
+            controlador.InserirNovo(pessoaFisica);
+
+            string telefone = "(49)000000111";
+
+            PessoaFisica novaPessoaFisica = new PessoaFisica("Matheus", "123.456.789-02", "12.098.098-02",
+                "123456789123", new DateTime(2022, 02, 20), telefone, "Lagi", null);
+            //action
+            controlador.Editar(pessoaFisica.Id, novaPessoaFisica);
+
+            //assert
+            PessoaFisica pessoaFisicaEncontrada = controlador.SelecionarPorId(pessoaFisica.Id);
+            pessoaFisicaEncontrada.Should().Be(novaPessoaFisica);
         }
     }
 }
