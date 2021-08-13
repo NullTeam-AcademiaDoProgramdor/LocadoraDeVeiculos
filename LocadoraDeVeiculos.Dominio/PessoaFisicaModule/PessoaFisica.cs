@@ -102,7 +102,7 @@ namespace LocadoraDeVeiculos.Dominio.PessoaFisicaModule
             if (VencimentoCNH == DateTime.MinValue)
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo 'data de vencimento' não pode estar vazio.";
             else if (DateTime.Compare(VencimentoCNH, DateTime.Now) <= 0)
-                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "Data de vencimento não pode ser aceita.";
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "A data de vencimento da CNH não pode ser aceita.";
 
             if (resultadoValidacao == "")
                 resultadoValidacao = "ESTA_VALIDO";
