@@ -34,6 +34,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
             this.label2 = new System.Windows.Forms.Label();
             this.txtSenha = new System.Windows.Forms.TextBox();
             this.btnEntrar = new System.Windows.Forms.Button();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.labelRodape = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -74,7 +77,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
             // 
             this.btnEntrar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnEntrar.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btnEntrar.Location = new System.Drawing.Point(127, 180);
+            this.btnEntrar.Location = new System.Drawing.Point(127, 181);
             this.btnEntrar.Name = "btnEntrar";
             this.btnEntrar.Size = new System.Drawing.Size(75, 23);
             this.btnEntrar.TabIndex = 4;
@@ -82,11 +85,29 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
             this.btnEntrar.UseVisualStyleBackColor = false;
             this.btnEntrar.Click += new System.EventHandler(this.btnEntrar_Click);
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.labelRodape});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 229);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(314, 22);
+            this.statusStrip1.TabIndex = 5;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // labelRodape
+            // 
+            this.labelRodape.Enabled = false;
+            this.labelRodape.Name = "labelRodape";
+            this.labelRodape.Size = new System.Drawing.Size(68, 17);
+            this.labelRodape.Text = "Bem Vindo!";
+            // 
             // TelaLoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(314, 221);
+            this.ClientSize = new System.Drawing.Size(314, 251);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.btnEntrar);
             this.Controls.Add(this.txtSenha);
             this.Controls.Add(this.label2);
@@ -96,6 +117,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
             this.Name = "TelaLoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TelaLoginForm";
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -108,5 +131,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtSenha;
         private System.Windows.Forms.Button btnEntrar;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel labelRodape;
     }
 }

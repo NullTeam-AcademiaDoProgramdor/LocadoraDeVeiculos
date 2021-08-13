@@ -27,9 +27,19 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
         {
             funcionario = controladorFuncionario.SelecionarPorNomeESenha(txtNome.Text, txtSenha.Text);
 
+            if(funcionario.Nome == "Admin" && funcionario.Senha == "Admin")
+            {
+                TelaPrincipalForm telaPrincipal = new TelaPrincipalForm();
+                telaPrincipal.ShowDialog();
+            }
             if(funcionario == null)
             {
-                MessageBox.Show("Nome ou senha inválidos");
+                labelRodape.Text = "Nome ou senha inválidos";
+            }
+            else
+            {
+                TelaPrincipalForm telaPrincipal = new TelaPrincipalForm(funcionario);                
+                telaPrincipal.ShowDialog();                
             }
 
         }
