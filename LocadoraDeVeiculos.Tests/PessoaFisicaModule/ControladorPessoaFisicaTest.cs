@@ -6,6 +6,7 @@ using LocadoraDeVeiculos.Dominio.PessoaFisicaModule;
 using LocadoraDeVeiculos.Dominio.PessoaJuridicaModule;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Collections.Generic;
 
 namespace LocadoraDeVeiculos.Tests.PessoaFisicaModule
 {
@@ -75,6 +76,35 @@ namespace LocadoraDeVeiculos.Tests.PessoaFisicaModule
 
             //assert
             controlador.Should().NotBeNull();
+        }
+
+        [TestMethod]
+        public void DeveSelecionar_TodosCompromissos()
+        {
+            //arrange
+            var pessoasFisicas = new List<PessoaFisica>
+            {
+                new PessoaFisica("Matheus", "123.456.789-02", "12.098.098-02",
+                "123456789123", new DateTime(2022, 02, 20), "(49)000000000", "Lagi", null),
+
+                new PessoaFisica("João", "123.456.789-02", "12.098.098-02",
+                "123456789123", new DateTime(2022, 02, 20), "(49)000000000", "Lagi", null),
+
+                new PessoaFisica("Biel", "123.456.789-02", "12.098.098-02",
+                "123456789123", new DateTime(2022, 02, 20), "(49)000000000", "Lagi", null),
+
+                new PessoaFisica("Ju", "123.456.789-02", "12.098.098-02",
+                "123456789123", new DateTime(2022, 02, 20), "(49)000000000", "Lagi", null)
+            };
+
+            foreach (var c in pessoasFisicas)
+                controlador.InserirNovo(c);
+
+            //action
+            var pessoasFisicasEncotradas = controlador.SelecionarTodos();
+
+            //assert
+            pessoasFisicasEncotradas.Should().HaveCount(4);
         }
     }
 }
