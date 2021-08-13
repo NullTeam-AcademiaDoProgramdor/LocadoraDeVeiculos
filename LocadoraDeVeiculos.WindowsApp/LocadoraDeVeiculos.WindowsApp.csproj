@@ -64,6 +64,13 @@
     <Compile Include="Features\GruposAutomovel\TelaGrupoAutomovelForm.Designer.cs">
       <DependentUpon>TelaGrupoAutomovelForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\PessoasFisicas\ConfiguracaoPessoaFisicaToolBox.cs" />
+    <Compile Include="Features\PessoasFisicas\TelaPessoaFisicaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\PessoasFisicas\TelaPessoaFisicaForm.Designer.cs">
+      <DependentUpon>TelaPessoaFisicaForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Features\PessoasJuridicas\ConfiguracaoPessoaJuridicaToolBox.cs" />
     <Compile Include="Features\PessoasJuridicas\OperacoesPessoaJuridica.cs" />
     <Compile Include="Features\PessoasJuridicas\TabelaPessoaJuridicaControl.cs">
@@ -133,6 +140,9 @@
     <EmbeddedResource Include="Features\GruposAutomovel\TelaGrupoAutomovelForm.resx">
       <DependentUpon>TelaGrupoAutomovelForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Features\PessoasFisicas\TelaPessoaFisicaForm.resx">
+      <DependentUpon>TelaPessoaFisicaForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Features\PessoasJuridicas\TabelaPessoaJuridicaControl.resx">
       <DependentUpon>TabelaPessoaJuridicaControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -194,7 +204,9 @@
   <ItemGroup>
     <None Include="Resources\outline_expand_black_24dp.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="bin\Debug\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LocadoraDeVeiculos.Controladores\LocadoraDeVeiculos.Controladores.csproj">
       <Project>{c0ca9d0a-9edb-41d2-afc0-f27abe5e84e7}</Project>
@@ -205,9 +217,7 @@
       <Name>LocadoraDeVeiculos.Dominio</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="bin\Debug\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Lib\DataGridViewGrouper.dll" />
     <ProjectReference Include="..\LocadoraDeVeiculos.Controladores\LocadoraDeVeiculos.Controladores.csproj">
