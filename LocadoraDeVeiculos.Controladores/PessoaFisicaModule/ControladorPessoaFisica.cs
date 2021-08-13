@@ -23,7 +23,7 @@ namespace LocadoraDeVeiculos.Controladores.PessoaFisicaModule
                     [VENCIMENTOCNH],     
                     [TELEFONE],     
                     [ENDERECO],     
-                    [ID_EMPRESALIGADA] 
+                    [EMPRESALIGADA] 
                 )
             VALUES
                 (
@@ -34,7 +34,7 @@ namespace LocadoraDeVeiculos.Controladores.PessoaFisicaModule
                     @VENCIMENTOCNH,
                     @TELEFONE,
                     @ENDERECO,
-                    @ID_EMPRESALIGADA
+                    @EMPRESALIGADA
                 )";
         private const string sqlEditarPessoaFisica =
             @" UPDATE [PessoaFisica]
@@ -46,7 +46,7 @@ namespace LocadoraDeVeiculos.Controladores.PessoaFisicaModule
                     [VENCIMENTOCNH] = @VENCIMENTOCNH,     
                     [TELEFONE] = @TELEFONE,     
                     [ENDERECO] = @ENDERECO,     
-                    [ID_EMPRESALIGADA] = @ID_EMPRESALIGADA
+                    [EMPRESALIGADA] = @EMPRESALIGADA
 
                 WHERE [ID] = @ID";
 
@@ -56,6 +56,7 @@ namespace LocadoraDeVeiculos.Controladores.PessoaFisicaModule
 
         private const string sqlSelecionarTodasPessoasFisicas =
             @"SELECT 
+                    CP.[ID],
                     CP.[NOME], 
                     CP.[CPF],
                     CP.[RG],                    
@@ -63,19 +64,20 @@ namespace LocadoraDeVeiculos.Controladores.PessoaFisicaModule
                     CP.[VENCIMENTOCNH],     
                     CP.[TELEFONE],     
                     CP.[ENDERECO],     
-                    CP.[ID_EMPRESALIGADA],
-                    CT.[NOMEPJ], 
+                    CP.[EMPRESALIGADA],
+                    CT.[NOME] as [NOMEPJ], 
                     CT.[CNPJ],
-                    CT.[ENDERECOPJ],                    
-                    CT.[TELEFONEPJ] 
+                    CT.[ENDERECO] as [ENDERECOPJ],                    
+                    CT.[TELEFONE] as [TELEFONEPJ]
             FROM
                 [PessoaFisica] AS CP LEFT JOIN 
                 [PessoaJuridica] AS CT
             ON
-                CT.ID = CP.ID_EMPRESALIGADA";
+                CT.ID = CP.EMPRESALIGADA";
 
         private const string sqlSelecionarPessoaFisicaPorId =
             @"SELECT 
+                    CP.[ID],
                     CP.[NOME], 
                     CP.[CPF],
                     CP.[RG],                    
@@ -83,16 +85,16 @@ namespace LocadoraDeVeiculos.Controladores.PessoaFisicaModule
                     CP.[VENCIMENTOCNH],     
                     CP.[TELEFONE],     
                     CP.[ENDERECO],     
-                    CP.[ID_EMPRESALIGADA],
-                    CT.[NOMEPJ], 
+                    CP.[EMPRESALIGADA],
+                    CT.[NOME] as [NOMEPJ], 
                     CT.[CNPJ],
-                    CT.[ENDERECOPJ],                    
-                    CT.[TELEFONEPJ] 
+                    CT.[ENDERECO] as [ENDERECOPJ],                    
+                    CT.[TELEFONE] as [TELEFONEPJ]
             FROM
                 [PessoaFisica] AS CP LEFT JOIN 
                 [PessoaJuridica] AS CT
             ON
-                CT.ID = CP.ID_EMPRESALIGADA
+                CT.ID = CP.EMPRESALIGADA
             WHERE 
                 CP.[ID] = @ID";
 
@@ -167,7 +169,7 @@ namespace LocadoraDeVeiculos.Controladores.PessoaFisicaModule
             var CPF = Convert.ToString(reader["CPF"]);
             var RG = Convert.ToString(reader["RG"]);
             var CNH = Convert.ToString(reader["CNH"]);
-            var vencimentoCnh = Convert.ToDateTime(reader["HORATERMINO"]);
+            var vencimentoCnh = Convert.ToDateTime(reader["VENCIMENTOCNH"]);
             var telefone = Convert.ToString(reader["TELEFONE"]);
             var endereco = Convert.ToString(reader["ENDERECO"]);
 
@@ -177,10 +179,10 @@ namespace LocadoraDeVeiculos.Controladores.PessoaFisicaModule
             var telefonePJuridica = Convert.ToString(reader["TELEFONEPJ"]);
 
             PessoaJuridica pJuridica = null;
-            if (reader["ID_EMPRESALIGADA"] != DBNull.Value)
+            if (reader["EMPRESALIGADA"] != DBNull.Value)
             {
                 pJuridica = new PessoaJuridica(nomePJuridica, CNPJ, telefonePJuridica, enderecoPJuridica);
-                pJuridica.Id = Convert.ToInt32(reader["ID_EMPRESALIGADA"]);
+                pJuridica.Id = Convert.ToInt32(reader["EMPRESALIGADA"]);
             }
 
             PessoaFisica pessoaFisica = new PessoaFisica(nome, CPF, RG, CNH, vencimentoCnh, telefone, endereco, pJuridica);
@@ -201,7 +203,7 @@ namespace LocadoraDeVeiculos.Controladores.PessoaFisicaModule
             parametros.Add("VENCIMENTOCNH", pessoaFisica.VencimentoCNH);
             parametros.Add("TELEFONE", pessoaFisica.Telefone);
             parametros.Add("ENDERECO", pessoaFisica.Endereco);
-            parametros.Add("ID_EMPRESALIGADA", pessoaFisica.PessoaJuridica?.Id);
+            parametros.Add("EMPRESALIGADA", pessoaFisica.PessoaJuridica?.Id);
 
             return parametros;
         }
