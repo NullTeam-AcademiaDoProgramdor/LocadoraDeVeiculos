@@ -15,7 +15,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LocadoraDeVeiculos.Controladores.TaxasEServicosModule;
-using LocadoraDeVeiculos.Dominio.TaxasEServicosModule;
+using LocadoraDeVeiculos.Dominio.FuncionarioModule;
 using LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos;
 
 using LocadoraDeVeiculos.WindowsApp.Features.Configuracoes;
@@ -27,6 +27,10 @@ namespace LocadoraDeVeiculos.WindowsApp
         private ICadastravel operacoes;
 
         public static TelaPrincipalForm Instancia;
+
+        public string nomeAdmin = "Rech";
+
+        Funcionario funcionarioConectado; //= new Funcionario("Roberto", new DateTime(10/05/2020), 1000, "123");
         
         //Operacoes
         private OperacoesGrupoAutomovel operacoesGrupoAutomovel;
@@ -35,20 +39,51 @@ namespace LocadoraDeVeiculos.WindowsApp
         private OperacoesTaxasESevicos operacoesTaxasEServicos;
         private OperacoesConfiguracoes operacoesConfiguracoes;
 
-        public TelaPrincipalForm()
+        public TelaPrincipalForm(Funcionario funcionarioConectado)
         {
+            InitializeComponent();
+            DesativarBotoesToolBoxAcoes();
+            this.funcionarioConectado = funcionarioConectado;
+
+            ConfiguracaoDeEntradaNaTelaPrincipal();
+
+            operacoesConfiguracoes = new OperacoesConfiguracoes();
+
+            AtualizarFuncionarioConectado(this.funcionarioConectado.Nome);
+
+            Instancia = this;
+        }
+
+        public TelaPrincipalForm()
+        {            
             InitializeComponent();
             DesativarBotoesToolBoxAcoes();
 
             //intancia das operacoes
-            operacoesPessoaJuridica = new OperacoesPessoaJuridica(new ControladorPessoaJuridica());
-            operacoesGrupoAutomovel = new OperacoesGrupoAutomovel(new ControladorGrupoAutomovel());            
-            operacoesFuncionario = new OperacoesFuncionario(new ControladorFuncionario());
-            operacoesTaxasEServicos = new OperacoesTaxasESevicos(new ControladorTaxasEServicos());
+            ConfiguracaoDeEntradaNaTelaPrincipal();
 
             operacoesConfiguracoes = new OperacoesConfiguracoes();
 
+            ConfiguraçõesParaAdmin(); 
+
+            AtualizarFuncionarioConectado("Rech");
+
             Instancia = this;
+        }
+
+        private void ConfiguraçõesParaAdmin()
+        {
+            menuItemGrupoAutomovel.Visible = menuItemGrupoAutomovel.Enabled = false;
+            menuItemTaxasEServicos.Visible = menuItemTaxasEServicos.Enabled = false;
+            pessoaJuridicaToolStripMenuItem.Visible = pessoaJuridicaToolStripMenuItem.Enabled = false;
+        }
+
+        private void ConfiguracaoDeEntradaNaTelaPrincipal()
+        {
+            operacoesPessoaJuridica = new OperacoesPessoaJuridica(new ControladorPessoaJuridica());
+            operacoesGrupoAutomovel = new OperacoesGrupoAutomovel(new ControladorGrupoAutomovel());
+            operacoesFuncionario = new OperacoesFuncionario(new ControladorFuncionario());
+            operacoesTaxasEServicos = new OperacoesTaxasESevicos(new ControladorTaxasEServicos());
         }
 
         private void pessoaJuridicaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -59,10 +94,19 @@ namespace LocadoraDeVeiculos.WindowsApp
             ConfigurarBotoes(configuracao.Botoes);
 
             AtualizarRodape(configuracao.Tooltip.TipoCadastro);
+            AtualizarFuncionarioConectado(funcionarioConectado.Nome);
 
             operacoes = operacoesPessoaJuridica;
 
             ConfigurarPainelRegistros();
+        }
+
+        public void AtualizarFuncionarioConectado(string nomeFuncionario)
+        {
+            if(nomeFuncionario == "Rech")
+                labelFuncionarioConectado.Text = $"{nomeFuncionario} : Admin";
+            else
+                labelFuncionarioConectado.Text = $"{nomeFuncionario} : Funcionario";
         }
 
         public void AtualizarRodape(string mensagem)
@@ -78,6 +122,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             ConfigurarBotoes(configuracao.Botoes);
 
             AtualizarRodape(configuracao.Tooltip.TipoCadastro);
+            AtualizarFuncionarioConectado(funcionarioConectado.Nome);
 
             operacoes = operacoesFuncionario;
 
@@ -157,6 +202,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             ConfigurarBotoes(configuracao.Botoes);
 
             AtualizarRodape(configuracao.Tooltip.TipoCadastro);
+            AtualizarFuncionarioConectado(funcionarioConectado.Nome);
 
             operacoes = operacoesGrupoAutomovel;
 
@@ -172,6 +218,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             ConfigurarBotoes(configuracao.Botoes);
 
             AtualizarRodape(configuracao.Tooltip.TipoCadastro);
+            AtualizarFuncionarioConectado(funcionarioConectado.Nome);
 
             operacoes = operacoesTaxasEServicos;
 
@@ -186,6 +233,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             ConfigurarBotoes(configuracoesToolBox.Botoes);
 
             AtualizarRodape(configuracoesToolBox.Tooltip.TipoCadastro);
+            AtualizarFuncionarioConectado(funcionarioConectado.Nome);
 
             operacoes = operacoesConfiguracoes;
 
@@ -202,5 +250,6 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             panelRegistros.Controls.Add(tabela);
         }
+        
     }
 }
