@@ -36,6 +36,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
             // gridAutomovel
             // 
             this.gridAutomovel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridAutomovel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridAutomovel.Location = new System.Drawing.Point(0, 0);
             this.gridAutomovel.Name = "gridAutomovel";
             this.gridAutomovel.Size = new System.Drawing.Size(378, 319);
