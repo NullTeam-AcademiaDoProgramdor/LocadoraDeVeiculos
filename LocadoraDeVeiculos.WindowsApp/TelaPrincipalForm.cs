@@ -49,10 +49,12 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             operacoesConfiguracoes = new OperacoesConfiguracoes();
 
+            ConfiguraçõesParaFuncionario();
+
             AtualizarFuncionarioConectado(this.funcionarioConectado.Nome);
 
             Instancia = this;
-        }
+        }                
 
         public TelaPrincipalForm()
         {            
@@ -77,6 +79,11 @@ namespace LocadoraDeVeiculos.WindowsApp
             menuItemGrupoAutomovel.Visible = menuItemGrupoAutomovel.Enabled = false;
             menuItemTaxasEServicos.Visible = menuItemTaxasEServicos.Enabled = false;
             pessoaJuridicaToolStripMenuItem.Visible = pessoaJuridicaToolStripMenuItem.Enabled = false;
+        }
+
+        private void ConfiguraçõesParaFuncionario()
+        {
+            funcionáriosToolStripMenuItem.Enabled = funcionáriosToolStripMenuItem.Visible = false;
         }
 
         private void ConfiguracaoDeEntradaNaTelaPrincipal()
