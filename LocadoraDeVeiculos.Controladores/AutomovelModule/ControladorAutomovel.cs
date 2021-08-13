@@ -222,7 +222,7 @@ namespace LocadoraDeVeiculos.Controladores.AutomovelModule
 
             automovel.Id = Convert.ToInt32(reader["id"]);
 
-            return automovel.
+            return automovel;
         }
 
 
