@@ -44,7 +44,7 @@ namespace LocadoraDeVeiculos.Tests.PessoaFisicaModule
         }
 
         [TestMethod]
-        public void DeveAtualizar_Compromisso()
+        public void DeveEditar_PessoaFisica()
         {
             //arrange
             PessoaFisica pessoaFisica = new PessoaFisica("Matheus", "123.456.789-02", "12.098.098-02",
@@ -64,7 +64,7 @@ namespace LocadoraDeVeiculos.Tests.PessoaFisicaModule
         }
 
         [TestMethod]
-        public void DeveSelecionar_Compromisso_PorId()
+        public void DeveSelecionar_PessoaFisica_PorId()
         {
             //arrange
             PessoaFisica pessoaFisica = new PessoaFisica("Matheus", "123.456.789-02", "12.098.098-02",
@@ -79,7 +79,7 @@ namespace LocadoraDeVeiculos.Tests.PessoaFisicaModule
         }
 
         [TestMethod]
-        public void DeveSelecionar_TodosCompromissos()
+        public void DeveSelecionar_TodasPessoasFisicas()
         {
             //arrange
             var pessoasFisicas = new List<PessoaFisica>
@@ -105,6 +105,23 @@ namespace LocadoraDeVeiculos.Tests.PessoaFisicaModule
 
             //assert
             pessoasFisicasEncotradas.Should().HaveCount(4);
+        }
+
+        [TestMethod]
+        public void DeveExcluir_UmaPessoaFisica()
+        {
+            //arrange            
+            PessoaFisica pessoaFisica = new PessoaFisica("Matheus", "123.456.789-02", "12.098.098-02",
+                "123456789123", new DateTime(2022, 02, 20), "(49)000000000", "Lagi", null);
+
+            controlador.InserirNovo(pessoaFisica);
+
+            //action            
+            controlador.Excluir(pessoaFisica.Id);
+
+            //assert
+            PessoaFisica pessoaFisicaEncontrada = controlador.SelecionarPorId(pessoaFisica.Id);
+            pessoaFisicaEncontrada.Should().BeNull();
         }
     }
 }
