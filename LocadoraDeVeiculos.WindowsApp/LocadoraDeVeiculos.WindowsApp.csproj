@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Features\Automovel\ConfiguracaoAutomovelTooBox.cs" />
     <Compile Include="Features\GruposAutomovel\ConfiguracaoGrupoAutomovelToolBox.cs" />
     <Compile Include="Features\GruposAutomovel\OperacoesGrupoAutomovel.cs" />
     <Compile Include="Features\GruposAutomovel\TabelaGrupoAutomovelControl.cs">
@@ -194,7 +195,9 @@
   <ItemGroup>
     <None Include="Resources\outline_expand_black_24dp.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="bin\Debug\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LocadoraDeVeiculos.Controladores\LocadoraDeVeiculos.Controladores.csproj">
       <Project>{c0ca9d0a-9edb-41d2-afc0-f27abe5e84e7}</Project>
@@ -205,9 +208,7 @@
       <Name>LocadoraDeVeiculos.Dominio</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="bin\Debug\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Lib\DataGridViewGrouper.dll" />
     <ProjectReference Include="..\LocadoraDeVeiculos.Controladores\LocadoraDeVeiculos.Controladores.csproj">
