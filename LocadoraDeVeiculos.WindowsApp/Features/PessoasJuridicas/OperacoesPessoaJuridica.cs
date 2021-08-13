@@ -29,8 +29,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasJuridicas
             {
                 controlador.InserirNovo(tela.PessoaJuridica);
 
-                List<PessoaJuridica> pessoasJuriricas = controlador.SelecionarTodos();
-
                 tabelaPessoasJuridicas.AtualizarRegistros();
 
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Pessoa jurídica: [{tela.PessoaJuridica.Nome}] inserida com sucesso");
