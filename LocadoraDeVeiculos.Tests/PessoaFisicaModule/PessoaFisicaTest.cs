@@ -7,6 +7,7 @@ using System;
 namespace LocadoraDeVeiculos.Tests.PessoaFisicaModule
 {
     [TestClass]
+    [TestCategory("Dominio")]
     public class PessoaFisicaTest
     {
         [TestMethod]
@@ -26,6 +27,18 @@ namespace LocadoraDeVeiculos.Tests.PessoaFisicaModule
             pessoaFisica.Endereco.Should().Be("Lagi");
             pessoaFisica.PessoaJuridica.Should().Be(pessoaJuridica);
             pessoaFisica.VencimentoCNH.Should().Be(new DateTime(2022, 02, 20));
+        }
+
+        [TestMethod]
+        public void DeveRetornar_PessoaJuridicaValida()
+        {
+            //arange
+            PessoaJuridica pessoaJuridica = new PessoaJuridica("Matheus", "22.000.000/0001-00", "(49)000000000", "Lagi");
+            //action
+            PessoaFisica pessoaFisica = new PessoaFisica("Matheus", "123.456.789-02", "12.098.098-02", "123456789123", new DateTime(2022, 02, 20), "(49)000000000", "Lagi", pessoaJuridica);
+
+            //assert
+            pessoaFisica.Validar().Should().Be("ESTA_VALIDO");
         }
     }
 }
