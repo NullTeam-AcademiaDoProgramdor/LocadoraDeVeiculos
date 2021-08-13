@@ -64,6 +64,12 @@
     <Compile Include="Features\GruposAutomovel\TelaGrupoAutomovelForm.Designer.cs">
       <DependentUpon>TelaGrupoAutomovelForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\Login\TelaLoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Login\TelaLoginForm.Designer.cs">
+      <DependentUpon>TelaLoginForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Features\PessoasJuridicas\ConfiguracaoPessoaJuridicaToolBox.cs" />
     <Compile Include="Features\PessoasJuridicas\OperacoesPessoaJuridica.cs" />
     <Compile Include="Features\PessoasJuridicas\TabelaPessoaJuridicaControl.cs">
@@ -133,6 +139,9 @@
     <EmbeddedResource Include="Features\GruposAutomovel\TelaGrupoAutomovelForm.resx">
       <DependentUpon>TelaGrupoAutomovelForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Features\Login\TelaLoginForm.resx">
+      <DependentUpon>TelaLoginForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Features\PessoasJuridicas\TabelaPessoaJuridicaControl.resx">
       <DependentUpon>TabelaPessoaJuridicaControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -194,7 +203,9 @@
   <ItemGroup>
     <None Include="Resources\outline_expand_black_24dp.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="bin\Debug\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LocadoraDeVeiculos.Controladores\LocadoraDeVeiculos.Controladores.csproj">
       <Project>{c0ca9d0a-9edb-41d2-afc0-f27abe5e84e7}</Project>
@@ -205,11 +216,10 @@
       <Name>LocadoraDeVeiculos.Dominio</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="bin\Debug\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Lib\DataGridViewGrouper.dll" />
+    <None Include="Resources\AlugaRech2.0 %282%29.png" />
     <ProjectReference Include="..\LocadoraDeVeiculos.Controladores\LocadoraDeVeiculos.Controladores.csproj">
       <Project>{c0ca9d0a-9edb-41d2-afc0-f27abe5e84e7}</Project>
       <Name>LocadoraDeVeiculos.Controladores</Name>

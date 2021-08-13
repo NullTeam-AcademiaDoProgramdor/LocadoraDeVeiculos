@@ -71,6 +71,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LocadoraDeVeiculos.Configuracoes\LocadoraDeVeiculos.Configuracoes.csproj">
+      <Project>{12f59cd5-527f-4927-b9bd-dc8e91a14269}</Project>
+      <Name>LocadoraDeVeiculos.Configuracoes</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LocadoraDeVeiculos.Controladores\LocadoraDeVeiculos.Controladores.csproj">
       <Project>{c0ca9d0a-9edb-41d2-afc0-f27abe5e84e7}</Project>
       <Name>LocadoraDeVeiculos.Controladores</Name>
@@ -78,10 +82,6 @@
     <ProjectReference Include="..\LocadoraDeVeiculos.Dominio\LocadoraDeVeiculos.Dominio.csproj">
       <Project>{5dbca542-da0b-4644-bffa-8f574e2c3f38}</Project>
       <Name>LocadoraDeVeiculos.Dominio</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\LocadoraDeVeiculos.Configuracoes\LocadoraDeVeiculos.Configuracoes.csproj">
-      <Project>{12f59cd5-527f-4927-b9bd-dc8e91a14269}</Project>
-      <Name>LocadoraDeVeiculos.Configuracoes</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
