@@ -51,7 +51,7 @@ namespace LocadoraDeVeiculos.Controladores.PessoaFisicaModule
                 WHERE [ID] = @ID";
 
         private const string sqlExcluirPessoaFisica =
-            @"DELETE FROM [PessoaFisica] 
+            @"DELETE FROM [PESSOAFISICA] 
                 WHERE [ID] = @ID";
 
         private const string sqlSelecionarTodasPessoasFisicas =
@@ -70,8 +70,8 @@ namespace LocadoraDeVeiculos.Controladores.PessoaFisicaModule
                     CT.[ENDERECO] as [ENDERECOPJ],                    
                     CT.[TELEFONE] as [TELEFONEPJ]
             FROM
-                [PessoaFisica] AS CP LEFT JOIN 
-                [PessoaJuridica] AS CT
+                [PESSOAFISICA] AS CP LEFT JOIN 
+                [PESSOAJURIDICA] AS CT
             ON
                 CT.ID = CP.EMPRESALIGADA";
 
@@ -91,8 +91,8 @@ namespace LocadoraDeVeiculos.Controladores.PessoaFisicaModule
                     CT.[ENDERECO] as [ENDERECOPJ],                    
                     CT.[TELEFONE] as [TELEFONEPJ]
             FROM
-                [PessoaFisica] AS CP LEFT JOIN 
-                [PessoaJuridica] AS CT
+                [PESSOAFISICA] AS CP LEFT JOIN 
+                [PESSOAJURIDICA] AS CT
             ON
                 CT.ID = CP.EMPRESALIGADA
             WHERE 
@@ -102,7 +102,7 @@ namespace LocadoraDeVeiculos.Controladores.PessoaFisicaModule
             @"SELECT 
                 COUNT(*) 
             FROM 
-                [PessoaFisica]
+                [PESSOAFISICA]
             WHERE 
                 [ID] = @ID";
 
@@ -114,7 +114,7 @@ namespace LocadoraDeVeiculos.Controladores.PessoaFisicaModule
 
             if (resultadoValidacao == "ESTA_VALIDO")
             {
-                registro.Id = Db.Insert(sqlInserirPessoaFisica, ObtemParametrosPessoaJuridica(registro));
+                registro.Id = Db.Insert(sqlInserirPessoaFisica, ObtemParametrosPessoaFisica(registro));
             }
 
             return resultadoValidacao;
@@ -128,7 +128,7 @@ namespace LocadoraDeVeiculos.Controladores.PessoaFisicaModule
             if (resultadoValidacao == "ESTA_VALIDO")
             {
                 registro.Id = id;
-                Db.Update(sqlEditarPessoaFisica, ObtemParametrosPessoaJuridica(registro));
+                Db.Update(sqlEditarPessoaFisica, ObtemParametrosPessoaFisica(registro));
             }
 
             return resultadoValidacao;
@@ -138,7 +138,7 @@ namespace LocadoraDeVeiculos.Controladores.PessoaFisicaModule
         {
             try
             {
-                Db.Delete(sqlExistePessoaFisica, AdicionarParametro("ID", id));
+                Db.Delete(sqlExcluirPessoaFisica, AdicionarParametro("ID", id));
             }
             catch (Exception)
             {
@@ -191,7 +191,7 @@ namespace LocadoraDeVeiculos.Controladores.PessoaFisicaModule
             return pessoaFisica;
         }
 
-        private Dictionary<string, object> ObtemParametrosPessoaJuridica(PessoaFisica pessoaFisica)
+        private Dictionary<string, object> ObtemParametrosPessoaFisica(PessoaFisica pessoaFisica)
         {
             var parametros = new Dictionary<string, object>();
 
