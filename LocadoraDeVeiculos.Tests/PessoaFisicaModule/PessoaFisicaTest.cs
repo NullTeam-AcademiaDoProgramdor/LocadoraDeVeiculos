@@ -122,5 +122,21 @@ namespace LocadoraDeVeiculos.Tests.PessoaFisicaModule
             //assert
             pessoaFisica.Validar().Should().Be("Número de telefone muito pequeno.");
         }
+        [TestMethod]
+        public void DeveGravar_SemPessoaJuridica()
+        {
+            //action
+            PessoaFisica pessoaFisica = new PessoaFisica("Matheus", "123.456.789-02", "12.128.098-02", "172121891231", new DateTime(2022, 02, 20), "(49)00000000", "Lagi", null);
+
+            //assert
+            pessoaFisica.Nome.Should().Be("Matheus");
+            pessoaFisica.CPF.Should().Be("123.456.789-02");
+            pessoaFisica.RG.Should().Be("12.128.098-02");
+            pessoaFisica.CNH.Should().Be("172121891231");
+            pessoaFisica.Telefone.Should().Be("(49)00000000");
+            pessoaFisica.Endereco.Should().Be("Lagi");
+            pessoaFisica.PessoaJuridica.Should().Be(null);
+            pessoaFisica.VencimentoCNH.Should().Be(new DateTime(2022, 02, 20));
+        }
     }
 }
