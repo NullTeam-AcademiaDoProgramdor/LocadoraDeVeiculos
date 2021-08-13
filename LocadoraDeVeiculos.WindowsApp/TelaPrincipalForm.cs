@@ -30,7 +30,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
         public string nomeAdmin = "Rech";
 
-        Funcionario funcionarioConectado = new Funcionario("Roberto", new DateTime(10/05/2020), 1000, "123");
+        Funcionario funcionarioConectado; //= new Funcionario("Roberto", new DateTime(10/05/2020), 1000, "123");
         
         //Operacoes
         private OperacoesGrupoAutomovel operacoesGrupoAutomovel;
@@ -43,7 +43,7 @@ namespace LocadoraDeVeiculos.WindowsApp
         {
             InitializeComponent();
             DesativarBotoesToolBoxAcoes();
-            // this.funcionarioConectado = funcionarioConectado;
+            this.funcionarioConectado = funcionarioConectado;
 
             ConfiguracaoDeEntradaNaTelaPrincipal();
 
