@@ -128,12 +128,12 @@ namespace LocadoraDeVeiculos.Dominio.AutomovelModule
             if (Ano < 1900)
                 resultadoValidacao +=
                     QuebraDeLinha(resultadoValidacao) +
-                    "O Ano informado é muito antigo";
+                    $"O Ano informado é muito antigo, você pode inserir carros de {PegarAnoFuturoValido()} até 1900";
 
             if (Ano > PegarAnoFuturoValido())
                 resultadoValidacao +=
                     QuebraDeLinha(resultadoValidacao) +
-                    $"O ano informado é invalido, você pode inserir carros de {PegarAnoFuturoValido()} até 1900";
+                    $"O ano informado é muito futuro, você pode inserir carros de {PegarAnoFuturoValido()} até 1900";
 
             if (Portas <= 0)
                 resultadoValidacao +=
