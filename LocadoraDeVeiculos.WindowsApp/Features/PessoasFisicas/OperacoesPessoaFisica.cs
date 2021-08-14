@@ -1,5 +1,6 @@
 ﻿using LocadoraDeVeiculos.Controladores.PessoaFisicaModule;
 using LocadoraDeVeiculos.Controladores.PessoaJuridicaModule;
+using LocadoraDeVeiculos.Dominio.PessoaFisicaModule;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,5 +39,67 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
             }
 
         }
+
+        public void EditarRegistro()
+        {
+            int id = tabelaPessoaFisica.ObtemIdSelecionado();
+
+            if (id == 0)
+            {
+                MessageBox.Show("Selecione uma pessoa física para poder editar!", "Edição de Pessoas Físicas",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            PessoaFisica pessoaFisicaSeleciada = controlador.SelecionarPorId(id);
+
+
+            TelaPessoaFisicaForm tela = new TelaPessoaFisicaForm();
+
+            tela.PessoaFisica = pessoaFisicaSeleciada;
+
+            if (tela.ShowDialog() == DialogResult.OK)
+            {
+                controlador.Editar(id, tela.PessoaFisica);
+
+                tabelaPessoaFisica.AtualizarRegistros();
+
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Pessoa física: [{tela.PessoaFisica.Nome}] editada com sucesso");
+            }
+        }
+
+        public void ExcluirRegistro()
+        {
+            int id = tabelaPessoaFisica.ObtemIdSelecionado();
+
+            if (id == 0)
+            {
+                MessageBox.Show("Selecione uma pessoa física para poder excluir!", "Exclusão de Pessoa Física",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            PessoaFisica pessoaFisicaSeleciada = controlador.SelecionarPorId(id);
+
+            if (MessageBox.Show($"Tem certeza que deseja excluir a pessoa física: [{pessoaFisicaSeleciada.Nome}] ?",
+                "Exclusão de Compromissos", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                controlador.Excluir(id);
+
+                tabelaPessoaFisica.AtualizarRegistros();
+
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Pessoa física: [{pessoaFisicaSeleciada.Nome}] removida com sucesso");
+            }
+        }
+
+        public UserControl ObterTabela()
+        {
+            tabelaPessoaFisica.AtualizarRegistros();
+
+            return tabelaPessoaFisica;
+        }
+
+        
+
     }
 }
