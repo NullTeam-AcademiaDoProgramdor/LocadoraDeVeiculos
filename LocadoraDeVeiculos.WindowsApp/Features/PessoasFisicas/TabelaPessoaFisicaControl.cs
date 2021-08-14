@@ -15,7 +15,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
 {
     public partial class TabelaPessoaFisicaControl : UserControl
     {
-        Subro.Controls.DataGridViewGrouper gridPessoasFisicasAgrupadas = new Subro.Controls.DataGridViewGrouper();
+        Subro.Controls.DataGridViewGrouper gridPessoasFisicasAgrupadas;
         ControladorPessoaFisica controlador = new ControladorPessoaFisica();
         public TabelaPessoaFisicaControl()
         {
@@ -23,6 +23,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
             gridPessoasFisicas.ConfigurarGridZebrado();
             gridPessoasFisicas.ConfigurarGridSomenteLeitura();
             gridPessoasFisicas.Columns.AddRange(ObterColunas());
+            gridPessoasFisicasAgrupadas = new Subro.Controls.DataGridViewGrouper();
+            controlador = new ControladorPessoaFisica();
         }
 
         public DataGridViewColumn[] ObterColunas()
