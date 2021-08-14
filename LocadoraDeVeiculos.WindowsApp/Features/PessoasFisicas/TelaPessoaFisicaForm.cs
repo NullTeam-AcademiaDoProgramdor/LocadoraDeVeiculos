@@ -19,16 +19,17 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
     {
         PessoaFisica pessoaFisica;
         private ControladorPessoaJuridica controladorPJuridica;
+        private ControladorPessoaFisica controlador;
         public TelaPessoaFisicaForm()
         {
             InitializeComponent();
             cmbPJuridica.Items.Clear();
         }
 
-        public TelaPessoaFisicaForm(List<PessoaJuridica> pessoasJuridicas, ControladorPessoaJuridica controlador) : this()
+        public TelaPessoaFisicaForm(List<PessoaJuridica> pessoasJuridicas, ControladorPessoaFisica controlador) : this()
         {
-            this.controladorPJuridica = controlador;
-            CarregarContatos(pessoasJuridicas);
+            this.controlador = controlador;
+            CarregarPessoasJuridicas(pessoasJuridicas);
         }
 
         public PessoaFisica PessoaFisica
@@ -46,11 +47,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
                 txtEndereco.Text = pessoaFisica.Endereco;
                 txtCNH.Text = pessoaFisica.CNH;
                 dataPickCNH.Value = pessoaFisica.VencimentoCNH;
-                
+                CarregarPessoasJuridicas(controladorPJuridica.SelecionarTodos());
+
             }
         }
 
-        private void CarregarContatos(List<PessoaJuridica> pessoasJuridicas)
+        private void CarregarPessoasJuridicas(List<PessoaJuridica> pessoasJuridicas)
         {
             cmbPJuridica.Items.Clear();
 
