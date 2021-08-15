@@ -32,7 +32,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
             {
                 return new ConfiguracoesBotoes()
                 {
-                    BtnFiltrar = true,
                     BtnAgrupar = true
                 };
             }
