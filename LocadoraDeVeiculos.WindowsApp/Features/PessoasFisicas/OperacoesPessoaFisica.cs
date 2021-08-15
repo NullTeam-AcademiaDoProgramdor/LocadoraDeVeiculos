@@ -1,6 +1,7 @@
 ﻿using LocadoraDeVeiculos.Controladores.PessoaFisicaModule;
 using LocadoraDeVeiculos.Controladores.PessoaJuridicaModule;
 using LocadoraDeVeiculos.Dominio.PessoaFisicaModule;
+using LocadoraDeVeiculos.WindowsApp.Features.PessoasJuridicas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -104,6 +105,28 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
             throw new NotImplementedException();
         }
 
+        public void OrdenarRegistros()
+        {
+            AgrupamentoPessoaFisicaForm telaOrdemPessoaFisica = new AgrupamentoPessoaFisicaForm();
 
+            if (telaOrdemPessoaFisica.ShowDialog() == DialogResult.OK)
+            {
+                List<PessoaFisica> pessoasJuridicas = new List<PessoaFisica>();
+                pessoasJuridicas = controlador.SelecionarTodos();
+                switch (telaOrdemPessoaFisica.TipoOrdem)
+                {
+                    case FiltroPessoaFisicaEnum.PessoaPorEmpresa:
+                        tabelaPessoaFisica.AgruparPessoasJuridicas("PessoaJuridica");
+                        break;
+
+                    case FiltroPessoaFisicaEnum.PessoaSemOrdem:
+                        tabelaPessoaFisica.DesagruparPessoaJuridica(pessoasJuridicas);
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+        }
     }
 }

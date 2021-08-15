@@ -86,7 +86,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
             gridPessoasFisicas.ClearSelection();
         }
 
-        public void DesagruparContatos(List<PessoaFisica> pessoasFisicas)
+        public void DesagruparPessoaJuridica(List<PessoaFisica> pessoasFisicas)
         {
             var campos = new string[] { "PessoaJuridica" };
 
