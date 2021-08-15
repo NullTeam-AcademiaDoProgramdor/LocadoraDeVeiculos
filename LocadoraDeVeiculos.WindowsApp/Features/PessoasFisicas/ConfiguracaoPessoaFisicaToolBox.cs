@@ -21,7 +21,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
                     ToolTipExcluir = "Excluir uma Pessoa Física existente",
                     ToolTipAgrupar = "Agrupar Pessoas Físicas",
                     ToolTípDesagrupar = "Desagrupar Pessoas Físicas",
-                    ToolTipFiltrar = "Filtrar Pessoas Físicas"
 
                 };
             }

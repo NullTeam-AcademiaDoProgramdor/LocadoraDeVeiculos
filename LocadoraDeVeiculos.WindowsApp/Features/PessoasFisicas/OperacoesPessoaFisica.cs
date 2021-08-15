@@ -2,6 +2,7 @@
 using LocadoraDeVeiculos.Controladores.PessoaJuridicaModule;
 using LocadoraDeVeiculos.Dominio.PessoaFisicaModule;
 using LocadoraDeVeiculos.WindowsApp.Features.PessoasJuridicas;
+using LocadoraDeVeiculos.WindowsApp.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ using System.Windows.Forms;
 
 namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
 {
-    public class OperacoesPessoaFisica
+    public class OperacoesPessoaFisica : ICadastravel
     {
         private readonly ControladorPessoaFisica controlador = null;
         private readonly ControladorPessoaJuridica controladorPJuridica = null;
@@ -105,7 +106,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
             throw new NotImplementedException();
         }
 
-        public void OrdenarRegistros()
+        public void AgruparRegistros()
         {
             AgrupamentoPessoaFisicaForm telaOrdemPessoaFisica = new AgrupamentoPessoaFisicaForm();
 
@@ -120,13 +121,18 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
                         break;
 
                     case FiltroPessoaFisicaEnum.PessoaSemOrdem:
-                        tabelaPessoaFisica.DesagruparPessoaJuridica(pessoasJuridicas);
+                        DesagruparRegistros();
                         break;
 
                     default:
                         break;
                 }
             }
+        }
+
+        public void DesagruparRegistros()
+        {
+            tabelaPessoaFisica.DesagruparPessoaJuridica(controlador.SelecionarTodos());
         }
     }
 }

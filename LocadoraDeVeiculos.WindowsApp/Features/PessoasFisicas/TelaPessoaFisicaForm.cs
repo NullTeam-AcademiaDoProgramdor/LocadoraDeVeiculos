@@ -18,7 +18,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
     public partial class TelaPessoaFisicaForm : Form
     {
         PessoaFisica pessoaFisica;
-        private ControladorPessoaJuridica controladorPJuridica;
         private ControladorPessoaFisica controlador;
         public TelaPessoaFisicaForm()
         {
@@ -47,7 +46,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
                 txtEndereco.Text = pessoaFisica.Endereco;
                 txtCNH.Text = pessoaFisica.CNH;
                 dataPickCNH.Value = pessoaFisica.VencimentoCNH;
-                CarregarPessoasJuridicas(controladorPJuridica.SelecionarTodos());
+                cmbPJuridica.SelectedItem = pessoaFisica.PessoaJuridica;
 
             }
         }
@@ -80,9 +79,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
 
             pessoaFisica = new PessoaFisica(nome, cpf, rg, numCNH, validadeCNH, telefone, endereco, pessoaJuridica);
 
-            string resultadoValidacao = pessoaJuridica.Validar();
+            string resultadoValidacao = pessoaFisica.Validar();
 
-            if (resultadoValidacao != "ESTA_VALIDO")
+            if (resultadoValidacao != "pessoaFisica)")
             {
                 string primeiroErro = new StringReader(resultadoValidacao).ReadLine();
 
