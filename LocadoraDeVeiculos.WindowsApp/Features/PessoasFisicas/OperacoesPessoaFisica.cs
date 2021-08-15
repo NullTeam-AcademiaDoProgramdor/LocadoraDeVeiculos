@@ -99,7 +99,11 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
             return tabelaPessoaFisica;
         }
 
-        
+        public void FiltrarRegistros()
+        {
+            throw new NotImplementedException();
+        }
+
 
     }
 }
