@@ -56,8 +56,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasJuridicas
             {
                 controlador.Editar(id, tela.PessoaJuridica);
 
-                List<PessoaJuridica> pessoasJuridicas = controlador.SelecionarTodos();
-
                 tabelaPessoasJuridicas.AtualizarRegistros();
 
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Pessoa jurídica: [{tela.PessoaJuridica.Nome}] editada com sucesso");
@@ -113,5 +111,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasJuridicas
         {
             throw new NotImplementedException();
         }
+
+
     }
 }
