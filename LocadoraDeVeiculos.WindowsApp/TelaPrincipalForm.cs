@@ -19,6 +19,8 @@ using LocadoraDeVeiculos.Dominio.TaxasEServicosModule;
 using LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos;
 
 using LocadoraDeVeiculos.WindowsApp.Features.Configuracoes;
+using LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas;
+using LocadoraDeVeiculos.Controladores.PessoaFisicaModule;
 
 namespace LocadoraDeVeiculos.WindowsApp
 {
@@ -34,6 +36,7 @@ namespace LocadoraDeVeiculos.WindowsApp
         private OperacoesFuncionario operacoesFuncionario;
         private OperacoesTaxasESevicos operacoesTaxasEServicos;
         private OperacoesConfiguracoes operacoesConfiguracoes;
+        private OperacoesPessoaFisica operacoesPessoaFisica;
 
         public TelaPrincipalForm()
         {
@@ -45,7 +48,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             operacoesGrupoAutomovel = new OperacoesGrupoAutomovel(new ControladorGrupoAutomovel());            
             operacoesFuncionario = new OperacoesFuncionario(new ControladorFuncionario());
             operacoesTaxasEServicos = new OperacoesTaxasESevicos(new ControladorTaxasEServicos());
-
+            operacoesPessoaFisica = new OperacoesPessoaFisica(new ControladorPessoaFisica());
             operacoesConfiguracoes = new OperacoesConfiguracoes();
 
             Instancia = this;
@@ -201,6 +204,20 @@ namespace LocadoraDeVeiculos.WindowsApp
             panelRegistros.Controls.Clear();
 
             panelRegistros.Controls.Add(tabela);
+        }
+
+        private void pessoasFísicasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConfiguracaoPessoaFisicaToolBox configuracao = new ConfiguracaoPessoaFisicaToolBox();
+
+            ConfigurarTooltips(configuracao.Tooltip);
+            ConfigurarBotoes(configuracao.Botoes);
+
+            AtualizarRodape(configuracao.Tooltip.TipoCadastro);
+
+            operacoes = operacoesPessoaFisica;
+
+            ConfigurarPainelRegistros();
         }
     }
 }

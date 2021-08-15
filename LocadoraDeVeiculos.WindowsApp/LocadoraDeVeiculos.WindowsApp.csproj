@@ -78,14 +78,14 @@
     <Compile Include="Features\PessoasFisicas\TelaPessoaFisicaForm.Designer.cs">
       <DependentUpon>TelaPessoaFisicaForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Features\PessoasJuridicas\AgrupamentoPessoaFisicaForm.cs">
+    <Compile Include="Features\PessoasFisicas\AgrupamentoPessoaFisicaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Features\PessoasJuridicas\AgrupamentoPessoaFisicaForm.Designer.cs">
+    <Compile Include="Features\PessoasFisicas\AgrupamentoPessoaFisicaForm.Designer.cs">
       <DependentUpon>AgrupamentoPessoaFisicaForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Features\PessoasJuridicas\ConfiguracaoPessoaJuridicaToolBox.cs" />
-    <Compile Include="Features\PessoasJuridicas\FiltroPessoaFisicaEnum.cs" />
+    <Compile Include="Features\PessoasFisicas\FiltroPessoaFisicaEnum.cs" />
     <Compile Include="Features\PessoasJuridicas\OperacoesPessoaJuridica.cs" />
     <Compile Include="Features\PessoasJuridicas\TabelaPessoaJuridicaControl.cs">
       <SubType>UserControl</SubType>
@@ -160,7 +160,7 @@
     <EmbeddedResource Include="Features\PessoasFisicas\TelaPessoaFisicaForm.resx">
       <DependentUpon>TelaPessoaFisicaForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Features\PessoasJuridicas\AgrupamentoPessoaFisicaForm.resx">
+    <EmbeddedResource Include="Features\PessoasFisicas\AgrupamentoPessoaFisicaForm.resx">
       <DependentUpon>AgrupamentoPessoaFisicaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\PessoasJuridicas\TabelaPessoaJuridicaControl.resx">

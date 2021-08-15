@@ -50,6 +50,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.labelRodape = new System.Windows.Forms.ToolStripStatusLabel();
             this.panelRegistros = new System.Windows.Forms.Panel();
+            this.pessoasFísicasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolboxAcoes.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -72,7 +73,8 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.funcionáriosToolStripMenuItem,
             this.menuItemGrupoAutomovel,
             this.pessoaJuridicaToolStripMenuItem,
-            this.menuItemTaxasEServicos});
+            this.menuItemTaxasEServicos,
+            this.pessoasFísicasToolStripMenuItem});
             this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
             this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.cadastrosToolStripMenuItem.Text = "Cadastros";
@@ -267,6 +269,13 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.panelRegistros.Size = new System.Drawing.Size(593, 363);
             this.panelRegistros.TabIndex = 5;
             // 
+            // pessoasFísicasToolStripMenuItem
+            // 
+            this.pessoasFísicasToolStripMenuItem.Name = "pessoasFísicasToolStripMenuItem";
+            this.pessoasFísicasToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.pessoasFísicasToolStripMenuItem.Text = "Pessoas Físicas";
+            this.pessoasFísicasToolStripMenuItem.Click += new System.EventHandler(this.pessoasFísicasToolStripMenuItem_Click);
+            // 
             // TelaPrincipalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -313,6 +322,7 @@ namespace LocadoraDeVeiculos.WindowsApp
         private System.Windows.Forms.ToolStripMenuItem funcionáriosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem menuItemTaxasEServicos;
         private System.Windows.Forms.ToolStripMenuItem configuraçõesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pessoasFísicasToolStripMenuItem;
     }
 }
 
