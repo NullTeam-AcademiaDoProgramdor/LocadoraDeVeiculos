@@ -274,6 +274,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.label1);
             this.Name = "TelaPessoaFisicaForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Pessoa Física";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

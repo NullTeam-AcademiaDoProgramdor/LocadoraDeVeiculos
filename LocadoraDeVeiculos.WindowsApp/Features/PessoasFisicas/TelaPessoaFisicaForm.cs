@@ -19,10 +19,13 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
     {
         PessoaFisica pessoaFisica;
         private ControladorPessoaFisica controlador;
+        private ControladorPessoaJuridica controladorPessoaJuridica;
         public TelaPessoaFisicaForm()
         {
             InitializeComponent();
             cmbPJuridica.Items.Clear();
+            controladorPessoaJuridica = new ControladorPessoaJuridica();
+            CarregarPessoasJuridicas(controladorPessoaJuridica.SelecionarTodos());
         }
 
         public TelaPessoaFisicaForm(List<PessoaJuridica> pessoasJuridicas, ControladorPessoaFisica controlador) : this()
@@ -81,7 +84,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
 
             string resultadoValidacao = pessoaFisica.Validar();
 
-            if (resultadoValidacao != "pessoaFisica)")
+            if (resultadoValidacao != "ESTA_VALIDO")
             {
                 string primeiroErro = new StringReader(resultadoValidacao).ReadLine();
 
