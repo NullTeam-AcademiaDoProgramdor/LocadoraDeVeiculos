@@ -38,6 +38,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasJuridicas
             // rdbPessoasPorEmpresa
             // 
             this.rdbPessoasPorEmpresa.AutoSize = true;
+            this.rdbPessoasPorEmpresa.Checked = true;
             this.rdbPessoasPorEmpresa.Location = new System.Drawing.Point(12, 12);
             this.rdbPessoasPorEmpresa.Name = "rdbPessoasPorEmpresa";
             this.rdbPessoasPorEmpresa.Size = new System.Drawing.Size(259, 17);
@@ -53,7 +54,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasJuridicas
             this.rdbPessoasSemOrdem.Name = "rdbPessoasSemOrdem";
             this.rdbPessoasSemOrdem.Size = new System.Drawing.Size(215, 17);
             this.rdbPessoasSemOrdem.TabIndex = 19;
-            this.rdbPessoasSemOrdem.TabStop = true;
             this.rdbPessoasSemOrdem.Text = "Visualizar pessoas físicas desagrupadas";
             this.rdbPessoasSemOrdem.UseVisualStyleBackColor = true;
             // 
