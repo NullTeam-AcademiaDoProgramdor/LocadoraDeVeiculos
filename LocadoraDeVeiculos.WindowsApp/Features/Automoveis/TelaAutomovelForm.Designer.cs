@@ -290,7 +290,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
             this.comboCombustivel.Location = new System.Drawing.Point(106, 312);
             this.comboCombustivel.Name = "comboCombustivel";
             this.comboCombustivel.Size = new System.Drawing.Size(222, 21);
-            this.comboCombustivel.TabIndex = 30;
+            this.comboCombustivel.TabIndex = 24;
             // 
             // comboCambio
             // 
@@ -298,7 +298,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
             this.comboCambio.Location = new System.Drawing.Point(106, 342);
             this.comboCambio.Name = "comboCambio";
             this.comboCambio.Size = new System.Drawing.Size(222, 21);
-            this.comboCambio.TabIndex = 31;
+            this.comboCambio.TabIndex = 25;
             // 
             // comboDirecao
             // 
@@ -306,7 +306,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
             this.comboDirecao.Location = new System.Drawing.Point(106, 372);
             this.comboDirecao.Name = "comboDirecao";
             this.comboDirecao.Size = new System.Drawing.Size(222, 21);
-            this.comboDirecao.TabIndex = 32;
+            this.comboDirecao.TabIndex = 26;
             // 
             // comboGrupo
             // 
@@ -314,7 +314,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
             this.comboGrupo.Location = new System.Drawing.Point(106, 402);
             this.comboGrupo.Name = "comboGrupo";
             this.comboGrupo.Size = new System.Drawing.Size(222, 21);
-            this.comboGrupo.TabIndex = 33;
+            this.comboGrupo.TabIndex = 27;
             // 
             // txtChassi
             // 
@@ -322,7 +322,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
             this.txtChassi.Mask = "0 00 000000 0 0000000";
             this.txtChassi.Name = "txtChassi";
             this.txtChassi.Size = new System.Drawing.Size(222, 20);
-            this.txtChassi.TabIndex = 34;
+            this.txtChassi.TabIndex = 19;
             // 
             // label15
             // 
