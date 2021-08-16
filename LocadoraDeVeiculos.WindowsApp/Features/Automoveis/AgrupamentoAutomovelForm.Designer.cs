@@ -29,6 +29,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AgrupamentoAutomovelForm));
             this.rdbAutomovelPorGrupo = new System.Windows.Forms.RadioButton();
             this.rdbAutomovelDesagrupado = new System.Windows.Forms.RadioButton();
             this.btnGravar = new System.Windows.Forms.Button();
@@ -37,59 +38,46 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
             // 
             // rdbAutomovelPorGrupo
             // 
-            this.rdbAutomovelPorGrupo.AutoSize = true;
-            this.rdbAutomovelPorGrupo.Location = new System.Drawing.Point(12, 29);
+            resources.ApplyResources(this.rdbAutomovelPorGrupo, "rdbAutomovelPorGrupo");
             this.rdbAutomovelPorGrupo.Name = "rdbAutomovelPorGrupo";
-            this.rdbAutomovelPorGrupo.Size = new System.Drawing.Size(174, 17);
-            this.rdbAutomovelPorGrupo.TabIndex = 17;
             this.rdbAutomovelPorGrupo.TabStop = true;
-            this.rdbAutomovelPorGrupo.Text = "Visualizar automóveis por grupo";
             this.rdbAutomovelPorGrupo.UseVisualStyleBackColor = true;
             // 
             // rdbAutomovelDesagrupado
             // 
-            this.rdbAutomovelDesagrupado.AutoSize = true;
-            this.rdbAutomovelDesagrupado.Location = new System.Drawing.Point(12, 63);
+            resources.ApplyResources(this.rdbAutomovelDesagrupado, "rdbAutomovelDesagrupado");
             this.rdbAutomovelDesagrupado.Name = "rdbAutomovelDesagrupado";
-            this.rdbAutomovelDesagrupado.Size = new System.Drawing.Size(196, 17);
-            this.rdbAutomovelDesagrupado.TabIndex = 18;
             this.rdbAutomovelDesagrupado.TabStop = true;
-            this.rdbAutomovelDesagrupado.Text = "Visualizar automóveis desagrupados";
             this.rdbAutomovelDesagrupado.UseVisualStyleBackColor = true;
             // 
             // btnGravar
             // 
             this.btnGravar.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.btnGravar.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnGravar.Location = new System.Drawing.Point(253, 101);
+            resources.ApplyResources(this.btnGravar, "btnGravar");
             this.btnGravar.Name = "btnGravar";
-            this.btnGravar.Size = new System.Drawing.Size(75, 23);
-            this.btnGravar.TabIndex = 19;
-            this.btnGravar.Text = "Selecionar";
             this.btnGravar.UseVisualStyleBackColor = false;
             // 
             // btnCancelar
             // 
             this.btnCancelar.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(172, 101);
+            resources.ApplyResources(this.btnCancelar, "btnCancelar");
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 20;
-            this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             // 
             // AgrupamentoAutomovelForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(340, 136);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGravar);
             this.Controls.Add(this.rdbAutomovelDesagrupado);
             this.Controls.Add(this.rdbAutomovelPorGrupo);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "AgrupamentoAutomovelForm";
-            this.Text = "AgrupamentoAutomovelForm";
             this.ResumeLayout(false);
             this.PerformLayout();
 

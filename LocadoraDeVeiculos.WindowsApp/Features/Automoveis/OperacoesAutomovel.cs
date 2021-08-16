@@ -26,6 +26,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
 
         public void InserirNovoRegistro()
         {
+            if (!PodeCadastrar())
+                return;
+
             TelaAutomovelForm tela = new TelaAutomovelForm(controladorGrupo.SelecionarTodos());
 
             if (tela.ShowDialog() == DialogResult.OK)
@@ -99,6 +102,16 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
 
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Automóvel: [{automovelSelecionado.Modelo}] removido com sucesso");
             }
+        }
+
+        private bool PodeCadastrar()
+        {
+            if (controladorGrupo.SelecionarTodos().Count > 0)
+                return true;
+            else
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Cadastre um Grupo de Automóvel para poder cadastrar um Automóvel!");
+
+            return false;
         }
 
         public void FiltrarRegistros()

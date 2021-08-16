@@ -110,7 +110,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
 
             if (capacidadePortaMalas == null)
                 return;
-
+            
             TipoCombustivelEnum tipoCombustivel = (TipoCombustivelEnum)comboCombustivel.SelectedValue;
             CambioEnum cambio = (CambioEnum)comboCambio.SelectedValue;
             DirecaoEnum direcao = (DirecaoEnum)comboDirecao.SelectedValue;

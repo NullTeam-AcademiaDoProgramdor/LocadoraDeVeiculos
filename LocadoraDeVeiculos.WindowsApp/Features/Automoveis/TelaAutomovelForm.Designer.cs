@@ -48,7 +48,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
             this.txtMarca = new System.Windows.Forms.TextBox();
             this.txtCor = new System.Windows.Forms.TextBox();
             this.txtPlaca = new System.Windows.Forms.TextBox();
-            this.txtChassi = new System.Windows.Forms.TextBox();
             this.txtAno = new System.Windows.Forms.TextBox();
             this.txtPortas = new System.Windows.Forms.TextBox();
             this.txtCapacidadeCombustivel = new System.Windows.Forms.TextBox();
@@ -59,6 +58,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
             this.comboCambio = new System.Windows.Forms.ComboBox();
             this.comboDirecao = new System.Windows.Forms.ComboBox();
             this.comboGrupo = new System.Windows.Forms.ComboBox();
+            this.txtChassi = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -225,13 +225,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
             this.txtPlaca.Size = new System.Drawing.Size(222, 20);
             this.txtPlaca.TabIndex = 18;
             // 
-            // txtChassi
-            // 
-            this.txtChassi.Location = new System.Drawing.Point(106, 162);
-            this.txtChassi.Name = "txtChassi";
-            this.txtChassi.Size = new System.Drawing.Size(222, 20);
-            this.txtChassi.TabIndex = 19;
-            // 
             // txtAno
             // 
             this.txtAno.AccessibleName = "Ano";
@@ -321,11 +314,20 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
             this.comboGrupo.Size = new System.Drawing.Size(222, 21);
             this.comboGrupo.TabIndex = 33;
             // 
+            // txtChassi
+            // 
+            this.txtChassi.Location = new System.Drawing.Point(106, 162);
+            this.txtChassi.Mask = "0 00 000000 0 0000000";
+            this.txtChassi.Name = "txtChassi";
+            this.txtChassi.Size = new System.Drawing.Size(222, 20);
+            this.txtChassi.TabIndex = 34;
+            // 
             // TelaAutomovelForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(340, 475);
+            this.Controls.Add(this.txtChassi);
             this.Controls.Add(this.comboGrupo);
             this.Controls.Add(this.comboDirecao);
             this.Controls.Add(this.comboCambio);
@@ -336,7 +338,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
             this.Controls.Add(this.txtCapacidadeCombustivel);
             this.Controls.Add(this.txtPortas);
             this.Controls.Add(this.txtAno);
-            this.Controls.Add(this.txtChassi);
             this.Controls.Add(this.txtPlaca);
             this.Controls.Add(this.txtCor);
             this.Controls.Add(this.txtMarca);
@@ -356,8 +357,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "TelaAutomovelForm";
-            this.Text = "Cadastro de Automoveis";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Cadastro de Automóveis";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -384,7 +389,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
         private System.Windows.Forms.TextBox txtMarca;
         private System.Windows.Forms.TextBox txtCor;
         private System.Windows.Forms.TextBox txtPlaca;
-        private System.Windows.Forms.TextBox txtChassi;
         private System.Windows.Forms.TextBox txtAno;
         private System.Windows.Forms.TextBox txtPortas;
         private System.Windows.Forms.TextBox txtCapacidadeCombustivel;
@@ -395,5 +399,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
         private System.Windows.Forms.ComboBox comboCambio;
         private System.Windows.Forms.ComboBox comboDirecao;
         private System.Windows.Forms.ComboBox comboGrupo;
+        private System.Windows.Forms.MaskedTextBox txtChassi;
     }
 }
