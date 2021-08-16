@@ -27,6 +27,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
 
         public void InserirNovoRegistro()
         {
+            if (!PodeCadastrar())
+                return;
+
             var pessoasJuridicas = controladorPJuridica.SelecionarTodos();
 
             TelaPessoaFisicaForm tela = new TelaPessoaFisicaForm(pessoasJuridicas, controlador);
@@ -131,6 +134,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
         public void DesagruparRegistros()
         {
             tabelaPessoaFisica.DesagruparPessoaJuridica(controlador.SelecionarTodos());
+        }
+        private bool PodeCadastrar()
+        {
+            throw new NotImplementedException();
         }
     }
 }
