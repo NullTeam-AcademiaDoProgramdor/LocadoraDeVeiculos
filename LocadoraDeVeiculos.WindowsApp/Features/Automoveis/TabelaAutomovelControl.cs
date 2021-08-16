@@ -84,5 +84,32 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
                 col.Visible = true;
             }
         }
+
+        internal void AgruparAutomoveis(string campo)
+        {
+            grupperAutomoveis.RemoveGrouping();
+            grupperAutomoveis.SetGroupOn(campo);
+            grupperAutomoveis.Options.ShowGroupName = false;
+
+            foreach (DataGridViewColumn item in gridAutomovel.Columns)
+                if (item.DataPropertyName == campo)
+                    item.Visible = false;
+
+            gridAutomovel.RowHeadersVisible = false;
+            gridAutomovel.ClearSelection();
+        }
+
+        internal void DesagruparCompromissos(List<Automovel> automoveis)
+        {
+            var campos = new string[] { "Grupo" };
+
+            grupperAutomoveis.RemoveGrouping();
+            gridAutomovel.RowHeadersVisible = true;
+
+            foreach (var campo in campos)
+                foreach (DataGridViewColumn item in gridAutomovel.Columns)
+                    if (item.DataPropertyName == campo)
+                        item.Visible = true;
+        }
     }
 }
