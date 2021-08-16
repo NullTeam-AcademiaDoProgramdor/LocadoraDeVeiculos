@@ -24,6 +24,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GruposAutomovel
 
         private void NomearCamposDosPlanos()
         {
+            this.Text = "Informações Detalhadas: " + grupo.Nome;
+
             lblPlanoControl_PrecoDia.Text = grupo.PlanoKmControlado.PrecoDia.ToString();
             lblPlanoControl_KmDisponivel.Text = grupo.PlanoKmControlado.KmDisponiveis.ToString();
             lblPlanoControl_PrecoKmExtra.Text = grupo.PlanoKmControlado.PrecoKmExtrapolado.ToString();
