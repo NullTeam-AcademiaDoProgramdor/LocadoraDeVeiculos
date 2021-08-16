@@ -256,9 +256,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
             this.cbNaoHaPJuridica.AutoSize = true;
             this.cbNaoHaPJuridica.Location = new System.Drawing.Point(101, 326);
             this.cbNaoHaPJuridica.Name = "cbNaoHaPJuridica";
-            this.cbNaoHaPJuridica.Size = new System.Drawing.Size(134, 17);
+            this.cbNaoHaPJuridica.Size = new System.Drawing.Size(140, 17);
             this.cbNaoHaPJuridica.TabIndex = 35;
-            this.cbNaoHaPJuridica.Text = "Não á Pessoa Jurídica";
+            this.cbNaoHaPJuridica.Text = "Não há Pessoa Jurídica";
             this.cbNaoHaPJuridica.UseVisualStyleBackColor = true;
             this.cbNaoHaPJuridica.CheckedChanged += new System.EventHandler(this.cbNaoHaPJuridica_CheckedChanged);
             // 

@@ -38,7 +38,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
             {
                 controlador.InserirNovo(tela.PessoaFisica);
 
+                tabelaPessoaFisica.DesagruparRegistros();
                 tabelaPessoaFisica.AtualizarRegistros();
+                tabelaPessoaFisica.AgruparRegistros();
 
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Pessoa física: [{tela.PessoaFisica.Nome}] inserido com sucesso");
             }
@@ -67,7 +69,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
             {
                 controlador.Editar(id, tela.PessoaFisica);
 
+                tabelaPessoaFisica.DesagruparRegistros();
                 tabelaPessoaFisica.AtualizarRegistros();
+                tabelaPessoaFisica.AgruparRegistros();
 
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Pessoa física: [{tela.PessoaFisica.Nome}] editada com sucesso");
             }
@@ -91,7 +95,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
             {
                 controlador.Excluir(id);
 
+                tabelaPessoaFisica.DesagruparRegistros();
                 tabelaPessoaFisica.AtualizarRegistros();
+                tabelaPessoaFisica.AgruparRegistros();
 
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Pessoa física: [{pessoaFisicaSeleciada.Nome}] removida com sucesso");
             }
@@ -115,29 +121,22 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
 
             if (telaOrdemPessoaFisica.ShowDialog() == DialogResult.OK)
             {
-                switch (telaOrdemPessoaFisica.TipoOrdem)
-                {
-                    case FiltroPessoaFisicaEnum.PessoaPorEmpresa:
-                        tabelaPessoaFisica.AgruparPessoasJuridicas("PessoaJuridica");
-                        break;
-
-                    case FiltroPessoaFisicaEnum.PessoaSemOrdem:
-                        DesagruparRegistros();
-                        break;
-
-                    default:
-                        break;
-                }
+                tabelaPessoaFisica.AgruparRegistros(telaOrdemPessoaFisica.TipoOrdem);
             }
         }
 
         public void DesagruparRegistros()
         {
-            tabelaPessoaFisica.DesagruparPessoaJuridica(controlador.SelecionarTodos());
+            tabelaPessoaFisica.DesagruparRegistros();
         }
         private bool PodeCadastrar()
         {
-            throw new NotImplementedException();
+            if (controladorPJuridica.SelecionarTodos().Count > 0)
+                return true;
+
+            TelaPrincipalForm.Instancia.AtualizarRodape("Cadastre uma pessoa jurídica, para poder agrupar");
+            
+            return false;
         }
     }
 }

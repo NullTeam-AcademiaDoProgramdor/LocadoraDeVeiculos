@@ -1,5 +1,6 @@
 ﻿using LocadoraDeVeiculos.Controladores.PessoaFisicaModule;
 using LocadoraDeVeiculos.Dominio.PessoaFisicaModule;
+using LocadoraDeVeiculos.WindowsApp.Features.PessoasJuridicas;
 using LocadoraDeVeiculos.WindowsApp.Shared;
 using System;
 using System.Collections.Generic;
@@ -15,8 +16,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
 {
     public partial class TabelaPessoaFisicaControl : UserControl
     {
-        Subro.Controls.DataGridViewGrouper gridPessoasFisicasAgrupadas;
+        private Subro.Controls.DataGridViewGrouper gridPessoasFisicasAgrupadas;
         ControladorPessoaFisica controlador = new ControladorPessoaFisica();
+        private FiltroPessoaFisicaEnum filtroPFisicaCache = FiltroPessoaFisicaEnum.PessoaSemOrdem;
         public TabelaPessoaFisicaControl()
         {
             InitializeComponent();
@@ -67,37 +69,60 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
 
         private void CarregarTabela(List<PessoaFisica> pessoasFisicas)
         {
-            gridPessoasFisicas.DataSource = pessoasFisicas.ConvertAll(c => c as PessoaFisica);
+            gridPessoasFisicas.DataSource = pessoasFisicas;
 
             gridPessoasFisicasAgrupadas = new Subro.Controls.DataGridViewGrouper(gridPessoasFisicas);
         }
 
-        public void AgruparPessoasJuridicas(string campo)
+        public void AgruparRegistros(FiltroPessoaFisicaEnum filtroPFisica)
         {
-            gridPessoasFisicasAgrupadas.RemoveGrouping();
-            gridPessoasFisicasAgrupadas.SetGroupOn(campo);
-            gridPessoasFisicasAgrupadas.Options.ShowGroupName = false;
+            filtroPFisicaCache = filtroPFisica;
 
-            foreach (DataGridViewColumn item in gridPessoasFisicas.Columns)
-                if (item.DataPropertyName == campo)
-                    item.Visible = false;
-
-            gridPessoasFisicas.RowHeadersVisible = false;
-            gridPessoasFisicas.ClearSelection();
+            switch (filtroPFisica)
+            {
+                case FiltroPessoaFisicaEnum.PessoaPorEmpresa:
+                    AgruparPessoaFisicaPorEmpresa();
+                    break;
+            }
+        }
+        
+        public void AgruparRegistros()
+        {
+            AgruparRegistros(filtroPFisicaCache);
         }
 
-        public void DesagruparPessoaJuridica(List<PessoaFisica> pessoasFisicas)
+        private void AgruparPessoaFisicaPorEmpresa()
         {
-            var campos = new string[] { "PessoaJuridica" };
+            DesagruparRegistros();
 
+            gridPessoasFisicasAgrupadas.SetGroupOn("PessoaJuridica");
+
+            EsconderColuna("PessoaJuridica");
+        }
+
+        private void EsconderColuna(string campo)
+        {
+            foreach (DataGridViewColumn col in gridPessoasFisicas.Columns)
+            {
+                if (col.Name == campo)
+                    col.Visible = false;
+            }
+        }
+
+        public void DesagruparRegistros()
+        {
+            gridPessoasFisicasAgrupadas.RemoveGrouping();
+            ExibirTodasColunas();
+        }
+
+        private void ExibirTodasColunas()
+        {
             gridPessoasFisicasAgrupadas.RemoveGrouping();
             gridPessoasFisicas.RowHeadersVisible = true;
 
-            foreach (var campo in campos)
-                foreach (DataGridViewColumn item in gridPessoasFisicas.Columns)
-                    if (item.DataPropertyName == campo)
-                        item.Visible = true;
+            foreach (DataGridViewColumn col in gridPessoasFisicas.Columns)
+                if (col.DataPropertyName == "PessoaJuridica")
+                    col.Visible = true;
         }
-
     }
 }
