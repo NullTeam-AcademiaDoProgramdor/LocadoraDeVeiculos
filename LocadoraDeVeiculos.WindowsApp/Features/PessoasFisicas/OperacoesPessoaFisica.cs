@@ -27,9 +27,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
 
         public void InserirNovoRegistro()
         {
-            if (!PodeCadastrar())
-                return;
-
             var pessoasJuridicas = controladorPJuridica.SelecionarTodos();
 
             TelaPessoaFisicaForm tela = new TelaPessoaFisicaForm(pessoasJuridicas, controlador);
@@ -128,15 +125,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
         public void DesagruparRegistros()
         {
             tabelaPessoaFisica.DesagruparRegistros();
-        }
-        private bool PodeCadastrar()
-        {
-            if (controladorPJuridica.SelecionarTodos().Count > 0)
-                return true;
-
-            TelaPrincipalForm.Instancia.AtualizarRodape("Cadastre uma pessoa jurídica, para poder agrupar");
-            
-            return false;
         }
 
         public void ExibirInformacoesDetalhadas()
