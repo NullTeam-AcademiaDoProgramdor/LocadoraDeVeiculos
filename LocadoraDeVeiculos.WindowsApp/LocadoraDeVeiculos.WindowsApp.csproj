@@ -50,6 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Features\Automoveis\AgrupamentoAutomovelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Automoveis\AgrupamentoAutomovelForm.Designer.cs">
+      <DependentUpon>AgrupamentoAutomovelForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Features\Automoveis\ConfiguracaoAutomovelTooBox.cs" />
     <Compile Include="Features\Automoveis\FiltroAutomovelEnum.cs" />
     <Compile Include="Features\Automoveis\OperacoesAutomovel.cs" />
@@ -142,6 +148,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Features\Automoveis\AgrupamentoAutomovelForm.resx">
+      <DependentUpon>AgrupamentoAutomovelForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Features\Automoveis\TabelaAutomovelControl.resx">
       <DependentUpon>TabelaAutomovelControl.cs</DependentUpon>
     </EmbeddedResource>
