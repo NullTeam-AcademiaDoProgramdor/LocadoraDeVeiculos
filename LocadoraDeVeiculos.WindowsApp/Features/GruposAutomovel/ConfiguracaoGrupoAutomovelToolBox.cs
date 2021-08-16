@@ -19,6 +19,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GruposAutomovel
                     ToolTipAdicionar = "Adicionar um novo Grupo de Automovel",
                     ToolTipEditar = "Editar um Grupo de Automovel existente",
                     ToolTipExcluir = "Excluir um Grupo de Automovel existente",
+                    ToolTipExibirInformacoes = "Visualizar Informações detalhadas" +
+                    " de um Grupo de Automovel",
                 };
             }
         }
@@ -27,7 +29,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GruposAutomovel
         {
             get
             {
-                return new ConfiguracoesBotoes();
+                return new ConfiguracoesBotoes()
+                {
+                    btnExibirInformações = true,
+                };
             }
         }
     }

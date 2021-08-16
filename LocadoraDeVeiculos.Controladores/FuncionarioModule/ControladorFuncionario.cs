@@ -32,7 +32,7 @@ namespace LocadoraDeVeiculos.Controladores.FuncionarioModule
 		                [SALARIO] = @SALARIO,
                         [SENHA] = @SENHA
                     WHERE 
-                        ID = @ID";
+                        ID = @ID";        
 
         private const string sqlExcluirFuncionario =
             @"DELETE 
@@ -60,6 +60,20 @@ namespace LocadoraDeVeiculos.Controladores.FuncionarioModule
                         FUNCIONARIO
                     WHERE 
                         ID = @ID";
+
+        private const string sqlSelecionarFuncionarioNomeESenha =
+            @"SELECT
+                        [ID],
+                        [NOME],
+                        [DATADEENTRADA],
+                        [SALARIO],
+                        [SENHA]
+                    FROM
+                        FUNCIONARIO
+                    WHERE 
+                        NOME = @NOME 
+                    AND
+                        SENHA = @SENHA";
 
         private const string sqlSelecionarTodosFuncionarios =
             @"SELECT
@@ -116,8 +130,17 @@ namespace LocadoraDeVeiculos.Controladores.FuncionarioModule
         }        
 
         public override Funcionario SelecionarPorId(int id)
-        {
+        {            
             return Db.Get(sqlSelecionarFuncionarioPorId, ConverterEmFuncionario, AdicionarParametro("ID", id));
+        }
+
+        public Funcionario SelecionarPorNomeESenha(string nome, string senha)
+        {
+            Dictionary<string, object> parametros = new Dictionary<string, object>()
+            {
+                {"NOME", nome}, {"SENHA",senha}
+            };
+            return Db.Get(sqlSelecionarFuncionarioNomeESenha, ConverterEmFuncionario, parametros);
         }
 
         public override List<Funcionario> SelecionarTodos()

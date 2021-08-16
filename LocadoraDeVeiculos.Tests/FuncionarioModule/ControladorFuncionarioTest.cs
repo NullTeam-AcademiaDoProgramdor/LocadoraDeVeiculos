@@ -67,6 +67,17 @@ namespace LocadoraDeVeiculos.Tests.FuncionarioModule
         }
 
         [TestMethod]
+        public void DeveSelecionarFuncionarioPorNomeESenha()
+        {
+            var funcionario = new Funcionario("Pedro", new DateTime(2020, 01, 01), 1000, "password");
+            controlador.InserirNovo(funcionario);
+
+            var funcionarioEncontrado = controlador.SelecionarPorNomeESenha(funcionario.Nome, funcionario.Senha);
+
+            funcionarioEncontrado.Should().NotBeNull();
+        }
+
+        [TestMethod]
         public void DeveSelecionarTodosFuncionarios()
         {
             var f1 = new Funcionario("Pedro", new DateTime(2020, 01, 01), 1000, "password");

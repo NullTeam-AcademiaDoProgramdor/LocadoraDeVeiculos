@@ -115,5 +115,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
 
             return tabelaTaxasEServicos;
         }
+
+        public void ExibirInformacoesDetalhadas()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

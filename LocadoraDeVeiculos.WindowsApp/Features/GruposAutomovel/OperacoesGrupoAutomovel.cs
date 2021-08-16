@@ -115,6 +115,23 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GruposAutomovel
 
             return tabelaGrupoAutomovel;
         }
+
+        public void ExibirInformacoesDetalhadas()
+        {
+            int id = tabelaGrupoAutomovel.ObtemIdSelecionado();
+
+            if (id == 0)
+            {
+                MessageBox.Show("Selecione um Grupo para poder visualizar seus detalhes!", "visualização de Grupo de Automovel",
+                   MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            GrupoAutomovel grupoSelecionado = controlador.SelecionarPorId(id);
+
+            TelaInformacoesDetalhadasForm tela = new TelaInformacoesDetalhadasForm(grupoSelecionado);
+            tela.ShowDialog();
+        }
     }
 }
 

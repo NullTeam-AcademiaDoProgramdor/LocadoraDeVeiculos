@@ -44,6 +44,9 @@ namespace LocadoraDeVeiculos.Dominio.FuncionarioModule
             if (DataAdmissao > DateTime.Now)
                 resultadoValidacao = "O campo data de admissão não pode ser no futuro";
 
+            if(Nome.ToLower() == "admin")
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "Não é possível cadastrar um funcionário com este nome";
+
             if (string.IsNullOrEmpty(Nome))
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo nome é obrigatório";
 
