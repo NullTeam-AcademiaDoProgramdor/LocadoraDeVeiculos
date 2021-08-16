@@ -112,8 +112,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
 
             if (telaOrdemPessoaFisica.ShowDialog() == DialogResult.OK)
             {
-                List<PessoaFisica> pessoasJuridicas = new List<PessoaFisica>();
-                pessoasJuridicas = controlador.SelecionarTodos();
                 switch (telaOrdemPessoaFisica.TipoOrdem)
                 {
                     case FiltroPessoaFisicaEnum.PessoaPorEmpresa:
