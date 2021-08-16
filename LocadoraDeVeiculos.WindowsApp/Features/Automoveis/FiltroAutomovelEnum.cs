@@ -8,6 +8,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
 {
     public enum FiltroAutomovelEnum
     {
-            AutomoveisPorGrupo, CompromissosSemOrdem
+            AutomoveisPorGrupo, AutomoveisSemOrdem
     }
 }
