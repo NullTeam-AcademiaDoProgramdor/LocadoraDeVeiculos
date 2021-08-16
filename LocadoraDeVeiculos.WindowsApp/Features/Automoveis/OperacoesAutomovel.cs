@@ -23,12 +23,47 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
 
         public void InserirNovoRegistro()
         {
-            throw new NotImplementedException();
+            TelaAutomovelForm tela = new TelaAutomovelForm();
+
+            if (tela.ShowDialog() == DialogResult.OK)
+            {
+                controlador.InserirNovo(tela.Automovel);
+
+                List<Automovel> automoveis = controlador.SelecionarTodos();
+
+                tabelaAutomovel.AtualizarRegistros(automoveis);
+
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Automóvel: [{tela.Automovel.Modelo}] inserido com sucesso");
+            }
         }
 
         public void EditarRegistro()
         {
-            throw new NotImplementedException();
+            int id = tabelaAutomovel.ObtemIdSelecionado();
+
+            if (id == 0)
+            {
+                MessageBox.Show("Selecione um automóvel para poder editar!", "Edição de Automóveis",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            Automovel automovelSelecionado = controlador.SelecionarPorId(id);
+
+            TelaAutomovelForm tela = new TelaAutomovelForm();
+
+            tela.Automovel = automovelSelecionado;
+
+            if (tela.ShowDialog() == DialogResult.OK)
+            {
+                controlador.Editar(id, tela.Automovel);
+
+                List<Automovel> automoveis = controlador.SelecionarTodos();
+
+                tabelaAutomovel.AtualizarRegistros(automoveis);
+
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Automóvel: [{tela.Automovel.Modelo}] editado com sucesso");
+            }
         }
 
         public void ExcluirRegistro()
