@@ -234,6 +234,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
             // 
             // txtAno
             // 
+            this.txtAno.AccessibleName = "Ano";
             this.txtAno.Location = new System.Drawing.Point(106, 192);
             this.txtAno.Name = "txtAno";
             this.txtAno.Size = new System.Drawing.Size(222, 20);
@@ -241,6 +242,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
             // 
             // txtPortas
             // 
+            this.txtPortas.AccessibleName = "Portas";
             this.txtPortas.Location = new System.Drawing.Point(106, 222);
             this.txtPortas.Name = "txtPortas";
             this.txtPortas.Size = new System.Drawing.Size(222, 20);
@@ -248,6 +250,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
             // 
             // txtCapacidadeCombustivel
             // 
+            this.txtCapacidadeCombustivel.AccessibleName = "Cap. Combustivel";
             this.txtCapacidadeCombustivel.Location = new System.Drawing.Point(106, 252);
             this.txtCapacidadeCombustivel.Name = "txtCapacidadeCombustivel";
             this.txtCapacidadeCombustivel.Size = new System.Drawing.Size(222, 20);
@@ -255,6 +258,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
             // 
             // txtTamanhoPortaMalas
             // 
+            this.txtTamanhoPortaMalas.AccessibleName = "Tam. Porta-Malas";
             this.txtTamanhoPortaMalas.Location = new System.Drawing.Point(106, 282);
             this.txtTamanhoPortaMalas.Name = "txtTamanhoPortaMalas";
             this.txtTamanhoPortaMalas.Size = new System.Drawing.Size(222, 20);

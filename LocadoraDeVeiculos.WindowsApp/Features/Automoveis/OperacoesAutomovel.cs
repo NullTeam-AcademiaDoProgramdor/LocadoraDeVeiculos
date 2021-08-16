@@ -34,7 +34,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
 
                 List<Automovel> automoveis = controlador.SelecionarTodos();
 
+                tabelaAutomovel.DesagruparRegistros();
                 tabelaAutomovel.AtualizarRegistros(automoveis);
+                tabelaAutomovel.AgruparRegistros();
 
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Automóvel: [{tela.Automovel.Modelo}] inserido com sucesso");
             }
@@ -63,7 +65,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
 
                 List<Automovel> automoveis = controlador.SelecionarTodos();
 
+                tabelaAutomovel.DesagruparRegistros();
                 tabelaAutomovel.AtualizarRegistros(automoveis);
+                tabelaAutomovel.AgruparRegistros();
 
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Automóvel: [{tela.Automovel.Modelo}] editado com sucesso");
             }
@@ -89,7 +93,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
 
                 List<Automovel> automoveis = controlador.SelecionarTodos();
 
+                tabelaAutomovel.DesagruparRegistros();
                 tabelaAutomovel.AtualizarRegistros(automoveis);
+                tabelaAutomovel.AgruparRegistros();
 
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Automóvel: [{automovelSelecionado.Modelo}] removido com sucesso");
             }
@@ -106,25 +112,13 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
 
             if (telaOrdemAutomovel.ShowDialog() == DialogResult.OK)
             {
-                switch (telaOrdemAutomovel.TipoOrdem)
-                {
-                    case FiltroAutomovelEnum.AutomoveisPorGrupo:
-                        tabelaAutomovel.AgruparAutomoveis("Grupo");
-                        break;
-
-                    case FiltroAutomovelEnum.AutomoveisSemOrdem:
-                        DesagruparRegistros();
-                        break;
-
-                    default:
-                        break;
-                }
+                tabelaAutomovel.AgruparRegistros(telaOrdemAutomovel.TipoOrdem);
             }
         }
 
         public void DesagruparRegistros()
         {
-            tabelaAutomovel.DesagruparCompromissos(controlador.SelecionarTodos());
+            tabelaAutomovel.DesagruparRegistros();
         }
 
         public UserControl ObterTabela()

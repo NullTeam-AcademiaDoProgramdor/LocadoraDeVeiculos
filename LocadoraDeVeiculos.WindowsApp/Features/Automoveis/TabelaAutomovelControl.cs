@@ -17,6 +17,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
     {
         Subro.Controls.DataGridViewGrouper grupperAutomoveis = 
             new Subro.Controls.DataGridViewGrouper();
+
+        private FiltroAutomovelEnum filtroAutomoveCache = FiltroAutomovelEnum.AutomoveisSemOrdem;
+
         public TabelaAutomovelControl()
         {
             InitializeComponent();
@@ -54,6 +57,28 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
             grupperAutomoveis = new Subro.Controls.DataGridViewGrouper(gridAutomovel);
         }
 
+        public void AgruparRegistros()
+        {
+            AgruparRegistros(filtroAutomoveCache);
+        }
+
+        public void AgruparRegistros(FiltroAutomovelEnum filtroAutomovel)
+        {
+            filtroAutomoveCache = filtroAutomovel;
+
+            switch (filtroAutomovel)
+            {
+                case FiltroAutomovelEnum.AutomoveisPorGrupo:
+                    AgruparRegistrosPorGrupo();
+                    break;
+
+                default:
+                    DesagruparRegistros();
+                    break;
+            }
+
+        }
+
         public void AgruparRegistrosPorGrupo()
         {
             DesagruparRegistros();
@@ -83,33 +108,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
             {
                 col.Visible = true;
             }
-        }
-
-        internal void AgruparAutomoveis(string campo)
-        {
-            grupperAutomoveis.RemoveGrouping();
-            grupperAutomoveis.SetGroupOn(campo);
-            grupperAutomoveis.Options.ShowGroupName = false;
-
-            foreach (DataGridViewColumn item in gridAutomovel.Columns)
-                if (item.DataPropertyName == campo)
-                    item.Visible = false;
-
-            gridAutomovel.RowHeadersVisible = false;
-            gridAutomovel.ClearSelection();
-        }
-
-        internal void DesagruparCompromissos(List<Automovel> automoveis)
-        {
-            var campos = new string[] { "Grupo" };
-
-            grupperAutomoveis.RemoveGrouping();
-            gridAutomovel.RowHeadersVisible = true;
-
-            foreach (var campo in campos)
-                foreach (DataGridViewColumn item in gridAutomovel.Columns)
-                    if (item.DataPropertyName == campo)
-                        item.Visible = true;
         }
     }
 }
