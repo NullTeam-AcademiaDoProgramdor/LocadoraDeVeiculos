@@ -83,6 +83,9 @@ namespace LocadoraDeVeiculos.WindowsApp
             menuItemGrupoAutomovel.Visible = menuItemGrupoAutomovel.Enabled = false;
             menuItemTaxasEServicos.Visible = menuItemTaxasEServicos.Enabled = false;
             pessoaJuridicaToolStripMenuItem.Visible = pessoaJuridicaToolStripMenuItem.Enabled = false;
+            automovelToolStripMenuItem.Visible = automovelToolStripMenuItem.Enabled = false;
+
+            funcionáriosToolStripMenuItem.ShortcutKeys = Keys.F1;
         }
 
         private void ConfiguraçõesParaFuncionario()
