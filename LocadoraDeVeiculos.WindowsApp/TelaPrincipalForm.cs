@@ -88,7 +88,8 @@ namespace LocadoraDeVeiculos.WindowsApp
             pessoaJuridicaToolStripMenuItem.Visible = pessoaJuridicaToolStripMenuItem.Enabled = false;
             automovelToolStripMenuItem.Visible = automovelToolStripMenuItem.Enabled = false;
             pessoaFisicaToolStripMenuItem.Visible = pessoaFisicaToolStripMenuItem.Enabled = false;
-
+            PessoasToolStripMenuItem.Visible = false;
+            AutomoveisToolStripMenuItem.Visible = false;
             funcionáriosToolStripMenuItem.ShortcutKeys = Keys.F1;
         }
 
@@ -314,6 +315,37 @@ namespace LocadoraDeVeiculos.WindowsApp
         private void btnExibirInformacoes_Click(object sender, EventArgs e)
         {
             operacoes.ExibirInformacoesDetalhadas();
+        }
+
+        private void taxasEServiçosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConfiguracaoTaxasEServicoToolBox configuracao =
+                new ConfiguracaoTaxasEServicoToolBox();
+
+            ConfigurarTooltips(configuracao.Tooltip);
+            ConfigurarBotoes(configuracao.Botoes);
+
+            AtualizarRodape(configuracao.Tooltip.TipoCadastro);
+            AtualizarFuncionarioConectado(funcionarioConectado.Nome);
+
+            operacoes = operacoesTaxasEServicos;
+
+            ConfigurarPainelRegistros();
+        }
+
+        private void funcionarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConfiguacaoFuncionarioToolBox configuracao = new ConfiguacaoFuncionarioToolBox();
+
+            ConfigurarTooltips(configuracao.Tooltip);
+            ConfigurarBotoes(configuracao.Botoes);
+
+            AtualizarRodape(configuracao.Tooltip.TipoCadastro);
+            AtualizarFuncionarioConectado(funcionarioConectado.Nome);
+
+            operacoes = operacoesFuncionario;
+
+            ConfigurarPainelRegistros();
         }
     }
 }

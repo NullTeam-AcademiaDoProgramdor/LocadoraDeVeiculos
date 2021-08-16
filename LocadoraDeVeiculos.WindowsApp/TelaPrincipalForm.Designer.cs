@@ -30,13 +30,14 @@ namespace LocadoraDeVeiculos.WindowsApp
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.cadastrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.funcionáriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemGrupoAutomovel = new System.Windows.Forms.ToolStripMenuItem();
+            this.PessoasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pessoaJuridicaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pessoaFisicaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemTaxasEServicos = new System.Windows.Forms.ToolStripMenuItem();
+            this.AutomoveisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemGrupoAutomovel = new System.Windows.Forms.ToolStripMenuItem();
             this.automovelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemTaxasEServicos = new System.Windows.Forms.ToolStripMenuItem();
             this.configuraçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolboxAcoes = new System.Windows.Forms.ToolStrip();
             this.btnAdicionar = new System.Windows.Forms.ToolStripButton();
@@ -65,7 +66,10 @@ namespace LocadoraDeVeiculos.WindowsApp
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cadastrosToolStripMenuItem,
+            this.funcionáriosToolStripMenuItem,
+            this.PessoasToolStripMenuItem,
+            this.AutomoveisToolStripMenuItem,
+            this.menuItemTaxasEServicos,
             this.configuraçõesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -73,69 +77,76 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // cadastrosToolStripMenuItem
-            // 
-            this.cadastrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.funcionáriosToolStripMenuItem,
-            this.menuItemGrupoAutomovel,
-            this.pessoaJuridicaToolStripMenuItem,
-            this.pessoaFisicaToolStripMenuItem,
-            this.menuItemTaxasEServicos,
-            this.automovelToolStripMenuItem});
-            this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
-            this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
-            this.cadastrosToolStripMenuItem.Text = "Cadastros";
-            // 
             // funcionáriosToolStripMenuItem
             // 
             this.funcionáriosToolStripMenuItem.Name = "funcionáriosToolStripMenuItem";
-            this.funcionáriosToolStripMenuItem.ShortcutKeyDisplayString = "";
-            this.funcionáriosToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
-            this.funcionáriosToolStripMenuItem.Text = "Funcionários";
-            this.funcionáriosToolStripMenuItem.Click += new System.EventHandler(this.funcionáriosToolStripMenuItem_Click);
+            this.funcionáriosToolStripMenuItem.Size = new System.Drawing.Size(82, 20);
+            this.funcionáriosToolStripMenuItem.Text = "Funcionario";
+            this.funcionáriosToolStripMenuItem.ToolTipText = "Cadastre funcionario (F1)";
+            this.funcionáriosToolStripMenuItem.Click += new System.EventHandler(this.funcionarioToolStripMenuItem_Click);
             // 
-            // menuItemGrupoAutomovel
+            // PessoasToolStripMenuItem
             // 
-            this.menuItemGrupoAutomovel.Name = "menuItemGrupoAutomovel";
-            this.menuItemGrupoAutomovel.ShortcutKeyDisplayString = "";
-            this.menuItemGrupoAutomovel.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.menuItemGrupoAutomovel.Size = new System.Drawing.Size(204, 22);
-            this.menuItemGrupoAutomovel.Text = "Grupo de Automovel";
-            this.menuItemGrupoAutomovel.Click += new System.EventHandler(this.menuItemGrupoAutomovel_Click);
+            this.PessoasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pessoaJuridicaToolStripMenuItem,
+            this.pessoaFisicaToolStripMenuItem});
+            this.PessoasToolStripMenuItem.Name = "PessoasToolStripMenuItem";
+            this.PessoasToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.PessoasToolStripMenuItem.Text = "Pessoas";
+            this.PessoasToolStripMenuItem.ToolTipText = "Cadastre pessoas Fisicias e Juridicas";
             // 
             // pessoaJuridicaToolStripMenuItem
             // 
             this.pessoaJuridicaToolStripMenuItem.Name = "pessoaJuridicaToolStripMenuItem";
             this.pessoaJuridicaToolStripMenuItem.ShortcutKeyDisplayString = "";
-            this.pessoaJuridicaToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F2;
-            this.pessoaJuridicaToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.pessoaJuridicaToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
+            this.pessoaJuridicaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.pessoaJuridicaToolStripMenuItem.Text = "Pessoa Juridica";
             this.pessoaJuridicaToolStripMenuItem.Click += new System.EventHandler(this.pessoaJuridicaToolStripMenuItem_Click);
             // 
             // pessoaFisicaToolStripMenuItem
             // 
             this.pessoaFisicaToolStripMenuItem.Name = "pessoaFisicaToolStripMenuItem";
-            this.pessoaFisicaToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F3;
-            this.pessoaFisicaToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
-            this.pessoaFisicaToolStripMenuItem.Text = "Pessoas Físicas";
+            this.pessoaFisicaToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F2;
+            this.pessoaFisicaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pessoaFisicaToolStripMenuItem.Text = "Pessoa Física";
             this.pessoaFisicaToolStripMenuItem.Click += new System.EventHandler(this.pessoasFísicasToolStripMenuItem_Click);
             // 
-            // menuItemTaxasEServicos
+            // AutomoveisToolStripMenuItem
             // 
-            this.menuItemTaxasEServicos.Name = "menuItemTaxasEServicos";
-            this.menuItemTaxasEServicos.ShortcutKeyDisplayString = "";
-            this.menuItemTaxasEServicos.ShortcutKeys = System.Windows.Forms.Keys.F4;
-            this.menuItemTaxasEServicos.Size = new System.Drawing.Size(204, 22);
-            this.menuItemTaxasEServicos.Text = "Taxas e Serviços";
-            this.menuItemTaxasEServicos.Click += new System.EventHandler(this.menuItemTaxasEServicos_Click);
+            this.AutomoveisToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuItemGrupoAutomovel,
+            this.automovelToolStripMenuItem});
+            this.AutomoveisToolStripMenuItem.Name = "AutomoveisToolStripMenuItem";
+            this.AutomoveisToolStripMenuItem.Size = new System.Drawing.Size(83, 20);
+            this.AutomoveisToolStripMenuItem.Text = "Automóveis";
+            this.AutomoveisToolStripMenuItem.ToolTipText = "Cadastre Grupos de Automóveis e Automóveis";
+            // 
+            // menuItemGrupoAutomovel
+            // 
+            this.menuItemGrupoAutomovel.Name = "menuItemGrupoAutomovel";
+            this.menuItemGrupoAutomovel.ShortcutKeyDisplayString = "";
+            this.menuItemGrupoAutomovel.ShortcutKeys = System.Windows.Forms.Keys.F3;
+            this.menuItemGrupoAutomovel.Size = new System.Drawing.Size(204, 22);
+            this.menuItemGrupoAutomovel.Text = "Grupo de Automovel";
+            this.menuItemGrupoAutomovel.Click += new System.EventHandler(this.menuItemGrupoAutomovel_Click);
             // 
             // automovelToolStripMenuItem
             // 
             this.automovelToolStripMenuItem.Name = "automovelToolStripMenuItem";
-            this.automovelToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F5;
+            this.automovelToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F4;
             this.automovelToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
-            this.automovelToolStripMenuItem.Text = "Automovel";
+            this.automovelToolStripMenuItem.Text = "Automóvel";
             this.automovelToolStripMenuItem.Click += new System.EventHandler(this.automovelToolStripMenuItem_Click);
+            // 
+            // menuItemTaxasEServicos
+            // 
+            this.menuItemTaxasEServicos.Name = "menuItemTaxasEServicos";
+            this.menuItemTaxasEServicos.ShortcutKeys = System.Windows.Forms.Keys.F5;
+            this.menuItemTaxasEServicos.Size = new System.Drawing.Size(102, 20);
+            this.menuItemTaxasEServicos.Text = "Taxas e Serviços";
+            this.menuItemTaxasEServicos.ToolTipText = "Cadastre Taxas e Serviços (F5)";
+            this.menuItemTaxasEServicos.Click += new System.EventHandler(this.taxasEServiçosToolStripMenuItem_Click);
             // 
             // configuraçõesToolStripMenuItem
             // 
@@ -143,6 +154,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.configuraçõesToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
             this.configuraçõesToolStripMenuItem.Size = new System.Drawing.Size(96, 20);
             this.configuraçõesToolStripMenuItem.Text = "Configurações";
+            this.configuraçõesToolStripMenuItem.ToolTipText = "Acesse as configurações do sistema (CTRL-C)";
             this.configuraçõesToolStripMenuItem.Click += new System.EventHandler(this.configuraçõesToolStripMenuItem_Click);
             // 
             // toolboxAcoes
@@ -356,7 +368,7 @@ namespace LocadoraDeVeiculos.WindowsApp
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem cadastrosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem AutomoveisToolStripMenuItem;
         private System.Windows.Forms.ToolStrip toolboxAcoes;
         private System.Windows.Forms.ToolStripButton btnAdicionar;
         private System.Windows.Forms.ToolStripButton btnEditar;
@@ -373,8 +385,6 @@ namespace LocadoraDeVeiculos.WindowsApp
         private System.Windows.Forms.ToolStripButton btnAgrupar;
         private System.Windows.Forms.ToolStripMenuItem menuItemGrupoAutomovel;
         private System.Windows.Forms.ToolStripMenuItem pessoaJuridicaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem funcionáriosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem menuItemTaxasEServicos;
         private System.Windows.Forms.ToolStripMenuItem configuraçõesToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip2;
         private System.Windows.Forms.ToolStripStatusLabel labelFuncionarioConectado;
@@ -382,6 +392,9 @@ namespace LocadoraDeVeiculos.WindowsApp
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripMenuItem automovelToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pessoaFisicaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem PessoasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuItemTaxasEServicos;
+        private System.Windows.Forms.ToolStripMenuItem funcionáriosToolStripMenuItem;
     }
 }
 
