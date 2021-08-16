@@ -88,6 +88,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasJuridicas
             this.Controls.Add(this.rdbPessoasSemOrdem);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGravar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "AgrupamentoPessoaFisicaForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AgrupamentoPessoaFisicaForm";
