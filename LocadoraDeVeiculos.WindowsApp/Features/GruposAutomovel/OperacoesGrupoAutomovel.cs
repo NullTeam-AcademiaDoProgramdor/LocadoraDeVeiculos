@@ -115,6 +115,11 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GruposAutomovel
 
             return tabelaGrupoAutomovel;
         }
+
+        public void ExibirInformacoesDetalhadas()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

@@ -22,5 +22,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Shared
         void AgruparRegistros();
 
         void DesagruparRegistros();
+
+        void ExibirInformacoesDetalhadas();
     }
 }
