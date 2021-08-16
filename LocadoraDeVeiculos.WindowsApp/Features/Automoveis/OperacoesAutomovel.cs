@@ -99,12 +99,29 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
 
         public void AgruparRegistros()
         {
-            throw new NotImplementedException();
+            AgrupamentoAutomovelForm telaOrdemAutomovel = new AgrupamentoAutomovelForm();
+
+            if (telaOrdemAutomovel.ShowDialog() == DialogResult.OK)
+            {
+                switch (telaOrdemAutomovel.TipoOrdem)
+                {
+                    case FiltroAutomovelEnum.AutomoveisPorGrupo:
+                        tabelaAutomovel.AgruparAutomoveis("Grupo");
+                        break;
+
+                    case FiltroAutomovelEnum.AutomoveisSemOrdem:
+                        DesagruparRegistros();
+                        break;
+
+                    default:
+                        break;
+                }
+            }
         }
 
         public void DesagruparRegistros()
         {
-            throw new NotImplementedException();
+            tabelaAutomovel.DesagruparCompromissos(controlador.SelecionarTodos());
         }
 
         public UserControl ObterTabela()
