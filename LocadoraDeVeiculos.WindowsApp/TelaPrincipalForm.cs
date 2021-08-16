@@ -179,6 +179,8 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             btnAgrupar.ToolTipText = configuracoes.ToolTipAgrupar;
             btnDesagrupar.ToolTipText = configuracoes.ToolTípDesagrupar;
+
+            btnExibirInformacoes.ToolTipText = configuracoes.ToolTipExibirInformacoes;
         }
 
         private void ConfigurarBotoes(ConfiguracoesBotoes configuracoes)
@@ -190,6 +192,8 @@ namespace LocadoraDeVeiculos.WindowsApp
             btnFiltrar.Enabled = configuracoes.BtnFiltrar;
 
             btnAgrupar.Enabled = btnDesagrupar.Enabled = configuracoes.BtnAgrupar;
+
+            btnExibirInformacoes.Enabled = configuracoes.btnExibirInformações;
         }
 
         private void DesativarBotoesToolBoxAcoes()
