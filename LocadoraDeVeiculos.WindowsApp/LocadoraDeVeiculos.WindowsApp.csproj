@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Features\Automoveis\ConfiguracaoAutomovelTooBox.cs" />
+    <Compile Include="Features\Automoveis\FiltroAutomovelEnum.cs" />
     <Compile Include="Features\Automoveis\OperacoesAutomovel.cs" />
     <Compile Include="Features\Automoveis\TabelaAutomovelControl.cs">
       <SubType>UserControl</SubType>
