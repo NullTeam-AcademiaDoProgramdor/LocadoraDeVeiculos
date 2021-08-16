@@ -71,6 +71,12 @@
     <Compile Include="Features\Automoveis\TelaAutomovelForm.Designer.cs">
       <DependentUpon>TelaAutomovelForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\Automoveis\TelaInformaçõesAutomovelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Automoveis\TelaInformaçõesAutomovelForm.Designer.cs">
+      <DependentUpon>TelaInformaçõesAutomovelForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Features\GruposAutomovel\ConfiguracaoGrupoAutomovelToolBox.cs" />
     <Compile Include="Features\GruposAutomovel\OperacoesGrupoAutomovel.cs" />
     <Compile Include="Features\GruposAutomovel\TabelaGrupoAutomovelControl.cs">
@@ -168,6 +174,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Features\Automoveis\TelaAutomovelForm.resx">
       <DependentUpon>TelaAutomovelForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Automoveis\TelaInformaçõesAutomovelForm.resx">
+      <DependentUpon>TelaInformaçõesAutomovelForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\GruposAutomovel\TabelaGrupoAutomovelControl.resx">
       <DependentUpon>TabelaGrupoAutomovelControl.cs</DependentUpon>

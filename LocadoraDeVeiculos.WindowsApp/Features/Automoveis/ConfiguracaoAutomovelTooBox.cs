@@ -20,7 +20,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
                     ToolTipEditar = "Editar um Automovel existente",
                     ToolTipExcluir = "Excluir um Automovel existente",
                     ToolTipAgrupar = "Agrupar Automoveis pelo seu Grupo",
-                    ToolTípDesagrupar = "Mostrar todos os Automoveis"
+                    ToolTípDesagrupar = "Mostrar todos os Automoveis",
+                    ToolTipExibirInformacoes = "Visualizar Informações detalhadas" +
+                    " de um Automóvel",
                 };
             }
        }
@@ -31,7 +33,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
             {
                 return new ConfiguracoesBotoes()
                 {
-                    BtnAgrupar = true
+                    BtnAgrupar = true,
+                    btnExibirInformações = true
                 };
             }
         }

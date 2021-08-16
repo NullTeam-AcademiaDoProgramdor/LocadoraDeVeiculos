@@ -142,5 +142,23 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
 
             return tabelaAutomovel;
         }
+
+        public void ExibirInformacoesDetalhadas()
+        {
+            int id = tabelaAutomovel.ObtemIdSelecionado();
+
+            if (id == 0)
+            {
+                MessageBox.Show("Selecione um Automóvel para poder visualizar seus detalhes!", "visualização de Automóvel",
+                  MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            Automovel automovelSelecionado = controlador.SelecionarPorId(id);
+
+            TelaInformaçõesAutomovelForm tela = 
+                new TelaInformaçõesAutomovelForm(automovelSelecionado);
+            tela.ShowDialog();
+        }
     }
 }
