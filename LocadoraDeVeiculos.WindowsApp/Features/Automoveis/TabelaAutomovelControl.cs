@@ -15,6 +15,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
 {
     public partial class TabelaAutomovelControl : UserControl
     {
+        Subro.Controls.DataGridViewGrouper grupperAutomoveis = 
+            new Subro.Controls.DataGridViewGrouper();
         public TabelaAutomovelControl()
         {
             InitializeComponent();
@@ -47,9 +49,40 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
 
         public void AtualizarRegistros(List<Automovel> automoveis)
         {
-            gridAutomovel.Rows.Clear();
-
             gridAutomovel.DataSource = automoveis;
+
+            grupperAutomoveis = new Subro.Controls.DataGridViewGrouper(gridAutomovel);
+        }
+
+        public void AgruparRegistrosPorGrupo()
+        {
+            DesagruparRegistros();
+
+            grupperAutomoveis.SetGroupOn("Grupo");
+            EsconderColuna("Grupo");
+        }
+
+        public void DesagruparRegistros()
+        {
+            grupperAutomoveis.RemoveGrouping();
+            ExibirTodasColunas();
+        }
+
+        private void EsconderColuna(string nomeColuna)
+        {
+            foreach (DataGridViewColumn col in gridAutomovel.Columns)
+            {
+                if (col.DataPropertyName == nomeColuna)
+                    col.Visible = false;
+            }
+        }
+
+        private void ExibirTodasColunas()
+        {
+            foreach (DataGridViewColumn col in gridAutomovel.Columns)
+            {
+                col.Visible = true;
+            }
         }
     }
 }
