@@ -34,6 +34,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.funcionáriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemGrupoAutomovel = new System.Windows.Forms.ToolStripMenuItem();
             this.pessoaJuridicaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pessoaFisicaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemTaxasEServicos = new System.Windows.Forms.ToolStripMenuItem();
             this.automovelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configuraçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -78,6 +79,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.funcionáriosToolStripMenuItem,
             this.menuItemGrupoAutomovel,
             this.pessoaJuridicaToolStripMenuItem,
+            this.pessoaFisicaToolStripMenuItem,
             this.menuItemTaxasEServicos,
             this.automovelToolStripMenuItem});
             this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
@@ -110,11 +112,19 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.pessoaJuridicaToolStripMenuItem.Text = "Pessoa Juridica";
             this.pessoaJuridicaToolStripMenuItem.Click += new System.EventHandler(this.pessoaJuridicaToolStripMenuItem_Click);
             // 
+            // pessoaFisicaToolStripMenuItem
+            // 
+            this.pessoaFisicaToolStripMenuItem.Name = "pessoaFisicaToolStripMenuItem";
+            this.pessoaFisicaToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F3;
+            this.pessoaFisicaToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.pessoaFisicaToolStripMenuItem.Text = "Pessoas Físicas";
+            this.pessoaFisicaToolStripMenuItem.Click += new System.EventHandler(this.pessoasFísicasToolStripMenuItem_Click);
+            // 
             // menuItemTaxasEServicos
             // 
             this.menuItemTaxasEServicos.Name = "menuItemTaxasEServicos";
             this.menuItemTaxasEServicos.ShortcutKeyDisplayString = "";
-            this.menuItemTaxasEServicos.ShortcutKeys = System.Windows.Forms.Keys.F3;
+            this.menuItemTaxasEServicos.ShortcutKeys = System.Windows.Forms.Keys.F4;
             this.menuItemTaxasEServicos.Size = new System.Drawing.Size(204, 22);
             this.menuItemTaxasEServicos.Text = "Taxas e Serviços";
             this.menuItemTaxasEServicos.Click += new System.EventHandler(this.menuItemTaxasEServicos_Click);
@@ -122,7 +132,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             // automovelToolStripMenuItem
             // 
             this.automovelToolStripMenuItem.Name = "automovelToolStripMenuItem";
-            this.automovelToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F4;
+            this.automovelToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F5;
             this.automovelToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.automovelToolStripMenuItem.Text = "Automovel";
             this.automovelToolStripMenuItem.Click += new System.EventHandler(this.automovelToolStripMenuItem_Click);
@@ -371,6 +381,7 @@ namespace LocadoraDeVeiculos.WindowsApp
         private System.Windows.Forms.ToolStripButton btnExibirInformacoes;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripMenuItem automovelToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pessoaFisicaToolStripMenuItem;
     }
 }
 

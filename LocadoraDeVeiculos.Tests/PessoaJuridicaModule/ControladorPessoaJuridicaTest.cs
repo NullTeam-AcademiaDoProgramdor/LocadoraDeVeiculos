@@ -70,7 +70,7 @@ namespace LocadoraDeVeiculos.Tests.PessoaJuridicaModule
         }
 
         [TestMethod]
-        public void DeveSelecionar_Tarefa_PorId()
+        public void DeveSelecionar_PessoaJuridica_PorId()
         {
             //arrange
             PessoaJuridica pessoaJuridica = new PessoaJuridica("Matheus", "22.000.000/0001-00", "(49)000000000", "Lagi");

@@ -78,5 +78,9 @@ namespace LocadoraDeVeiculos.Dominio.PessoaJuridicaModule
             return resultadoValidacao;
         }
 
+        public override string ToString()
+        {
+            return Nome;
+        }
     }
 }

@@ -56,7 +56,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasJuridicas
         }
         private void CarregarTabela(List<PessoaJuridica> pessoasJuridicas)
         {
-            gridPessoasJuridicas.DataSource = pessoasJuridicas.ConvertAll(c => c as PessoaJuridica);
+            gridPessoasJuridicas.DataSource = pessoasJuridicas;
 
             gridPessoasJuridicasAgrupadas = new Subro.Controls.DataGridViewGrouper(gridPessoasJuridicas);
         }

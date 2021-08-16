@@ -19,6 +19,8 @@ using LocadoraDeVeiculos.Dominio.FuncionarioModule;
 using LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos;
 
 using LocadoraDeVeiculos.WindowsApp.Features.Configuracoes;
+using LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas;
+using LocadoraDeVeiculos.Controladores.PessoaFisicaModule;
 using LocadoraDeVeiculos.WindowsApp.Features.Automoveis;
 using LocadoraDeVeiculos.Controladores.AutomovelModule;
 
@@ -40,6 +42,7 @@ namespace LocadoraDeVeiculos.WindowsApp
         private OperacoesFuncionario operacoesFuncionario;
         private OperacoesTaxasESevicos operacoesTaxasEServicos;
         private OperacoesConfiguracoes operacoesConfiguracoes;
+        private OperacoesPessoaFisica operacoesPessoaFisica;
 
         private OperacoesAutomovel operacoesAutomovel;
 
@@ -84,6 +87,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             menuItemTaxasEServicos.Visible = menuItemTaxasEServicos.Enabled = false;
             pessoaJuridicaToolStripMenuItem.Visible = pessoaJuridicaToolStripMenuItem.Enabled = false;
             automovelToolStripMenuItem.Visible = automovelToolStripMenuItem.Enabled = false;
+            pessoaFisicaToolStripMenuItem.Visible = pessoaFisicaToolStripMenuItem.Enabled = false;
 
             funcionáriosToolStripMenuItem.ShortcutKeys = Keys.F1;
         }
@@ -99,7 +103,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             operacoesGrupoAutomovel = new OperacoesGrupoAutomovel(new ControladorGrupoAutomovel());
             operacoesFuncionario = new OperacoesFuncionario(new ControladorFuncionario());
             operacoesTaxasEServicos = new OperacoesTaxasESevicos(new ControladorTaxasEServicos());
-
+            operacoesPessoaFisica = new OperacoesPessoaFisica(new ControladorPessoaFisica());
             operacoesConfiguracoes = new OperacoesConfiguracoes();
 
             operacoesAutomovel = new OperacoesAutomovel(new ControladorAutomovel(), new ControladorGrupoAutomovel());
@@ -127,7 +131,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             if(nomeFuncionario == "Rech")
                 labelFuncionarioConectado.Text = $"{nomeFuncionario} : Admin";
             else
-                labelFuncionarioConectado.Text = $"{nomeFuncionario} : Funcionario";
+                labelFuncionarioConectado.Text = $"{nomeFuncionario} : Funcionário";
         }
 
         public void AtualizarRodape(string mensagem)
@@ -289,6 +293,20 @@ namespace LocadoraDeVeiculos.WindowsApp
             panelRegistros.Controls.Clear();
 
             panelRegistros.Controls.Add(tabela);
+        }
+
+        private void pessoasFísicasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConfiguracaoPessoaFisicaToolBox configuracao = new ConfiguracaoPessoaFisicaToolBox();
+
+            ConfigurarTooltips(configuracao.Tooltip);
+            ConfigurarBotoes(configuracao.Botoes);
+
+            AtualizarRodape(configuracao.Tooltip.TipoCadastro);
+
+            operacoes = operacoesPessoaFisica;
+
+            ConfigurarPainelRegistros();
         }
 
        
