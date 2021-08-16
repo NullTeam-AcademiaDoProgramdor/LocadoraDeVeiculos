@@ -19,6 +19,8 @@ using LocadoraDeVeiculos.Dominio.FuncionarioModule;
 using LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos;
 
 using LocadoraDeVeiculos.WindowsApp.Features.Configuracoes;
+using LocadoraDeVeiculos.WindowsApp.Features.Automoveis;
+using LocadoraDeVeiculos.Controladores.AutomovelModule;
 
 namespace LocadoraDeVeiculos.WindowsApp
 {
@@ -38,6 +40,8 @@ namespace LocadoraDeVeiculos.WindowsApp
         private OperacoesFuncionario operacoesFuncionario;
         private OperacoesTaxasESevicos operacoesTaxasEServicos;
         private OperacoesConfiguracoes operacoesConfiguracoes;
+
+        private OperacoesAutomovel operacoesAutomovel;
 
         public TelaPrincipalForm(Funcionario funcionarioConectado)
         {
@@ -92,6 +96,12 @@ namespace LocadoraDeVeiculos.WindowsApp
             operacoesGrupoAutomovel = new OperacoesGrupoAutomovel(new ControladorGrupoAutomovel());
             operacoesFuncionario = new OperacoesFuncionario(new ControladorFuncionario());
             operacoesTaxasEServicos = new OperacoesTaxasESevicos(new ControladorTaxasEServicos());
+
+            operacoesConfiguracoes = new OperacoesConfiguracoes();
+
+            operacoesAutomovel = new OperacoesAutomovel(new ControladorAutomovel(), new ControladorGrupoAutomovel());
+
+            Instancia = this;
         }
 
         private void pessoaJuridicaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -179,6 +189,8 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             btnAgrupar.ToolTipText = configuracoes.ToolTipAgrupar;
             btnDesagrupar.ToolTipText = configuracoes.ToolTípDesagrupar;
+
+            btnExibirInformacoes.ToolTipText = configuracoes.ToolTipExibirInformacoes;
         }
 
         private void ConfigurarBotoes(ConfiguracoesBotoes configuracoes)
@@ -190,6 +202,8 @@ namespace LocadoraDeVeiculos.WindowsApp
             btnFiltrar.Enabled = configuracoes.BtnFiltrar;
 
             btnAgrupar.Enabled = btnDesagrupar.Enabled = configuracoes.BtnAgrupar;
+
+            btnExibirInformacoes.Enabled = configuracoes.btnExibirInformações;
         }
 
         private void DesativarBotoesToolBoxAcoes()
@@ -248,6 +262,21 @@ namespace LocadoraDeVeiculos.WindowsApp
             ConfigurarPainelRegistros();
         }
 
+        private void automovelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConfiguracaoAutomovelTooBox configuracaoToolBox =
+                new ConfiguracaoAutomovelTooBox();
+
+            ConfigurarTooltips(configuracaoToolBox.Tooltip);
+            ConfigurarBotoes(configuracaoToolBox.Botoes);
+
+            AtualizarRodape(configuracaoToolBox.Tooltip.TipoCadastro);
+
+            operacoes = operacoesAutomovel;
+
+            ConfigurarPainelRegistros();
+        }
+
         private void ConfigurarPainelRegistros()
         {
             UserControl tabela = operacoes.ObterTabela();
@@ -258,6 +287,12 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             panelRegistros.Controls.Add(tabela);
         }
-        
+
+       
+
+        private void btnExibirInformacoes_Click(object sender, EventArgs e)
+        {
+            operacoes.ExibirInformacoesDetalhadas();
+        }
     }
 }

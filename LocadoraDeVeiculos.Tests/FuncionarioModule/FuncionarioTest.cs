@@ -49,6 +49,16 @@ namespace LocadoraDeVeiculos.Tests.FuncionarioModule
         }
 
         [TestMethod]
+        public void DeveValidarNomeAdmin()
+        {
+            var funcionario = new Funcionario("Admin", DateTime.Today, 1000, "password");
+
+            var resultado = funcionario.Validar();
+
+            resultado.Should().Be("Não é possível cadastrar um funcionário com este nome");
+        }
+
+        [TestMethod]
         public void DeveValidarSenha()
         {
             var funcionario = new Funcionario("Pedro", DateTime.Today, 1000, "");

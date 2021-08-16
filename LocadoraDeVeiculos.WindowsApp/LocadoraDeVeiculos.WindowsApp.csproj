@@ -50,6 +50,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Features\Automoveis\AgrupamentoAutomovelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Automoveis\AgrupamentoAutomovelForm.Designer.cs">
+      <DependentUpon>AgrupamentoAutomovelForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Automoveis\ConfiguracaoAutomovelTooBox.cs" />
+    <Compile Include="Features\Automoveis\FiltroAutomovelEnum.cs" />
+    <Compile Include="Features\Automoveis\OperacoesAutomovel.cs" />
+    <Compile Include="Features\Automoveis\TabelaAutomovelControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Features\Automoveis\TabelaAutomovelControl.Designer.cs">
+      <DependentUpon>TabelaAutomovelControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Automoveis\TelaAutomovelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Automoveis\TelaAutomovelForm.Designer.cs">
+      <DependentUpon>TelaAutomovelForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Automoveis\TelaInformaçõesAutomovelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Automoveis\TelaInformaçõesAutomovelForm.Designer.cs">
+      <DependentUpon>TelaInformaçõesAutomovelForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Features\GruposAutomovel\ConfiguracaoGrupoAutomovelToolBox.cs" />
     <Compile Include="Features\GruposAutomovel\OperacoesGrupoAutomovel.cs" />
     <Compile Include="Features\GruposAutomovel\TabelaGrupoAutomovelControl.cs">
@@ -63,6 +90,12 @@
     </Compile>
     <Compile Include="Features\GruposAutomovel\TelaGrupoAutomovelForm.Designer.cs">
       <DependentUpon>TelaGrupoAutomovelForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\GruposAutomovel\TelaInformacoesDetalhadasForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\GruposAutomovel\TelaInformacoesDetalhadasForm.Designer.cs">
+      <DependentUpon>TelaInformacoesDetalhadasForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Features\Login\TelaLoginForm.cs">
       <SubType>Form</SubType>
@@ -133,11 +166,26 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Features\Automoveis\AgrupamentoAutomovelForm.resx">
+      <DependentUpon>AgrupamentoAutomovelForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Automoveis\TabelaAutomovelControl.resx">
+      <DependentUpon>TabelaAutomovelControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Automoveis\TelaAutomovelForm.resx">
+      <DependentUpon>TelaAutomovelForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Automoveis\TelaInformaçõesAutomovelForm.resx">
+      <DependentUpon>TelaInformaçõesAutomovelForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Features\GruposAutomovel\TabelaGrupoAutomovelControl.resx">
       <DependentUpon>TabelaGrupoAutomovelControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\GruposAutomovel\TelaGrupoAutomovelForm.resx">
       <DependentUpon>TelaGrupoAutomovelForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\GruposAutomovel\TelaInformacoesDetalhadasForm.resx">
+      <DependentUpon>TelaInformacoesDetalhadasForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\Login\TelaLoginForm.resx">
       <DependentUpon>TelaLoginForm.cs</DependentUpon>
@@ -219,6 +267,7 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="Lib\DataGridViewGrouper.dll" />
+    <None Include="Resources\outline_info_black_24dp.png" />
     <None Include="Resources\AlugaRech2.0 %282%29.png" />
     <ProjectReference Include="..\LocadoraDeVeiculos.Controladores\LocadoraDeVeiculos.Controladores.csproj">
       <Project>{c0ca9d0a-9edb-41d2-afc0-f27abe5e84e7}</Project>

@@ -109,5 +109,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.FuncionarioModule
         {
             throw new NotImplementedException();
         }
+
+        public void ExibirInformacoesDetalhadas()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

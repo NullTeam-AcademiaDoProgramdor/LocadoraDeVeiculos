@@ -115,5 +115,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasJuridicas
         {
             throw new NotImplementedException();
         }
+
+        public void ExibirInformacoesDetalhadas()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

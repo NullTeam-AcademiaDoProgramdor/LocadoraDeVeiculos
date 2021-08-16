@@ -93,5 +93,10 @@ namespace LocadoraDeVeiculos.Dominio.GrupoAutomovelModule
 
             return resultadoValidacao;
         }
+
+        public override string ToString()
+        {
+            return this.Nome;
+        }
     }
 }

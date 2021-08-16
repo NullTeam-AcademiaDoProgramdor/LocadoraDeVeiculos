@@ -37,6 +37,11 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Configuracoes
             throw new NotImplementedException();
         }
 
+        public void ExibirInformacoesDetalhadas()
+        {
+            throw new NotImplementedException();
+        }
+
         public void FiltrarRegistros()
         {
             throw new NotImplementedException();

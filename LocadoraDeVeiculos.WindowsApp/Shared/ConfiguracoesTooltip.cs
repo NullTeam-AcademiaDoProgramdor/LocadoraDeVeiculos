@@ -16,6 +16,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Shared
             ToolTipFiltrar = "Não é possivel filtrar este cadastro";
             ToolTipAgrupar = "Não é possivel agrupar este cadastro";
             ToolTípDesagrupar = "Não é possivel desagrupar este cadastro";
+            ToolTipExibirInformacoes = "Não é possivel visualizar todas as" +
+                " informações deste cadastro";
         }
 
         public string TipoCadastro { get; internal set; }
@@ -25,5 +27,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Shared
         public string ToolTipFiltrar { get; internal set; }
         public string ToolTipAgrupar { get; internal set; }
         public string ToolTípDesagrupar { get; internal set; }
+        public string ToolTipExibirInformacoes { get; internal set; }
     }
 }

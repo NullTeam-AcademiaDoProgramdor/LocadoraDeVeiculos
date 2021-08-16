@@ -16,6 +16,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Shared
 
             BtnAgrupar = false;
             BtnFiltrar = false;
+            btnExibirInformações = false;
         }
 
         public bool BtnAdicionar { get; internal set; }
@@ -23,5 +24,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Shared
         public bool BtnExcluir { get; internal set; }
         public bool BtnFiltrar { get; internal set; }
         public bool BtnAgrupar { get; internal set; }
+        public bool btnExibirInformações { get; internal set; }
     }
 }
