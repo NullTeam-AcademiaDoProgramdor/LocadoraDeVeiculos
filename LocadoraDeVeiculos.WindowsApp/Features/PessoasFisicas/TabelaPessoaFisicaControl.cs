@@ -83,6 +83,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
                 case FiltroPessoaFisicaEnum.PessoaPorEmpresa:
                     AgruparPessoaFisicaPorEmpresa();
                     break;
+
+                case FiltroPessoaFisicaEnum.PessoaSemOrdem:
+                    DesagruparRegistros();
+                    break;
             }
         }
         

@@ -31,7 +31,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
         {
             this.txtId = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtCNH = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -52,6 +51,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
             this.btnGravar = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.cbNaoHaPJuridica = new System.Windows.Forms.CheckBox();
+            this.txtCNH = new System.Windows.Forms.MaskedTextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,7 +62,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
             this.txtId.Location = new System.Drawing.Point(71, 31);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(257, 20);
-            this.txtId.TabIndex = 14;
+            this.txtId.TabIndex = 0;
             // 
             // label5
             // 
@@ -72,13 +72,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
             this.label5.Size = new System.Drawing.Size(19, 13);
             this.label5.TabIndex = 18;
             this.label5.Text = "Id:";
-            // 
-            // txtCNH
-            // 
-            this.txtCNH.Location = new System.Drawing.Point(59, 19);
-            this.txtCNH.Name = "txtCNH";
-            this.txtCNH.Size = new System.Drawing.Size(251, 20);
-            this.txtCNH.TabIndex = 17;
             // 
             // label3
             // 
@@ -94,7 +87,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
             this.txtNome.Location = new System.Drawing.Point(71, 57);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(257, 20);
-            this.txtNome.TabIndex = 15;
+            this.txtNome.TabIndex = 1;
             // 
             // label1
             // 
@@ -111,7 +104,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
             this.txtCPF.Mask = "000.000.000-00";
             this.txtCPF.Name = "txtCPF";
             this.txtCPF.Size = new System.Drawing.Size(108, 20);
-            this.txtCPF.TabIndex = 19;
+            this.txtCPF.TabIndex = 3;
             // 
             // label2
             // 
@@ -127,7 +120,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
             this.txtRG.Location = new System.Drawing.Point(71, 135);
             this.txtRG.Name = "txtRG";
             this.txtRG.Size = new System.Drawing.Size(257, 20);
-            this.txtRG.TabIndex = 21;
+            this.txtRG.TabIndex = 4;
             // 
             // label6
             // 
@@ -140,14 +133,14 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtCNH);
             this.groupBox1.Controls.Add(this.dataPickCNH);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.txtCNH);
             this.groupBox1.Location = new System.Drawing.Point(12, 187);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(316, 86);
-            this.groupBox1.TabIndex = 25;
+            this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "CNH";
             // 
@@ -157,7 +150,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
             this.dataPickCNH.Location = new System.Drawing.Point(146, 51);
             this.dataPickCNH.Name = "dataPickCNH";
             this.dataPickCNH.Size = new System.Drawing.Size(164, 20);
-            this.dataPickCNH.TabIndex = 27;
+            this.dataPickCNH.TabIndex = 8;
             this.dataPickCNH.Value = new System.DateTime(2021, 8, 13, 0, 0, 0, 0);
             // 
             // label4
@@ -175,7 +168,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
             this.txtTelefone.Mask = "(00)00000-0000";
             this.txtTelefone.Name = "txtTelefone";
             this.txtTelefone.Size = new System.Drawing.Size(108, 20);
-            this.txtTelefone.TabIndex = 27;
+            this.txtTelefone.TabIndex = 2;
             // 
             // label7
             // 
@@ -191,7 +184,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
             this.txtEndereco.Location = new System.Drawing.Point(71, 161);
             this.txtEndereco.Name = "txtEndereco";
             this.txtEndereco.Size = new System.Drawing.Size(257, 20);
-            this.txtEndereco.TabIndex = 29;
+            this.txtEndereco.TabIndex = 5;
             // 
             // label8
             // 
@@ -205,10 +198,11 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
             // cmbPJuridica
             // 
             this.cmbPJuridica.FormattingEnabled = true;
+            this.cmbPJuridica.ItemHeight = 13;
             this.cmbPJuridica.Location = new System.Drawing.Point(101, 298);
             this.cmbPJuridica.Name = "cmbPJuridica";
             this.cmbPJuridica.Size = new System.Drawing.Size(227, 21);
-            this.cmbPJuridica.TabIndex = 30;
+            this.cmbPJuridica.TabIndex = 9;
             // 
             // label9
             // 
@@ -235,7 +229,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
             this.btnGravar.Location = new System.Drawing.Point(253, 362);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(75, 23);
-            this.btnGravar.TabIndex = 33;
+            this.btnGravar.TabIndex = 11;
             this.btnGravar.Text = "Gravar";
             this.btnGravar.UseVisualStyleBackColor = false;
             this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
@@ -247,7 +241,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
             this.button1.Location = new System.Drawing.Point(172, 362);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 34;
+            this.button1.TabIndex = 12;
             this.button1.Text = "Cancelar";
             this.button1.UseVisualStyleBackColor = false;
             // 
@@ -257,10 +251,18 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
             this.cbNaoHaPJuridica.Location = new System.Drawing.Point(101, 326);
             this.cbNaoHaPJuridica.Name = "cbNaoHaPJuridica";
             this.cbNaoHaPJuridica.Size = new System.Drawing.Size(140, 17);
-            this.cbNaoHaPJuridica.TabIndex = 35;
+            this.cbNaoHaPJuridica.TabIndex = 10;
             this.cbNaoHaPJuridica.Text = "Não há Pessoa Jurídica";
             this.cbNaoHaPJuridica.UseVisualStyleBackColor = true;
             this.cbNaoHaPJuridica.CheckedChanged += new System.EventHandler(this.cbNaoHaPJuridica_CheckedChanged);
+            // 
+            // txtCNH
+            // 
+            this.txtCNH.Location = new System.Drawing.Point(59, 19);
+            this.txtCNH.Mask = "000000000000";
+            this.txtCNH.Name = "txtCNH";
+            this.txtCNH.Size = new System.Drawing.Size(251, 20);
+            this.txtCNH.TabIndex = 33;
             // 
             // TelaPessoaFisicaForm
             // 
@@ -286,6 +288,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "TelaPessoaFisicaForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Pessoa Física";
@@ -300,7 +305,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
 
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtCNH;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.Label label1;
@@ -321,5 +325,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
         private System.Windows.Forms.Button btnGravar;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.CheckBox cbNaoHaPJuridica;
+        private System.Windows.Forms.MaskedTextBox txtCNH;
     }
 }
