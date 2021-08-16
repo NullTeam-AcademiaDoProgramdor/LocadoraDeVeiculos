@@ -52,7 +52,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             operacoesConfiguracoes = new OperacoesConfiguracoes();
 
-            operacoesAutomovel = new OperacoesAutomovel(new ControladorAutomovel());
+            operacoesAutomovel = new OperacoesAutomovel(new ControladorAutomovel(), new ControladorGrupoAutomovel());
 
             Instancia = this;
         }

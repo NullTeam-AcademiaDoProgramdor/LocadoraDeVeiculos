@@ -1,4 +1,5 @@
 ﻿using LocadoraDeVeiculos.Controladores.AutomovelModule;
+using LocadoraDeVeiculos.Controladores.GrupoAutomovelModule;
 using LocadoraDeVeiculos.Dominio.AutomovelModule;
 using LocadoraDeVeiculos.WindowsApp.Shared;
 using System;
@@ -13,17 +14,19 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
     class OperacoesAutomovel : ICadastravel
     {
         private readonly ControladorAutomovel controlador = null;
+        private readonly ControladorGrupoAutomovel controladorGrupo = null;
         private readonly TabelaAutomovelControl tabelaAutomovel = null;
 
-        public OperacoesAutomovel(ControladorAutomovel controlador)
+        public OperacoesAutomovel(ControladorAutomovel controlador, ControladorGrupoAutomovel controladorGrupo)
         {
             this.controlador = controlador;
+            this.controladorGrupo = controladorGrupo;
             tabelaAutomovel = new TabelaAutomovelControl();
         }
 
         public void InserirNovoRegistro()
         {
-            TelaAutomovelForm tela = new TelaAutomovelForm();
+            TelaAutomovelForm tela = new TelaAutomovelForm(controladorGrupo.SelecionarTodos());
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
@@ -50,7 +53,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
 
             Automovel automovelSelecionado = controlador.SelecionarPorId(id);
 
-            TelaAutomovelForm tela = new TelaAutomovelForm();
+            TelaAutomovelForm tela = new TelaAutomovelForm(controladorGrupo.SelecionarTodos());
 
             tela.Automovel = automovelSelecionado;
 

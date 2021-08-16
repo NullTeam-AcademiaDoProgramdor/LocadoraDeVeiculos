@@ -114,9 +114,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
             TipoCombustivelEnum tipoCombustivel = (TipoCombustivelEnum)comboCombustivel.SelectedValue;
             CambioEnum cambio = (CambioEnum)comboCambio.SelectedValue;
             DirecaoEnum direcao = (DirecaoEnum)comboDirecao.SelectedValue;
-            GrupoAutomovel grupo = (GrupoAutomovel)comboGrupo.SelectedValue;
+            GrupoAutomovel grupo = (GrupoAutomovel)comboGrupo.SelectedItem;
 
-            Automovel automovel = new Automovel(
+            automovel = new Automovel(
                 modelo, marca, cor, placa, chassi, (int)ano, (int)portas,
                 (int)capacidadeCombustivel, (int)capacidadePortaMalas,
                 tipoCombustivel, cambio, direcao, grupo
