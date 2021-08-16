@@ -54,7 +54,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GruposAutomovel
             // 
             this.btnFechar.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnFechar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnFechar.Location = new System.Drawing.Point(261, 372);
+            this.btnFechar.Location = new System.Drawing.Point(257, 424);
             this.btnFechar.Name = "btnFechar";
             this.btnFechar.Size = new System.Drawing.Size(75, 23);
             this.btnFechar.TabIndex = 0;
@@ -75,7 +75,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GruposAutomovel
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(7, 69);
+            this.label3.Location = new System.Drawing.Point(6, 84);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(71, 13);
             this.label3.TabIndex = 3;
@@ -85,7 +85,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GruposAutomovel
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(7, 75);
+            this.label5.Location = new System.Drawing.Point(7, 86);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(81, 13);
             this.label5.TabIndex = 6;
@@ -105,7 +105,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GruposAutomovel
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(7, 104);
+            this.label7.Location = new System.Drawing.Point(7, 126);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(74, 26);
             this.label7.TabIndex = 7;
@@ -115,7 +115,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GruposAutomovel
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(6, 35);
+            this.label9.Location = new System.Drawing.Point(6, 43);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(72, 13);
             this.label9.TabIndex = 9;
@@ -125,7 +125,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GruposAutomovel
             // 
             this.lblPlanoDiario_PrecoKm.AutoSize = true;
             this.lblPlanoDiario_PrecoKm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlanoDiario_PrecoKm.Location = new System.Drawing.Point(119, 69);
+            this.lblPlanoDiario_PrecoKm.Location = new System.Drawing.Point(160, 84);
             this.lblPlanoDiario_PrecoKm.Name = "lblPlanoDiario_PrecoKm";
             this.lblPlanoDiario_PrecoKm.Size = new System.Drawing.Size(71, 13);
             this.lblPlanoDiario_PrecoKm.TabIndex = 11;
@@ -135,7 +135,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GruposAutomovel
             // 
             this.lblPlanoDiario_PrecoDia.AutoSize = true;
             this.lblPlanoDiario_PrecoDia.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlanoDiario_PrecoDia.Location = new System.Drawing.Point(118, 39);
+            this.lblPlanoDiario_PrecoDia.Location = new System.Drawing.Point(160, 39);
             this.lblPlanoDiario_PrecoDia.Name = "lblPlanoDiario_PrecoDia";
             this.lblPlanoDiario_PrecoDia.Size = new System.Drawing.Size(72, 13);
             this.lblPlanoDiario_PrecoDia.TabIndex = 10;
@@ -145,7 +145,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GruposAutomovel
             // 
             this.lblPlanoControl_PrecoKmExtra.AutoSize = true;
             this.lblPlanoControl_PrecoKmExtra.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlanoControl_PrecoKmExtra.Location = new System.Drawing.Point(117, 104);
+            this.lblPlanoControl_PrecoKmExtra.Location = new System.Drawing.Point(160, 126);
             this.lblPlanoControl_PrecoKmExtra.Name = "lblPlanoControl_PrecoKmExtra";
             this.lblPlanoControl_PrecoKmExtra.Size = new System.Drawing.Size(74, 26);
             this.lblPlanoControl_PrecoKmExtra.TabIndex = 14;
@@ -155,7 +155,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GruposAutomovel
             // 
             this.lblPlanoControl_KmDisponivel.AutoSize = true;
             this.lblPlanoControl_KmDisponivel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlanoControl_KmDisponivel.Location = new System.Drawing.Point(110, 75);
+            this.lblPlanoControl_KmDisponivel.Location = new System.Drawing.Point(160, 86);
             this.lblPlanoControl_KmDisponivel.Name = "lblPlanoControl_KmDisponivel";
             this.lblPlanoControl_KmDisponivel.Size = new System.Drawing.Size(81, 13);
             this.lblPlanoControl_KmDisponivel.TabIndex = 13;
@@ -165,7 +165,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GruposAutomovel
             // 
             this.lblPlanoControl_PrecoDia.AutoSize = true;
             this.lblPlanoControl_PrecoDia.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlanoControl_PrecoDia.Location = new System.Drawing.Point(119, 46);
+            this.lblPlanoControl_PrecoDia.Location = new System.Drawing.Point(160, 46);
             this.lblPlanoControl_PrecoDia.Name = "lblPlanoControl_PrecoDia";
             this.lblPlanoControl_PrecoDia.Size = new System.Drawing.Size(72, 13);
             this.lblPlanoControl_PrecoDia.TabIndex = 12;
@@ -175,7 +175,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GruposAutomovel
             // 
             this.lblPlanoLivre_PrecoDia.AutoSize = true;
             this.lblPlanoLivre_PrecoDia.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlanoLivre_PrecoDia.Location = new System.Drawing.Point(107, 35);
+            this.lblPlanoLivre_PrecoDia.Location = new System.Drawing.Point(160, 43);
             this.lblPlanoLivre_PrecoDia.Name = "lblPlanoLivre_PrecoDia";
             this.lblPlanoLivre_PrecoDia.Size = new System.Drawing.Size(72, 13);
             this.lblPlanoLivre_PrecoDia.TabIndex = 15;
@@ -190,7 +190,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GruposAutomovel
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(22, 24);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(310, 100);
+            this.groupBox1.Size = new System.Drawing.Size(310, 119);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Plano Diário";
@@ -204,9 +204,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GruposAutomovel
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(22, 130);
+            this.groupBox2.Location = new System.Drawing.Point(22, 149);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(310, 141);
+            this.groupBox2.Size = new System.Drawing.Size(310, 174);
             this.groupBox2.TabIndex = 17;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Plano Controlado";
@@ -216,7 +216,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GruposAutomovel
             this.groupBox3.Controls.Add(this.lblPlanoLivre_PrecoDia);
             this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(22, 277);
+            this.groupBox3.Location = new System.Drawing.Point(22, 329);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(310, 79);
             this.groupBox3.TabIndex = 18;
@@ -227,12 +227,13 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GruposAutomovel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(348, 407);
+            this.ClientSize = new System.Drawing.Size(348, 459);
             this.Controls.Add(this.btnFechar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
             this.Name = "TelaInformacoesDetalhadasForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Informações Detalhadas";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

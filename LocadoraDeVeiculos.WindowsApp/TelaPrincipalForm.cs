@@ -262,6 +262,10 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             panelRegistros.Controls.Add(tabela);
         }
-        
+
+        private void btnExibirInformacoes_Click(object sender, EventArgs e)
+        {
+            operacoes.ExibirInformacoesDetalhadas();
+        }
     }
 }

@@ -301,6 +301,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.btnExibirInformacoes.Padding = new System.Windows.Forms.Padding(5);
             this.btnExibirInformacoes.Size = new System.Drawing.Size(38, 38);
             this.btnExibirInformacoes.ToolTipText = "Selecione um cadastro!";
+            this.btnExibirInformacoes.Click += new System.EventHandler(this.btnExibirInformacoes_Click);
             // 
             // toolStripSeparator4
             // 
