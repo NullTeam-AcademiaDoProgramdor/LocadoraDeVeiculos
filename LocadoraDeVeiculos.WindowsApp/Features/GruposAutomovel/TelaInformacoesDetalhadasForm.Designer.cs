@@ -48,8 +48,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GruposAutomovel
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.lblId = new System.Windows.Forms.Label();
             this.lblNome = new System.Windows.Forms.Label();
+            this.lblId = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -151,11 +151,11 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GruposAutomovel
             // 
             this.lblPlanoControl_PrecoKmExtra.AutoSize = true;
             this.lblPlanoControl_PrecoKmExtra.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlanoControl_PrecoKmExtra.Location = new System.Drawing.Point(90, 126);
+            this.lblPlanoControl_PrecoKmExtra.Location = new System.Drawing.Point(90, 139);
             this.lblPlanoControl_PrecoKmExtra.Name = "lblPlanoControl_PrecoKmExtra";
-            this.lblPlanoControl_PrecoKmExtra.Size = new System.Drawing.Size(74, 26);
+            this.lblPlanoControl_PrecoKmExtra.Size = new System.Drawing.Size(74, 13);
             this.lblPlanoControl_PrecoKmExtra.TabIndex = 14;
-            this.lblPlanoControl_PrecoKmExtra.Text = "Preço por Km \r\nExtrapolado";
+            this.lblPlanoControl_PrecoKmExtra.Text = "Preço por Km \r\n";
             // 
             // lblPlanoControl_KmDisponivel
             // 
@@ -263,16 +263,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GruposAutomovel
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Informações Básicas";
             // 
-            // lblId
-            // 
-            this.lblId.AutoSize = true;
-            this.lblId.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblId.Location = new System.Drawing.Point(96, 31);
-            this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(16, 13);
-            this.lblId.TabIndex = 14;
-            this.lblId.Text = "Id";
-            // 
             // lblNome
             // 
             this.lblNome.AutoSize = true;
@@ -282,6 +272,16 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GruposAutomovel
             this.lblNome.Size = new System.Drawing.Size(35, 13);
             this.lblNome.TabIndex = 20;
             this.lblNome.Text = "Nome";
+            // 
+            // lblId
+            // 
+            this.lblId.AutoSize = true;
+            this.lblId.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblId.Location = new System.Drawing.Point(96, 31);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(16, 13);
+            this.lblId.TabIndex = 14;
+            this.lblId.Text = "Id";
             // 
             // TelaInformacoesDetalhadasForm
             // 
