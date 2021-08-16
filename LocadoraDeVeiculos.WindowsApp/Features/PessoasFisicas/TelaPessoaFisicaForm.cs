@@ -78,7 +78,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
             endereco = txtEndereco.Text;
             numCNH = txtCNH.Text;
             validadeCNH = dataPickCNH.Value;
-            pessoaJuridica = (PessoaJuridica)cmbPJuridica.SelectedItem;
+
+            pessoaJuridica = (PessoaJuridica)cmbPJuridica.SelectedItem != null &&
+                cmbPJuridica.Enabled ? (PessoaJuridica)cmbPJuridica.SelectedItem : null;
 
             pessoaFisica = new PessoaFisica(nome, cpf, rg, numCNH, validadeCNH, telefone, endereco, pessoaJuridica);
 
@@ -92,6 +94,14 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
 
                 DialogResult = DialogResult.None;
             }
+        }
+
+        private void cbNaoHaPJuridica_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbNaoHaPJuridica.Checked)
+                cmbPJuridica.Enabled = false;
+            else
+                cmbPJuridica.Enabled = true;
         }
     }
 }

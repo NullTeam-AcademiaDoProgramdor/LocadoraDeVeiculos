@@ -51,6 +51,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
             this.label10 = new System.Windows.Forms.Label();
             this.btnGravar = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.cbNaoHaPJuridica = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -231,7 +232,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
             // 
             this.btnGravar.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnGravar.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnGravar.Location = new System.Drawing.Point(253, 350);
+            this.btnGravar.Location = new System.Drawing.Point(253, 362);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(75, 23);
             this.btnGravar.TabIndex = 33;
@@ -243,18 +244,30 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
             // 
             this.button1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button1.Location = new System.Drawing.Point(172, 350);
+            this.button1.Location = new System.Drawing.Point(172, 362);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 34;
             this.button1.Text = "Cancelar";
             this.button1.UseVisualStyleBackColor = false;
             // 
+            // cbNaoHaPJuridica
+            // 
+            this.cbNaoHaPJuridica.AutoSize = true;
+            this.cbNaoHaPJuridica.Location = new System.Drawing.Point(101, 326);
+            this.cbNaoHaPJuridica.Name = "cbNaoHaPJuridica";
+            this.cbNaoHaPJuridica.Size = new System.Drawing.Size(134, 17);
+            this.cbNaoHaPJuridica.TabIndex = 35;
+            this.cbNaoHaPJuridica.Text = "Não á Pessoa Jurídica";
+            this.cbNaoHaPJuridica.UseVisualStyleBackColor = true;
+            this.cbNaoHaPJuridica.CheckedChanged += new System.EventHandler(this.cbNaoHaPJuridica_CheckedChanged);
+            // 
             // TelaPessoaFisicaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(340, 385);
+            this.ClientSize = new System.Drawing.Size(340, 397);
+            this.Controls.Add(this.cbNaoHaPJuridica);
             this.Controls.Add(this.btnGravar);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label10);
@@ -307,5 +320,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button btnGravar;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.CheckBox cbNaoHaPJuridica;
     }
 }
