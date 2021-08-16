@@ -26,15 +26,16 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.GruposAutomovel
         {
             this.Text = "Informações Detalhadas: " + grupo.Nome;
 
-            lblPlanoControl_PrecoDia.Text = grupo.PlanoKmControlado.PrecoDia.ToString();
-            lblPlanoControl_KmDisponivel.Text = grupo.PlanoKmControlado.KmDisponiveis.ToString();
-            lblPlanoControl_PrecoKmExtra.Text = grupo.PlanoKmControlado.PrecoKmExtrapolado.ToString();
+            lblId.Text = grupo.Id.ToString();
+            lblNome.Text = grupo.Nome.ToString();
+            lblPlanoControl_PrecoDia.Text = "R$" + grupo.PlanoKmControlado.PrecoDia.ToString();
+            lblPlanoControl_KmDisponivel.Text = grupo.PlanoKmControlado.KmDisponiveis.ToString() + " Km's";
+            lblPlanoControl_PrecoKmExtra.Text = "R$" + grupo.PlanoKmControlado.PrecoKmExtrapolado.ToString();
 
-            lblPlanoDiario_PrecoDia.Text = grupo.PlanoDiario.PrecoDia.ToString();
-            lblPlanoDiario_PrecoKm.Text = grupo.PlanoDiario.PrecoKm.ToString();
+            lblPlanoDiario_PrecoDia.Text = "R$" + grupo.PlanoDiario.PrecoDia.ToString();
+            lblPlanoDiario_PrecoKm.Text = "R$" + grupo.PlanoDiario.PrecoKm.ToString();
 
-            lblPlanoLivre_PrecoDia.Text = grupo.PlanoKmLivre.PrecoDia.ToString();
+            lblPlanoLivre_PrecoDia.Text = "R$" + grupo.PlanoKmLivre.PrecoDia.ToString();
         }
-
     }
 }
