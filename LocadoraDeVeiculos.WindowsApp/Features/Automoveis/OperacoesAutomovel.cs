@@ -68,7 +68,28 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
 
         public void ExcluirRegistro()
         {
-            throw new NotImplementedException();
+            int id = tabelaAutomovel.ObtemIdSelecionado();
+
+            if (id == 0)
+            {
+                MessageBox.Show("Selecione um automével para poder excluir!", "Exclusão de Automóveis",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            Automovel automovelSelecionado = controlador.SelecionarPorId(id);
+
+            if (MessageBox.Show($"Tem certeza que deseja excluir o automóvel: [{automovelSelecionado.Modelo}] ?",
+                "Exclusão de Automóveis", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                controlador.Excluir(id);
+
+                List<Automovel> automoveis = controlador.SelecionarTodos();
+
+                tabelaAutomovel.AtualizarRegistros(automoveis);
+
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Automóvel: [{automovelSelecionado.Modelo}] removido com sucesso");
+            }
         }
 
         public void FiltrarRegistros()
