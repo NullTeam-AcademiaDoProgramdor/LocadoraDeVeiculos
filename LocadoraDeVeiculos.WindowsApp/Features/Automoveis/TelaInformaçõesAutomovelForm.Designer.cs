@@ -200,7 +200,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
             // lblId
             // 
             this.lblId.AutoSize = true;
-            this.lblId.Location = new System.Drawing.Point(120, 24);
+            this.lblId.Location = new System.Drawing.Point(107, 24);
             this.lblId.Name = "lblId";
             this.lblId.Size = new System.Drawing.Size(16, 13);
             this.lblId.TabIndex = 28;
@@ -209,7 +209,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
             // lblModelo
             // 
             this.lblModelo.AutoSize = true;
-            this.lblModelo.Location = new System.Drawing.Point(120, 54);
+            this.lblModelo.Location = new System.Drawing.Point(107, 54);
             this.lblModelo.Name = "lblModelo";
             this.lblModelo.Size = new System.Drawing.Size(42, 13);
             this.lblModelo.TabIndex = 29;
@@ -218,7 +218,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
             // lblMarca
             // 
             this.lblMarca.AutoSize = true;
-            this.lblMarca.Location = new System.Drawing.Point(120, 84);
+            this.lblMarca.Location = new System.Drawing.Point(107, 84);
             this.lblMarca.Name = "lblMarca";
             this.lblMarca.Size = new System.Drawing.Size(37, 13);
             this.lblMarca.TabIndex = 30;
@@ -227,7 +227,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
             // lblCor
             // 
             this.lblCor.AutoSize = true;
-            this.lblCor.Location = new System.Drawing.Point(120, 114);
+            this.lblCor.Location = new System.Drawing.Point(107, 114);
             this.lblCor.Name = "lblCor";
             this.lblCor.Size = new System.Drawing.Size(23, 13);
             this.lblCor.TabIndex = 31;
@@ -236,7 +236,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
             // lblPlaca
             // 
             this.lblPlaca.AutoSize = true;
-            this.lblPlaca.Location = new System.Drawing.Point(120, 144);
+            this.lblPlaca.Location = new System.Drawing.Point(107, 144);
             this.lblPlaca.Name = "lblPlaca";
             this.lblPlaca.Size = new System.Drawing.Size(34, 13);
             this.lblPlaca.TabIndex = 32;
@@ -245,7 +245,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
             // lblChassi
             // 
             this.lblChassi.AutoSize = true;
-            this.lblChassi.Location = new System.Drawing.Point(120, 174);
+            this.lblChassi.Location = new System.Drawing.Point(107, 174);
             this.lblChassi.Name = "lblChassi";
             this.lblChassi.Size = new System.Drawing.Size(38, 13);
             this.lblChassi.TabIndex = 33;
@@ -254,7 +254,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
             // lblAno
             // 
             this.lblAno.AutoSize = true;
-            this.lblAno.Location = new System.Drawing.Point(120, 204);
+            this.lblAno.Location = new System.Drawing.Point(107, 204);
             this.lblAno.Name = "lblAno";
             this.lblAno.Size = new System.Drawing.Size(26, 13);
             this.lblAno.TabIndex = 34;
@@ -263,7 +263,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
             // lblPortas
             // 
             this.lblPortas.AutoSize = true;
-            this.lblPortas.Location = new System.Drawing.Point(120, 234);
+            this.lblPortas.Location = new System.Drawing.Point(107, 234);
             this.lblPortas.Name = "lblPortas";
             this.lblPortas.Size = new System.Drawing.Size(37, 13);
             this.lblPortas.TabIndex = 35;
@@ -272,7 +272,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
             // lblCapacidadeCombustivel
             // 
             this.lblCapacidadeCombustivel.AutoSize = true;
-            this.lblCapacidadeCombustivel.Location = new System.Drawing.Point(120, 264);
+            this.lblCapacidadeCombustivel.Location = new System.Drawing.Point(107, 264);
             this.lblCapacidadeCombustivel.Name = "lblCapacidadeCombustivel";
             this.lblCapacidadeCombustivel.Size = new System.Drawing.Size(89, 13);
             this.lblCapacidadeCombustivel.TabIndex = 36;
@@ -281,7 +281,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
             // lblTamanhoPortaMalas
             // 
             this.lblTamanhoPortaMalas.AutoSize = true;
-            this.lblTamanhoPortaMalas.Location = new System.Drawing.Point(120, 294);
+            this.lblTamanhoPortaMalas.Location = new System.Drawing.Point(107, 294);
             this.lblTamanhoPortaMalas.Name = "lblTamanhoPortaMalas";
             this.lblTamanhoPortaMalas.Size = new System.Drawing.Size(89, 13);
             this.lblTamanhoPortaMalas.TabIndex = 37;
@@ -290,7 +290,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
             // lblCombustivel
             // 
             this.lblCombustivel.AutoSize = true;
-            this.lblCombustivel.Location = new System.Drawing.Point(120, 324);
+            this.lblCombustivel.Location = new System.Drawing.Point(107, 324);
             this.lblCombustivel.Name = "lblCombustivel";
             this.lblCombustivel.Size = new System.Drawing.Size(64, 13);
             this.lblCombustivel.TabIndex = 38;
@@ -299,7 +299,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
             // lblCambio
             // 
             this.lblCambio.AutoSize = true;
-            this.lblCambio.Location = new System.Drawing.Point(120, 354);
+            this.lblCambio.Location = new System.Drawing.Point(107, 354);
             this.lblCambio.Name = "lblCambio";
             this.lblCambio.Size = new System.Drawing.Size(42, 13);
             this.lblCambio.TabIndex = 39;
@@ -308,7 +308,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
             // lblDirecao
             // 
             this.lblDirecao.AutoSize = true;
-            this.lblDirecao.Location = new System.Drawing.Point(120, 384);
+            this.lblDirecao.Location = new System.Drawing.Point(107, 384);
             this.lblDirecao.Name = "lblDirecao";
             this.lblDirecao.Size = new System.Drawing.Size(44, 13);
             this.lblDirecao.TabIndex = 40;
@@ -317,7 +317,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
             // lblGrupo
             // 
             this.lblGrupo.AutoSize = true;
-            this.lblGrupo.Location = new System.Drawing.Point(120, 414);
+            this.lblGrupo.Location = new System.Drawing.Point(107, 414);
             this.lblGrupo.Name = "lblGrupo";
             this.lblGrupo.Size = new System.Drawing.Size(36, 13);
             this.lblGrupo.TabIndex = 41;

@@ -37,8 +37,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
 
             lblAno.Text = automovel.Ano.ToString();
             lblPortas.Text = automovel.Portas.ToString();
-            lblCapacidadeCombustivel.Text = automovel.CapacidadeTanque.ToString();
-            lblTamanhoPortaMalas.Text = automovel.TamanhoPortaMalas.ToString();
+            lblCapacidadeCombustivel.Text = automovel.CapacidadeTanque.ToString() + " litros";
+            lblTamanhoPortaMalas.Text = automovel.TamanhoPortaMalas.ToString() + " litros";
 
             lblCombustivel.Text = automovel.TipoCombustivel.ToString();
             lblCambio.Text = automovel.Cambio.ToString();

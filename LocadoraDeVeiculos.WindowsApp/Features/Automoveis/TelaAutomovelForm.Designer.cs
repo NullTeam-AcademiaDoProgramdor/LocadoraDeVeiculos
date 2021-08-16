@@ -59,6 +59,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
             this.comboDirecao = new System.Windows.Forms.ComboBox();
             this.comboGrupo = new System.Windows.Forms.ComboBox();
             this.txtChassi = new System.Windows.Forms.MaskedTextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -246,7 +248,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
             this.txtCapacidadeCombustivel.AccessibleName = "Cap. Combustivel";
             this.txtCapacidadeCombustivel.Location = new System.Drawing.Point(106, 252);
             this.txtCapacidadeCombustivel.Name = "txtCapacidadeCombustivel";
-            this.txtCapacidadeCombustivel.Size = new System.Drawing.Size(222, 20);
+            this.txtCapacidadeCombustivel.Size = new System.Drawing.Size(203, 20);
             this.txtCapacidadeCombustivel.TabIndex = 22;
             // 
             // txtTamanhoPortaMalas
@@ -254,7 +256,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
             this.txtTamanhoPortaMalas.AccessibleName = "Tam. Porta-Malas";
             this.txtTamanhoPortaMalas.Location = new System.Drawing.Point(106, 282);
             this.txtTamanhoPortaMalas.Name = "txtTamanhoPortaMalas";
-            this.txtTamanhoPortaMalas.Size = new System.Drawing.Size(222, 20);
+            this.txtTamanhoPortaMalas.Size = new System.Drawing.Size(203, 20);
             this.txtTamanhoPortaMalas.TabIndex = 23;
             // 
             // btnCancelar
@@ -322,11 +324,31 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
             this.txtChassi.Size = new System.Drawing.Size(222, 20);
             this.txtChassi.TabIndex = 34;
             // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(315, 255);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(16, 13);
+            this.label15.TabIndex = 35;
+            this.label15.Text = "L.";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(315, 285);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(16, 13);
+            this.label16.TabIndex = 36;
+            this.label16.Text = "L.";
+            // 
             // TelaAutomovelForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(340, 475);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.label15);
             this.Controls.Add(this.txtChassi);
             this.Controls.Add(this.comboGrupo);
             this.Controls.Add(this.comboDirecao);
@@ -400,5 +422,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
         private System.Windows.Forms.ComboBox comboDirecao;
         private System.Windows.Forms.ComboBox comboGrupo;
         private System.Windows.Forms.MaskedTextBox txtChassi;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
     }
 }
