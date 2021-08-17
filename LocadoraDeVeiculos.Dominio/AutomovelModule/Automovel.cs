@@ -5,6 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Drawing;
+
 
 namespace LocadoraDeVeiculos.Dominio.AutomovelModule
 {
@@ -35,6 +38,8 @@ namespace LocadoraDeVeiculos.Dominio.AutomovelModule
         public DirecaoEnum Direcao { get; }
 
         public GrupoAutomovel Grupo { get; }
+
+        public Image[] Fotos { get; }
 
         public Automovel(string modelo, string marca, string cor, string placa, 
             string chassi, int ano, int portas, int capacidadeTanque, 
