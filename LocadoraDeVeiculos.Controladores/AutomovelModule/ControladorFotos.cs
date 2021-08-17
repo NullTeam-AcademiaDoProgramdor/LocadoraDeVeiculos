@@ -185,13 +185,13 @@ namespace LocadoraDeVeiculos.Controladores.AutomovelModule
             }
         }
 
-        // Diminui a imagem para ter 16x16 pixel, converte ela para preto e branco e retorna uma string dos pixels
+        // Diminui a imagem para ter 32x32 pixel, converte ela para preto e branco e retorna uma string dos pixels
         // https://stackoverflow.com/questions/35151067/algorithm-to-compare-two-images-in-c-sharp
         private string GetImageHash(Image image)
         {
             List<bool> result = new List<bool>();
 
-            Bitmap bmpMin = new Bitmap(image, new Size(16, 16));
+            Bitmap bmpMin = new Bitmap(image, new Size(32, 32));
 
             for (int j = 0; j < bmpMin.Height; j++)
             {
@@ -202,7 +202,7 @@ namespace LocadoraDeVeiculos.Controladores.AutomovelModule
             }
 
             BitArray arr = new BitArray(result.ToArray());
-            byte[] data = new byte[32];
+            byte[] data = new byte[128];
             arr.CopyTo(data, 0);
 
             string hash = BitConverter.ToString(data);
