@@ -7,6 +7,7 @@ using LocadoraDeVeiculos.Controladores.Shared;
 using System.Drawing;
 using System.IO;
 using System.Data;
+using System.Collections;
 
 namespace LocadoraDeVeiculos.Controladores.AutomovelModule
 {
@@ -48,9 +49,11 @@ namespace LocadoraDeVeiculos.Controladores.AutomovelModule
             WHERE
 	            [automovel] = @automovel;";
 
-     
+        public const string sqlExcluirImagens =
+            @"DELETE FROM [FotoAutomovel]
+                WHERE [id] = @id;";
 
-        public void Inserir(Image[] imagens, int automovelId)
+        private void Inserir(Image[] imagens, int automovelId)
         {
             foreach(Image foto in imagens)
             {
@@ -58,16 +61,92 @@ namespace LocadoraDeVeiculos.Controladores.AutomovelModule
             }
         }
 
-        public Image[] Buscar(int automovelId)
+        public bool Excluir(int id)
+        {
+            Dictionary<string, object> parametros = new Dictionary<string, object>()
+            {
+                {"id", id}
+            };
+
+            try
+            {
+                Db.Delete(sqlExcluirImagens, parametros);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        private List<EntidadeImage> BuscarEntidades(int automovelId)
         {
             Dictionary<string, object> parametros = new Dictionary<string, object>()
             {
                 {"automovel", automovelId }
             };
 
-            List<EntidadeImage> entidadeImages = Db.GetAll(sqlBuscarImagens, ConverterEmEntidadeImage, parametros);
+            return Db.GetAll(sqlBuscarImagens, ConverterEmEntidadeImage, parametros);
+        }
 
-            return entidadeImages.Select(e => e.foto).ToArray();
+        public Image[] Buscar(int automovelId)
+        {
+            return BuscarEntidades(automovelId).Select(e => e.foto).ToArray();
+        }
+
+        public void Modificar(Image[] imagens, int automovelId)
+        {
+            List<EntidadeImage> fotosJaInseridas = BuscarEntidades(automovelId);
+
+            Dictionary<EntidadeImage, char> tabelaDeAlteracoes = 
+                CriarTabelaDeAlteracoes(imagens, automovelId, fotosJaInseridas);
+
+            foreach (var alteracao in tabelaDeAlteracoes)
+            {
+                if (alteracao.Value == 'D')
+                    this.Excluir(alteracao.Key.id);
+
+                else if (alteracao.Value == 'A')
+                    this.Inserir(
+                        new Image[] { alteracao.Key.foto },
+                        alteracao.Key.automovel);
+            }
+        }
+
+        private Dictionary<EntidadeImage, char> CriarTabelaDeAlteracoes(Image[] imagens, int automovelId, List<EntidadeImage> fotosJaInseridas)
+        {
+            /*
+            D = Deletar
+            M = Manter
+            A = Adicionar
+            */
+            Dictionary<EntidadeImage, char> tabelaDeAlteracoes
+                = new Dictionary<EntidadeImage, char>();
+
+            Dictionary<string, EntidadeImage> hashsFotos = new Dictionary<string, EntidadeImage>();
+
+            foreach (EntidadeImage fotoJaInserida in fotosJaInseridas)
+            {
+                tabelaDeAlteracoes.Add(fotoJaInserida, 'D');
+                hashsFotos.Add(GetImageHash(fotoJaInserida.foto), fotoJaInserida);
+            }
+
+            foreach (Image novaFoto in imagens)
+            {
+                string hash = GetImageHash(novaFoto);
+
+                if (hashsFotos.ContainsKey(hash))
+                    tabelaDeAlteracoes[hashsFotos[hash]] = 'M';
+                else
+                {
+                    EntidadeImage tempEntidade = new EntidadeImage(0, novaFoto, automovelId);
+                    tabelaDeAlteracoes.Add(tempEntidade, 'A');
+                    hashsFotos.Add(hash, tempEntidade);
+                }
+            }
+
+            return tabelaDeAlteracoes;
         }
 
         private Dictionary<string, object> ObtemParametrosFoto(Image foto, int automovelId)
@@ -105,5 +184,32 @@ namespace LocadoraDeVeiculos.Controladores.AutomovelModule
                 return Image.FromStream(ms);
             }
         }
+
+        // Diminui a imagem para ter 16x16 pixel, converte ela para preto e branco e retorna uma string dos pixels
+        // https://stackoverflow.com/questions/35151067/algorithm-to-compare-two-images-in-c-sharp
+        private string GetImageHash(Image image)
+        {
+            List<bool> result = new List<bool>();
+
+            Bitmap bmpMin = new Bitmap(image, new Size(16, 16));
+
+            for (int j = 0; j < bmpMin.Height; j++)
+            {
+                for (int i = 0; i < bmpMin.Width; i++)
+                {
+                    result.Add(bmpMin.GetPixel(i, j).GetBrightness() < 0.5f);
+                }
+            }
+
+            BitArray arr = new BitArray(result.ToArray());
+            byte[] data = new byte[32];
+            arr.CopyTo(data, 0);
+
+            string hash = BitConverter.ToString(data);
+
+            return hash;
+        }
+
+
     }
 }
