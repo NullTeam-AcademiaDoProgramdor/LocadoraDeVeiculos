@@ -429,14 +429,15 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
             // 
             // imageGallery1
             // 
+            this.imageGallery1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.imageGallery1.Images = ((System.Collections.Generic.List<System.Drawing.Image>)(resources.GetObject("imageGallery1.Images")));
             this.imageGallery1.LimiteImagens = ((uint)(0u));
-            this.imageGallery1.Location = new System.Drawing.Point(51, 6);
+            this.imageGallery1.Location = new System.Drawing.Point(3, 3);
             this.imageGallery1.MostrarContador = true;
             this.imageGallery1.Name = "imageGallery1";
-            this.imageGallery1.PermitirAdicao = true;
-            this.imageGallery1.PermitirRemocao = true;
-            this.imageGallery1.Size = new System.Drawing.Size(223, 212);
+            this.imageGallery1.PermitirAdicao = false;
+            this.imageGallery1.PermitirRemocao = false;
+            this.imageGallery1.Size = new System.Drawing.Size(314, 231);
             this.imageGallery1.TabIndex = 0;
             // 
             // groupBox1

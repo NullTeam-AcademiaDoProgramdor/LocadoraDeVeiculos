@@ -67,7 +67,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
             this.txtPortas = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.imageGallery1 = new NullTeam.ImageGallery.Lib.ImageGallery();
+            this.imageGallery = new NullTeam.ImageGallery.Lib.ImageGallery();
             this.groupBox1.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -428,7 +428,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.imageGallery1);
+            this.tabPage3.Controls.Add(this.imageGallery);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -437,17 +437,18 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
             this.tabPage3.Text = "Fotos";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // imageGallery1
+            // imageGallery
             // 
-            this.imageGallery1.Images = ((System.Collections.Generic.List<System.Drawing.Image>)(resources.GetObject("imageGallery1.Images")));
-            this.imageGallery1.LimiteImagens = ((uint)(0u));
-            this.imageGallery1.Location = new System.Drawing.Point(49, 6);
-            this.imageGallery1.MostrarContador = true;
-            this.imageGallery1.Name = "imageGallery1";
-            this.imageGallery1.PermitirAdicao = true;
-            this.imageGallery1.PermitirRemocao = true;
-            this.imageGallery1.Size = new System.Drawing.Size(223, 212);
-            this.imageGallery1.TabIndex = 0;
+            this.imageGallery.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.imageGallery.Images = ((System.Collections.Generic.List<System.Drawing.Image>)(resources.GetObject("imageGallery.Images")));
+            this.imageGallery.LimiteImagens = ((uint)(0u));
+            this.imageGallery.Location = new System.Drawing.Point(3, 3);
+            this.imageGallery.MostrarContador = true;
+            this.imageGallery.Name = "imageGallery";
+            this.imageGallery.PermitirAdicao = true;
+            this.imageGallery.PermitirRemocao = true;
+            this.imageGallery.Size = new System.Drawing.Size(314, 231);
+            this.imageGallery.TabIndex = 0;
             // 
             // TelaAutomovelForm
             // 
@@ -513,6 +514,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
         private System.Windows.Forms.TextBox txtPortas;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TabPage tabPage3;
-        private NullTeam.ImageGallery.Lib.ImageGallery imageGallery1;
+        private NullTeam.ImageGallery.Lib.ImageGallery imageGallery;
     }
 }
