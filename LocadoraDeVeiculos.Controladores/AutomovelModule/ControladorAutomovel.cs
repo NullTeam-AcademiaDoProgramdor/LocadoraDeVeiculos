@@ -12,6 +12,7 @@ namespace LocadoraDeVeiculos.Controladores.AutomovelModule
 {
     public class ControladorAutomovel : Controlador<Automovel>
     {
+        private ControladorFotos controladorFotos = new ControladorFotos();
 
         #region Queries
         private const string sqlInserirAutomovel =
@@ -150,6 +151,7 @@ namespace LocadoraDeVeiculos.Controladores.AutomovelModule
             if (resultadoValidacao == "ESTA_VALIDO")
             {
                 registro.id = Db.Insert(sqlInserirAutomovel, ObtemParametrosAutomovel(registro));
+                controladorFotos.Modificar(registro.Fotos, registro.id);
             }
 
             return resultadoValidacao;
@@ -163,6 +165,7 @@ namespace LocadoraDeVeiculos.Controladores.AutomovelModule
             {
                 registro.id = id;
                 Db.Update(sqlEditarAutomovel, ObtemParametrosAutomovel(registro));
+                controladorFotos.Modificar(registro.Fotos, registro.id);
             }
 
             return resultadoValidacao;
@@ -253,6 +256,10 @@ namespace LocadoraDeVeiculos.Controladores.AutomovelModule
                 (DirecaoEnum)direcao, grupoAutomovel);
 
             automovel.Id = Convert.ToInt32(reader["id"]);
+
+            var fotos = controladorFotos.Buscar(automovel.id);
+
+            automovel.Fotos = fotos;
 
             return automovel;
         }

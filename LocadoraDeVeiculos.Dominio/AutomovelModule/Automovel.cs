@@ -39,7 +39,7 @@ namespace LocadoraDeVeiculos.Dominio.AutomovelModule
 
         public GrupoAutomovel Grupo { get; }
 
-        public Image[] Fotos { get; }
+        public Image[] Fotos { get; set; }
 
         public Automovel(string modelo, string marca, string cor, string placa, 
             string chassi, int ano, int portas, int capacidadeTanque, 
