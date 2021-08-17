@@ -140,20 +140,6 @@ namespace LocadoraDeVeiculos.WindowsApp
             labelRodape.Text = mensagem;
         }
 
-        private void funcionáriosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ConfiguacaoFuncionarioToolBox configuracao = new ConfiguacaoFuncionarioToolBox();
-            
-            ConfigurarTooltips(configuracao.Tooltip);
-            ConfigurarBotoes(configuracao.Botoes);
-
-            AtualizarRodape(configuracao.Tooltip.TipoCadastro);
-            AtualizarFuncionarioConectado(funcionarioConectado.Nome);
-
-            operacoes = operacoesFuncionario;
-
-            ConfigurarPainelRegistros();
-        }
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
