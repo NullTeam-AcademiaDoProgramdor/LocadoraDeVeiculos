@@ -65,6 +65,16 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
 
             resultadoValidacao.Should().Be("Insira um valor válido para a quilometragem inicial");
         }
+        
+        [TestMethod]
+        public void DeveValidarDataDevolucao()
+        {
+            Locacao locacao = new Locacao(condutor, automovel, funcionario, DateTime.Today, DateTime.Today, 1000, 50000);
+
+            string resultadoValidacao = locacao.Validar();
+
+            resultadoValidacao.Should().Be("A data de devolução esperada não pode ser menor ou igual que a data de saída");
+        }        
 
         private GrupoAutomovel CriarGrupo()
         {
