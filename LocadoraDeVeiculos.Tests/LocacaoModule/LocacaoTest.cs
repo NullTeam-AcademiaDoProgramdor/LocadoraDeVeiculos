@@ -56,6 +56,16 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
             resultadoValidacao.Should().Be("O valor de caução não pode ser menor ou igual a 0");
         }
 
+        [TestMethod]
+        public void DeveValidarKmInicial()
+        {
+            Locacao locacao = new Locacao(condutor, automovel, funcionario, DateTime.Today, DateTime.Today.AddDays(1), 1000, 0);
+
+            string resultadoValidacao = locacao.Validar();
+
+            resultadoValidacao.Should().Be("Insira um valor válido para a quilometragem inicial");
+        }
+
         private GrupoAutomovel CriarGrupo()
         {
             GrupoAutomovel novoGrupo = new GrupoAutomovel(
