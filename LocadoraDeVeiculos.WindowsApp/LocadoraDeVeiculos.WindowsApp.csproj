@@ -91,6 +91,7 @@
     <Compile Include="Features\GruposAutomovel\TelaGrupoAutomovelForm.Designer.cs">
       <DependentUpon>TelaGrupoAutomovelForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\Locacao\ConfiguracaoLocacaoToolBox.cs" />
     <Compile Include="Features\PessoasFisicas\ConfiguracaoPessoaFisicaToolBox.cs" />
     <Compile Include="Features\PessoasFisicas\OperacoesPessoaFisica.cs" />
     <Compile Include="Features\PessoasFisicas\TabelaPessoaFisicaControl.cs">
