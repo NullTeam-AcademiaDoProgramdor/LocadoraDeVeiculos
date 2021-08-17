@@ -21,6 +21,9 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
             this.dataDevolucaoEsperada = dataDevolucaoEsperada;
             this.caucao = caucao;
             this.kmAutomovelIncial = kmAutomovelIncial;
+            this.dataDevolucao = null;
+            this.kmAutomovelFinal = null;
+            this.porcentagemFinalCombustivel = null;
         }
 
         public PessoaFisica condutor { get; }
@@ -28,11 +31,11 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
         public Funcionario funcionario { get; }
         public DateTime dataSaida { get; }
         public DateTime dataDevolucaoEsperada { get; }
-        public DateTime dataDevolucao { get; }
+        public DateTime? dataDevolucao { get; }
         public int caucao { get; }      
         public int kmAutomovelIncial { get; }      
-        public int kmAutomovelFinal { get; }      
-        public int porcentagemFinalCombustivel { get; } 
+        public int? kmAutomovelFinal { get; }      
+        public int? porcentagemFinalCombustivel { get; } 
 
 
         public override string Validar()
