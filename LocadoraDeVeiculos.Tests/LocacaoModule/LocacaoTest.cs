@@ -22,8 +22,8 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
             automovel = new Automovel("Gol", "Ford", "Branco", "ABCD123", "12YG2J31G23H123",
                 2020, 4, 100, 30, TipoCombustivelEnum.Gasolina, CambioEnum.Manual,
                 DirecaoEnum.Mecanica, grupo);
-            funcionario = new Funcionario("Pedro", new DateTime(2020,01,01), 5000, "senha");
-            condutor = new PessoaFisica("Pedro","12365498710","1321654","9876543216497", new DateTime(2027,10,10), "9874654321","rua lages", null);
+            funcionario = new Funcionario("Pedro", new DateTime(2020, 01, 01), 5000, "senha");
+            condutor = new PessoaFisica("Pedro", "12365498710", "1321654", "9876543216497", new DateTime(2027, 10, 10), "9874654321", "rua lages", null);
         }
 
         [TestMethod]
@@ -65,7 +65,7 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
 
             resultadoValidacao.Should().Be("Insira um valor válido para a quilometragem inicial");
         }
-        
+
         [TestMethod]
         public void DeveValidarDataDevolucao()
         {
@@ -74,7 +74,25 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
             string resultadoValidacao = locacao.Validar();
 
             resultadoValidacao.Should().Be("A data de devolução esperada não pode ser menor ou igual que a data de saída");
-        }        
+        }
+
+        [TestMethod]
+        public void DeveValidarTudo()
+        {
+            Locacao locacao = new Locacao(null, null, funcionario, DateTime.Today, DateTime.Today, 0, 0);
+
+            string resultadoValidacao = locacao.Validar();
+
+            resultadoValidacao.Should().Be("Selecione um condutor" +
+                Environment.NewLine +
+                "Selecione um automóvel" +
+                Environment.NewLine +
+                "O valor de caução não pode ser menor ou igual a 0" +
+                Environment.NewLine + 
+                "Insira um valor válido para a quilometragem inicial" +
+                Environment.NewLine +
+                "A data de devolução esperada não pode ser menor ou igual que a data de saída");
+        }
 
         private GrupoAutomovel CriarGrupo()
         {
