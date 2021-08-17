@@ -26,6 +26,17 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
             condutor = new PessoaFisica("Pedro", "12365498710", "1321654", "9876543216497", new DateTime(2027, 10, 10), "9874654321", "rua lages", null);
         }
 
+
+        [TestMethod]
+        public void DeveRetornarEstaValido()
+        {
+            Locacao locacao = new Locacao(condutor, automovel, funcionario, DateTime.Today, DateTime.Today.AddDays(1), 1000, 50000);
+
+            string resultadoValidacao = locacao.Validar();
+
+            resultadoValidacao.Should().Be("Selecione um condutor");
+        }
+
         [TestMethod]
         public void DeveValidarCondutor()
         {
