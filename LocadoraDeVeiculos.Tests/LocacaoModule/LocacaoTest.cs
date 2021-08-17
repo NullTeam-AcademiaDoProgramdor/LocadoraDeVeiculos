@@ -35,7 +35,16 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
 
             resultadoValidacao.Should().Be("Selecione um condutor");
         }
-        
+
+        [TestMethod]
+        public void DeveValidarAutomovel()
+        {
+            Locacao locacao = new Locacao(condutor, null, funcionario, DateTime.Today, DateTime.Today.AddDays(1), 1000, 50000);
+
+            string resultadoValidacao = locacao.Validar();
+
+            resultadoValidacao.Should().Be("Selecione um automóvel");
+        }
 
         private GrupoAutomovel CriarGrupo()
         {
