@@ -9,8 +9,10 @@
     [endereco]      VARCHAR (50) NOT NULL,
     [empresaLigada] INT          NULL,
     CONSTRAINT [PK_PessoaFisica] PRIMARY KEY CLUSTERED ([id] ASC),
-    CONSTRAINT [FK_PessoaFisica_PessoaJuridica] FOREIGN KEY ([empresaLigada]) REFERENCES [dbo].[PessoaJuridica] ([id])
+    CONSTRAINT [FK_PessoaFisica_PessoaJuridica] FOREIGN KEY ([empresaLigada]) REFERENCES [dbo].[PessoaJuridica] ([id]) ON DELETE SET NULL
 );
+
+
 
 
 
