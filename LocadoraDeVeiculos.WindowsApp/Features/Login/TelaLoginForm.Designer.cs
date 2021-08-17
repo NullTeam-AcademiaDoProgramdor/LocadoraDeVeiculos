@@ -59,6 +59,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(216, 20);
             this.txtNome.TabIndex = 1;
+            this.txtNome.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TelaLoginForm_KeyDown);
             // 
             // label2
             // 
@@ -79,6 +80,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
             this.txtSenha.PasswordChar = '*';
             this.txtSenha.Size = new System.Drawing.Size(216, 20);
             this.txtSenha.TabIndex = 3;
+            this.txtSenha.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TelaLoginForm_KeyDown);
             // 
             // btnEntrar
             // 
@@ -135,6 +137,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
             this.Name = "TelaLoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TelaLoginForm_KeyDown);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -50,5 +50,11 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
                 this.Show();
             }
         }
+
+        private void TelaLoginForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                btnEntrar_Click(sender, e);
+        }
     }
 }
