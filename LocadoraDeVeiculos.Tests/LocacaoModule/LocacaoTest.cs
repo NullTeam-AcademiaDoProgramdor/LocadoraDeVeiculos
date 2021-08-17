@@ -27,6 +27,16 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
         }
 
         [TestMethod]
+        public void DeveRetornarEstaValido()
+        {
+            Locacao locacao = new Locacao(condutor, automovel, funcionario, DateTime.Today, DateTime.Today.AddDays(1), 1000, 50000);
+
+            string resultadoValidacao = locacao.Validar();
+
+            resultadoValidacao.Should().Be("ESTA_VALIDO");
+        }
+        
+        [TestMethod]
         public void DeveValidarCondutor()
         {
             Locacao locacao = new Locacao(null, automovel, funcionario, DateTime.Today, DateTime.Today.AddDays(1), 1000, 50000);
