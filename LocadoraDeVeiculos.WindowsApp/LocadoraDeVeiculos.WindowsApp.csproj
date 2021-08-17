@@ -93,6 +93,12 @@
     </Compile>
     <Compile Include="Features\Locacao\ConfiguracaoLocacaoToolBox.cs" />
     <Compile Include="Features\Locacao\OperacoesLocacao.cs" />
+    <Compile Include="Features\Locacao\TelaDevolucaoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Locacao\TelaDevolucaoForm.Designer.cs">
+      <DependentUpon>TelaDevolucaoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Features\PessoasFisicas\ConfiguracaoPessoaFisicaToolBox.cs" />
     <Compile Include="Features\PessoasFisicas\OperacoesPessoaFisica.cs" />
     <Compile Include="Features\PessoasFisicas\TabelaPessoaFisicaControl.cs">
@@ -207,6 +213,9 @@
     <EmbeddedResource Include="Features\GruposAutomovel\TelaGrupoAutomovelForm.resx">
       <DependentUpon>TelaGrupoAutomovelForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Features\Locacao\TelaDevolucaoForm.resx">
+      <DependentUpon>TelaDevolucaoForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Features\PessoasFisicas\TabelaPessoaFisicaControl.resx">
       <DependentUpon>TabelaPessoaFisicaControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -297,6 +306,8 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="Lib\DataGridViewGrouper.dll" />
+    <None Include="Resources\pngwing.com-removebg-preview.png" />
+    <None Include="Resources\pngwing.com.png" />
     <None Include="Resources\outline_info_black_24dp.png" />
     <None Include="Resources\AlugaRech2.0 %282%29.png" />
     <ProjectReference Include="..\LocadoraDeVeiculos.Controladores\LocadoraDeVeiculos.Controladores.csproj">
