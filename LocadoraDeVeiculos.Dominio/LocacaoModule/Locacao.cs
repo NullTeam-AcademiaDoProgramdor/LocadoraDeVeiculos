@@ -40,7 +40,27 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
 
         public override string Validar()
         {
-            throw new NotImplementedException();
+            string resultadoValidacao = "";
+
+            if (condutor == null)
+                resultadoValidacao = "Selecione um condutor";
+            
+            if (automovel == null)
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "Selecione um automóvel";
+
+            if(caucao <= 0)
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O valor de caução não pode ser menor ou igual a 0";
+
+            if (kmAutomovelIncial <= 0)
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "Insira um valor válido para a quilometragem inicial";
+
+            if(dataDevolucaoEsperada >= dataSaida)
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "A data de devolução esperada não pode ser menor que a data de saída";
+
+            if (resultadoValidacao == "")
+                resultadoValidacao = "ESTA_VALIDO";
+
+            return resultadoValidacao;
         }
     }
 }
