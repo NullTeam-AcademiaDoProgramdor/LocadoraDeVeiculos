@@ -136,6 +136,19 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
             return resultadoValidacao;
         }
 
+        public string Devolver(int id, Locacao locacao)
+        {
+            string resultadoValidacao = locacao.ValidarDevolucao();
+
+            if (resultadoValidacao == "ESTA_VALIDO")
+            {
+                locacao.Id = id;
+                Db.Update(sqlEditarLocacao, ObtemParametrosLocacao(locacao));
+            }
+
+            return resultadoValidacao;
+        }
+
 
         public override string Editar(int id, Locacao locacao)
         {
@@ -186,12 +199,26 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
             var automovel = controladorAutomovel.SelecionarPorId((int)reader["AUTOMOVEL"]);
             var funcionario = controladorFuncionario.SelecionarPorId((int)reader["FUNCIONARIO"]);
             var dataSaida = Convert.ToDateTime(reader["DATASAIDA"]);
-            var dataDevolucaoEsperada = Convert.ToDateTime(reader["DATADEVOLUCAOESPERADA"]);
+            var dataDevolucaoEsperada = Convert.ToDateTime(reader["DATADEVOLUCAOESPERADA"]);            
             var caucao = Convert.ToInt32(reader["CAUCAO"]);
             var planoSelecionado = Convert.ToInt32(reader["PLANOSELECIONADO"]);
             var kmInicial = Convert.ToInt32(reader["KMAUTOMOVELINICIAL"]);
 
-            var locacao = new Locacao(condutor, automovel, funcionario, dataSaida, dataDevolucaoEsperada, caucao, kmInicial, planoSelecionado);
+            Locacao locacao;
+            if (reader["DATADEVOLUCAO"] == DBNull.Value)
+                locacao = new Locacao(condutor, automovel, funcionario, dataSaida, dataDevolucaoEsperada, caucao, kmInicial, planoSelecionado);
+
+            else
+            {
+                var dataDevolucao = Convert.ToDateTime(reader["DATADEVOLUCAO"]);
+                var kmFinal = Convert.ToInt32(reader["KMAUTOMOVELFINAL"]);
+                var combustivelFinal = Convert.ToInt32(reader["PORCENTAGEMFINALCOMBUSTIVEL"]);
+
+                locacao = new Locacao(condutor, automovel, funcionario
+                , dataSaida, dataDevolucaoEsperada, caucao, kmInicial, planoSelecionado, kmFinal, combustivelFinal, dataDevolucao);
+
+            }
+
             locacao.Id = id;
 
             return locacao;
