@@ -34,11 +34,12 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
                     [DATASAIDA],                 
                     [DATADEVOLUCAOESPERADA],
                     [DATADEVOLUCAO],
-                    [CAUCAO],                  
+                    [CAUCAO],       
+                    [PLANOSELECIONADO],
                     [FUNCIONARIO],                
                     [KMAUTOMOVELINICIAL],         
                     [KMAUTOMOVELFINAL],          
-                   [PORCENTAGEMFINALCOMBUSTIVEL]
+                    [PORCENTAGEMFINALCOMBUSTIVEL]
                 )
             VALUES
                 (
@@ -47,7 +48,8 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
                     @DATASAIDA,
                     @DATADEVOLUCAOESPERADA,
                     @DATADEVOLUCAO,
-                    @CAUCAO,
+                    @CAUCAO,       
+                    @PLANOSELECIONADO,
                     @FUNCIONARIO,
                     @KMAUTOMOVELINICIAL,
                     @KMAUTOMOVELFINAL,
@@ -61,7 +63,8 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
                     [DATASAIDA] = @DATASAIDA,                    
                     [DATADEVOLUCAOESPERADA] = @DATADEVOLUCAOESPERADA,     
                     [DATADEVOLUCAO] = @DATADEVOLUCAO,     
-                    [CAUCAO] = @CAUCAO,     
+                    [CAUCAO] = @CAUCAO,       
+                    [PLANOSELECIONADO] = @PLANOSELECIONADO,     
                     [FUNCIONARIO] = @FUNCIONARIO,     
                     [KMAUTOMOVELINICIAL] = @KMAUTOMOVELINICIAL,
                     [KMAUTOMOVELFINAL] = @KMAUTOMOVELFINAL,
@@ -81,7 +84,8 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
                     [DATASAIDA],                 
                     [DATADEVOLUCAOESPERADA],
                     [DATADEVOLUCAO],
-                    [CAUCAO],                  
+                    [CAUCAO],           
+                    [PLANOSELECIONADO],
                     [FUNCIONARIO],                
                     [KMAUTOMOVELINICIAL],         
                     [KMAUTOMOVELFINAL],          
@@ -97,7 +101,8 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
                     [DATASAIDA],                 
                     [DATADEVOLUCAOESPERADA],
                     [DATADEVOLUCAO],
-                    [CAUCAO],                  
+                    [CAUCAO],        
+                    [PLANOSELECIONADO],                 
                     [FUNCIONARIO],                
                     [KMAUTOMOVELINICIAL],         
                     [KMAUTOMOVELFINAL],          
@@ -176,15 +181,20 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
 
         private Locacao ConverterEmLocacao(IDataReader reader)
         {
+            var id = Convert.ToInt32(reader["ID"]);
             var condutor = controladorPessoaFisica.SelecionarPorId((int)reader["CONDUTOR"]);
             var automovel = controladorAutomovel.SelecionarPorId((int)reader["AUTOMOVEL"]);
             var funcionario = controladorFuncionario.SelecionarPorId((int)reader["FUNCIONARIO"]);
             var dataSaida = Convert.ToDateTime(reader["DATASAIDA"]);
             var dataDevolucaoEsperada = Convert.ToDateTime(reader["DATADEVOLUCAOESPERADA"]);
             var caucao = Convert.ToInt32(reader["CAUCAO"]);
+            var planoSelecionado = Convert.ToInt32(reader["PLANOSELECIONADO"]);
             var kmInicial = Convert.ToInt32(reader["KMAUTOMOVELINICIAL"]);
 
-            return new Locacao(condutor, automovel, funcionario, dataSaida, dataDevolucaoEsperada, caucao, kmInicial);
+            var locacao = new Locacao(condutor, automovel, funcionario, dataSaida, dataDevolucaoEsperada, caucao, kmInicial, planoSelecionado);
+            locacao.Id = id;
+
+            return locacao;
         }
 
         private Dictionary<string, object> ObtemParametrosLocacao(Locacao locacao)
@@ -198,6 +208,7 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
             parametros.Add("DATADEVOLUCAOESPERADA", locacao.DataDevolucaoEsperada);
             parametros.Add("DATADEVOLUCAO", locacao.DataDevolucao);
             parametros.Add("CAUCAO", locacao.Caucao);
+            parametros.Add("PLANOSELECIONADO", locacao.PlanoSelecionado);
             parametros.Add("FUNCIONARIO", locacao.Funcionario.id);
             parametros.Add("KMAUTOMOVELINICIAL", locacao.KmAutomovelIncial);
             parametros.Add("KMAUTOMOVELFINAL", locacao.KmAutomovelFinal);
