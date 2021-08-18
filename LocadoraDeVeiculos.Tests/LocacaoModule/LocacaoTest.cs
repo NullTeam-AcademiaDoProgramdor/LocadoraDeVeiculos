@@ -29,7 +29,7 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
         [TestMethod]
         public void DeveRetornarEstaValido()
         {
-            Locacao locacao = new Locacao(condutor, automovel, funcionario, DateTime.Today, DateTime.Today.AddDays(1), 1000, 50000);
+            Locacao locacao = new Locacao(condutor, automovel, funcionario, DateTime.Today, DateTime.Today.AddDays(1), 1000, 50000,1);
 
             string resultadoValidacao = locacao.Validar();
 
@@ -39,7 +39,7 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
         [TestMethod]
         public void DeveValidarCondutor()
         {
-            Locacao locacao = new Locacao(null, automovel, funcionario, DateTime.Today, DateTime.Today.AddDays(1), 1000, 50000);
+            Locacao locacao = new Locacao(null, automovel, funcionario, DateTime.Today, DateTime.Today.AddDays(1), 1000, 50000,1);
 
             string resultadoValidacao = locacao.Validar();
 
@@ -49,7 +49,7 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
         [TestMethod]
         public void DeveValidarAutomovel()
         {
-            Locacao locacao = new Locacao(condutor, null, funcionario, DateTime.Today, DateTime.Today.AddDays(1), 1000, 50000);
+            Locacao locacao = new Locacao(condutor, null, funcionario, DateTime.Today, DateTime.Today.AddDays(1), 1000, 50000,1);
 
             string resultadoValidacao = locacao.Validar();
 
@@ -59,7 +59,7 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
         [TestMethod]
         public void DeveValidarCaucao()
         {
-            Locacao locacao = new Locacao(condutor, automovel, funcionario, DateTime.Today, DateTime.Today.AddDays(1), 0, 50000);
+            Locacao locacao = new Locacao(condutor, automovel, funcionario, DateTime.Today, DateTime.Today.AddDays(1), 0, 50000,1);
 
             string resultadoValidacao = locacao.Validar();
 
@@ -69,7 +69,7 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
         [TestMethod]
         public void DeveValidarKmInicial()
         {
-            Locacao locacao = new Locacao(condutor, automovel, funcionario, DateTime.Today, DateTime.Today.AddDays(1), 1000, 0);
+            Locacao locacao = new Locacao(condutor, automovel, funcionario, DateTime.Today, DateTime.Today.AddDays(1), 1000, 0,1);
 
             string resultadoValidacao = locacao.Validar();
 
@@ -79,7 +79,7 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
         [TestMethod]
         public void DeveValidarDataDevolucao()
         {
-            Locacao locacao = new Locacao(condutor, automovel, funcionario, DateTime.Today, DateTime.Today, 1000, 50000);
+            Locacao locacao = new Locacao(condutor, automovel, funcionario, DateTime.Today, DateTime.Today, 1000, 50000,1);
 
             string resultadoValidacao = locacao.Validar();
 
@@ -89,7 +89,7 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
         [TestMethod]
         public void DeveValidarTudo()
         {
-            Locacao locacao = new Locacao(null, null, funcionario, DateTime.Today, DateTime.Today, 0, 0);
+            Locacao locacao = new Locacao(null, null, funcionario, DateTime.Today, DateTime.Today, 0, 0,1);
 
             string resultadoValidacao = locacao.Validar();
 

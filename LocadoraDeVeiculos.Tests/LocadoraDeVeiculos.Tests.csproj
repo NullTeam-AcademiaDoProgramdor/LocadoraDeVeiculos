@@ -62,6 +62,7 @@
     <Compile Include="GrupoAutomovelModule\ControladorGupoAutomovelTest.cs" />
     <Compile Include="GrupoAutomovelModule\GrupoAutomovelTest.cs" />
     <Compile Include="LocacaoModule\LocacaoTest.cs" />
+    <Compile Include="LocacaoModule\ControladorLocacaoTest.cs" />
     <Compile Include="PessoaFisicaModule\PessoaFisicaTest.cs" />
     <Compile Include="PessoaFisicaModule\ControladorPessoaFisicaTest.cs" />
     <Compile Include="PessoaJuridicaModule\ControladorPessoaJuridicaTest.cs" />
