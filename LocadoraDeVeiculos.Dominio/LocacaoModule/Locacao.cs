@@ -13,7 +13,7 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
 {
     public class Locacao : EntidadeBase
     {
-        public Locacao(PessoaFisica condutor, Automovel automovel, Funcionario funcionario, DateTime dataSaida, DateTime dataDevolucaoEsperada, int caucao, int kmAutomovelIncial, TaxaEServico[] taxaEServicos)
+        public Locacao(PessoaFisica condutor, Automovel automovel, Funcionario funcionario, DateTime dataSaida, DateTime dataDevolucaoEsperada, int caucao, int kmAutomovelIncial, TaxaEServico[] taxaEServicos = null)
         {
             this.Condutor = condutor;
             this.Automovel = automovel;
@@ -44,8 +44,6 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
         public int KmAutomovelIncial { get; }      
         public int? KmAutomovelFinal { get; }      
         public int? PorcentagemFinalCombustivel { get; } 
-
-
 
         public override string Validar()
         {
