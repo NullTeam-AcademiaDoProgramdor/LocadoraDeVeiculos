@@ -55,6 +55,25 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
             var locacaoEncontrada = controladorLocacao.SelecionarPorId(locacao.Id);
             locacaoEncontrada.Should().Be(locacao);
         }
+
+        [TestMethod]
+        public void DeveEditar_PessoaFisica()
+        {
+            //arrange
+            Locacao locacao = new Locacao(condutor, automovel, funcionario
+                , DateTime.Today, DateTime.Today.AddDays(1), 1000, 50000, 1);
+            controladorLocacao.InserirNovo(locacao);
+
+            Locacao novaLocacao = new Locacao(condutor, automovel, funcionario
+                , DateTime.Today, DateTime.Today.AddDays(2), 1000, 50000, 1);
+            controladorLocacao.InserirNovo(locacao);
+            //action
+            controladorLocacao.Editar(locacao.Id, novaLocacao);
+
+            //assert
+            Locacao locacaoEncontrada = controladorLocacao.SelecionarPorId(locacao.Id);
+            locacaoEncontrada.Should().Be(novaLocacao);
+        }
         private  Automovel CriarAutomovel(GrupoAutomovel grupo)
         {
             var automovel = new Automovel("Gol", "Ford", "Branco", "ABCD123",
