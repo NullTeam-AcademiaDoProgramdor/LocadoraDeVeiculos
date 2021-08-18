@@ -1,7 +1,11 @@
-﻿using LocadoraDeVeiculos.Controladores.Shared;
+﻿using LocadoraDeVeiculos.Controladores.AutomovelModule;
+using LocadoraDeVeiculos.Controladores.FuncionarioModule;
+using LocadoraDeVeiculos.Controladores.PessoaFisicaModule;
+using LocadoraDeVeiculos.Controladores.Shared;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +14,17 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
 {
     public class ControladorLocacao : Controlador<Locacao>
     {
+        ControladorPessoaFisica controladorPessoaFisica;
+        ControladorFuncionario controladorFuncionario;
+        ControladorAutomovel controladorAutomovel;
+
+        public ControladorLocacao(ControladorPessoaFisica controladorPessoaFisica, ControladorFuncionario controladorFuncionario, ControladorAutomovel controladorAutomovel)
+        {
+            this.controladorPessoaFisica = controladorPessoaFisica;
+            this.controladorFuncionario = controladorFuncionario;
+            this.controladorAutomovel = controladorAutomovel;
+        }
+
         #region Queries
         private const string sqlInserirLocacao =
             @"INSERT INTO [Locacao]
@@ -100,7 +115,10 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
             WHERE 
                 [ID] = @ID";
 
+       
+
         #endregion
+        
         public override string InserirNovo(Locacao registro)
         {
             string resultadoValidacao = registro.Validar();
@@ -114,14 +132,14 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
         }
 
 
-        public override string Editar(int id, Locacao registro)
+        public override string Editar(int id, Locacao locacao)
         {
-            string resultadoValidacao = registro.Validar();
+            string resultadoValidacao = locacao.Validar();
 
             if (resultadoValidacao == "ESTA_VALIDO")
             {
-                registro.Id = id;
-                Db.Update(sqlEditarLocacao, ObtemParametrosLocacao(registro));
+                locacao.Id = id;
+                Db.Update(sqlEditarLocacao, ObtemParametrosLocacao(locacao));
             }
 
             return resultadoValidacao;
@@ -129,17 +147,39 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
 
         public override bool Excluir(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Db.Delete(sqlExisteLocacao, AdicionarParametro("ID", id));
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
         }
 
         public override bool Existe(int id)
         {
-            throw new NotImplementedException();
+            return Db.Exists(sqlExisteLocacao, AdicionarParametro("ID", id));
         }
 
         public override Locacao SelecionarPorId(int id)
         {
-            throw new NotImplementedException();
+            return Db.Get(sqlSelecionarLocacaoPorId, ConverterEmLocacao, AdicionarParametro("ID", id));
+        }
+
+        private Locacao ConverterEmLocacao(IDataReader reader)
+        {
+            var condutor = controladorPessoaFisica.SelecionarPorId((int)reader["CONDUTOR"]);
+            var automovel = controladorAutomovel.SelecionarPorId((int)reader["AUTOMOVEL"]);
+            var funcionario = controladorFuncionario.SelecionarPorId((int)reader["FUNCIONARIO"]);
+            var dataSaida = Convert.ToDateTime(reader["DATASAIDA"]);
+            var dataDevolucaoEsperada = Convert.ToDateTime(reader["DATADEVOLUCAOESPERADA"]);
+            var caucao = Convert.ToInt32(reader["CAUCAO"]);
+            var kmInicial = Convert.ToInt32(reader["KMAUTOMOVELINICIAL"]);
+
+            return new Locacao(condutor, automovel, funcionario, dataSaida, dataDevolucaoEsperada, caucao, kmInicial);
         }
 
         public override List<Locacao> SelecionarTodos()
