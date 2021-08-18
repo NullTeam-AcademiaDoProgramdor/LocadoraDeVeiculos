@@ -45,7 +45,8 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
         public void DeveInserir_Locacao()
         {
             //arrange
-            Locacao locacao = new Locacao(condutor, automovel, funcionario, DateTime.Today, DateTime.Today.AddDays(1), 1000, 50000, 1);
+            Locacao locacao = new Locacao(condutor, automovel, funcionario,
+                DateTime.Today, DateTime.Today.AddDays(1), 1000, 50000, 1);
 
 
             //action
@@ -74,7 +75,23 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
             Locacao locacaoEncontrada = controladorLocacao.SelecionarPorId(locacao.Id);
             locacaoEncontrada.Should().Be(novaLocacao);
         }
-        private  Automovel CriarAutomovel(GrupoAutomovel grupo)
+
+        [TestMethod]
+        public void DeveSelecionar_PessoaFisica_PorId()
+        {
+            //arrange
+            Locacao locacao = new Locacao(condutor, automovel, funcionario,
+                DateTime.Today, DateTime.Today.AddDays(1), 1000, 50000, 1);
+            controladorLocacao.InserirNovo(locacao);
+
+            //action
+            Locacao locacaoEncontrada = controladorLocacao.SelecionarPorId(locacao.Id);
+
+            //assert
+            locacaoEncontrada.Should().NotBeNull();
+        }
+
+        private Automovel CriarAutomovel(GrupoAutomovel grupo)
         {
             var automovel = new Automovel("Gol", "Ford", "Branco", "ABCD123",
                             "12YG2J31G23H123",

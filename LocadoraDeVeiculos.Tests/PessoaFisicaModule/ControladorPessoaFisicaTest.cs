@@ -75,7 +75,7 @@ namespace LocadoraDeVeiculos.Tests.PessoaFisicaModule
             PessoaFisica pessoaFisicaEncontrada = controlador.SelecionarPorId(pessoaFisica.Id);
 
             //assert
-            controlador.Should().NotBeNull();
+            pessoaFisicaEncontrada.Should().NotBeNull();
         }
 
         [TestMethod]
