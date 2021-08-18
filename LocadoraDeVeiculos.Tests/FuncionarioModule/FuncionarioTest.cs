@@ -10,14 +10,6 @@ namespace LocadoraDeVeiculos.Tests.FuncionarioModule
     [TestClass]
     public class FuncionarioTest
     {
-        ControladorFuncionario controlador = null;
-
-        public FuncionarioTest()
-        {
-            controlador = new ControladorFuncionario();
-            Db.Update(@"DELETE FROM FUNCIONARIO");
-        }
-
         [TestMethod]
         public void DeveRetornarFuncionarioValido()
         {

@@ -70,7 +70,7 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
         }
 
         [TestMethod]
-        public void DeveEditar_PessoaFisica()
+        public void DeveEditar_Locacao()
         {
             //arrange
             Locacao locacao = new Locacao(condutor, automovel, funcionario
@@ -89,7 +89,7 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
         }
 
         [TestMethod]
-        public void DeveSelecionar_PessoaFisica_PorId()
+        public void DeveSelecionar_Locacao_PorId()
         {
             //arrange
             Locacao locacao = new Locacao(condutor, automovel, funcionario,
@@ -105,7 +105,7 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
 
 
         [TestMethod]
-        public void DeveSelecionar_TodasPessoasFisicas()
+        public void DeveSelecionar_TodasLocacoes()
         {
             //arrange
             var locacoes = new List<Locacao>
@@ -130,7 +130,7 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
         }
 
         [TestMethod]
-        public void DeveExcluir_UmaPessoaFisica()
+        public void DeveExcluir_UmaLocacao()
         {
             //arrange            
             Locacao locacao = new Locacao(condutor, automovel, funcionario,
