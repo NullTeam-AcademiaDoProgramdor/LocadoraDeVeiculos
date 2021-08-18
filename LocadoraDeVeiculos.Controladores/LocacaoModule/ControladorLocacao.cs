@@ -169,6 +169,11 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
             return Db.Get(sqlSelecionarLocacaoPorId, ConverterEmLocacao, AdicionarParametro("ID", id));
         }
 
+        public override List<Locacao> SelecionarTodos()
+        {
+            return Db.GetAll(sqlSelecionarTodasLocacao, ConverterEmLocacao);
+        }
+
         private Locacao ConverterEmLocacao(IDataReader reader)
         {
             var condutor = controladorPessoaFisica.SelecionarPorId((int)reader["CONDUTOR"]);
@@ -182,10 +187,6 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
             return new Locacao(condutor, automovel, funcionario, dataSaida, dataDevolucaoEsperada, caucao, kmInicial);
         }
 
-        public override List<Locacao> SelecionarTodos()
-        {
-            throw new NotImplementedException();
-        }
         private Dictionary<string, object> ObtemParametrosLocacao(Locacao locacao)
         {
             var parametros = new Dictionary<string, object>();
