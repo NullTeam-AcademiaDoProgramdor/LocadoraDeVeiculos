@@ -154,7 +154,7 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
         {
             try
             {
-                Db.Delete(sqlExisteLocacao, AdicionarParametro("ID", id));
+                Db.Delete(sqlExcluirLocacao, AdicionarParametro("ID", id));
             }
             catch (Exception)
             {
