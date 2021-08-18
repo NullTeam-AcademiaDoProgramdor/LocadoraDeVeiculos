@@ -18,11 +18,11 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
         ControladorFuncionario controladorFuncionario;
         ControladorAutomovel controladorAutomovel;
 
-        public ControladorLocacao(ControladorPessoaFisica controladorPessoaFisica, ControladorFuncionario controladorFuncionario, ControladorAutomovel controladorAutomovel)
+        public ControladorLocacao()
         {
-            this.controladorPessoaFisica = controladorPessoaFisica;
-            this.controladorFuncionario = controladorFuncionario;
-            this.controladorAutomovel = controladorAutomovel;
+            this.controladorPessoaFisica = new ControladorPessoaFisica();
+            this.controladorFuncionario = new ControladorFuncionario();
+            this.controladorAutomovel = new ControladorAutomovel();
         }
 
         #region Queries
