@@ -10,6 +10,7 @@
     [kmAutomovelInicial] INT NOT NULL, 
     [kmAutomovelFinal] INT NULL, 
     [porcentagemFinalCombustivel] INT NULL, 
+    [planoSelecionado] INT NOT NULL, 
     CONSTRAINT [PK_Locacao] PRIMARY KEY CLUSTERED ([id] ASC),
     CONSTRAINT [FK_Locacao_Automovel] FOREIGN KEY ([automovel]) REFERENCES [dbo].[Automovel] ([id]),
     CONSTRAINT [FK_Locacao_Funcionario] FOREIGN KEY ([funcionario]) REFERENCES [dbo].[Funcionario] ([id]),
