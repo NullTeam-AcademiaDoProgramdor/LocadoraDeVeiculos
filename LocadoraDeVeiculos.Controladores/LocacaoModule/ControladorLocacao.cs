@@ -192,16 +192,16 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
             var parametros = new Dictionary<string, object>();
 
             parametros.Add("ID", locacao.Id);
-            parametros.Add("CONDUTOR", locacao.condutor.id);
-            parametros.Add("AUTOMOVEL", locacao.automovel.id);
-            parametros.Add("DATASAIDA", locacao.dataSaida);
-            parametros.Add("DATADEVOLUCAOESPERADA", locacao.dataDevolucaoEsperada);
-            parametros.Add("DATADEVOLUCAO", locacao.dataDevolucao);
-            parametros.Add("CAUCAO", locacao.caucao);
-            parametros.Add("FUNCIONARIO", locacao.funcionario.id);
-            parametros.Add("KMAUTOMOVELINICIAL", locacao.kmAutomovelIncial);
-            parametros.Add("KMAUTOMOVELFINAL", locacao.kmAutomovelFinal);
-            parametros.Add("PORCENTAGEMFINALCOMBUSTIVEL", locacao.porcentagemFinalCombustivel);
+            parametros.Add("CONDUTOR", locacao.Condutor.id);
+            parametros.Add("AUTOMOVEL", locacao.Automovel.id);
+            parametros.Add("DATASAIDA", locacao.DataSaida);
+            parametros.Add("DATADEVOLUCAOESPERADA", locacao.DataDevolucaoEsperada);
+            parametros.Add("DATADEVOLUCAO", locacao.DataDevolucao);
+            parametros.Add("CAUCAO", locacao.Caucao);
+            parametros.Add("FUNCIONARIO", locacao.Funcionario.id);
+            parametros.Add("KMAUTOMOVELINICIAL", locacao.KmAutomovelIncial);
+            parametros.Add("KMAUTOMOVELFINAL", locacao.KmAutomovelFinal);
+            parametros.Add("PORCENTAGEMFINALCOMBUSTIVEL", locacao.PorcentagemFinalCombustivel);
 
             return parametros;
         }
