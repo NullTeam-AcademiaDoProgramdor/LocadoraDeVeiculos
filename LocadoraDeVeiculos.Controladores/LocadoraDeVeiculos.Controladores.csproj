@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="AutomovelModule\ControladorAutomovel.cs" />
     <Compile Include="GrupoAutomovelModule\ControladorGrupoAutomovel.cs" />
+    <Compile Include="LocacaoModule\ControladorLocacao.cs" />
     <Compile Include="PessoaFisicaModule\ControladorPessoaFisica.cs" />
     <Compile Include="PessoaJuridicaModule\ControladorPessoaJuridica.cs" />
     <Compile Include="FuncionarioModule\ControladorFuncionario.cs" />
