@@ -4,6 +4,7 @@ using LocadoraDeVeiculos.Controladores.FuncionarioModule;
 using LocadoraDeVeiculos.Controladores.GrupoAutomovelModule;
 using LocadoraDeVeiculos.Controladores.LocacaoModule;
 using LocadoraDeVeiculos.Controladores.PessoaFisicaModule;
+using LocadoraDeVeiculos.Controladores.Shared;
 using LocadoraDeVeiculos.Dominio.AutomovelModule;
 using LocadoraDeVeiculos.Dominio.FuncionarioModule;
 using LocadoraDeVeiculos.Dominio.GrupoAutomovelModule;
@@ -11,6 +12,7 @@ using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using LocadoraDeVeiculos.Dominio.PessoaFisicaModule;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Collections.Generic;
 
 namespace LocadoraDeVeiculos.Tests.LocacaoModule
 {
@@ -30,6 +32,11 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
 
         public ControladorLocacaoTest()
         {
+            Db.Update("DELETE FROM [LOCACAO]");
+            Db.Update("DELETE FROM [PESSOAFISICA]");
+            Db.Update("DELETE FROM [AUTOMOVEL]");
+            Db.Update("DELETE FROM [GRUPOAUTOMOVEL]");
+            Db.Update("DELETE FROM [FUNCIONARIO]");
             this.controladorLocacao = new ControladorLocacao();
             this.ctrlAutomovel = new ControladorAutomovel();
             this.ctrlGrupo = new ControladorGrupoAutomovel();
@@ -89,6 +96,49 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
 
             //assert
             locacaoEncontrada.Should().NotBeNull();
+        }
+
+
+        [TestMethod]
+        public void DeveSelecionar_TodasPessoasFisicas()
+        {
+            //arrange
+            var locacoes = new List<Locacao>
+            {
+                new Locacao(condutor, automovel, funcionario,
+                    DateTime.Today, DateTime.Today.AddDays(1), 1000, 50000, 1),
+
+
+                new Locacao(condutor, automovel, funcionario,
+                    DateTime.Today, DateTime.Today.AddDays(1), 1000, 50000, 1),
+
+            };
+
+            foreach (var loc in locacoes)
+                controladorLocacao.InserirNovo(loc);
+
+            //action
+            var locacoesEncontradas = controladorLocacao.SelecionarTodos();
+
+            //assert
+            locacoesEncontradas.Should().HaveCount(2);
+        }
+
+        [TestMethod]
+        public void DeveExcluir_UmaPessoaFisica()
+        {
+            //arrange            
+            Locacao locacao = new Locacao(condutor, automovel, funcionario,
+                    DateTime.Today, DateTime.Today.AddDays(1), 1000, 50000, 1);
+
+            controladorLocacao.InserirNovo(locacao);
+
+            //action            
+            controladorLocacao.Excluir(locacao.Id);
+
+            //assert
+            Locacao locacaoEncontrada = controladorLocacao.SelecionarPorId(locacao.Id);
+            locacaoEncontrada.Should().BeNull();
         }
 
         private Automovel CriarAutomovel(GrupoAutomovel grupo)
