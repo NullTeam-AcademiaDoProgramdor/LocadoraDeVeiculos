@@ -32,11 +32,6 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
 
         public ControladorLocacaoTest()
         {
-            Db.Update("DELETE FROM [LOCACAO]");
-            Db.Update("DELETE FROM [PESSOAFISICA]");
-            Db.Update("DELETE FROM [AUTOMOVEL]");
-            Db.Update("DELETE FROM [GRUPOAUTOMOVEL]");
-            Db.Update("DELETE FROM [FUNCIONARIO]");
             this.controladorLocacao = new ControladorLocacao();
             this.ctrlAutomovel = new ControladorAutomovel();
             this.ctrlGrupo = new ControladorGrupoAutomovel();
@@ -46,6 +41,16 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
             automovel = CriarAutomovel(grupo);
             funcionario = CriarFuncionario();
             condutor = CriarCondutor();
+        }
+
+        [TestCleanup()]
+        public void LimparTestes()
+        {
+            Db.Update("DELETE FROM [LOCACAO]");
+            Db.Update("DELETE FROM [PESSOAFISICA]");
+            Db.Update("DELETE FROM [AUTOMOVEL]");
+            Db.Update("DELETE FROM [GRUPOAUTOMOVEL]");
+            Db.Update("DELETE FROM [FUNCIONARIO]");
         }
 
         [TestMethod]
