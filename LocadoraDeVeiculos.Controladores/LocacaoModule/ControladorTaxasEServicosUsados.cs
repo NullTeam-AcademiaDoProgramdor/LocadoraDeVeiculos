@@ -86,7 +86,7 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
         {
             var parametro = new Dictionary<string, object>()
                 {
-                    {"id", locacaoId }
+                    {"locacao", locacaoId }
                 };
             return Db.GetAll(sqlSelecionarTodosUsados, ConverterParaTaxaEServicoUsado, parametro);
         }
