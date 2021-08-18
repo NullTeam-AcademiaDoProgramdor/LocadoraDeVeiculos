@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using LocadoraDeVeiculos.Dominio.FuncionarioModule;
+using LocadoraDeVeiculos.Controladores.AutomovelModule;
+using System.Drawing;
 
 namespace LocadoraDeVeiculos.WindowsApp
 {
@@ -18,11 +19,11 @@ namespace LocadoraDeVeiculos.WindowsApp
         static void Main()
         {
 
-
             var a = Configuracoes.Configuracao.AbreNoDomingo;
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new TelaLoginForm());
+
         }
     }
 
