@@ -18,11 +18,15 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
         ControladorFuncionario controladorFuncionario;
         ControladorAutomovel controladorAutomovel;
 
+        private ControladorTaxasEServicosUsados controladorTaxas;
+
         public ControladorLocacao()
         {
             this.controladorPessoaFisica = new ControladorPessoaFisica();
             this.controladorFuncionario = new ControladorFuncionario();
             this.controladorAutomovel = new ControladorAutomovel();
+
+            this.controladorTaxas = new ControladorTaxasEServicosUsados();
         }
 
         #region Queries
@@ -131,6 +135,7 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
             if (resultadoValidacao == "ESTA_VALIDO")
             {
                 registro.id = Db.Insert(sqlInserirLocacao, ObtemParametrosLocacao(registro));
+                controladorTaxas.Modificar(registro.TaxasEServicos, registro.id);
             }
 
             return resultadoValidacao;
@@ -145,6 +150,7 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
             {
                 locacao.Id = id;
                 Db.Update(sqlEditarLocacao, ObtemParametrosLocacao(locacao));
+                controladorTaxas.Modificar(locacao.TaxasEServicos, locacao.id);
             }
 
             return resultadoValidacao;
