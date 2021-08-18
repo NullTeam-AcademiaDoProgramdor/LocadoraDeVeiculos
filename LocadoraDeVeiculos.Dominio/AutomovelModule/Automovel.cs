@@ -59,6 +59,29 @@ namespace LocadoraDeVeiculos.Dominio.AutomovelModule
             Cambio = cambio;
             Direcao = direcao;
             Grupo = grupo;
+            Fotos = new Image[0];
+        }
+
+        public Automovel(string modelo, string marca, string cor, string placa, 
+            string chassi, int ano, int portas, int capacidadeTanque, 
+            int tamanhoPortaMalas, TipoCombustivelEnum tipoCombustivel,
+            CambioEnum cambio, DirecaoEnum direcao, GrupoAutomovel grupo, 
+            Image[] fotos)
+        {
+            Modelo = modelo;
+            Marca = marca;
+            Cor = cor;
+            Placa = placa;
+            Chassi = chassi;
+            Ano = ano;
+            Portas = portas;
+            CapacidadeTanque = capacidadeTanque;
+            TamanhoPortaMalas = tamanhoPortaMalas;
+            TipoCombustivel = tipoCombustivel;
+            Cambio = cambio;
+            Direcao = direcao;
+            Grupo = grupo;
+            Fotos = fotos;
         }
 
         public override bool Equals(object obj)
