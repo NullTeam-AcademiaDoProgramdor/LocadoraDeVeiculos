@@ -99,19 +99,17 @@
     <Compile Include="Features\LocacaoModule\TabelaLocacaoControl.Designer.cs">
       <DependentUpon>TabelaLocacaoControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\LocacaoModule\TelaDevolucaoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\LocacaoModule\TelaDevolucaoForm.Designer.cs">
+      <DependentUpon>TelaDevolucaoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Features\LocacaoModule\TelaLocacaoForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Features\LocacaoModule\TelaLocacaoForm.Designer.cs">
       <DependentUpon>TelaLocacaoForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Features\Locacao\ConfiguracaoLocacaoToolBox.cs" />
-    <Compile Include="Features\Locacao\OperacoesLocacao.cs" />
-    <Compile Include="Features\Locacao\TelaDevolucaoForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Features\Locacao\TelaDevolucaoForm.Designer.cs">
-      <DependentUpon>TelaDevolucaoForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Features\PessoasFisicas\ConfiguracaoPessoaFisicaToolBox.cs" />
     <Compile Include="Features\PessoasFisicas\OperacoesPessoaFisica.cs" />
@@ -230,11 +228,11 @@
     <EmbeddedResource Include="Features\LocacaoModule\TabelaLocacaoControl.resx">
       <DependentUpon>TabelaLocacaoControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Features\LocacaoModule\TelaDevolucaoForm.resx">
+      <DependentUpon>TelaDevolucaoForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Features\LocacaoModule\TelaLocacaoForm.resx">
       <DependentUpon>TelaLocacaoForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Features\Locacao\TelaDevolucaoForm.resx">
-      <DependentUpon>TelaDevolucaoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\PessoasFisicas\TabelaPessoaFisicaControl.resx">
       <DependentUpon>TabelaPessoaFisicaControl.cs</DependentUpon>
