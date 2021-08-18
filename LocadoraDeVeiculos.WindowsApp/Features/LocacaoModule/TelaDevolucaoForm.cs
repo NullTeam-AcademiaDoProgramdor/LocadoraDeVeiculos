@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LocadoraDeVeiculos.WindowsApp.Features.Locacao
+namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
 {
     public partial class TelaDevolucaoForm : Form
     {

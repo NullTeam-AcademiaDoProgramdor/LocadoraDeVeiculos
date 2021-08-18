@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using LocadoraDeVeiculos.WindowsApp.Shared;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
+using LocadoraDeVeiculos.Controladores.LocacaoModule;
 
 namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
 {
@@ -22,7 +23,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             gridLocacao.ConfigurarGridZebrado();
             gridLocacao.ConfigurarGridSomenteLeitura();
             gridLocacao.Columns.AddRange(ObterColunas());
-            controlador = new ControladorLocacao();
+            //controlador = new ControladorLocacao();
         }
 
         public DataGridViewColumn[] ObterColunas()
@@ -54,7 +55,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
         {
             var laccoes = controlador.SelecionarTodos();
 
-            CarregarTabela(locacoes);
+            //CarregarTabela(locacoes);
         }
 
         private void CarregarTabela(List<Locacao> locacoes)

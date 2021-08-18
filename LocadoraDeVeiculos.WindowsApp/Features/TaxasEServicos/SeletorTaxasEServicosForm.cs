@@ -21,7 +21,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
             InitializeComponent();
         }
 
-        public SeletorTaxasEServicosControl(TaxaEServico[] taxasEServicos)
+        public SeletorTaxasEServicosForm(TaxaEServico[] taxasEServicos)
         {
             InitializeComponent();
 

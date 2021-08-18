@@ -44,7 +44,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             this.labelReais = new System.Windows.Forms.Label();
             this.labelPlano = new System.Windows.Forms.Label();
             this.comboBoxPlano = new System.Windows.Forms.ComboBox();
-            this.btnSelecionarAdicionais = new System.Windows.Forms.Button();
             this.labelId = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.btnGravar = new System.Windows.Forms.Button();
@@ -178,16 +177,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             this.comboBoxPlano.Size = new System.Drawing.Size(225, 21);
             this.comboBoxPlano.TabIndex = 14;
             // 
-            // btnSelecionarAdicionais
-            // 
-            this.btnSelecionarAdicionais.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btnSelecionarAdicionais.Location = new System.Drawing.Point(12, 240);
-            this.btnSelecionarAdicionais.Name = "btnSelecionarAdicionais";
-            this.btnSelecionarAdicionais.Size = new System.Drawing.Size(145, 29);
-            this.btnSelecionarAdicionais.TabIndex = 15;
-            this.btnSelecionarAdicionais.Text = "Selecionar adicionais";
-            this.btnSelecionarAdicionais.UseVisualStyleBackColor = false;
-            // 
             // labelId
             // 
             this.labelId.AutoSize = true;
@@ -226,16 +215,23 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             // 
+            // seletorTaxasEServicosControl1
+            // 
+            this.seletorTaxasEServicosControl1.Location = new System.Drawing.Point(10, 241);
+            this.seletorTaxasEServicosControl1.Name = "seletorTaxasEServicosControl1";
+            this.seletorTaxasEServicosControl1.Size = new System.Drawing.Size(147, 48);
+            this.seletorTaxasEServicosControl1.TabIndex = 20;
+            // 
             // TelaLocacaoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(340, 340);
+            this.Controls.Add(this.seletorTaxasEServicosControl1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGravar);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.labelId);
-            this.Controls.Add(this.btnSelecionarAdicionais);
             this.Controls.Add(this.comboBoxPlano);
             this.Controls.Add(this.labelPlano);
             this.Controls.Add(this.labelReais);
@@ -278,10 +274,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
         private System.Windows.Forms.Label labelReais;
         private System.Windows.Forms.Label labelPlano;
         private System.Windows.Forms.ComboBox comboBoxPlano;
-        private System.Windows.Forms.Button btnSelecionarAdicionais;
         private System.Windows.Forms.Label labelId;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button btnGravar;
         private System.Windows.Forms.Button btnCancelar;
+        private TaxasEServicos.SeletorTaxasEServicosControl seletorTaxasEServicosControl1;
     }
 }
