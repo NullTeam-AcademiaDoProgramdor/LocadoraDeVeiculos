@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using LocadoraDeVeiculos.WindowsApp.Shared;
 
-namespace LocadoraDeVeiculos.WindowsApp.Features.Locacao
+namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
 {
     class ConfiguracaoLocacaoToolBox : IConfiguracaoToolBox
     {

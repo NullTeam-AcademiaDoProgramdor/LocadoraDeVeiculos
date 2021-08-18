@@ -54,8 +54,8 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
             if (kmAutomovelIncial <= 0)
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "Insira um valor válido para a quilometragem inicial";
 
-            if(dataDevolucaoEsperada >= dataSaida)
-                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "A data de devolução esperada não pode ser menor que a data de saída";
+            if(dataDevolucaoEsperada <= dataSaida)
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "A data de devolução esperada não pode ser menor ou igual que a data de saída";
 
             if (resultadoValidacao == "")
                 resultadoValidacao = "ESTA_VALIDO";
