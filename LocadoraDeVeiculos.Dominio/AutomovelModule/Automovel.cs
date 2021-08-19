@@ -61,6 +61,11 @@ namespace LocadoraDeVeiculos.Dominio.AutomovelModule
             return Equals(obj as Automovel);
         }
 
+        public override string ToString()
+        {
+            return Modelo;
+        }
+
         public bool Equals(Automovel other)
         {
             return other != null &&
