@@ -261,6 +261,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
             // 
             // listBoxAdicionaisPorDia
             // 
+            this.listBoxAdicionaisPorDia.Enabled = false;
             this.listBoxAdicionaisPorDia.FormattingEnabled = true;
             this.listBoxAdicionaisPorDia.Location = new System.Drawing.Point(6, 25);
             this.listBoxAdicionaisPorDia.Name = "listBoxAdicionaisPorDia";
@@ -269,6 +270,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
             // 
             // listBoxAdicionaisFixos
             // 
+            this.listBoxAdicionaisFixos.Enabled = false;
             this.listBoxAdicionaisFixos.FormattingEnabled = true;
             this.listBoxAdicionaisFixos.Location = new System.Drawing.Point(6, 23);
             this.listBoxAdicionaisFixos.Name = "listBoxAdicionaisFixos";
