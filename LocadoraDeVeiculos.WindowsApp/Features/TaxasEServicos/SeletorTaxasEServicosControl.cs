@@ -14,8 +14,20 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
     public partial class SeletorTaxasEServicosControl : UserControl
     {
         private TaxaEServico[] taxasEServicos;
-        public TaxaEServico[] TaxasEServicosSelecionados { get; private set; }
-        private SeletorTaxasEServicosControl()
+
+        private TaxaEServico[] taxasEServicosSelecionados = new TaxaEServico[0];
+        public TaxaEServico[] TaxasEServicosSelecionados 
+        { 
+            get => taxasEServicosSelecionados;
+            set
+            {
+                taxasEServicosSelecionados = value;
+                GerarTextoDeSelecioandos(taxasEServicosSelecionados);
+            }
+        }
+
+
+        public SeletorTaxasEServicosControl()
         {
             InitializeComponent();
         }
@@ -31,6 +43,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
         {
             SeletorTaxasEServicosForm tela 
                 = new SeletorTaxasEServicosForm(this.taxasEServicos);
+
+            tela.SetarSelecionados(TaxasEServicosSelecionados);
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
