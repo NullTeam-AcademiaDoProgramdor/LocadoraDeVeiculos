@@ -51,10 +51,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             return gridLocacao.SelecionarId<int>();
         }
 
-        public void AtualizarRegistros()
+        public void AtualizarRegistros(List<Locacao> locacoes)
         {
-            var locacoes = controlador.SelecionarTodos();
-
             CarregarTabela(locacoes);
         }
 
