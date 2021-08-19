@@ -304,6 +304,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
             this.Controls.Add(this.labelPlano);
             this.Name = "TelaRelatorioLocação";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Relatório de Locação";
             this.groupBoxAdicionasPorDia.ResumeLayout(false);
             this.groupBoxAdicionaisFixos.ResumeLayout(false);
