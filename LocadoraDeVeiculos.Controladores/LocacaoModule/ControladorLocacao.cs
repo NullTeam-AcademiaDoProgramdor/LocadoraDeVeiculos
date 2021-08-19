@@ -124,10 +124,10 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
             WHERE 
                 [ID] = @ID";
 
-       
+
 
         #endregion
-        
+
         public override string InserirNovo(Locacao registro)
         {
             string resultadoValidacao = registro.Validar();
@@ -136,6 +136,19 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
             {
                 registro.id = Db.Insert(sqlInserirLocacao, ObtemParametrosLocacao(registro));
                 controladorTaxas.Modificar(registro.TaxasEServicos, registro.id);
+            }
+
+            return resultadoValidacao;
+        }
+
+        public string Devolver(int id, Locacao locacao)
+        {
+            string resultadoValidacao = locacao.ValidarDevolucao();
+
+            if (resultadoValidacao == "ESTA_VALIDO")
+            {
+                locacao.Id = id;
+                Db.Update(sqlEditarLocacao, ObtemParametrosLocacao(locacao));
             }
 
             return resultadoValidacao;
@@ -197,7 +210,21 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
             var planoSelecionado = Convert.ToInt32(reader["PLANOSELECIONADO"]);
             var kmInicial = Convert.ToInt32(reader["KMAUTOMOVELINICIAL"]);
 
-            var locacao = new Locacao(condutor, automovel, funcionario, dataSaida, dataDevolucaoEsperada, caucao, kmInicial, planoSelecionado);
+            Locacao locacao;
+            if (reader["DATADEVOLUCAO"] == DBNull.Value)
+                locacao = new Locacao(condutor, automovel, funcionario, dataSaida, dataDevolucaoEsperada, caucao, kmInicial, planoSelecionado);
+
+            else
+            {
+                var dataDevolucao = Convert.ToDateTime(reader["DATADEVOLUCAO"]);
+                var kmFinal = Convert.ToInt32(reader["KMAUTOMOVELFINAL"]);
+                var combustivelFinal = Convert.ToInt32(reader["PORCENTAGEMFINALCOMBUSTIVEL"]);
+
+                locacao = new Locacao(condutor, automovel, funcionario
+                , dataSaida, dataDevolucaoEsperada, caucao, kmInicial, planoSelecionado, kmFinal, combustivelFinal, dataDevolucao);
+
+            }
+
             locacao.Id = id;
 
             locacao.TaxasEServicos = controladorTaxas.Buscar(locacao.id).ToArray();

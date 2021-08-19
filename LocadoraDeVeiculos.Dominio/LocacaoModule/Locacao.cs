@@ -13,7 +13,8 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
 {
     public class Locacao : EntidadeBase, IEquatable<Locacao>
     {
-        public Locacao(PessoaFisica condutor, Automovel automovel, Funcionario funcionario, DateTime dataSaida, DateTime dataDevolucaoEsperada, int caucao, int kmAutomovelIncial, int planoSelecionado, TaxaEServico[] taxaEServicos = null)
+        public Locacao(PessoaFisica condutor, Automovel automovel, Funcionario funcionario, DateTime dataSaida,
+            DateTime dataDevolucaoEsperada, int caucao, int kmAutomovelIncial, int planoSelecionado, TaxaEServico[] taxaEServicos = null)
         {
             this.Condutor = condutor;
             this.Automovel = automovel;
@@ -31,6 +32,28 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
                 this.TaxasEServicos = new TaxaEServico[0];
             else
                 this.TaxasEServicos = taxaEServicos;
+        }
+
+        public Locacao(PessoaFisica condutor, Automovel automovel, Funcionario funcionario, DateTime dataSaida,
+            DateTime dataDevolucaoEsperada, int caucao, int kmAutomovelIncial, int planoSelecionado, 
+             int kmAutomovelFinal, int porcentagemFinalCombustivel, DateTime dataDevolucao, TaxaEServico[] taxasEServicos = null)
+        {
+            Condutor = condutor;
+            Automovel = automovel;
+            Funcionario = funcionario;
+            DataSaida = dataSaida;
+            DataDevolucaoEsperada = dataDevolucaoEsperada;
+            DataDevolucao = dataDevolucao;
+            PlanoSelecionado = planoSelecionado;
+            Caucao = caucao;
+            KmAutomovelIncial = kmAutomovelIncial;
+            KmAutomovelFinal = kmAutomovelFinal;
+            PorcentagemFinalCombustivel = porcentagemFinalCombustivel;
+
+            if (taxasEServicos == null)
+                this.TaxasEServicos = new TaxaEServico[0];
+            else
+                this.TaxasEServicos = taxasEServicos;
         }
 
         public PessoaFisica Condutor { get; }
@@ -115,6 +138,17 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
             return resultadoValidacao;
         }
 
+        public string ValidarDevolucao()
+        {
+            string resultadoValidacao = "";
 
+            if (KmAutomovelFinal < KmAutomovelIncial)
+                resultadoValidacao = "O campo km final não pode ser maior que a inicial";
+
+            if (resultadoValidacao == "")
+                resultadoValidacao = "ESTA_VALIDO";
+
+            return resultadoValidacao;
+        }
     }
 }

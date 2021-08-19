@@ -79,7 +79,7 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
 
             Locacao novaLocacao = new Locacao(condutor, automovel, funcionario
                 , DateTime.Today, DateTime.Today.AddDays(2), 1000, 50000, 1);
-            controladorLocacao.InserirNovo(locacao);
+        
             //action
             controladorLocacao.Editar(locacao.Id, novaLocacao);
 
@@ -87,6 +87,28 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
             Locacao locacaoEncontrada = controladorLocacao.SelecionarPorId(locacao.Id);
             locacaoEncontrada.Should().Be(novaLocacao);
         }
+
+
+        [TestMethod]
+        public void DeveDevolver_Locacao()
+        {
+            //arrange
+            Locacao locacao = new Locacao(condutor, automovel, funcionario
+                , DateTime.Today, DateTime.Today.AddDays(1), 1000, 50000, 1);
+            controladorLocacao.InserirNovo(locacao);
+
+            Locacao novaLocacao = new Locacao(condutor, automovel, funcionario
+                , DateTime.Today, DateTime.Today.AddDays(1), 1000, 50000, 1, 600000, 10, DateTime.Today.AddDays(1));
+
+
+            //action
+            controladorLocacao.Devolver(locacao.Id, novaLocacao);
+
+            //assert
+            Locacao locacaoEncontrada = controladorLocacao.SelecionarPorId(locacao.Id);
+            locacaoEncontrada.Should().Be(novaLocacao);
+        }
+
 
         [TestMethod]
         public void DeveSelecionar_Locacao_PorId()
@@ -137,6 +159,11 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
                     DateTime.Today, DateTime.Today.AddDays(1), 1000, 50000, 1);
 
             controladorLocacao.InserirNovo(locacao);
+
+            Locacao novaLocacao = new Locacao(condutor, automovel, funcionario
+                , DateTime.Today, DateTime.Today.AddDays(1), 1000, 50000, 1, 600000, 10, DateTime.Today.AddDays(1));
+
+            controladorLocacao.Devolver(locacao.Id, novaLocacao);
 
             //action            
             controladorLocacao.Excluir(locacao.Id);
