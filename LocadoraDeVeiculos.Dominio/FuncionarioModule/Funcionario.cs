@@ -37,6 +37,11 @@ namespace LocadoraDeVeiculos.Dominio.FuncionarioModule
                    Senha == other.Senha;
         }
 
+        public override string ToString()
+        {
+            return Nome;
+        }
+
         public override string Validar()
         {
             string resultadoValidacao = "";
