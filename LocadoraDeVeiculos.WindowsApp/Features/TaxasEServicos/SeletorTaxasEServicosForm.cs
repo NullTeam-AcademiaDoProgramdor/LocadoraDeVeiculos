@@ -30,6 +30,24 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
             CriarTabelaDeCheckboxs();
         }
 
+        public void SetarSelecionados(TaxaEServico[] taxaEServicosParaSelecionar)
+        {
+            var controlsList = tableTaxaEServicos.Controls;
+
+            for (int i = 0; i < taxaEServicosParaSelecionar.Length; i++)
+            {
+                for (int j = 0; j < taxaEServicos.Length; j++)
+                {
+                    if (taxaEServicosParaSelecionar[i].Id == taxaEServicos[j].Id)
+                    {
+                        var check = controlsList[j] as CheckBox;
+                        check.Checked = true;
+                    }
+                }
+            }
+            
+        }
+
         private void CriarTabelaDeCheckboxs()
         {
             tableTaxaEServicos.Controls.Clear();
