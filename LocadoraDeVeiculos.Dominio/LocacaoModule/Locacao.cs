@@ -142,11 +142,8 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
         {
             string resultadoValidacao = "";
 
-            if (KmAutomovelFinal == null)
-                resultadoValidacao = "O campo km final não pode ser nulo";
-
-            if (PorcentagemFinalCombustivel == null)
-                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo porcentagem de combustível não pode ser nulo";
+            if (KmAutomovelFinal < KmAutomovelIncial)
+                resultadoValidacao = "O campo km final não pode ser maior que a inicial";
 
             if (resultadoValidacao == "")
                 resultadoValidacao = "ESTA_VALIDO";
