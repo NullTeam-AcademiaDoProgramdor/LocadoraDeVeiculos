@@ -17,7 +17,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
     public partial class TabelaPessoaFisicaControl : UserControl
     {
         private Subro.Controls.DataGridViewGrouper gridPessoasFisicasAgrupadas;
-        ControladorPessoaFisica controlador = new ControladorPessoaFisica();
+        ControladorPessoaFisica controlador;
         private FiltroPessoaFisicaEnum filtroPFisicaCache = FiltroPessoaFisicaEnum.PessoaSemOrdem;
         public TabelaPessoaFisicaControl()
         {

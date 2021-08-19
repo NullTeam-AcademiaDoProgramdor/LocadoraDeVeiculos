@@ -23,7 +23,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             gridLocacao.ConfigurarGridZebrado();
             gridLocacao.ConfigurarGridSomenteLeitura();
             gridLocacao.Columns.AddRange(ObterColunas());
-            //controlador = new ControladorLocacao();
+            controlador = new ControladorLocacao();
         }
 
         public DataGridViewColumn[] ObterColunas()
@@ -53,9 +53,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
 
         public void AtualizarRegistros()
         {
-            var laccoes = controlador.SelecionarTodos();
+            var locacoes = controlador.SelecionarTodos();
 
-            //CarregarTabela(locacoes);
+            CarregarTabela(locacoes);
         }
 
         private void CarregarTabela(List<Locacao> locacoes)
