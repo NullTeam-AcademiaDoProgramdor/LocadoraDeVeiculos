@@ -108,7 +108,7 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
             {
                 if (alteraco.Value == 'D')
                     this.ExcluirTaxaEServicoUsado(alteraco.Key.id);
-                else
+                else if (alteraco.Value == 'A')
                     this.InserirTaxaEServicosUsados(
                         new TaxaEServico[] { alteraco.Key.taxaEServico },
                         alteraco.Key.locacao);
