@@ -153,6 +153,12 @@
     <Compile Include="Features\FuncionarioModule\TabelaFuncionarioControl.Designer.cs">
       <DependentUpon>TabelaFuncionarioControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\Relatorio\TelaRelatorioLocação.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Relatorio\TelaRelatorioLocação.Designer.cs">
+      <DependentUpon>TelaRelatorioLocação.cs</DependentUpon>
+    </Compile>
     <Compile Include="Features\TaxasEServicos\ConfiguracaoTaxasEServicoToolBox.cs" />
     <Compile Include="Features\TaxasEServicos\OperacoesTaxasESevicos.cs" />
     <Compile Include="Features\TaxasEServicos\TabelaTaxasEServicosControl.cs">
@@ -232,6 +238,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Features\FuncionarioModule\TabelaFuncionarioControl.resx">
       <DependentUpon>TabelaFuncionarioControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Relatorio\TelaRelatorioLocação.resx">
+      <DependentUpon>TelaRelatorioLocação.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\TaxasEServicos\TabelaTaxasEServicosControl.resx">
       <DependentUpon>TabelaTaxasEServicosControl.cs</DependentUpon>
