@@ -39,6 +39,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
             // btnCancelar
             // 
             this.btnCancelar.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancelar.Location = new System.Drawing.Point(136, 312);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(93, 23);
@@ -49,12 +50,14 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
             // btnGravar
             // 
             this.btnGravar.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnGravar.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnGravar.Location = new System.Drawing.Point(235, 312);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(93, 23);
             this.btnGravar.TabIndex = 22;
             this.btnGravar.Text = "Gravar";
             this.btnGravar.UseVisualStyleBackColor = false;
+            this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
             // 
             // panel1
             // 
@@ -67,13 +70,32 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
             // 
             // tableTaxaEServicos
             // 
+            this.tableTaxaEServicos.AutoScroll = true;
             this.tableTaxaEServicos.ColumnCount = 1;
             this.tableTaxaEServicos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableTaxaEServicos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableTaxaEServicos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableTaxaEServicos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableTaxaEServicos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableTaxaEServicos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableTaxaEServicos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableTaxaEServicos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableTaxaEServicos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableTaxaEServicos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableTaxaEServicos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableTaxaEServicos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableTaxaEServicos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableTaxaEServicos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableTaxaEServicos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableTaxaEServicos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableTaxaEServicos.Location = new System.Drawing.Point(0, 0);
             this.tableTaxaEServicos.Name = "tableTaxaEServicos";
             this.tableTaxaEServicos.RowCount = 1;
             this.tableTaxaEServicos.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableTaxaEServicos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 294F));
+            this.tableTaxaEServicos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 294F));
+            this.tableTaxaEServicos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 294F));
+            this.tableTaxaEServicos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 294F));
             this.tableTaxaEServicos.Size = new System.Drawing.Size(321, 294);
             this.tableTaxaEServicos.TabIndex = 0;
             // 

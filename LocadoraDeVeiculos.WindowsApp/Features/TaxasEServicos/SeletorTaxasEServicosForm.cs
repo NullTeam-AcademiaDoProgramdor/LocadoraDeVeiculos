@@ -42,6 +42,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
                     {
                         var check = controlsList[j] as CheckBox;
                         check.Checked = true;
+                        break;
                     }
                 }
             }
