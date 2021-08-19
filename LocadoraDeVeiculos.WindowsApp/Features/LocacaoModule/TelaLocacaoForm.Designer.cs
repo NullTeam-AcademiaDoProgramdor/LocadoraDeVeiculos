@@ -48,6 +48,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             this.btnCancelar = new System.Windows.Forms.Button();
             this.txtKmInicial = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.seletorTaxasEServicosControl1 = new LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos.SeletorTaxasEServicosControl();
             this.SuspendLayout();
             // 
             // labelCondutor
@@ -95,11 +96,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             // 
             // dtpdataSaida
             // 
-            this.dtpdataSaida.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpdataSaida.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpdataSaida.Location = new System.Drawing.Point(104, 90);
             this.dtpdataSaida.Name = "dtpdataSaida";
             this.dtpdataSaida.Size = new System.Drawing.Size(200, 20);
             this.dtpdataSaida.TabIndex = 5;
+            this.dtpdataSaida.Value = new System.DateTime(2021, 8, 19, 0, 0, 0, 0);
             // 
             // labelDataEsperada
             // 
@@ -112,11 +114,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             // 
             // dtpdataDevolucaoEsperada
             // 
-            this.dtpdataDevolucaoEsperada.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpdataDevolucaoEsperada.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpdataDevolucaoEsperada.Location = new System.Drawing.Point(174, 116);
             this.dtpdataDevolucaoEsperada.Name = "dtpdataDevolucaoEsperada";
             this.dtpdataDevolucaoEsperada.Size = new System.Drawing.Size(130, 20);
             this.dtpdataDevolucaoEsperada.TabIndex = 7;
+            this.dtpdataDevolucaoEsperada.Value = new System.DateTime(2021, 8, 19, 0, 0, 0, 0);
             // 
             // labelCaucao
             // 
@@ -185,6 +188,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             // btnGravar
             // 
             this.btnGravar.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnGravar.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnGravar.Location = new System.Drawing.Point(235, 305);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(93, 23);
@@ -196,6 +200,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             // btnCancelar
             // 
             this.btnCancelar.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancelar.Location = new System.Drawing.Point(136, 305);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(93, 23);
@@ -219,11 +224,21 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             this.label1.TabIndex = 20;
             this.label1.Text = "Quilometragem atual:";
             // 
+            // seletorTaxasEServicosControl1
+            // 
+            this.seletorTaxasEServicosControl1.Location = new System.Drawing.Point(16, 223);
+            this.seletorTaxasEServicosControl1.Name = "seletorTaxasEServicosControl1";
+            this.seletorTaxasEServicosControl1.Size = new System.Drawing.Size(147, 48);
+            this.seletorTaxasEServicosControl1.TabIndex = 22;
+            this.seletorTaxasEServicosControl1.TaxasEServicos = null;
+            this.seletorTaxasEServicosControl1.TaxasEServicosSelecionados = new LocadoraDeVeiculos.Dominio.TaxasEServicosModule.TaxaEServico[0];
+            // 
             // TelaLocacaoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(340, 340);
+            this.Controls.Add(this.seletorTaxasEServicosControl1);
             this.Controls.Add(this.txtKmInicial);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCancelar);
@@ -274,5 +289,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.TextBox txtKmInicial;
         private System.Windows.Forms.Label label1;
+        private TaxasEServicos.SeletorTaxasEServicosControl seletorTaxasEServicosControl1;
     }
 }

@@ -57,6 +57,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.panelRegistros = new System.Windows.Forms.Panel();
             this.statusStrip2 = new System.Windows.Forms.StatusStrip();
             this.labelFuncionarioConectado = new System.Windows.Forms.ToolStripStatusLabel();
+            this.locaçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolboxAcoes.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -66,6 +67,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.locaçõesToolStripMenuItem,
             this.funcionáriosToolStripMenuItem,
             this.PessoasToolStripMenuItem,
             this.AutomoveisToolStripMenuItem,
@@ -100,7 +102,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.pessoaJuridicaToolStripMenuItem.Name = "pessoaJuridicaToolStripMenuItem";
             this.pessoaJuridicaToolStripMenuItem.ShortcutKeyDisplayString = "";
             this.pessoaJuridicaToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.pessoaJuridicaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pessoaJuridicaToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.pessoaJuridicaToolStripMenuItem.Text = "Pessoa Juridica";
             this.pessoaJuridicaToolStripMenuItem.Click += new System.EventHandler(this.pessoaJuridicaToolStripMenuItem_Click);
             // 
@@ -108,7 +110,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             // 
             this.pessoaFisicaToolStripMenuItem.Name = "pessoaFisicaToolStripMenuItem";
             this.pessoaFisicaToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F2;
-            this.pessoaFisicaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pessoaFisicaToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.pessoaFisicaToolStripMenuItem.Text = "Pessoa Física";
             this.pessoaFisicaToolStripMenuItem.Click += new System.EventHandler(this.pessoasFísicasToolStripMenuItem_Click);
             // 
@@ -339,6 +341,13 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.labelFuncionarioConectado.Size = new System.Drawing.Size(108, 17);
             this.labelFuncionarioConectado.Text = "Usuário Conectado";
             // 
+            // locaçõesToolStripMenuItem
+            // 
+            this.locaçõesToolStripMenuItem.Name = "locaçõesToolStripMenuItem";
+            this.locaçõesToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
+            this.locaçõesToolStripMenuItem.Text = "Locações";
+            this.locaçõesToolStripMenuItem.Click += new System.EventHandler(this.locaçõesToolStripMenuItem_Click);
+            // 
             // TelaPrincipalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -395,6 +404,7 @@ namespace LocadoraDeVeiculos.WindowsApp
         private System.Windows.Forms.ToolStripMenuItem PessoasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem menuItemTaxasEServicos;
         private System.Windows.Forms.ToolStripMenuItem funcionáriosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem locaçõesToolStripMenuItem;
     }
 }
 

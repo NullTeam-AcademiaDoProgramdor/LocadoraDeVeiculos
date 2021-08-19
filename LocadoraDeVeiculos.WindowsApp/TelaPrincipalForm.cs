@@ -23,6 +23,8 @@ using LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas;
 using LocadoraDeVeiculos.Controladores.PessoaFisicaModule;
 using LocadoraDeVeiculos.WindowsApp.Features.Automoveis;
 using LocadoraDeVeiculos.Controladores.AutomovelModule;
+using LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule;
+using LocadoraDeVeiculos.Controladores.LocacaoModule;
 
 namespace LocadoraDeVeiculos.WindowsApp
 {
@@ -43,6 +45,7 @@ namespace LocadoraDeVeiculos.WindowsApp
         private OperacoesTaxasESevicos operacoesTaxasEServicos;
         private OperacoesConfiguracoes operacoesConfiguracoes;
         private OperacoesPessoaFisica operacoesPessoaFisica;
+        private OperacoesLocacao operacoesLocacao;
 
         private OperacoesAutomovel operacoesAutomovel;
 
@@ -88,6 +91,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             pessoaJuridicaToolStripMenuItem.Visible = pessoaJuridicaToolStripMenuItem.Enabled = false;
             automovelToolStripMenuItem.Visible = automovelToolStripMenuItem.Enabled = false;
             pessoaFisicaToolStripMenuItem.Visible = pessoaFisicaToolStripMenuItem.Enabled = false;
+            locaçõesToolStripMenuItem.Visible = locaçõesToolStripMenuItem.Enabled = false;
             PessoasToolStripMenuItem.Visible = false;
             AutomoveisToolStripMenuItem.Visible = false;
             funcionáriosToolStripMenuItem.ShortcutKeys = Keys.F1;
@@ -106,6 +110,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             operacoesTaxasEServicos = new OperacoesTaxasESevicos(new ControladorTaxasEServicos());
             operacoesPessoaFisica = new OperacoesPessoaFisica(new ControladorPessoaFisica());
             operacoesConfiguracoes = new OperacoesConfiguracoes();
+            operacoesLocacao = new OperacoesLocacao(new ControladorLocacao());
 
             operacoesAutomovel = new OperacoesAutomovel(new ControladorAutomovel(), new ControladorGrupoAutomovel());
 
@@ -330,6 +335,21 @@ namespace LocadoraDeVeiculos.WindowsApp
             AtualizarFuncionarioConectado(funcionarioConectado.Nome);
 
             operacoes = operacoesFuncionario;
+
+            ConfigurarPainelRegistros();
+        }
+
+        private void locaçõesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConfiguracaoLocacaoToolBox configuracao = new ConfiguracaoLocacaoToolBox();
+
+            ConfigurarTooltips(configuracao.Tooltip);
+            ConfigurarBotoes(configuracao.Botoes);
+
+            AtualizarRodape(configuracao.Tooltip.TipoCadastro);
+            AtualizarFuncionarioConectado(funcionarioConectado.Nome);
+
+            operacoes = operacoesLocacao;
 
             ConfigurarPainelRegistros();
         }
