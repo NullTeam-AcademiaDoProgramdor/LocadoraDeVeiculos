@@ -120,10 +120,10 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
             WHERE 
                 [ID] = @ID";
 
-       
+
 
         #endregion
-        
+
         public override string InserirNovo(Locacao registro)
         {
             string resultadoValidacao = registro.Validar();
@@ -199,7 +199,7 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
             var automovel = controladorAutomovel.SelecionarPorId((int)reader["AUTOMOVEL"]);
             var funcionario = controladorFuncionario.SelecionarPorId((int)reader["FUNCIONARIO"]);
             var dataSaida = Convert.ToDateTime(reader["DATASAIDA"]);
-            var dataDevolucaoEsperada = Convert.ToDateTime(reader["DATADEVOLUCAOESPERADA"]);            
+            var dataDevolucaoEsperada = Convert.ToDateTime(reader["DATADEVOLUCAOESPERADA"]);
             var caucao = Convert.ToInt32(reader["CAUCAO"]);
             var planoSelecionado = Convert.ToInt32(reader["PLANOSELECIONADO"]);
             var kmInicial = Convert.ToInt32(reader["KMAUTOMOVELINICIAL"]);

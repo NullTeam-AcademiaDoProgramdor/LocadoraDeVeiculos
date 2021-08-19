@@ -160,6 +160,11 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
 
             controladorLocacao.InserirNovo(locacao);
 
+            Locacao novaLocacao = new Locacao(condutor, automovel, funcionario
+                , DateTime.Today, DateTime.Today.AddDays(1), 1000, 50000, 1, 600000, 10, DateTime.Today.AddDays(1));
+
+            controladorLocacao.Devolver(locacao.Id, novaLocacao);
+
             //action            
             controladorLocacao.Excluir(locacao.Id);
 
