@@ -215,19 +215,11 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             // 
-            // seletorTaxasEServicosControl1
-            // 
-            this.seletorTaxasEServicosControl1.Location = new System.Drawing.Point(10, 241);
-            this.seletorTaxasEServicosControl1.Name = "seletorTaxasEServicosControl1";
-            this.seletorTaxasEServicosControl1.Size = new System.Drawing.Size(147, 48);
-            this.seletorTaxasEServicosControl1.TabIndex = 20;
-            // 
             // TelaLocacaoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(340, 340);
-            this.Controls.Add(this.seletorTaxasEServicosControl1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGravar);
             this.Controls.Add(this.textBox2);
@@ -278,6 +270,5 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button btnGravar;
         private System.Windows.Forms.Button btnCancelar;
-        private TaxasEServicos.SeletorTaxasEServicosControl seletorTaxasEServicosControl1;
     }
 }

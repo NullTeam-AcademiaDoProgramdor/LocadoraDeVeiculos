@@ -227,6 +227,8 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
 
             locacao.Id = id;
 
+            locacao.TaxasEServicos = controladorTaxas.Buscar(locacao.id).ToArray();
+
             return locacao;
         }
 
