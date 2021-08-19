@@ -21,6 +21,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
                     ToolTipExcluir = "Excluir uma locação existente",
                     ToolTipAgrupar = "Agrupar locações",
                     ToolTípDesagrupar = "Desagrupar locações",
+                    ToolTipFiltrar = "Filtrar locações",
 
                 };
             }
@@ -32,7 +33,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             {
                 return new ConfiguracoesBotoes()
                 {
-                    BtnAgrupar = true
+                    BtnFiltrar = true
                 };
             }
         }
