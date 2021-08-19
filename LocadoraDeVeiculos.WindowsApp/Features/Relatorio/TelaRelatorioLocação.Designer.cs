@@ -51,12 +51,16 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
             this.labelValorTotalAPagar = new System.Windows.Forms.Label();
             this.btnConcluir = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.listBoxAdicionaisPorDia = new System.Windows.Forms.ListBox();
+            this.listBoxAdicionaisFixos = new System.Windows.Forms.ListBox();
+            this.groupBoxAdicionasPorDia.SuspendLayout();
+            this.groupBoxAdicionaisFixos.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelPlano
             // 
             this.labelPlano.AutoSize = true;
-            this.labelPlano.Location = new System.Drawing.Point(12, 9);
+            this.labelPlano.Location = new System.Drawing.Point(9, 9);
             this.labelPlano.Name = "labelPlano";
             this.labelPlano.Size = new System.Drawing.Size(37, 13);
             this.labelPlano.TabIndex = 0;
@@ -65,7 +69,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
             // labelTipoPlano
             // 
             this.labelTipoPlano.AutoSize = true;
-            this.labelTipoPlano.Location = new System.Drawing.Point(196, 9);
+            this.labelTipoPlano.Location = new System.Drawing.Point(255, 9);
             this.labelTipoPlano.Name = "labelTipoPlano";
             this.labelTipoPlano.Size = new System.Drawing.Size(73, 13);
             this.labelTipoPlano.TabIndex = 1;
@@ -74,7 +78,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
             // labelDiasAlugados
             // 
             this.labelDiasAlugados.AutoSize = true;
-            this.labelDiasAlugados.Location = new System.Drawing.Point(12, 31);
+            this.labelDiasAlugados.Location = new System.Drawing.Point(9, 31);
             this.labelDiasAlugados.Name = "labelDiasAlugados";
             this.labelDiasAlugados.Size = new System.Drawing.Size(77, 13);
             this.labelDiasAlugados.TabIndex = 2;
@@ -83,7 +87,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
             // labelQuantDias
             // 
             this.labelQuantDias.AutoSize = true;
-            this.labelQuantDias.Location = new System.Drawing.Point(124, 31);
+            this.labelQuantDias.Location = new System.Drawing.Point(183, 31);
             this.labelQuantDias.Name = "labelQuantDias";
             this.labelQuantDias.Size = new System.Drawing.Size(145, 13);
             this.labelQuantDias.TabIndex = 3;
@@ -92,7 +96,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
             // labelKmRodados
             // 
             this.labelKmRodados.AutoSize = true;
-            this.labelKmRodados.Location = new System.Drawing.Point(12, 56);
+            this.labelKmRodados.Location = new System.Drawing.Point(10, 58);
             this.labelKmRodados.Name = "labelKmRodados";
             this.labelKmRodados.Size = new System.Drawing.Size(66, 13);
             this.labelKmRodados.TabIndex = 4;
@@ -101,7 +105,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
             // labelQuantKmRodados
             // 
             this.labelQuantKmRodados.AutoSize = true;
-            this.labelQuantKmRodados.Location = new System.Drawing.Point(101, 56);
+            this.labelQuantKmRodados.Location = new System.Drawing.Point(160, 58);
             this.labelQuantKmRodados.Name = "labelQuantKmRodados";
             this.labelQuantKmRodados.Size = new System.Drawing.Size(168, 13);
             this.labelQuantKmRodados.TabIndex = 5;
@@ -110,7 +114,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
             // labelTaxaDiaria
             // 
             this.labelTaxaDiaria.AutoSize = true;
-            this.labelTaxaDiaria.Location = new System.Drawing.Point(12, 83);
+            this.labelTaxaDiaria.Location = new System.Drawing.Point(10, 83);
             this.labelTaxaDiaria.Name = "labelTaxaDiaria";
             this.labelTaxaDiaria.Size = new System.Drawing.Size(145, 13);
             this.labelTaxaDiaria.TabIndex = 6;
@@ -119,7 +123,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
             // labelValorTaxaDiaria
             // 
             this.labelValorTaxaDiaria.AutoSize = true;
-            this.labelValorTaxaDiaria.Location = new System.Drawing.Point(168, 83);
+            this.labelValorTaxaDiaria.Location = new System.Drawing.Point(227, 83);
             this.labelValorTaxaDiaria.Name = "labelValorTaxaDiaria";
             this.labelValorTaxaDiaria.Size = new System.Drawing.Size(101, 13);
             this.labelValorTaxaDiaria.TabIndex = 7;
@@ -128,7 +132,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
             // labelTaxaKm
             // 
             this.labelTaxaKm.AutoSize = true;
-            this.labelTaxaKm.Location = new System.Drawing.Point(12, 111);
+            this.labelTaxaKm.Location = new System.Drawing.Point(10, 107);
             this.labelTaxaKm.Name = "labelTaxaKm";
             this.labelTaxaKm.Size = new System.Drawing.Size(142, 13);
             this.labelTaxaKm.TabIndex = 8;
@@ -137,7 +141,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
             // labelValorTaxaKm
             // 
             this.labelValorTaxaKm.AutoSize = true;
-            this.labelValorTaxaKm.Location = new System.Drawing.Point(160, 111);
+            this.labelValorTaxaKm.Location = new System.Drawing.Point(219, 107);
             this.labelValorTaxaKm.Name = "labelValorTaxaKm";
             this.labelValorTaxaKm.Size = new System.Drawing.Size(109, 13);
             this.labelValorTaxaKm.TabIndex = 9;
@@ -146,7 +150,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
             // labelSubTotal
             // 
             this.labelSubTotal.AutoSize = true;
-            this.labelSubTotal.Location = new System.Drawing.Point(12, 143);
+            this.labelSubTotal.Location = new System.Drawing.Point(9, 136);
             this.labelSubTotal.Name = "labelSubTotal";
             this.labelSubTotal.Size = new System.Drawing.Size(65, 13);
             this.labelSubTotal.TabIndex = 10;
@@ -155,7 +159,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
             // labelValorSubTotal
             // 
             this.labelValorSubTotal.AutoSize = true;
-            this.labelValorSubTotal.Location = new System.Drawing.Point(187, 143);
+            this.labelValorSubTotal.Location = new System.Drawing.Point(248, 136);
             this.labelValorSubTotal.Name = "labelValorSubTotal";
             this.labelValorSubTotal.Size = new System.Drawing.Size(80, 13);
             this.labelValorSubTotal.TabIndex = 11;
@@ -163,9 +167,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
             // 
             // groupBoxAdicionasPorDia
             // 
+            this.groupBoxAdicionasPorDia.Controls.Add(this.listBoxAdicionaisPorDia);
             this.groupBoxAdicionasPorDia.Location = new System.Drawing.Point(12, 185);
             this.groupBoxAdicionasPorDia.Name = "groupBoxAdicionasPorDia";
-            this.groupBoxAdicionasPorDia.Size = new System.Drawing.Size(316, 107);
+            this.groupBoxAdicionasPorDia.Size = new System.Drawing.Size(316, 99);
             this.groupBoxAdicionasPorDia.TabIndex = 12;
             this.groupBoxAdicionasPorDia.TabStop = false;
             this.groupBoxAdicionasPorDia.Text = "Adicionais por dia:";
@@ -173,7 +178,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
             // labelSubTotalAdicionaisDia
             // 
             this.labelSubTotalAdicionaisDia.AutoSize = true;
-            this.labelSubTotalAdicionaisDia.Location = new System.Drawing.Point(12, 295);
+            this.labelSubTotalAdicionaisDia.Location = new System.Drawing.Point(10, 287);
             this.labelSubTotalAdicionaisDia.Name = "labelSubTotalAdicionaisDia";
             this.labelSubTotalAdicionaisDia.Size = new System.Drawing.Size(65, 13);
             this.labelSubTotalAdicionaisDia.TabIndex = 13;
@@ -182,7 +187,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
             // labelValorSubTotalDia
             // 
             this.labelValorSubTotalDia.AutoSize = true;
-            this.labelValorSubTotalDia.Location = new System.Drawing.Point(81, 295);
+            this.labelValorSubTotalDia.Location = new System.Drawing.Point(142, 287);
             this.labelValorSubTotalDia.Name = "labelValorSubTotalDia";
             this.labelValorSubTotalDia.Size = new System.Drawing.Size(186, 13);
             this.labelValorSubTotalDia.TabIndex = 14;
@@ -190,6 +195,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
             // 
             // groupBoxAdicionaisFixos
             // 
+            this.groupBoxAdicionaisFixos.Controls.Add(this.listBoxAdicionaisFixos);
             this.groupBoxAdicionaisFixos.Location = new System.Drawing.Point(12, 336);
             this.groupBoxAdicionaisFixos.Name = "groupBoxAdicionaisFixos";
             this.groupBoxAdicionaisFixos.Size = new System.Drawing.Size(316, 114);
@@ -200,7 +206,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
             // labelSubTotalFixo
             // 
             this.labelSubTotalFixo.AutoSize = true;
-            this.labelSubTotalFixo.Location = new System.Drawing.Point(12, 453);
+            this.labelSubTotalFixo.Location = new System.Drawing.Point(9, 453);
             this.labelSubTotalFixo.Name = "labelSubTotalFixo";
             this.labelSubTotalFixo.Size = new System.Drawing.Size(62, 13);
             this.labelSubTotalFixo.TabIndex = 15;
@@ -209,7 +215,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
             // labelValorSubTotalFixo
             // 
             this.labelValorSubTotalFixo.AutoSize = true;
-            this.labelValorSubTotalFixo.Location = new System.Drawing.Point(89, 453);
+            this.labelValorSubTotalFixo.Location = new System.Drawing.Point(148, 453);
             this.labelValorSubTotalFixo.Name = "labelValorSubTotalFixo";
             this.labelValorSubTotalFixo.Size = new System.Drawing.Size(178, 13);
             this.labelValorSubTotalFixo.TabIndex = 16;
@@ -218,7 +224,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
             // labelTotalAPagar
             // 
             this.labelTotalAPagar.AutoSize = true;
-            this.labelTotalAPagar.Location = new System.Drawing.Point(12, 497);
+            this.labelTotalAPagar.Location = new System.Drawing.Point(9, 497);
             this.labelTotalAPagar.Name = "labelTotalAPagar";
             this.labelTotalAPagar.Size = new System.Drawing.Size(79, 13);
             this.labelTotalAPagar.TabIndex = 17;
@@ -227,7 +233,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
             // labelValorTotalAPagar
             // 
             this.labelValorTotalAPagar.AutoSize = true;
-            this.labelValorTotalAPagar.Location = new System.Drawing.Point(160, 497);
+            this.labelValorTotalAPagar.Location = new System.Drawing.Point(219, 497);
             this.labelValorTotalAPagar.Name = "labelValorTotalAPagar";
             this.labelValorTotalAPagar.Size = new System.Drawing.Size(107, 13);
             this.labelValorTotalAPagar.TabIndex = 18;
@@ -252,6 +258,22 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
             this.btnCancelar.TabIndex = 20;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            // 
+            // listBoxAdicionaisPorDia
+            // 
+            this.listBoxAdicionaisPorDia.FormattingEnabled = true;
+            this.listBoxAdicionaisPorDia.Location = new System.Drawing.Point(6, 25);
+            this.listBoxAdicionaisPorDia.Name = "listBoxAdicionaisPorDia";
+            this.listBoxAdicionaisPorDia.Size = new System.Drawing.Size(304, 69);
+            this.listBoxAdicionaisPorDia.TabIndex = 0;
+            // 
+            // listBoxAdicionaisFixos
+            // 
+            this.listBoxAdicionaisFixos.FormattingEnabled = true;
+            this.listBoxAdicionaisFixos.Location = new System.Drawing.Point(6, 23);
+            this.listBoxAdicionaisFixos.Name = "listBoxAdicionaisFixos";
+            this.listBoxAdicionaisFixos.Size = new System.Drawing.Size(304, 82);
+            this.listBoxAdicionaisFixos.TabIndex = 1;
             // 
             // TelaRelatorioLocação
             // 
@@ -283,6 +305,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
             this.Name = "TelaRelatorioLocação";
             this.ShowIcon = false;
             this.Text = "Relatório de Locação";
+            this.groupBoxAdicionasPorDia.ResumeLayout(false);
+            this.groupBoxAdicionaisFixos.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -312,5 +336,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
         private System.Windows.Forms.Label labelValorTotalAPagar;
         private System.Windows.Forms.Button btnConcluir;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.ListBox listBoxAdicionaisPorDia;
+        private System.Windows.Forms.ListBox listBoxAdicionaisFixos;
     }
 }
