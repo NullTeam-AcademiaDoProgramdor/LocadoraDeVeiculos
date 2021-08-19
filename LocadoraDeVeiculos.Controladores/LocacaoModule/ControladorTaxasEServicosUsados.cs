@@ -13,15 +13,15 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
     public class ControladorTaxasEServicosUsados
     {
         private readonly string sqlInserirTaxaEServicoUsado =
-            @"INSERT INTO [TaxaEServicosUsadas]
+            @"INSERT INTO [TaxasEServicosUsadas]
                 (
-	                [taxaEServico],
-	                [locacao]	
+	                [locacao],
+	                [taxaEServico]
                 )
-                VALUES 
+                VALUES
                 (
-	                @taxaEServico,
-	                @locacao
+	                @locacao,
+	                @taxaEServico
                 );";
 
         private readonly string sqlExcluirTaxaEServicoUsado =

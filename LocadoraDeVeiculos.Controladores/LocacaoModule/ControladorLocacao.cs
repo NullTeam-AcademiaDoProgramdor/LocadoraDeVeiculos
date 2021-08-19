@@ -200,6 +200,8 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
             var locacao = new Locacao(condutor, automovel, funcionario, dataSaida, dataDevolucaoEsperada, caucao, kmInicial, planoSelecionado);
             locacao.Id = id;
 
+            locacao.TaxasEServicos = controladorTaxas.Buscar(locacao.id).ToArray();
+
             return locacao;
         }
 

@@ -40,7 +40,7 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
         public DateTime DataDevolucaoEsperada { get; }
         public DateTime? DataDevolucao { get; }
         public int PlanoSelecionado { get; }
-        public TaxaEServico[] TaxasEServicos { get; }
+        public TaxaEServico[] TaxasEServicos { get; set; }
         public int Caucao { get; }      
         public int KmAutomovelIncial { get; }      
         public int? KmAutomovelFinal { get; }      
