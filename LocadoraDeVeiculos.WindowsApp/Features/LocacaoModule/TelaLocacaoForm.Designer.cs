@@ -30,24 +30,24 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
         private void InitializeComponent()
         {
             this.labelCondutor = new System.Windows.Forms.Label();
-            this.comboBoxCondutor = new System.Windows.Forms.ComboBox();
+            this.cmbCondutor = new System.Windows.Forms.ComboBox();
             this.labelAutomovel = new System.Windows.Forms.Label();
-            this.comboBoxAutomovel = new System.Windows.Forms.ComboBox();
+            this.cmbAutomovel = new System.Windows.Forms.ComboBox();
             this.labelDataSaida = new System.Windows.Forms.Label();
-            this.dataSaida = new System.Windows.Forms.DateTimePicker();
+            this.dtpdataSaida = new System.Windows.Forms.DateTimePicker();
             this.labelDataEsperada = new System.Windows.Forms.Label();
-            this.dataDevolucaoEsperada = new System.Windows.Forms.DateTimePicker();
-            this.labelSeguro = new System.Windows.Forms.Label();
-            this.comboBoxSeguro = new System.Windows.Forms.ComboBox();
+            this.dtpdataDevolucaoEsperada = new System.Windows.Forms.DateTimePicker();
             this.labelCaucao = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtCaucao = new System.Windows.Forms.TextBox();
             this.labelReais = new System.Windows.Forms.Label();
             this.labelPlano = new System.Windows.Forms.Label();
-            this.comboBoxPlano = new System.Windows.Forms.ComboBox();
+            this.cmbPlano = new System.Windows.Forms.ComboBox();
             this.labelId = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtId = new System.Windows.Forms.TextBox();
             this.btnGravar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.txtKmInicial = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelCondutor
@@ -59,13 +59,13 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             this.labelCondutor.TabIndex = 0;
             this.labelCondutor.Text = "Condutor:";
             // 
-            // comboBoxCondutor
+            // cmbCondutor
             // 
-            this.comboBoxCondutor.FormattingEnabled = true;
-            this.comboBoxCondutor.Location = new System.Drawing.Point(79, 35);
-            this.comboBoxCondutor.Name = "comboBoxCondutor";
-            this.comboBoxCondutor.Size = new System.Drawing.Size(225, 21);
-            this.comboBoxCondutor.TabIndex = 1;
+            this.cmbCondutor.FormattingEnabled = true;
+            this.cmbCondutor.Location = new System.Drawing.Point(79, 35);
+            this.cmbCondutor.Name = "cmbCondutor";
+            this.cmbCondutor.Size = new System.Drawing.Size(225, 21);
+            this.cmbCondutor.TabIndex = 1;
             // 
             // labelAutomovel
             // 
@@ -76,13 +76,13 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             this.labelAutomovel.TabIndex = 2;
             this.labelAutomovel.Text = "Automóvel:";
             // 
-            // comboBoxAutomovel
+            // cmbAutomovel
             // 
-            this.comboBoxAutomovel.FormattingEnabled = true;
-            this.comboBoxAutomovel.Location = new System.Drawing.Point(79, 62);
-            this.comboBoxAutomovel.Name = "comboBoxAutomovel";
-            this.comboBoxAutomovel.Size = new System.Drawing.Size(225, 21);
-            this.comboBoxAutomovel.TabIndex = 3;
+            this.cmbAutomovel.FormattingEnabled = true;
+            this.cmbAutomovel.Location = new System.Drawing.Point(79, 62);
+            this.cmbAutomovel.Name = "cmbAutomovel";
+            this.cmbAutomovel.Size = new System.Drawing.Size(225, 21);
+            this.cmbAutomovel.TabIndex = 3;
             // 
             // labelDataSaida
             // 
@@ -93,13 +93,13 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             this.labelDataSaida.TabIndex = 4;
             this.labelDataSaida.Text = "Data de saída:";
             // 
-            // dataSaida
+            // dtpdataSaida
             // 
-            this.dataSaida.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dataSaida.Location = new System.Drawing.Point(104, 90);
-            this.dataSaida.Name = "dataSaida";
-            this.dataSaida.Size = new System.Drawing.Size(200, 20);
-            this.dataSaida.TabIndex = 5;
+            this.dtpdataSaida.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpdataSaida.Location = new System.Drawing.Point(104, 90);
+            this.dtpdataSaida.Name = "dtpdataSaida";
+            this.dtpdataSaida.Size = new System.Drawing.Size(200, 20);
+            this.dtpdataSaida.TabIndex = 5;
             // 
             // labelDataEsperada
             // 
@@ -110,51 +110,34 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             this.labelDataEsperada.TabIndex = 6;
             this.labelDataEsperada.Text = "Data de devolução esperada:";
             // 
-            // dataDevolucaoEsperada
+            // dtpdataDevolucaoEsperada
             // 
-            this.dataDevolucaoEsperada.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dataDevolucaoEsperada.Location = new System.Drawing.Point(174, 116);
-            this.dataDevolucaoEsperada.Name = "dataDevolucaoEsperada";
-            this.dataDevolucaoEsperada.Size = new System.Drawing.Size(130, 20);
-            this.dataDevolucaoEsperada.TabIndex = 7;
-            // 
-            // labelSeguro
-            // 
-            this.labelSeguro.AutoSize = true;
-            this.labelSeguro.Location = new System.Drawing.Point(29, 145);
-            this.labelSeguro.Name = "labelSeguro";
-            this.labelSeguro.Size = new System.Drawing.Size(44, 13);
-            this.labelSeguro.TabIndex = 8;
-            this.labelSeguro.Text = "Seguro:";
-            // 
-            // comboBoxSeguro
-            // 
-            this.comboBoxSeguro.FormattingEnabled = true;
-            this.comboBoxSeguro.Location = new System.Drawing.Point(79, 142);
-            this.comboBoxSeguro.Name = "comboBoxSeguro";
-            this.comboBoxSeguro.Size = new System.Drawing.Size(225, 21);
-            this.comboBoxSeguro.TabIndex = 9;
+            this.dtpdataDevolucaoEsperada.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpdataDevolucaoEsperada.Location = new System.Drawing.Point(174, 116);
+            this.dtpdataDevolucaoEsperada.Name = "dtpdataDevolucaoEsperada";
+            this.dtpdataDevolucaoEsperada.Size = new System.Drawing.Size(130, 20);
+            this.dtpdataDevolucaoEsperada.TabIndex = 7;
             // 
             // labelCaucao
             // 
             this.labelCaucao.AutoSize = true;
-            this.labelCaucao.Location = new System.Drawing.Point(26, 172);
+            this.labelCaucao.Location = new System.Drawing.Point(26, 145);
             this.labelCaucao.Name = "labelCaucao";
             this.labelCaucao.Size = new System.Drawing.Size(47, 13);
             this.labelCaucao.TabIndex = 10;
             this.labelCaucao.Text = "Caução:";
             // 
-            // textBox1
+            // txtCaucao
             // 
-            this.textBox1.Location = new System.Drawing.Point(79, 172);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(225, 20);
-            this.textBox1.TabIndex = 11;
+            this.txtCaucao.Location = new System.Drawing.Point(79, 142);
+            this.txtCaucao.Name = "txtCaucao";
+            this.txtCaucao.Size = new System.Drawing.Size(225, 20);
+            this.txtCaucao.TabIndex = 11;
             // 
             // labelReais
             // 
             this.labelReais.AutoSize = true;
-            this.labelReais.Location = new System.Drawing.Point(307, 175);
+            this.labelReais.Location = new System.Drawing.Point(307, 145);
             this.labelReais.Name = "labelReais";
             this.labelReais.Size = new System.Drawing.Size(21, 13);
             this.labelReais.TabIndex = 12;
@@ -163,19 +146,23 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             // labelPlano
             // 
             this.labelPlano.AutoSize = true;
-            this.labelPlano.Location = new System.Drawing.Point(36, 203);
+            this.labelPlano.Location = new System.Drawing.Point(36, 173);
             this.labelPlano.Name = "labelPlano";
             this.labelPlano.Size = new System.Drawing.Size(37, 13);
             this.labelPlano.TabIndex = 13;
             this.labelPlano.Text = "Plano:";
             // 
-            // comboBoxPlano
+            // cmbPlano
             // 
-            this.comboBoxPlano.FormattingEnabled = true;
-            this.comboBoxPlano.Location = new System.Drawing.Point(79, 200);
-            this.comboBoxPlano.Name = "comboBoxPlano";
-            this.comboBoxPlano.Size = new System.Drawing.Size(225, 21);
-            this.comboBoxPlano.TabIndex = 14;
+            this.cmbPlano.FormattingEnabled = true;
+            this.cmbPlano.Items.AddRange(new object[] {
+            "Plano diário",
+            "Plano Km controlado",
+            "Plano Km livre"});
+            this.cmbPlano.Location = new System.Drawing.Point(79, 170);
+            this.cmbPlano.Name = "cmbPlano";
+            this.cmbPlano.Size = new System.Drawing.Size(225, 21);
+            this.cmbPlano.TabIndex = 14;
             // 
             // labelId
             // 
@@ -186,14 +173,14 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             this.labelId.TabIndex = 16;
             this.labelId.Text = "ID:";
             // 
-            // textBox2
+            // txtId
             // 
-            this.textBox2.BackColor = System.Drawing.Color.LightGreen;
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(79, 7);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(225, 20);
-            this.textBox2.TabIndex = 17;
+            this.txtId.BackColor = System.Drawing.Color.LightGreen;
+            this.txtId.Enabled = false;
+            this.txtId.Location = new System.Drawing.Point(79, 7);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(225, 20);
+            this.txtId.TabIndex = 17;
             // 
             // btnGravar
             // 
@@ -204,6 +191,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             this.btnGravar.TabIndex = 18;
             this.btnGravar.Text = "Gravar";
             this.btnGravar.UseVisualStyleBackColor = false;
+            this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
             // 
             // btnCancelar
             // 
@@ -215,29 +203,45 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             // 
+            // txtKmInicial
+            // 
+            this.txtKmInicial.Location = new System.Drawing.Point(125, 197);
+            this.txtKmInicial.Name = "txtKmInicial";
+            this.txtKmInicial.Size = new System.Drawing.Size(179, 20);
+            this.txtKmInicial.TabIndex = 21;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 200);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(106, 13);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "Quilometragem atual:";
+            // 
             // TelaLocacaoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(340, 340);
+            this.Controls.Add(this.txtKmInicial);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGravar);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtId);
             this.Controls.Add(this.labelId);
-            this.Controls.Add(this.comboBoxPlano);
+            this.Controls.Add(this.cmbPlano);
             this.Controls.Add(this.labelPlano);
             this.Controls.Add(this.labelReais);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtCaucao);
             this.Controls.Add(this.labelCaucao);
-            this.Controls.Add(this.comboBoxSeguro);
-            this.Controls.Add(this.labelSeguro);
-            this.Controls.Add(this.dataDevolucaoEsperada);
+            this.Controls.Add(this.dtpdataDevolucaoEsperada);
             this.Controls.Add(this.labelDataEsperada);
-            this.Controls.Add(this.dataSaida);
+            this.Controls.Add(this.dtpdataSaida);
             this.Controls.Add(this.labelDataSaida);
-            this.Controls.Add(this.comboBoxAutomovel);
+            this.Controls.Add(this.cmbAutomovel);
             this.Controls.Add(this.labelAutomovel);
-            this.Controls.Add(this.comboBoxCondutor);
+            this.Controls.Add(this.cmbCondutor);
             this.Controls.Add(this.labelCondutor);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "TelaLocacaoForm";
@@ -252,23 +256,23 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
         #endregion
 
         private System.Windows.Forms.Label labelCondutor;
-        private System.Windows.Forms.ComboBox comboBoxCondutor;
+        private System.Windows.Forms.ComboBox cmbCondutor;
         private System.Windows.Forms.Label labelAutomovel;
-        private System.Windows.Forms.ComboBox comboBoxAutomovel;
+        private System.Windows.Forms.ComboBox cmbAutomovel;
         private System.Windows.Forms.Label labelDataSaida;
-        private System.Windows.Forms.DateTimePicker dataSaida;
+        private System.Windows.Forms.DateTimePicker dtpdataSaida;
         private System.Windows.Forms.Label labelDataEsperada;
-        private System.Windows.Forms.DateTimePicker dataDevolucaoEsperada;
-        private System.Windows.Forms.Label labelSeguro;
-        private System.Windows.Forms.ComboBox comboBoxSeguro;
+        private System.Windows.Forms.DateTimePicker dtpdataDevolucaoEsperada;
         private System.Windows.Forms.Label labelCaucao;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtCaucao;
         private System.Windows.Forms.Label labelReais;
         private System.Windows.Forms.Label labelPlano;
-        private System.Windows.Forms.ComboBox comboBoxPlano;
+        private System.Windows.Forms.ComboBox cmbPlano;
         private System.Windows.Forms.Label labelId;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Button btnGravar;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.TextBox txtKmInicial;
+        private System.Windows.Forms.Label label1;
     }
 }

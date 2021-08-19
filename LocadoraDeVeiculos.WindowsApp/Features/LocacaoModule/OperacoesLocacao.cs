@@ -19,6 +19,25 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
 
         }
 
+        public void InserirNovoRegistro()
+        {
+            var locacoes = controlador.SelecionarTodos();
+
+            TelaPessoaFisicaForm tela = new TelaPessoaFisicaForm(pessoasJuridicas, controlador);
+
+            if (tela.ShowDialog() == DialogResult.OK)
+            {
+                controlador.InserirNovo(tela.PessoaFisica);
+
+                tabelaPessoaFisica.DesagruparRegistros();
+                tabelaPessoaFisica.AtualizarRegistros();
+                tabelaPessoaFisica.AgruparRegistros();
+
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Pessoa física: [{tela.PessoaFisica.Nome}] inserido com sucesso");
+            }
+
+        }
+
         public void AgruparRegistros()
         {
             throw new NotImplementedException();
@@ -45,11 +64,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
         }
 
         public void FiltrarRegistros()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void InserirNovoRegistro()
         {
             throw new NotImplementedException();
         }
