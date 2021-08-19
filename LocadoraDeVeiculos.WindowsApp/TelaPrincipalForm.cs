@@ -34,7 +34,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
         public string nomeAdmin = "Rech";
 
-        Funcionario funcionarioConectado;
+         public Funcionario funcionarioConectado;
         
         //Operacoes
         private OperacoesGrupoAutomovel operacoesGrupoAutomovel;

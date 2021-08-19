@@ -18,7 +18,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
     public partial class TelaPessoaFisicaForm : Form
     {
         PessoaFisica pessoaFisica;
-        private ControladorPessoaFisica controlador;
         private ControladorPessoaJuridica controladorPessoaJuridica;
         public TelaPessoaFisicaForm()
         {
@@ -30,7 +29,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
 
         public TelaPessoaFisicaForm(List<PessoaJuridica> pessoasJuridicas, ControladorPessoaFisica controlador) : this()
         {
-            this.controlador = controlador;
             CarregarPessoasJuridicas(pessoasJuridicas);
         }
 
