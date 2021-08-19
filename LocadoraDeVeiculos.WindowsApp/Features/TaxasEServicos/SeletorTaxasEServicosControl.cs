@@ -1,4 +1,5 @@
-﻿using LocadoraDeVeiculos.Dominio.TaxasEServicosModule;
+﻿using LocadoraDeVeiculos.Controladores.TaxasEServicosModule;
+using LocadoraDeVeiculos.Dominio.TaxasEServicosModule;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,11 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
     public partial class SeletorTaxasEServicosControl : UserControl
     {
         private TaxaEServico[] taxasEServicos;
+        public TaxaEServico[] TaxasEServicos 
+        {
+            get => taxasEServicos;
+            set => taxasEServicos = value;
+        }
 
         private TaxaEServico[] taxasEServicosSelecionados = new TaxaEServico[0];
         public TaxaEServico[] TaxasEServicosSelecionados 
@@ -26,17 +32,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
             }
         }
 
-
         public SeletorTaxasEServicosControl()
         {
             InitializeComponent();
-        }
-
-        public SeletorTaxasEServicosControl(TaxaEServico[] taxasEServicos)
-        {
-            InitializeComponent();
-
-            this.taxasEServicos = taxasEServicos;
         }
 
         private void btnSelecionarAdicionais_Click(object sender, EventArgs e)
@@ -57,7 +55,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
         {
             StringBuilder str = new StringBuilder();
 
-            foreach (var taxaESevico in taxasEServicos)
+            foreach (var taxaESevico in taxasSelecioandas)
             {
                 str.Append(taxaESevico.Nome);
                 str.Append(", ");
