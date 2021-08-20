@@ -102,8 +102,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
 
         public UserControl ObterTabela()
         {
-
             tabelaLocacao.AtualizarRegistros(controlador.SelecionarTodos());
+            tabelaLocacao.SetOnClick(TelaPrincipalForm.Instancia.panelRegistros_Click);
 
             return tabelaLocacao;
         }
@@ -188,5 +188,16 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             }
         }
 
+        public bool RegistroSelecionadoEstaDevolvido()
+        {
+            int id = tabelaLocacao.ObtemIdSelecionado();
+
+            if (id == 0)
+                return false;
+
+            Locacao locacaoSelecionada = controlador.SelecionarPorId(id);
+
+            return locacaoSelecionada.DataDevolucao != null;
+        }
     }
 }

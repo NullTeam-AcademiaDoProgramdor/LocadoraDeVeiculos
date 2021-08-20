@@ -60,5 +60,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
         {
             gridLocacao.DataSource = locacoes;            
         }
+
+        internal void SetOnClick(EventHandler panelRegistros_Click)
+        {
+            gridLocacao.SelectionChanged += panelRegistros_Click;
+        }
     }
 }

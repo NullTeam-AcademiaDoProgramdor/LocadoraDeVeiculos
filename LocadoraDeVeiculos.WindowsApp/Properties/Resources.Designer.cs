@@ -73,6 +73,16 @@ namespace LocadoraDeVeiculos.WindowsApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap car_arrow_left {
+            get {
+                object obj = ResourceManager.GetObject("car-arrow-left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap outline_add_circle_outline_black_24dp {
             get {
                 object obj = ResourceManager.GetObject("outline_add_circle_outline_black_24dp", resourceCulture);
