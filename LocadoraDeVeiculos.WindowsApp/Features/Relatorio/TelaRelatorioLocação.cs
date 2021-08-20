@@ -26,6 +26,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
             if (locacao.DataDevolucao == null)
             {
                 CalcularValoresParcial(locacao);
+            } else
+            {
+                CalcularValoresFinal(locacao);
             }
         }
 
@@ -34,7 +37,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
             labelTipoPlano.Text = PegarTipoPlano(locacao.PlanoSelecionado);
             labelQuantDias.Text = (locacao.DataDevolucaoEsperada - locacao.DataSaida)
                 .Days.ToString();
-            labelKmRodados.Text = "Indisponivel";
+            labelQuantKmRodados.Text = "Indisponivel";
 
             double valorPlano = SetarValoresPlanosParcial(locacao.PlanoSelecionado, locacao);
 
@@ -44,10 +47,18 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
 
         }
 
-
         private void CalcularValoresFinal(Locacao locacao)
         {
-           
+            labelTipoPlano.Text = PegarTipoPlano(locacao.PlanoSelecionado);
+            labelQuantDias.Text = (locacao.DataDevolucaoEsperada - locacao.DataSaida)
+                .Days.ToString();
+            labelQuantKmRodados.Text = (locacao.KmAutomovelFinal - locacao.KmAutomovelIncial).ToString();
+
+            double valorPlano = SetarValoresPlanosFinais(locacao.PlanoSelecionado, locacao);
+
+            double valorTaxas = SetarValoresTaxas(locacao.TaxasEServicos, locacao);
+
+            labelValorTotalAPagar.Text = "R$" + (valorPlano + valorTaxas);
         }
 
         private string PegarTipoPlano(int tipo)
@@ -116,6 +127,55 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
                 labelValorTaxaKmExtrapolado.Text = "Indisponivel";
                 labelValorSubTotal.Text = "R$" + valorTaxaDiario + " + Taxa km extrapolado";
                 return valorTaxaDiario;
+            }
+
+            if (plano == 2)
+            {
+                double valorTaxaDiario = dias * locacao.Automovel.Grupo.PlanoKmLivre.PrecoDia;
+                labelValorTaxaDiaria.Text = "R$" + valorTaxaDiario;
+                labelTaxaKm.Visible = labelValorTaxaKm.Visible = false;
+                labelTaxaKmExtrapolado.Visible = labelValorTaxaKmExtrapolado.Visible = false;
+                labelValorSubTotal.Text = "R$" + valorTaxaDiario;
+                return valorTaxaDiario;
+            }
+
+            return 0;
+        }
+
+        private double SetarValoresPlanosFinais(int plano, Locacao locacao)
+        {
+            int dias = (locacao.DataDevolucaoEsperada - locacao.DataSaida).Days;
+
+
+            if (plano == 0)
+            {
+                double valorTaxaDiario = dias * locacao.Automovel.Grupo.PlanoDiario.PrecoDia;
+                double kms = (double)locacao.KmAutomovelFinal - locacao.KmAutomovelIncial;
+                double valorKms = kms * locacao.Automovel.Grupo.PlanoDiario.PrecoKm;
+
+                labelValorTaxaDiaria.Text = "R$" + valorTaxaDiario;
+                labelValorTaxaKm.Text = "R$" + valorKms;
+                labelTaxaKmExtrapolado.Visible = labelValorTaxaKmExtrapolado.Visible = false;
+                labelValorSubTotal.Text = "R$" + valorTaxaDiario + valorKms;
+                return valorTaxaDiario + valorKms;
+            }
+
+            if (plano == 1)
+            {
+                double valorTaxaDiario = dias * locacao.Automovel.Grupo.PlanoKmControlado.PrecoDia;
+                double kmsTotais = (double)locacao.KmAutomovelFinal - locacao.KmAutomovelIncial;
+                double kmExtrapolados = 0;
+
+                if (kmsTotais > locacao.Automovel.Grupo.PlanoKmControlado.KmDisponiveis)
+                    kmExtrapolados = kmsTotais - locacao.Automovel.Grupo.PlanoKmControlado.KmDisponiveis;
+
+                double valorKmExtrapoldo = kmExtrapolados * locacao.Automovel.Grupo.PlanoKmControlado.PrecoKmExtrapolado;
+
+                labelValorTaxaDiaria.Text = "R$" + valorTaxaDiario;
+                labelTaxaKm.Visible = labelValorTaxaKm.Visible = false;
+                labelValorTaxaKmExtrapolado.Text = "R$" + valorKmExtrapoldo;
+                labelValorSubTotal.Text = "R$" + valorTaxaDiario + valorKmExtrapoldo;
+                return valorTaxaDiario + valorKmExtrapoldo;
             }
 
             if (plano == 2)

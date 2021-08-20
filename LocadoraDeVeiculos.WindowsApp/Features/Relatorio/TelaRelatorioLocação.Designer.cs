@@ -76,6 +76,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
             this.labelTipoPlano.Size = new System.Drawing.Size(73, 13);
             this.labelTipoPlano.TabIndex = 1;
             this.labelTipoPlano.Text = "Tipo de Plano";
+            this.labelTipoPlano.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // labelDiasAlugados
             // 
@@ -94,6 +95,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
             this.labelQuantDias.Size = new System.Drawing.Size(145, 13);
             this.labelQuantDias.TabIndex = 3;
             this.labelQuantDias.Text = "Quantidade de dias alugados";
+            this.labelQuantDias.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // labelKmRodados
             // 
@@ -112,6 +114,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
             this.labelQuantKmRodados.Size = new System.Drawing.Size(168, 13);
             this.labelQuantKmRodados.TabIndex = 5;
             this.labelQuantKmRodados.Text = "Quantidade de kilometros rodados";
+            this.labelQuantKmRodados.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // labelTaxaDiaria
             // 
@@ -130,6 +133,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
             this.labelValorTaxaDiaria.Size = new System.Drawing.Size(101, 13);
             this.labelValorTaxaDiaria.TabIndex = 7;
             this.labelValorTaxaDiaria.Text = "Valor da Taxa diária";
+            this.labelValorTaxaDiaria.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // labelTaxaKm
             // 
@@ -148,6 +152,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
             this.labelValorTaxaKm.Size = new System.Drawing.Size(109, 13);
             this.labelValorTaxaKm.TabIndex = 9;
             this.labelValorTaxaKm.Text = "Valor da Taxa por Km";
+            this.labelValorTaxaKm.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // labelSubTotal
             // 
@@ -166,6 +171,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
             this.labelValorSubTotal.Size = new System.Drawing.Size(80, 13);
             this.labelValorSubTotal.TabIndex = 11;
             this.labelValorSubTotal.Text = "Valor Sub Total";
+            this.labelValorSubTotal.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // groupBoxAdicionasPorDia
             // 
@@ -203,6 +209,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
             this.labelValorSubTotalDia.Size = new System.Drawing.Size(186, 13);
             this.labelValorSubTotalDia.TabIndex = 14;
             this.labelValorSubTotalDia.Text = "Valor Sub Total dos Adicionais Diários";
+            this.labelValorSubTotalDia.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // groupBoxAdicionaisFixos
             // 
@@ -240,6 +247,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
             this.labelValorSubTotalFixo.Size = new System.Drawing.Size(178, 13);
             this.labelValorSubTotalFixo.TabIndex = 16;
             this.labelValorSubTotalFixo.Text = "Valor Sub Total dos Adicionais Fixos";
+            this.labelValorSubTotalFixo.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // labelTotalAPagar
             // 
@@ -258,6 +266,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
             this.labelValorTotalAPagar.Size = new System.Drawing.Size(107, 13);
             this.labelValorTotalAPagar.TabIndex = 18;
             this.labelValorTotalAPagar.Text = "Valor total a ser pago";
+            this.labelValorTotalAPagar.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // btnConcluir
             // 
@@ -296,6 +305,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
             this.labelValorTaxaKmExtrapolado.Size = new System.Drawing.Size(109, 13);
             this.labelValorTaxaKmExtrapolado.TabIndex = 22;
             this.labelValorTaxaKmExtrapolado.Text = "Valor da Taxa por Km";
+            this.labelValorTaxaKmExtrapolado.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // TelaRelatorioLocação
             // 
