@@ -30,22 +30,13 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.cmbCondutor = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.cmbAutomovel = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.dateTPSaida = new System.Windows.Forms.DateTimePicker();
-            this.dateTPDevolucaoEsperada = new System.Windows.Forms.DateTimePicker();
-            this.dateTPDevolucao = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.cmbSeguro = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.txtCaucao = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.cmbPlano = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtKmPercorrida = new System.Windows.Forms.TextBox();
+            this.txtKmInicial = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -68,6 +59,16 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtId = new System.Windows.Forms.TextBox();
+            this.txtCondutor = new System.Windows.Forms.TextBox();
+            this.txtAutomovel = new System.Windows.Forms.TextBox();
+            this.txtDataSaida = new System.Windows.Forms.TextBox();
+            this.txtDataDevEsperada = new System.Windows.Forms.TextBox();
+            this.txtPlano = new System.Windows.Forms.TextBox();
+            this.seletorTaxasEServicosControl1 = new LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos.SeletorTaxasEServicosControl();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtKmAtual = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -78,118 +79,44 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(37, 15);
+            this.label1.Location = new System.Drawing.Point(37, 46);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Condutor:";
             // 
-            // cmbCondutor
-            // 
-            this.cmbCondutor.BackColor = System.Drawing.SystemColors.Window;
-            this.cmbCondutor.Enabled = false;
-            this.cmbCondutor.Location = new System.Drawing.Point(96, 15);
-            this.cmbCondutor.Name = "cmbCondutor";
-            this.cmbCondutor.Size = new System.Drawing.Size(207, 21);
-            this.cmbCondutor.TabIndex = 0;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(30, 42);
+            this.label2.Location = new System.Drawing.Point(30, 73);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(60, 13);
             this.label2.TabIndex = 1;
             this.label2.Text = "Automovel:";
             // 
-            // cmbAutomovel
-            // 
-            this.cmbAutomovel.BackColor = System.Drawing.SystemColors.Window;
-            this.cmbAutomovel.Enabled = false;
-            this.cmbAutomovel.Location = new System.Drawing.Point(96, 42);
-            this.cmbAutomovel.Name = "cmbAutomovel";
-            this.cmbAutomovel.Size = new System.Drawing.Size(207, 21);
-            this.cmbAutomovel.TabIndex = 2;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 69);
+            this.label3.Location = new System.Drawing.Point(12, 100);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(78, 13);
             this.label3.TabIndex = 3;
             this.label3.Text = "Data de saída:";
             // 
-            // dateTPSaida
-            // 
-            this.dateTPSaida.CalendarTitleForeColor = System.Drawing.Color.LightGreen;
-            this.dateTPSaida.Enabled = false;
-            this.dateTPSaida.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTPSaida.Location = new System.Drawing.Point(96, 69);
-            this.dateTPSaida.Name = "dateTPSaida";
-            this.dateTPSaida.Size = new System.Drawing.Size(207, 20);
-            this.dateTPSaida.TabIndex = 4;
-            this.dateTPSaida.Value = new System.DateTime(2021, 8, 17, 0, 0, 0, 0);
-            // 
-            // dateTPDevolucaoEsperada
-            // 
-            this.dateTPDevolucaoEsperada.Checked = false;
-            this.dateTPDevolucaoEsperada.Enabled = false;
-            this.dateTPDevolucaoEsperada.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTPDevolucaoEsperada.Location = new System.Drawing.Point(96, 99);
-            this.dateTPDevolucaoEsperada.Name = "dateTPDevolucaoEsperada";
-            this.dateTPDevolucaoEsperada.Size = new System.Drawing.Size(207, 20);
-            this.dateTPDevolucaoEsperada.TabIndex = 5;
-            this.dateTPDevolucaoEsperada.Value = new System.DateTime(2021, 8, 17, 0, 0, 0, 0);
-            // 
-            // dateTPDevolucao
-            // 
-            this.dateTPDevolucao.Checked = false;
-            this.dateTPDevolucao.Enabled = false;
-            this.dateTPDevolucao.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTPDevolucao.Location = new System.Drawing.Point(96, 134);
-            this.dateTPDevolucao.Name = "dateTPDevolucao";
-            this.dateTPDevolucao.Size = new System.Drawing.Size(207, 20);
-            this.dateTPDevolucao.TabIndex = 6;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(36, 88);
+            this.label4.Location = new System.Drawing.Point(36, 119);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(54, 26);
             this.label4.TabIndex = 7;
             this.label4.Text = "Data dev.\r\nesperada:";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(30, 123);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(60, 26);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Data da\r\ndevolução:";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
-            // 
-            // cmbSeguro
-            // 
-            this.cmbSeguro.Location = new System.Drawing.Point(90, 16);
-            this.cmbSeguro.Name = "cmbSeguro";
-            this.cmbSeguro.Size = new System.Drawing.Size(213, 21);
-            this.cmbSeguro.TabIndex = 9;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(40, 16);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(44, 13);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "Seguro:";
-            // 
             // txtCaucao
             // 
-            this.txtCaucao.Location = new System.Drawing.Point(90, 43);
+            this.txtCaucao.BackColor = System.Drawing.Color.LightGreen;
+            this.txtCaucao.Enabled = false;
+            this.txtCaucao.Location = new System.Drawing.Point(90, 14);
             this.txtCaucao.Name = "txtCaucao";
             this.txtCaucao.Size = new System.Drawing.Size(213, 20);
             this.txtCaucao.TabIndex = 11;
@@ -197,43 +124,37 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(37, 43);
+            this.label7.Location = new System.Drawing.Point(37, 17);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(47, 13);
             this.label7.TabIndex = 12;
             this.label7.Text = "Caução:";
             // 
-            // cmbPlano
-            // 
-            this.cmbPlano.Location = new System.Drawing.Point(90, 69);
-            this.cmbPlano.Name = "cmbPlano";
-            this.cmbPlano.Size = new System.Drawing.Size(213, 21);
-            this.cmbPlano.TabIndex = 13;
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(47, 69);
+            this.label8.Location = new System.Drawing.Point(47, 43);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(37, 13);
             this.label8.TabIndex = 14;
             this.label8.Text = "Plano:";
             // 
-            // txtKmPercorrida
+            // txtKmInicial
             // 
-            this.txtKmPercorrida.Location = new System.Drawing.Point(90, 105);
-            this.txtKmPercorrida.Name = "txtKmPercorrida";
-            this.txtKmPercorrida.Size = new System.Drawing.Size(213, 20);
-            this.txtKmPercorrida.TabIndex = 15;
+            this.txtKmInicial.BackColor = System.Drawing.SystemColors.Window;
+            this.txtKmInicial.Location = new System.Drawing.Point(90, 77);
+            this.txtKmInicial.Name = "txtKmInicial";
+            this.txtKmInicial.Size = new System.Drawing.Size(213, 20);
+            this.txtKmInicial.TabIndex = 15;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(7, 98);
+            this.label9.Location = new System.Drawing.Point(7, 67);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(77, 26);
             this.label9.TabIndex = 16;
-            this.label9.Text = "Quilometragem\r\npercorrida:";
+            this.label9.Text = "Quilometragem\r\niniciall:";
             // 
             // label10
             // 
@@ -253,11 +174,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 18;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // rdb100
             // 
+            this.rdb100.AccessibleDescription = "100";
             this.rdb100.AutoSize = true;
+            this.rdb100.Checked = true;
             this.rdb100.Location = new System.Drawing.Point(199, 259);
             this.rdb100.Name = "rdb100";
             this.rdb100.Size = new System.Drawing.Size(14, 13);
@@ -267,16 +189,17 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             // 
             // rdb75
             // 
+            this.rdb75.AccessibleDescription = "75";
             this.rdb75.AutoSize = true;
-            this.rdb75.Location = new System.Drawing.Point(246, 300);
+            this.rdb75.Location = new System.Drawing.Point(246, 299);
             this.rdb75.Name = "rdb75";
             this.rdb75.Size = new System.Drawing.Size(14, 13);
             this.rdb75.TabIndex = 20;
-            this.rdb75.TabStop = true;
             this.rdb75.UseVisualStyleBackColor = true;
             // 
             // rdb50
             // 
+            this.rdb50.AccessibleDescription = "50";
             this.rdb50.AutoSize = true;
             this.rdb50.Location = new System.Drawing.Point(265, 361);
             this.rdb50.Name = "rdb50";
@@ -286,6 +209,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             // 
             // rdb25
             // 
+            this.rdb25.AccessibleDescription = "25";
             this.rdb25.AutoSize = true;
             this.rdb25.Location = new System.Drawing.Point(248, 424);
             this.rdb25.Name = "rdb25";
@@ -295,37 +219,37 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             // 
             // rdb0
             // 
+            this.rdb0.AccessibleDescription = "0";
             this.rdb0.AutoSize = true;
             this.rdb0.Location = new System.Drawing.Point(199, 464);
             this.rdb0.Name = "rdb0";
             this.rdb0.Size = new System.Drawing.Size(14, 13);
             this.rdb0.TabIndex = 23;
-            this.rdb0.TabStop = true;
             this.rdb0.UseVisualStyleBackColor = true;
-            this.rdb0.CheckedChanged += new System.EventHandler(this.radioButton5_CheckedChanged);
             // 
             // rdb92
             // 
+            this.rdb92.AccessibleDescription = "92";
             this.rdb92.AutoSize = true;
             this.rdb92.Location = new System.Drawing.Point(218, 269);
             this.rdb92.Name = "rdb92";
             this.rdb92.Size = new System.Drawing.Size(14, 13);
             this.rdb92.TabIndex = 24;
-            this.rdb92.TabStop = true;
             this.rdb92.UseVisualStyleBackColor = true;
             // 
             // rdb83
             // 
+            this.rdb83.AccessibleDescription = "83";
             this.rdb83.AutoSize = true;
             this.rdb83.Location = new System.Drawing.Point(232, 284);
             this.rdb83.Name = "rdb83";
             this.rdb83.Size = new System.Drawing.Size(14, 13);
             this.rdb83.TabIndex = 25;
-            this.rdb83.TabStop = true;
             this.rdb83.UseVisualStyleBackColor = true;
             // 
             // rdb67
             // 
+            this.rdb67.AccessibleDescription = "67";
             this.rdb67.AutoSize = true;
             this.rdb67.Location = new System.Drawing.Point(257, 318);
             this.rdb67.Name = "rdb67";
@@ -335,6 +259,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             // 
             // rdb58
             // 
+            this.rdb58.AccessibleDescription = "58";
             this.rdb58.AutoSize = true;
             this.rdb58.Location = new System.Drawing.Point(263, 339);
             this.rdb58.Name = "rdb58";
@@ -344,6 +269,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             // 
             // rdb42
             // 
+            this.rdb42.AccessibleDescription = "42";
             this.rdb42.AutoSize = true;
             this.rdb42.Location = new System.Drawing.Point(263, 383);
             this.rdb42.Name = "rdb42";
@@ -353,6 +279,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             // 
             // rdb33
             // 
+            this.rdb33.AccessibleDescription = "33";
             this.rdb33.AutoSize = true;
             this.rdb33.Location = new System.Drawing.Point(258, 404);
             this.rdb33.Name = "rdb33";
@@ -362,22 +289,22 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             // 
             // rdb17
             // 
+            this.rdb17.AccessibleDescription = "17";
             this.rdb17.AutoSize = true;
             this.rdb17.Location = new System.Drawing.Point(233, 441);
             this.rdb17.Name = "rdb17";
             this.rdb17.Size = new System.Drawing.Size(14, 13);
             this.rdb17.TabIndex = 30;
-            this.rdb17.TabStop = true;
             this.rdb17.UseVisualStyleBackColor = true;
             // 
             // rdb8
             // 
+            this.rdb8.AccessibleDescription = "8";
             this.rdb8.AutoSize = true;
             this.rdb8.Location = new System.Drawing.Point(218, 455);
             this.rdb8.Name = "rdb8";
             this.rdb8.Size = new System.Drawing.Size(14, 13);
             this.rdb8.TabIndex = 31;
-            this.rdb8.TabStop = true;
             this.rdb8.UseVisualStyleBackColor = true;
             // 
             // btnCancelar
@@ -403,6 +330,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             this.btnGravar.TabIndex = 33;
             this.btnGravar.Text = "Gravar";
             this.btnGravar.UseVisualStyleBackColor = false;
+            this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
             // 
             // groupBox1
             // 
@@ -421,46 +349,136 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             this.tabControl1.Location = new System.Drawing.Point(13, 19);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(317, 204);
+            this.tabControl1.Size = new System.Drawing.Size(317, 216);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.cmbCondutor);
+            this.tabPage1.Controls.Add(this.txtDataDevEsperada);
+            this.tabPage1.Controls.Add(this.txtDataSaida);
+            this.tabPage1.Controls.Add(this.txtAutomovel);
+            this.tabPage1.Controls.Add(this.txtCondutor);
+            this.tabPage1.Controls.Add(this.txtId);
+            this.tabPage1.Controls.Add(this.label11);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.cmbAutomovel);
             this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.Controls.Add(this.dateTPSaida);
-            this.tabPage1.Controls.Add(this.dateTPDevolucaoEsperada);
-            this.tabPage1.Controls.Add(this.dateTPDevolucao);
             this.tabPage1.Controls.Add(this.label4);
-            this.tabPage1.Controls.Add(this.label5);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(309, 178);
+            this.tabPage1.Size = new System.Drawing.Size(309, 190);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Inf. Básicas";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.cmbSeguro);
+            this.tabPage2.Controls.Add(this.txtKmAtual);
             this.tabPage2.Controls.Add(this.label6);
+            this.tabPage2.Controls.Add(this.seletorTaxasEServicosControl1);
+            this.tabPage2.Controls.Add(this.txtPlano);
             this.tabPage2.Controls.Add(this.txtCaucao);
             this.tabPage2.Controls.Add(this.label7);
-            this.tabPage2.Controls.Add(this.cmbPlano);
             this.tabPage2.Controls.Add(this.label8);
-            this.tabPage2.Controls.Add(this.txtKmPercorrida);
+            this.tabPage2.Controls.Add(this.txtKmInicial);
             this.tabPage2.Controls.Add(this.label9);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(309, 178);
+            this.tabPage2.Size = new System.Drawing.Size(309, 190);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Inf. Adicionais";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(71, 20);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(19, 13);
+            this.label11.TabIndex = 9;
+            this.label11.Text = "Id:";
+            // 
+            // txtId
+            // 
+            this.txtId.BackColor = System.Drawing.Color.LightGreen;
+            this.txtId.Enabled = false;
+            this.txtId.Location = new System.Drawing.Point(96, 17);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(207, 20);
+            this.txtId.TabIndex = 17;
+            // 
+            // txtCondutor
+            // 
+            this.txtCondutor.BackColor = System.Drawing.Color.LightGreen;
+            this.txtCondutor.Enabled = false;
+            this.txtCondutor.Location = new System.Drawing.Point(96, 43);
+            this.txtCondutor.Name = "txtCondutor";
+            this.txtCondutor.Size = new System.Drawing.Size(207, 20);
+            this.txtCondutor.TabIndex = 18;
+            // 
+            // txtAutomovel
+            // 
+            this.txtAutomovel.BackColor = System.Drawing.Color.LightGreen;
+            this.txtAutomovel.Enabled = false;
+            this.txtAutomovel.Location = new System.Drawing.Point(96, 70);
+            this.txtAutomovel.Name = "txtAutomovel";
+            this.txtAutomovel.Size = new System.Drawing.Size(207, 20);
+            this.txtAutomovel.TabIndex = 19;
+            // 
+            // txtDataSaida
+            // 
+            this.txtDataSaida.BackColor = System.Drawing.Color.LightGreen;
+            this.txtDataSaida.Enabled = false;
+            this.txtDataSaida.Location = new System.Drawing.Point(96, 98);
+            this.txtDataSaida.Name = "txtDataSaida";
+            this.txtDataSaida.Size = new System.Drawing.Size(207, 20);
+            this.txtDataSaida.TabIndex = 20;
+            // 
+            // txtDataDevEsperada
+            // 
+            this.txtDataDevEsperada.BackColor = System.Drawing.Color.LightGreen;
+            this.txtDataDevEsperada.Enabled = false;
+            this.txtDataDevEsperada.Location = new System.Drawing.Point(96, 129);
+            this.txtDataDevEsperada.Name = "txtDataDevEsperada";
+            this.txtDataDevEsperada.Size = new System.Drawing.Size(207, 20);
+            this.txtDataDevEsperada.TabIndex = 21;
+            // 
+            // txtPlano
+            // 
+            this.txtPlano.BackColor = System.Drawing.Color.LightGreen;
+            this.txtPlano.Enabled = false;
+            this.txtPlano.Location = new System.Drawing.Point(90, 40);
+            this.txtPlano.Name = "txtPlano";
+            this.txtPlano.Size = new System.Drawing.Size(213, 20);
+            this.txtPlano.TabIndex = 18;
+            // 
+            // seletorTaxasEServicosControl1
+            // 
+            this.seletorTaxasEServicosControl1.Location = new System.Drawing.Point(90, 131);
+            this.seletorTaxasEServicosControl1.Name = "seletorTaxasEServicosControl1";
+            this.seletorTaxasEServicosControl1.Size = new System.Drawing.Size(147, 48);
+            this.seletorTaxasEServicosControl1.TabIndex = 35;
+            this.seletorTaxasEServicosControl1.TaxasEServicos = null;
+            this.seletorTaxasEServicosControl1.TaxasEServicosSelecionados = new LocadoraDeVeiculos.Dominio.TaxasEServicosModule.TaxaEServico[0];
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(7, 97);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(77, 26);
+            this.label6.TabIndex = 36;
+            this.label6.Text = "Quilometragem\r\natual:";
+            // 
+            // txtKmAtual
+            // 
+            this.txtKmAtual.BackColor = System.Drawing.SystemColors.Window;
+            this.txtKmAtual.Location = new System.Drawing.Point(90, 105);
+            this.txtKmAtual.Name = "txtKmAtual";
+            this.txtKmAtual.Size = new System.Drawing.Size(213, 20);
+            this.txtKmAtual.TabIndex = 37;
             // 
             // TelaDevolucaoForm
             // 
@@ -505,22 +523,13 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cmbCondutor;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox cmbAutomovel;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dateTPSaida;
-        private System.Windows.Forms.DateTimePicker dateTPDevolucaoEsperada;
-        private System.Windows.Forms.DateTimePicker dateTPDevolucao;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox cmbSeguro;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtCaucao;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox cmbPlano;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtKmPercorrida;
+        private System.Windows.Forms.TextBox txtKmInicial;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -543,5 +552,15 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TextBox txtDataDevEsperada;
+        private System.Windows.Forms.TextBox txtDataSaida;
+        private System.Windows.Forms.TextBox txtAutomovel;
+        private System.Windows.Forms.TextBox txtCondutor;
+        private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtPlano;
+        private TaxasEServicos.SeletorTaxasEServicosControl seletorTaxasEServicosControl1;
+        private System.Windows.Forms.TextBox txtKmAtual;
+        private System.Windows.Forms.Label label6;
     }
 }

@@ -160,5 +160,33 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             }
         }
 
+        public void DevolverRegistro()
+        {
+            int id = tabelaLocacao.ObtemIdSelecionado();
+
+            if (id == 0)
+            {
+                MessageBox.Show("Selecione uma Locação para poder devolver!", "Devolução de Locações",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            Locacao locacaoSelecionada = controlador.SelecionarPorId(id);
+
+
+            TelaDevolucaoForm tela = new TelaDevolucaoForm();
+
+            tela.Locacao = locacaoSelecionada;
+
+            if (tela.ShowDialog() == DialogResult.OK)
+            {
+                controlador.Editar(id, tela.Locacao);
+
+                tabelaLocacao.AtualizarRegistros(controlador.SelecionarTodos());
+
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Locação do automóvel: [{tela.Locacao.Automovel}] editada com sucesso");
+            }
+        }
+
     }
 }
