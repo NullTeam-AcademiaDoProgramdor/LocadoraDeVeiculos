@@ -1,4 +1,6 @@
-﻿using LocadoraDeVeiculos.Dominio.LocacaoModule;
+﻿using LocadoraDeVeiculos.Configuracoes;
+using LocadoraDeVeiculos.Dominio.AutomovelModule;
+using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using LocadoraDeVeiculos.Dominio.TaxasEServicosModule;
 using System;
 using System.Collections.Generic;
@@ -43,6 +45,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
 
             double valorTaxas = SetarValoresTaxas(locacao.TaxasEServicos, locacao);
 
+            SetarValoresCombustivelParcial(locacao);
+
             labelValorTotalAPagar.Text = "R$" + (valorPlano + valorTaxas);
 
         }
@@ -50,7 +54,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
         private void CalcularValoresFinal(Locacao locacao)
         {
             labelTipoPlano.Text = PegarTipoPlano(locacao.PlanoSelecionado);
-            labelQuantDias.Text = (locacao.DataDevolucaoEsperada - locacao.DataSaida)
+            labelQuantDias.Text = ((DateTime)locacao.DataDevolucao - locacao.DataSaida)
                 .Days.ToString();
             labelQuantKmRodados.Text = (locacao.KmAutomovelFinal - locacao.KmAutomovelIncial).ToString();
 
@@ -58,7 +62,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
 
             double valorTaxas = SetarValoresTaxas(locacao.TaxasEServicos, locacao);
 
-            labelValorTotalAPagar.Text = "R$" + (valorPlano + valorTaxas);
+            double valorAbastecer = SetarValoresCombustivelFinal(locacao);
+
+            labelValorTotalAPagar.Text = "R$" + (valorPlano + valorTaxas + valorAbastecer);
         }
 
         private string PegarTipoPlano(int tipo)
@@ -144,7 +150,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
 
         private double SetarValoresPlanosFinais(int plano, Locacao locacao)
         {
-            int dias = (locacao.DataDevolucaoEsperada - locacao.DataSaida).Days;
+            int dias = ((DateTime)locacao.DataDevolucao - locacao.DataSaida).Days;
 
 
             if (plano == 0)
@@ -174,7 +180,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
                 labelValorTaxaDiaria.Text = "R$" + valorTaxaDiario;
                 labelTaxaKm.Visible = labelValorTaxaKm.Visible = false;
                 labelValorTaxaKmExtrapolado.Text = "R$" + valorKmExtrapoldo;
-                labelValorSubTotal.Text = "R$" + valorTaxaDiario + valorKmExtrapoldo;
+                labelValorSubTotal.Text = "R$" + (valorTaxaDiario + valorKmExtrapoldo);
                 return valorTaxaDiario + valorKmExtrapoldo;
             }
 
@@ -189,6 +195,44 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
             }
 
             return 0;
+        }
+
+        private void SetarValoresCombustivelParcial(Locacao locacao)
+        {
+            labelValorTipoCombustivel.Text = locacao.Automovel.TipoCombustivel.ToString();
+            labelLitrosEncher.Visible = labelValorLitrosEncher.Visible = false;
+            labelAbastecer.Visible = labelValorAbastecer.Visible = false;
+        }
+
+        private double SetarValoresCombustivelFinal(Locacao locacao)
+        {
+            double valorCombustivel = PegarPrecoCombustivel(locacao.Automovel.TipoCombustivel);
+            double litros = locacao.Automovel.CapacidadeTanque - ((double)locacao.PorcentagemFinalCombustivel / 100 * locacao.Automovel.CapacidadeTanque);
+
+            double valorTotal = valorCombustivel * litros;
+
+            labelValorTipoCombustivel.Text = locacao.Automovel.TipoCombustivel.ToString();
+            labelValorLitrosEncher.Text = litros.ToString();
+            labelValorAbastecer.Text = "R$" + valorTotal;
+
+            return valorTotal;
+        }
+
+        private double PegarPrecoCombustivel(TipoCombustivelEnum tipoCombustivel)
+        {
+            switch (tipoCombustivel)
+            {
+                case TipoCombustivelEnum.Gasolina:
+                    return Configuracao.PrecoGasolina;
+                case TipoCombustivelEnum.Gas:
+                    return Configuracao.PrecoGas;
+                case TipoCombustivelEnum.Diesel:
+                    return Configuracao.PrecoDiesel;
+                case TipoCombustivelEnum.Alcool:
+                    return Configuracao.PrecoAlcool;
+                default:
+                    return 0;
+            }
         }
     }
 }

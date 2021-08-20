@@ -55,6 +55,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
             this.btnCancelar = new System.Windows.Forms.Button();
             this.labelTaxaKmExtrapolado = new System.Windows.Forms.Label();
             this.labelValorTaxaKmExtrapolado = new System.Windows.Forms.Label();
+            this.labelTipoCombustivel = new System.Windows.Forms.Label();
+            this.labelLitrosEncher = new System.Windows.Forms.Label();
+            this.labelAbastecer = new System.Windows.Forms.Label();
+            this.labelValorTipoCombustivel = new System.Windows.Forms.Label();
+            this.labelValorLitrosEncher = new System.Windows.Forms.Label();
+            this.labelValorAbastecer = new System.Windows.Forms.Label();
             this.groupBoxAdicionasPorDia.SuspendLayout();
             this.groupBoxAdicionaisFixos.SuspendLayout();
             this.SuspendLayout();
@@ -71,12 +77,11 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
             // labelTipoPlano
             // 
             this.labelTipoPlano.AutoSize = true;
-            this.labelTipoPlano.Location = new System.Drawing.Point(249, 14);
+            this.labelTipoPlano.Location = new System.Drawing.Point(221, 14);
             this.labelTipoPlano.Name = "labelTipoPlano";
-            this.labelTipoPlano.Size = new System.Drawing.Size(73, 13);
+            this.labelTipoPlano.Size = new System.Drawing.Size(13, 13);
             this.labelTipoPlano.TabIndex = 1;
-            this.labelTipoPlano.Text = "Tipo de Plano";
-            this.labelTipoPlano.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.labelTipoPlano.Text = "0";
             // 
             // labelDiasAlugados
             // 
@@ -90,12 +95,11 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
             // labelQuantDias
             // 
             this.labelQuantDias.AutoSize = true;
-            this.labelQuantDias.Location = new System.Drawing.Point(177, 36);
+            this.labelQuantDias.Location = new System.Drawing.Point(221, 36);
             this.labelQuantDias.Name = "labelQuantDias";
-            this.labelQuantDias.Size = new System.Drawing.Size(145, 13);
+            this.labelQuantDias.Size = new System.Drawing.Size(13, 13);
             this.labelQuantDias.TabIndex = 3;
-            this.labelQuantDias.Text = "Quantidade de dias alugados";
-            this.labelQuantDias.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.labelQuantDias.Text = "0";
             // 
             // labelKmRodados
             // 
@@ -109,12 +113,11 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
             // labelQuantKmRodados
             // 
             this.labelQuantKmRodados.AutoSize = true;
-            this.labelQuantKmRodados.Location = new System.Drawing.Point(154, 58);
+            this.labelQuantKmRodados.Location = new System.Drawing.Point(221, 58);
             this.labelQuantKmRodados.Name = "labelQuantKmRodados";
-            this.labelQuantKmRodados.Size = new System.Drawing.Size(168, 13);
+            this.labelQuantKmRodados.Size = new System.Drawing.Size(13, 13);
             this.labelQuantKmRodados.TabIndex = 5;
-            this.labelQuantKmRodados.Text = "Quantidade de kilometros rodados";
-            this.labelQuantKmRodados.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.labelQuantKmRodados.Text = "0";
             // 
             // labelTaxaDiaria
             // 
@@ -130,10 +133,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
             this.labelValorTaxaDiaria.AutoSize = true;
             this.labelValorTaxaDiaria.Location = new System.Drawing.Point(221, 80);
             this.labelValorTaxaDiaria.Name = "labelValorTaxaDiaria";
-            this.labelValorTaxaDiaria.Size = new System.Drawing.Size(101, 13);
+            this.labelValorTaxaDiaria.Size = new System.Drawing.Size(13, 13);
             this.labelValorTaxaDiaria.TabIndex = 7;
-            this.labelValorTaxaDiaria.Text = "Valor da Taxa diária";
-            this.labelValorTaxaDiaria.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.labelValorTaxaDiaria.Text = "0";
             // 
             // labelTaxaKm
             // 
@@ -147,12 +149,11 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
             // labelValorTaxaKm
             // 
             this.labelValorTaxaKm.AutoSize = true;
-            this.labelValorTaxaKm.Location = new System.Drawing.Point(213, 102);
+            this.labelValorTaxaKm.Location = new System.Drawing.Point(221, 102);
             this.labelValorTaxaKm.Name = "labelValorTaxaKm";
-            this.labelValorTaxaKm.Size = new System.Drawing.Size(109, 13);
+            this.labelValorTaxaKm.Size = new System.Drawing.Size(13, 13);
             this.labelValorTaxaKm.TabIndex = 9;
-            this.labelValorTaxaKm.Text = "Valor da Taxa por Km";
-            this.labelValorTaxaKm.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.labelValorTaxaKm.Text = "0";
             // 
             // labelSubTotal
             // 
@@ -166,12 +167,11 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
             // labelValorSubTotal
             // 
             this.labelValorSubTotal.AutoSize = true;
-            this.labelValorSubTotal.Location = new System.Drawing.Point(242, 169);
+            this.labelValorSubTotal.Location = new System.Drawing.Point(221, 169);
             this.labelValorSubTotal.Name = "labelValorSubTotal";
-            this.labelValorSubTotal.Size = new System.Drawing.Size(80, 13);
+            this.labelValorSubTotal.Size = new System.Drawing.Size(13, 13);
             this.labelValorSubTotal.TabIndex = 11;
-            this.labelValorSubTotal.Text = "Valor Sub Total";
-            this.labelValorSubTotal.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.labelValorSubTotal.Text = "0";
             // 
             // groupBoxAdicionasPorDia
             // 
@@ -204,12 +204,11 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
             // labelValorSubTotalDia
             // 
             this.labelValorSubTotalDia.AutoSize = true;
-            this.labelValorSubTotalDia.Location = new System.Drawing.Point(142, 287);
+            this.labelValorSubTotalDia.Location = new System.Drawing.Point(221, 287);
             this.labelValorSubTotalDia.Name = "labelValorSubTotalDia";
-            this.labelValorSubTotalDia.Size = new System.Drawing.Size(186, 13);
+            this.labelValorSubTotalDia.Size = new System.Drawing.Size(13, 13);
             this.labelValorSubTotalDia.TabIndex = 14;
-            this.labelValorSubTotalDia.Text = "Valor Sub Total dos Adicionais Diários";
-            this.labelValorSubTotalDia.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.labelValorSubTotalDia.Text = "0";
             // 
             // groupBoxAdicionaisFixos
             // 
@@ -242,17 +241,16 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
             // labelValorSubTotalFixo
             // 
             this.labelValorSubTotalFixo.AutoSize = true;
-            this.labelValorSubTotalFixo.Location = new System.Drawing.Point(148, 453);
+            this.labelValorSubTotalFixo.Location = new System.Drawing.Point(221, 453);
             this.labelValorSubTotalFixo.Name = "labelValorSubTotalFixo";
-            this.labelValorSubTotalFixo.Size = new System.Drawing.Size(178, 13);
+            this.labelValorSubTotalFixo.Size = new System.Drawing.Size(13, 13);
             this.labelValorSubTotalFixo.TabIndex = 16;
-            this.labelValorSubTotalFixo.Text = "Valor Sub Total dos Adicionais Fixos";
-            this.labelValorSubTotalFixo.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.labelValorSubTotalFixo.Text = "0";
             // 
             // labelTotalAPagar
             // 
             this.labelTotalAPagar.AutoSize = true;
-            this.labelTotalAPagar.Location = new System.Drawing.Point(9, 497);
+            this.labelTotalAPagar.Location = new System.Drawing.Point(10, 550);
             this.labelTotalAPagar.Name = "labelTotalAPagar";
             this.labelTotalAPagar.Size = new System.Drawing.Size(79, 13);
             this.labelTotalAPagar.TabIndex = 17;
@@ -261,18 +259,17 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
             // labelValorTotalAPagar
             // 
             this.labelValorTotalAPagar.AutoSize = true;
-            this.labelValorTotalAPagar.Location = new System.Drawing.Point(219, 497);
+            this.labelValorTotalAPagar.Location = new System.Drawing.Point(221, 550);
             this.labelValorTotalAPagar.Name = "labelValorTotalAPagar";
-            this.labelValorTotalAPagar.Size = new System.Drawing.Size(107, 13);
+            this.labelValorTotalAPagar.Size = new System.Drawing.Size(13, 13);
             this.labelValorTotalAPagar.TabIndex = 18;
-            this.labelValorTotalAPagar.Text = "Valor total a ser pago";
-            this.labelValorTotalAPagar.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.labelValorTotalAPagar.Text = "0";
             // 
             // btnConcluir
             // 
             this.btnConcluir.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnConcluir.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnConcluir.Location = new System.Drawing.Point(224, 541);
+            this.btnConcluir.Location = new System.Drawing.Point(224, 575);
             this.btnConcluir.Name = "btnConcluir";
             this.btnConcluir.Size = new System.Drawing.Size(104, 23);
             this.btnConcluir.TabIndex = 19;
@@ -282,7 +279,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
             // btnCancelar
             // 
             this.btnCancelar.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btnCancelar.Location = new System.Drawing.Point(114, 541);
+            this.btnCancelar.Location = new System.Drawing.Point(114, 575);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(104, 23);
             this.btnCancelar.TabIndex = 20;
@@ -293,25 +290,84 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
             // 
             this.labelTaxaKmExtrapolado.Location = new System.Drawing.Point(15, 124);
             this.labelTaxaKmExtrapolado.Name = "labelTaxaKmExtrapolado";
-            this.labelTaxaKmExtrapolado.Size = new System.Drawing.Size(142, 35);
+            this.labelTaxaKmExtrapolado.Size = new System.Drawing.Size(156, 35);
             this.labelTaxaKmExtrapolado.TabIndex = 21;
             this.labelTaxaKmExtrapolado.Text = "Taxa por Km extrapolado * Km Extrapolados =";
             // 
             // labelValorTaxaKmExtrapolado
             // 
             this.labelValorTaxaKmExtrapolado.AutoSize = true;
-            this.labelValorTaxaKmExtrapolado.Location = new System.Drawing.Point(213, 137);
+            this.labelValorTaxaKmExtrapolado.Location = new System.Drawing.Point(221, 137);
             this.labelValorTaxaKmExtrapolado.Name = "labelValorTaxaKmExtrapolado";
-            this.labelValorTaxaKmExtrapolado.Size = new System.Drawing.Size(109, 13);
+            this.labelValorTaxaKmExtrapolado.Size = new System.Drawing.Size(13, 13);
             this.labelValorTaxaKmExtrapolado.TabIndex = 22;
-            this.labelValorTaxaKmExtrapolado.Text = "Valor da Taxa por Km";
-            this.labelValorTaxaKmExtrapolado.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.labelValorTaxaKmExtrapolado.Text = "0";
+            // 
+            // labelTipoCombustivel
+            // 
+            this.labelTipoCombustivel.AutoSize = true;
+            this.labelTipoCombustivel.Location = new System.Drawing.Point(10, 478);
+            this.labelTipoCombustivel.Name = "labelTipoCombustivel";
+            this.labelTipoCombustivel.Size = new System.Drawing.Size(91, 13);
+            this.labelTipoCombustivel.TabIndex = 23;
+            this.labelTipoCombustivel.Text = "Tipo Combustivel:";
+            // 
+            // labelLitrosEncher
+            // 
+            this.labelLitrosEncher.AutoSize = true;
+            this.labelLitrosEncher.Location = new System.Drawing.Point(10, 502);
+            this.labelLitrosEncher.Name = "labelLitrosEncher";
+            this.labelLitrosEncher.Size = new System.Drawing.Size(98, 13);
+            this.labelLitrosEncher.TabIndex = 24;
+            this.labelLitrosEncher.Text = "Litros para encher: ";
+            // 
+            // labelAbastecer
+            // 
+            this.labelAbastecer.AutoSize = true;
+            this.labelAbastecer.Location = new System.Drawing.Point(10, 526);
+            this.labelAbastecer.Name = "labelAbastecer";
+            this.labelAbastecer.Size = new System.Drawing.Size(108, 13);
+            this.labelAbastecer.TabIndex = 25;
+            this.labelAbastecer.Text = "Valor para abastecer:";
+            // 
+            // labelValorTipoCombustivel
+            // 
+            this.labelValorTipoCombustivel.AutoSize = true;
+            this.labelValorTipoCombustivel.Location = new System.Drawing.Point(221, 478);
+            this.labelValorTipoCombustivel.Name = "labelValorTipoCombustivel";
+            this.labelValorTipoCombustivel.Size = new System.Drawing.Size(13, 13);
+            this.labelValorTipoCombustivel.TabIndex = 26;
+            this.labelValorTipoCombustivel.Text = "0";
+            // 
+            // labelValorLitrosEncher
+            // 
+            this.labelValorLitrosEncher.AutoSize = true;
+            this.labelValorLitrosEncher.Location = new System.Drawing.Point(221, 502);
+            this.labelValorLitrosEncher.Name = "labelValorLitrosEncher";
+            this.labelValorLitrosEncher.Size = new System.Drawing.Size(13, 13);
+            this.labelValorLitrosEncher.TabIndex = 27;
+            this.labelValorLitrosEncher.Text = "0";
+            // 
+            // labelValorAbastecer
+            // 
+            this.labelValorAbastecer.AutoSize = true;
+            this.labelValorAbastecer.Location = new System.Drawing.Point(221, 526);
+            this.labelValorAbastecer.Name = "labelValorAbastecer";
+            this.labelValorAbastecer.Size = new System.Drawing.Size(13, 13);
+            this.labelValorAbastecer.TabIndex = 28;
+            this.labelValorAbastecer.Text = "0";
             // 
             // TelaRelatorioLocação
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(340, 576);
+            this.ClientSize = new System.Drawing.Size(340, 610);
+            this.Controls.Add(this.labelValorAbastecer);
+            this.Controls.Add(this.labelValorLitrosEncher);
+            this.Controls.Add(this.labelValorTipoCombustivel);
+            this.Controls.Add(this.labelAbastecer);
+            this.Controls.Add(this.labelLitrosEncher);
+            this.Controls.Add(this.labelTipoCombustivel);
             this.Controls.Add(this.labelValorTaxaKmExtrapolado);
             this.Controls.Add(this.labelTaxaKmExtrapolado);
             this.Controls.Add(this.btnCancelar);
@@ -375,5 +431,11 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
         private System.Windows.Forms.ListBox listBoxAdicionaisFixos;
         private System.Windows.Forms.Label labelTaxaKmExtrapolado;
         private System.Windows.Forms.Label labelValorTaxaKmExtrapolado;
+        private System.Windows.Forms.Label labelTipoCombustivel;
+        private System.Windows.Forms.Label labelLitrosEncher;
+        private System.Windows.Forms.Label labelAbastecer;
+        private System.Windows.Forms.Label labelValorTipoCombustivel;
+        private System.Windows.Forms.Label labelValorLitrosEncher;
+        private System.Windows.Forms.Label labelValorAbastecer;
     }
 }
