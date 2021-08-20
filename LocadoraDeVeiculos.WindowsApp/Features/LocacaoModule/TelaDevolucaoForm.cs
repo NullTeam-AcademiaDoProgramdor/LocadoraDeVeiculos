@@ -66,7 +66,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             int caucao = locacao.Caucao;
             int kmInicial = locacao.KmAutomovelIncial;
             int planoSelecionado =locacao.PlanoSelecionado;
-            int kmAutomovelFinal = Convert.ToInt32(txtKmAtual.Text);
+            int kmAutomovelFinal = 0;
+            VerificarValoresNumericos(ref kmAutomovelFinal);
             int porcentagemFinalCombustivel = PegarPorcentagemFinal();
             DateTime dataDevolucao = DateTime.Today;
             var taxasEServicos = seletorTaxasEServicosControl1.TaxasEServicosSelecionados;
@@ -84,10 +85,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
                 
                 DialogResult = DialogResult.None;
             }
-
+            else 
+            { 
             TelaRelatorioLocação telaRelatorio = new TelaRelatorioLocação(locacao);
             telaRelatorio.ShowDialog();
             DialogResult = telaRelatorio.DialogResult;
+                }
         }
 
         private int PegarPorcentagemFinal()
@@ -105,5 +108,18 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             return 0;
         }
 
+        public void VerificarValoresNumericos(ref int kmFinal)
+        {
+            try
+            {
+                kmFinal = Convert.ToInt32(txtKmAtual.Text);
+                return;
+            }
+            catch (Exception)
+            {
+                kmFinal = 0;
+            }
+
+        }
     }
 }

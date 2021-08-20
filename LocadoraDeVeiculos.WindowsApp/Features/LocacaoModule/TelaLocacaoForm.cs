@@ -1,4 +1,5 @@
 ﻿using LocadoraDeVeiculos.Controladores.AutomovelModule;
+using LocadoraDeVeiculos.Controladores.LocacaoModule;
 using LocadoraDeVeiculos.Controladores.PessoaFisicaModule;
 using LocadoraDeVeiculos.Controladores.TaxasEServicosModule;
 using LocadoraDeVeiculos.Dominio.AutomovelModule;
@@ -34,7 +35,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
 
             InitializeComponent();
 
-            CarregarAutomoveis(controladorAutomovel.SelecionarTodos());
+            CarregarAutomoveis(controladorAutomovel.SelecionarDisponiveis());
             CarregarCondutores(controladorPessoaFisica.SelecionarTodos());
             CarregarTaxasEServicos(controladorTaxasEServicos.SelecionarTodos());
         }
@@ -92,8 +93,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             Funcionario funcionario = TelaPrincipalForm.Instancia.funcionarioConectado;
             DateTime dataSaida = dtpdataSaida.Value;
             DateTime dataDevolucaoEsperada = dtpdataDevolucaoEsperada.Value;
-            int caucao = Convert.ToInt32(txtCaucao.Text);
-            int kmInicial = Convert.ToInt32(txtKmInicial.Text);
+            int caucao = 0;
+            int kmInicial = 0;
+            VerificarValoresNumericos(ref kmInicial, ref caucao);
             int planoSelecionado = Convert.ToInt32(cmbPlano.SelectedIndex);
             var taxasEServicos = seletorTaxasEServicosControl1.TaxasEServicosSelecionados;
             //inserindo
@@ -110,10 +112,33 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
 
                 DialogResult = DialogResult.None;
             }
+            else
+            {
+                TelaRelatorioLocação telaRelatorio = new TelaRelatorioLocação(locacao);
+                telaRelatorio.ShowDialog();
+                DialogResult = telaRelatorio.DialogResult;
+            }
+        }
 
-            TelaRelatorioLocação telaRelatorio = new TelaRelatorioLocação(locacao);
-            telaRelatorio.ShowDialog();
-            DialogResult = telaRelatorio.DialogResult;
+        public void VerificarValoresNumericos(ref int kMInicial, ref int caucao)
+        {
+            try
+            {
+                kMInicial = Convert.ToInt32(txtKmInicial.Text);
+            }
+            catch (Exception)
+            {
+                kMInicial = 0;
+            }
+            try
+            {
+                caucao = Convert.ToInt32(txtCaucao.Text);
+            }
+            catch (Exception)
+            {
+                caucao = 0;
+            }
+
         }
     }
 }

@@ -36,20 +36,22 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
 
             funcionario = controladorFuncionario.SelecionarPorNomeESenha(txtNome.Text, txtSenha.Text);
 
-            
-            if ((funcionario.Nome == txtNome.Text) && (funcionario.Senha == txtSenha.Text ))
+            if (funcionario != null)
             {
-                labelRodape.Text = "Bem Vindo!";
-                TelaPrincipalForm telaPrincipal = new TelaPrincipalForm(funcionario);
-                 
-                this.Hide(); 
-                telaPrincipal.ShowDialog();
-                this.Show();
-            }
+                if ((funcionario.Nome == txtNome.Text) && (funcionario.Senha == txtSenha.Text))
+                {
+                    labelRodape.Text = "Bem Vindo!";
+                    TelaPrincipalForm telaPrincipal = new TelaPrincipalForm(funcionario);
 
+                    this.Hide();
+                    telaPrincipal.ShowDialog();
+                    this.Show();
+                }
+            }
             else
                 labelRodape.Text = "Nome ou senha inválidos";
-            
+
+
         }
 
         private void TelaLoginForm_KeyDown(object sender, KeyEventArgs e)
