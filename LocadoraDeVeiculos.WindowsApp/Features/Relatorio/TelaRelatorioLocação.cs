@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LocadoraDeVeiculos.Dominio.LocacaoModule;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,11 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
     public partial class TelaRelatorioLocação : Form
     {
         public TelaRelatorioLocação()
+        {
+            InitializeComponent();
+        }
+
+        public TelaRelatorioLocação(Locacao locacao)
         {
             InitializeComponent();
         }
