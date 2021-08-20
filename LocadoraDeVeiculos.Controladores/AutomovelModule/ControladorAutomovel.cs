@@ -109,6 +109,37 @@ namespace LocadoraDeVeiculos.Controladores.AutomovelModule
 	            [GrupoAutomovel] AS G
             ON
 	            G.id = A.grupo;";
+        
+        private const string sqlSelecionarDisponíveis =
+            @"SELECT
+	            A.id,
+	            A.placa,
+	            A.chassi,
+	            A.marca,
+	            A.cor,
+	            A.modelo,
+	            A.tipoCombustivel,
+	            A.capacidadeTanque,
+	            A.ano,
+	            A.capacidadePortaMalas,
+	            A.n_portas,
+	            A.cambio,
+	            A.direcao,
+	            A.grupo,
+
+	            G.nome,
+	            G.planoDIario_precoDIa,
+	            G.planoDiario_precoKm,
+	            G.planoKmControlado_KmDisponiveis,
+	            G.planoKmControlado_precoDia,
+	            G.planoKmControlado_precoKmExtrapolado,
+	            G.planoKmLivre_precoDia
+            FROM
+                [Locacao] L RIGHT JOIN
+                [Automovel] A on L.automovel = A.id LEFT JOIN
+                [GrupoAutomovel] G on A.grupo = G.id
+
+            WHERE L.id is NULL or L.dataDevolucao is NOT NULL;";
 
         private const string sqlSelecioneAutomovelPorId =
             @"SELECT
@@ -198,6 +229,11 @@ namespace LocadoraDeVeiculos.Controladores.AutomovelModule
         public override List<Automovel> SelecionarTodos()
         {
             return Db.GetAll(sqlSelecionarTodosAutomoveis, ConverterEmAutomovel);
+        }
+
+        public List<Automovel> SelecionarDisponiveis()
+        {
+            return Db.GetAll(sqlSelecionarDisponíveis, ConverterEmAutomovel);
         }
 
         private Automovel ConverterEmAutomovel(IDataReader reader)
