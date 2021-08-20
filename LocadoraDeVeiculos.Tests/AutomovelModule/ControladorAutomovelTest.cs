@@ -25,6 +25,7 @@ namespace LocadoraDeVeiculos.Tests.AutomovelModule
         [TestCleanup()]
         public void LimparTeste()
         {
+            Db.Update("DELETE FROM [FotoAutomovel]");
             Db.Update("DELETE FROM [Automovel]");
             Db.Update("DELETE FROM [GrupoAutomovel]");
         }
