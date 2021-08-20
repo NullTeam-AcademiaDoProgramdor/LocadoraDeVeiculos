@@ -507,6 +507,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "TelaDevolucaoForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Devolução de Automóvel";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
