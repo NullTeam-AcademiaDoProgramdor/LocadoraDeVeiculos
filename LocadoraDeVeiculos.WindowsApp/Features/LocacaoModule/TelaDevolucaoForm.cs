@@ -35,7 +35,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             get { return locacao; }
 
             set
-            {
+            {                
                 locacao = value;
                 txtId.Text = locacao.Id.ToString();
                 txtCaucao.Text = locacao.Caucao.ToString();
