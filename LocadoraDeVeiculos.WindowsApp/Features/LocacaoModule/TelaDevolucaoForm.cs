@@ -4,6 +4,7 @@ using LocadoraDeVeiculos.Dominio.FuncionarioModule;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using LocadoraDeVeiculos.Dominio.PessoaFisicaModule;
 using LocadoraDeVeiculos.Dominio.TaxasEServicosModule;
+using LocadoraDeVeiculos.WindowsApp.Features.Relatorio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -80,9 +81,13 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
                 string primeiroErro = new StringReader(resultadoValidacao).ReadLine();
 
                 TelaPrincipalForm.Instancia.AtualizarRodape(primeiroErro);
-
+                
                 DialogResult = DialogResult.None;
             }
+
+            TelaRelatorioLocação telaRelatorio = new TelaRelatorioLocação(locacao);
+            telaRelatorio.ShowDialog();
+            DialogResult = telaRelatorio.DialogResult;
         }
 
         private int PegarPorcentagemFinal()
