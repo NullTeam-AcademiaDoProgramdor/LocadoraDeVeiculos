@@ -262,6 +262,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
             // btnConcluir
             // 
             this.btnConcluir.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnConcluir.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnConcluir.Location = new System.Drawing.Point(224, 541);
             this.btnConcluir.Name = "btnConcluir";
             this.btnConcluir.Size = new System.Drawing.Size(104, 23);
@@ -272,6 +273,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
             // btnCancelar
             // 
             this.btnCancelar.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancelar.Location = new System.Drawing.Point(114, 541);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(104, 23);
