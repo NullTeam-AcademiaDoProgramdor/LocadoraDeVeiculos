@@ -13,29 +13,57 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
 {
     class OperacoesLocacao : ICadastravel
     {
+
         private readonly ControladorLocacao controlador = null;
+        private readonly TabelaLocacaoControl tabelaLocacao = null;
         public OperacoesLocacao(ControladorLocacao controlador)
         {
-
+            this.controlador = controlador;
+            tabelaLocacao = new TabelaLocacaoControl();
         }
 
         public void InserirNovoRegistro()
         {
-            var locacoes = controlador.SelecionarTodos();
 
-            TelaPessoaFisicaForm tela = new TelaPessoaFisicaForm(pessoasJuridicas, controlador);
+            TelaLocacaoForm tela = new TelaLocacaoForm();
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                controlador.InserirNovo(tela.PessoaFisica);
+                controlador.InserirNovo(tela.Locacao);
 
-                tabelaPessoaFisica.DesagruparRegistros();
-                tabelaPessoaFisica.AtualizarRegistros();
-                tabelaPessoaFisica.AgruparRegistros();
+                tabelaLocacao.AtualizarRegistros(controlador.SelecionarTodos());
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Pessoa física: [{tela.PessoaFisica.Nome}] inserido com sucesso");
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Locação do veículo: [{tela.Locacao.Automovel}] inserida com sucesso");
             }
 
+        }
+
+        public void EditarRegistro()
+        {
+            int id = tabelaLocacao.ObtemIdSelecionado();
+
+            if (id == 0)
+            {
+                MessageBox.Show("Selecione uma Locação para poder editar!", "Edição de Locações",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            Locacao locacaoSelecionada = controlador.SelecionarPorId(id);
+
+
+            TelaLocacaoForm tela = new TelaLocacaoForm();
+
+            tela.Locacao = locacaoSelecionada;
+
+            if (tela.ShowDialog() == DialogResult.OK)
+            {
+                controlador.Editar(id, tela.Locacao);
+
+                tabelaLocacao.AtualizarRegistros(controlador.SelecionarTodos());
+
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Locação do automóvel: [{tela.Locacao.Automovel}] editada com sucesso");
+            }
         }
 
         public void AgruparRegistros()
@@ -48,14 +76,36 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             throw new NotImplementedException();
         }
 
-        public void EditarRegistro()
-        {
-            throw new NotImplementedException();
-        }
-
         public void ExcluirRegistro()
         {
-            throw new NotImplementedException();
+            int id = tabelaLocacao.ObtemIdSelecionado();
+
+            if (id == 0)
+            {
+                MessageBox.Show("Selecione uma locação para poder excluir!", "Exclusão de Locação",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            Locacao locacaoSelecionada = controlador.SelecionarPorId(id);
+
+            if (MessageBox.Show($"Tem certeza que deseja excluir a locação do automóvel: [{locacaoSelecionada.Automovel}] ?",
+                "Exclusão de Locação", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                controlador.Excluir(id);
+
+                tabelaLocacao.AtualizarRegistros(controlador.SelecionarTodos());
+
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Locação do automóvel: [{locacaoSelecionada.Automovel}] removida com sucesso");
+            }
+        }
+
+        public UserControl ObterTabela()
+        {
+
+            tabelaLocacao.AtualizarRegistros(controlador.SelecionarTodos());
+
+            return tabelaLocacao;
         }
 
         public void ExibirInformacoesDetalhadas()
@@ -65,12 +115,50 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
 
         public void FiltrarRegistros()
         {
-            throw new NotImplementedException();
+            FiltroLocacaoForm telaFiltro = new FiltroLocacaoForm();
+
+            if (telaFiltro.ShowDialog() == DialogResult.OK)
+            {
+                List<Locacao> locacoes = new List<Locacao>();
+                string tipoLocacao = "";
+                List<Locacao> todasLocacoes = controlador.SelecionarTodos();
+
+                switch (telaFiltro.TipoFiltro)
+                {
+                    case FiltroLocacaoEnum.TodasLocacoes:
+                        locacoes = todasLocacoes;
+                        break;
+
+                    case FiltroLocacaoEnum.LocacoesDevolvidas:
+                        {
+                            foreach (Locacao loc in todasLocacoes)
+                            {
+                                if (loc.DataDevolucao != null)
+                                    locacoes.Add(loc);
+                            }
+                            tipoLocacao = "concluídas(s)";
+                            break;
+                        }
+
+                    case FiltroLocacaoEnum.LocacoesNaoDevolvidas:
+                        {
+                            foreach (Locacao loc in todasLocacoes)
+                            {
+                                if (loc.DataDevolucao == null)
+                                    locacoes.Add(loc);
+                            }
+                            tipoLocacao = "pendente(s)";
+                            break;
+                        }
+
+                    default:
+                        break;
+                }
+
+                tabelaLocacao.AtualizarRegistros(locacoes);
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {locacoes.Count} locações(s) {tipoLocacao}");
+            }
         }
 
-        public UserControl ObterTabela()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

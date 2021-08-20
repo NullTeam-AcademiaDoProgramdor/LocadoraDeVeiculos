@@ -1,9 +1,11 @@
 ﻿using LocadoraDeVeiculos.Controladores.AutomovelModule;
 using LocadoraDeVeiculos.Controladores.PessoaFisicaModule;
+using LocadoraDeVeiculos.Controladores.TaxasEServicosModule;
 using LocadoraDeVeiculos.Dominio.AutomovelModule;
 using LocadoraDeVeiculos.Dominio.FuncionarioModule;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using LocadoraDeVeiculos.Dominio.PessoaFisicaModule;
+using LocadoraDeVeiculos.Dominio.TaxasEServicosModule;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,17 +24,21 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
         private Locacao locacao;
         private ControladorAutomovel controladorAutomovel;
         private ControladorPessoaFisica controladorPessoaFisica;
+        private ControladorTaxasEServicos controladorTaxasEServicos;
         public TelaLocacaoForm()
         {
             controladorAutomovel = new ControladorAutomovel();
             controladorPessoaFisica = new ControladorPessoaFisica();
+            controladorTaxasEServicos = new ControladorTaxasEServicos();
 
             InitializeComponent();
 
             CarregarAutomoveis(controladorAutomovel.SelecionarTodos());
             CarregarCondutores(controladorPessoaFisica.SelecionarTodos());
+            CarregarTaxasEServicos(controladorTaxasEServicos.SelecionarTodos());
         }
 
+       
         public Locacao Locacao
         {
             get { return locacao; }
@@ -48,7 +54,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
                 dtpdataSaida.Value = locacao.DataSaida;
                 dtpdataDevolucaoEsperada.Value = locacao.DataDevolucaoEsperada;
                 txtKmInicial.Text = locacao.KmAutomovelIncial.ToString();
-
+                seletorTaxasEServicosControl1.TaxasEServicosSelecionados = locacao.TaxasEServicos;
             }
         }
 
@@ -72,6 +78,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             }
         }
 
+        private void CarregarTaxasEServicos(List<TaxaEServico> taxaEServicos)
+        {
+            seletorTaxasEServicosControl1.TaxasEServicos = taxaEServicos.ToArray();
+        }
+
+
         private void btnGravar_Click(object sender, EventArgs e)
         {
             Automovel automovel = (Automovel)cmbAutomovel.SelectedItem;
@@ -82,9 +94,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             int caucao = Convert.ToInt32(txtCaucao.Text);
             int kmInicial = Convert.ToInt32(txtKmInicial.Text);
             int planoSelecionado = Convert.ToInt32(cmbPlano.SelectedIndex);
+            var taxasEServicos = seletorTaxasEServicosControl1.TaxasEServicosSelecionados;
             //inserindo
 
-            locacao = new Locacao(condutor, automovel, funcionario, dataSaida, dataDevolucaoEsperada, caucao, kmInicial, planoSelecionado);
+            locacao = new Locacao(condutor, automovel, funcionario, dataSaida, dataDevolucaoEsperada, caucao, kmInicial, planoSelecionado, taxasEServicos);
 
             string resultadoValidacao = locacao.Validar();
 

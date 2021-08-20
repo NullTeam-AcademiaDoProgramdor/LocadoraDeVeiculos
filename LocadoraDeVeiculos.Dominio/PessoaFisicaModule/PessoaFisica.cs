@@ -69,6 +69,14 @@ namespace LocadoraDeVeiculos.Dominio.PessoaFisicaModule
             return hashCode;
         }
 
+        public override string ToString()
+        {
+            if (PessoaJuridica != null)
+                return Nome + $" ({PessoaJuridica.Nome})";
+            else
+                return Nome;
+        }
+
         public override string Validar()
         {
             string resultadoValidacao = "";
