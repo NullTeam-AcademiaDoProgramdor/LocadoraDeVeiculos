@@ -25,7 +25,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
 
         private void btnEntrar_Click(object sender, EventArgs e)
         {
-            if (txtNome.Text == "Admin" && txtSenha.Text == "Admin")
+            if (txtNome.Text.ToLower() == "admin" && txtSenha.Text.ToLower() == "admin")
             {
                 TelaPrincipalForm telaPrincipal = new TelaPrincipalForm();
                 this.Hide();
@@ -35,12 +35,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
             }
 
             funcionario = controladorFuncionario.SelecionarPorNomeESenha(txtNome.Text, txtSenha.Text);
+
             
-            if(funcionario == null)
-            {
-                labelRodape.Text = "Nome ou senha inválidos";
-            }
-            else
+            if ((funcionario.Nome == txtNome.Text) && (funcionario.Senha == txtSenha.Text ))
             {
                 labelRodape.Text = "Bem Vindo!";
                 TelaPrincipalForm telaPrincipal = new TelaPrincipalForm(funcionario);
@@ -49,6 +46,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
                 telaPrincipal.ShowDialog();
                 this.Show();
             }
+
+            else
+                labelRodape.Text = "Nome ou senha inválidos";
+            
         }
 
         private void TelaLoginForm_KeyDown(object sender, KeyEventArgs e)
