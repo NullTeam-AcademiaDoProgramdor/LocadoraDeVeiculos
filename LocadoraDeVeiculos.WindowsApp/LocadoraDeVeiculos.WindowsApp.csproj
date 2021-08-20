@@ -352,6 +352,7 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="Lib\DataGridViewGrouper.dll" />
+    <None Include="Resources\car-arrow-left.png" />
     <None Include="Resources\pngwing.com-removebg-preview.png" />
     <None Include="Resources\pngwing.com.png" />
     <None Include="Resources\outline_info_black_24dp.png" />

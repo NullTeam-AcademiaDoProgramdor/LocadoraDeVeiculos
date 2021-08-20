@@ -23,6 +23,7 @@ using LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas;
 using LocadoraDeVeiculos.Controladores.PessoaFisicaModule;
 using LocadoraDeVeiculos.WindowsApp.Features.Automoveis;
 using LocadoraDeVeiculos.Controladores.AutomovelModule;
+using LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule;
 
 namespace LocadoraDeVeiculos.WindowsApp
 {
@@ -332,6 +333,16 @@ namespace LocadoraDeVeiculos.WindowsApp
             operacoes = operacoesFuncionario;
 
             ConfigurarPainelRegistros();
+        }
+
+        private void panelRegistros_Click(object sender, EventArgs e)
+        {
+            if (panelRegistros.Controls[0] is TabelaLocacaoControl)
+            {
+                
+
+                
+            }
         }
     }
 }
