@@ -34,13 +34,15 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "Condutor", HeaderText = "Condutor"},
 
+                new DataGridViewTextBoxColumn { DataPropertyName = "Automovel", HeaderText = "Automóvel"},
+
                 new DataGridViewTextBoxColumn { DataPropertyName = "Funcionario", HeaderText = "Funcionario que locou"},
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "DataSaida", HeaderText = "Data de saída do veículo"},
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "DataDevolucaoEsperada", HeaderText = "Devolução planejada para"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "KmAutomovelIncial", HeaderText = "Kilometragem inicial"}
+                new DataGridViewTextBoxColumn { DataPropertyName = "Situacao", HeaderText = "Situação"}
             };
 
             return colunas;

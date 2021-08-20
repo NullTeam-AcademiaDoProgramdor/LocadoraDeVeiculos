@@ -27,6 +27,7 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
             this.DataDevolucao = null;
             this.KmAutomovelFinal = null;
             this.PorcentagemFinalCombustivel = null;
+            this.Situacao = "Pendente";
 
             if (taxaEServicos == null)
                 this.TaxasEServicos = new TaxaEServico[0];
@@ -49,6 +50,7 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
             KmAutomovelIncial = kmAutomovelIncial;
             KmAutomovelFinal = kmAutomovelFinal;
             PorcentagemFinalCombustivel = porcentagemFinalCombustivel;
+            this.Situacao = "Concluído";
 
             if (taxasEServicos == null)
                 this.TaxasEServicos = new TaxaEServico[0];
@@ -65,6 +67,7 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
         public int PlanoSelecionado { get; }
         public TaxaEServico[] TaxasEServicos { get; set; }
         public int Caucao { get; }      
+        public string Situacao { get; }      
         public int KmAutomovelIncial { get; }      
         public int? KmAutomovelFinal { get; }      
         public int? PorcentagemFinalCombustivel { get; }
