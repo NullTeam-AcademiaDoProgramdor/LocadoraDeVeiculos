@@ -339,13 +339,30 @@ namespace LocadoraDeVeiculos.WindowsApp
             ConfigurarPainelRegistros();
         }
 
-        private void panelRegistros_Click(object sender, EventArgs e)
+        public void panelRegistros_Click(object sender, EventArgs e)
         {
+            if (panelRegistros.Controls.Count == 0)
+                return;
+
             if (panelRegistros.Controls[0] is TabelaLocacaoControl)
             {
-                
+                bool estaDevolvido = operacoesLocacao.RegistroSelecionadoEstaDevolvido();
 
-                
+                if (estaDevolvido)
+                {
+                    btnExcluir.Visible = true;
+                    btnDevolverAutomovel.Visible = false;
+                } 
+                else
+                {
+                    btnExcluir.Visible = false;
+                    btnDevolverAutomovel.Visible =  btnDevolverAutomovel.Enabled = true;
+                }
+            } 
+            else
+            {
+                btnExcluir.Visible = true;
+                btnDevolverAutomovel.Visible = false;
             }
         }
 
@@ -362,6 +379,11 @@ namespace LocadoraDeVeiculos.WindowsApp
             operacoes = operacoesLocacao;
 
             ConfigurarPainelRegistros();
+        }
+
+        private void btnDevolverAutomovel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
