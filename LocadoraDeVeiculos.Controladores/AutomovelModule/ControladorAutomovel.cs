@@ -13,6 +13,8 @@ namespace LocadoraDeVeiculos.Controladores.AutomovelModule
     public class ControladorAutomovel : Controlador<Automovel>
     {
         private ControladorFotos controladorFotos = new ControladorFotos();
+        private ControladorSelecionarIdsAutomoveisDisponiveis controladorSelecionarDisponiveis =
+            new ControladorSelecionarIdsAutomoveisDisponiveis();
 
         #region Queries
         private const string sqlInserirAutomovel =
@@ -233,7 +235,16 @@ namespace LocadoraDeVeiculos.Controladores.AutomovelModule
 
         public List<Automovel> SelecionarDisponiveis()
         {
-            return Db.GetAll(sqlSelecionarDisponíveis, ConverterEmAutomovel);
+            List<Automovel> automovels = new List<Automovel>();
+            int[] idsDisponiveis = 
+                controladorSelecionarDisponiveis.SelecionarIdsDisponiveis();
+
+            foreach (int id in idsDisponiveis)
+            {
+                automovels.Add(this.SelecionarPorId(id));
+            }
+
+            return automovels;
         }
 
         private Automovel ConverterEmAutomovel(IDataReader reader)
