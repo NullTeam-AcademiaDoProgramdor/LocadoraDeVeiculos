@@ -107,6 +107,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGravar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "SeletorTaxasEServicosForm";
             this.Text = "SeletorTaxasEServicosForm";
             this.panel1.ResumeLayout(false);

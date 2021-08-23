@@ -134,6 +134,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "TelaLoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";

@@ -51,6 +51,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
 
         private void CriarTabelaDeCheckboxs()
         {
+            //TODO: Trocar para CheckListBox para aumentar o desempenho
             tableTaxaEServicos.Controls.Clear();
             tableTaxaEServicos.RowStyles.Clear();
             tableTaxaEServicos.RowCount = taxaEServicos.Length;
