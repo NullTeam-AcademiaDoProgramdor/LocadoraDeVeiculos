@@ -96,12 +96,13 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             // 
             // dtpdataSaida
             // 
+            this.dtpdataSaida.Enabled = false;
             this.dtpdataSaida.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpdataSaida.Location = new System.Drawing.Point(104, 90);
             this.dtpdataSaida.Name = "dtpdataSaida";
             this.dtpdataSaida.Size = new System.Drawing.Size(200, 20);
             this.dtpdataSaida.TabIndex = 5;
-            this.dtpdataSaida.Value = new System.DateTime(2021, 8, 19, 0, 0, 0, 0);
+            this.dtpdataSaida.Value = new System.DateTime(2021, 8, 23, 0, 0, 0, 0);
             // 
             // labelDataEsperada
             // 
