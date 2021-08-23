@@ -90,7 +90,13 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
             if (MessageBox.Show($"Tem certeza que deseja excluir a pessoa física: [{pessoaFisicaSeleciada.Nome}] ?",
                 "Exclusão de Compromissos", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
-                controlador.Excluir(id);
+                bool conseguiuExcluir = controlador.Excluir(id);
+
+                if (!conseguiuExcluir)
+                {
+                    TelaPrincipalForm.Instancia.AtualizarRodape("O condutor está ligado a uma locação, impossível excluir.");
+                    return;
+                }
 
                 tabelaPessoaFisica.DesagruparRegistros();
                 tabelaPessoaFisica.AtualizarRegistros();
