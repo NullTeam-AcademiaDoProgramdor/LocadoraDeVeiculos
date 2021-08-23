@@ -15,15 +15,15 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
     public partial class SeletorTaxasEServicosControl : UserControl
     {
         private TaxaEServico[] taxasEServicos;
-        public TaxaEServico[] TaxasEServicos 
+        public TaxaEServico[] TaxasEServicos
         {
             get => taxasEServicos;
             set => taxasEServicos = value;
         }
 
         private TaxaEServico[] taxasEServicosSelecionados = new TaxaEServico[0];
-        public TaxaEServico[] TaxasEServicosSelecionados 
-        { 
+        public TaxaEServico[] TaxasEServicosSelecionados
+        {
             get => taxasEServicosSelecionados;
             set
             {
@@ -39,7 +39,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
 
         private void btnSelecionarAdicionais_Click(object sender, EventArgs e)
         {
-            SeletorTaxasEServicosForm tela 
+            SeletorTaxasEServicosForm tela
                 = new SeletorTaxasEServicosForm(this.taxasEServicos);
 
             tela.SetarSelecionados(TaxasEServicosSelecionados);
@@ -55,9 +55,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
         {
             StringBuilder str = new StringBuilder();
 
-            foreach (var taxaESevico in taxasSelecioandas)
+            for (int i = 0; i < 2; i++)
             {
-                str.Append(taxaESevico.Nome);
+                str.Append(taxasSelecioandas[i].Nome);
                 str.Append(", ");
             }
 
