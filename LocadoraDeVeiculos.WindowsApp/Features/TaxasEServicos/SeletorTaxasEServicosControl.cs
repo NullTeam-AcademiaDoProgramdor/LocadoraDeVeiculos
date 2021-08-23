@@ -55,9 +55,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
         {
             StringBuilder str = new StringBuilder();
 
-            for (int i = 0; i < 2; i++)
+            foreach (TaxaEServico taxa in taxasSelecioandas)
             {
-                str.Append(taxasSelecioandas[i].Nome);
+                str.Append(taxa.Nome);
                 str.Append(", ");
             }
 
