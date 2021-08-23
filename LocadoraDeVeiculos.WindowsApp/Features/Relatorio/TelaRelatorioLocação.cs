@@ -43,7 +43,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
 
             double valorPlano = SetarValoresPlanosParcial(locacao.PlanoSelecionado, locacao);
 
-            double valorTaxas = SetarValoresTaxas(locacao.TaxasEServicos, locacao);
+            double valorTaxas = SetarValoresTaxas(locacao.TaxasEServicos, locacao, (locacao.DataDevolucaoEsperada - locacao.DataSaida).Days);
 
             SetarValoresCombustivelParcial(locacao);
 
@@ -60,7 +60,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
 
             double valorPlano = SetarValoresPlanosFinais(locacao.PlanoSelecionado, locacao);
 
-            double valorTaxas = SetarValoresTaxas(locacao.TaxasEServicos, locacao);
+            double valorTaxas = SetarValoresTaxas(locacao.TaxasEServicos, locacao, ((DateTime)locacao.DataDevolucao - locacao.DataSaida).Days);
 
             double valorAbastecer = SetarValoresCombustivelFinal(locacao);
 
@@ -82,10 +82,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
             }
         }
 
-        private double SetarValoresTaxas(TaxaEServico[] taxas, Locacao locacao)
+        private double SetarValoresTaxas(TaxaEServico[] taxas, Locacao locacao, int dias)
         {
-            int dias = (locacao.DataDevolucaoEsperada - locacao.DataSaida).Days;
-
             double totalFixos = 0;
             double totalPorDia = 0;
 
