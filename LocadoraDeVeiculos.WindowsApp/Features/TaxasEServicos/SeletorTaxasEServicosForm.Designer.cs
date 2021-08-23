@@ -71,31 +71,15 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
             // tableTaxaEServicos
             // 
             this.tableTaxaEServicos.AutoScroll = true;
-            this.tableTaxaEServicos.ColumnCount = 1;
-            this.tableTaxaEServicos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableTaxaEServicos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableTaxaEServicos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableTaxaEServicos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableTaxaEServicos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableTaxaEServicos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableTaxaEServicos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableTaxaEServicos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableTaxaEServicos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableTaxaEServicos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableTaxaEServicos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableTaxaEServicos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableTaxaEServicos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableTaxaEServicos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableTaxaEServicos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableTaxaEServicos.ColumnCount = 3;
+            this.tableTaxaEServicos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableTaxaEServicos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableTaxaEServicos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableTaxaEServicos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableTaxaEServicos.Location = new System.Drawing.Point(0, 0);
             this.tableTaxaEServicos.Name = "tableTaxaEServicos";
             this.tableTaxaEServicos.RowCount = 1;
             this.tableTaxaEServicos.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableTaxaEServicos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 294F));
-            this.tableTaxaEServicos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 294F));
-            this.tableTaxaEServicos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 294F));
-            this.tableTaxaEServicos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 294F));
             this.tableTaxaEServicos.Size = new System.Drawing.Size(321, 294);
             this.tableTaxaEServicos.TabIndex = 0;
             // 
@@ -111,7 +95,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "SeletorTaxasEServicosForm";
-            this.Text = "SeletorTaxasEServicosForm";
+            this.Text = "Seletor de Taxa E Serviços";
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 

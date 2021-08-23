@@ -40,7 +40,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
                 {
                     if (taxaEServicosParaSelecionar[i].Id == taxaEServicos[j].Id)
                     {
-                        var check = controlsList[j] as CheckBox;
+                        var check = controlsList[(j+1) * 3] as CheckBox;
                         check.Checked = true;
                         break;
                     }
@@ -56,6 +56,33 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
             tableTaxaEServicos.RowStyles.Clear();
             tableTaxaEServicos.RowCount = taxaEServicos.Length;
 
+            tableTaxaEServicos.Controls.Add(
+                    new Label()
+                    {
+                        Text = "Nome"
+                    },
+                    0,
+                    0
+                 );
+
+            tableTaxaEServicos.Controls.Add(
+                   new Label()
+                   {
+                       Text = "Preço"
+                   },
+                   1,
+                   0
+                );
+
+            tableTaxaEServicos.Controls.Add(
+                   new Label()
+                   {
+                       Text = "Tipo"
+                   },
+                   2,
+                   0
+                );
+
             for (int i = 0; i < taxaEServicos.Length; i++)
             {
                 TaxaEServico taxaEServico = taxaEServicos[i];
@@ -65,8 +92,28 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
                 tableTaxaEServicos.Controls.Add(
                     CriarCheckBox(taxaEServico.Nome, i),
                     0,
-                    i
+                    i+1
                 );
+
+                tableTaxaEServicos.Controls.Add(
+                    new Label()
+                    {
+                        Text = "R$" + taxaEServico.Preco
+                    },
+
+                    1,
+                    i+1
+                 );
+                    
+                tableTaxaEServicos.Controls.Add(
+                    new Label()
+                    {
+                        Text = (taxaEServico.EhFixo) ? "(Fixo)" : "(Por dia)",
+                    },
+
+                    2,
+                    i+1
+                 );
             }
         }
 
@@ -88,7 +135,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
             var controlsList = tableTaxaEServicos.Controls;
             var tempTaxasEServicos = new List<TaxaEServico>();
 
-            for (int i = 0; i < controlsList.Count; i++)
+            for (int i = 0; i < controlsList.Count; i += 3)
             {
                 Control control = controlsList[i];
 
@@ -98,7 +145,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
                 CheckBox check = control as CheckBox;
 
                 if (check.Checked)
-                    tempTaxasEServicos.Add(this.taxaEServicos[i]);
+                    tempTaxasEServicos.Add(this.taxaEServicos[(i / 3) - 1]);
             }
 
             this.TaxasEServicosSelecionados = tempTaxasEServicos.ToArray();

@@ -464,9 +464,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             // 
             // seletorTaxasEServicosControl1
             // 
-            this.seletorTaxasEServicosControl1.Location = new System.Drawing.Point(90, 131);
+            this.seletorTaxasEServicosControl1.Location = new System.Drawing.Point(10, 131);
             this.seletorTaxasEServicosControl1.Name = "seletorTaxasEServicosControl1";
-            this.seletorTaxasEServicosControl1.Size = new System.Drawing.Size(147, 48);
+            this.seletorTaxasEServicosControl1.Size = new System.Drawing.Size(293, 48);
             this.seletorTaxasEServicosControl1.TabIndex = 3;
             this.seletorTaxasEServicosControl1.TaxasEServicos = null;
             this.seletorTaxasEServicosControl1.TaxasEServicosSelecionados = new LocadoraDeVeiculos.Dominio.TaxasEServicosModule.TaxaEServico[0];

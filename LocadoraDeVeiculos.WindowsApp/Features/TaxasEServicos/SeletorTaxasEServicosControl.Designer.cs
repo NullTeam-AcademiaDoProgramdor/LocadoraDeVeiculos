@@ -46,10 +46,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
             // 
             // labelSelecionados
             // 
-            this.labelSelecionados.AutoSize = true;
+            this.labelSelecionados.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelSelecionados.AutoEllipsis = true;
             this.labelSelecionados.Location = new System.Drawing.Point(3, 32);
             this.labelSelecionados.Name = "labelSelecionados";
-            this.labelSelecionados.Size = new System.Drawing.Size(0, 13);
+            this.labelSelecionados.Size = new System.Drawing.Size(141, 13);
             this.labelSelecionados.TabIndex = 17;
             // 
             // SeletorTaxasEServicosControl
@@ -61,7 +63,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
             this.Name = "SeletorTaxasEServicosControl";
             this.Size = new System.Drawing.Size(147, 48);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
