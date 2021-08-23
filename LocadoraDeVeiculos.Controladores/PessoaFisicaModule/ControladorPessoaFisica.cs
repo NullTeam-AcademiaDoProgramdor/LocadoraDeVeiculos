@@ -1,6 +1,8 @@
 ﻿using LocadoraDeVeiculos.Controladores.Shared;
 using LocadoraDeVeiculos.Dominio.PessoaFisicaModule;
 using LocadoraDeVeiculos.Dominio.PessoaJuridicaModule;
+using LocadoraDeVeiculos.Dominio.LocacaoModule;
+using LocadoraDeVeiculos.Controladores.LocacaoModule;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -106,7 +108,7 @@ namespace LocadoraDeVeiculos.Controladores.PessoaFisicaModule
             WHERE 
                 [ID] = @ID";
 
-        #endregion
+        #endregion              
 
         public override string InserirNovo(PessoaFisica registro)
         {
@@ -137,8 +139,8 @@ namespace LocadoraDeVeiculos.Controladores.PessoaFisicaModule
         public override bool Excluir(int id)
         {
             try
-            {
-                Db.Delete(sqlExcluirPessoaFisica, AdicionarParametro("ID", id));
+            {                
+                Db.Delete(sqlExcluirPessoaFisica, AdicionarParametro("ID", id));                    
             }
             catch (Exception)
             {
@@ -207,5 +209,6 @@ namespace LocadoraDeVeiculos.Controladores.PessoaFisicaModule
 
             return parametros;
         }
+        
     }
 }

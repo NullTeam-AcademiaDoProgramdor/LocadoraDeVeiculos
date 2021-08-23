@@ -261,6 +261,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             this.Controls.Add(this.cmbCondutor);
             this.Controls.Add(this.labelCondutor);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "TelaLocacaoForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
