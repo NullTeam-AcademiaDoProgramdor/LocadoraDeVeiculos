@@ -351,17 +351,20 @@ namespace LocadoraDeVeiculos.WindowsApp
                 if (estaDevolvido)
                 {
                     btnExcluir.Visible = true;
+                    btnEditar.Enabled = false;
                     btnDevolverAutomovel.Visible = false;
                 } 
                 else
                 {
                     btnExcluir.Visible = false;
+                    btnEditar.Enabled = true;
                     btnDevolverAutomovel.Visible =  btnDevolverAutomovel.Enabled = true;
                 }
             } 
             else
             {
                 btnExcluir.Visible = true;
+                btnEditar.Enabled = true;
                 btnDevolverAutomovel.Visible = false;
             }
         }
