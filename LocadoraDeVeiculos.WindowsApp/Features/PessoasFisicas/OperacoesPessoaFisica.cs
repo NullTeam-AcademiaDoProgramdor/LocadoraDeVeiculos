@@ -85,16 +85,16 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
                 return;
             }
 
-            PessoaFisica pessoaFisicaSeleciada = controlador.SelecionarPorId(id);
+            PessoaFisica pessoaFisicaSelecionada = controlador.SelecionarPorId(id);
 
-            if (MessageBox.Show($"Tem certeza que deseja excluir a pessoa física: [{pessoaFisicaSeleciada.Nome}] ?",
+            if (MessageBox.Show($"Tem certeza que deseja excluir a pessoa física: [{pessoaFisicaSelecionada.Nome}] ?",
                 "Exclusão de Compromissos", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
                 bool conseguiuExcluir = controlador.Excluir(id);
 
                 if (!conseguiuExcluir)
                 {
-                    TelaPrincipalForm.Instancia.AtualizarRodape("O condutor está ligado a uma locação, impossível excluir.");
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Não foi possível excluir o condutor [{pessoaFisicaSelecionada.Nome}] por estar vinculado à uma locação.");
                     return;
                 }
 
@@ -102,7 +102,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
                 tabelaPessoaFisica.AtualizarRegistros();
                 tabelaPessoaFisica.AgruparRegistros();
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Pessoa física: [{pessoaFisicaSeleciada.Nome}] removida com sucesso");
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Pessoa física: [{pessoaFisicaSelecionada.Nome}] removida com sucesso");
             }
         }
 
