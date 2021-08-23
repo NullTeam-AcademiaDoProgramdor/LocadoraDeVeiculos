@@ -35,6 +35,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
 
             InitializeComponent();
 
+            cmbPlano.SelectedIndex = 0;
             dtpdataSaida.Value = DateTime.Now;
             dtpdataDevolucaoEsperada.Value = DateTime.Now.AddDays(1);
 
