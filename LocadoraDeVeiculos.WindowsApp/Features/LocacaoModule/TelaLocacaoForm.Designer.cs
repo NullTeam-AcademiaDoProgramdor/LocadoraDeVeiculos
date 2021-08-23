@@ -158,6 +158,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             // 
             // cmbPlano
             // 
+            this.cmbPlano.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPlano.FormattingEnabled = true;
             this.cmbPlano.Items.AddRange(new object[] {
             "Plano diário",

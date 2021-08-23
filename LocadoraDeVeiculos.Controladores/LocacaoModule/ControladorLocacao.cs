@@ -14,7 +14,7 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
 {
     public class ControladorLocacao : Controlador<Locacao>
     {
-        ControladorPessoaFisica controladorPessoaFisica;
+        ControladorPessoaFisica controladorPessoaFisica = new ControladorPessoaFisica();
         ControladorFuncionario controladorFuncionario;
         ControladorAutomovel controladorAutomovel;
 
@@ -22,7 +22,7 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
 
         public ControladorLocacao()
         {
-            this.controladorPessoaFisica = new ControladorPessoaFisica();
+         //   this.controladorPessoaFisica = new ControladorPessoaFisica();
             this.controladorFuncionario = new ControladorFuncionario();
             this.controladorAutomovel = new ControladorAutomovel();
 

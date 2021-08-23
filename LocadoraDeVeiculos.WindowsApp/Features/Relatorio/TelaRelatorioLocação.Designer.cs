@@ -158,7 +158,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
             // labelSubTotal
             // 
             this.labelSubTotal.AutoSize = true;
-            this.labelSubTotal.Location = new System.Drawing.Point(15, 168);
+            this.labelSubTotal.Location = new System.Drawing.Point(15, 159);
             this.labelSubTotal.Name = "labelSubTotal";
             this.labelSubTotal.Size = new System.Drawing.Size(65, 13);
             this.labelSubTotal.TabIndex = 10;
@@ -167,7 +167,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
             // labelValorSubTotal
             // 
             this.labelValorSubTotal.AutoSize = true;
-            this.labelValorSubTotal.Location = new System.Drawing.Point(221, 169);
+            this.labelValorSubTotal.Location = new System.Drawing.Point(221, 159);
             this.labelValorSubTotal.Name = "labelValorSubTotal";
             this.labelValorSubTotal.Size = new System.Drawing.Size(13, 13);
             this.labelValorSubTotal.TabIndex = 11;

@@ -92,8 +92,14 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
             if (MessageBox.Show($"Tem certeza que deseja excluir o automóvel: [{automovelSelecionado.Modelo}] ?",
                 "Exclusão de Automóveis", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
-                controlador.Excluir(id);
+                bool conseguiuExcluir = controlador.Excluir(id);
 
+                if (conseguiuExcluir == false)
+                {
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Não foi possível excluir o automóvel [{automovelSelecionado.Modelo}] " +
+                        $"por estar vinculado à uma locação.");
+                    return;
+                }
                 List<Automovel> automoveis = controlador.SelecionarTodos();
 
                 tabelaAutomovel.DesagruparRegistros();
