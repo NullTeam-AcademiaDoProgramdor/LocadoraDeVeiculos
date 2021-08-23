@@ -117,6 +117,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
                 TelaRelatorioLocação telaRelatorio = new TelaRelatorioLocação(locacao);
                 telaRelatorio.ShowDialog();
                 DialogResult = telaRelatorio.DialogResult;
+
+                if (DialogResult == DialogResult.Cancel)
+                    DialogResult = DialogResult.None;
             }
         }
 

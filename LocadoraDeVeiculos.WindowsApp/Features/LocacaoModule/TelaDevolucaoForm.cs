@@ -87,10 +87,13 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             }
             else 
             { 
-            TelaRelatorioLocação telaRelatorio = new TelaRelatorioLocação(locacao);
-            telaRelatorio.ShowDialog();
-            DialogResult = telaRelatorio.DialogResult;
-                }
+                TelaRelatorioLocação telaRelatorio = new TelaRelatorioLocação(locacao);
+                telaRelatorio.ShowDialog();
+                DialogResult = telaRelatorio.DialogResult;
+
+                if (DialogResult == DialogResult.Cancel)
+                    DialogResult = DialogResult.None;
+            }
         }
 
         private int PegarPorcentagemFinal()

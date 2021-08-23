@@ -131,7 +131,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
                 labelValorTaxaDiaria.Text = "R$" + valorTaxaDiario;
                 labelTaxaKm.Visible = labelValorTaxaKm.Visible = false;
                 labelValorTaxaKmExtrapolado.Text = "Indisponivel";
-                labelValorSubTotal.Text = "R$" + valorTaxaDiario + " + Taxa km extrapolado";
+                labelValorSubTotal.Text = "R$" + valorTaxaDiario + "\n + Taxa km extrapolado";
                 return valorTaxaDiario;
             }
 
@@ -172,8 +172,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
                 double kmsTotais = (double)locacao.KmAutomovelFinal - locacao.KmAutomovelIncial;
                 double kmExtrapolados = 0;
 
-                if (kmsTotais > locacao.Automovel.Grupo.PlanoKmControlado.KmDisponiveis)
-                    kmExtrapolados = kmsTotais - locacao.Automovel.Grupo.PlanoKmControlado.KmDisponiveis;
+                if (kmsTotais > (locacao.Automovel.Grupo.PlanoKmControlado.KmDisponiveis * dias))
+                    kmExtrapolados = kmsTotais - (locacao.Automovel.Grupo.PlanoKmControlado.KmDisponiveis * dias);
 
                 double valorKmExtrapoldo = kmExtrapolados * locacao.Automovel.Grupo.PlanoKmControlado.PrecoKmExtrapolado;
 
