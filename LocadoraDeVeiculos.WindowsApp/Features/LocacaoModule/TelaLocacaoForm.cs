@@ -33,10 +33,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             controladorPessoaFisica = new ControladorPessoaFisica();
             controladorTaxasEServicos = new ControladorTaxasEServicos();
 
+            InitializeComponent();
+
             dtpdataSaida.Value = DateTime.Now;
             dtpdataDevolucaoEsperada.Value = DateTime.Now.AddDays(1);
-
-            InitializeComponent();
 
             CarregarAutomoveis(controladorAutomovel.SelecionarDisponiveis());
             CarregarCondutores(controladorPessoaFisica.SelecionarTodos());
