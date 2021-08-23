@@ -347,6 +347,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.panelRegistros.Size = new System.Drawing.Size(593, 356);
             this.panelRegistros.TabIndex = 5;
             this.panelRegistros.Click += new System.EventHandler(this.panelRegistros_Click);
+            this.panelRegistros.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.panelRegistros_ControlAdded);
             // 
             // statusStrip2
             // 

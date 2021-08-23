@@ -388,5 +388,10 @@ namespace LocadoraDeVeiculos.WindowsApp
         {
             (operacoes as OperacoesLocacao).DevolverRegistro();
         }
+
+        private void panelRegistros_ControlAdded(object sender, ControlEventArgs e)
+        {
+            panelRegistros_Click(sender, e);
+        }
     }
 }
