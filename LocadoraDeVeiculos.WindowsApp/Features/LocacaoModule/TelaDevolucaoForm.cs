@@ -42,7 +42,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
                 txtCaucao.Text = locacao.Caucao.ToString();
                 txtAutomovel.Text = locacao.Automovel.ToString();
                 txtCondutor.Text = locacao.Condutor.ToString();
-                txtPlano.Text = locacao.PlanoSelecionado.ToString();
+                txtPlano.Text = PlanoParaString(locacao.PlanoSelecionado);
                 txtDataSaida.Text = locacao.DataSaida.ToString();
                 txtDataDevEsperada.Text = locacao.DataDevolucaoEsperada.ToString();
                 txtKmInicial.Text = locacao.KmAutomovelIncial.ToString();
@@ -65,7 +65,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             DateTime dataDevolucaoEsperada = locacao.DataDevolucaoEsperada;
             int caucao = locacao.Caucao;
             int kmInicial = locacao.KmAutomovelIncial;
-            int planoSelecionado =locacao.PlanoSelecionado;
+            int planoSelecionado = locacao.PlanoSelecionado;
             int kmAutomovelFinal = 0;
             VerificarValoresNumericos(ref kmAutomovelFinal);
             int porcentagemFinalCombustivel = PegarPorcentagemFinal();
@@ -123,6 +123,22 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
                 kmFinal = 0;
             }
 
+        }
+
+        private string PlanoParaString(int plano)
+        {
+            switch (plano)
+            {
+                case 0:
+                    return "Plano diario";
+                case 1:
+                    return "Plano Km Controlado";
+                case 2:
+                    return "Plano Livre";
+
+                default:
+                    return "";
+            }
         }
     }
 }

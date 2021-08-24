@@ -62,7 +62,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
             this.txtId.Location = new System.Drawing.Point(58, 9);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(108, 20);
-            this.txtId.TabIndex = 1;
+            this.txtId.TabIndex = 0;
             // 
             // labelNome
             // 
@@ -78,7 +78,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
             this.txtNome.Location = new System.Drawing.Point(58, 35);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(108, 20);
-            this.txtNome.TabIndex = 3;
+            this.txtNome.TabIndex = 1;
             // 
             // labelPreco
             // 
@@ -94,7 +94,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
             this.txtPreco.Location = new System.Drawing.Point(58, 61);
             this.txtPreco.Name = "txtPreco";
             this.txtPreco.Size = new System.Drawing.Size(108, 20);
-            this.txtPreco.TabIndex = 6;
+            this.txtPreco.TabIndex = 2;
             // 
             // labelTipoDeTaxa
             // 
@@ -110,7 +110,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
             this.rdbTaxaFixa.Location = new System.Drawing.Point(6, 16);
             this.rdbTaxaFixa.Name = "rdbTaxaFixa";
             this.rdbTaxaFixa.Size = new System.Drawing.Size(107, 17);
-            this.rdbTaxaFixa.TabIndex = 8;
+            this.rdbTaxaFixa.TabIndex = 3;
             this.rdbTaxaFixa.TabStop = true;
             this.rdbTaxaFixa.Text = "Cobrado taxa fixa";
             this.rdbTaxaFixa.UseVisualStyleBackColor = true;
@@ -121,7 +121,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
             this.rdbTaxaPorDia.Location = new System.Drawing.Point(6, 39);
             this.rdbTaxaPorDia.Name = "rdbTaxaPorDia";
             this.rdbTaxaPorDia.Size = new System.Drawing.Size(123, 17);
-            this.rdbTaxaPorDia.TabIndex = 9;
+            this.rdbTaxaPorDia.TabIndex = 4;
             this.rdbTaxaPorDia.TabStop = true;
             this.rdbTaxaPorDia.Text = "Cobrado taxa por dia";
             this.rdbTaxaPorDia.UseVisualStyleBackColor = true;
@@ -133,7 +133,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
             this.btnCancelar.Location = new System.Drawing.Point(175, 223);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 10;
+            this.btnCancelar.TabIndex = 9;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             // 
@@ -144,7 +144,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
             this.btnGravar.Location = new System.Drawing.Point(253, 223);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(75, 23);
-            this.btnGravar.TabIndex = 11;
+            this.btnGravar.TabIndex = 8;
             this.btnGravar.Text = "Gravar";
             this.btnGravar.UseVisualStyleBackColor = false;
             this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);

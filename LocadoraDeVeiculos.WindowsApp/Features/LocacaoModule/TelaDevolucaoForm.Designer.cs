@@ -141,7 +141,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             // 
             // txtKmInicial
             // 
-            this.txtKmInicial.BackColor = System.Drawing.SystemColors.Window;
+            this.txtKmInicial.BackColor = System.Drawing.Color.LightGreen;
+            this.txtKmInicial.Enabled = false;
             this.txtKmInicial.Location = new System.Drawing.Point(90, 77);
             this.txtKmInicial.Name = "txtKmInicial";
             this.txtKmInicial.Size = new System.Drawing.Size(213, 20);
@@ -344,8 +345,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Location = new System.Drawing.Point(13, 19);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -428,9 +429,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.seletorTaxasEServicosControl1);
             this.tabPage2.Controls.Add(this.txtKmAtual);
             this.tabPage2.Controls.Add(this.label6);
-            this.tabPage2.Controls.Add(this.seletorTaxasEServicosControl1);
             this.tabPage2.Controls.Add(this.txtPlano);
             this.tabPage2.Controls.Add(this.txtCaucao);
             this.tabPage2.Controls.Add(this.label7);

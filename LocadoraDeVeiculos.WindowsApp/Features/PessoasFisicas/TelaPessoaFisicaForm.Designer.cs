@@ -39,6 +39,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
             this.txtRG = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtCNH = new System.Windows.Forms.MaskedTextBox();
             this.dataPickCNH = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.txtTelefone = new System.Windows.Forms.MaskedTextBox();
@@ -51,7 +52,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
             this.btnGravar = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.cbNaoHaPJuridica = new System.Windows.Forms.CheckBox();
-            this.txtCNH = new System.Windows.Forms.MaskedTextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -143,6 +143,14 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "CNH";
+            // 
+            // txtCNH
+            // 
+            this.txtCNH.Location = new System.Drawing.Point(59, 19);
+            this.txtCNH.Mask = "000000000000";
+            this.txtCNH.Name = "txtCNH";
+            this.txtCNH.Size = new System.Drawing.Size(251, 20);
+            this.txtCNH.TabIndex = 6;
             // 
             // dataPickCNH
             // 
@@ -255,14 +263,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
             this.cbNaoHaPJuridica.Text = "Não há Pessoa Jurídica";
             this.cbNaoHaPJuridica.UseVisualStyleBackColor = true;
             this.cbNaoHaPJuridica.CheckedChanged += new System.EventHandler(this.cbNaoHaPJuridica_CheckedChanged);
-            // 
-            // txtCNH
-            // 
-            this.txtCNH.Location = new System.Drawing.Point(59, 19);
-            this.txtCNH.Mask = "000000000000";
-            this.txtCNH.Name = "txtCNH";
-            this.txtCNH.Size = new System.Drawing.Size(251, 20);
-            this.txtCNH.TabIndex = 33;
             // 
             // TelaPessoaFisicaForm
             // 

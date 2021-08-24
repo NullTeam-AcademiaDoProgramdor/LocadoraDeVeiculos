@@ -85,14 +85,14 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.FuncionarioModule
             this.txtNome.Location = new System.Drawing.Point(117, 42);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(177, 20);
-            this.txtNome.TabIndex = 4;
+            this.txtNome.TabIndex = 1;
             // 
             // txtSalario
             // 
             this.txtSalario.Location = new System.Drawing.Point(117, 94);
             this.txtSalario.Name = "txtSalario";
             this.txtSalario.Size = new System.Drawing.Size(177, 20);
-            this.txtSalario.TabIndex = 5;
+            this.txtSalario.TabIndex = 3;
             // 
             // txtSenha
             // 
@@ -100,7 +100,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.FuncionarioModule
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.PasswordChar = '*';
             this.txtSenha.Size = new System.Drawing.Size(177, 20);
-            this.txtSenha.TabIndex = 6;
+            this.txtSenha.TabIndex = 4;
             // 
             // dtpDataAdmissao
             // 
@@ -108,7 +108,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.FuncionarioModule
             this.dtpDataAdmissao.Location = new System.Drawing.Point(117, 68);
             this.dtpDataAdmissao.Name = "dtpDataAdmissao";
             this.dtpDataAdmissao.Size = new System.Drawing.Size(177, 20);
-            this.dtpDataAdmissao.TabIndex = 7;
+            this.dtpDataAdmissao.TabIndex = 2;
             // 
             // label5
             // 
@@ -136,7 +136,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.FuncionarioModule
             this.btnGravar.Location = new System.Drawing.Point(253, 187);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(75, 23);
-            this.btnGravar.TabIndex = 12;
+            this.btnGravar.TabIndex = 5;
             this.btnGravar.Text = "Gravar";
             this.btnGravar.UseVisualStyleBackColor = false;
             this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);

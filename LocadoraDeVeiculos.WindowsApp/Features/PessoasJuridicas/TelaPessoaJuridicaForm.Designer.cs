@@ -57,7 +57,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasJuridicas
             this.txtNome.Location = new System.Drawing.Point(73, 47);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(255, 20);
-            this.txtNome.TabIndex = 2;
+            this.txtNome.TabIndex = 1;
             // 
             // label2
             // 
@@ -91,7 +91,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasJuridicas
             this.txtEndereco.Location = new System.Drawing.Point(73, 73);
             this.txtEndereco.Name = "txtEndereco";
             this.txtEndereco.Size = new System.Drawing.Size(255, 20);
-            this.txtEndereco.TabIndex = 4;
+            this.txtEndereco.TabIndex = 2;
             // 
             // txtCNPJ
             // 
@@ -107,7 +107,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasJuridicas
             this.txtTelefone.Mask = "(00)00000-0000";
             this.txtTelefone.Name = "txtTelefone";
             this.txtTelefone.Size = new System.Drawing.Size(108, 20);
-            this.txtTelefone.TabIndex = 5;
+            this.txtTelefone.TabIndex = 4;
             // 
             // button1
             // 
@@ -139,7 +139,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasJuridicas
             this.txtId.Location = new System.Drawing.Point(73, 21);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(255, 20);
-            this.txtId.TabIndex = 1;
+            this.txtId.TabIndex = 0;
             // 
             // label5
             // 

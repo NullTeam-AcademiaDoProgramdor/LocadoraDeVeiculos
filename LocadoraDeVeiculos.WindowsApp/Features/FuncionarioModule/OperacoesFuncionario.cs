@@ -65,7 +65,14 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.FuncionarioModule
             if (MessageBox.Show($"Tem certeza que deseja excluir o funcionário: [{funcionarioSelecionado.Nome}] ?",
                 "Exclusão de de funcionários", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
-                controlador.Excluir(id);
+                bool conseguiuExcluir = controlador.Excluir(id);
+
+                if (conseguiuExcluir == false)
+                {
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Não foi possível excluir o funcionario [{funcionarioSelecionado.Nome}] " +
+                        $"por estar vinculado à uma locação.");
+                    return;
+                }
 
                 List<Funcionario> funcionarios = controlador.SelecionarTodos();
 

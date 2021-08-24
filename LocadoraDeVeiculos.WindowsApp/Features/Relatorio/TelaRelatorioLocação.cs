@@ -103,7 +103,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
                 }
             }
 
-            labelValorSubTotalDia.Text = "R$" + totalPorDia * dias;
+            labelValorSubTotalDia.Text = "R$" + (totalPorDia * dias);
             labelValorSubTotalFixo.Text = "R$" + totalFixos;
 
             return (totalPorDia * dias) + totalFixos;
@@ -160,7 +160,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
                 labelValorTaxaDiaria.Text = "R$" + valorTaxaDiario;
                 labelValorTaxaKm.Text = "R$" + valorKms;
                 labelTaxaKmExtrapolado.Visible = labelValorTaxaKmExtrapolado.Visible = false;
-                labelValorSubTotal.Text = "R$" + valorTaxaDiario + valorKms;
+                labelValorSubTotal.Text = "R$" + (valorTaxaDiario + valorKms);
                 return valorTaxaDiario + valorKms;
             }
 
