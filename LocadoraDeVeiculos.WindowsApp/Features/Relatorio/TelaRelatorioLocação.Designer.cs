@@ -393,6 +393,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
             this.Controls.Add(this.labelDiasAlugados);
             this.Controls.Add(this.labelTipoPlano);
             this.Controls.Add(this.labelPlano);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "TelaRelatorioLocação";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

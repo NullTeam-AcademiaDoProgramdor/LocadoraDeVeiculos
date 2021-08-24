@@ -22,8 +22,17 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             InitializeComponent();
             gridLocacao.ConfigurarGridZebrado();
             gridLocacao.ConfigurarGridSomenteLeitura();
+
             gridLocacao.Columns.AddRange(ObterColunas());
+            ConfigurarFormatacaoColunasDatas();
+
             controlador = new ControladorLocacao();
+        }
+
+        private void ConfigurarFormatacaoColunasDatas()
+        {
+            gridLocacao.Columns[4].DefaultCellStyle.Format = "dd/MM/yyyy";
+            gridLocacao.Columns[5].DefaultCellStyle.Format = "dd/MM/yyyy";
         }
 
         public DataGridViewColumn[] ObterColunas()
@@ -38,9 +47,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "Funcionario", HeaderText = "Funcionario que locou"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "DataSaida", HeaderText = "Data de saída do veículo"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "DataSaida", HeaderText = "Data de saída do veículo" },
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "DataDevolucaoEsperada", HeaderText = "Devolução planejada para"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "DataDevolucaoEsperada", HeaderText = "Devolução planejada para", },
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "Situacao", HeaderText = "Situação"}
             };

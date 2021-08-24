@@ -50,7 +50,7 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
             KmAutomovelIncial = kmAutomovelIncial;
             KmAutomovelFinal = kmAutomovelFinal;
             PorcentagemFinalCombustivel = porcentagemFinalCombustivel;
-            this.Situacao = "Concluído";
+            this.Situacao = ((DateTime)this.DataDevolucao).ToString("dd/MM/yyyy");
 
             if (taxasEServicos == null)
                 this.TaxasEServicos = new TaxaEServico[0];

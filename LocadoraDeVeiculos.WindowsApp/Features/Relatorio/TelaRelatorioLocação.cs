@@ -36,14 +36,15 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
 
         private void CalcularValoresParcial(Locacao locacao)
         {
+            int dias = (locacao.DataDevolucaoEsperada - locacao.DataSaida).Days + 1;
+
             labelTipoPlano.Text = PegarTipoPlano(locacao.PlanoSelecionado);
-            labelQuantDias.Text = (locacao.DataDevolucaoEsperada - locacao.DataSaida)
-                .Days.ToString();
+            labelQuantDias.Text = dias.ToString();
             labelQuantKmRodados.Text = "Indisponivel";
 
             double valorPlano = SetarValoresPlanosParcial(locacao.PlanoSelecionado, locacao);
 
-            double valorTaxas = SetarValoresTaxas(locacao.TaxasEServicos, locacao, (locacao.DataDevolucaoEsperada - locacao.DataSaida).Days);
+            double valorTaxas = SetarValoresTaxas(locacao.TaxasEServicos, locacao, dias);
 
             SetarValoresCombustivelParcial(locacao);
 
@@ -53,14 +54,15 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
 
         private void CalcularValoresFinal(Locacao locacao)
         {
+            int dias = ((DateTime)locacao.DataDevolucao - locacao.DataSaida).Days + 1;
+
             labelTipoPlano.Text = PegarTipoPlano(locacao.PlanoSelecionado);
-            labelQuantDias.Text = ((DateTime)locacao.DataDevolucao - locacao.DataSaida)
-                .Days.ToString();
+            labelQuantDias.Text = dias.ToString();
             labelQuantKmRodados.Text = (locacao.KmAutomovelFinal - locacao.KmAutomovelIncial).ToString();
 
             double valorPlano = SetarValoresPlanosFinais(locacao.PlanoSelecionado, locacao);
 
-            double valorTaxas = SetarValoresTaxas(locacao.TaxasEServicos, locacao, ((DateTime)locacao.DataDevolucao - locacao.DataSaida).Days);
+            double valorTaxas = SetarValoresTaxas(locacao.TaxasEServicos, locacao, dias);
 
             double valorAbastecer = SetarValoresCombustivelFinal(locacao);
 
@@ -111,7 +113,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
 
         private double SetarValoresPlanosParcial(int plano, Locacao locacao)
         {
-            int dias = (locacao.DataDevolucaoEsperada - locacao.DataSaida).Days;
+            int dias = (locacao.DataDevolucaoEsperada - locacao.DataSaida).Days + 1;
             
             if (plano == 0)
             {
@@ -148,7 +150,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
 
         private double SetarValoresPlanosFinais(int plano, Locacao locacao)
         {
-            int dias = ((DateTime)locacao.DataDevolucao - locacao.DataSaida).Days;
+            int dias = ((DateTime)locacao.DataDevolucao - locacao.DataSaida).Days + 1;
 
 
             if (plano == 0)
