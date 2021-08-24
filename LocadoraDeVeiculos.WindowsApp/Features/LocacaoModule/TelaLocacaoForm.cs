@@ -54,13 +54,22 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
                 locacao = value;
                 txtId.Text = locacao.Id.ToString();
                 txtCaucao.Text = locacao.Caucao.ToString();
-                cmbAutomovel.SelectedItem = locacao.Automovel;
+
+                cmbAutomovel.Items.Add(Locacao.Automovel);
+                cmbAutomovel.SelectedItem = Locacao.Automovel;
+
                 cmbCondutor.SelectedItem = locacao.Condutor;
                 cmbPlano.SelectedIndex = locacao.PlanoSelecionado;
                 dtpdataSaida.Value = locacao.DataSaida;
                 dtpdataDevolucaoEsperada.Value = locacao.DataDevolucaoEsperada;
                 txtKmInicial.Text = locacao.KmAutomovelIncial.ToString();
                 seletorTaxasEServicosControl1.TaxasEServicosSelecionados = locacao.TaxasEServicos;
+
+                cmbCondutor.Enabled = false;
+                cmbAutomovel.Enabled = false;
+                cmbPlano.Enabled = false;
+                txtCaucao.Enabled = false;
+                txtKmInicial.Enabled = false;
             }
         }
 
