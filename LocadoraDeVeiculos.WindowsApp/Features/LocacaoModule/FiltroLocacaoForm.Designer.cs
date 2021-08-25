@@ -85,9 +85,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             this.rdbTodasLocacoes.AutoSize = true;
             this.rdbTodasLocacoes.Location = new System.Drawing.Point(12, 86);
             this.rdbTodasLocacoes.Name = "rdbTodasLocacoes";
-            this.rdbTodasLocacoes.Size = new System.Drawing.Size(152, 17);
+            this.rdbTodasLocacoes.Size = new System.Drawing.Size(162, 17);
             this.rdbTodasLocacoes.TabIndex = 25;
-            this.rdbTodasLocacoes.Text = "Visualizar Todas Locações";
+            this.rdbTodasLocacoes.Text = "Visualizar todas as Locações";
             this.rdbTodasLocacoes.UseVisualStyleBackColor = true;
             // 
             // FiltroLocacaoForm
