@@ -177,6 +177,11 @@ namespace LocadoraDeVeiculos.WindowsApp
             operacoes.DesagruparRegistros();
         }
 
+        private void btnExibirInformacoes_Click(object sender, EventArgs e)
+        {
+            operacoes.ExibirInformacoesDetalhadas();
+        }
+
         private void ConfigurarTooltips(ConfiguracoesTooltip configuracoes)
         {
             labelTipoCadastro.Text = configuracoes.TipoCadastro;
@@ -300,10 +305,6 @@ namespace LocadoraDeVeiculos.WindowsApp
 
        
 
-        private void btnExibirInformacoes_Click(object sender, EventArgs e)
-        {
-            operacoes.ExibirInformacoesDetalhadas();
-        }
 
         private void taxasEServiçosToolStripMenuItem_Click(object sender, EventArgs e)
         {
