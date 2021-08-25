@@ -334,6 +334,20 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             ConfigurarPainelRegistros();
         }
+        private void locaçõesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            configuracoes = new ConfiguracaoLocacaoToolBox();
+
+            ConfigurarTooltips(configuracoes.Tooltip);
+            ConfigurarBotoes(configuracoes.Botoes);
+
+            AtualizarRodape(configuracoes.Tooltip.TipoCadastro);
+            AtualizarFuncionarioConectado(funcionarioConectado.Nome);
+
+            operacoes = operacoesLocacao;
+
+            ConfigurarPainelRegistros();
+        }
 
         public void panelRegistros_Click(object sender, EventArgs e)
         {
@@ -367,20 +381,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             }
         }
 
-        private void locaçõesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            configuracoes = new ConfiguracaoLocacaoToolBox();
-
-            ConfigurarTooltips(configuracoes.Tooltip);
-            ConfigurarBotoes(configuracoes.Botoes);
-
-            AtualizarRodape(configuracoes.Tooltip.TipoCadastro);
-            AtualizarFuncionarioConectado(funcionarioConectado.Nome);
-
-            operacoes = operacoesLocacao;
-
-            ConfigurarPainelRegistros();
-        }
+        
 
         private void btnDevolverAutomovel_Click(object sender, EventArgs e)
         {
