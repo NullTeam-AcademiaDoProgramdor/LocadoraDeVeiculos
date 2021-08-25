@@ -31,12 +31,13 @@ namespace LocadoraDeVeiculos.WindowsApp
     public partial class TelaPrincipalForm : Form
     {
         private ICadastravel operacoes;
+        private IConfiguracaoToolBox configuracoes;
 
         public static TelaPrincipalForm Instancia;
 
         public string nomeAdmin = "Rech";
 
-         public Funcionario funcionarioConectado;
+        public Funcionario funcionarioConectado;
         
         //Operacoes
         private OperacoesGrupoAutomovel operacoesGrupoAutomovel;
@@ -119,12 +120,12 @@ namespace LocadoraDeVeiculos.WindowsApp
 
         private void pessoaJuridicaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ConfiguracaoPessoaJuridicaToolBox configuracao = new ConfiguracaoPessoaJuridicaToolBox();
+            configuracoes = new ConfiguracaoPessoaJuridicaToolBox();
 
-            ConfigurarTooltips(configuracao.Tooltip);
-            ConfigurarBotoes(configuracao.Botoes);
+            ConfigurarTooltips(configuracoes.Tooltip);
+            ConfigurarBotoes(configuracoes.Botoes);
 
-            AtualizarRodape(configuracao.Tooltip.TipoCadastro);
+            AtualizarRodape(configuracoes.Tooltip.TipoCadastro);
             AtualizarFuncionarioConectado(funcionarioConectado.Nome);
 
             operacoes = operacoesPessoaJuridica;
@@ -216,13 +217,12 @@ namespace LocadoraDeVeiculos.WindowsApp
 
         private void menuItemGrupoAutomovel_Click(object sender, EventArgs e)
         {
-            ConfiguracaoGrupoAutomovelToolBox configuracao = 
-                new ConfiguracaoGrupoAutomovelToolBox();
+            configuracoes = new ConfiguracaoGrupoAutomovelToolBox();
 
-            ConfigurarTooltips(configuracao.Tooltip);
-            ConfigurarBotoes(configuracao.Botoes);
+            ConfigurarTooltips(configuracoes.Tooltip);
+            ConfigurarBotoes(configuracoes.Botoes);
 
-            AtualizarRodape(configuracao.Tooltip.TipoCadastro);
+            AtualizarRodape(configuracoes.Tooltip.TipoCadastro);
             AtualizarFuncionarioConectado(funcionarioConectado.Nome);
 
             operacoes = operacoesGrupoAutomovel;
@@ -232,13 +232,12 @@ namespace LocadoraDeVeiculos.WindowsApp
 
         private void menuItemTaxasEServicos_Click(object sender, EventArgs e)
         {
-            ConfiguracaoTaxasEServicoToolBox configuracao =
-                new ConfiguracaoTaxasEServicoToolBox();
+            configuracoes = new ConfiguracaoTaxasEServicoToolBox();
 
-            ConfigurarTooltips(configuracao.Tooltip);
-            ConfigurarBotoes(configuracao.Botoes);
+            ConfigurarTooltips(configuracoes.Tooltip);
+            ConfigurarBotoes(configuracoes.Botoes);
 
-            AtualizarRodape(configuracao.Tooltip.TipoCadastro);
+            AtualizarRodape(configuracoes.Tooltip.TipoCadastro);
             AtualizarFuncionarioConectado(funcionarioConectado.Nome);
 
             operacoes = operacoesTaxasEServicos;
@@ -247,13 +246,12 @@ namespace LocadoraDeVeiculos.WindowsApp
         }
         private void configuraçõesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ConfiguracaoConfiguracoesToolBox configuracoesToolBox = 
-                new ConfiguracaoConfiguracoesToolBox();
+            configuracoes = new ConfiguracaoConfiguracoesToolBox();
 
-            ConfigurarTooltips(configuracoesToolBox.Tooltip);
-            ConfigurarBotoes(configuracoesToolBox.Botoes);
+            ConfigurarTooltips(configuracoes.Tooltip);
+            ConfigurarBotoes(configuracoes.Botoes);
 
-            AtualizarRodape(configuracoesToolBox.Tooltip.TipoCadastro);
+            AtualizarRodape(configuracoes.Tooltip.TipoCadastro);
             AtualizarFuncionarioConectado(funcionarioConectado.Nome);
 
             operacoes = operacoesConfiguracoes;
@@ -263,13 +261,12 @@ namespace LocadoraDeVeiculos.WindowsApp
 
         private void automovelToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ConfiguracaoAutomovelTooBox configuracaoToolBox =
-                new ConfiguracaoAutomovelTooBox();
+            configuracoes = new ConfiguracaoAutomovelTooBox();
 
-            ConfigurarTooltips(configuracaoToolBox.Tooltip);
-            ConfigurarBotoes(configuracaoToolBox.Botoes);
+            ConfigurarTooltips(configuracoes.Tooltip);
+            ConfigurarBotoes(configuracoes.Botoes);
 
-            AtualizarRodape(configuracaoToolBox.Tooltip.TipoCadastro);
+            AtualizarRodape(configuracoes.Tooltip.TipoCadastro);
 
             operacoes = operacoesAutomovel;
 
@@ -289,12 +286,12 @@ namespace LocadoraDeVeiculos.WindowsApp
 
         private void pessoasFísicasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ConfiguracaoPessoaFisicaToolBox configuracao = new ConfiguracaoPessoaFisicaToolBox();
+            configuracoes = new ConfiguracaoPessoaFisicaToolBox();
 
-            ConfigurarTooltips(configuracao.Tooltip);
-            ConfigurarBotoes(configuracao.Botoes);
+            ConfigurarTooltips(configuracoes.Tooltip);
+            ConfigurarBotoes(configuracoes.Botoes);
 
-            AtualizarRodape(configuracao.Tooltip.TipoCadastro);
+            AtualizarRodape(configuracoes.Tooltip.TipoCadastro);
 
             operacoes = operacoesPessoaFisica;
 
@@ -364,8 +361,10 @@ namespace LocadoraDeVeiculos.WindowsApp
             else
             {
                 btnExcluir.Visible = true;
-                btnEditar.Enabled = true;
                 btnDevolverAutomovel.Visible = false;
+
+                if (configuracoes != null)
+                    ConfigurarBotoes(configuracoes.Botoes);
             }
         }
 
