@@ -95,6 +95,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "SeletorTaxasEServicosForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Seletor de Taxa E Serviços";
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
