@@ -307,13 +307,12 @@ namespace LocadoraDeVeiculos.WindowsApp
 
         private void taxasEServiçosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ConfiguracaoTaxasEServicoToolBox configuracao =
-                new ConfiguracaoTaxasEServicoToolBox();
+            configuracoes = new ConfiguracaoTaxasEServicoToolBox();
 
-            ConfigurarTooltips(configuracao.Tooltip);
-            ConfigurarBotoes(configuracao.Botoes);
+            ConfigurarTooltips(configuracoes.Tooltip);
+            ConfigurarBotoes(configuracoes.Botoes);
 
-            AtualizarRodape(configuracao.Tooltip.TipoCadastro);
+            AtualizarRodape(configuracoes.Tooltip.TipoCadastro);
             AtualizarFuncionarioConectado(funcionarioConectado.Nome);
 
             operacoes = operacoesTaxasEServicos;
@@ -323,12 +322,12 @@ namespace LocadoraDeVeiculos.WindowsApp
 
         private void funcionarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ConfiguacaoFuncionarioToolBox configuracao = new ConfiguacaoFuncionarioToolBox();
+            configuracoes = new ConfiguacaoFuncionarioToolBox();
 
-            ConfigurarTooltips(configuracao.Tooltip);
-            ConfigurarBotoes(configuracao.Botoes);
+            ConfigurarTooltips(configuracoes.Tooltip);
+            ConfigurarBotoes(configuracoes.Botoes);
 
-            AtualizarRodape(configuracao.Tooltip.TipoCadastro);
+            AtualizarRodape(configuracoes.Tooltip.TipoCadastro);
             AtualizarFuncionarioConectado(funcionarioConectado.Nome);
 
             operacoes = operacoesFuncionario;
@@ -370,12 +369,12 @@ namespace LocadoraDeVeiculos.WindowsApp
 
         private void locaçõesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ConfiguracaoLocacaoToolBox configuracao = new ConfiguracaoLocacaoToolBox();
+            configuracoes = new ConfiguracaoLocacaoToolBox();
 
-            ConfigurarTooltips(configuracao.Tooltip);
-            ConfigurarBotoes(configuracao.Botoes);
+            ConfigurarTooltips(configuracoes.Tooltip);
+            ConfigurarBotoes(configuracoes.Botoes);
 
-            AtualizarRodape(configuracao.Tooltip.TipoCadastro);
+            AtualizarRodape(configuracoes.Tooltip.TipoCadastro);
             AtualizarFuncionarioConectado(funcionarioConectado.Nome);
 
             operacoes = operacoesLocacao;
