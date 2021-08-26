@@ -63,6 +63,42 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
             }
         }
 
+
+        public void ExcluirRegistro()
+        {
+            int id = tabelaParceiro.ObtemIdSelecionado();
+
+            if (id == 0)
+            {
+                MessageBox.Show("Selecione um Parceiro para poder excluir!", "Exclusão de Parceiros",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            Parceiro parceiroEncontrado = controlador.SelecionarPorId(id);
+
+            if (MessageBox.Show($"Tem certeza que deseja excluir o parceiro: [{parceiroEncontrado.Nome}] ?",
+                "Exclusão de Parceiro", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                controlador.Excluir(id);
+
+                List<Parceiro> parceiros = controlador.SelecionarTodos();
+
+                tabelaParceiro.AtualizarRegistros();
+
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Parceiro: [{parceiroEncontrado.Nome}] removido com sucesso");
+            }
+        }
+
+        public UserControl ObterTabela()
+        {
+            List<Parceiro> parceiros = controlador.SelecionarTodos();
+
+            tabelaParceiro.AtualizarRegistros();
+
+            return tabelaParceiro;
+        }
+
         public void AgruparRegistros()
         {
             throw new NotImplementedException();
@@ -74,23 +110,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
         }
 
 
-        public void ExcluirRegistro()
-        {
-            throw new NotImplementedException();
-        }
-
         public void ExibirInformacoesDetalhadas()
         {
             throw new NotImplementedException();
         }
 
         public void FiltrarRegistros()
-        {
-            throw new NotImplementedException();
-        }
-
-       
-        public UserControl ObterTabela()
         {
             throw new NotImplementedException();
         }
