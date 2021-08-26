@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LocadoraDeVeiculos.Dominio.Shared;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Dominio.ParceiroModule
 {
-    public class Parceiro : IEquatable<Parceiro>
+    public class Parceiro : EntidadeBase, IEquatable<Parceiro>
     {
         public Parceiro(string nome)
         {
@@ -34,6 +35,19 @@ namespace LocadoraDeVeiculos.Dominio.ParceiroModule
         public override string ToString()
         {
             return Nome;
+        }
+
+        public override string Validar()
+        {
+            string resultadoValidacao = "";
+
+            if (string.IsNullOrEmpty(Nome))
+                resultadoValidacao = "O campo 'nome' não pode estar vazio.";
+
+            if (resultadoValidacao == "")
+                resultadoValidacao = "ESTA_VALIDO";
+
+            return resultadoValidacao;
         }
     }
 }
