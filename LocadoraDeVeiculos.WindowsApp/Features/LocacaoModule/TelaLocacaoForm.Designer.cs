@@ -46,8 +46,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             this.txtId = new System.Windows.Forms.TextBox();
             this.btnGravar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.txtKmAtual = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.seletorTaxasEServicosControl1 = new LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos.SeletorTaxasEServicosControl();
             this.SuspendLayout();
             // 
@@ -185,7 +183,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             // 
             this.btnGravar.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnGravar.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnGravar.Location = new System.Drawing.Point(235, 305);
+            this.btnGravar.Location = new System.Drawing.Point(235, 281);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(93, 23);
             this.btnGravar.TabIndex = 9;
@@ -197,33 +195,16 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             // 
             this.btnCancelar.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(136, 305);
+            this.btnCancelar.Location = new System.Drawing.Point(136, 281);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(93, 23);
             this.btnCancelar.TabIndex = 10;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             // 
-            // txtKmAtual
-            // 
-            this.txtKmAtual.BackColor = System.Drawing.Color.LightGreen;
-            this.txtKmAtual.Enabled = false;
-            this.txtKmAtual.Location = new System.Drawing.Point(120, 197);
-            this.txtKmAtual.Name = "txtKmAtual";
-            this.txtKmAtual.Size = new System.Drawing.Size(184, 20);
-            this.txtKmAtual.TabIndex = 7;
-            // 
-            // label1
-            // 
-            this.label1.Location = new System.Drawing.Point(8, 202);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(106, 13);
-            this.label1.TabIndex = 20;
-            this.label1.Text = "Quilometragem atual:";
-            // 
             // seletorTaxasEServicosControl1
             // 
-            this.seletorTaxasEServicosControl1.Location = new System.Drawing.Point(16, 233);
+            this.seletorTaxasEServicosControl1.Location = new System.Drawing.Point(16, 208);
             this.seletorTaxasEServicosControl1.Name = "seletorTaxasEServicosControl1";
             this.seletorTaxasEServicosControl1.Size = new System.Drawing.Size(288, 48);
             this.seletorTaxasEServicosControl1.TabIndex = 8;
@@ -234,10 +215,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(340, 340);
+            this.ClientSize = new System.Drawing.Size(340, 315);
             this.Controls.Add(this.seletorTaxasEServicosControl1);
-            this.Controls.Add(this.txtKmAtual);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGravar);
             this.Controls.Add(this.txtId);
@@ -286,8 +265,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Button btnGravar;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.TextBox txtKmAtual;
-        private System.Windows.Forms.Label label1;
         private TaxasEServicos.SeletorTaxasEServicosControl seletorTaxasEServicosControl1;
     }
 }

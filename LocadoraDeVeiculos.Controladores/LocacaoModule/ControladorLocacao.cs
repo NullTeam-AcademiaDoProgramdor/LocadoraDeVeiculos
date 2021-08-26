@@ -41,7 +41,7 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
                     [CAUCAO],       
                     [PLANOSELECIONADO],
                     [FUNCIONARIO],                
-                    [KMAUTOMOVELINICIAL],         
+                    [KMREGISTRADA],         
                     [KMAUTOMOVELFINAL],          
                     [PORCENTAGEMFINALCOMBUSTIVEL]
                 )
@@ -55,7 +55,7 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
                     @CAUCAO,       
                     @PLANOSELECIONADO,
                     @FUNCIONARIO,
-                    @KMAUTOMOVELINICIAL,
+                    @KMREGISTRADA,
                     @KMAUTOMOVELFINAL,
                     @PORCENTAGEMFINALCOMBUSTIVEL
                 )";
@@ -70,7 +70,7 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
                     [CAUCAO] = @CAUCAO,       
                     [PLANOSELECIONADO] = @PLANOSELECIONADO,     
                     [FUNCIONARIO] = @FUNCIONARIO,     
-                    [KMAUTOMOVELINICIAL] = @KMAUTOMOVELINICIAL,
+                    [KMREGISTRADA] = @KMREGISTRADA,
                     [KMAUTOMOVELFINAL] = @KMAUTOMOVELFINAL,
                     [PORCENTAGEMFINALCOMBUSTIVEL] = @PORCENTAGEMFINALCOMBUSTIVEL
 
@@ -91,7 +91,7 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
                     [CAUCAO],           
                     [PLANOSELECIONADO],
                     [FUNCIONARIO],                
-                    [KMAUTOMOVELINICIAL],         
+                    [KMREGISTRADA],         
                     [KMAUTOMOVELFINAL],          
                     [PORCENTAGEMFINALCOMBUSTIVEL]
             FROM
@@ -108,7 +108,7 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
                     [CAUCAO],        
                     [PLANOSELECIONADO],                 
                     [FUNCIONARIO],                
-                    [KMAUTOMOVELINICIAL],         
+                    [KMREGISTRADA],         
                     [KMAUTOMOVELFINAL],          
                     [PORCENTAGEMFINALCOMBUSTIVEL]
             FROM
@@ -208,11 +208,11 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
             var dataDevolucaoEsperada = Convert.ToDateTime(reader["DATADEVOLUCAOESPERADA"]);
             var caucao = Convert.ToInt32(reader["CAUCAO"]);
             var planoSelecionado = Convert.ToInt32(reader["PLANOSELECIONADO"]);
-            var kmInicial = Convert.ToInt32(reader["KMAUTOMOVELINICIAL"]);
+            var kmInicial = Convert.ToInt32(reader["KMREGISTRADA"]);
 
             Locacao locacao;
             if (reader["DATADEVOLUCAO"] == DBNull.Value)
-                locacao = new Locacao(condutor, automovel, funcionario, dataSaida, dataDevolucaoEsperada, caucao, kmInicial, planoSelecionado);
+                locacao = new Locacao(condutor, automovel, funcionario, dataSaida, dataDevolucaoEsperada, caucao, planoSelecionado);
 
             else
             {
@@ -245,9 +245,10 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
             parametros.Add("CAUCAO", locacao.Caucao);
             parametros.Add("PLANOSELECIONADO", locacao.PlanoSelecionado);
             parametros.Add("FUNCIONARIO", locacao.Funcionario.id);
-            parametros.Add("KMAUTOMOVELINICIAL", locacao.KmAutomovelIncial);
+            parametros.Add("KMREGISTRADA", locacao.KmAutomovelIncial);
             parametros.Add("KMAUTOMOVELFINAL", locacao.KmAutomovelFinal);
             parametros.Add("PORCENTAGEMFINALCOMBUSTIVEL", locacao.PorcentagemFinalCombustivel);
+           
 
             return parametros;
         }

@@ -52,8 +52,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             set
             {
                 locacao = value;
-                txtId.Text = locacao.Id.ToString();
-                txtKmAtual.Text = locacao.Automovel.KmRegistrada.ToString();
+                txtId.Text = locacao.Id.ToString();                
                 txtCaucao.Text = locacao.Caucao.ToString();
 
                 cmbAutomovel.Items.Add(Locacao.Automovel);
@@ -62,15 +61,13 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
                 cmbCondutor.SelectedItem = locacao.Condutor;
                 cmbPlano.SelectedIndex = locacao.PlanoSelecionado;
                 dtpdataSaida.Value = locacao.DataSaida;
-                dtpdataDevolucaoEsperada.Value = locacao.DataDevolucaoEsperada;
-                txtKmAtual.Text = locacao.KmAutomovelIncial.ToString();
+                dtpdataDevolucaoEsperada.Value = locacao.DataDevolucaoEsperada;                
                 seletorTaxasEServicosControl1.TaxasEServicosSelecionados = locacao.TaxasEServicos;
 
                 cmbCondutor.Enabled = false;
                 cmbAutomovel.Enabled = false;
                 cmbPlano.Enabled = false;
-                txtCaucao.Enabled = false;
-                txtKmAtual.Enabled = false;
+                txtCaucao.Enabled = false;               
             }
         }
 
@@ -107,14 +104,13 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             Funcionario funcionario = TelaPrincipalForm.Instancia.funcionarioConectado;
             DateTime dataSaida = dtpdataSaida.Value;
             DateTime dataDevolucaoEsperada = dtpdataDevolucaoEsperada.Value;
-            int caucao = 0;
-            int kmRegistrada = locacao.Automovel.KmRegistrada;
+            int caucao = 0;            
             VerificarValoresNumericos(ref caucao);
             int planoSelecionado = Convert.ToInt32(cmbPlano.SelectedIndex);
             var taxasEServicos = seletorTaxasEServicosControl1.TaxasEServicosSelecionados;
             //inserindo
 
-            locacao = new Locacao(condutor, automovel, funcionario, dataSaida, dataDevolucaoEsperada, caucao, kmRegistrada, planoSelecionado, taxasEServicos);
+            locacao = new Locacao(condutor, automovel, funcionario, dataSaida, dataDevolucaoEsperada, caucao, planoSelecionado, taxasEServicos);
 
             string resultadoValidacao = locacao.Validar();
 

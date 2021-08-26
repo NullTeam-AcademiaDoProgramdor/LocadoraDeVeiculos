@@ -32,7 +32,8 @@ namespace LocadoraDeVeiculos.Controladores.AutomovelModule
 		        [n_portas],
 		        [cambio],
 		        [direcao],
-		        [grupo]
+		        [grupo],
+                [kmRegistrada]
 	        )
 	        VALUES
 	        (
@@ -48,7 +49,8 @@ namespace LocadoraDeVeiculos.Controladores.AutomovelModule
 		        @n_portas,
 		        @cambio,
 		        @direcao,
-		        @grupo
+		        @grupo,
+                @kmRegistrada
 	        );";
 
         private const string sqlEditarAutomovel =
@@ -66,7 +68,8 @@ namespace LocadoraDeVeiculos.Controladores.AutomovelModule
 		        [n_portas] = @n_portas,
 		        [cambio] = @cambio,
 	            [direcao] = @direcao,
-		        [grupo] = @grupo
+		        [grupo] = @grupo,
+                [kmRegistrada] = @kmRegistrada
 
 	        WHERE [id] = @id;";
 
@@ -98,6 +101,7 @@ namespace LocadoraDeVeiculos.Controladores.AutomovelModule
 	            A.cambio,
 	            A.direcao,
 	            A.grupo,
+                A.kmRegistrada,
 
 	            G.nome,
 	            G.planoDIario_precoDIa,
@@ -128,6 +132,7 @@ namespace LocadoraDeVeiculos.Controladores.AutomovelModule
 	            A.cambio,
 	            A.direcao,
 	            A.grupo,
+                A.kmRegistrada,
 
 	            G.nome,
 	            G.planoDIario_precoDIa,
@@ -159,6 +164,7 @@ namespace LocadoraDeVeiculos.Controladores.AutomovelModule
 	            A.cambio,
 	            A.direcao,
 	            A.grupo,
+                A.kmRegistrada,
 
 	            G.nome,
 	            G.planoDIario_precoDIa,
@@ -332,6 +338,7 @@ namespace LocadoraDeVeiculos.Controladores.AutomovelModule
             parametros.Add("cambio", automovel.Cambio);
             parametros.Add("direcao", automovel.Direcao);
             parametros.Add("grupo", automovel.Grupo.Id);
+            parametros.Add("kmRegistrada", automovel.KmRegistrada);
 
             return parametros;
         }
