@@ -4,6 +4,7 @@ using LocadoraDeVeiculos.Controladores.Shared;
 using LocadoraDeVeiculos.Dominio.ParceiroModule;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Collections.Generic;
 
 namespace LocadoraDeVeiculos.Tests.ParceiroModule
 {
@@ -48,6 +49,45 @@ namespace LocadoraDeVeiculos.Tests.ParceiroModule
             //assert
             Parceiro parceiroEncontrada = controlador.SelecionarPorId(parceiro.Id);
             parceiroEncontrada.Should().Be(novoParceiro);
+        }
+
+        [TestMethod]
+        public void DeveExcluir_UmaPessoaJuridica()
+        {
+            //arrange            
+            Parceiro parceiro = new Parceiro("Matheus");
+            controlador.InserirNovo(parceiro);
+
+            //action            
+            controlador.Excluir(parceiro.Id);
+
+            //assert
+            Parceiro parceiroEncontrado = controlador.SelecionarPorId(parceiro.Id);
+            parceiroEncontrado.Should().BeNull();
+        }
+
+        [TestMethod]
+        public void DeveSelecionarTodos_Parceiros()
+        {
+            //arrange
+            var parceiros = new List<Parceiro>
+            {
+                new Parceiro("Matheus"),
+
+                new Parceiro("Biel"),
+
+                new Parceiro("Math")
+            };
+
+            foreach (var c in parceiros)
+                controlador.InserirNovo(c);
+
+
+            //action
+            var ParceirosEncotradas = controlador.SelecionarTodos();
+
+            //assert
+            ParceirosEncotradas.Should().HaveCount(3);
         }
     }
 }
