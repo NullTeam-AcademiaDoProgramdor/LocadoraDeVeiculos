@@ -49,6 +49,7 @@
     <Compile Include="GrupoAutomovelModule\ControladorGrupoAutomovel.cs" />
     <Compile Include="LocacaoModule\ControladorLocacao.cs" />
     <Compile Include="LocacaoModule\ControladorTaxasEServicosUsados.cs" />
+    <Compile Include="ParceiroModule\ControladorParceiro.cs" />
     <Compile Include="PessoaFisicaModule\ControladorPessoaFisica.cs" />
     <Compile Include="PessoaJuridicaModule\ControladorPessoaJuridica.cs" />
     <Compile Include="FuncionarioModule\ControladorFuncionario.cs" />
