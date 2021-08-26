@@ -120,11 +120,18 @@
       <DependentUpon>TelaLocacaoForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Features\Parceiros\ConfiguracaoParceiroToolBox.cs" />
+    <Compile Include="Features\Parceiros\OperacoesParceiro.cs" />
     <Compile Include="Features\Parceiros\TabelaParceiroControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Features\Parceiros\TabelaParceiroControl.Designer.cs">
       <DependentUpon>TabelaParceiroControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Parceiros\TelaParceiroForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Parceiros\TelaParceiroForm.Designer.cs">
+      <DependentUpon>TelaParceiroForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Features\PessoasFisicas\ConfiguracaoPessoaFisicaToolBox.cs" />
     <Compile Include="Features\PessoasFisicas\OperacoesPessoaFisica.cs" />
@@ -272,6 +279,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Features\Parceiros\TabelaParceiroControl.resx">
       <DependentUpon>TabelaParceiroControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Parceiros\TelaParceiroForm.resx">
+      <DependentUpon>TelaParceiroForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\PessoasFisicas\TabelaPessoaFisicaControl.resx">
       <DependentUpon>TabelaPessoaFisicaControl.cs</DependentUpon>

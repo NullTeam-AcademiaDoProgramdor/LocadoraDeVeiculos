@@ -1,0 +1,98 @@
+﻿using LocadoraDeVeiculos.Controladores.ParceiroModule;
+using LocadoraDeVeiculos.Dominio.ParceiroModule;
+using LocadoraDeVeiculos.WindowsApp.Shared;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
+{
+    public class OperacoesParceiro : ICadastravel
+    {
+
+        private readonly ControladorParceiro controlador = null;
+        private readonly TabelaParceiroControl tabelaParceiro = null;
+
+        public OperacoesParceiro(ControladorParceiro controlador)
+        {
+            this.controlador = controlador;
+            this.tabelaParceiro = new TabelaParceiroControl();
+        }
+
+        public void InserirNovoRegistro()
+        {
+            TelaParceiroForm tela = new TelaParceiroForm();
+
+            if (tela.ShowDialog() == DialogResult.OK)
+            {
+                controlador.InserirNovo(tela.Parceiro);
+
+                tabelaParceiro.AtualizarRegistros();
+
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Parceiro: [{tela.Parceiro.Nome}] inserido com sucesso");
+            }
+        }
+
+        public void EditarRegistro()
+        {
+            int id = tabelaParceiro.ObtemIdSelecionado();
+
+            if (id == 0)
+            {
+                MessageBox.Show("Selecione um Parceiro para poder editar!", "Edição de Parceiros",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            Parceiro parceiroEncontrado = controlador.SelecionarPorId(id);
+
+            TelaParceiroForm tela = new TelaParceiroForm();
+
+            tela.Parceiro = parceiroEncontrado;
+
+            if (tela.ShowDialog() == DialogResult.OK)
+            {
+                controlador.Editar(id, tela.Parceiro);
+
+                tabelaParceiro.AtualizarRegistros();
+
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Parceiro: [{tela.Parceiro.Nome}] editado com sucesso");
+            }
+        }
+
+        public void AgruparRegistros()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DesagruparRegistros()
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public void ExcluirRegistro()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ExibirInformacoesDetalhadas()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void FiltrarRegistros()
+        {
+            throw new NotImplementedException();
+        }
+
+       
+        public UserControl ObterTabela()
+        {
+            throw new NotImplementedException();
+        }
+    }
+}

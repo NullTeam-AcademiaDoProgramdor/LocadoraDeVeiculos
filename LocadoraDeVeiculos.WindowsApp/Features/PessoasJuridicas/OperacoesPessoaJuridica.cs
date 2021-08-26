@@ -41,7 +41,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasJuridicas
 
             if (id == 0)
             {
-                MessageBox.Show("Selecione uma pessoa jurídica para poder editar!", "Edição de Tarefas",
+                MessageBox.Show("Selecione uma pessoa jurídica para poder editar!", "Edição de Pessoas Jurídicas",
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
