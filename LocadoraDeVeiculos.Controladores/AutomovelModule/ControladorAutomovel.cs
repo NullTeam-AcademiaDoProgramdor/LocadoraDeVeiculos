@@ -260,6 +260,7 @@ namespace LocadoraDeVeiculos.Controladores.AutomovelModule
             var portas = Convert.ToInt32(reader["n_portas"]);
             var capacidadeTanque = Convert.ToInt32(reader["capacidadeTanque"]);
             var tamanhoPortaMalas = Convert.ToInt32(reader["capacidadePortaMalas"]);
+            var kmInicial = Convert.ToInt32(reader["kmRegistrada"]);
 
             var tipoCombustivel = Convert.ToInt32(reader["tipoCombustivel"]);
             var cambio = Convert.ToInt32(reader["cambio"]);
@@ -298,7 +299,7 @@ namespace LocadoraDeVeiculos.Controladores.AutomovelModule
             #endregion
 
             Automovel automovel = new Automovel(modelo, marca, cor, placa, chassi, ano, 
-                portas, capacidadeTanque, tamanhoPortaMalas, 
+                portas, capacidadeTanque, tamanhoPortaMalas, kmInicial,
                 (TipoCombustivelEnum)tipoCombustivel, (CambioEnum)cambio,
                 (DirecaoEnum)direcao, grupoAutomovel);
 

@@ -66,7 +66,7 @@ namespace LocadoraDeVeiculos.Dominio.AutomovelModule
         }
 
         public Automovel(string modelo, string marca, string cor, string placa, 
-            string chassi, int ano, int portas, int capacidadeTanque, 
+            string chassi, int ano, int portas, int capacidadeTanque, int kmRegistrada,
             int tamanhoPortaMalas, TipoCombustivelEnum tipoCombustivel,
             CambioEnum cambio, DirecaoEnum direcao, GrupoAutomovel grupo, 
             Image[] fotos)
@@ -79,6 +79,7 @@ namespace LocadoraDeVeiculos.Dominio.AutomovelModule
             Ano = ano;
             Portas = portas;
             CapacidadeTanque = capacidadeTanque;
+            KmRegistrada = kmRegistrada;
             TamanhoPortaMalas = tamanhoPortaMalas;
             TipoCombustivel = tipoCombustivel;
             Cambio = cambio;
