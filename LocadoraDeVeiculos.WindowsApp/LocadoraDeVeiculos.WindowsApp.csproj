@@ -119,6 +119,7 @@
     <Compile Include="Features\LocacaoModule\TelaLocacaoForm.Designer.cs">
       <DependentUpon>TelaLocacaoForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\Parceiros\ConfiguracaoParceiroToolBox.cs" />
     <Compile Include="Features\PessoasFisicas\ConfiguracaoPessoaFisicaToolBox.cs" />
     <Compile Include="Features\PessoasFisicas\OperacoesPessoaFisica.cs" />
     <Compile Include="Features\PessoasFisicas\TabelaPessoaFisicaControl.cs">
