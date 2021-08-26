@@ -35,6 +35,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
                 txtPortas.Text = automovel.Portas.ToString();
                 txtCapacidadeCombustivel.Text = automovel.CapacidadeTanque.ToString();
                 txtTamanhoPortaMalas.Text = automovel.TamanhoPortaMalas.ToString();
+                txtKm.Text = automovel.KmRegistrada.ToString();
 
                 imageGallery.AddImages(automovel.Fotos);
 
@@ -100,6 +101,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
             int? portas = PegarIntComVerificacao(txtPortas);
             int? capacidadeCombustivel = PegarIntComVerificacao(txtCapacidadeCombustivel);
             int? capacidadePortaMalas = PegarIntComVerificacao(txtTamanhoPortaMalas);
+            int? kmRegistrada = PegarIntComVerificacao(txtKm);
 
             if (ano == null)
                 return;
@@ -122,7 +124,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
 
             automovel = new Automovel(
                 modelo, marca, cor, placa, chassi, (int)ano, (int)portas,
-                (int)capacidadeCombustivel, (int)capacidadePortaMalas,
+                (int)capacidadeCombustivel, (int) kmRegistrada,(int)capacidadePortaMalas,
                 tipoCombustivel, cambio, direcao, grupo
             );
 
