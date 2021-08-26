@@ -46,7 +46,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             this.txtId = new System.Windows.Forms.TextBox();
             this.btnGravar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.txtKmInicial = new System.Windows.Forms.TextBox();
+            this.txtKmAtual = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.seletorTaxasEServicosControl1 = new LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos.SeletorTaxasEServicosControl();
             this.SuspendLayout();
@@ -204,12 +204,14 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             // 
-            // txtKmInicial
+            // txtKmAtual
             // 
-            this.txtKmInicial.Location = new System.Drawing.Point(120, 197);
-            this.txtKmInicial.Name = "txtKmInicial";
-            this.txtKmInicial.Size = new System.Drawing.Size(184, 20);
-            this.txtKmInicial.TabIndex = 7;
+            this.txtKmAtual.BackColor = System.Drawing.Color.LightGreen;
+            this.txtKmAtual.Enabled = false;
+            this.txtKmAtual.Location = new System.Drawing.Point(120, 197);
+            this.txtKmAtual.Name = "txtKmAtual";
+            this.txtKmAtual.Size = new System.Drawing.Size(184, 20);
+            this.txtKmAtual.TabIndex = 7;
             // 
             // label1
             // 
@@ -234,7 +236,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(340, 340);
             this.Controls.Add(this.seletorTaxasEServicosControl1);
-            this.Controls.Add(this.txtKmInicial);
+            this.Controls.Add(this.txtKmAtual);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGravar);
@@ -284,7 +286,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Button btnGravar;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.TextBox txtKmInicial;
+        private System.Windows.Forms.TextBox txtKmAtual;
         private System.Windows.Forms.Label label1;
         private TaxasEServicos.SeletorTaxasEServicosControl seletorTaxasEServicosControl1;
     }
