@@ -34,7 +34,7 @@ namespace LocadoraDeVeiculos.Tests.PessoaJuridicaModule
 
             //assert
             PessoaJuridica pessoaJuridicaEncontrada = controlador.SelecionarPorId(pessoaJuridica.Id);
-            pessoaJuridicaEncontrada.Should().Be(pessoaJuridicaEncontrada);
+            pessoaJuridicaEncontrada.Should().Be(pessoaJuridica);
         }
 
         [TestMethod]
