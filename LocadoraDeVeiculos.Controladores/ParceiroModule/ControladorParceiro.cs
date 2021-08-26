@@ -73,7 +73,15 @@ namespace LocadoraDeVeiculos.Controladores.ParceiroModule
         
         public override string Editar(int id, Parceiro registro)
         {
-            throw new NotImplementedException();
+            string resultadoValidacao = registro.Validar();
+
+            if (resultadoValidacao == "ESTA_VALIDO")
+            {
+                registro.Id = id;
+                Db.Update(sqlEditarParceiro, ObtemParametrosParceiro(registro));
+            }
+
+            return resultadoValidacao;
         }
 
         public override bool Excluir(int id)
