@@ -94,7 +94,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
             this.button1.Text = "Cancelar";
             this.button1.UseVisualStyleBackColor = false;
             // 
-            // TelaParceiro
+            // TelaParceiroForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -105,7 +105,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.label5);
-            this.Name = "TelaParceiro";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "TelaParceiroForm";
             this.Text = "TelaParceiro";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TelaParceiro_FormClosing);
             this.ResumeLayout(false);
