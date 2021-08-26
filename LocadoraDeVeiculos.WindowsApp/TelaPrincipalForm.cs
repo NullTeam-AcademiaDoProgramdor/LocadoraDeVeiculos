@@ -177,6 +177,11 @@ namespace LocadoraDeVeiculos.WindowsApp
             operacoes.DesagruparRegistros();
         }
 
+        private void btnExibirInformacoes_Click(object sender, EventArgs e)
+        {
+            operacoes.ExibirInformacoesDetalhadas();
+        }
+
         private void ConfigurarTooltips(ConfiguracoesTooltip configuracoes)
         {
             labelTipoCadastro.Text = configuracoes.TipoCadastro;
@@ -300,10 +305,6 @@ namespace LocadoraDeVeiculos.WindowsApp
 
        
 
-        private void btnExibirInformacoes_Click(object sender, EventArgs e)
-        {
-            operacoes.ExibirInformacoesDetalhadas();
-        }
 
         private void taxasEServiçosToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -331,6 +332,20 @@ namespace LocadoraDeVeiculos.WindowsApp
             AtualizarFuncionarioConectado(funcionarioConectado.Nome);
 
             operacoes = operacoesFuncionario;
+
+            ConfigurarPainelRegistros();
+        }
+        private void locaçõesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            configuracoes = new ConfiguracaoLocacaoToolBox();
+
+            ConfigurarTooltips(configuracoes.Tooltip);
+            ConfigurarBotoes(configuracoes.Botoes);
+
+            AtualizarRodape(configuracoes.Tooltip.TipoCadastro);
+            AtualizarFuncionarioConectado(funcionarioConectado.Nome);
+
+            operacoes = operacoesLocacao;
 
             ConfigurarPainelRegistros();
         }
@@ -367,20 +382,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             }
         }
 
-        private void locaçõesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            configuracoes = new ConfiguracaoLocacaoToolBox();
-
-            ConfigurarTooltips(configuracoes.Tooltip);
-            ConfigurarBotoes(configuracoes.Botoes);
-
-            AtualizarRodape(configuracoes.Tooltip.TipoCadastro);
-            AtualizarFuncionarioConectado(funcionarioConectado.Nome);
-
-            operacoes = operacoesLocacao;
-
-            ConfigurarPainelRegistros();
-        }
+        
 
         private void btnDevolverAutomovel_Click(object sender, EventArgs e)
         {
