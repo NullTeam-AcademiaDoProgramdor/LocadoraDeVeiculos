@@ -51,6 +51,7 @@
     <Compile Include="GrupoAutomovelModule\PlanoKmControladoStruct.cs" />
     <Compile Include="GrupoAutomovelModule\PlanoKmLivreStruct.cs" />
     <Compile Include="LocacaoModule\Locacao.cs" />
+    <Compile Include="ParceiroModule\Parceiro.cs" />
     <Compile Include="PessoaFisicaModule\PessoaFisica.cs" />
     <Compile Include="PessoaJuridicaModule\PessoaJuridica.cs" />
     <Compile Include="FuncionarioModule\Funcionario.cs" />
