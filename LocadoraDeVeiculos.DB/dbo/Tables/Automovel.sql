@@ -13,7 +13,7 @@
     [cambio]               VARCHAR (50) NOT NULL,
     [grupo]                INT          NOT NULL,
     [direcao]              VARCHAR (50) NOT NULL,
-    [kmRegistrada]         INT          NOT NULL, 
+    [kmRegistrada]         INT          NULL, 
     CONSTRAINT [PK_Automovel] PRIMARY KEY CLUSTERED ([id] ASC),
     CONSTRAINT [FK_Automovel_GrupoAutomoveis] FOREIGN KEY ([grupo]) REFERENCES [dbo].[GrupoAutomovel] ([id]) ON DELETE CASCADE
 );
