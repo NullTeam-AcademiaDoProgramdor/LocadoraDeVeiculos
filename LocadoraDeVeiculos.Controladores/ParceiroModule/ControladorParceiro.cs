@@ -2,6 +2,7 @@
 using LocadoraDeVeiculos.Dominio.ParceiroModule;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -48,7 +49,7 @@ namespace LocadoraDeVeiculos.Controladores.ParceiroModule
 	                FROM
                         PARCEIRO";
 
-        private const string sqlExisteParceiros =
+        private const string sqlExisteParceiro =
             @"SELECT 
                 COUNT(*) 
             FROM 
@@ -86,23 +87,34 @@ namespace LocadoraDeVeiculos.Controladores.ParceiroModule
 
         public override bool Excluir(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Db.Delete(sqlExcluirParceiro, AdicionarParametro("ID", id));
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
         }
 
         public override bool Existe(int id)
         {
-            throw new NotImplementedException();
+            return Db.Exists(sqlExisteParceiro, AdicionarParametro("ID", id));
         }
 
 
         public override Parceiro SelecionarPorId(int id)
         {
-            throw new NotImplementedException();
+            return Db.Get(sqlSelecionarParceiroPorId, ConverterEmParceiro, AdicionarParametro("ID", id));
         }
+
+        
 
         public override List<Parceiro> SelecionarTodos()
         {
-            throw new NotImplementedException();
+            return Db.GetAll(sqlSelecionarTodosParceiros, ConverterEmParceiro);
         }
 
 
@@ -114,6 +126,18 @@ namespace LocadoraDeVeiculos.Controladores.ParceiroModule
             parametros.Add("NOME", registro.Nome);
 
             return parametros;
+        }
+
+        private Parceiro ConverterEmParceiro(IDataReader reader)
+        {
+            int id = Convert.ToInt32(reader["ID"]);
+            string nome = Convert.ToString(reader["NOME"]);
+
+            Parceiro parceiro = new Parceiro(nome);
+
+            parceiro.Id = id;
+
+            return parceiro;
         }
     }
 }
