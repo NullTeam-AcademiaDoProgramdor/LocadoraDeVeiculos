@@ -15,7 +15,7 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
     public class Locacao : EntidadeBase, IEquatable<Locacao>
     {
         public Locacao(PessoaFisica condutor, Automovel automovel, Funcionario funcionario, DateTime dataSaida,
-            DateTime dataDevolucaoEsperada, int caucao, int kmAutomovelIncial, int planoSelecionado, Cupom cupom = null, TaxaEServico[] taxaEServicos = null)
+            DateTime dataDevolucaoEsperada, int caucao, int kmAutomovelIncial, int planoSelecionado, TaxaEServico[] taxaEServicos = null, Cupom cupom = null)
         {
             this.Condutor = condutor;
             this.Automovel = automovel;
@@ -39,7 +39,7 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
 
         public Locacao(PessoaFisica condutor, Automovel automovel, Funcionario funcionario, DateTime dataSaida,
             DateTime dataDevolucaoEsperada, int caucao, int kmAutomovelIncial, int planoSelecionado, 
-             int kmAutomovelFinal, int porcentagemFinalCombustivel, DateTime dataDevolucao, Cupom cupom = null, TaxaEServico[] taxasEServicos = null)
+             int kmAutomovelFinal, int porcentagemFinalCombustivel, DateTime dataDevolucao, TaxaEServico[] taxasEServicos = null, Cupom cupom = null)
         {
             Condutor = condutor;
             Automovel = automovel;
