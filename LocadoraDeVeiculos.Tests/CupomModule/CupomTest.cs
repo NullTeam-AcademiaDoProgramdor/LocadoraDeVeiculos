@@ -44,5 +44,15 @@ namespace LocadoraDeVeiculos.Tests.CupomModule
 
             resultadoValidacao.Should().Be("Selecione um parceiro");
         }
+
+        [TestMethod]
+        public void DeveValidarTipo()
+        {
+            Cupom cupom = new Cupom("DezOff", parceiro, null, 10, 1000, DateTime.Today);
+
+            string resultadoValidacao = cupom.Validar();
+
+            resultadoValidacao.Should().Be("O campo tipo não pode estar vazio");
+        }
     }
 }
