@@ -24,12 +24,18 @@ namespace LocadoraDeVeiculos.Dominio.ParceiroModule
         public bool Equals(Parceiro other)
         {
             return other != null &&
+                   id == other.id &&
+                   Id == other.Id &&
                    Nome == other.Nome;
         }
 
         public override int GetHashCode()
         {
-            return 285249808 + EqualityComparer<string>.Default.GetHashCode(Nome);
+            int hashCode = -403323792;
+            hashCode = hashCode * -1521134295 + id.GetHashCode();
+            hashCode = hashCode * -1521134295 + Id.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Nome);
+            return hashCode;
         }
 
         public override string ToString()

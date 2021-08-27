@@ -59,6 +59,8 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.panelRegistros = new System.Windows.Forms.Panel();
             this.statusStrip2 = new System.Windows.Forms.StatusStrip();
             this.labelFuncionarioConectado = new System.Windows.Forms.ToolStripStatusLabel();
+            this.cuponsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.parceirosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolboxAcoes.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -73,10 +75,11 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.PessoasToolStripMenuItem,
             this.AutomoveisToolStripMenuItem,
             this.menuItemTaxasEServicos,
-            this.configuraçõesToolStripMenuItem});
+            this.configuraçõesToolStripMenuItem,
+            this.cuponsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(617, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(682, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -186,7 +189,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.labelTipoCadastro});
             this.toolboxAcoes.Location = new System.Drawing.Point(0, 24);
             this.toolboxAcoes.Name = "toolboxAcoes";
-            this.toolboxAcoes.Size = new System.Drawing.Size(617, 41);
+            this.toolboxAcoes.Size = new System.Drawing.Size(682, 41);
             this.toolboxAcoes.TabIndex = 3;
             this.toolboxAcoes.Text = "toolStrip1";
             // 
@@ -327,7 +330,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.labelRodape});
             this.statusStrip1.Location = new System.Drawing.Point(0, 449);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(617, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(682, 22);
             this.statusStrip1.TabIndex = 4;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -344,7 +347,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelRegistros.Location = new System.Drawing.Point(12, 90);
             this.panelRegistros.Name = "panelRegistros";
-            this.panelRegistros.Size = new System.Drawing.Size(593, 356);
+            this.panelRegistros.Size = new System.Drawing.Size(658, 356);
             this.panelRegistros.TabIndex = 5;
             this.panelRegistros.Click += new System.EventHandler(this.panelRegistros_Click);
             this.panelRegistros.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.panelRegistros_ControlAdded);
@@ -356,7 +359,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.labelFuncionarioConectado});
             this.statusStrip2.Location = new System.Drawing.Point(0, 65);
             this.statusStrip2.Name = "statusStrip2";
-            this.statusStrip2.Size = new System.Drawing.Size(617, 22);
+            this.statusStrip2.Size = new System.Drawing.Size(682, 22);
             this.statusStrip2.TabIndex = 6;
             this.statusStrip2.Text = "statusStrip2";
             // 
@@ -366,11 +369,26 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.labelFuncionarioConectado.Size = new System.Drawing.Size(108, 17);
             this.labelFuncionarioConectado.Text = "Usuário Conectado";
             // 
+            // cuponsToolStripMenuItem
+            // 
+            this.cuponsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.parceirosToolStripMenuItem});
+            this.cuponsToolStripMenuItem.Name = "cuponsToolStripMenuItem";
+            this.cuponsToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.cuponsToolStripMenuItem.Text = "Cupons";
+            // 
+            // parceirosToolStripMenuItem
+            // 
+            this.parceirosToolStripMenuItem.Name = "parceirosToolStripMenuItem";
+            this.parceirosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.parceirosToolStripMenuItem.Text = "Parceiros";
+            this.parceirosToolStripMenuItem.Click += new System.EventHandler(this.parceirosToolStripMenuItem_Click);
+            // 
             // TelaPrincipalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(617, 471);
+            this.ClientSize = new System.Drawing.Size(682, 471);
             this.Controls.Add(this.statusStrip2);
             this.Controls.Add(this.panelRegistros);
             this.Controls.Add(this.statusStrip1);
@@ -425,6 +443,8 @@ namespace LocadoraDeVeiculos.WindowsApp
         private System.Windows.Forms.ToolStripMenuItem funcionáriosToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton btnDevolverAutomovel;
         private System.Windows.Forms.ToolStripMenuItem locaçõesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cuponsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem parceirosToolStripMenuItem;
     }
 }
 

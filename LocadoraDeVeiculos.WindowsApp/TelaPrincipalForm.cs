@@ -25,6 +25,8 @@ using LocadoraDeVeiculos.WindowsApp.Features.Automoveis;
 using LocadoraDeVeiculos.Controladores.AutomovelModule;
 using LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule;
 using LocadoraDeVeiculos.Controladores.LocacaoModule;
+using LocadoraDeVeiculos.WindowsApp.Features.Parceiros;
+using LocadoraDeVeiculos.Controladores.ParceiroModule;
 
 namespace LocadoraDeVeiculos.WindowsApp
 {
@@ -47,6 +49,7 @@ namespace LocadoraDeVeiculos.WindowsApp
         private OperacoesConfiguracoes operacoesConfiguracoes;
         private OperacoesPessoaFisica operacoesPessoaFisica;
         private OperacoesLocacao operacoesLocacao;
+        private OperacoesParceiro operacoesParceiro;
 
         private OperacoesAutomovel operacoesAutomovel;
 
@@ -112,6 +115,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             operacoesPessoaFisica = new OperacoesPessoaFisica(new ControladorPessoaFisica());
             operacoesConfiguracoes = new OperacoesConfiguracoes();
             operacoesLocacao = new OperacoesLocacao(new ControladorLocacao());
+            operacoesParceiro = new OperacoesParceiro(new ControladorParceiro());
 
             operacoesAutomovel = new OperacoesAutomovel(new ControladorAutomovel(), new ControladorGrupoAutomovel());
 
@@ -350,6 +354,21 @@ namespace LocadoraDeVeiculos.WindowsApp
             ConfigurarPainelRegistros();
         }
 
+        private void parceirosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            configuracoes = new ConfiguracaoParceiroToolBox();
+
+            ConfigurarTooltips(configuracoes.Tooltip);
+            ConfigurarBotoes(configuracoes.Botoes);
+
+            AtualizarRodape(configuracoes.Tooltip.TipoCadastro);
+            AtualizarFuncionarioConectado(funcionarioConectado.Nome);
+
+            operacoes = operacoesParceiro;
+
+            ConfigurarPainelRegistros();
+        }
+
         public void panelRegistros_Click(object sender, EventArgs e)
         {
             if (panelRegistros.Controls.Count == 0)
@@ -393,5 +412,7 @@ namespace LocadoraDeVeiculos.WindowsApp
         {
             panelRegistros_Click(sender, e);
         }
+
+        
     }
 }

@@ -68,6 +68,8 @@
     <Compile Include="LocacaoModule\LocacaoTest.cs" />
     <Compile Include="LocacaoModule\ControladorLocacaoTest.cs" />
     <Compile Include="LocacaoModule\ControladorTaxaEServicoUsadoTest.cs" />
+    <Compile Include="ParceiroModule\ParceiroTest.cs" />
+    <Compile Include="ParceiroModule\ControladorParceiroTest.cs" />
     <Compile Include="PessoaFisicaModule\PessoaFisicaTest.cs" />
     <Compile Include="PessoaFisicaModule\ControladorPessoaFisicaTest.cs" />
     <Compile Include="PessoaJuridicaModule\ControladorPessoaJuridicaTest.cs" />
