@@ -179,9 +179,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                controlador.EditarKmRegistrada(locacaoSelecionada);
-
                 controlador.Devolver(id, tela.Locacao);                
+
+                controlador.EditarKmRegistrada(tela.Locacao);
 
                 tabelaLocacao.AtualizarRegistros(controlador.SelecionarTodos());
 
