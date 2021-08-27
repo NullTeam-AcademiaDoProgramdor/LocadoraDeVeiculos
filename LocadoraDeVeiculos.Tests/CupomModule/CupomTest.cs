@@ -1,4 +1,7 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using FluentAssertions;
+using LocadoraDeVeiculos.Dominio.CupomModule;
+using LocadoraDeVeiculos.Dominio.ParceiroModule;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
 namespace LocadoraDeVeiculos.Tests.CupomModule
@@ -6,9 +9,20 @@ namespace LocadoraDeVeiculos.Tests.CupomModule
     [TestClass]
     public class CupomTest
     {
-        [TestMethod]
-        public void TestMethod1()
+        private Parceiro parceiro;
+        public CupomTest()
         {
+            parceiro = new Parceiro("Pedro");
+        }
+
+        [TestMethod]
+        public void DeveRetornarCupomValido()
+        {
+            Cupom cupom = new Cupom("DezOff", parceiro, "Porcentagem", 10, 1000, DateTime.Today);
+
+            string resultadoValidacao = cupom.Validar();
+
+            resultadoValidacao.Should().Be("ESTA_VALIDO");
         }
     }
 }
