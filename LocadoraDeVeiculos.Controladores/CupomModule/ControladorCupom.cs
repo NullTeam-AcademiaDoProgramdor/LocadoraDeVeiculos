@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Controladores.CupomModule
 {
-    class ControladorCupom : Controlador<Cupom>
+    public class ControladorCupom : Controlador<Cupom>
     {
         #region Queries
         private const string sqlInserirCupom =

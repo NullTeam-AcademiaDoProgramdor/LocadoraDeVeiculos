@@ -1,4 +1,5 @@
 ﻿using LocadoraDeVeiculos.Controladores.AutomovelModule;
+using LocadoraDeVeiculos.Controladores.CupomModule;
 using LocadoraDeVeiculos.Controladores.LocacaoModule;
 using LocadoraDeVeiculos.Controladores.PessoaFisicaModule;
 using LocadoraDeVeiculos.Controladores.TaxasEServicosModule;
@@ -27,6 +28,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
         private ControladorAutomovel controladorAutomovel;
         private ControladorPessoaFisica controladorPessoaFisica;
         private ControladorTaxasEServicos controladorTaxasEServicos;
+        private ControladorCupom controladorCupom;
+
         public TelaLocacaoForm()
         {
             controladorAutomovel = new ControladorAutomovel();
@@ -64,7 +67,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
                 dtpdataDevolucaoEsperada.Value = locacao.DataDevolucaoEsperada;
                 txtKmInicial.Text = locacao.KmAutomovelIncial.ToString();
                 seletorTaxasEServicosControl1.TaxasEServicosSelecionados = locacao.TaxasEServicos;
+                txtCupom.Text = locacao.Cupom.ToString();
 
+                txtCupom.Enabled = false;
                 cmbCondutor.Enabled = false;
                 cmbAutomovel.Enabled = false;
                 cmbPlano.Enabled = false;
@@ -111,9 +116,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             VerificarValoresNumericos(ref kmInicial, ref caucao);
             int planoSelecionado = Convert.ToInt32(cmbPlano.SelectedIndex);
             var taxasEServicos = seletorTaxasEServicosControl1.TaxasEServicosSelecionados;
+            var cupom = controladorCupom.SelecionarPorCodigo(txtCupom.Text);
             //inserindo
 
-            locacao = new Locacao(condutor, automovel, funcionario, dataSaida, dataDevolucaoEsperada, caucao, kmInicial, planoSelecionado, taxasEServicos);
+            locacao = new Locacao(condutor, automovel, funcionario, dataSaida, dataDevolucaoEsperada, caucao, kmInicial, planoSelecionado, taxasEServicos, cupom);
 
             string resultadoValidacao = locacao.Validar();
 
