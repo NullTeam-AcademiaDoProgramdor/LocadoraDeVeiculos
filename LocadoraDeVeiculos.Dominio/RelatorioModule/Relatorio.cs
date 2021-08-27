@@ -57,7 +57,7 @@ namespace LocadoraDeVeiculos.Dominio.RelatorioModule
             {
                 if (LocacaoEstaDevolvida())
                 {
-                    return locacao.KmAutomovelFinal - locacao.KmAutomovelIncial;
+                    return locacao.KmAutomovelFinal - locacao.Automovel.KmRegistrada;
                 }
                 else
                 {
