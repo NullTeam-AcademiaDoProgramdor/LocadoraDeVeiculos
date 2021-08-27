@@ -12,6 +12,7 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
 {
     class ControladorCupom : Controlador<Cupom>
     {
+        #region Queries
         private const string sqlInserirCupom =
             @"INSERT INTO CUPOM 
 	                (         
@@ -89,6 +90,7 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
                         [QTDUSOS]
 	                FROM
                         CUPOM";
+#endregion
 
         public override string InserirNovo(Cupom cupom)
         {
