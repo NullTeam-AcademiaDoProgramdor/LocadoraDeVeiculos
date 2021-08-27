@@ -191,8 +191,9 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
             var valor = Convert.ToDouble(reader["VALOR"]);
             var valorMinimo = Convert.ToDouble(reader["VALORMINIMO"]);
             var dataVencimento = Convert.ToDateTime(reader["DATAVENCIMENTO"]);
+            var qtdUsos = Convert.ToInt32(reader["QTDUSOS"]);
 
-            Cupom cupom = new Cupom(codigo, parceiro, tipo, valor, valorMinimo, dataVencimento);
+            Cupom cupom = new Cupom(codigo, parceiro, tipo, valor, valorMinimo, dataVencimento, qtdUsos);
 
             cupom.Id = id;
 

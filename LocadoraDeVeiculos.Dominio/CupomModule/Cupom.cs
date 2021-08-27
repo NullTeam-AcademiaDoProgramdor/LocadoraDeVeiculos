@@ -10,7 +10,7 @@ namespace LocadoraDeVeiculos.Dominio.CupomModule
 {
     public class Cupom : EntidadeBase, IEquatable<Cupom>
     {
-        public Cupom(string codigo, Parceiro parceiro, string tipo, double valor, double valorMinimo, DateTime dataVencimento)
+        public Cupom(string codigo, Parceiro parceiro, string tipo, double valor, double valorMinimo, DateTime dataVencimento, int qtdUsos)
         {
             Codigo = codigo;
             Parceiro = parceiro;
@@ -18,8 +18,9 @@ namespace LocadoraDeVeiculos.Dominio.CupomModule
             Valor = valor;
             ValorMinimo = valorMinimo;
             DataVencimento = dataVencimento;
+            QtdUsos = qtdUsos;
         }
-        
+
         public string Codigo { get; }
         public Parceiro Parceiro { get; }
         public string Tipo { get; }

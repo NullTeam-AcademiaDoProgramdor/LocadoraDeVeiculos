@@ -18,7 +18,7 @@ namespace LocadoraDeVeiculos.Tests.CupomModule
         [TestMethod]
         public void DeveRetornarCupomValido()
         {
-            Cupom cupom = new Cupom("DezOff", parceiro, "Porcentagem", 10, 1000, DateTime.Today);
+            Cupom cupom = new Cupom("DezOff", parceiro, "Porcentagem", 10, 1000, DateTime.Today, 1);
 
             string resultadoValidacao = cupom.Validar();
 
@@ -28,7 +28,7 @@ namespace LocadoraDeVeiculos.Tests.CupomModule
         [TestMethod]
         public void DeveValidarCodigo()
         {
-            Cupom cupom = new Cupom(null, parceiro, "Porcentagem", 10, 1000, DateTime.Today);
+            Cupom cupom = new Cupom(null, parceiro, "Porcentagem", 10, 1000, DateTime.Today, 1);
 
             string resultadoValidacao = cupom.Validar();
 
@@ -38,7 +38,7 @@ namespace LocadoraDeVeiculos.Tests.CupomModule
         [TestMethod]
         public void DeveValidarParceiro()
         {
-            Cupom cupom = new Cupom("DezOff", null, "Porcentagem", 10, 1000, DateTime.Today);
+            Cupom cupom = new Cupom("DezOff", null, "Porcentagem", 10, 1000, DateTime.Today, 1);
 
             string resultadoValidacao = cupom.Validar();
 
@@ -48,7 +48,7 @@ namespace LocadoraDeVeiculos.Tests.CupomModule
         [TestMethod]
         public void DeveValidarTipo()
         {
-            Cupom cupom = new Cupom("DezOff", parceiro, null, 10, 1000, DateTime.Today);
+            Cupom cupom = new Cupom("DezOff", parceiro, null, 10, 1000, DateTime.Today, 1);
 
             string resultadoValidacao = cupom.Validar();
 
@@ -58,7 +58,7 @@ namespace LocadoraDeVeiculos.Tests.CupomModule
         [TestMethod]
         public void DeveValidarValor()
         {
-            Cupom cupom = new Cupom("DezOff", parceiro, "porcentagem", 0, 1000, DateTime.Today);
+            Cupom cupom = new Cupom("DezOff", parceiro, "porcentagem", 0, 1000, DateTime.Today, 1);
 
             string resultadoValidacao = cupom.Validar();
 
@@ -68,7 +68,7 @@ namespace LocadoraDeVeiculos.Tests.CupomModule
         [TestMethod]
         public void DeveValidarValorMinimo()
         {
-            Cupom cupom = new Cupom("DezOff", parceiro, "porcentagem", 10, 0, DateTime.Today);
+            Cupom cupom = new Cupom("DezOff", parceiro, "porcentagem", 10, 0, DateTime.Today, 1);
 
             string resultadoValidacao = cupom.Validar();
 
@@ -78,7 +78,7 @@ namespace LocadoraDeVeiculos.Tests.CupomModule
         [TestMethod]
         public void DeveValidarDataVencimento()
         {
-            Cupom cupom = new Cupom("DezOff", parceiro, "porcentagem", 10, 1000, DateTime.Today.AddDays(-1));
+            Cupom cupom = new Cupom("DezOff", parceiro, "porcentagem", 10, 1000, DateTime.Today.AddDays(-1), 1);
 
             string resultadoValidacao = cupom.Validar();
 
@@ -88,7 +88,7 @@ namespace LocadoraDeVeiculos.Tests.CupomModule
         [TestMethod]
         public void DeveValidarTodosCampos()
         {
-            Cupom cupom = new Cupom(null, null, null, 0, 0, DateTime.Today.AddDays(-1));
+            Cupom cupom = new Cupom(null, null, null, 0, 0, DateTime.Today.AddDays(-1), 1);
 
             string resultadoValidacao = cupom.Validar();
 
