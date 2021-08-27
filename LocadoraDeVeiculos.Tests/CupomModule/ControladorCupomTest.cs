@@ -68,5 +68,17 @@ namespace LocadoraDeVeiculos.Tests.CupomModule
             Cupom cupomEncontrado = controlador.SelecionarPorId(cupom.Id);
             cupomEncontrado.Should().BeNull();
         }
+
+        [TestMethod]
+        public void DeveSelecionarCupomPorId()
+        {
+            var cupom = new Cupom("DezOff", parceiro, "Porcentagem", 10, 1000, DateTime.Today, 1);
+            controladorParceiro.InserirNovo(parceiro);
+            controlador.InserirNovo(cupom);
+
+            Cupom cupomEncontrado = controlador.SelecionarPorId(cupom.Id);
+
+            cupomEncontrado.Should().Be(cupom);
+        }
     }
 }

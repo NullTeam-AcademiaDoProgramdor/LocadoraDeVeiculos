@@ -57,7 +57,7 @@ namespace LocadoraDeVeiculos.Tests.ParceiroModule
         }
 
         [TestMethod]
-        public void DeveExcluir_UmaPessoaJuridica()
+        public void DeveExcluir_UmParceiro()
         {
             //arrange            
             Parceiro parceiro = new Parceiro("Matheus");
