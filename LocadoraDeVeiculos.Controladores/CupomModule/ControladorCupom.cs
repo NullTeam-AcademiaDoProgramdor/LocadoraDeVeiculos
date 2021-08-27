@@ -136,7 +136,7 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
 
         public override Cupom SelecionarPorId(int id)
         {
-            throw new NotImplementedException();
+            return Db.Get(sqlSelecionarCupomPorId, ConverterEmCupom, AdicionarParametro("ID", id));
         }
 
         public override List<Cupom> SelecionarTodos()
