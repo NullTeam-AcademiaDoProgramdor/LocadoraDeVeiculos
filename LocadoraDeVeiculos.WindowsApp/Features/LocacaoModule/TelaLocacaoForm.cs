@@ -117,8 +117,15 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             int planoSelecionado = Convert.ToInt32(cmbPlano.SelectedIndex);
             var taxasEServicos = seletorTaxasEServicosControl1.TaxasEServicosSelecionados;
             var cupom = controladorCupom.SelecionarPorCodigo(txtCupom.Text);
+
             //inserindo
 
+            if(cupom != null && cupom.DataVencimento.CompareTo(DateTime.Now) < 0)
+            {
+                TelaPrincipalForm.Instancia.AtualizarRodape("Cupom com data inválida");
+                return;
+            }
+                
             locacao = new Locacao(condutor, automovel, funcionario, dataSaida, dataDevolucaoEsperada, caucao, kmInicial, planoSelecionado, taxasEServicos, cupom);
 
             string resultadoValidacao = locacao.Validar();
