@@ -3,6 +3,7 @@ using LocadoraDeVeiculos.Controladores.FuncionarioModule;
 using LocadoraDeVeiculos.Controladores.PessoaFisicaModule;
 using LocadoraDeVeiculos.Controladores.Shared;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
+using LocadoraDeVeiculos.Dominio.AutomovelModule;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -179,6 +180,20 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
             }
 
             return true;
+        }
+
+        public string EditarKmRegistrada(Locacao locacao)
+        {
+            string resultadoValidacao = locacao.Validar();
+
+            if(resultadoValidacao == "ESTA_VALIDO")
+            {
+                locacao.Automovel.KmRegistrada = (int)locacao.KmAutomovelFinal;
+
+                controladorAutomovel.EditarKmRegistrada(locacao.Automovel.id, locacao.Automovel);
+            }
+
+            return resultadoValidacao;
         }
 
         public override bool Existe(int id)

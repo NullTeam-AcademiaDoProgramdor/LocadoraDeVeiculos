@@ -31,7 +31,7 @@ namespace LocadoraDeVeiculos.Dominio.AutomovelModule
 
         public int TamanhoPortaMalas { get; }
 
-        public int KmRegistrada { get; }
+        public int KmRegistrada { get; set; }
 
         public TipoCombustivelEnum TipoCombustivel { get; }
 
@@ -88,16 +88,10 @@ namespace LocadoraDeVeiculos.Dominio.AutomovelModule
             Fotos = fotos;
         }
 
-        
-
         //public override string ToString()
         //{
         //    return Modelo;
         //}
-
-       
-
-       
 
         public override string Validar()
         {

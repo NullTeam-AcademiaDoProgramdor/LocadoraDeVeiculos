@@ -109,6 +109,25 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
             locacaoEncontrada.Should().Be(novaLocacao);
         }
 
+        [TestMethod]
+        public void DeveEditar_KmRegistrada()
+        {
+            Locacao locacao = new Locacao(condutor, automovel, funcionario
+                , DateTime.Today, DateTime.Today.AddDays(1), 1000, 50000);
+            controladorLocacao.InserirNovo(locacao);
+
+            Locacao novaLocacao = new Locacao(condutor, automovel, funcionario
+                , DateTime.Today, DateTime.Today.AddDays(1), 1000, 50000, 1, 100, 10, DateTime.Today.AddDays(1));
+
+            controladorLocacao.Devolver(locacao.id, novaLocacao);  
+
+            controladorLocacao.EditarKmRegistrada(novaLocacao);           
+
+            Automovel automovelEncontrado = ctrlAutomovel.SelecionarPorId(automovel.id);          
+
+            automovelEncontrado.KmRegistrada.Should().Be(100);
+        }
+
 
         [TestMethod]
         public void DeveSelecionar_Locacao_PorId()

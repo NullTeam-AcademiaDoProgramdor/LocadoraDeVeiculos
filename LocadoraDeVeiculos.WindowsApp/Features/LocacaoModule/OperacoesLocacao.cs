@@ -173,14 +173,15 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
 
             Locacao locacaoSelecionada = controlador.SelecionarPorId(id);
 
-
             TelaDevolucaoForm tela = new TelaDevolucaoForm();
 
             tela.Locacao = locacaoSelecionada;
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                controlador.Devolver(id, tela.Locacao);
+                controlador.EditarKmRegistrada(locacaoSelecionada);
+
+                controlador.Devolver(id, tela.Locacao);                
 
                 tabelaLocacao.AtualizarRegistros(controlador.SelecionarTodos());
 

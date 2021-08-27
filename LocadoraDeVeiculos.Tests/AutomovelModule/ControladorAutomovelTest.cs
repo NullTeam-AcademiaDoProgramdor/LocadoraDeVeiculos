@@ -136,6 +136,28 @@ namespace LocadoraDeVeiculos.Tests.AutomovelModule
             automoveis.Should().HaveCount(4);
         }
 
+        [TestMethod]
+        public void DeveEditar_KmRegistrada()
+        {
+            GrupoAutomovel grupo = CriarGrupo();
+            Automovel automovel =
+                new Automovel("Gol", "Ford", "Branco", "ABCD123", "12YG2J31G23H123",
+                2020, 4, 100, 0, 30, TipoCombustivelEnum.Gasolina, CambioEnum.Manual,
+                DirecaoEnum.Mecanica, grupo);
+
+            controlador.InserirNovo(automovel);
+
+            Automovel novoAutomovel =
+                new Automovel("Gol", "Ford", "Branco", "ABCD123", "12YG2J31G23H123",
+                2020, 4, 100, 150, 30, TipoCombustivelEnum.Gasolina, CambioEnum.Manual,
+                DirecaoEnum.Mecanica, grupo);
+
+            controlador.EditarKmRegistrada(automovel.id, novoAutomovel);
+
+            Automovel automovelEditado = controlador.SelecionarPorId(automovel.id);
+            automovelEditado.Should().Be(novoAutomovel);
+        }
+
         private GrupoAutomovel CriarGrupo()
         {
             GrupoAutomovel novoGrupo = new GrupoAutomovel(
