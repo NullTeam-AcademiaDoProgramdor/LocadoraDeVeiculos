@@ -96,15 +96,23 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
 
             if (resultadoValidacao == "ESTA_VALIDO")
             {
-                cupom.Id = Db.Insert(sqlInserirCupom, ObtemParametrosFuncionario(cupom));
+                cupom.Id = Db.Insert(sqlInserirCupom, ObtemParametrosCupom(cupom));
             }
 
             return resultadoValidacao;
         }
 
-        public override string Editar(int id, Cupom registro)
+        public override string Editar(int id, Cupom cupom)
         {
-            throw new NotImplementedException();
+            string resultadoValidacao = cupom.Validar();
+
+            if (resultadoValidacao == "ESTA_VALIDO")
+            {
+                cupom.Id = id;
+                Db.Update(sqlEditarCupom, ObtemParametrosCupom(cupom));
+            }
+
+            return resultadoValidacao;
         }
 
         public override bool Excluir(int id)
@@ -127,7 +135,7 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
             throw new NotImplementedException();
         }
 
-        private Dictionary<string, object> ObtemParametrosFuncionario(Cupom cupom)
+        private Dictionary<string, object> ObtemParametrosCupom(Cupom cupom)
         {
             var parametros = new Dictionary<string, object>();
 
