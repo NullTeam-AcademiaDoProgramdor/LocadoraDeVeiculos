@@ -110,7 +110,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
             this.MinimizeBox = false;
             this.Name = "TelaParceiroForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "TelaParceiro";
+            this.Text = "Cadastro de Parceiros";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TelaParceiro_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
