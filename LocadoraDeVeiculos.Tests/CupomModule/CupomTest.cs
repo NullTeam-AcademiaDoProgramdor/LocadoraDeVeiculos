@@ -84,5 +84,26 @@ namespace LocadoraDeVeiculos.Tests.CupomModule
 
             resultadoValidacao.Should().Be("A data de vencimento não pode ser no passado");
         }
+
+        [TestMethod]
+        public void DeveValidarTodosCampos()
+        {
+            Cupom cupom = new Cupom(null, null, null, 0, 0, DateTime.Today.AddDays(-1));
+
+            string resultadoValidacao = cupom.Validar();
+
+            resultadoValidacao.Should().Be(
+            "O campo código não pode estar vazio" +
+            Environment.NewLine +
+            "O campo tipo não pode estar vazio" +
+            Environment.NewLine +
+            "O valor não pode ser igual ou menor que zero" +
+            Environment.NewLine +
+            "O valor mínimo não pode ser igual ou menor que zero" +
+            Environment.NewLine +
+            "A data de vencimento não pode ser no passado" +
+            Environment.NewLine +
+            "Selecione um parceiro");
+        }
     }
 }
