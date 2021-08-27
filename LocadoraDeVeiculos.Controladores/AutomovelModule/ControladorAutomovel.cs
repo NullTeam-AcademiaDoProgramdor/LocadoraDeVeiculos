@@ -227,7 +227,6 @@ namespace LocadoraDeVeiculos.Controladores.AutomovelModule
                 Db.Update(sqlEditarKmAutomovel, ObtemParametrosAutomovel(registro));                
             }
 
-
             return resultadoValidacao;
         }
 
