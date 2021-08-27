@@ -7,7 +7,7 @@ using LocadoraDeVeiculos.Dominio.FuncionarioModule;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using LocadoraDeVeiculos.Dominio.PessoaFisicaModule;
 using LocadoraDeVeiculos.Dominio.TaxasEServicosModule;
-using LocadoraDeVeiculos.WindowsApp.Features.Relatorio;
+using LocadoraDeVeiculos.WindowsApp.Features.Relatorios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
