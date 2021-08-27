@@ -117,7 +117,16 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
 
         public override bool Excluir(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Db.Delete(sqlExcluirCupom, AdicionarParametro("ID", id));
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
         }
 
         public override bool Existe(int id)
