@@ -66,7 +66,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             int caucao = locacao.Caucao;
             int kmInicial = locacao.KmAutomovelIncial;
             int planoSelecionado = locacao.PlanoSelecionado;
-            int kmAutomovelFinal = 0;
+            int kmAutomovelFinal = Convert.ToInt32(txtKmAtual.Text);
             VerificarValoresNumericos(ref kmAutomovelFinal);
             int porcentagemFinalCombustivel = PegarPorcentagemFinal();
             DateTime dataDevolucao = DateTime.Today;
