@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Controladores.CupomModule
 {
-    class ControladorCupom : Controlador<Cupom>
+    public class ControladorCupom : Controlador<Cupom>
     {
         #region Queries
         private const string sqlInserirCupom =
@@ -39,7 +39,7 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
             @"UPDATE Cupom
                     SET
                         [CODIGO] = @CODIGO, 
-                        [PARCEIRO] =@PARCEIRO,
+                        [PARCEIRO] = @PARCEIRO,
                         [TIPO] = @TIPO,
                         [VALOR] = @VALOR,
                         [VALORMINIMO] = @VALORMINIMO,
@@ -65,31 +65,37 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
 
         private const string sqlSelecionarCupomPorId =
             @"SELECT
-                        [ID],
-                        [CODIGO],        
-                        [PARCEIRO],      
-                        [TIPO],          
-                        [VALOR],         
-                        [VALORMINIMO],  
-                        [DATAVENCIMENTO],
-                        [QTDUSOS]
+                        [C.ID],
+                        [C.CODIGO],        
+                        [C.PARCEIRO],      
+                        [C.TIPO],          
+                        [C.VALOR],         
+                        [C.VALORMINIMO],  
+                        [C.DATAVENCIMENTO],
+                        [C.QTDUSOS]
+
+                        [P.NOME]
                     FROM
-                        CUPOM
+	                    [CUPOM] as C LEFT JOIN
+	                    [PARCEIRO] AS P
                     WHERE 
                         ID = @ID";
 
         private const string sqlSelecionarCupomPorCodigo =
             @"SELECT
-                        [ID],
-                        [CODIGO],        
-                        [PARCEIRO],      
-                        [TIPO],          
-                        [VALOR],         
-                        [VALORMINIMO],  
-                        [DATAVENCIMENTO],
-                        [QTDUSOS]
-                    FROM
-                        CUPOM
+                        [C.ID],
+                        [C.CODIGO],        
+                        [C.PARCEIRO],      
+                        [C.TIPO],          
+                        [C.VALOR],         
+                        [C.VALORMINIMO],  
+                        [C.DATAVENCIMENTO],
+                        [C.QTDUSOS],
+
+                        [P.NOME]
+                     FROM
+	                    [CUPOM] as C LEFT JOIN
+	                    [PARCEIRO] AS P
                     WHERE 
                         CODIGO = @CODIGO";
 
@@ -172,7 +178,7 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
 
             parametros.Add("ID", cupom.Id);
             parametros.Add("CODIGO", cupom.Codigo);
-            parametros.Add("PARCEIRO", cupom.Parceiro);
+            parametros.Add("PARCEIRO", cupom.Parceiro.Id);
             parametros.Add("TIPO", cupom.Tipo);
             parametros.Add("VALOR", cupom.Valor);
             parametros.Add("VALORMINIMO", cupom.ValorMinimo);
