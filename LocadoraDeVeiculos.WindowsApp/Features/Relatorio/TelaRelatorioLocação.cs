@@ -66,7 +66,14 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
 
             double valorAbastecer = SetarValoresCombustivelFinal(locacao);
 
-            labelValorTotalAPagar.Text = "R$" + (valorPlano + valorTaxas + valorAbastecer);
+            if(locacao.Cupom == null)
+                labelValorTotalAPagar.Text = "R$" + (valorPlano + valorTaxas + valorAbastecer);
+
+            else if(locacao.Cupom.Tipo == "porcentagem")
+                labelValorTotalAPagar.Text = "R$" + ((valorPlano + valorTaxas + valorAbastecer) * ((1-locacao.Cupom.Valor)));
+
+            else if(locacao.Cupom.Tipo == "numerico")
+                labelValorTotalAPagar.Text = "R$" + (valorPlano + valorTaxas + valorAbastecer - locacao.Cupom.Valor);
         }
 
         private string PegarTipoPlano(int tipo)

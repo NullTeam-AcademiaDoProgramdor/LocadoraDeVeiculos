@@ -1,4 +1,5 @@
 ﻿using LocadoraDeVeiculos.Dominio.AutomovelModule;
+using LocadoraDeVeiculos.Dominio.CupomModule;
 using LocadoraDeVeiculos.Dominio.FuncionarioModule;
 using LocadoraDeVeiculos.Dominio.PessoaFisicaModule;
 using LocadoraDeVeiculos.Dominio.Shared;
@@ -14,7 +15,7 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
     public class Locacao : EntidadeBase, IEquatable<Locacao>
     {
         public Locacao(PessoaFisica condutor, Automovel automovel, Funcionario funcionario, DateTime dataSaida,
-            DateTime dataDevolucaoEsperada, int caucao, int kmAutomovelIncial, int planoSelecionado, TaxaEServico[] taxaEServicos = null)
+            DateTime dataDevolucaoEsperada, int caucao, int kmAutomovelIncial, int planoSelecionado, TaxaEServico[] taxaEServicos = null, Cupom cupom = null)
         {
             this.Condutor = condutor;
             this.Automovel = automovel;
@@ -28,6 +29,7 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
             this.KmAutomovelFinal = null;
             this.PorcentagemFinalCombustivel = null;
             this.Situacao = "Pendente";
+            this.Cupom = cupom;
 
             if (taxaEServicos == null)
                 this.TaxasEServicos = new TaxaEServico[0];
@@ -37,7 +39,7 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
 
         public Locacao(PessoaFisica condutor, Automovel automovel, Funcionario funcionario, DateTime dataSaida,
             DateTime dataDevolucaoEsperada, int caucao, int kmAutomovelIncial, int planoSelecionado, 
-             int kmAutomovelFinal, int porcentagemFinalCombustivel, DateTime dataDevolucao, TaxaEServico[] taxasEServicos = null)
+             int kmAutomovelFinal, int porcentagemFinalCombustivel, DateTime dataDevolucao, TaxaEServico[] taxasEServicos = null, Cupom cupom = null)
         {
             Condutor = condutor;
             Automovel = automovel;
@@ -51,6 +53,7 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
             KmAutomovelFinal = kmAutomovelFinal;
             PorcentagemFinalCombustivel = porcentagemFinalCombustivel;
             this.Situacao = ((DateTime)this.DataDevolucao).ToString("dd/MM/yyyy");
+            this.Cupom = cupom;
 
             if (taxasEServicos == null)
                 this.TaxasEServicos = new TaxaEServico[0];
@@ -58,6 +61,7 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
                 this.TaxasEServicos = taxasEServicos;
         }
 
+        public Cupom Cupom { get; }
         public PessoaFisica Condutor { get; }
         public Automovel Automovel { get; }
         public Funcionario Funcionario { get; }
@@ -85,6 +89,7 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
                    EqualityComparer<PessoaFisica>.Default.Equals(Condutor, other.Condutor) &&
                    EqualityComparer<Automovel>.Default.Equals(Automovel, other.Automovel) &&
                    EqualityComparer<Funcionario>.Default.Equals(Funcionario, other.Funcionario) &&
+                   EqualityComparer<Cupom>.Default.Equals(Cupom, other.Cupom) &&
                    DataSaida == other.DataSaida &&
                    DataDevolucaoEsperada == other.DataDevolucaoEsperada &&
                    DataDevolucao == other.DataDevolucao &&
@@ -104,6 +109,7 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
             hashCode = hashCode * -1521134295 + EqualityComparer<PessoaFisica>.Default.GetHashCode(Condutor);
             hashCode = hashCode * -1521134295 + EqualityComparer<Automovel>.Default.GetHashCode(Automovel);
             hashCode = hashCode * -1521134295 + EqualityComparer<Funcionario>.Default.GetHashCode(Funcionario);
+            hashCode = hashCode * -1521134295 + EqualityComparer<Cupom>.Default.GetHashCode(Cupom);
             hashCode = hashCode * -1521134295 + DataSaida.GetHashCode();
             hashCode = hashCode * -1521134295 + DataDevolucaoEsperada.GetHashCode();
             hashCode = hashCode * -1521134295 + DataDevolucao.GetHashCode();
