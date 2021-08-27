@@ -78,6 +78,21 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
                     WHERE 
                         ID = @ID";
 
+        private const string sqlSelecionarCupomPorCodigo =
+            @"SELECT
+                        [ID],
+                        [CODIGO],        
+                        [PARCEIRO],      
+                        [TIPO],          
+                        [VALOR],         
+                        [VALORMINIMO],  
+                        [DATAVENCIMENTO],
+                        [QTDUSOS]
+                    FROM
+                        CUPOM
+                    WHERE 
+                        CODIGO = @CODIGO";
+
         private const string sqlSelecionarTodosCupons =
             @"SELECT
                         [ID],
@@ -139,6 +154,11 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
         public override Cupom SelecionarPorId(int id)
         {
             return Db.Get(sqlSelecionarCupomPorId, ConverterEmCupom, AdicionarParametro("ID", id));
+        }
+
+        public Cupom SelecionarPorCodigo(string codigo)
+        {
+            return Db.Get(sqlSelecionarCupomPorCodigo, ConverterEmCupom, AdicionarParametro("CODIGO", codigo));
         }
 
         public override List<Cupom> SelecionarTodos()
