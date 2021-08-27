@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dbo].[Cupom] (
-    [id]             INT           NOT NULL,
+    [id]             INT           NOT NULL IDENTITY,
     [codigo]         VARCHAR (100) NOT NULL,
     [parceiro]       INT           NOT NULL,
     [tipo]           VARCHAR (50)  NOT NULL,
