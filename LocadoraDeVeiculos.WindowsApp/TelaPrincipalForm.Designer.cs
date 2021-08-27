@@ -40,6 +40,8 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.automovelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemTaxasEServicos = new System.Windows.Forms.ToolStripMenuItem();
             this.configuraçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cuponsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.parceirosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolboxAcoes = new System.Windows.Forms.ToolStrip();
             this.btnAdicionar = new System.Windows.Forms.ToolStripButton();
             this.btnEditar = new System.Windows.Forms.ToolStripButton();
@@ -59,8 +61,6 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.panelRegistros = new System.Windows.Forms.Panel();
             this.statusStrip2 = new System.Windows.Forms.StatusStrip();
             this.labelFuncionarioConectado = new System.Windows.Forms.ToolStripStatusLabel();
-            this.cuponsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.parceirosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolboxAcoes.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -75,8 +75,8 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.PessoasToolStripMenuItem,
             this.AutomoveisToolStripMenuItem,
             this.menuItemTaxasEServicos,
-            this.configuraçõesToolStripMenuItem,
-            this.cuponsToolStripMenuItem});
+            this.cuponsToolStripMenuItem,
+            this.configuraçõesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(682, 24);
@@ -169,6 +169,21 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.configuraçõesToolStripMenuItem.Text = "Configurações";
             this.configuraçõesToolStripMenuItem.ToolTipText = "Acesse as configurações do sistema (CTRL-C)";
             this.configuraçõesToolStripMenuItem.Click += new System.EventHandler(this.configuraçõesToolStripMenuItem_Click);
+            // 
+            // cuponsToolStripMenuItem
+            // 
+            this.cuponsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.parceirosToolStripMenuItem});
+            this.cuponsToolStripMenuItem.Name = "cuponsToolStripMenuItem";
+            this.cuponsToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.cuponsToolStripMenuItem.Text = "Cupons";
+            // 
+            // parceirosToolStripMenuItem
+            // 
+            this.parceirosToolStripMenuItem.Name = "parceirosToolStripMenuItem";
+            this.parceirosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.parceirosToolStripMenuItem.Text = "Parceiros";
+            this.parceirosToolStripMenuItem.Click += new System.EventHandler(this.parceirosToolStripMenuItem_Click);
             // 
             // toolboxAcoes
             // 
@@ -368,21 +383,6 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.labelFuncionarioConectado.Name = "labelFuncionarioConectado";
             this.labelFuncionarioConectado.Size = new System.Drawing.Size(108, 17);
             this.labelFuncionarioConectado.Text = "Usuário Conectado";
-            // 
-            // cuponsToolStripMenuItem
-            // 
-            this.cuponsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.parceirosToolStripMenuItem});
-            this.cuponsToolStripMenuItem.Name = "cuponsToolStripMenuItem";
-            this.cuponsToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
-            this.cuponsToolStripMenuItem.Text = "Cupons";
-            // 
-            // parceirosToolStripMenuItem
-            // 
-            this.parceirosToolStripMenuItem.Name = "parceirosToolStripMenuItem";
-            this.parceirosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.parceirosToolStripMenuItem.Text = "Parceiros";
-            this.parceirosToolStripMenuItem.Click += new System.EventHandler(this.parceirosToolStripMenuItem_Click);
             // 
             // TelaPrincipalForm
             // 
