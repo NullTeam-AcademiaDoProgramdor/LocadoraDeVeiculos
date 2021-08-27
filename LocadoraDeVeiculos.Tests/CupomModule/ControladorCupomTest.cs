@@ -80,5 +80,21 @@ namespace LocadoraDeVeiculos.Tests.CupomModule
 
             cupomEncontrado.Should().Be(cupom);
         }
+
+        [TestMethod]
+        public void DeveSelecionarTodosCupons()
+        {
+            controladorParceiro.InserirNovo(parceiro);
+
+            var cupom = new Cupom("DezOff", parceiro, "Porcentagem", 10, 1000, DateTime.Today, 1);            
+            controlador.InserirNovo(cupom);
+
+            var novoCupom = new Cupom("VinteOff", parceiro, "Porcentagem", 20, 2000, DateTime.Today,  1);
+            controlador.InserirNovo(novoCupom);
+
+            var cupons = controlador.SelecionarTodos();
+
+            cupons.Should().HaveCount(2);
+        }
     }
 }
