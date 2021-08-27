@@ -72,6 +72,7 @@
     <Compile Include="PessoaJuridicaModule\PessoaJuridicaTest.cs" />
     <Compile Include="ConfiguracoesModule\ConfiguracoesTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RelatorioModule\RelatorioTest.cs" />
     <Compile Include="TaxaEServicoModule\Teste de Controlador\ControladorTaxasEServicosTest.cs" />
     <Compile Include="TaxaEServicoModule\Teste de Domínio\TaxasEServicosTest.cs" />
   </ItemGroup>

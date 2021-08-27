@@ -126,7 +126,7 @@ namespace LocadoraDeVeiculos.Dominio.RelatorioModule
             {
                 double subtotal = locacao.TaxasEServicos
                     .Where(t => !t.EhFixo)
-                    .Aggregate(0d, (acc, t) => acc + t.Preco);
+                    .Aggregate(0d, (acc, t) => acc + (t.Preco * DiasAlugados));
 
                 return subtotal;
             }
