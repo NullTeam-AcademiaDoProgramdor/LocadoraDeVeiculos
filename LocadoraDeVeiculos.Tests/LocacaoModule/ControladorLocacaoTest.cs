@@ -58,7 +58,7 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
         {
             //arrange
             Locacao locacao = new Locacao(condutor, automovel, funcionario,
-                DateTime.Today, DateTime.Today.AddDays(1), 1000, 50000, 1);
+                DateTime.Today, DateTime.Today.AddDays(1), 1000, 50000);
 
 
             //action
@@ -74,11 +74,11 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
         {
             //arrange
             Locacao locacao = new Locacao(condutor, automovel, funcionario
-                , DateTime.Today, DateTime.Today.AddDays(1), 1000, 50000, 1);
+                , DateTime.Today, DateTime.Today.AddDays(1), 1000, 50000);
             controladorLocacao.InserirNovo(locacao);
 
             Locacao novaLocacao = new Locacao(condutor, automovel, funcionario
-                , DateTime.Today, DateTime.Today.AddDays(2), 1000, 50000, 1);
+                , DateTime.Today, DateTime.Today.AddDays(2), 1000, 50000);
         
             //action
             controladorLocacao.Editar(locacao.Id, novaLocacao);
@@ -94,7 +94,7 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
         {
             //arrange
             Locacao locacao = new Locacao(condutor, automovel, funcionario
-                , DateTime.Today, DateTime.Today.AddDays(1), 1000, 50000, 1);
+                , DateTime.Today, DateTime.Today.AddDays(1), 1000, 50000);
             controladorLocacao.InserirNovo(locacao);
 
             Locacao novaLocacao = new Locacao(condutor, automovel, funcionario
@@ -115,7 +115,7 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
         {
             //arrange
             Locacao locacao = new Locacao(condutor, automovel, funcionario,
-                DateTime.Today, DateTime.Today.AddDays(1), 1000, 50000, 1);
+                DateTime.Today, DateTime.Today.AddDays(1), 1000, 50000);
             controladorLocacao.InserirNovo(locacao);
 
             //action
@@ -133,11 +133,11 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
             var locacoes = new List<Locacao>
             {
                 new Locacao(condutor, automovel, funcionario,
-                    DateTime.Today, DateTime.Today.AddDays(1), 1000, 50000, 1),
+                    DateTime.Today, DateTime.Today.AddDays(1), 1000, 50000),
 
 
                 new Locacao(condutor, automovel, funcionario,
-                    DateTime.Today, DateTime.Today.AddDays(1), 1000, 50000, 1),
+                    DateTime.Today, DateTime.Today.AddDays(1), 1000, 50000),
 
             };
 
@@ -156,7 +156,7 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
         {
             //arrange            
             Locacao locacao = new Locacao(condutor, automovel, funcionario,
-                    DateTime.Today, DateTime.Today.AddDays(1), 1000, 50000, 1);
+                    DateTime.Today, DateTime.Today.AddDays(1), 1000, 50000);
 
             controladorLocacao.InserirNovo(locacao);
 
@@ -175,10 +175,9 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
 
         private Automovel CriarAutomovel(GrupoAutomovel grupo)
         {
-            var automovel = new Automovel("Gol", "Ford", "Branco", "ABCD123",
-                            "12YG2J31G23H123",
-                            2020, 4, 100, 30, TipoCombustivelEnum.Gasolina, CambioEnum.Manual,
-                            DirecaoEnum.Mecanica, grupo);
+            var automovel = new Automovel("Gol", "Ford", "Branco", "ABCD123", "12YG2J31G23H123",
+                2020, 4, 100, 0, 30, TipoCombustivelEnum.Gasolina, CambioEnum.Manual,
+                DirecaoEnum.Mecanica, grupo);
             ctrlAutomovel.InserirNovo(automovel);
             return automovel;
             

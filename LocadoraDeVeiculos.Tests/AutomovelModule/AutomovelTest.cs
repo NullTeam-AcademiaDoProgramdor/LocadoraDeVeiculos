@@ -16,7 +16,7 @@ namespace LocadoraDeVeiculos.Tests.AutomovelModule
             GrupoAutomovel grupo = CriarGrupo();
             Automovel automovel =
                 new Automovel("Gol", "Ford", "Branco", "ABCD123", "12YG2J31G23H123",
-                2020, 4, 100, 30, TipoCombustivelEnum.Gasolina, CambioEnum.Manual,
+                2020, 4, 100, 0,30, TipoCombustivelEnum.Gasolina, CambioEnum.Manual,
                 DirecaoEnum.Mecanica, grupo);
 
             automovel.Modelo.Should().Be("Gol");
@@ -43,7 +43,7 @@ namespace LocadoraDeVeiculos.Tests.AutomovelModule
             GrupoAutomovel grupo = CriarGrupo();
             Automovel automovel =
                 new Automovel("Gol", "Ford", "Branco", "ABCD123", "12YG2J31G23H123",
-                2020, 4, 100, 30, TipoCombustivelEnum.Gasolina, CambioEnum.Manual,
+                2020, 4, 100, 0, 30, TipoCombustivelEnum.Gasolina, CambioEnum.Manual,
                 DirecaoEnum.Mecanica, grupo);
 
             var resultado = automovel.Validar();
@@ -57,7 +57,7 @@ namespace LocadoraDeVeiculos.Tests.AutomovelModule
             GrupoAutomovel grupo = CriarGrupo();
             Automovel automovel =
                 new Automovel("", "Ford", "Branco", "ABCD123", "12YG2J31G23H123",
-                2020, 4, 100, 30, TipoCombustivelEnum.Gasolina, CambioEnum.Manual,
+                2020, 4, 100, 0,30, TipoCombustivelEnum.Gasolina, CambioEnum.Manual,
                 DirecaoEnum.Mecanica, grupo);
 
             var resultado = automovel.Validar();
@@ -70,8 +70,8 @@ namespace LocadoraDeVeiculos.Tests.AutomovelModule
         {
             GrupoAutomovel grupo = CriarGrupo();
             Automovel automovel =
-                new Automovel("Gol", "", "Branco", "ABCD123", "12YG2J31G23H123",
-                2020, 4, 100, 30, TipoCombustivelEnum.Gasolina, CambioEnum.Manual,
+                new Automovel("Gol", null, "Branco", "ABCD123", "12YG2J31G23H123",
+                2020, 4, 100, 0, 30, TipoCombustivelEnum.Gasolina, CambioEnum.Manual,
                 DirecaoEnum.Mecanica, grupo);
 
             var resultado = automovel.Validar();
@@ -84,8 +84,8 @@ namespace LocadoraDeVeiculos.Tests.AutomovelModule
         {
             GrupoAutomovel grupo = CriarGrupo();
             Automovel automovel =
-                new Automovel("Gol", "Ford", "", "ABCD123", "12YG2J31G23H123",
-                2020, 4, 100, 30, TipoCombustivelEnum.Gasolina, CambioEnum.Manual,
+                new Automovel("Gol", "Ford", null, "ABCD123", "12YG2J31G23H123",
+                2020, 4, 100, 0, 30, TipoCombustivelEnum.Gasolina, CambioEnum.Manual,
                 DirecaoEnum.Mecanica, grupo);
 
             var resultado = automovel.Validar();
@@ -98,8 +98,8 @@ namespace LocadoraDeVeiculos.Tests.AutomovelModule
         {
             GrupoAutomovel grupo = CriarGrupo();
             Automovel automovel =
-                new Automovel("Gol", "Ford", "Branco", "", "12YG2J31G23H123",
-                2020, 4, 100, 30, TipoCombustivelEnum.Gasolina, CambioEnum.Manual,
+                new Automovel("Gol", "Ford", "Branco", null, "12YG2J31G23H123",
+                2020, 4, 100, 0, 30, TipoCombustivelEnum.Gasolina, CambioEnum.Manual,
                 DirecaoEnum.Mecanica, grupo);
 
             var resultado = automovel.Validar();
@@ -112,8 +112,8 @@ namespace LocadoraDeVeiculos.Tests.AutomovelModule
         {
             GrupoAutomovel grupo = CriarGrupo();
             Automovel automovel =
-                new Automovel("Gol", "Ford", "Branco", "ABCD123", "",
-                2020, 4, 100, 30, TipoCombustivelEnum.Gasolina, CambioEnum.Manual,
+                new Automovel("Gol", "Ford", "Branco", "ABCD123", null,
+                2020, 4, 100, 0, 30, TipoCombustivelEnum.Gasolina, CambioEnum.Manual,
                 DirecaoEnum.Mecanica, grupo);
 
             var resultado = automovel.Validar();
@@ -127,7 +127,7 @@ namespace LocadoraDeVeiculos.Tests.AutomovelModule
             GrupoAutomovel grupo = CriarGrupo();
             Automovel automovel =
                 new Automovel("Gol", "Ford", "Branco", "ABCD123", "12YG2J31G23H123",
-                1850, 4, 100, 30, TipoCombustivelEnum.Gasolina, CambioEnum.Manual,
+                1874, 4, 100, 0, 30, TipoCombustivelEnum.Gasolina, CambioEnum.Manual,
                 DirecaoEnum.Mecanica, grupo);
 
             var resultado = automovel.Validar();
@@ -141,7 +141,7 @@ namespace LocadoraDeVeiculos.Tests.AutomovelModule
             GrupoAutomovel grupo = CriarGrupo();
             Automovel automovel =
                 new Automovel("Gol", "Ford", "Branco", "ABCD123", "12YG2J31G23H123",
-                2050, 4, 100, 30, TipoCombustivelEnum.Gasolina, CambioEnum.Manual,
+                2025, 4, 100, 0, 30, TipoCombustivelEnum.Gasolina, CambioEnum.Manual,
                 DirecaoEnum.Mecanica, grupo);
 
             var resultado = automovel.Validar();
@@ -155,7 +155,7 @@ namespace LocadoraDeVeiculos.Tests.AutomovelModule
             GrupoAutomovel grupo = CriarGrupo();
             Automovel automovel =
                 new Automovel("Gol", "Ford", "Branco", "ABCD123", "12YG2J31G23H123",
-                2020, 0, 100, 30, TipoCombustivelEnum.Gasolina, CambioEnum.Manual,
+                2020, 0, 100, 0, 30, TipoCombustivelEnum.Gasolina, CambioEnum.Manual,
                 DirecaoEnum.Mecanica, grupo);
 
             var resultado = automovel.Validar();
@@ -169,7 +169,7 @@ namespace LocadoraDeVeiculos.Tests.AutomovelModule
             GrupoAutomovel grupo = CriarGrupo();
             Automovel automovel =
                 new Automovel("Gol", "Ford", "Branco", "ABCD123", "12YG2J31G23H123",
-                2020, 4, 0, 30, TipoCombustivelEnum.Gasolina, CambioEnum.Manual,
+                2020, 4, 0, 0, 30, TipoCombustivelEnum.Gasolina, CambioEnum.Manual,
                 DirecaoEnum.Mecanica, grupo);
 
             var resultado = automovel.Validar();
@@ -183,7 +183,7 @@ namespace LocadoraDeVeiculos.Tests.AutomovelModule
             GrupoAutomovel grupo = CriarGrupo();
             Automovel automovel =
                 new Automovel("Gol", "Ford", "Branco", "ABCD123", "12YG2J31G23H123",
-                2020, 4, 100, 0, TipoCombustivelEnum.Gasolina, CambioEnum.Manual,
+                2020, 4, 100, 0, 0, TipoCombustivelEnum.Gasolina, CambioEnum.Manual,
                 DirecaoEnum.Mecanica, grupo);
 
             var resultado = automovel.Validar();
@@ -196,7 +196,7 @@ namespace LocadoraDeVeiculos.Tests.AutomovelModule
         {
             Automovel automovel =
                 new Automovel("Gol", "Ford", "Branco", "ABCD123", "12YG2J31G23H123",
-                2020, 4, 100, 30, TipoCombustivelEnum.Gasolina, CambioEnum.Manual,
+                2020, 4, 100, 0, 30, TipoCombustivelEnum.Gasolina, CambioEnum.Manual,
                 DirecaoEnum.Mecanica, null);
 
             var resultado = automovel.Validar();

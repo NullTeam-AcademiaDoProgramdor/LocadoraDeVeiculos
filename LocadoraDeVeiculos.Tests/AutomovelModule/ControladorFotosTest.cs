@@ -164,8 +164,8 @@ namespace LocadoraDeVeiculos.Tests.AutomovelModule
         {
             GrupoAutomovel grupo = CriarGrupo();
             Automovel automovel =
-                new Automovel("Gol", "Ford", "Branco", "Preto", "12YG2J31G23H123",
-                2020, 4, 100, 30, TipoCombustivelEnum.Gasolina, CambioEnum.Manual,
+                new Automovel("Gol", "Ford", "Branco", "ABCD123", "12YG2J31G23H123",
+                2020, 4, 100, 0, 30, TipoCombustivelEnum.Gasolina, CambioEnum.Manual,
                 DirecaoEnum.Mecanica, grupo);
 
             return automovel;
