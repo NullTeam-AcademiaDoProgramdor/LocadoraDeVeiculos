@@ -72,14 +72,16 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
                         [C.VALOR],         
                         [C.VALORMINIMO],  
                         [C.DATAVENCIMENTO],
-                        [C.QTDUSOS]
+                        [C.QTDUSOS],
 
                         [P.NOME]
                     FROM
 	                    [CUPOM] as C LEFT JOIN
 	                    [PARCEIRO] AS P
+                    ON
+	                    P.ID = C.PARCEIRO
                     WHERE 
-                        ID = @ID";
+                        C.ID = @ID";
 
         private const string sqlSelecionarCupomPorCodigo =
             @"SELECT
@@ -96,21 +98,28 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
                      FROM
 	                    [CUPOM] as C LEFT JOIN
 	                    [PARCEIRO] AS P
+                    ON
+	                    P.ID = C.PARCEIRO
                     WHERE 
                         CODIGO = @CODIGO";
 
         private const string sqlSelecionarTodosCupons =
             @"SELECT
-                        [ID],
-                        [CODIGO],        
-                        [PARCEIRO],      
-                        [TIPO],          
-                        [VALOR],         
-                        [VALORMINIMO],  
-                        [DATAVENCIMENTO],
-                        [QTDUSOS]
+                        [C.ID],
+                        [C.CODIGO],        
+                        [C.PARCEIRO],      
+                        [C.TIPO],          
+                        [C.VALOR],         
+                        [C.VALORMINIMO],  
+                        [C.DATAVENCIMENTO],
+                        [C.QTDUSOS],
+
+                        [P.NOME]
 	                FROM
-                        CUPOM";
+	                    [CUPOM] as C LEFT JOIN
+	                    [PARCEIRO] AS P
+                    ON
+	                    P.ID = C.PARCEIRO;";
 #endregion
 
         public override string InserirNovo(Cupom cupom)
@@ -192,13 +201,20 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
         {
             var id = Convert.ToInt32(reader["ID"]);
             var codigo = Convert.ToString(reader["CODIGO"]);
-            var parceiro = ((Parceiro)reader["PARCEIRO"]);
+            
             var tipo = Convert.ToString(reader["TIPO"]);
             var valor = Convert.ToDouble(reader["VALOR"]);
             var valorMinimo = Convert.ToDouble(reader["VALORMINIMO"]);
             var dataVencimento = Convert.ToDateTime(reader["DATAVENCIMENTO"]);
             var qtdUsos = Convert.ToInt32(reader["QTDUSOS"]);
+            var parceiro_Id = Convert.ToInt32(reader["PARCEIRO"]);
 
+            var nome = Convert.ToString(reader["NOME"]);
+
+            Parceiro parceiro = new Parceiro(nome)
+            {
+                Id = parceiro_Id
+            };
             Cupom cupom = new Cupom(codigo, parceiro, tipo, valor, valorMinimo, dataVencimento, qtdUsos);
 
             cupom.Id = id;
