@@ -12,6 +12,7 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
 {
     class ControladorCupom : Controlador<Cupom>
     {
+        #region Queries
         private const string sqlInserirCupom =
             @"INSERT INTO CUPOM 
 	                (         
@@ -77,6 +78,21 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
                     WHERE 
                         ID = @ID";
 
+        private const string sqlSelecionarCupomPorCodigo =
+            @"SELECT
+                        [ID],
+                        [CODIGO],        
+                        [PARCEIRO],      
+                        [TIPO],          
+                        [VALOR],         
+                        [VALORMINIMO],  
+                        [DATAVENCIMENTO],
+                        [QTDUSOS]
+                    FROM
+                        CUPOM
+                    WHERE 
+                        CODIGO = @CODIGO";
+
         private const string sqlSelecionarTodosCupons =
             @"SELECT
                         [ID],
@@ -89,6 +105,7 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
                         [QTDUSOS]
 	                FROM
                         CUPOM";
+#endregion
 
         public override string InserirNovo(Cupom cupom)
         {
@@ -96,38 +113,60 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
 
             if (resultadoValidacao == "ESTA_VALIDO")
             {
-                cupom.Id = Db.Insert(sqlInserirCupom, ObtemParametrosFuncionario(cupom));
+                cupom.Id = Db.Insert(sqlInserirCupom, ObtemParametrosCupom(cupom));
             }
 
             return resultadoValidacao;
         }
 
-        public override string Editar(int id, Cupom registro)
+        public override string Editar(int id, Cupom cupom)
         {
-            throw new NotImplementedException();
+            string resultadoValidacao = cupom.Validar();
+
+            if (resultadoValidacao == "ESTA_VALIDO")
+            {
+                cupom.Id = id;
+                Db.Update(sqlEditarCupom, ObtemParametrosCupom(cupom));
+            }
+
+            return resultadoValidacao;
         }
 
         public override bool Excluir(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Db.Delete(sqlExcluirCupom, AdicionarParametro("ID", id));
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
         }
 
         public override bool Existe(int id)
         {
-            throw new NotImplementedException();
+            return Db.Exists(sqlExisteCupom, AdicionarParametro("ID", id));
         }
 
         public override Cupom SelecionarPorId(int id)
         {
-            throw new NotImplementedException();
+            return Db.Get(sqlSelecionarCupomPorId, ConverterEmCupom, AdicionarParametro("ID", id));
+        }
+
+        public Cupom SelecionarPorCodigo(string codigo)
+        {
+            return Db.Get(sqlSelecionarCupomPorCodigo, ConverterEmCupom, AdicionarParametro("CODIGO", codigo));
         }
 
         public override List<Cupom> SelecionarTodos()
         {
-            throw new NotImplementedException();
+            return Db.GetAll(sqlSelecionarTodosCupons, ConverterEmCupom);
         }
 
-        private Dictionary<string, object> ObtemParametrosFuncionario(Cupom cupom)
+        private Dictionary<string, object> ObtemParametrosCupom(Cupom cupom)
         {
             var parametros = new Dictionary<string, object>();
 
