@@ -21,6 +21,11 @@ namespace LocadoraDeVeiculos.Tests.CupomModule
             parceiro = new Parceiro("Pedro");
             controladorParceiro = new ControladorParceiro();
             controlador = new ControladorCupom();
+        }
+
+        [TestCleanup]
+        public void LimparTabelas()
+        {
             Db.Update(@"DELETE FROM CUPOM");
             Db.Update(@"DELETE FROM PARCEIRO");
         }
@@ -36,5 +41,7 @@ namespace LocadoraDeVeiculos.Tests.CupomModule
             var cupomEncontrado = controlador.SelecionarPorId(novoCupom.Id);
             cupomEncontrado.Should().Be(novoCupom);
         }
+
+
     }
 }

@@ -65,16 +65,16 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
 
         private const string sqlSelecionarCupomPorId =
             @"SELECT
-                        [C.ID],
-                        [C.CODIGO],        
-                        [C.PARCEIRO],      
-                        [C.TIPO],          
-                        [C.VALOR],         
-                        [C.VALORMINIMO],  
-                        [C.DATAVENCIMENTO],
-                        [C.QTDUSOS],
+                        C.ID,
+                        C.CODIGO,        
+                        C.PARCEIRO,      
+                        C.TIPO,          
+                        C.VALOR,         
+                        C.VALORMINIMO,  
+                        C.DATAVENCIMENTO,
+                        C.QTDUSOS,
 
-                        [P.NOME]
+                        P.NOME
                     FROM
 	                    [CUPOM] as C LEFT JOIN
 	                    [PARCEIRO] AS P
@@ -85,16 +85,16 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
 
         private const string sqlSelecionarCupomPorCodigo =
             @"SELECT
-                        [C.ID],
-                        [C.CODIGO],        
-                        [C.PARCEIRO],      
-                        [C.TIPO],          
-                        [C.VALOR],         
-                        [C.VALORMINIMO],  
-                        [C.DATAVENCIMENTO],
-                        [C.QTDUSOS],
+                        C.ID,
+                        C.CODIGO,        
+                        C.PARCEIRO,      
+                        C.TIPO,          
+                        C.VALOR,         
+                        C.VALORMINIMO,  
+                        C.DATAVENCIMENTO,
+                        C.QTDUSOS,
 
-                        [P.NOME]
+                        P.NOME
                      FROM
 	                    [CUPOM] as C LEFT JOIN
 	                    [PARCEIRO] AS P
@@ -105,16 +105,16 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
 
         private const string sqlSelecionarTodosCupons =
             @"SELECT
-                        [C.ID],
-                        [C.CODIGO],        
-                        [C.PARCEIRO],      
-                        [C.TIPO],          
-                        [C.VALOR],         
-                        [C.VALORMINIMO],  
-                        [C.DATAVENCIMENTO],
-                        [C.QTDUSOS],
+                        C.ID,
+                        C.CODIGO,        
+                        C.PARCEIRO,      
+                        C.TIPO,          
+                        C.VALOR,         
+                        C.VALORMINIMO,  
+                        C.DATAVENCIMENTO,
+                        C.QTDUSOS,
 
-                        [P.NOME]
+                        P.NOME
 	                FROM
 	                    [CUPOM] as C LEFT JOIN
 	                    [PARCEIRO] AS P
