@@ -59,6 +59,7 @@
     <Compile Include="AutomovelModule\AutomovelTest.cs" />
     <Compile Include="AutomovelModule\ControladorAutomovelTest.cs" />
     <Compile Include="AutomovelModule\ControladorFotosTest.cs" />
+    <Compile Include="CupomModule\CupomTest.cs" />
     <Compile Include="FuncionarioModule\ControladorFuncionarioTest.cs" />
     <Compile Include="FuncionarioModule\FuncionarioTest.cs" />
     <Compile Include="GrupoAutomovelModule\ControladorGupoAutomovelTest.cs" />

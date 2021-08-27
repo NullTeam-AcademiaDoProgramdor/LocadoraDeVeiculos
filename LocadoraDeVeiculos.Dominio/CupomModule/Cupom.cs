@@ -49,7 +49,30 @@ namespace LocadoraDeVeiculos.Dominio.CupomModule
 
         public override string Validar()
         {
-            throw new NotImplementedException();
+            string resultadoValidacao = "";
+
+            if (String.IsNullOrEmpty(Codigo))
+                resultadoValidacao = "O campo código não pode estar vazio";
+
+            if (String.IsNullOrEmpty(Tipo))
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo tipo não pode estar vazio";
+            
+            if (Valor <= 0)
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O valor não pode ser igual ou menor que zero";
+            
+            if (ValorMinimo <= 0)
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O valor mínimo não pode ser igual ou menor que zero";
+            
+            if (DataVencimento < DateTime.Today)
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "A data de vencimento não pode ser no passado";
+
+            if (Parceiro == null)
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "Selecione um parceiro";             
+
+            if (resultadoValidacao == "")
+                resultadoValidacao = "ESTA_VALIDO";
+
+            return resultadoValidacao;
         }
     }
 }
