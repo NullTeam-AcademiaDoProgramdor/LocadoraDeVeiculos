@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Dominio.CupomModule
 {
-    public class Cupom : EntidadeBase
+    public class Cupom : EntidadeBase, IEquatable<Cupom>
     {
         public Cupom(string codigo, Parceiro parceiro, string tipo, double valor, double valorMinimo, DateTime dataVencimento)
         {
@@ -27,6 +27,25 @@ namespace LocadoraDeVeiculos.Dominio.CupomModule
         public double ValorMinimo { get; }
         public DateTime DataVencimento { get; }
         public int QtdUsos { get; }
+
+        public override bool Equals(object obj)
+        {
+            return Equals(obj as Cupom);
+        }
+
+        public bool Equals(Cupom other)
+        {
+            return other != null &&
+                   id == other.id &&
+                   Id == other.Id &&
+                   Codigo == other.Codigo &&
+                   EqualityComparer<Parceiro>.Default.Equals(Parceiro, other.Parceiro) &&
+                   Tipo == other.Tipo &&
+                   Valor == other.Valor &&
+                   ValorMinimo == other.ValorMinimo &&
+                   DataVencimento == other.DataVencimento &&
+                   QtdUsos == other.QtdUsos;
+        }
 
         public override string Validar()
         {
