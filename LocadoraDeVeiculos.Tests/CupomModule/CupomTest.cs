@@ -24,5 +24,15 @@ namespace LocadoraDeVeiculos.Tests.CupomModule
 
             resultadoValidacao.Should().Be("ESTA_VALIDO");
         }
+
+        [TestMethod]
+        public void DeveValidarCodigo()
+        {
+            Cupom cupom = new Cupom(null, parceiro, "Porcentagem", 10, 1000, DateTime.Today);
+
+            string resultadoValidacao = cupom.Validar();
+
+            resultadoValidacao.Should().Be("O campo código não pode estar vazio");
+        }
     }
 }
