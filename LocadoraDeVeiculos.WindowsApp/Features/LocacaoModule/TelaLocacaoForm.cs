@@ -52,7 +52,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             set
             {
                 locacao = value;
-                txtId.Text = locacao.Id.ToString();
+                txtId.Text = locacao.Id.ToString();                
                 txtCaucao.Text = locacao.Caucao.ToString();
 
                 cmbAutomovel.Items.Add(Locacao.Automovel);
@@ -61,15 +61,13 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
                 cmbCondutor.SelectedItem = locacao.Condutor;
                 cmbPlano.SelectedIndex = locacao.PlanoSelecionado;
                 dtpdataSaida.Value = locacao.DataSaida;
-                dtpdataDevolucaoEsperada.Value = locacao.DataDevolucaoEsperada;
-                txtKmInicial.Text = locacao.KmAutomovelIncial.ToString();
+                dtpdataDevolucaoEsperada.Value = locacao.DataDevolucaoEsperada;                
                 seletorTaxasEServicosControl1.TaxasEServicosSelecionados = locacao.TaxasEServicos;
 
                 cmbCondutor.Enabled = false;
                 cmbAutomovel.Enabled = false;
                 cmbPlano.Enabled = false;
-                txtCaucao.Enabled = false;
-                txtKmInicial.Enabled = false;
+                txtCaucao.Enabled = false;               
             }
         }
 
@@ -106,14 +104,13 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             Funcionario funcionario = TelaPrincipalForm.Instancia.funcionarioConectado;
             DateTime dataSaida = dtpdataSaida.Value;
             DateTime dataDevolucaoEsperada = dtpdataDevolucaoEsperada.Value;
-            int caucao = 0;
-            int kmInicial = 0;
-            VerificarValoresNumericos(ref kmInicial, ref caucao);
+            int caucao = 0;            
+            VerificarValoresNumericos(ref caucao);
             int planoSelecionado = Convert.ToInt32(cmbPlano.SelectedIndex);
             var taxasEServicos = seletorTaxasEServicosControl1.TaxasEServicosSelecionados;
             //inserindo
 
-            locacao = new Locacao(condutor, automovel, funcionario, dataSaida, dataDevolucaoEsperada, caucao, kmInicial, planoSelecionado, taxasEServicos);
+            locacao = new Locacao(condutor, automovel, funcionario, dataSaida, dataDevolucaoEsperada, caucao, planoSelecionado, taxasEServicos);
 
             string resultadoValidacao = locacao.Validar();
 
@@ -136,16 +133,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             }
         }
 
-        public void VerificarValoresNumericos(ref int kMInicial, ref int caucao)
-        {
-            try
-            {
-                kMInicial = Convert.ToInt32(txtKmInicial.Text);
-            }
-            catch (Exception)
-            {
-                kMInicial = 0;
-            }
+        public void VerificarValoresNumericos(ref int caucao)
+        {           
             try
             {
                 caucao = Convert.ToInt32(txtCaucao.Text);

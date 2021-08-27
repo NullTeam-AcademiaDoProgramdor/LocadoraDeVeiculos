@@ -32,7 +32,8 @@ namespace LocadoraDeVeiculos.Controladores.AutomovelModule
 		        [n_portas],
 		        [cambio],
 		        [direcao],
-		        [grupo]
+		        [grupo],
+                [kmRegistrada]
 	        )
 	        VALUES
 	        (
@@ -48,7 +49,8 @@ namespace LocadoraDeVeiculos.Controladores.AutomovelModule
 		        @n_portas,
 		        @cambio,
 		        @direcao,
-		        @grupo
+		        @grupo,
+                @kmRegistrada
 	        );";
 
         private const string sqlEditarAutomovel =
@@ -66,7 +68,8 @@ namespace LocadoraDeVeiculos.Controladores.AutomovelModule
 		        [n_portas] = @n_portas,
 		        [cambio] = @cambio,
 	            [direcao] = @direcao,
-		        [grupo] = @grupo
+		        [grupo] = @grupo,
+                [kmRegistrada] = @kmRegistrada
 
 	        WHERE [id] = @id;";
 
@@ -98,6 +101,7 @@ namespace LocadoraDeVeiculos.Controladores.AutomovelModule
 	            A.cambio,
 	            A.direcao,
 	            A.grupo,
+                A.kmRegistrada,
 
 	            G.nome,
 	            G.planoDIario_precoDIa,
@@ -128,6 +132,7 @@ namespace LocadoraDeVeiculos.Controladores.AutomovelModule
 	            A.cambio,
 	            A.direcao,
 	            A.grupo,
+                A.kmRegistrada,
 
 	            G.nome,
 	            G.planoDIario_precoDIa,
@@ -159,6 +164,7 @@ namespace LocadoraDeVeiculos.Controladores.AutomovelModule
 	            A.cambio,
 	            A.direcao,
 	            A.grupo,
+                A.kmRegistrada,
 
 	            G.nome,
 	            G.planoDIario_precoDIa,
@@ -260,6 +266,7 @@ namespace LocadoraDeVeiculos.Controladores.AutomovelModule
             var portas = Convert.ToInt32(reader["n_portas"]);
             var capacidadeTanque = Convert.ToInt32(reader["capacidadeTanque"]);
             var tamanhoPortaMalas = Convert.ToInt32(reader["capacidadePortaMalas"]);
+            var kmInicial = Convert.ToInt32(reader["kmRegistrada"]);
 
             var tipoCombustivel = Convert.ToInt32(reader["tipoCombustivel"]);
             var cambio = Convert.ToInt32(reader["cambio"]);
@@ -298,7 +305,7 @@ namespace LocadoraDeVeiculos.Controladores.AutomovelModule
             #endregion
 
             Automovel automovel = new Automovel(modelo, marca, cor, placa, chassi, ano, 
-                portas, capacidadeTanque, tamanhoPortaMalas, 
+                portas, capacidadeTanque, tamanhoPortaMalas, kmInicial,
                 (TipoCombustivelEnum)tipoCombustivel, (CambioEnum)cambio,
                 (DirecaoEnum)direcao, grupoAutomovel);
 
@@ -331,6 +338,7 @@ namespace LocadoraDeVeiculos.Controladores.AutomovelModule
             parametros.Add("cambio", automovel.Cambio);
             parametros.Add("direcao", automovel.Direcao);
             parametros.Add("grupo", automovel.Grupo.Id);
+            parametros.Add("kmRegistrada", automovel.KmRegistrada);
 
             return parametros;
         }

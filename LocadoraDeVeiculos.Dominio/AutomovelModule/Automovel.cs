@@ -31,6 +31,8 @@ namespace LocadoraDeVeiculos.Dominio.AutomovelModule
 
         public int TamanhoPortaMalas { get; }
 
+        public int KmRegistrada { get; }
+
         public TipoCombustivelEnum TipoCombustivel { get; }
 
         public CambioEnum Cambio { get; }
@@ -42,7 +44,7 @@ namespace LocadoraDeVeiculos.Dominio.AutomovelModule
         public Image[] Fotos { get; set; }
 
         public Automovel(string modelo, string marca, string cor, string placa, 
-            string chassi, int ano, int portas, int capacidadeTanque, 
+            string chassi, int ano, int portas, int capacidadeTanque, int kmRegistrada, 
             int tamanhoPortaMalas, TipoCombustivelEnum tipoCombustivel, 
             CambioEnum cambio, DirecaoEnum direcao, GrupoAutomovel grupo)
         {
@@ -54,6 +56,7 @@ namespace LocadoraDeVeiculos.Dominio.AutomovelModule
             Ano = ano;
             Portas = portas;
             CapacidadeTanque = capacidadeTanque;
+            KmRegistrada = kmRegistrada;
             TamanhoPortaMalas = tamanhoPortaMalas;
             TipoCombustivel = tipoCombustivel;
             Cambio = cambio;
@@ -63,7 +66,7 @@ namespace LocadoraDeVeiculos.Dominio.AutomovelModule
         }
 
         public Automovel(string modelo, string marca, string cor, string placa, 
-            string chassi, int ano, int portas, int capacidadeTanque, 
+            string chassi, int ano, int portas, int capacidadeTanque, int kmRegistrada,
             int tamanhoPortaMalas, TipoCombustivelEnum tipoCombustivel,
             CambioEnum cambio, DirecaoEnum direcao, GrupoAutomovel grupo, 
             Image[] fotos)
@@ -76,6 +79,7 @@ namespace LocadoraDeVeiculos.Dominio.AutomovelModule
             Ano = ano;
             Portas = portas;
             CapacidadeTanque = capacidadeTanque;
+            KmRegistrada = kmRegistrada;
             TamanhoPortaMalas = tamanhoPortaMalas;
             TipoCombustivel = tipoCombustivel;
             Cambio = cambio;
@@ -107,6 +111,7 @@ namespace LocadoraDeVeiculos.Dominio.AutomovelModule
                    Ano == other.Ano &&
                    Portas == other.Portas &&
                    CapacidadeTanque == other.CapacidadeTanque &&
+                   KmRegistrada == other.KmRegistrada &&
                    TamanhoPortaMalas == other.TamanhoPortaMalas &&
                    TipoCombustivel == other.TipoCombustivel &&
                    EqualityComparer<GrupoAutomovel>.Default.Equals(Grupo, other.Grupo);
@@ -126,6 +131,7 @@ namespace LocadoraDeVeiculos.Dominio.AutomovelModule
             hashCode = hashCode * -1521134295 + Portas.GetHashCode();
             hashCode = hashCode * -1521134295 + CapacidadeTanque.GetHashCode();
             hashCode = hashCode * -1521134295 + TamanhoPortaMalas.GetHashCode();
+            hashCode = hashCode * -1521134295 + KmRegistrada.GetHashCode();
             hashCode = hashCode * -1521134295 + TipoCombustivel.GetHashCode();
             hashCode = hashCode * -1521134295 + EqualityComparer<GrupoAutomovel>.Default.GetHashCode(Grupo);
             return hashCode;
@@ -177,6 +183,11 @@ namespace LocadoraDeVeiculos.Dominio.AutomovelModule
                 resultadoValidacao +=
                     QuebraDeLinha(resultadoValidacao) +
                     $"A capacidade do tanque não pode ser 0 ou negativo";
+
+            if (KmRegistrada < 0)
+                resultadoValidacao +=
+                    QuebraDeLinha(resultadoValidacao) +
+                    $"A quilometragem inicial não pode ser negativa";
 
             if (TamanhoPortaMalas <= 0)
                 resultadoValidacao +=
