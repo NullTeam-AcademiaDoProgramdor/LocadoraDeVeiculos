@@ -122,9 +122,7 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
             FROM 
                 [Locacao]
             WHERE 
-                [ID] = @ID";
-
-
+                [ID] = @ID";        
 
         #endregion
 

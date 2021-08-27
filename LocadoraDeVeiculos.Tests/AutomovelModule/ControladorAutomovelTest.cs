@@ -34,15 +34,14 @@ namespace LocadoraDeVeiculos.Tests.AutomovelModule
         public void DeveInserir_Automovel()
         {
             GrupoAutomovel grupo = CriarGrupo();
-            Automovel novoAutomovel = 
-                new Automovel("Gol", "Ford", "Branco", "Preto", "12YG2J31G23H123",
-                2020, 4, 100, 30, TipoCombustivelEnum.Gasolina, CambioEnum.Manual,
+            Automovel novoAutomovel =
+                new Automovel("Gol", "Ford", "Branco", "ABCD123", "12YG2J31G23H123",
+                2020, 4, 100, 0, 30, TipoCombustivelEnum.Gasolina, CambioEnum.Manual,
                 DirecaoEnum.Mecanica, grupo);
 
             controlador.InserirNovo(novoAutomovel);
 
-            Automovel automovelEncontrado = 
-                controlador.SelecionarPorId(novoAutomovel.Id);
+            Automovel automovelEncontrado = controlador.SelecionarPorId(novoAutomovel.id);
 
             automovelEncontrado.Should().Be(novoAutomovel);
         }
@@ -52,17 +51,17 @@ namespace LocadoraDeVeiculos.Tests.AutomovelModule
         {
             GrupoAutomovel grupo = CriarGrupo();
             Automovel automovel =
-                new Automovel("Gol", "Ford", "Branco", "Preto", "12YG2J31G23H123",
-                2020, 4, 100, 30, TipoCombustivelEnum.Gasolina, CambioEnum.Manual,
+                new Automovel("Gol", "Ford", "Branco", "ABCD123", "12YG2J31G23H123",
+                2020, 4, 100, 0, 30, TipoCombustivelEnum.Gasolina, CambioEnum.Manual,
                 DirecaoEnum.Mecanica, grupo);
 
             controlador.InserirNovo(automovel);
 
             GrupoAutomovel novoGrupo = CriarGrupo();
             Automovel novoAutomovel =
-                new Automovel("GolT", "FordT", "BrancoT", "PretoT", "12YG2J31G23H123T",
-                2019, 2, 150, 20, TipoCombustivelEnum.Alcool, CambioEnum.Automatico,
-                DirecaoEnum.Eletrica, novoGrupo);
+                new Automovel("GolT", "FordT", "BrancoT", "ABCD123", "12YG2J31G23H123",
+                2020, 4, 100, 0, 30, TipoCombustivelEnum.Gasolina, CambioEnum.Manual,
+                DirecaoEnum.Mecanica, novoGrupo);
 
             controlador.Editar(automovel.Id, novoAutomovel);
 
@@ -75,8 +74,8 @@ namespace LocadoraDeVeiculos.Tests.AutomovelModule
         {
             GrupoAutomovel grupo = CriarGrupo();
             Automovel automovel =
-                new Automovel("Gol", "Ford", "Branco", "Preto", "12YG2J31G23H123",
-                2020, 4, 100, 30, TipoCombustivelEnum.Gasolina, CambioEnum.Manual,
+                new Automovel("Gol", "Ford", "Branco", "ABCD123", "12YG2J31G23H123",
+                2020, 4, 100, 0, 30, TipoCombustivelEnum.Gasolina, CambioEnum.Manual,
                 DirecaoEnum.Mecanica, grupo);
 
             controlador.InserirNovo(automovel);
@@ -92,8 +91,8 @@ namespace LocadoraDeVeiculos.Tests.AutomovelModule
         {
             GrupoAutomovel grupo = CriarGrupo();
             Automovel automovel =
-                new Automovel("Gol", "Ford", "Branco", "Preto", "12YG2J31G23H123",
-                2020, 4, 100, 30, TipoCombustivelEnum.Gasolina, CambioEnum.Manual,
+                new Automovel("Gol", "Ford", "Branco", "ABCD123", "12YG2J31G23H123",
+                2020, 4, 100, 0, 30, TipoCombustivelEnum.Gasolina, CambioEnum.Manual,
                 DirecaoEnum.Mecanica, grupo);
 
             controlador.InserirNovo(automovel);
@@ -109,26 +108,26 @@ namespace LocadoraDeVeiculos.Tests.AutomovelModule
             GrupoAutomovel grupo2 = CriarGrupo();
 
             Automovel automovel1 =
-                new Automovel("Gol1", "Ford", "Branco", "Preto", "12YG2J31G23H123",
-                2020, 4, 100, 30, TipoCombustivelEnum.Gasolina, CambioEnum.Manual,
+                new Automovel("Gol", "Ford", "Branco", "ABCD123", "12YG2J31G23H123",
+                2020, 4, 100, 0, 30, TipoCombustivelEnum.Gasolina, CambioEnum.Manual,
                 DirecaoEnum.Mecanica, grupo1);
             controlador.InserirNovo(automovel1);
 
             Automovel automovel2 =
-                new Automovel("Gol2", "Ford", "Branco", "Preto", "12YG2J31G23H123",
-                2020, 4, 100, 30, TipoCombustivelEnum.Gasolina, CambioEnum.Manual,
+                new Automovel("Gol", "Ford", "Branco", "ABCD123", "12YG2J31G23H123",
+                2020, 4, 100, 0, 30, TipoCombustivelEnum.Gasolina, CambioEnum.Manual,
                 DirecaoEnum.Mecanica, grupo2);
             controlador.InserirNovo(automovel2);
 
             Automovel automovel3 =
-                new Automovel("Gol3", "Ford", "Branco", "Preto", "12YG2J31G23H123",
-                2020, 4, 100, 30, TipoCombustivelEnum.Gasolina, CambioEnum.Manual,
+                new Automovel("Gol", "Ford", "Branco", "ABCD123", "12YG2J31G23H123",
+                2020, 4, 100, 0, 30, TipoCombustivelEnum.Gasolina, CambioEnum.Manual,
                 DirecaoEnum.Mecanica, grupo1);
             controlador.InserirNovo(automovel3);
 
             Automovel automovel4 =
-                new Automovel("Gol4", "Ford", "Branco", "Preto", "12YG2J31G23H123",
-                2020, 4, 100, 30, TipoCombustivelEnum.Gasolina, CambioEnum.Manual,
+                new Automovel("Gol", "Ford", "Branco", "ABCD123", "12YG2J31G23H123",
+                2020, 4, 100, 0, 30, TipoCombustivelEnum.Gasolina, CambioEnum.Manual,
                 DirecaoEnum.Mecanica, grupo2);
             controlador.InserirNovo(automovel4);
 

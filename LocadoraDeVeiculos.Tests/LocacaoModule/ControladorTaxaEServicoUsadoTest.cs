@@ -186,10 +186,9 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
 
         private Automovel CriarAutomovel(GrupoAutomovel grupo)
         {
-            var automovel = new Automovel("Gol", "Ford", "Branco", "ABCD123",
-                            "12YG2J31G23H123",
-                            2020, 4, 100, 30, TipoCombustivelEnum.Gasolina, CambioEnum.Manual,
-                            DirecaoEnum.Mecanica, grupo);
+            var automovel = new Automovel("Gol", "Ford", "Branco", "ABCD123", "12YG2J31G23H123",
+                2020, 4, 100, 0, 30, TipoCombustivelEnum.Gasolina, CambioEnum.Manual,
+                DirecaoEnum.Mecanica, grupo);
             ctrlAutomovel.InserirNovo(automovel);
             return automovel;
 
@@ -198,7 +197,7 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
         private Locacao GerarLocacao(params TaxaEServico[] taxas) 
         {
             Locacao locacao = new Locacao(condutor, automovel, funcionario
-                , DateTime.Today, DateTime.Today.AddDays(1), 1000, 50000, 1, taxas);
+                , DateTime.Today, DateTime.Today.AddDays(1), 1000, 1, taxas);
 
             return locacao;
         }

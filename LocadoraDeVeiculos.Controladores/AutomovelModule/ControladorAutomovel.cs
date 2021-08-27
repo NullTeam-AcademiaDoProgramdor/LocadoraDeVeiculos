@@ -181,6 +181,13 @@ namespace LocadoraDeVeiculos.Controladores.AutomovelModule
             WHERE
 	            A.id = @id;";
 
+        private const string sqlEditarKmAutomovel =
+            @"UPDATE [Automovel]
+	        SET		        
+                [kmRegistrada] = @kmRegistrada
+
+	        WHERE [id] = @id";
+
         #endregion
 
         public override string InserirNovo(Automovel registro)
@@ -206,6 +213,20 @@ namespace LocadoraDeVeiculos.Controladores.AutomovelModule
                 Db.Update(sqlEditarAutomovel, ObtemParametrosAutomovel(registro));
                 controladorFotos.Modificar(registro.Fotos, registro.id);
             }
+
+            return resultadoValidacao;
+        }
+
+        public string EditarKmRegistrada(int id, Automovel registro)
+        {
+            string resultadoValidacao = registro.Validar();
+
+            if (resultadoValidacao == "ESTA_VALIDO")
+            {
+                registro.id = id;
+                Db.Update(sqlEditarKmAutomovel, ObtemParametrosAutomovel(registro));                
+            }
+
 
             return resultadoValidacao;
         }
@@ -305,7 +326,7 @@ namespace LocadoraDeVeiculos.Controladores.AutomovelModule
             #endregion
 
             Automovel automovel = new Automovel(modelo, marca, cor, placa, chassi, ano, 
-                portas, capacidadeTanque, tamanhoPortaMalas, kmInicial,
+                portas, capacidadeTanque, kmInicial, tamanhoPortaMalas,
                 (TipoCombustivelEnum)tipoCombustivel, (CambioEnum)cambio,
                 (DirecaoEnum)direcao, grupoAutomovel);
 
