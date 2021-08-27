@@ -35,6 +35,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             controladorAutomovel = new ControladorAutomovel();
             controladorPessoaFisica = new ControladorPessoaFisica();
             controladorTaxasEServicos = new ControladorTaxasEServicos();
+            controladorCupom = new ControladorCupom();
 
             InitializeComponent();
 

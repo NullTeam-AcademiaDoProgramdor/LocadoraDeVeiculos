@@ -1,4 +1,5 @@
-﻿using LocadoraDeVeiculos.Controladores.TaxasEServicosModule;
+﻿using LocadoraDeVeiculos.Controladores.CupomModule;
+using LocadoraDeVeiculos.Controladores.TaxasEServicosModule;
 using LocadoraDeVeiculos.Dominio.AutomovelModule;
 using LocadoraDeVeiculos.Dominio.FuncionarioModule;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
@@ -23,11 +24,16 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
 
         private Locacao locacao;
         private ControladorTaxasEServicos controladorTaxasEServicos;
+        private ControladorCupom controladorCupom;
+        private object cupom;
+
         public TelaDevolucaoForm()
         {
+            controladorCupom = new ControladorCupom();
+            controladorTaxasEServicos = new ControladorTaxasEServicos();
+
             InitializeComponent();
 
-            controladorTaxasEServicos = new ControladorTaxasEServicos();
             CarregarTaxasEServicos(controladorTaxasEServicos.SelecionarTodos());
         }
 
@@ -71,9 +77,15 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             int porcentagemFinalCombustivel = PegarPorcentagemFinal();
             DateTime dataDevolucao = DateTime.Today;
             var taxasEServicos = seletorTaxasEServicosControl1.TaxasEServicosSelecionados;
+            var cupom = controladorCupom.SelecionarPorCodigo(txtCupom.Text);
+            if (cupom != null && cupom.DataVencimento.CompareTo(DateTime.Now) < 0)
+            {
+                TelaPrincipalForm.Instancia.AtualizarRodape("Cupom com data inválida");
+                return;
+            }
             //inserindo
 
-            locacao = new Locacao(condutor, automovel, funcionario, dataSaida, dataDevolucaoEsperada, caucao, kmInicial, planoSelecionado, kmAutomovelFinal, porcentagemFinalCombustivel, dataDevolucao, taxasEServicos);
+            locacao = new Locacao(condutor, automovel, funcionario, dataSaida, dataDevolucaoEsperada, caucao, kmInicial, planoSelecionado, kmAutomovelFinal, porcentagemFinalCombustivel, dataDevolucao, taxasEServicos, cupom);
 
             string resultadoValidacao = locacao.ValidarDevolucao();
 
