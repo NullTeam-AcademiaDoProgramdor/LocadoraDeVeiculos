@@ -64,5 +64,15 @@ namespace LocadoraDeVeiculos.Tests.CupomModule
 
             resultadoValidacao.Should().Be("O valor não pode ser igual ou menor que zero");
         }
+
+        [TestMethod]
+        public void DeveValidarValorMinimo()
+        {
+            Cupom cupom = new Cupom("DezOff", parceiro, "porcentagem", 10, 0, DateTime.Today);
+
+            string resultadoValidacao = cupom.Validar();
+
+            resultadoValidacao.Should().Be("O valor mínimo não pode ser igual ou menor que zero");
+        }
     }
 }
