@@ -141,7 +141,7 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
 
         public override List<Cupom> SelecionarTodos()
         {
-            throw new NotImplementedException();
+            return Db.GetAll(sqlSelecionarTodosCupons, ConverterEmCupom);
         }
 
         private Dictionary<string, object> ObtemParametrosCupom(Cupom cupom)
