@@ -131,7 +131,7 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
 
         public override bool Existe(int id)
         {
-            throw new NotImplementedException();
+            return Db.Exists(sqlExisteCupom, AdicionarParametro("ID", id));
         }
 
         public override Cupom SelecionarPorId(int id)
