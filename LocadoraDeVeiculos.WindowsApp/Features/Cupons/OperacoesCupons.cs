@@ -1,4 +1,6 @@
-﻿using LocadoraDeVeiculos.WindowsApp.Shared;
+﻿using LocadoraDeVeiculos.Controladores.CupomModule;
+using LocadoraDeVeiculos.Dominio.CupomModule;
+using LocadoraDeVeiculos.WindowsApp.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +12,29 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
 {
     public class OperacoesCupons : ICadastravel
     {
+        private readonly ControladorCupom controlador = null;
+        private readonly TabelaCupomControl tabelaCupom = null;
+
+        public OperacoesCupons(ControladorCupom controladorCupom)
+        {
+            this.controlador = controladorCupom;
+            tabelaCupom = new TabelaCupomControl();
+        }
+
         public void InserirNovoRegistro()
         {
-            throw new NotImplementedException();
+            TelaCupomForm tela = new TelaCupomForm();
+
+            if (tela.ShowDialog() == DialogResult.OK)
+            {
+                controlador.InserirNovo(tela.Cupom);
+
+                List<Cupom> cupons = controlador.SelecionarTodos();
+
+                tabelaCupom.AtualizarRegistros(cupons);
+
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Funcionario [{tela.Cupom.Codigo}] inserido com sucesso");
+            }
         }
 
         public void EditarRegistro()
@@ -46,7 +68,11 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
         }
         public UserControl ObterTabela()
         {
-            throw new NotImplementedException();
+            List<Cupom> cupons = controlador.SelecionarTodos();
+
+            tabelaCupom.AtualizarRegistros(cupons);
+
+            return tabelaCupom;
         }
     }
 }
