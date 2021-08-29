@@ -33,7 +33,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
 
                 tabelaCupom.AtualizarRegistros(cupons);
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Funcionario [{tela.Cupom.Codigo}] inserido com sucesso");
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Cupom [{tela.Cupom.Codigo}] inserido com sucesso");
             }
         }
 
@@ -68,7 +68,35 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
 
         public void ExcluirRegistro()
         {
-            throw new NotImplementedException();
+            int id = tabelaCupom.ObtemIdSelecionado();
+
+            if (id == 0)
+            {
+                MessageBox.Show("Selecione um cupom para poder excluir!", "Exclusão de cupoms",
+                   MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            Cupom cupomSelecionado = controlador.SelecionarPorId(id);
+
+            if (MessageBox.Show($"Tem certeza que deseja excluir o cupom: [{cupomSelecionado.Codigo}] ?",
+                "Exclusão de de cupons", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                bool conseguiuExcluir = controlador.Excluir(id);
+
+                if (conseguiuExcluir == false)
+                {
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Não foi possível excluir o Cupom [{cupomSelecionado.Codigo}] " +
+                        $"por estar vinculado à uma locação.");
+                    return;
+                }
+
+                List<Cupom> cupons = controlador.SelecionarTodos();
+
+                tabelaCupom.AtualizarRegistros(cupons);
+
+                TelaPrincipalForm.Instancia.AtualizarRodape($"cupom: [{cupomSelecionado.Codigo}] removido com sucesso");
+            }
         }
 
         public void ExibirInformacoesDetalhadas()
