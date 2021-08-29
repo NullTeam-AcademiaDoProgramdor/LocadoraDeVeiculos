@@ -1,10 +1,12 @@
 ﻿using LocadoraDeVeiculos.Controladores.ParceiroModule;
 using LocadoraDeVeiculos.Dominio.CupomModule;
+using LocadoraDeVeiculos.Dominio.ParceiroModule;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -54,5 +56,28 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
             }
         }
 
+        private void btnGravar_Click(object sender, EventArgs e)
+        {
+            string codigo = txtCodigo.Text;
+            Parceiro parceiro = (Parceiro)cmbParceiro.SelectedItem;
+            string tipo = cmbTipo.SelectedItem.ToString();
+            double valor = Convert.ToDouble(txtValor);
+            double valorMinimo = Convert.ToDouble(txtValorMinimo);
+            DateTime dataVencimento = dtpDataVencimento.Value;
+            int qtdUsos = 0;
+
+            cupom = new Cupom(codigo, parceiro, tipo, valor, valorMinimo, dataVencimento, qtdUsos);
+
+            string resultadoValidacao = cupom.Validar();
+
+            if (resultadoValidacao != "ESTA_VALIDO")
+            {
+                string primeiroErro = new StringReader(resultadoValidacao).ReadLine();
+
+                TelaPrincipalForm.Instancia.AtualizarRodape(primeiroErro);
+
+                DialogResult = DialogResult.None;
+            }
+        }
     }
 }
