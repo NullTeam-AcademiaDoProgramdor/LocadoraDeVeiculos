@@ -27,6 +27,8 @@ using LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule;
 using LocadoraDeVeiculos.Controladores.LocacaoModule;
 using LocadoraDeVeiculos.WindowsApp.Features.Parceiros;
 using LocadoraDeVeiculos.Controladores.ParceiroModule;
+using LocadoraDeVeiculos.WindowsApp.Features.Cupons;
+using LocadoraDeVeiculos.Controladores.CupomModule;
 
 namespace LocadoraDeVeiculos.WindowsApp
 {
@@ -50,6 +52,7 @@ namespace LocadoraDeVeiculos.WindowsApp
         private OperacoesPessoaFisica operacoesPessoaFisica;
         private OperacoesLocacao operacoesLocacao;
         private OperacoesParceiro operacoesParceiro;
+        private OperacoesCupons operacoesCupom;
 
         private OperacoesAutomovel operacoesAutomovel;
 
@@ -116,6 +119,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             operacoesConfiguracoes = new OperacoesConfiguracoes();
             operacoesLocacao = new OperacoesLocacao(new ControladorLocacao());
             operacoesParceiro = new OperacoesParceiro(new ControladorParceiro());
+            operacoesCupom = new OperacoesCupons(new ControladorCupom());
 
             operacoesAutomovel = new OperacoesAutomovel(new ControladorAutomovel(), new ControladorGrupoAutomovel());
 
@@ -305,10 +309,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             operacoes = operacoesPessoaFisica;
 
             ConfigurarPainelRegistros();
-        }
-
-       
-
+        }        
 
         private void taxasEServiçosToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -369,6 +370,21 @@ namespace LocadoraDeVeiculos.WindowsApp
             ConfigurarPainelRegistros();
         }
 
+        private void cuponsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            configuracoes = new ConfiguracaoCupomToolBox();
+
+            ConfigurarTooltips(configuracoes.Tooltip);
+            ConfigurarBotoes(configuracoes.Botoes);
+
+            AtualizarRodape(configuracoes.Tooltip.TipoCadastro);
+            AtualizarFuncionarioConectado(funcionarioConectado.Nome);
+
+            operacoes = operacoesCupom;
+
+            ConfigurarPainelRegistros();
+        }
+
         public void panelRegistros_Click(object sender, EventArgs e)
         {
             if (panelRegistros.Controls.Count == 0)
@@ -412,7 +428,5 @@ namespace LocadoraDeVeiculos.WindowsApp
         {
             panelRegistros_Click(sender, e);
         }
-
-        
     }
 }
