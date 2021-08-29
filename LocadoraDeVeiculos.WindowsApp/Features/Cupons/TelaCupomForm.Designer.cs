@@ -45,6 +45,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
             this.button1 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
+            this.txtQtdUsos = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -111,6 +113,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
             // cmbTipo
             // 
             this.cmbTipo.FormattingEnabled = true;
+            this.cmbTipo.Items.AddRange(new object[] {
+            "Porcentagem",
+            "Reais"});
             this.cmbTipo.Location = new System.Drawing.Point(86, 87);
             this.cmbTipo.Name = "cmbTipo";
             this.cmbTipo.Size = new System.Drawing.Size(242, 21);
@@ -140,12 +145,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
             // 
             // dtpDataVencimento
             // 
-            this.dtpDataVencimento.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpDataVencimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpDataVencimento.Location = new System.Drawing.Point(86, 221);
             this.dtpDataVencimento.Name = "dtpDataVencimento";
             this.dtpDataVencimento.Size = new System.Drawing.Size(242, 20);
             this.dtpDataVencimento.TabIndex = 5;
-            this.dtpDataVencimento.Value = new System.DateTime(2021, 8, 27, 0, 0, 0, 0);
+            this.dtpDataVencimento.Value = new System.DateTime(2021, 8, 29, 19, 19, 57, 0);
             // 
             // btnGravar
             // 
@@ -188,11 +193,31 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
             this.txtId.Size = new System.Drawing.Size(242, 20);
             this.txtId.TabIndex = 11;
             // 
+            // txtQtdUsos
+            // 
+            this.txtQtdUsos.BackColor = System.Drawing.Color.LightGreen;
+            this.txtQtdUsos.Location = new System.Drawing.Point(86, 250);
+            this.txtQtdUsos.Name = "txtQtdUsos";
+            this.txtQtdUsos.Size = new System.Drawing.Size(242, 20);
+            this.txtQtdUsos.TabIndex = 12;
+            this.txtQtdUsos.Text = "0";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(15, 250);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(65, 26);
+            this.label8.TabIndex = 13;
+            this.label8.Text = "Quantidade \r\n     de usos";
+            // 
             // TelaCupomForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(340, 389);
+            this.Controls.Add(this.txtQtdUsos);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btnGravar);
@@ -238,5 +263,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.TextBox txtQtdUsos;
+        private System.Windows.Forms.Label label8;
     }
 }

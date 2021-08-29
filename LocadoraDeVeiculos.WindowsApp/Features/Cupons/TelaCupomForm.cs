@@ -39,6 +39,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
                 txtCodigo.Text = cupom.Codigo;
                 txtValor.Text = cupom.Valor.ToString();
                 txtValorMinimo.Text = cupom.ValorMinimo.ToString();
+                txtQtdUsos.Text = cupom.QtdUsos.ToString();
                 cmbParceiro.SelectedItem = cupom.Parceiro;
                 cmbTipo.SelectedItem = cupom.Tipo;
                 dtpDataVencimento.Value = cupom.DataVencimento;
@@ -61,10 +62,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
             string codigo = txtCodigo.Text;
             Parceiro parceiro = (Parceiro)cmbParceiro.SelectedItem;
             string tipo = cmbTipo.SelectedItem.ToString();
-            double valor = Convert.ToDouble(txtValor);
-            double valorMinimo = Convert.ToDouble(txtValorMinimo);
+            double valor = Convert.ToDouble(txtValor.Text);
+            double valorMinimo = Convert.ToDouble(txtValorMinimo.Text);
             DateTime dataVencimento = dtpDataVencimento.Value;
-            int qtdUsos = 0;
+            int qtdUsos = Convert.ToInt32(txtQtdUsos.Text);
 
             cupom = new Cupom(codigo, parceiro, tipo, valor, valorMinimo, dataVencimento, qtdUsos);
 
