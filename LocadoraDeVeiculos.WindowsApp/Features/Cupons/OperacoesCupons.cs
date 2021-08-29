@@ -39,7 +39,31 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
 
         public void EditarRegistro()
         {
-            throw new NotImplementedException();
+            int id = tabelaCupom.ObtemIdSelecionado();
+
+            if (id == 0)
+            {
+                MessageBox.Show("Selecione um Cupom para poder editar!", "Edição de Cupons",
+                   MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            Cupom cupomSelecionado = controlador.SelecionarPorId(id);
+
+            TelaCupomForm tela = new TelaCupomForm();
+
+            tela.Cupom = cupomSelecionado;
+
+            if (tela.ShowDialog() == DialogResult.OK)
+            {
+                controlador.Editar(id, tela.Cupom);
+
+                List<Cupom> cupons = controlador.SelecionarTodos();
+
+                tabelaCupom.AtualizarRegistros(cupons);
+
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Cupom [{tela.Cupom.Codigo}] editado com sucesso");
+            }
         }
 
         public void ExcluirRegistro()
