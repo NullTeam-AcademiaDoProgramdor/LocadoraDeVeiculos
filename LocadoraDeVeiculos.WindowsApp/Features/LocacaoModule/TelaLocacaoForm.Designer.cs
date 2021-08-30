@@ -46,6 +46,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             this.txtId = new System.Windows.Forms.TextBox();
             this.btnGravar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.txtKmInicial = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtCupom = new System.Windows.Forms.TextBox();
+            this.labelCupom = new System.Windows.Forms.Label();
             this.seletorTaxasEServicosControl1 = new LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos.SeletorTaxasEServicosControl();
             this.SuspendLayout();
             // 
@@ -183,7 +187,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             // 
             this.btnGravar.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnGravar.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnGravar.Location = new System.Drawing.Point(235, 281);
+            this.btnGravar.Location = new System.Drawing.Point(235, 332);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(93, 23);
             this.btnGravar.TabIndex = 9;
@@ -195,16 +199,46 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             // 
             this.btnCancelar.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(136, 281);
+            this.btnCancelar.Location = new System.Drawing.Point(136, 332);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(93, 23);
             this.btnCancelar.TabIndex = 10;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             // 
+            // txtKmInicial
+            // 
+            this.txtKmInicial.Location = new System.Drawing.Point(120, 197);
+            this.txtKmInicial.Name = "txtKmInicial";
+            this.txtKmInicial.Size = new System.Drawing.Size(184, 20);
+            this.txtKmInicial.TabIndex = 7;
+            // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(8, 202);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(106, 13);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "Quilometragem atual:";
+            // 
+            // txtCupom
+            // 
+            this.txtCupom.Location = new System.Drawing.Point(120, 223);
+            this.txtCupom.Name = "txtCupom";
+            this.txtCupom.Size = new System.Drawing.Size(184, 20);
+            this.txtCupom.TabIndex = 21;
+            // 
+            // labelCupom
+            // 
+            this.labelCupom.Location = new System.Drawing.Point(71, 226);
+            this.labelCupom.Name = "labelCupom";
+            this.labelCupom.Size = new System.Drawing.Size(43, 17);
+            this.labelCupom.TabIndex = 22;
+            this.labelCupom.Text = "Cupom:";
+            // 
             // seletorTaxasEServicosControl1
             // 
-            this.seletorTaxasEServicosControl1.Location = new System.Drawing.Point(16, 208);
+            this.seletorTaxasEServicosControl1.Location = new System.Drawing.Point(16, 267);
             this.seletorTaxasEServicosControl1.Name = "seletorTaxasEServicosControl1";
             this.seletorTaxasEServicosControl1.Size = new System.Drawing.Size(288, 48);
             this.seletorTaxasEServicosControl1.TabIndex = 8;
@@ -215,7 +249,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(340, 315);
+            this.ClientSize = new System.Drawing.Size(340, 367);
+            this.Controls.Add(this.labelCupom);
+            this.Controls.Add(this.txtCupom);
             this.Controls.Add(this.seletorTaxasEServicosControl1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGravar);
@@ -266,5 +302,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
         private System.Windows.Forms.Button btnGravar;
         private System.Windows.Forms.Button btnCancelar;
         private TaxasEServicos.SeletorTaxasEServicosControl seletorTaxasEServicosControl1;
+        private System.Windows.Forms.TextBox txtCupom;
+        private System.Windows.Forms.Label labelCupom;
     }
 }

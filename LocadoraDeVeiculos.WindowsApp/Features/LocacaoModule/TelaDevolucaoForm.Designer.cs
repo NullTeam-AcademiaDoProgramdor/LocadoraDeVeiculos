@@ -69,11 +69,16 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             this.txtCondutor = new System.Windows.Forms.TextBox();
             this.txtId = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.btnCupom = new System.Windows.Forms.Button();
+            this.labelCupom = new System.Windows.Forms.Label();
+            this.txtCupom = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -347,6 +352,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             // 
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Location = new System.Drawing.Point(13, 19);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -481,6 +487,44 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             this.label11.TabIndex = 9;
             this.label11.Text = "Id:";
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.btnCupom);
+            this.tabPage3.Controls.Add(this.labelCupom);
+            this.tabPage3.Controls.Add(this.txtCupom);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(309, 190);
+            this.tabPage3.TabIndex = 0;
+            this.tabPage3.Text = "Cupom";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // btnCupom
+            // 
+            this.btnCupom.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnCupom.Location = new System.Drawing.Point(205, 41);
+            this.btnCupom.Name = "btnCupom";
+            this.btnCupom.Size = new System.Drawing.Size(100, 28);
+            this.btnCupom.TabIndex = 38;
+            this.btnCupom.Text = "Validar Cupom";
+            this.btnCupom.UseVisualStyleBackColor = false;
+            this.btnCupom.Click += new System.EventHandler(this.btnCupom_Click);
+            // 
+            // labelCupom
+            // 
+            this.labelCupom.Location = new System.Drawing.Point(16, 12);
+            this.labelCupom.Name = "labelCupom";
+            this.labelCupom.Size = new System.Drawing.Size(43, 17);
+            this.labelCupom.TabIndex = 37;
+            this.labelCupom.Text = "Cupom:";
+            // 
+            // txtCupom
+            // 
+            this.txtCupom.Location = new System.Drawing.Point(65, 15);
+            this.txtCupom.Name = "txtCupom";
+            this.txtCupom.Size = new System.Drawing.Size(240, 20);
+            this.txtCupom.TabIndex = 36;
+            // 
             // TelaDevolucaoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -517,6 +561,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             this.tabPage2.PerformLayout();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -564,5 +610,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
         private TaxasEServicos.SeletorTaxasEServicosControl seletorTaxasEServicosControl1;
         private System.Windows.Forms.TextBox txtKmAtual;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Button btnCupom;
+        private System.Windows.Forms.Label labelCupom;
+        private System.Windows.Forms.TextBox txtCupom;
     }
 }

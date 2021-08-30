@@ -8,6 +8,8 @@
     [dataVencimento] DATETIME      NOT NULL,
     [qtdUsos]        INT           NOT NULL,
     CONSTRAINT [PK_Cupom] PRIMARY KEY CLUSTERED ([id] ASC),
-    CONSTRAINT [FK_Cupom_Parceiro] FOREIGN KEY ([parceiro]) REFERENCES [dbo].[Parceiro] ([id])
+    CONSTRAINT [FK_Cupom_Parceiro] FOREIGN KEY ([parceiro]) REFERENCES [dbo].[Parceiro] ([id]) ON DELETE CASCADE
 );
+
+
 

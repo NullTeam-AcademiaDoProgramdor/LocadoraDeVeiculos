@@ -78,6 +78,20 @@
     <Compile Include="Features\Automoveis\TelaInformaçõesAutomovelForm.Designer.cs">
       <DependentUpon>TelaInformaçõesAutomovelForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Features\Cupons\ConfiguracaoCupomToolBox.cs" />
+    <Compile Include="Features\Cupons\OperacoesCupons.cs" />
+    <Compile Include="Features\Cupons\TabelaCupomControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Features\Cupons\TabelaCupomControl.Designer.cs">
+      <DependentUpon>TabelaCupomControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Cupons\TelaCupomForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Cupons\TelaCupomForm.Designer.cs">
+      <DependentUpon>TelaCupomForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Features\GruposAutomovel\ConfiguracaoGrupoAutomovelToolBox.cs" />
     <Compile Include="Features\GruposAutomovel\OperacoesGrupoAutomovel.cs" />
     <Compile Include="Features\GruposAutomovel\TabelaGrupoAutomovelControl.cs">
@@ -258,6 +272,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Features\Automoveis\TelaInformaçõesAutomovelForm.resx">
       <DependentUpon>TelaInformaçõesAutomovelForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Cupons\TabelaCupomControl.resx">
+      <DependentUpon>TabelaCupomControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Cupons\TelaCupomForm.resx">
+      <DependentUpon>TelaCupomForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Features\GruposAutomovel\TabelaGrupoAutomovelControl.resx">
       <DependentUpon>TabelaGrupoAutomovelControl.cs</DependentUpon>

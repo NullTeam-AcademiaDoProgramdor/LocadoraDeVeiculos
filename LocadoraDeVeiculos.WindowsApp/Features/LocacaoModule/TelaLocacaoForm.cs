@@ -1,4 +1,5 @@
 ﻿using LocadoraDeVeiculos.Controladores.AutomovelModule;
+using LocadoraDeVeiculos.Controladores.CupomModule;
 using LocadoraDeVeiculos.Controladores.LocacaoModule;
 using LocadoraDeVeiculos.Controladores.PessoaFisicaModule;
 using LocadoraDeVeiculos.Controladores.TaxasEServicosModule;
@@ -27,11 +28,14 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
         private ControladorAutomovel controladorAutomovel;
         private ControladorPessoaFisica controladorPessoaFisica;
         private ControladorTaxasEServicos controladorTaxasEServicos;
+        private ControladorCupom controladorCupom;
+
         public TelaLocacaoForm()
         {
             controladorAutomovel = new ControladorAutomovel();
             controladorPessoaFisica = new ControladorPessoaFisica();
             controladorTaxasEServicos = new ControladorTaxasEServicos();
+            controladorCupom = new ControladorCupom();
 
             InitializeComponent();
 
@@ -63,7 +67,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
                 dtpdataSaida.Value = locacao.DataSaida;
                 dtpdataDevolucaoEsperada.Value = locacao.DataDevolucaoEsperada;                
                 seletorTaxasEServicosControl1.TaxasEServicosSelecionados = locacao.TaxasEServicos;
+                if(locacao.Cupom != null)
+                    txtCupom.Text = locacao.Cupom.ToString();
 
+                txtCupom.Enabled = false;
                 cmbCondutor.Enabled = false;
                 cmbAutomovel.Enabled = false;
                 cmbPlano.Enabled = false;
@@ -108,9 +115,17 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             VerificarValoresNumericos(ref caucao);
             int planoSelecionado = Convert.ToInt32(cmbPlano.SelectedIndex);
             var taxasEServicos = seletorTaxasEServicosControl1.TaxasEServicosSelecionados;
+            var cupom = controladorCupom.SelecionarPorCodigo(txtCupom.Text);
+
             //inserindo
 
-            locacao = new Locacao(condutor, automovel, funcionario, dataSaida, dataDevolucaoEsperada, caucao, planoSelecionado, taxasEServicos);
+            if(cupom != null && cupom.DataVencimento.CompareTo(DateTime.Now) < 0)
+            {
+                TelaPrincipalForm.Instancia.AtualizarRodape("Cupom com data inválida");
+                return;
+            }
+                
+            locacao = new Locacao(condutor, automovel, funcionario, dataSaida, dataDevolucaoEsperada, caucao, kmInicial, planoSelecionado, taxasEServicos, cupom);
 
             string resultadoValidacao = locacao.Validar();
 

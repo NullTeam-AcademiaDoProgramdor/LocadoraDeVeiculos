@@ -61,6 +61,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.panelRegistros = new System.Windows.Forms.Panel();
             this.statusStrip2 = new System.Windows.Forms.StatusStrip();
             this.labelFuncionarioConectado = new System.Windows.Forms.ToolStripStatusLabel();
+            this.parceirosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolboxAcoes.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -75,8 +76,9 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.PessoasToolStripMenuItem,
             this.AutomoveisToolStripMenuItem,
             this.menuItemTaxasEServicos,
+            this.configuraçõesToolStripMenuItem,
             this.cuponsToolStripMenuItem,
-            this.configuraçõesToolStripMenuItem});
+            this.parceirosToolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(682, 24);
@@ -384,6 +386,13 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.labelFuncionarioConectado.Size = new System.Drawing.Size(108, 17);
             this.labelFuncionarioConectado.Text = "Usuário Conectado";
             // 
+            // parceirosToolStripMenuItem1
+            // 
+            this.parceirosToolStripMenuItem1.Name = "parceirosToolStripMenuItem1";
+            this.parceirosToolStripMenuItem1.Size = new System.Drawing.Size(67, 20);
+            this.parceirosToolStripMenuItem1.Text = "Parceiros";
+            this.parceirosToolStripMenuItem1.Click += new System.EventHandler(this.parceirosToolStripMenuItem_Click);
+            // 
             // TelaPrincipalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -444,7 +453,7 @@ namespace LocadoraDeVeiculos.WindowsApp
         private System.Windows.Forms.ToolStripButton btnDevolverAutomovel;
         private System.Windows.Forms.ToolStripMenuItem locaçõesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cuponsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem parceirosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem parceirosToolStripMenuItem1;
     }
 }
 

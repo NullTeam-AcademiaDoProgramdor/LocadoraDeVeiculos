@@ -46,6 +46,7 @@
     <Compile Include="AutomovelModule\ControladorAutomovel.cs" />
     <Compile Include="AutomovelModule\ControladorFotos.cs" />
     <Compile Include="AutomovelModule\ControladorSelecionarIdsAutomoveisDisponiveis.cs" />
+    <Compile Include="CupomModule\ControladorCupom.cs" />
     <Compile Include="GrupoAutomovelModule\ControladorGrupoAutomovel.cs" />
     <Compile Include="LocacaoModule\ControladorLocacao.cs" />
     <Compile Include="LocacaoModule\ControladorTaxasEServicosUsados.cs" />

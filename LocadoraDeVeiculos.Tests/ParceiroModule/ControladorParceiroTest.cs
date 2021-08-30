@@ -17,6 +17,11 @@ namespace LocadoraDeVeiculos.Tests.ParceiroModule
         public ControladorParceiroTest()
         {
             controlador = new ControladorParceiro();
+        }
+
+        [TestCleanup]
+        public void LimparTabelas()
+        {
             Db.Update("DELETE FROM [PARCEIRO]");
         }
 
@@ -52,7 +57,7 @@ namespace LocadoraDeVeiculos.Tests.ParceiroModule
         }
 
         [TestMethod]
-        public void DeveExcluir_UmaPessoaJuridica()
+        public void DeveExcluir_UmParceiro()
         {
             //arrange            
             Parceiro parceiro = new Parceiro("Matheus");
