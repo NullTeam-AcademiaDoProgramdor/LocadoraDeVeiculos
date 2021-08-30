@@ -62,17 +62,17 @@ namespace LocadoraDeVeiculos.Tests.CupomModule
 
             string resultadoValidacao = cupom.Validar();
 
-            resultadoValidacao.Should().Be("O valor não pode ser igual ou menor que zero");
+            resultadoValidacao.Should().Be("Insira um valor Válido");
         }
 
         [TestMethod]
         public void DeveValidarValorMinimo()
         {
-            Cupom cupom = new Cupom("DezOff", parceiro, "porcentagem", 10, 0, DateTime.Today, 1);
+            Cupom cupom = new Cupom("DezOff", parceiro, "porcentagem", 10, -1, DateTime.Today, 1);
 
             string resultadoValidacao = cupom.Validar();
 
-            resultadoValidacao.Should().Be("O valor mínimo não pode ser igual ou menor que zero");
+            resultadoValidacao.Should().Be("Insira um valor mínimo Válido");
         }
 
         [TestMethod]
@@ -88,7 +88,7 @@ namespace LocadoraDeVeiculos.Tests.CupomModule
         [TestMethod]
         public void DeveValidarTodosCampos()
         {
-            Cupom cupom = new Cupom(null, null, null, 0, 0, DateTime.Today.AddDays(-1), 1);
+            Cupom cupom = new Cupom(null, null, null, 0, -1, DateTime.Today.AddDays(-1), 1);
 
             string resultadoValidacao = cupom.Validar();
 
@@ -97,9 +97,9 @@ namespace LocadoraDeVeiculos.Tests.CupomModule
             Environment.NewLine +
             "O campo tipo não pode estar vazio" +
             Environment.NewLine +
-            "O valor não pode ser igual ou menor que zero" +
+            "Insira um valor Válido" +
             Environment.NewLine +
-            "O valor mínimo não pode ser igual ou menor que zero" +
+            "Insira um valor mínimo Válido" +
             Environment.NewLine +
             "A data de vencimento não pode ser no passado" +
             Environment.NewLine +

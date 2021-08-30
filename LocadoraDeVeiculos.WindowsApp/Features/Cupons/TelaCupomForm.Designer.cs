@@ -198,6 +198,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
             // txtQtdUsos
             // 
             this.txtQtdUsos.BackColor = System.Drawing.Color.LightGreen;
+            this.txtQtdUsos.Enabled = false;
             this.txtQtdUsos.Location = new System.Drawing.Point(86, 250);
             this.txtQtdUsos.Name = "txtQtdUsos";
             this.txtQtdUsos.Size = new System.Drawing.Size(242, 20);
