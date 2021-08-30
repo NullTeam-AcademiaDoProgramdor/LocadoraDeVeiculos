@@ -149,13 +149,13 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
             return resultadoValidacao;
         }
 
-        public string Devolver(int id, Locacao locacao)
+        public string Devolver(int id, Locacao locacao, bool cupomFoiUsado)
         {
             string resultadoValidacao = locacao.ValidarDevolucao();
 
             if (resultadoValidacao == "ESTA_VALIDO")
             {
-                if(locacao.Cupom != null)
+                if(locacao.Cupom != null && cupomFoiUsado)
                     controladorCupom.EditarQtdUsos(locacao.Cupom);
 
                 locacao.Id = id;

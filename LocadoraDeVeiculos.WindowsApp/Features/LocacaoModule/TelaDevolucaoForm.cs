@@ -27,6 +27,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
         private ControladorTaxasEServicos controladorTaxasEServicos;
         private ControladorCupom controladorCupom;
 
+        public bool CupomFoiUsado { get; private set; }
+
         public TelaDevolucaoForm()
         {
             controladorCupom = new ControladorCupom();
@@ -89,9 +91,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             var taxasEServicos = seletorTaxasEServicosControl1.TaxasEServicosSelecionados;
             var cupom = controladorCupom.SelecionarPorCodigo(txtCupom.Text);
 
-            if (cupom != null && cupom.DataVencimento.CompareTo(DateTime.Now) < 0)
+            if (cupom != null && cupom.DataVencimento < DateTime.Today)
             {
                 TelaPrincipalForm.Instancia.AtualizarRodape("Cupom com data inválida");
+                DialogResult = DialogResult.None;
                 return;
             }
             //inserindo
@@ -112,7 +115,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             {
                 TelaRelatorioLocação telaRelatorio = new TelaRelatorioLocação(locacao);
                 telaRelatorio.ShowDialog();
+
                 DialogResult = telaRelatorio.DialogResult;
+                CupomFoiUsado = telaRelatorio.relatorio.CupomEstaValido;
 
                 if (DialogResult == DialogResult.Cancel)
                     DialogResult = DialogResult.None;

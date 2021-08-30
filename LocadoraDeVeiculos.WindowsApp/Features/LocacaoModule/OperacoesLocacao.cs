@@ -179,7 +179,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                controlador.Devolver(id, tela.Locacao);                
+                controlador.Devolver(id, tela.Locacao, tela.CupomFoiUsado);                
 
                 controlador.EditarKmRegistrada(tela.Locacao);
 

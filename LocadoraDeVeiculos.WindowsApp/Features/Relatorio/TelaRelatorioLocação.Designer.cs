@@ -61,6 +61,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorios
             this.labelValorTipoCombustivel = new System.Windows.Forms.Label();
             this.labelValorLitrosEncher = new System.Windows.Forms.Label();
             this.labelValorAbastecer = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.labelValorCupom = new System.Windows.Forms.Label();
             this.groupBoxAdicionasPorDia.SuspendLayout();
             this.groupBoxAdicionaisFixos.SuspendLayout();
             this.SuspendLayout();
@@ -213,7 +215,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorios
             // groupBoxAdicionaisFixos
             // 
             this.groupBoxAdicionaisFixos.Controls.Add(this.listBoxAdicionaisFixos);
-            this.groupBoxAdicionaisFixos.Location = new System.Drawing.Point(12, 336);
+            this.groupBoxAdicionaisFixos.Location = new System.Drawing.Point(12, 310);
             this.groupBoxAdicionaisFixos.Name = "groupBoxAdicionaisFixos";
             this.groupBoxAdicionaisFixos.Size = new System.Drawing.Size(316, 114);
             this.groupBoxAdicionaisFixos.TabIndex = 13;
@@ -232,7 +234,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorios
             // labelSubTotalFixo
             // 
             this.labelSubTotalFixo.AutoSize = true;
-            this.labelSubTotalFixo.Location = new System.Drawing.Point(9, 453);
+            this.labelSubTotalFixo.Location = new System.Drawing.Point(9, 427);
             this.labelSubTotalFixo.Name = "labelSubTotalFixo";
             this.labelSubTotalFixo.Size = new System.Drawing.Size(62, 13);
             this.labelSubTotalFixo.TabIndex = 15;
@@ -241,7 +243,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorios
             // labelValorSubTotalFixo
             // 
             this.labelValorSubTotalFixo.AutoSize = true;
-            this.labelValorSubTotalFixo.Location = new System.Drawing.Point(221, 453);
+            this.labelValorSubTotalFixo.Location = new System.Drawing.Point(221, 427);
             this.labelValorSubTotalFixo.Name = "labelValorSubTotalFixo";
             this.labelValorSubTotalFixo.Size = new System.Drawing.Size(13, 13);
             this.labelValorSubTotalFixo.TabIndex = 16;
@@ -250,7 +252,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorios
             // labelTotalAPagar
             // 
             this.labelTotalAPagar.AutoSize = true;
-            this.labelTotalAPagar.Location = new System.Drawing.Point(10, 550);
+            this.labelTotalAPagar.Location = new System.Drawing.Point(10, 556);
             this.labelTotalAPagar.Name = "labelTotalAPagar";
             this.labelTotalAPagar.Size = new System.Drawing.Size(79, 13);
             this.labelTotalAPagar.TabIndex = 17;
@@ -259,7 +261,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorios
             // labelValorTotalAPagar
             // 
             this.labelValorTotalAPagar.AutoSize = true;
-            this.labelValorTotalAPagar.Location = new System.Drawing.Point(221, 550);
+            this.labelValorTotalAPagar.Location = new System.Drawing.Point(221, 556);
             this.labelValorTotalAPagar.Name = "labelValorTotalAPagar";
             this.labelValorTotalAPagar.Size = new System.Drawing.Size(13, 13);
             this.labelValorTotalAPagar.TabIndex = 18;
@@ -307,7 +309,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorios
             // labelTipoCombustivel
             // 
             this.labelTipoCombustivel.AutoSize = true;
-            this.labelTipoCombustivel.Location = new System.Drawing.Point(10, 478);
+            this.labelTipoCombustivel.Location = new System.Drawing.Point(10, 452);
             this.labelTipoCombustivel.Name = "labelTipoCombustivel";
             this.labelTipoCombustivel.Size = new System.Drawing.Size(91, 13);
             this.labelTipoCombustivel.TabIndex = 23;
@@ -316,7 +318,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorios
             // labelLitrosEncher
             // 
             this.labelLitrosEncher.AutoSize = true;
-            this.labelLitrosEncher.Location = new System.Drawing.Point(10, 502);
+            this.labelLitrosEncher.Location = new System.Drawing.Point(10, 478);
             this.labelLitrosEncher.Name = "labelLitrosEncher";
             this.labelLitrosEncher.Size = new System.Drawing.Size(98, 13);
             this.labelLitrosEncher.TabIndex = 24;
@@ -325,7 +327,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorios
             // labelAbastecer
             // 
             this.labelAbastecer.AutoSize = true;
-            this.labelAbastecer.Location = new System.Drawing.Point(10, 526);
+            this.labelAbastecer.Location = new System.Drawing.Point(10, 504);
             this.labelAbastecer.Name = "labelAbastecer";
             this.labelAbastecer.Size = new System.Drawing.Size(108, 13);
             this.labelAbastecer.TabIndex = 25;
@@ -334,7 +336,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorios
             // labelValorTipoCombustivel
             // 
             this.labelValorTipoCombustivel.AutoSize = true;
-            this.labelValorTipoCombustivel.Location = new System.Drawing.Point(221, 478);
+            this.labelValorTipoCombustivel.Location = new System.Drawing.Point(221, 452);
             this.labelValorTipoCombustivel.Name = "labelValorTipoCombustivel";
             this.labelValorTipoCombustivel.Size = new System.Drawing.Size(13, 13);
             this.labelValorTipoCombustivel.TabIndex = 26;
@@ -343,7 +345,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorios
             // labelValorLitrosEncher
             // 
             this.labelValorLitrosEncher.AutoSize = true;
-            this.labelValorLitrosEncher.Location = new System.Drawing.Point(221, 502);
+            this.labelValorLitrosEncher.Location = new System.Drawing.Point(221, 478);
             this.labelValorLitrosEncher.Name = "labelValorLitrosEncher";
             this.labelValorLitrosEncher.Size = new System.Drawing.Size(13, 13);
             this.labelValorLitrosEncher.TabIndex = 27;
@@ -352,17 +354,37 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorios
             // labelValorAbastecer
             // 
             this.labelValorAbastecer.AutoSize = true;
-            this.labelValorAbastecer.Location = new System.Drawing.Point(221, 526);
+            this.labelValorAbastecer.Location = new System.Drawing.Point(221, 504);
             this.labelValorAbastecer.Name = "labelValorAbastecer";
             this.labelValorAbastecer.Size = new System.Drawing.Size(13, 13);
             this.labelValorAbastecer.TabIndex = 28;
             this.labelValorAbastecer.Text = "0";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(10, 530);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(106, 13);
+            this.label1.TabIndex = 29;
+            this.label1.Text = "Desconto do cupom:";
+            // 
+            // labelValorCupom
+            // 
+            this.labelValorCupom.AutoSize = true;
+            this.labelValorCupom.Location = new System.Drawing.Point(221, 530);
+            this.labelValorCupom.Name = "labelValorCupom";
+            this.labelValorCupom.Size = new System.Drawing.Size(13, 13);
+            this.labelValorCupom.TabIndex = 30;
+            this.labelValorCupom.Text = "0";
             // 
             // TelaRelatorioLocação
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(340, 610);
+            this.Controls.Add(this.labelValorCupom);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.labelValorAbastecer);
             this.Controls.Add(this.labelValorLitrosEncher);
             this.Controls.Add(this.labelValorTipoCombustivel);
@@ -441,5 +463,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorios
         private System.Windows.Forms.Label labelValorTipoCombustivel;
         private System.Windows.Forms.Label labelValorLitrosEncher;
         private System.Windows.Forms.Label labelValorAbastecer;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelValorCupom;
     }
 }

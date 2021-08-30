@@ -29,6 +29,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
             cuponsValidos = cupons;
             controladorParceiro = new ControladorParceiro();
             CarregarParceiros();
+
+            dtpDataVencimento.Value = DateTime.Today;
+            cmbTipo.SelectedIndex = 0;
+            cmbParceiro.SelectedIndex = 0;
         }
 
         public Cupom Cupom
@@ -129,9 +133,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
 
         private void TelaCupomForm_Load(object sender, EventArgs e)
         {
-            cmbParceiro.SelectedIndex = 0;
-            cmbTipo.SelectedIndex = 0;
-            dtpDataVencimento.Value = DateTime.Today;
         }
     }
 }

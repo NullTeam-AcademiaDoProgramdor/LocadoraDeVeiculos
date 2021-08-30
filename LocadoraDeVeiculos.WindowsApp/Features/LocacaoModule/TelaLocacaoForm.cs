@@ -120,9 +120,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
 
             //inserindo
 
-            if(cupom != null && cupom.DataVencimento.CompareTo(DateTime.Now) < 0)
+            if(cupom != null && cupom.DataVencimento < DateTime.Today)
             {
                 TelaPrincipalForm.Instancia.AtualizarRodape("Cupom com data inválida");
+                DialogResult = DialogResult.None;
                 return;
             }
                 
