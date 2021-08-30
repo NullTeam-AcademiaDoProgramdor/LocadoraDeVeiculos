@@ -45,7 +45,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
                 txtPlano.Text = PlanoParaString(locacao.PlanoSelecionado);
                 txtDataSaida.Text = locacao.DataSaida.ToString();
                 txtDataDevEsperada.Text = locacao.DataDevolucaoEsperada.ToString();
-                txtKmInicial.Text = locacao.KmAutomovelIncial.ToString();
+                txtKmInicial.Text = locacao.Automovel.KmRegistrada.ToString();
                 txtKmAtual.Text = locacao.KmAutomovelFinal.ToString();
                 seletorTaxasEServicosControl1.TaxasEServicosSelecionados = locacao.TaxasEServicos;
             }
