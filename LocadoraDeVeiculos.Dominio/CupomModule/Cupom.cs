@@ -27,7 +27,7 @@ namespace LocadoraDeVeiculos.Dominio.CupomModule
         public double Valor { get; }
         public double ValorMinimo { get; }
         public DateTime DataVencimento { get; }
-        public int QtdUsos { get; }
+        public int QtdUsos { get; set; }
 
         public override bool Equals(object obj)
         {

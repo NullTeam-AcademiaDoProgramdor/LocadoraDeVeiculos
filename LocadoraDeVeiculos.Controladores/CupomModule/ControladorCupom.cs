@@ -166,6 +166,12 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
             return Db.Exists(sqlExisteCupom, AdicionarParametro("ID", id));
         }
 
+        public void EditarQtdUsos(Cupom cupom)
+        {
+            cupom.QtdUsos++;
+            Editar(cupom.Id, cupom);
+        }
+
         public override Cupom SelecionarPorId(int id)
         {
             return Db.Get(sqlSelecionarCupomPorId, ConverterEmCupom, AdicionarParametro("ID", id));
