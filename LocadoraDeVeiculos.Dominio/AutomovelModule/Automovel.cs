@@ -88,10 +88,10 @@ namespace LocadoraDeVeiculos.Dominio.AutomovelModule
             Fotos = fotos;
         }
 
-        //public override string ToString()
-        //{
-        //    return Modelo;
-        //}
+        public override string ToString()
+        {
+            return Modelo;
+        }
 
         public override string Validar()
         {
