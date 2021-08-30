@@ -14,6 +14,7 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
 {
     public class Locacao : EntidadeBase, IEquatable<Locacao>
     {
+
         public Locacao(PessoaFisica condutor, Automovel automovel, Funcionario funcionario, DateTime dataSaida,
             DateTime dataDevolucaoEsperada, int caucao, int kmAutomovelIncial, int planoSelecionado, TaxaEServico[] taxaEServicos = null, Cupom cupom = null)
         {
