@@ -62,10 +62,10 @@ namespace LocadoraDeVeiculos.Dominio.CupomModule
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O valor não pode ser maior que 100";
 
             if (Valor <= 0)
-                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O valor não pode ser igual ou menor que zero";
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "Insira um valor Válido";
 
-            if (ValorMinimo <= 0)
-                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O valor mínimo não pode ser igual ou menor que zero";
+            if (ValorMinimo < 0)
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "Insira um valor mínimo Válido";
 
             if (DataVencimento < DateTime.Today)
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "A data de vencimento não pode ser no passado";

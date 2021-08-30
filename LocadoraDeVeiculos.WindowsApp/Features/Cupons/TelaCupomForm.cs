@@ -62,8 +62,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
             string codigo = txtCodigo.Text;
             Parceiro parceiro = (Parceiro)cmbParceiro.SelectedItem;
             string tipo = cmbTipo.SelectedItem.ToString();
-            double valor = Convert.ToDouble(txtValor.Text);
-            double valorMinimo = Convert.ToDouble(txtValorMinimo.Text);
+            double valor = 0;
+            double valorMinimo = 0;
+            VerificarValoresNumericos(ref valor, ref valorMinimo);
             DateTime dataVencimento = dtpDataVencimento.Value;
             int qtdUsos = Convert.ToInt32(txtQtdUsos.Text);
 
@@ -79,6 +80,27 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
 
                 DialogResult = DialogResult.None;
             }
+        }
+
+        public void VerificarValoresNumericos(ref double valor, ref double valorMinimo)
+        {
+            try
+            {
+                valor = Convert.ToInt32(txtValor.Text);
+            }
+            catch (Exception)
+            {
+                valor = 0;
+            }
+            try
+            {
+                valorMinimo = Convert.ToInt32(txtValorMinimo.Text);
+            }
+            catch (Exception)
+            {
+                valorMinimo = 0;
+            }
+
         }
 
         private void TelaCupomForm_Load(object sender, EventArgs e)
