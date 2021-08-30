@@ -61,7 +61,7 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
                 this.TaxasEServicos = taxasEServicos;
         }
 
-        public Cupom Cupom { get; }
+        public Cupom Cupom { get; set; }
         public PessoaFisica Condutor { get; }
         public Automovel Automovel { get; }
         public Funcionario Funcionario { get; }
