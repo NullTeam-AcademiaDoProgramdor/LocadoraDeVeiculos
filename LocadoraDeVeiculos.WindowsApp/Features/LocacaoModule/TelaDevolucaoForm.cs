@@ -74,8 +74,16 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             int caucao = locacao.Caucao;
             int kmInicial = locacao.KmAutomovelIncial;
             int planoSelecionado = locacao.PlanoSelecionado;
-            int kmAutomovelFinal = Convert.ToInt32(txtKmAtual.Text);
-            VerificarValoresNumericos(ref kmAutomovelFinal);
+
+
+            int? kmAutomovelFinal = PegarValorComoInt(txtKmAtual);
+            if (kmAutomovelFinal == null)
+            {
+                TelaPrincipalForm.Instancia.AtualizarRodape("Digite um numero no campo km atual");
+                DialogResult = DialogResult.None;
+                return;
+            }
+
             int porcentagemFinalCombustivel = PegarPorcentagemFinal();
             DateTime dataDevolucao = DateTime.Today;
             var taxasEServicos = seletorTaxasEServicosControl1.TaxasEServicosSelecionados;
@@ -88,7 +96,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             }
             //inserindo
 
-            locacao = new Locacao(condutor, automovel, funcionario, dataSaida, dataDevolucaoEsperada, caucao, kmInicial, planoSelecionado, kmAutomovelFinal, porcentagemFinalCombustivel, dataDevolucao, taxasEServicos, cupom);
+            locacao = new Locacao(condutor, automovel, funcionario, dataSaida, dataDevolucaoEsperada, caucao, kmInicial, planoSelecionado, (int)kmAutomovelFinal, porcentagemFinalCombustivel, dataDevolucao, taxasEServicos, cupom);
 
             string resultadoValidacao = locacao.ValidarDevolucao();
 
@@ -137,6 +145,19 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             {
                 kmFinal = 0;
             }
+
+        }
+
+        public int? PegarValorComoInt(TextBox campo)
+        {
+            try
+            {
+                return Convert.ToInt32(campo.Text);
+            } catch (Exception) 
+            { 
+                return null;
+            }
+
 
         }
 
