@@ -1,4 +1,5 @@
 ﻿using LocadoraDeVeiculos.Controladores.AutomovelModule;
+using LocadoraDeVeiculos.Controladores.CupomModule;
 using LocadoraDeVeiculos.Controladores.FuncionarioModule;
 using LocadoraDeVeiculos.Controladores.PessoaFisicaModule;
 using LocadoraDeVeiculos.Controladores.Shared;
@@ -17,6 +18,7 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
         ControladorPessoaFisica controladorPessoaFisica = new ControladorPessoaFisica();
         ControladorFuncionario controladorFuncionario;
         ControladorAutomovel controladorAutomovel;
+        ControladorCupom controladorCupom;
 
         private ControladorTaxasEServicosUsados controladorTaxas;
 
@@ -25,6 +27,7 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
          //   this.controladorPessoaFisica = new ControladorPessoaFisica();
             this.controladorFuncionario = new ControladorFuncionario();
             this.controladorAutomovel = new ControladorAutomovel();
+            this.controladorCupom = new ControladorCupom();
 
             this.controladorTaxas = new ControladorTaxasEServicosUsados();
         }
@@ -147,6 +150,9 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
 
             if (resultadoValidacao == "ESTA_VALIDO")
             {
+                if(locacao.Cupom != null)
+                    controladorCupom.EditarQtdUsos(locacao.Cupom);
+
                 locacao.Id = id;
                 Db.Update(sqlEditarLocacao, ObtemParametrosLocacao(locacao));
             }
