@@ -17,12 +17,16 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
     public partial class TelaCupomForm : Form
     {
         private Cupom cupom;
+        private string codigoAntigoCupom = "";
+        List<Cupom> cuponsValidos;
         ControladorParceiro controladorParceiro;
+        private bool estaEditando = false;
 
-        public TelaCupomForm()
+        public TelaCupomForm(List<Cupom> cupons)
         {
             InitializeComponent();
 
+            cuponsValidos = cupons;
             controladorParceiro = new ControladorParceiro();
             CarregarParceiros();
         }
@@ -43,6 +47,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
                 cmbParceiro.SelectedItem = cupom.Parceiro;
                 cmbTipo.SelectedItem = cupom.Tipo;
                 dtpDataVencimento.Value = cupom.DataVencimento;
+                estaEditando = true;
+                codigoAntigoCupom = cupom.Codigo;
             }
         }
 
@@ -70,6 +76,13 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
 
             cupom = new Cupom(codigo, parceiro, tipo, valor, valorMinimo, dataVencimento, qtdUsos);
 
+            if (!EhValido(cupom))
+            {
+                TelaPrincipalForm.Instancia.AtualizarRodape("Este código já está sendo utilizado por outro cupom");
+                DialogResult = DialogResult.None;
+                return;
+            }
+
             string resultadoValidacao = cupom.Validar();
 
             if (resultadoValidacao != "ESTA_VALIDO")
@@ -80,6 +93,17 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
 
                 DialogResult = DialogResult.None;
             }
+        }
+
+        public bool EhValido(Cupom cupom)
+        {
+            foreach (var item in cuponsValidos)
+            {
+                if (item.Codigo == cupom.Codigo && !(estaEditando && cupom.Codigo == codigoAntigoCupom))
+                    return false;
+            }
+
+            return true;
         }
 
         public void VerificarValoresNumericos(ref double valor, ref double valorMinimo)

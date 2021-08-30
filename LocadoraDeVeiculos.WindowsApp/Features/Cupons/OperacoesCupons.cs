@@ -29,17 +29,22 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
             if (!PodeCadastrar())
                 return;
 
-            TelaCupomForm tela = new TelaCupomForm();
+            TelaCupomForm tela = new TelaCupomForm(controlador.SelecionarValidos());
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
-                controlador.InserirNovo(tela.Cupom);
+                string resultadoValidacao = controlador.InserirNovo(tela.Cupom);
 
-                List<Cupom> cupons = controlador.SelecionarTodos();
+                if (resultadoValidacao != "ESTA_VALIDO")
+                    TelaPrincipalForm.Instancia.AtualizarRodape(resultadoValidacao);
+                else
+                {
+                    List<Cupom> cupons = controlador.SelecionarTodos();
 
-                tabelaCupom.AtualizarRegistros(cupons);
+                    tabelaCupom.AtualizarRegistros(cupons);
 
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Cupom [{tela.Cupom.Codigo}] inserido com sucesso");
+                    TelaPrincipalForm.Instancia.AtualizarRodape($"Cupom [{tela.Cupom.Codigo}] inserido com sucesso");
+                }
             }
         }
 
@@ -56,7 +61,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
 
             Cupom cupomSelecionado = controlador.SelecionarPorId(id);
 
-            TelaCupomForm tela = new TelaCupomForm();
+            TelaCupomForm tela = new TelaCupomForm(controlador.SelecionarValidos());
 
             tela.Cupom = cupomSelecionado;
 

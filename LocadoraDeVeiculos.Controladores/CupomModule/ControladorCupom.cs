@@ -103,6 +103,26 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
                     WHERE 
                         CODIGO = @CODIGO";
 
+        private const string sqlSelecionarCuponsAindaValidos =
+            @"SELECT
+                        C.ID,
+                        C.CODIGO,        
+                        C.PARCEIRO,      
+                        C.TIPO,          
+                        C.VALOR,         
+                        C.VALORMINIMO,  
+                        C.DATAVENCIMENTO,
+                        C.QTDUSOS,
+
+                        P.NOME
+                     FROM
+	                    [CUPOM] as C LEFT JOIN
+	                    [PARCEIRO] AS P
+                    ON
+	                    P.ID = C.PARCEIRO
+                    WHERE 
+                        DATAVENCIMENTO >= @DATADEHOJE";
+
         private const string sqlSelecionarTodosCupons =
             @"SELECT
                         C.ID,
@@ -180,6 +200,12 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
         public Cupom SelecionarPorCodigo(string codigo)
         {
             return Db.Get(sqlSelecionarCupomPorCodigo, ConverterEmCupom, AdicionarParametro("CODIGO", codigo));
+        }
+
+        public List<Cupom> SelecionarValidos()
+        {
+            return Db.GetAll(sqlSelecionarCuponsAindaValidos, ConverterEmCupom, AdicionarParametro("DATADEHOJE", DateTime.Today));
+
         }
 
         public override List<Cupom> SelecionarTodos()
