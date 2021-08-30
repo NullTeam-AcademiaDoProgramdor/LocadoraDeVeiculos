@@ -69,10 +69,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
             if(locacao.Cupom == null)
                 labelValorTotalAPagar.Text = "R$" + (valorPlano + valorTaxas + valorAbastecer);
 
-            else if(locacao.Cupom.Tipo == "porcentagem")
-                labelValorTotalAPagar.Text = "R$" + ((valorPlano + valorTaxas + valorAbastecer) * ((1-locacao.Cupom.Valor)));
+            else if(locacao.Cupom.Tipo == "Porcentagem")
+                labelValorTotalAPagar.Text = "R$" + ((valorPlano + valorTaxas + valorAbastecer) * ((1-(locacao.Cupom.Valor/100))));
 
-            else if(locacao.Cupom.Tipo == "numerico")
+            else if(locacao.Cupom.Tipo == "Numerico")
                 labelValorTotalAPagar.Text = "R$" + (valorPlano + valorTaxas + valorAbastecer - locacao.Cupom.Valor);
         }
 

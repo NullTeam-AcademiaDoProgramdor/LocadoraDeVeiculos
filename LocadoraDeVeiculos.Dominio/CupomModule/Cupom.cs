@@ -29,6 +29,11 @@ namespace LocadoraDeVeiculos.Dominio.CupomModule
         public DateTime DataVencimento { get; }
         public int QtdUsos { get; set; }
 
+        public override string ToString()
+        {
+            return Codigo;
+        }
+
         public override bool Equals(object obj)
         {
             return Equals(obj as Cupom);

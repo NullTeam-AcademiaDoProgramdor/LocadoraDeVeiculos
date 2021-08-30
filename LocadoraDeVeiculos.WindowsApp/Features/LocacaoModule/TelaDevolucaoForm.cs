@@ -1,6 +1,7 @@
 ﻿using LocadoraDeVeiculos.Controladores.CupomModule;
 using LocadoraDeVeiculos.Controladores.TaxasEServicosModule;
 using LocadoraDeVeiculos.Dominio.AutomovelModule;
+using LocadoraDeVeiculos.Dominio.CupomModule;
 using LocadoraDeVeiculos.Dominio.FuncionarioModule;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using LocadoraDeVeiculos.Dominio.PessoaFisicaModule;
@@ -42,7 +43,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             get { return locacao; }
 
             set
-            {                
+            {
                 locacao = value;
                 txtId.Text = locacao.Id.ToString();
                 txtCaucao.Text = locacao.Caucao.ToString();
@@ -54,6 +55,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
                 txtKmInicial.Text = locacao.KmAutomovelIncial.ToString();
                 txtKmAtual.Text = locacao.KmAutomovelFinal.ToString();
                 seletorTaxasEServicosControl1.TaxasEServicosSelecionados = locacao.TaxasEServicos;
+                if (locacao.Cupom != null)
+                    txtCupom.Text = locacao.Cupom.ToString();
             }
         }
 
@@ -78,6 +81,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             DateTime dataDevolucao = DateTime.Today;
             var taxasEServicos = seletorTaxasEServicosControl1.TaxasEServicosSelecionados;
             var cupom = controladorCupom.SelecionarPorCodigo(txtCupom.Text);
+
             if (cupom != null && cupom.DataVencimento.CompareTo(DateTime.Now) < 0)
             {
                 TelaPrincipalForm.Instancia.AtualizarRodape("Cupom com data inválida");
@@ -94,11 +98,11 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
                 string primeiroErro = new StringReader(resultadoValidacao).ReadLine();
 
                 TelaPrincipalForm.Instancia.AtualizarRodape(primeiroErro);
-                
+
                 DialogResult = DialogResult.None;
             }
-            else 
-            { 
+            else
+            {
                 TelaRelatorioLocação telaRelatorio = new TelaRelatorioLocação(locacao);
                 telaRelatorio.ShowDialog();
                 DialogResult = telaRelatorio.DialogResult;
@@ -114,7 +118,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
 
             foreach (var item in controls)
             {
-                if(item is RadioButton && (item as RadioButton).Checked == true)
+                if (item is RadioButton && (item as RadioButton).Checked == true)
                 {
                     return Convert.ToInt32((item as RadioButton).AccessibleDescription);
                 }
@@ -151,6 +155,17 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
                 default:
                     return "";
             }
+        }
+
+        private void btnCupom_Click(object sender, EventArgs e)
+        {
+            Cupom cupom = controladorCupom.SelecionarPorCodigo(txtCupom.Text);
+
+            if (cupom == null)
+                TelaPrincipalForm.Instancia.AtualizarRodape("Cupom inválido");
+
+            else
+                TelaPrincipalForm.Instancia.AtualizarRodape("Cupom válido");
         }
     }
 }
