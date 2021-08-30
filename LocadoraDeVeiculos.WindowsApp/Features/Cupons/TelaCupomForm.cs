@@ -85,6 +85,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
         {
             cmbParceiro.SelectedIndex = 0;
             cmbTipo.SelectedIndex = 0;
+            dtpDataVencimento.Value = DateTime.Today;
         }
     }
 }
