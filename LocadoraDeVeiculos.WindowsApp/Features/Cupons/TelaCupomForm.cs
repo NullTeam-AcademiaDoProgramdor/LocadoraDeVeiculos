@@ -80,5 +80,11 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
                 DialogResult = DialogResult.None;
             }
         }
+
+        private void TelaCupomForm_Load(object sender, EventArgs e)
+        {
+            cmbParceiro.SelectedIndex = 0;
+            cmbTipo.SelectedIndex = 0;
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using LocadoraDeVeiculos.Controladores.CupomModule;
+using LocadoraDeVeiculos.Controladores.ParceiroModule;
 using LocadoraDeVeiculos.Dominio.CupomModule;
 using LocadoraDeVeiculos.WindowsApp.Shared;
 using System;
@@ -13,16 +14,21 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
     public class OperacoesCupons : ICadastravel
     {
         private readonly ControladorCupom controlador = null;
+        private readonly ControladorParceiro controladorParceiro = null;
         private readonly TabelaCupomControl tabelaCupom = null;
 
         public OperacoesCupons(ControladorCupom controladorCupom)
         {
             this.controlador = controladorCupom;
+            controladorParceiro = new ControladorParceiro();
             tabelaCupom = new TabelaCupomControl();
         }
 
         public void InserirNovoRegistro()
         {
+            if (!PodeCadastrar())
+                return;
+
             TelaCupomForm tela = new TelaCupomForm();
 
             if (tela.ShowDialog() == DialogResult.OK)
@@ -125,6 +131,15 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
             tabelaCupom.AtualizarRegistros(cupons);
 
             return tabelaCupom;
+        }
+        private bool PodeCadastrar()
+        {
+            if (controladorParceiro.SelecionarTodos().Count > 0)
+                return true;
+            else
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Cadastre um parceiro para poder cadastrar um cupom!");
+
+            return false;
         }
     }
 }

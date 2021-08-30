@@ -112,6 +112,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
             // 
             // cmbTipo
             // 
+            this.cmbTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTipo.FormattingEnabled = true;
             this.cmbTipo.Items.AddRange(new object[] {
             "Porcentagem",
@@ -137,6 +138,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
             // 
             // cmbParceiro
             // 
+            this.cmbParceiro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbParceiro.FormattingEnabled = true;
             this.cmbParceiro.Location = new System.Drawing.Point(86, 187);
             this.cmbParceiro.Name = "cmbParceiro";
@@ -240,6 +242,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
             this.Name = "TelaCupomForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Cupons";
+            this.Load += new System.EventHandler(this.TelaCupomForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
