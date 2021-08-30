@@ -56,8 +56,15 @@
     <Compile Include="PessoaJuridicaModule\PessoaJuridica.cs" />
     <Compile Include="FuncionarioModule\Funcionario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RelatorioModule\Relatorio.cs" />
     <Compile Include="Shared\EntidadeBase.cs" />
     <Compile Include="TaxasEServicosModule\TaxaEServico.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LocadoraDeVeiculos.Configuracoes\LocadoraDeVeiculos.Configuracoes.csproj">
+      <Project>{12F59CD5-527F-4927-B9BD-DC8E91A14269}</Project>
+      <Name>LocadoraDeVeiculos.Configuracoes</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

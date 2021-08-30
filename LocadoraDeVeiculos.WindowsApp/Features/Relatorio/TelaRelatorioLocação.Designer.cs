@@ -1,5 +1,5 @@
 ﻿
-namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorio
+namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorios
 {
     partial class TelaRelatorioLocação
     {

@@ -14,7 +14,7 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
     public class Locacao : EntidadeBase, IEquatable<Locacao>
     {
         public Locacao(PessoaFisica condutor, Automovel automovel, Funcionario funcionario, DateTime dataSaida,
-            DateTime dataDevolucaoEsperada, int caucao, int kmAutomovelIncial, int planoSelecionado, TaxaEServico[] taxaEServicos = null)
+            DateTime dataDevolucaoEsperada, int caucao, int planoSelecionado, TaxaEServico[] taxaEServicos = null)
         {
             this.Condutor = condutor;
             this.Automovel = automovel;
@@ -22,8 +22,7 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
             this.DataSaida = dataSaida;
             this.DataDevolucaoEsperada = dataDevolucaoEsperada;
             this.Caucao = caucao;
-            this.PlanoSelecionado = planoSelecionado;
-            this.KmAutomovelIncial = kmAutomovelIncial;
+            this.PlanoSelecionado = planoSelecionado;          
             this.DataDevolucao = null;
             this.KmAutomovelFinal = null;
             this.PorcentagemFinalCombustivel = null;
@@ -128,9 +127,7 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
 
             if(Caucao <= 0)
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O valor de caução não pode ser menor ou igual a 0";
-
-            if (KmAutomovelIncial <= 0)
-                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "Insira um valor válido para a quilometragem inicial";
+                      
 
             if(DataDevolucaoEsperada <= DataSaida)
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "A data de devolução esperada não pode ser menor ou igual que a data de saída";
