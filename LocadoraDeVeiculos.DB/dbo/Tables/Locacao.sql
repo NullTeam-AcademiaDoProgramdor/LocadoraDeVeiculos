@@ -7,7 +7,7 @@
     [dataDevolucao]               DATETIME   NULL,
     [caucao]                      FLOAT (53) NOT NULL,
     [funcionario]                 INT        NOT NULL,
-    [kmAutomovelInicial]          INT        NOT NULL,
+    [kmRegistrada]                INT        NULL,
     [kmAutomovelFinal]            INT        NULL,
     [porcentagemFinalCombustivel] INT        NULL,
     [planoSelecionado]            INT        NOT NULL,
@@ -18,6 +18,8 @@
     CONSTRAINT [FK_Locacao_Funcionario] FOREIGN KEY ([funcionario]) REFERENCES [dbo].[Funcionario] ([id]),
     CONSTRAINT [FK_Locacao_PessoaFisica] FOREIGN KEY ([condutor]) REFERENCES [dbo].[PessoaFisica] ([id])
 );
+
+
 
 
 
