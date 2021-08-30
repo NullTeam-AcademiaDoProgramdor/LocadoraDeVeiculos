@@ -151,9 +151,12 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
         public string ValidarDevolucao()
         {
             string resultadoValidacao = "";
+            if (KmAutomovelFinal == 0)
+                resultadoValidacao = "A quilometragem final não pode ser nula";
 
             if (KmAutomovelFinal < KmAutomovelIncial)
-                resultadoValidacao = "O campo km final não pode ser maior que a inicial";
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + 
+                    $"O campo km final não pode ser menor que a inicial";
 
             if (resultadoValidacao == "")
                 resultadoValidacao = "ESTA_VALIDO";

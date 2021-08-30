@@ -70,9 +70,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             this.txtId = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.txtCupom = new System.Windows.Forms.TextBox();
-            this.labelCupom = new System.Windows.Forms.Label();
             this.btnCupom = new System.Windows.Forms.Button();
+            this.labelCupom = new System.Windows.Forms.Label();
+            this.txtCupom = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -496,23 +496,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(309, 190);
             this.tabPage3.TabIndex = 0;
-            this.tabPage3.Text = "tabPage3";
+            this.tabPage3.Text = "Cupom";
             this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // txtCupom
-            // 
-            this.txtCupom.Location = new System.Drawing.Point(65, 15);
-            this.txtCupom.Name = "txtCupom";
-            this.txtCupom.Size = new System.Drawing.Size(240, 20);
-            this.txtCupom.TabIndex = 36;
-            // 
-            // labelCupom
-            // 
-            this.labelCupom.Location = new System.Drawing.Point(16, 12);
-            this.labelCupom.Name = "labelCupom";
-            this.labelCupom.Size = new System.Drawing.Size(43, 17);
-            this.labelCupom.TabIndex = 37;
-            this.labelCupom.Text = "Cupom:";
             // 
             // btnCupom
             // 
@@ -524,6 +509,21 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             this.btnCupom.Text = "Validar Cupom";
             this.btnCupom.UseVisualStyleBackColor = false;
             this.btnCupom.Click += new System.EventHandler(this.btnCupom_Click);
+            // 
+            // labelCupom
+            // 
+            this.labelCupom.Location = new System.Drawing.Point(16, 12);
+            this.labelCupom.Name = "labelCupom";
+            this.labelCupom.Size = new System.Drawing.Size(43, 17);
+            this.labelCupom.TabIndex = 37;
+            this.labelCupom.Text = "Cupom:";
+            // 
+            // txtCupom
+            // 
+            this.txtCupom.Location = new System.Drawing.Point(65, 15);
+            this.txtCupom.Name = "txtCupom";
+            this.txtCupom.Size = new System.Drawing.Size(240, 20);
+            this.txtCupom.TabIndex = 36;
             // 
             // TelaDevolucaoForm
             // 

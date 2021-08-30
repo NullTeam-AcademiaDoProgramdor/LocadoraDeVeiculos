@@ -26,7 +26,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
         private Locacao locacao;
         private ControladorTaxasEServicos controladorTaxasEServicos;
         private ControladorCupom controladorCupom;
-        private object cupom;
 
         public TelaDevolucaoForm()
         {
