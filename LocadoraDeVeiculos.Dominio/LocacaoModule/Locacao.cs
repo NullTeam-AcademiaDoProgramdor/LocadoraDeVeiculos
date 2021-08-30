@@ -142,7 +142,7 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
         {
             string resultadoValidacao = "";
 
-            if (KmAutomovelFinal < KmAutomovelIncial)
+            if (KmAutomovelFinal < Automovel.KmRegistrada)
                 resultadoValidacao = "O campo km final não pode ser maior que a inicial";
 
             if (resultadoValidacao == "")
