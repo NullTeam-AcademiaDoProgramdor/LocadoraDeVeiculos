@@ -68,7 +68,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
                 dtpdataDevolucaoEsperada.Value = locacao.DataDevolucaoEsperada;
                 txtKmInicial.Text = locacao.KmAutomovelIncial.ToString();
                 seletorTaxasEServicosControl1.TaxasEServicosSelecionados = locacao.TaxasEServicos;
-                txtCupom.Text = locacao.Cupom.ToString();
+                if(locacao.Cupom != null)
+                    txtCupom.Text = locacao.Cupom.ToString();
 
                 txtCupom.Enabled = false;
                 cmbCondutor.Enabled = false;

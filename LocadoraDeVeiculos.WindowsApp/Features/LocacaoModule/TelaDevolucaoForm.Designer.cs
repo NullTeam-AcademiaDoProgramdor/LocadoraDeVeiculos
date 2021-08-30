@@ -69,13 +69,16 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             this.txtCondutor = new System.Windows.Forms.TextBox();
             this.txtId = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.txtCupom = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.txtCupom = new System.Windows.Forms.TextBox();
+            this.labelCupom = new System.Windows.Forms.Label();
+            this.btnCupom = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -349,6 +352,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             // 
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Location = new System.Drawing.Point(13, 19);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -411,9 +415,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.txtCupom);
             this.tabPage1.Controls.Add(this.txtDataDevEsperada);
-            this.tabPage1.Controls.Add(this.textBox1);
             this.tabPage1.Controls.Add(this.txtDataSaida);
             this.tabPage1.Controls.Add(this.txtAutomovel);
             this.tabPage1.Controls.Add(this.txtCondutor);
@@ -485,20 +487,43 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             this.label11.TabIndex = 9;
             this.label11.Text = "Id:";
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.btnCupom);
+            this.tabPage3.Controls.Add(this.labelCupom);
+            this.tabPage3.Controls.Add(this.txtCupom);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(309, 190);
+            this.tabPage3.TabIndex = 0;
+            this.tabPage3.Text = "tabPage3";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
             // txtCupom
             // 
-            this.txtCupom.Location = new System.Drawing.Point(47, 158);
+            this.txtCupom.Location = new System.Drawing.Point(65, 15);
             this.txtCupom.Name = "txtCupom";
-            this.txtCupom.Size = new System.Drawing.Size(43, 17);
+            this.txtCupom.Size = new System.Drawing.Size(240, 20);
             this.txtCupom.TabIndex = 36;
-            this.txtCupom.Text = "Cupom:";
             // 
-            // textBox1
+            // labelCupom
             // 
-            this.textBox1.Location = new System.Drawing.Point(96, 155);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(207, 20);
-            this.textBox1.TabIndex = 35;
+            this.labelCupom.Location = new System.Drawing.Point(16, 12);
+            this.labelCupom.Name = "labelCupom";
+            this.labelCupom.Size = new System.Drawing.Size(43, 17);
+            this.labelCupom.TabIndex = 37;
+            this.labelCupom.Text = "Cupom:";
+            // 
+            // btnCupom
+            // 
+            this.btnCupom.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnCupom.Location = new System.Drawing.Point(205, 41);
+            this.btnCupom.Name = "btnCupom";
+            this.btnCupom.Size = new System.Drawing.Size(100, 28);
+            this.btnCupom.TabIndex = 38;
+            this.btnCupom.Text = "Validar Cupom";
+            this.btnCupom.UseVisualStyleBackColor = false;
+            this.btnCupom.Click += new System.EventHandler(this.btnCupom_Click);
             // 
             // TelaDevolucaoForm
             // 
@@ -536,6 +561,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             this.tabPage2.PerformLayout();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -583,7 +610,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
         private TaxasEServicos.SeletorTaxasEServicosControl seletorTaxasEServicosControl1;
         private System.Windows.Forms.TextBox txtKmAtual;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label txtCupom;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Button btnCupom;
+        private System.Windows.Forms.Label labelCupom;
+        private System.Windows.Forms.TextBox txtCupom;
     }
 }
