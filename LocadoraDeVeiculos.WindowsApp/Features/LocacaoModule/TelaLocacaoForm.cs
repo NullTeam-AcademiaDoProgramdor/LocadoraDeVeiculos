@@ -4,6 +4,7 @@ using LocadoraDeVeiculos.Controladores.LocacaoModule;
 using LocadoraDeVeiculos.Controladores.PessoaFisicaModule;
 using LocadoraDeVeiculos.Controladores.TaxasEServicosModule;
 using LocadoraDeVeiculos.Dominio.AutomovelModule;
+using LocadoraDeVeiculos.Dominio.CupomModule;
 using LocadoraDeVeiculos.Dominio.FuncionarioModule;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using LocadoraDeVeiculos.Dominio.PessoaFisicaModule;
@@ -125,7 +126,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
                 return;
             }
                 
-            locacao = new Locacao(condutor, automovel, funcionario, dataSaida, dataDevolucaoEsperada, caucao, kmInicial, planoSelecionado, taxasEServicos, cupom);
+            locacao = new Locacao(condutor, automovel, funcionario, dataSaida, dataDevolucaoEsperada, caucao, planoSelecionado, taxasEServicos, cupom);
 
             string resultadoValidacao = locacao.Validar();
 
@@ -159,6 +160,17 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
                 caucao = 0;
             }
 
+        }
+
+        private void btnCupom_Click(object sender, EventArgs e)
+        {
+            Cupom cupom = controladorCupom.SelecionarPorCodigo(txtCupom.Text);
+
+            if (cupom == null)
+                TelaPrincipalForm.Instancia.AtualizarRodape("Cupom inválido");
+
+            else
+                TelaPrincipalForm.Instancia.AtualizarRodape("Cupom válido");
         }
     }
 }

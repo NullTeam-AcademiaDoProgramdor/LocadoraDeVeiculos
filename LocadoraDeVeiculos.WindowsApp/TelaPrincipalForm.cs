@@ -428,5 +428,7 @@ namespace LocadoraDeVeiculos.WindowsApp
         {
             panelRegistros_Click(sender, e);
         }
+
+        
     }
 }

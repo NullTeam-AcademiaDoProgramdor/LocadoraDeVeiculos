@@ -40,8 +40,9 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.automovelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemTaxasEServicos = new System.Windows.Forms.ToolStripMenuItem();
             this.configuraçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cuponsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cupomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.parceirosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cuponsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolboxAcoes = new System.Windows.Forms.ToolStrip();
             this.btnAdicionar = new System.Windows.Forms.ToolStripButton();
             this.btnEditar = new System.Windows.Forms.ToolStripButton();
@@ -61,7 +62,6 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.panelRegistros = new System.Windows.Forms.Panel();
             this.statusStrip2 = new System.Windows.Forms.StatusStrip();
             this.labelFuncionarioConectado = new System.Windows.Forms.ToolStripStatusLabel();
-            this.parceirosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolboxAcoes.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -77,8 +77,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.AutomoveisToolStripMenuItem,
             this.menuItemTaxasEServicos,
             this.configuraçõesToolStripMenuItem,
-            this.cuponsToolStripMenuItem,
-            this.parceirosToolStripMenuItem1});
+            this.cupomToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(682, 24);
@@ -95,8 +94,8 @@ namespace LocadoraDeVeiculos.WindowsApp
             // funcionáriosToolStripMenuItem
             // 
             this.funcionáriosToolStripMenuItem.Name = "funcionáriosToolStripMenuItem";
-            this.funcionáriosToolStripMenuItem.Size = new System.Drawing.Size(82, 20);
-            this.funcionáriosToolStripMenuItem.Text = "Funcionario";
+            this.funcionáriosToolStripMenuItem.Size = new System.Drawing.Size(87, 20);
+            this.funcionáriosToolStripMenuItem.Text = "Funcionários";
             this.funcionáriosToolStripMenuItem.ToolTipText = "Cadastre funcionario (F1)";
             this.funcionáriosToolStripMenuItem.Click += new System.EventHandler(this.funcionarioToolStripMenuItem_Click);
             // 
@@ -172,20 +171,28 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.configuraçõesToolStripMenuItem.ToolTipText = "Acesse as configurações do sistema (CTRL-C)";
             this.configuraçõesToolStripMenuItem.Click += new System.EventHandler(this.configuraçõesToolStripMenuItem_Click);
             // 
-            // cuponsToolStripMenuItem
+            // cupomToolStripMenuItem
             // 
-            this.cuponsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.parceirosToolStripMenuItem});
-            this.cuponsToolStripMenuItem.Name = "cuponsToolStripMenuItem";
-            this.cuponsToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
-            this.cuponsToolStripMenuItem.Text = "Cupons";
+            this.cupomToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.parceirosToolStripMenuItem,
+            this.cuponsToolStripMenuItem});
+            this.cupomToolStripMenuItem.Name = "cupomToolStripMenuItem";
+            this.cupomToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.cupomToolStripMenuItem.Text = "Cupons";
             // 
             // parceirosToolStripMenuItem
             // 
             this.parceirosToolStripMenuItem.Name = "parceirosToolStripMenuItem";
             this.parceirosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.parceirosToolStripMenuItem.Text = "Parceiros";
+            this.parceirosToolStripMenuItem.Text = "Parceiro";
             this.parceirosToolStripMenuItem.Click += new System.EventHandler(this.parceirosToolStripMenuItem_Click);
+            // 
+            // cuponsToolStripMenuItem
+            // 
+            this.cuponsToolStripMenuItem.Name = "cuponsToolStripMenuItem";
+            this.cuponsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cuponsToolStripMenuItem.Text = "Cupom";
+            this.cuponsToolStripMenuItem.Click += new System.EventHandler(this.cuponsToolStripMenuItem_Click);
             // 
             // toolboxAcoes
             // 
@@ -386,13 +393,6 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.labelFuncionarioConectado.Size = new System.Drawing.Size(108, 17);
             this.labelFuncionarioConectado.Text = "Usuário Conectado";
             // 
-            // parceirosToolStripMenuItem1
-            // 
-            this.parceirosToolStripMenuItem1.Name = "parceirosToolStripMenuItem1";
-            this.parceirosToolStripMenuItem1.Size = new System.Drawing.Size(67, 20);
-            this.parceirosToolStripMenuItem1.Text = "Parceiros";
-            this.parceirosToolStripMenuItem1.Click += new System.EventHandler(this.parceirosToolStripMenuItem_Click);
-            // 
             // TelaPrincipalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -452,8 +452,9 @@ namespace LocadoraDeVeiculos.WindowsApp
         private System.Windows.Forms.ToolStripMenuItem funcionáriosToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton btnDevolverAutomovel;
         private System.Windows.Forms.ToolStripMenuItem locaçõesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cupomToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem parceirosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cuponsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem parceirosToolStripMenuItem1;
     }
 }
 
