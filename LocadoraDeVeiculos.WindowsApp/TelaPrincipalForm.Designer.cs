@@ -76,8 +76,8 @@ namespace LocadoraDeVeiculos.WindowsApp
             this.PessoasToolStripMenuItem,
             this.AutomoveisToolStripMenuItem,
             this.menuItemTaxasEServicos,
-            this.configuraçõesToolStripMenuItem,
-            this.cupomToolStripMenuItem});
+            this.cupomToolStripMenuItem,
+            this.configuraçõesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(682, 24);
