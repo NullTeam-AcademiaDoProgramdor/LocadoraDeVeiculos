@@ -49,11 +49,13 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
         [TestMethod]
         public void DeveRetornarDevolucaoKmFinalInvalido()
         {
+            automovel.KmRegistrada = 10000000;
+
             Locacao locacao = new Locacao(condutor, automovel, funcionario
                 , DateTime.Today, DateTime.Today.AddDays(1), 1000, 50000, 1, 40000, 10, DateTime.Today.AddDays(1));
             string resultadoValidacao = locacao.ValidarDevolucao();
 
-            resultadoValidacao.Should().Be("O campo km final não pode ser maior que a inicial");
+            resultadoValidacao.Should().Be("O campo km final não pode ser menor que a inicial");
         }
 
         [TestMethod]

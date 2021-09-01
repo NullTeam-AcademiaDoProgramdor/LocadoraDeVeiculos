@@ -11,6 +11,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LocadoraDeVeiculos.Dominio.CupomModule;
 
 namespace LocadoraDeVeiculos.Controladores.LocacaoModule
 {
@@ -47,7 +48,8 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
                     [FUNCIONARIO],                
                     [KMREGISTRADA],         
                     [KMAUTOMOVELFINAL],          
-                    [PORCENTAGEMFINALCOMBUSTIVEL]
+                    [PORCENTAGEMFINALCOMBUSTIVEL],
+                    [CUPOM]
                 )
             VALUES
                 (
@@ -61,7 +63,8 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
                     @FUNCIONARIO,
                     @KMREGISTRADA,
                     @KMAUTOMOVELFINAL,
-                    @PORCENTAGEMFINALCOMBUSTIVEL
+                    @PORCENTAGEMFINALCOMBUSTIVEL,
+                    @CUPOM
                 )";
         private const string sqlEditarLocacao =
             @" UPDATE [Locacao]
@@ -76,7 +79,8 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
                     [FUNCIONARIO] = @FUNCIONARIO,     
                     [KMREGISTRADA] = @KMREGISTRADA,
                     [KMAUTOMOVELFINAL] = @KMAUTOMOVELFINAL,
-                    [PORCENTAGEMFINALCOMBUSTIVEL] = @PORCENTAGEMFINALCOMBUSTIVEL
+                    [PORCENTAGEMFINALCOMBUSTIVEL] = @PORCENTAGEMFINALCOMBUSTIVEL,
+                    [CUPOM] = @CUPOM
 
                 WHERE [ID] = @ID";
 
@@ -97,7 +101,8 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
                     [FUNCIONARIO],                
                     [KMREGISTRADA],         
                     [KMAUTOMOVELFINAL],          
-                    [PORCENTAGEMFINALCOMBUSTIVEL]
+                    [PORCENTAGEMFINALCOMBUSTIVEL],
+                    [CUPOM]
             FROM
                     [Locacao]";
 
@@ -114,7 +119,8 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
                     [FUNCIONARIO],                
                     [KMREGISTRADA],         
                     [KMAUTOMOVELFINAL],          
-                    [PORCENTAGEMFINALCOMBUSTIVEL]
+                    [PORCENTAGEMFINALCOMBUSTIVEL],
+                    [CUPOM]
             FROM
                     [Locacao]
             WHERE 
@@ -143,13 +149,13 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
             return resultadoValidacao;
         }
 
-        public string Devolver(int id, Locacao locacao)
+        public string Devolver(int id, Locacao locacao, bool cupomFoiUsado)
         {
             string resultadoValidacao = locacao.ValidarDevolucao();
 
             if (resultadoValidacao == "ESTA_VALIDO")
             {
-                if(locacao.Cupom != null)
+                if(locacao.Cupom != null && cupomFoiUsado)
                     controladorCupom.EditarQtdUsos(locacao.Cupom);
 
                 locacao.Id = id;
@@ -241,11 +247,18 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
 
                 locacao = new Locacao(condutor, automovel, funcionario
                 , dataSaida, dataDevolucaoEsperada, caucao, kmInicial, planoSelecionado, kmFinal, combustivelFinal, dataDevolucao);
-
             }
 
-            locacao.Id = id;
+            Cupom cupom;
+            if (reader["CUPOM"] == DBNull.Value)
+                cupom = null;
+            else
+                cupom = controladorCupom.SelecionarPorId(
+                    Convert.ToInt32(reader["CUPOM"])
+                );
 
+            locacao.Id = id;
+            locacao.Cupom = cupom;
             locacao.TaxasEServicos = controladorTaxas.Buscar(locacao.id).ToArray();
 
             return locacao;
@@ -267,7 +280,12 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
             parametros.Add("KMREGISTRADA", locacao.KmAutomovelIncial);
             parametros.Add("KMAUTOMOVELFINAL", locacao.KmAutomovelFinal);
             parametros.Add("PORCENTAGEMFINALCOMBUSTIVEL", locacao.PorcentagemFinalCombustivel);
-           
+
+            if (locacao.Cupom == null)
+                parametros.Add("CUPOM", null);
+            else
+                parametros.Add("CUPOM", locacao.Cupom.id);
+
 
             return parametros;
         }

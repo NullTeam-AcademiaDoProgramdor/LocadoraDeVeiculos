@@ -61,7 +61,7 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
                 this.TaxasEServicos = taxasEServicos;
         }
 
-        public Cupom Cupom { get; }
+        public Cupom Cupom { get; set; }
         public PessoaFisica Condutor { get; }
         public Automovel Automovel { get; }
         public Funcionario Funcionario { get; }
@@ -152,7 +152,7 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
                 resultadoValidacao = "A quilometragem final não pode ser nula";
 
             if (KmAutomovelFinal < Automovel.KmRegistrada)
-                resultadoValidacao = "O campo km final não pode ser maior que a inicial";
+                resultadoValidacao = "O campo km final não pode ser menor que a inicial";
 
             if (resultadoValidacao == "")
                 resultadoValidacao = "ESTA_VALIDO";

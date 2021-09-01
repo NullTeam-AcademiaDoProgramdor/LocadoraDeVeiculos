@@ -27,6 +27,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
         private ControladorTaxasEServicos controladorTaxasEServicos;
         private ControladorCupom controladorCupom;
 
+        public bool CupomFoiUsado { get; private set; }
+
         public TelaDevolucaoForm()
         {
             controladorCupom = new ControladorCupom();
@@ -74,21 +76,30 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             int caucao = locacao.Caucao;
             int kmInicial = locacao.KmAutomovelIncial;
             int planoSelecionado = locacao.PlanoSelecionado;
-            int kmAutomovelFinal = Convert.ToInt32(txtKmAtual.Text);
-            VerificarValoresNumericos(ref kmAutomovelFinal);
+
+
+            int? kmAutomovelFinal = PegarValorComoInt(txtKmAtual);
+            if (kmAutomovelFinal == null)
+            {
+                TelaPrincipalForm.Instancia.AtualizarRodape("Digite um numero no campo km atual");
+                DialogResult = DialogResult.None;
+                return;
+            }
+
             int porcentagemFinalCombustivel = PegarPorcentagemFinal();
             DateTime dataDevolucao = DateTime.Today;
             var taxasEServicos = seletorTaxasEServicosControl1.TaxasEServicosSelecionados;
             var cupom = controladorCupom.SelecionarPorCodigo(txtCupom.Text);
 
-            if (cupom != null && cupom.DataVencimento.CompareTo(DateTime.Now) < 0)
+            if (cupom != null && cupom.DataVencimento < DateTime.Today)
             {
                 TelaPrincipalForm.Instancia.AtualizarRodape("Cupom com data inválida");
+                DialogResult = DialogResult.None;
                 return;
             }
             //inserindo
 
-            locacao = new Locacao(condutor, automovel, funcionario, dataSaida, dataDevolucaoEsperada, caucao, kmInicial, planoSelecionado, kmAutomovelFinal, porcentagemFinalCombustivel, dataDevolucao, taxasEServicos, cupom);
+            locacao = new Locacao(condutor, automovel, funcionario, dataSaida, dataDevolucaoEsperada, caucao, kmInicial, planoSelecionado, (int)kmAutomovelFinal, porcentagemFinalCombustivel, dataDevolucao, taxasEServicos, cupom);
 
             string resultadoValidacao = locacao.ValidarDevolucao();
 
@@ -104,7 +115,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             {
                 TelaRelatorioLocação telaRelatorio = new TelaRelatorioLocação(locacao);
                 telaRelatorio.ShowDialog();
+
                 DialogResult = telaRelatorio.DialogResult;
+                CupomFoiUsado = telaRelatorio.relatorio.CupomEstaValido;
 
                 if (DialogResult == DialogResult.Cancel)
                     DialogResult = DialogResult.None;
@@ -137,6 +150,19 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             {
                 kmFinal = 0;
             }
+
+        }
+
+        public int? PegarValorComoInt(TextBox campo)
+        {
+            try
+            {
+                return Convert.ToInt32(campo.Text);
+            } catch (Exception) 
+            { 
+                return null;
+            }
+
 
         }
 

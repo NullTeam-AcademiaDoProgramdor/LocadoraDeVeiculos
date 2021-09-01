@@ -180,7 +180,7 @@ namespace LocadoraDeVeiculos.Dominio.RelatorioModule
             }
         }
 
-        public double TotalAPagar
+        private double TotalAPagarSemCupom
         {
             get
             {
@@ -191,6 +191,47 @@ namespace LocadoraDeVeiculos.Dominio.RelatorioModule
 
                 return total;
 
+            }
+        }
+
+        public bool CupomEstaValido
+        {
+            get
+            {
+                if (locacao.Cupom == null)
+                    return false;
+
+                else if (TotalAPagarSemCupom < locacao.Cupom.ValorMinimo)
+                    return false;
+
+                return true;
+            }
+        }
+
+        public double? ValorDecontadoCupom
+        {
+            get
+            {
+                if (!CupomEstaValido)
+                    return null;
+
+                if (locacao.Cupom.Tipo == "Porcentagem")
+                    return TotalAPagarSemCupom * (locacao.Cupom.Valor / 100);
+                else
+                    return locacao.Cupom.Valor;
+            }
+        }
+
+        public double TotalAPagar
+        {
+            get
+            {
+                double total = TotalAPagarSemCupom;
+
+                if (ValorDecontadoCupom != null)
+                    total -= (double) ValorDecontadoCupom;
+
+                return total;
             }
         }
 

@@ -17,7 +17,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorios
 {
     public partial class TelaRelatorioLocação : Form
     {
-        Relatorio relatorio = null;
+        public Relatorio relatorio = null;
         Locacao locacao = null;
 
         public TelaRelatorioLocação()
@@ -36,7 +36,16 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Relatorios
             SetarValorPlanos();
             SetarTaxas();
             SetarCombustivel();
+            SetarCupomDesconto();
             SetarValorFinal();
+        }
+
+        private void SetarCupomDesconto()
+        {
+            if (!relatorio.CupomEstaValido)
+                labelValorCupom.Text = "Não aplicado";
+            else
+                labelValorCupom.Text = "-R$" + relatorio.ValorDecontadoCupom;
         }
 
         private void SetarInformacoes()
