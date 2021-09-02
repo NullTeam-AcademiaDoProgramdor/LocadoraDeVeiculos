@@ -52,6 +52,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
             this.btnGravar = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.cbNaoHaPJuridica = new System.Windows.Forms.CheckBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -133,11 +135,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.groupBox1.Controls.Add(this.txtCNH);
             this.groupBox1.Controls.Add(this.dataPickCNH);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Location = new System.Drawing.Point(12, 187);
+            this.groupBox1.Location = new System.Drawing.Point(12, 217);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(316, 86);
             this.groupBox1.TabIndex = 6;
@@ -205,17 +208,19 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
             // 
             // cmbPJuridica
             // 
+            this.cmbPJuridica.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.cmbPJuridica.FormattingEnabled = true;
             this.cmbPJuridica.ItemHeight = 13;
-            this.cmbPJuridica.Location = new System.Drawing.Point(101, 298);
+            this.cmbPJuridica.Location = new System.Drawing.Point(101, 328);
             this.cmbPJuridica.Name = "cmbPJuridica";
             this.cmbPJuridica.Size = new System.Drawing.Size(227, 21);
             this.cmbPJuridica.TabIndex = 9;
             // 
             // label9
             // 
+            this.label9.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(9, 298);
+            this.label9.Location = new System.Drawing.Point(9, 328);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(86, 13);
             this.label9.TabIndex = 31;
@@ -232,9 +237,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
             // 
             // btnGravar
             // 
+            this.btnGravar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnGravar.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnGravar.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnGravar.Location = new System.Drawing.Point(253, 362);
+            this.btnGravar.Location = new System.Drawing.Point(253, 392);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(75, 23);
             this.btnGravar.TabIndex = 11;
@@ -244,9 +250,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
             // 
             // button1
             // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.button1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button1.Location = new System.Drawing.Point(172, 362);
+            this.button1.Location = new System.Drawing.Point(172, 392);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 12;
@@ -255,8 +262,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
             // 
             // cbNaoHaPJuridica
             // 
+            this.cbNaoHaPJuridica.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.cbNaoHaPJuridica.AutoSize = true;
-            this.cbNaoHaPJuridica.Location = new System.Drawing.Point(101, 326);
+            this.cbNaoHaPJuridica.Location = new System.Drawing.Point(101, 356);
             this.cbNaoHaPJuridica.Name = "cbNaoHaPJuridica";
             this.cbNaoHaPJuridica.Size = new System.Drawing.Size(140, 17);
             this.cbNaoHaPJuridica.TabIndex = 10;
@@ -264,11 +272,29 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
             this.cbNaoHaPJuridica.UseVisualStyleBackColor = true;
             this.cbNaoHaPJuridica.CheckedChanged += new System.EventHandler(this.cbNaoHaPJuridica_CheckedChanged);
             // 
+            // txtEmail
+            // 
+            this.txtEmail.Location = new System.Drawing.Point(71, 187);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(257, 20);
+            this.txtEmail.TabIndex = 33;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(27, 190);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(38, 13);
+            this.label11.TabIndex = 34;
+            this.label11.Text = "E-mail:";
+            // 
             // TelaPessoaFisicaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(340, 397);
+            this.ClientSize = new System.Drawing.Size(340, 427);
+            this.Controls.Add(this.txtEmail);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.cbNaoHaPJuridica);
             this.Controls.Add(this.btnGravar);
             this.Controls.Add(this.button1);
@@ -326,5 +352,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.CheckBox cbNaoHaPJuridica;
         private System.Windows.Forms.MaskedTextBox txtCNH;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.Label label11;
     }
 }

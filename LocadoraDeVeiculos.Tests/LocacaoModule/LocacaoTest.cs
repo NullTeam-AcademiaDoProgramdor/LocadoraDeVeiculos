@@ -23,7 +23,7 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
                 2020, 4, 100, 0, 30, TipoCombustivelEnum.Gasolina, CambioEnum.Manual,
                 DirecaoEnum.Mecanica, grupo);
             funcionario = new Funcionario("Pedro", new DateTime(2020, 01, 01), 5000, "senha");
-            condutor = new PessoaFisica("Pedro", "12365498710", "1321654", "9876543216497", new DateTime(2027, 10, 10), "9874654321", "rua lages", null);
+            condutor = new PessoaFisica("Pedro", "12365498710", "1321654", "9876543216497", new DateTime(2027, 10, 10), "9874654321", "rua lages", null, "aaaaa@gmail.com");
         }
 
         [TestMethod]

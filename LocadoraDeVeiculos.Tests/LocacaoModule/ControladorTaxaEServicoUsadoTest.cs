@@ -224,7 +224,7 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
         {
             PessoaFisica condutor = new PessoaFisica("Matheus", "123.456.789-02",
                 "12.098.098-02", "123456789123", new DateTime(2022, 02, 20),
-                "(49)000000000", "Lagi", null);
+                "(49)000000000", "Lagi", null, "aaaaa@gmail.com");
             ctrlCondutor.InserirNovo(condutor);
             return condutor;
         }

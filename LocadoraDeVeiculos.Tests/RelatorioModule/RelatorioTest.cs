@@ -28,7 +28,7 @@ namespace LocadoraDeVeiculos.Tests.RelatorioModule
                 DirecaoEnum.Mecanica, grupo);
 
             PessoaFisica pessoaFisica = new PessoaFisica("a", "123", "123", "31231", 
-                DateTime.Now, "2313", "34423423", null);
+                DateTime.Now, "2313", "34423423", null, "aaaaa@gmail.com");
 
             Funcionario funcionario = new Funcionario("24243", DateTime.Now, 123123, "12312");
 
@@ -65,7 +65,7 @@ namespace LocadoraDeVeiculos.Tests.RelatorioModule
                 DirecaoEnum.Mecanica, grupo);
 
             PessoaFisica pessoaFisica = new PessoaFisica("a", "123", "123", "31231",
-                DateTime.Now, "2313", "34423423", null);
+                DateTime.Now, "2313", "34423423", null, "aaaaa@gmail.com");
 
             Funcionario funcionario = new Funcionario("24243", DateTime.Now, 123123, "12312");
 
@@ -103,7 +103,7 @@ namespace LocadoraDeVeiculos.Tests.RelatorioModule
                 DirecaoEnum.Mecanica, grupo);
 
             PessoaFisica pessoaFisica = new PessoaFisica("a", "123", "123", "31231",
-                DateTime.Now, "2313", "34423423", null);
+                DateTime.Now, "2313", "34423423", null, "aaaaa@gmail.com");
 
             Funcionario funcionario = new Funcionario("24243", DateTime.Now, 123123, "12312");
 
@@ -140,7 +140,7 @@ namespace LocadoraDeVeiculos.Tests.RelatorioModule
                 DirecaoEnum.Mecanica, grupo);
 
             PessoaFisica pessoaFisica = new PessoaFisica("a", "123", "123", "31231",
-                DateTime.Now, "2313", "34423423", null);
+                DateTime.Now, "2313", "34423423", null, "aaaaa@gmail.com");
 
             Funcionario funcionario = new Funcionario("24243", DateTime.Now, 123123, "12312");
 
@@ -177,7 +177,7 @@ namespace LocadoraDeVeiculos.Tests.RelatorioModule
                 DirecaoEnum.Mecanica, grupo);
 
             PessoaFisica pessoaFisica = new PessoaFisica("a", "123", "123", "31231",
-                DateTime.Now, "2313", "34423423", null);
+                DateTime.Now, "2313", "34423423", null, "aaaaa@gmail.com");
 
             Funcionario funcionario = new Funcionario("24243", DateTime.Now, 123123, "12312");
 
@@ -214,7 +214,7 @@ namespace LocadoraDeVeiculos.Tests.RelatorioModule
                 DirecaoEnum.Mecanica, grupo);
 
             PessoaFisica pessoaFisica = new PessoaFisica("a", "123", "123", "31231",
-                DateTime.Now, "2313", "34423423", null);
+                DateTime.Now, "2313", "34423423", null, "aaaaa@gmail.com");
 
             Funcionario funcionario = new Funcionario("24243", DateTime.Now, 123123, "12312");
 
@@ -251,7 +251,7 @@ namespace LocadoraDeVeiculos.Tests.RelatorioModule
                 DirecaoEnum.Mecanica, grupo);
 
             PessoaFisica pessoaFisica = new PessoaFisica("a", "123", "123", "31231",
-                DateTime.Now, "2313", "34423423", null);
+                DateTime.Now, "2313", "34423423", null, "aaaaa@gmail.com");
 
             Funcionario funcionario = new Funcionario("24243", DateTime.Now, 123123, "12312");
 
@@ -290,7 +290,7 @@ namespace LocadoraDeVeiculos.Tests.RelatorioModule
                 DirecaoEnum.Mecanica, grupo);
 
             PessoaFisica pessoaFisica = new PessoaFisica("a", "123", "123", "31231",
-                DateTime.Now, "2313", "34423423", null);
+                DateTime.Now, "2313", "34423423", null, "aaaaa@gmail.com");
 
             Funcionario funcionario = new Funcionario("24243", DateTime.Now, 123123, "12312");
 
@@ -329,7 +329,7 @@ namespace LocadoraDeVeiculos.Tests.RelatorioModule
                 DirecaoEnum.Mecanica, grupo);
 
             PessoaFisica pessoaFisica = new PessoaFisica("a", "123", "123", "31231",
-                DateTime.Now, "2313", "34423423", null);
+                DateTime.Now, "2313", "34423423", null, "aaaaa@gmail.com");
 
             Funcionario funcionario = new Funcionario("24243", DateTime.Now, 123123, "12312");
 
@@ -368,7 +368,7 @@ namespace LocadoraDeVeiculos.Tests.RelatorioModule
                 DirecaoEnum.Mecanica, grupo);
 
             PessoaFisica pessoaFisica = new PessoaFisica("a", "123", "123", "31231",
-                DateTime.Now, "2313", "34423423", null);
+                DateTime.Now, "2313", "34423423", null, "aaaaa@gmail.com");
 
             Funcionario funcionario = new Funcionario("24243", DateTime.Now, 123123, "12312");
 
@@ -407,7 +407,7 @@ namespace LocadoraDeVeiculos.Tests.RelatorioModule
                 DirecaoEnum.Mecanica, grupo);
 
             PessoaFisica pessoaFisica = new PessoaFisica("a", "123", "123", "31231",
-                DateTime.Now, "2313", "34423423", null);
+                DateTime.Now, "2313", "34423423", null, "aaaaa@gmail.com");
 
             Funcionario funcionario = new Funcionario("24243", DateTime.Now, 123123, "12312");
 

@@ -64,7 +64,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
-            string nome, telefone, cpf, rg, endereco, numCNH;
+            string nome, telefone, cpf, rg, endereco, numCNH, email;
             DateTime validadeCNH;
             PessoaJuridica pessoaJuridica;
             //inserindo
@@ -74,13 +74,14 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
             cpf = txtCPF.Text;
             rg = txtRG.Text;
             endereco = txtEndereco.Text;
+            email = txtEmail.Text;
             numCNH = txtCNH.Text;
             validadeCNH = dataPickCNH.Value;
 
             pessoaJuridica = (PessoaJuridica)cmbPJuridica.SelectedItem != null &&
                 cmbPJuridica.Enabled ? (PessoaJuridica)cmbPJuridica.SelectedItem : null;
 
-            pessoaFisica = new PessoaFisica(nome, cpf, rg, numCNH, validadeCNH, telefone, endereco, pessoaJuridica);
+            pessoaFisica = new PessoaFisica(nome, cpf, rg, numCNH, validadeCNH, telefone, endereco, pessoaJuridica, email);
 
             string resultadoValidacao = pessoaFisica.Validar();
 

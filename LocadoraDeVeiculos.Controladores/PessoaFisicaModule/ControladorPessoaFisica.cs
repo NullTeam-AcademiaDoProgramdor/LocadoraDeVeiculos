@@ -25,7 +25,8 @@ namespace LocadoraDeVeiculos.Controladores.PessoaFisicaModule
                     [VENCIMENTOCNH],     
                     [TELEFONE],     
                     [ENDERECO],     
-                    [EMPRESALIGADA] 
+                    [EMPRESALIGADA], 
+                    [EMAIL]
                 )
             VALUES
                 (
@@ -36,7 +37,8 @@ namespace LocadoraDeVeiculos.Controladores.PessoaFisicaModule
                     @VENCIMENTOCNH,
                     @TELEFONE,
                     @ENDERECO,
-                    @EMPRESALIGADA
+                    @EMPRESALIGADA, 
+                    @EMAIL
                 )";
         private const string sqlEditarPessoaFisica =
             @" UPDATE [PessoaFisica]
@@ -48,7 +50,8 @@ namespace LocadoraDeVeiculos.Controladores.PessoaFisicaModule
                     [VENCIMENTOCNH] = @VENCIMENTOCNH,     
                     [TELEFONE] = @TELEFONE,     
                     [ENDERECO] = @ENDERECO,     
-                    [EMPRESALIGADA] = @EMPRESALIGADA
+                    [EMPRESALIGADA] = @EMPRESALIGADA, 
+                    [EMAIL] = @EMAIL
 
                 WHERE [ID] = @ID";
 
@@ -67,6 +70,7 @@ namespace LocadoraDeVeiculos.Controladores.PessoaFisicaModule
                     CP.[TELEFONE],     
                     CP.[ENDERECO],     
                     CP.[EMPRESALIGADA],
+                    CP.[EMAIL],
                     CT.[NOME] as [NOMEPJ], 
                     CT.[CNPJ],
                     CT.[ENDERECO] as [ENDERECOPJ],                    
@@ -88,6 +92,7 @@ namespace LocadoraDeVeiculos.Controladores.PessoaFisicaModule
                     CP.[TELEFONE],     
                     CP.[ENDERECO],     
                     CP.[EMPRESALIGADA],
+                    CP.[EMAIL],
                     CT.[NOME] as [NOMEPJ], 
                     CT.[CNPJ],
                     CT.[ENDERECO] as [ENDERECOPJ],                    
@@ -174,11 +179,12 @@ namespace LocadoraDeVeiculos.Controladores.PessoaFisicaModule
             var vencimentoCnh = Convert.ToDateTime(reader["VENCIMENTOCNH"]);
             var telefone = Convert.ToString(reader["TELEFONE"]);
             var endereco = Convert.ToString(reader["ENDERECO"]);
+            var email = Convert.ToString(reader["EMAIL"]);
 
             var nomePJuridica = Convert.ToString(reader["NOMEPJ"]);
             var CNPJ = Convert.ToString(reader["CNPJ"]);
             var enderecoPJuridica = Convert.ToString(reader["ENDERECOPJ"]);
-            var telefonePJuridica = Convert.ToString(reader["TELEFONEPJ"]);
+            var telefonePJuridica = Convert.ToString(reader["TELEFONEPJ"]);            
 
             PessoaJuridica pJuridica = null;
             if (reader["EMPRESALIGADA"] != DBNull.Value)
@@ -187,7 +193,7 @@ namespace LocadoraDeVeiculos.Controladores.PessoaFisicaModule
                 pJuridica.Id = Convert.ToInt32(reader["EMPRESALIGADA"]);
             }
 
-            PessoaFisica pessoaFisica = new PessoaFisica(nome, CPF, RG, CNH, vencimentoCnh, telefone, endereco, pJuridica);
+            PessoaFisica pessoaFisica = new PessoaFisica(nome, CPF, RG, CNH, vencimentoCnh, telefone, endereco, pJuridica, email);
             pessoaFisica.Id = Convert.ToInt32(reader["ID"]);
 
             return pessoaFisica;

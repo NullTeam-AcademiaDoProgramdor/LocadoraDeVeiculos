@@ -2,6 +2,7 @@
 using LocadoraDeVeiculos.Dominio.Shared;
 using System;
 using System.Collections.Generic;
+using System.Net.Mail;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,7 +13,7 @@ namespace LocadoraDeVeiculos.Dominio.PessoaFisicaModule
     {
         public PessoaFisica(string nome, string cPF, string rG, string cNH,
             DateTime vencimentoCNH, string telefone, string endereco,
-            PessoaJuridica pessoaJuridica)
+            PessoaJuridica pessoaJuridica, string email)
         {
             Nome = nome;
             CPF = cPF;
@@ -22,6 +23,7 @@ namespace LocadoraDeVeiculos.Dominio.PessoaFisicaModule
             Telefone = telefone;
             Endereco = endereco;
             PessoaJuridica = pessoaJuridica;
+            Email = email;
         }
 
         public string Nome { get; }
@@ -31,6 +33,7 @@ namespace LocadoraDeVeiculos.Dominio.PessoaFisicaModule
         public DateTime VencimentoCNH { get; }
         public string Telefone { get; }
         public string Endereco { get; }
+        public string Email { get; }
         public PessoaJuridica PessoaJuridica { get; }
 
         public override bool Equals(object obj)
@@ -104,6 +107,15 @@ namespace LocadoraDeVeiculos.Dominio.PessoaFisicaModule
 
             if (string.IsNullOrEmpty(Endereco))
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo 'Endereço' não pode estar vazio.";
+
+            try
+            {
+                MailAddress email = new MailAddress(Email);
+            }
+            catch(Exception)
+            {
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "Digite um E-mail válido";
+            }               
 
             if (VencimentoCNH == DateTime.MinValue)
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo 'data de vencimento' não pode estar vazio.";

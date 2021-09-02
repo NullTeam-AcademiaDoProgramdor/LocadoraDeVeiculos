@@ -102,7 +102,7 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
 
 
             //action
-            controladorLocacao.Devolver(locacao.Id, novaLocacao);
+            controladorLocacao.Devolver(locacao.Id, novaLocacao, false);
 
             //assert
             Locacao locacaoEncontrada = controladorLocacao.SelecionarPorId(locacao.Id);
@@ -119,7 +119,7 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
             Locacao novaLocacao = new Locacao(condutor, automovel, funcionario
                 , DateTime.Today, DateTime.Today.AddDays(1), 1000, 50000, 1, 100, 10, DateTime.Today.AddDays(1));
 
-            controladorLocacao.Devolver(locacao.id, novaLocacao);  
+            controladorLocacao.Devolver(locacao.id, novaLocacao, false);  
 
             controladorLocacao.EditarKmRegistrada(novaLocacao);           
 
@@ -182,7 +182,7 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
             Locacao novaLocacao = new Locacao(condutor, automovel, funcionario
                 , DateTime.Today, DateTime.Today.AddDays(1), 1000, 50000, 1, 600000, 10, DateTime.Today.AddDays(1));
 
-            controladorLocacao.Devolver(locacao.Id, novaLocacao);
+            controladorLocacao.Devolver(locacao.Id, novaLocacao, false);
 
             //action            
             controladorLocacao.Excluir(locacao.Id);
@@ -224,7 +224,7 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
         {
             PessoaFisica condutor = new PessoaFisica("Matheus", "123.456.789-02", 
                 "12.098.098-02", "123456789123", new DateTime(2022, 02, 20), 
-                "(49)000000000", "Lagi", null);
+                "(49)000000000", "Lagi", null, "aaaaa@gmail.com");
             ctrlCondutor.InserirNovo(condutor);
             return condutor;
         }
