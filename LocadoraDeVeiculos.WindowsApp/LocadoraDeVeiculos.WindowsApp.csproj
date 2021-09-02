@@ -407,6 +407,10 @@
       <Project>{5dbca542-da0b-4644-bffa-8f574e2c3f38}</Project>
       <Name>LocadoraDeVeiculos.Dominio</Name>
     </ProjectReference>
+    <ProjectReference Include="..\LocadoraDeVeiculos.Servicos\LocadoraDeVeiculos.Servicos.csproj">
+      <Project>{52bfcf8b-ca1d-468d-8450-befbc59befe1}</Project>
+      <Name>LocadoraDeVeiculos.Servicos</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
