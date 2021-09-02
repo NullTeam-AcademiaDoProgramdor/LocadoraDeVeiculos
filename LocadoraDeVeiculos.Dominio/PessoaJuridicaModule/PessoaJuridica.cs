@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,18 +10,20 @@ namespace LocadoraDeVeiculos.Dominio.PessoaJuridicaModule
 {
     public class PessoaJuridica : EntidadeBase, IEquatable<PessoaJuridica>
     {
-        public PessoaJuridica(string nome, string cnpj, string telefone, string endereco)
+        public PessoaJuridica(string nome, string cnpj, string telefone, string endereco, string email)
         {
             Nome = nome;
             Cnpj = cnpj;
             Telefone = telefone;
             Endereco = endereco;
+            Email = email;
         }
 
         public string Nome { get; }
         public string Cnpj { get; }
         public string Telefone { get; }
         public string Endereco { get; }
+        public string Email { get; }
 
         public override bool Equals(object obj)
         {
@@ -71,6 +74,15 @@ namespace LocadoraDeVeiculos.Dominio.PessoaJuridicaModule
             if (!string.IsNullOrEmpty(Cnpj))
                 if (Cnpj.Length != 18)
                     resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "Número de CNPJ inválido.";
+
+            try
+            {
+                MailAddress email = new MailAddress(Email);
+            }
+            catch (Exception)
+            {
+                resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "Digite um E-mail válido";
+            }
 
             if (resultadoValidacao == "")
                 resultadoValidacao = "ESTA_VALIDO";
