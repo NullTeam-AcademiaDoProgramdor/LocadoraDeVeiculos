@@ -37,7 +37,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasJuridicas
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "Endereco", HeaderText = "Endereço"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "Telefone", HeaderText = "Telefone"}
+                new DataGridViewTextBoxColumn { DataPropertyName = "Telefone", HeaderText = "Telefone"},
+
+                new DataGridViewTextBoxColumn { DataPropertyName = "Email", HeaderText = "E-mail"}
             };
 
             return colunas;
