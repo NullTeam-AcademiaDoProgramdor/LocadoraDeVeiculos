@@ -21,7 +21,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
                     ToolTipExcluir = "Excluir uma Pessoa Física existente",
                     ToolTipAgrupar = "Agrupar Pessoas Físicas",
                     ToolTípDesagrupar = "Desagrupar Pessoas Físicas",
-
+                    ToolTipExibirInformacoes = "Visualizar Informações detalhadas de uma Pessoa Física",
                 };
             }
         }
@@ -32,7 +32,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
             {
                 return new ConfiguracoesBotoes()
                 {
-                    BtnAgrupar = true
+                    BtnAgrupar = true,
+                    btnExibirInformações = true
                 };
             }
         }
