@@ -40,7 +40,7 @@ namespace LocadoraDeVeiculos.Servicos.EmailModule
 
                 mail.To.Add(new MailAddress(emailDestino));
 
-                mail.Subject = "Teste email locação";
+                mail.Subject = "Relatório de Locação";
                 mail.Body = mensagem;
 
                 foreach (var pdf in pdfs)
