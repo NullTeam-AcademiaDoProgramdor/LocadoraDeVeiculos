@@ -30,7 +30,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
             lblCNH.Text = pessoa.CNH;
             lblCPF.Text = pessoa.CPF;
             lblEmail.Text = pessoa.Email;
-            lblEmpresaLigada.Text = pessoa.PessoaJuridica.Nome;
+            lblEmpresaLigada.Text = !(pessoa.PessoaJuridica == null)? pessoa.PessoaJuridica.Nome : "Nenhuma";
             lblEndereço.Text = pessoa.Endereco;
             lblNome.Text = pessoa.Nome;
             lblRG.Text = pessoa.RG;
