@@ -199,7 +199,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
             // lblEmpresaLigada
             // 
             this.lblEmpresaLigada.AutoSize = true;
-            this.lblEmpresaLigada.Location = new System.Drawing.Point(104, 260);
+            this.lblEmpresaLigada.Location = new System.Drawing.Point(104, 290);
             this.lblEmpresaLigada.Name = "lblEmpresaLigada";
             this.lblEmpresaLigada.Size = new System.Drawing.Size(83, 13);
             this.lblEmpresaLigada.TabIndex = 52;
@@ -208,7 +208,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(12, 260);
+            this.label8.Location = new System.Drawing.Point(12, 290);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(86, 13);
             this.label8.TabIndex = 51;
@@ -217,7 +217,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(104, 290);
+            this.lblEmail.Location = new System.Drawing.Point(104, 261);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(35, 13);
             this.lblEmail.TabIndex = 54;
@@ -226,7 +226,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(63, 290);
+            this.label11.Location = new System.Drawing.Point(63, 261);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(35, 13);
             this.label11.TabIndex = 53;
