@@ -16,7 +16,7 @@ namespace LocadoraDeVeiculos.Tests.PessoaFisicaModule
             //arange
             PessoaJuridica pessoaJuridica = new PessoaJuridica("Matheus", "22.000.000/0001-00", "(49)000000000", "Lagi");
             //action
-            PessoaFisica pessoaFisica = new PessoaFisica("Matheus", "123.456.789-02", "12.098.098-02", "123456789123", new DateTime(2022, 02, 20), "(49)000000000", "Lagi", pessoaJuridica);
+            PessoaFisica pessoaFisica = new PessoaFisica("Matheus", "123.456.789-02", "12.098.098-02", "123456789123", new DateTime(2022, 02, 20), "(49)000000000", "Lagi", pessoaJuridica, "aaaaa@gmail.com");
 
             //assert
             pessoaFisica.Nome.Should().Be("Matheus");
@@ -35,7 +35,7 @@ namespace LocadoraDeVeiculos.Tests.PessoaFisicaModule
             //arange
             PessoaJuridica pessoaJuridica = new PessoaJuridica("Matheus", "22.000.000/0001-00", "(49)000000000", "Lagi");
             //action
-            PessoaFisica pessoaFisica = new PessoaFisica("Matheus", "123.456.789-02", "12.098.098-02", "123456789123", new DateTime(2022, 02, 20), "(49)000000000", "Lagi", pessoaJuridica);
+            PessoaFisica pessoaFisica = new PessoaFisica("Matheus", "123.456.789-02", "12.098.098-02", "123456789123", new DateTime(2022, 02, 20), "(49)000000000", "Lagi", pessoaJuridica, "aaaaa@gmail.com");
 
             //assert
             pessoaFisica.Validar().Should().Be("ESTA_VALIDO");
@@ -45,7 +45,7 @@ namespace LocadoraDeVeiculos.Tests.PessoaFisicaModule
         public void DeveValidar_PessoaFisicaComCamposNulos()
         {
             //action
-            PessoaFisica pessoaFisica = new PessoaFisica(null, null, null, null, DateTime.MinValue, null, null, null);
+            PessoaFisica pessoaFisica = new PessoaFisica(null, null, null, null, DateTime.MinValue, null, null, null, null);
 
             //assert
             string resultadoValidacao = "";
@@ -62,17 +62,30 @@ namespace LocadoraDeVeiculos.Tests.PessoaFisicaModule
                 + Environment.NewLine
                 + "O campo 'Endereço' não pode estar vazio."
                 + Environment.NewLine
+                + "Digite um E-mail válido"
+                + Environment.NewLine
                 + "O campo 'data de vencimento' não pode estar vazio.";
             pessoaFisica.Validar().Should().Be(resultadoValidacao);
         }
 
+        [TestMethod]
+        public void DeveValidar_EmailInvalido()
+        {
+            //arange
+            PessoaJuridica pessoaJuridica = new PessoaJuridica("Matheus", "22.000.000/0001-00", "(49)000000000", "Lagi");
+            //action
+            PessoaFisica pessoaFisica = new PessoaFisica("Matheus", "123.025.321-85", "12.098.098-02", "123456789123", new DateTime(2022, 02, 20), "(49)000000000", "Lagi", pessoaJuridica, "aaaaagmail.com");
+
+            //assert
+            pessoaFisica.Validar().Should().Be("Digite um E-mail válido");
+        }
         [TestMethod]
         public void DeveValidar_CPFInvalido()
         {
             //arange
             PessoaJuridica pessoaJuridica = new PessoaJuridica("Matheus", "22.000.000/0001-00", "(49)000000000", "Lagi");
             //action
-            PessoaFisica pessoaFisica = new PessoaFisica("Matheus", "123.-02", "12.098.098-02", "123456789123", new DateTime(2022, 02, 20), "(49)000000000", "Lagi", pessoaJuridica);
+            PessoaFisica pessoaFisica = new PessoaFisica("Matheus", "123.-02", "12.098.098-02", "123456789123", new DateTime(2022, 02, 20), "(49)000000000", "Lagi", pessoaJuridica, "aaaaa@gmail.com");
 
             //assert
             pessoaFisica.Validar().Should().Be("CPF inválido.");
@@ -83,7 +96,7 @@ namespace LocadoraDeVeiculos.Tests.PessoaFisicaModule
             //arange
             PessoaJuridica pessoaJuridica = new PessoaJuridica("Matheus", "22.000.000/0001-00", "(49)000000000", "Lagi");
             //action
-            PessoaFisica pessoaFisica = new PessoaFisica("Matheus", "123.456.789-02", "12.128.098-02", "1789123", new DateTime(2022, 02, 20), "(49)000000000", "Lagi", pessoaJuridica);
+            PessoaFisica pessoaFisica = new PessoaFisica("Matheus", "123.456.789-02", "12.128.098-02", "1789123", new DateTime(2022, 02, 20), "(49)000000000", "Lagi", pessoaJuridica, "aaaaa@gmail.com");
 
             //assert
             pessoaFisica.Validar().Should().Be("CNH inválida.");
@@ -94,7 +107,7 @@ namespace LocadoraDeVeiculos.Tests.PessoaFisicaModule
             //arange
             PessoaJuridica pessoaJuridica = new PessoaJuridica("Matheus", "22.000.000/0001-00", "(49)000000000", "Lagi");
             //action
-            PessoaFisica pessoaFisica = new PessoaFisica("Matheus", "123.456.789-02", "12.128.098-02", "172121891231", new DateTime(2020, 02, 20), "(49)000000000", "Lagi", pessoaJuridica);
+            PessoaFisica pessoaFisica = new PessoaFisica("Matheus", "123.456.789-02", "12.128.098-02", "172121891231", new DateTime(2020, 02, 20), "(49)000000000", "Lagi", pessoaJuridica, "aaaaa@gmail.com");
 
             //assert
             pessoaFisica.Validar().Should().Be("A data de vencimento da CNH não pode ser aceita.");
@@ -106,7 +119,7 @@ namespace LocadoraDeVeiculos.Tests.PessoaFisicaModule
             //arange
             PessoaJuridica pessoaJuridica = new PessoaJuridica("Matheus", "22.000.000/0001-00", "(49)000000000", "Lagi");
             //action
-            PessoaFisica pessoaFisica = new PessoaFisica("Matheus", "123.456.789-02", "12.128.098-02", "172121891231", new DateTime(2022, 02, 20), "(49)000", "Lagi", pessoaJuridica);
+            PessoaFisica pessoaFisica = new PessoaFisica("Matheus", "123.456.789-02", "12.128.098-02", "172121891231", new DateTime(2022, 02, 20), "(49)000", "Lagi", pessoaJuridica, "aaaaa@gmail.com");
 
             //assert
             pessoaFisica.Validar().Should().Be("Número de telefone muito pequeno.");
@@ -115,7 +128,7 @@ namespace LocadoraDeVeiculos.Tests.PessoaFisicaModule
         public void DeveGravar_SemPessoaJuridica()
         {
             //action
-            PessoaFisica pessoaFisica = new PessoaFisica("Matheus", "123.456.789-02", "12.128.098-02", "172121891231", new DateTime(2022, 02, 20), "(49)00000000", "Lagi", null);
+            PessoaFisica pessoaFisica = new PessoaFisica("Matheus", "123.456.789-02", "12.128.098-02", "172121891231", new DateTime(2022, 02, 20), "(49)00000000", "Lagi", null, "aaaaa@gmail.com");
 
             //assert
             pessoaFisica.Nome.Should().Be("Matheus");

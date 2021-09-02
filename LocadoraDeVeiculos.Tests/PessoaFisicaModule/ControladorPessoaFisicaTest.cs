@@ -33,7 +33,7 @@ namespace LocadoraDeVeiculos.Tests.PessoaFisicaModule
             controladorPJuridica.InserirNovo(pessoaJuridica);
 
             PessoaFisica pessoaFisica = new PessoaFisica("Matheus", "123.456.789-02", "12.098.098-02",
-                "123456789123", new DateTime(2022, 02, 20), "(49)000000000", "Lagi", pessoaJuridica);
+                "123456789123", new DateTime(2022, 02, 20), "(49)000000000", "Lagi", pessoaJuridica, "aaaaa@gmail.com");
 
             //action
             controlador.InserirNovo(pessoaFisica);
@@ -48,13 +48,13 @@ namespace LocadoraDeVeiculos.Tests.PessoaFisicaModule
         {
             //arrange
             PessoaFisica pessoaFisica = new PessoaFisica("Matheus", "123.456.789-02", "12.098.098-02",
-                "123456789123", new DateTime(2022, 02, 20), "(49)000000000", "Lagi", null);
+                "123456789123", new DateTime(2022, 02, 20), "(49)000000000", "Lagi", null, "aaaaa@gmail.com");
             controlador.InserirNovo(pessoaFisica);
 
             string telefone = "(49)000000111";
 
             PessoaFisica novaPessoaFisica = new PessoaFisica("Matheus", "123.456.789-02", "12.098.098-02",
-                "123456789123", new DateTime(2022, 02, 20), telefone, "Lagi", null);
+                "123456789123", new DateTime(2022, 02, 20), telefone, "Lagi", null, "aaaaa@gmail.com");
             //action
             controlador.Editar(pessoaFisica.Id, novaPessoaFisica);
 
@@ -68,7 +68,7 @@ namespace LocadoraDeVeiculos.Tests.PessoaFisicaModule
         {
             //arrange
             PessoaFisica pessoaFisica = new PessoaFisica("Matheus", "123.456.789-02", "12.098.098-02",
-                "123456789123", new DateTime(2022, 02, 20), "(49)000000000", "Lagi", null);
+                "123456789123", new DateTime(2022, 02, 20), "(49)000000000", "Lagi", null, "aaaaa@gmail.com");
             controlador.InserirNovo(pessoaFisica);
 
             //action
@@ -85,16 +85,16 @@ namespace LocadoraDeVeiculos.Tests.PessoaFisicaModule
             var pessoasFisicas = new List<PessoaFisica>
             {
                 new PessoaFisica("Matheus", "123.456.789-02", "12.098.098-02",
-                "123456789123", new DateTime(2022, 02, 20), "(49)000000000", "Lagi", null),
+                "123456789123", new DateTime(2022, 02, 20), "(49)000000000", "Lagi", null, "aaaaa@gmail.com"),
 
                 new PessoaFisica("João", "123.456.789-02", "12.098.098-02",
-                "123456789123", new DateTime(2022, 02, 20), "(49)000000000", "Lagi", null),
+                "123456789123", new DateTime(2022, 02, 20), "(49)000000000", "Lagi", null, "aaaaa@gmail.com"),
 
                 new PessoaFisica("Biel", "123.456.789-02", "12.098.098-02",
-                "123456789123", new DateTime(2022, 02, 20), "(49)000000000", "Lagi", null),
+                "123456789123", new DateTime(2022, 02, 20), "(49)000000000", "Lagi", null, "aaaaa@gmail.com"),
 
                 new PessoaFisica("Ju", "123.456.789-02", "12.098.098-02",
-                "123456789123", new DateTime(2022, 02, 20), "(49)000000000", "Lagi", null)
+                "123456789123", new DateTime(2022, 02, 20), "(49)000000000", "Lagi", null, "aaaaa@gmail.com")
             };
 
             foreach (var c in pessoasFisicas)
@@ -112,7 +112,7 @@ namespace LocadoraDeVeiculos.Tests.PessoaFisicaModule
         {
             //arrange            
             PessoaFisica pessoaFisica = new PessoaFisica("Matheus", "123.456.789-02", "12.098.098-02",
-                "123456789123", new DateTime(2022, 02, 20), "(49)000000000", "Lagi", null);
+                "123456789123", new DateTime(2022, 02, 20), "(49)000000000", "Lagi", null, "aaaaa@gmail.com");
 
             controlador.InserirNovo(pessoaFisica);
 
