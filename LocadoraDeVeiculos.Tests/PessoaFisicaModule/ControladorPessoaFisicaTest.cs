@@ -29,7 +29,7 @@ namespace LocadoraDeVeiculos.Tests.PessoaFisicaModule
         public void DeveInserir_PessoaFisicaComPessoaJuridica()
         {
             //arrange
-            PessoaJuridica pessoaJuridica = new PessoaJuridica("Matheus", "22.000.000/0001-00", "(49)000000000", "Lagi");
+            PessoaJuridica pessoaJuridica = new PessoaJuridica("Matheus", "22.000.000/0001-00", "(49)000000000", "Lagi", "aaaa@gmail.com");
             controladorPJuridica.InserirNovo(pessoaJuridica);
 
             PessoaFisica pessoaFisica = new PessoaFisica("Matheus", "123.456.789-02", "12.098.098-02",

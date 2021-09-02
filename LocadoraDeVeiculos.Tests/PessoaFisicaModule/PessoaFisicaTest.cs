@@ -14,7 +14,7 @@ namespace LocadoraDeVeiculos.Tests.PessoaFisicaModule
         public void DeveCriar_PessoaFisica()
         {
             //arange
-            PessoaJuridica pessoaJuridica = new PessoaJuridica("Matheus", "22.000.000/0001-00", "(49)000000000", "Lagi");
+            PessoaJuridica pessoaJuridica = new PessoaJuridica("Matheus", "22.000.000/0001-00", "(49)000000000", "Lagi", "aaaa@gmail.com");
             //action
             PessoaFisica pessoaFisica = new PessoaFisica("Matheus", "123.456.789-02", "12.098.098-02", "123456789123", new DateTime(2022, 02, 20), "(49)000000000", "Lagi", pessoaJuridica, "aaaaa@gmail.com");
 
@@ -33,7 +33,7 @@ namespace LocadoraDeVeiculos.Tests.PessoaFisicaModule
         public void DeveRetornar_PessoaFisicaValida()
         {
             //arange
-            PessoaJuridica pessoaJuridica = new PessoaJuridica("Matheus", "22.000.000/0001-00", "(49)000000000", "Lagi");
+            PessoaJuridica pessoaJuridica = new PessoaJuridica("Matheus", "22.000.000/0001-00", "(49)000000000", "Lagi", "aaaa@gmail.com");
             //action
             PessoaFisica pessoaFisica = new PessoaFisica("Matheus", "123.456.789-02", "12.098.098-02", "123456789123", new DateTime(2022, 02, 20), "(49)000000000", "Lagi", pessoaJuridica, "aaaaa@gmail.com");
 
@@ -72,7 +72,7 @@ namespace LocadoraDeVeiculos.Tests.PessoaFisicaModule
         public void DeveValidar_EmailInvalido()
         {
             //arange
-            PessoaJuridica pessoaJuridica = new PessoaJuridica("Matheus", "22.000.000/0001-00", "(49)000000000", "Lagi");
+            PessoaJuridica pessoaJuridica = new PessoaJuridica("Matheus", "22.000.000/0001-00", "(49)000000000", "Lagi", "aaaa@gmail.com");
             //action
             PessoaFisica pessoaFisica = new PessoaFisica("Matheus", "123.025.321-85", "12.098.098-02", "123456789123", new DateTime(2022, 02, 20), "(49)000000000", "Lagi", pessoaJuridica, "aaaaagmail.com");
 
@@ -83,7 +83,7 @@ namespace LocadoraDeVeiculos.Tests.PessoaFisicaModule
         public void DeveValidar_CPFInvalido()
         {
             //arange
-            PessoaJuridica pessoaJuridica = new PessoaJuridica("Matheus", "22.000.000/0001-00", "(49)000000000", "Lagi");
+            PessoaJuridica pessoaJuridica = new PessoaJuridica("Matheus", "22.000.000/0001-00", "(49)000000000", "Lagi", "aaaa@gmail.com");
             //action
             PessoaFisica pessoaFisica = new PessoaFisica("Matheus", "123.-02", "12.098.098-02", "123456789123", new DateTime(2022, 02, 20), "(49)000000000", "Lagi", pessoaJuridica, "aaaaa@gmail.com");
 
@@ -94,7 +94,7 @@ namespace LocadoraDeVeiculos.Tests.PessoaFisicaModule
         public void DeveValidar_CNHInvalido()
         {
             //arange
-            PessoaJuridica pessoaJuridica = new PessoaJuridica("Matheus", "22.000.000/0001-00", "(49)000000000", "Lagi");
+            PessoaJuridica pessoaJuridica = new PessoaJuridica("Matheus", "22.000.000/0001-00", "(49)000000000", "Lagi", "aaaa@gmail.com");
             //action
             PessoaFisica pessoaFisica = new PessoaFisica("Matheus", "123.456.789-02", "12.128.098-02", "1789123", new DateTime(2022, 02, 20), "(49)000000000", "Lagi", pessoaJuridica, "aaaaa@gmail.com");
 
@@ -105,7 +105,7 @@ namespace LocadoraDeVeiculos.Tests.PessoaFisicaModule
         public void DeveValidar_DataVencimentoCNHInvalido()
         {
             //arange
-            PessoaJuridica pessoaJuridica = new PessoaJuridica("Matheus", "22.000.000/0001-00", "(49)000000000", "Lagi");
+            PessoaJuridica pessoaJuridica = new PessoaJuridica("Matheus", "22.000.000/0001-00", "(49)000000000", "Lagi", "aaaa@gmail.com");
             //action
             PessoaFisica pessoaFisica = new PessoaFisica("Matheus", "123.456.789-02", "12.128.098-02", "172121891231", new DateTime(2020, 02, 20), "(49)000000000", "Lagi", pessoaJuridica, "aaaaa@gmail.com");
 
@@ -117,7 +117,7 @@ namespace LocadoraDeVeiculos.Tests.PessoaFisicaModule
         public void DeveValidar_TelefoneInvalido()
         {
             //arange
-            PessoaJuridica pessoaJuridica = new PessoaJuridica("Matheus", "22.000.000/0001-00", "(49)000000000", "Lagi");
+            PessoaJuridica pessoaJuridica = new PessoaJuridica("Matheus", "22.000.000/0001-00", "(49)000000000", "Lagi", "aaaa@gmail.com");
             //action
             PessoaFisica pessoaFisica = new PessoaFisica("Matheus", "123.456.789-02", "12.128.098-02", "172121891231", new DateTime(2022, 02, 20), "(49)000", "Lagi", pessoaJuridica, "aaaaa@gmail.com");
 

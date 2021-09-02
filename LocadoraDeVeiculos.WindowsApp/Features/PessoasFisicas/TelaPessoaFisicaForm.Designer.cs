@@ -153,7 +153,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
             this.txtCNH.Mask = "000000000000";
             this.txtCNH.Name = "txtCNH";
             this.txtCNH.Size = new System.Drawing.Size(251, 20);
-            this.txtCNH.TabIndex = 6;
+            this.txtCNH.TabIndex = 7;
             // 
             // dataPickCNH
             // 
@@ -229,7 +229,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(39, 311);
+            this.label10.Location = new System.Drawing.Point(42, 356);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(53, 13);
             this.label10.TabIndex = 32;
@@ -277,7 +277,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
             this.txtEmail.Location = new System.Drawing.Point(71, 187);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(257, 20);
-            this.txtEmail.TabIndex = 33;
+            this.txtEmail.TabIndex = 6;
             // 
             // label11
             // 

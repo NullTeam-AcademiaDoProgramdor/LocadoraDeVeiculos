@@ -45,6 +45,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
                 txtCPF.Text = pessoaFisica.CPF;
                 txtRG.Text = pessoaFisica.RG;
                 txtEndereco.Text = pessoaFisica.Endereco;
+                txtEmail.Text = pessoaFisica.Email;
                 txtCNH.Text = pessoaFisica.CNH;
                 dataPickCNH.Value = pessoaFisica.VencimentoCNH;
                 cmbPJuridica.SelectedItem = pessoaFisica.PessoaJuridica;

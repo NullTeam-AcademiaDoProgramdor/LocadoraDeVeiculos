@@ -33,17 +33,19 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasJuridicas
                 txtCNPJ.Text = pessoaJuridica.Cnpj;
                 txtEndereco.Text = pessoaJuridica.Endereco;
                 txtTelefone.Text = pessoaJuridica.Telefone;
+                txtEmail.Text = pessoaJuridica.Email;
             }
         }
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
-            string nome, cnpj, endereco, telefone;
+            string nome, cnpj, endereco, telefone, email;
             
             nome = txtNome.Text;
             cnpj = txtCNPJ.Text;
             endereco = txtEndereco.Text;
             telefone = txtTelefone.Text;
+            email = txtEmail.Text;
 
             if (txtCNPJ.Text == "  ,   ,   /    -")
                 cnpj = null;
@@ -51,7 +53,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasJuridicas
             if (txtTelefone.Text == "(  )     -")
                 telefone = null;
 
-            pessoaJuridica = new PessoaJuridica(nome, cnpj, telefone, endereco);
+            pessoaJuridica = new PessoaJuridica(nome, cnpj, telefone, endereco, email);
 
             string resultadoValidacao = pessoaJuridica.Validar();
 

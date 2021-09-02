@@ -27,7 +27,7 @@ namespace LocadoraDeVeiculos.Tests.PessoaJuridicaModule
         public void DeveInserir_PessoaJuridica()
         {
             //arrange
-            PessoaJuridica pessoaJuridica = new PessoaJuridica("Matheus", "22.000.000/0001-00", "(49)000000000", "Lagi");
+            PessoaJuridica pessoaJuridica = new PessoaJuridica("Matheus", "22.000.000/0001-00", "(49)000000000", "Lagi", "aaaa@gmail.com");
 
             //action
             controlador.InserirNovo(pessoaJuridica);
@@ -41,10 +41,10 @@ namespace LocadoraDeVeiculos.Tests.PessoaJuridicaModule
         public void DeveEditar_UmaPessoaJuridica()
         {
             //arrange
-            PessoaJuridica pessoaJuridica = new PessoaJuridica("Matheus", "22.000.000/0001-00", "(49)000000000", "Lagi");
+            PessoaJuridica pessoaJuridica = new PessoaJuridica("Matheus", "22.000.000/0001-00", "(49)000000000", "Lagi", "aaaa@gmail.com");
             controlador.InserirNovo(pessoaJuridica);
 
-            PessoaJuridica novaPessoaJuridica = new PessoaJuridica("Matheus", "22.000.000/0001-00", "(49)000000000", "Lagi");
+            PessoaJuridica novaPessoaJuridica = new PessoaJuridica("Matheus", "22.000.000/0001-00", "(49)000000000", "Lagi", "aaaa@gmail.com");
 
             //action
             controlador.Editar(pessoaJuridica.Id, novaPessoaJuridica);
@@ -58,7 +58,7 @@ namespace LocadoraDeVeiculos.Tests.PessoaJuridicaModule
         public void DeveExcluir_UmaPessoaJuridica()
         {
             //arrange            
-            PessoaJuridica pessoaJuridica = new PessoaJuridica("Matheus", "22.000.000/0001-00", "(49)000000000", "Lagi");
+            PessoaJuridica pessoaJuridica = new PessoaJuridica("Matheus", "22.000.000/0001-00", "(49)000000000", "Lagi", "aaaa@gmail.com");
             controlador.InserirNovo(pessoaJuridica);
 
             //action            
@@ -73,7 +73,7 @@ namespace LocadoraDeVeiculos.Tests.PessoaJuridicaModule
         public void DeveSelecionar_PessoaJuridica_PorId()
         {
             //arrange
-            PessoaJuridica pessoaJuridica = new PessoaJuridica("Matheus", "22.000.000/0001-00", "(49)000000000", "Lagi");
+            PessoaJuridica pessoaJuridica = new PessoaJuridica("Matheus", "22.000.000/0001-00", "(49)000000000", "Lagi", "aaaa@gmail.com");
             controlador.InserirNovo(pessoaJuridica);
 
             //action
