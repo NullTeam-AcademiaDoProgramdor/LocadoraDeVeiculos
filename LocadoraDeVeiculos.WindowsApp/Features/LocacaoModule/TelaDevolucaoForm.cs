@@ -6,6 +6,7 @@ using LocadoraDeVeiculos.Dominio.FuncionarioModule;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using LocadoraDeVeiculos.Dominio.PessoaFisicaModule;
 using LocadoraDeVeiculos.Dominio.TaxasEServicosModule;
+using LocadoraDeVeiculos.Servicos.PDFModule;
 using LocadoraDeVeiculos.WindowsApp.Features.Relatorios;
 using System;
 using System.Collections.Generic;
@@ -26,13 +27,14 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
         private Locacao locacao;
         private ControladorTaxasEServicos controladorTaxasEServicos;
         private ControladorCupom controladorCupom;
-
+        private GeradorPdf geradorPdf;
         public bool CupomFoiUsado { get; private set; }
 
         public TelaDevolucaoForm()
         {
             controladorCupom = new ControladorCupom();
             controladorTaxasEServicos = new ControladorTaxasEServicos();
+            geradorPdf = new GeradorPdf();
 
             InitializeComponent();
 
@@ -114,7 +116,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             else
             {
                 TelaRelatorioLocação telaRelatorio = new TelaRelatorioLocação(locacao);
-                telaRelatorio.ShowDialog();
+                if (telaRelatorio.ShowDialog() == DialogResult.OK)
+                    geradorPdf.GerarPdf(telaRelatorio.relatorio);
 
                 DialogResult = telaRelatorio.DialogResult;
                 CupomFoiUsado = telaRelatorio.relatorio.CupomEstaValido;
