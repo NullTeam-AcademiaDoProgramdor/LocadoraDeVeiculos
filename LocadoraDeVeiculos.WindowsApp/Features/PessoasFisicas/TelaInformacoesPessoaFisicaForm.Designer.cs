@@ -269,7 +269,11 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
             this.Controls.Add(this.lblTelefone);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label10);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "TelaInformacoesPessoaFisicaForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TelaInformacoesPessoaFisicaForm";
             this.ResumeLayout(false);
             this.PerformLayout();
