@@ -18,14 +18,16 @@ namespace LocadoraDeVeiculos.Controladores.PessoaJuridicaModule
                     [NOME], 
                     [CNPJ],
                     [ENDERECO],                    
-                    [TELEFONE]         
+                    [TELEFONE],         
+                    [EMAIL]         
                 )
             VALUES
                 (
                     @NOME,
                     @CNPJ,
                     @ENDERECO,
-                    @TELEFONE
+                    @TELEFONE,         
+                    @EMAIL
                 )";
 
         private const string sqlEditarPessoaJuridica =
@@ -34,7 +36,8 @@ namespace LocadoraDeVeiculos.Controladores.PessoaJuridicaModule
                     [NOME] = @NOME, 
                     [CNPJ] = @CNPJ, 
                     [ENDERECO] = @ENDERECO,
-                    [TELEFONE] = @TELEFONE
+                    [TELEFONE] = @TELEFONE,         
+                    [EMAIL] = @EMAIL
 
                 WHERE [ID] = @ID";
 
@@ -44,25 +47,27 @@ namespace LocadoraDeVeiculos.Controladores.PessoaJuridicaModule
 
         private const string sqlSelecionarPessoaJuridicaPorId =
             @"SELECT
-                        [ID],
-		                [NOME], 
-		                [CNPJ], 
-		                [ENDERECO],
-                        [TELEFONE]
-	                FROM
-                        PESSOAJURIDICA
-                    WHERE 
-                        ID = @ID";
+                    [ID],
+		            [NOME], 
+		            [CNPJ], 
+		            [ENDERECO],
+                    [TELEFONE],         
+                    [EMAIL]   
+	            FROM
+                    PESSOAJURIDICA
+                WHERE 
+                    ID = @ID";
 
         private const string sqlSelecionarTodosPessoasJuridicas =
             @"SELECT
-                        [ID],
-		                [NOME], 
-		                [CNPJ], 
-		                [ENDERECO],
-                        [TELEFONE]
-	                FROM
-                        PESSOAJURIDICA";
+                    [ID],
+		            [NOME], 
+		            [CNPJ], 
+		            [ENDERECO],
+                    [TELEFONE],         
+                    [EMAIL]   
+	            FROM
+                    PESSOAJURIDICA";
 
         private const string sqlExistePessoaJuridica =
             @"SELECT 
@@ -138,6 +143,7 @@ namespace LocadoraDeVeiculos.Controladores.PessoaJuridicaModule
             parametros.Add("CNPJ", pessoaJuridica.Cnpj);
             parametros.Add("ENDERECO", pessoaJuridica.Endereco);
             parametros.Add("TELEFONE", pessoaJuridica.Telefone);
+            parametros.Add("EMAIL", pessoaJuridica.Email);
 
             return parametros;
         }
@@ -149,8 +155,9 @@ namespace LocadoraDeVeiculos.Controladores.PessoaJuridicaModule
             string cnpj = Convert.ToString(reader["CNPJ"]);
             string endereco = Convert.ToString(reader["ENDERECO"]);
             string telefone = Convert.ToString(reader["TELEFONE"]);
+            string email = Convert.ToString(reader["EMAIL"]);
 
-            PessoaJuridica pessoaJuridica = new PessoaJuridica(nome, cnpj, telefone, endereco);
+            PessoaJuridica pessoaJuridica = new PessoaJuridica(nome, cnpj, telefone, endereco, email);
 
             pessoaJuridica.Id = id;
 
