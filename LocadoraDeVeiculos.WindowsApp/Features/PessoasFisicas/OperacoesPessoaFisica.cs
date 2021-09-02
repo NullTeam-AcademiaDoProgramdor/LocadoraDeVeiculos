@@ -135,7 +135,21 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
 
         public void ExibirInformacoesDetalhadas()
         {
-            throw new NotImplementedException();
+            int id = tabelaPessoaFisica.ObtemIdSelecionado();
+
+            if (id == 0)
+            {
+                MessageBox.Show("Selecione uma pessoa física para poder visualizar seus detalhes!", "visualização de pessoa física",
+                  MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            PessoaFisica pessoaSelecionada = controlador.SelecionarPorId(id);
+
+            TelaInformacoesPessoaFisicaForm tela =
+                new TelaInformacoesPessoaFisicaForm(pessoaSelecionada);
+
+            tela.ShowDialog();
         }
     }
 }
