@@ -74,7 +74,8 @@ namespace LocadoraDeVeiculos.Controladores.PessoaFisicaModule
                     CT.[NOME] as [NOMEPJ], 
                     CT.[CNPJ],
                     CT.[ENDERECO] as [ENDERECOPJ],                    
-                    CT.[TELEFONE] as [TELEFONEPJ]
+                    CT.[TELEFONE] as [TELEFONEPJ],
+                    CT.[EMAIL] as [EMAILPJ]
             FROM
                 [PESSOAFISICA] AS CP LEFT JOIN 
                 [PESSOAJURIDICA] AS CT
@@ -96,7 +97,8 @@ namespace LocadoraDeVeiculos.Controladores.PessoaFisicaModule
                     CT.[NOME] as [NOMEPJ], 
                     CT.[CNPJ],
                     CT.[ENDERECO] as [ENDERECOPJ],                    
-                    CT.[TELEFONE] as [TELEFONEPJ]
+                    CT.[TELEFONE] as [TELEFONEPJ],
+                    CT.[EMAIL] as [EMAILPJ]
             FROM
                 [PESSOAFISICA] AS CP LEFT JOIN 
                 [PESSOAJURIDICA] AS CT
@@ -185,11 +187,12 @@ namespace LocadoraDeVeiculos.Controladores.PessoaFisicaModule
             var CNPJ = Convert.ToString(reader["CNPJ"]);
             var enderecoPJuridica = Convert.ToString(reader["ENDERECOPJ"]);
             var telefonePJuridica = Convert.ToString(reader["TELEFONEPJ"]);            
+            var emailPJuridica = Convert.ToString(reader["EMAILPJ"]);            
 
             PessoaJuridica pJuridica = null;
             if (reader["EMPRESALIGADA"] != DBNull.Value)
             {
-                pJuridica = new PessoaJuridica(nomePJuridica, CNPJ, telefonePJuridica, enderecoPJuridica);
+                pJuridica = new PessoaJuridica(nomePJuridica, CNPJ, telefonePJuridica, enderecoPJuridica, emailPJuridica);
                 pJuridica.Id = Convert.ToInt32(reader["EMPRESALIGADA"]);
             }
 
@@ -211,6 +214,7 @@ namespace LocadoraDeVeiculos.Controladores.PessoaFisicaModule
             parametros.Add("VENCIMENTOCNH", pessoaFisica.VencimentoCNH);
             parametros.Add("TELEFONE", pessoaFisica.Telefone);
             parametros.Add("ENDERECO", pessoaFisica.Endereco);
+            parametros.Add("EMAIL", pessoaFisica.Email);
             parametros.Add("EMPRESALIGADA", pessoaFisica.PessoaJuridica?.Id);
 
             return parametros;
