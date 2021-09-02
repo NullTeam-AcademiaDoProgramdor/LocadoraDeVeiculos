@@ -37,19 +37,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "Nome", HeaderText = "Nome"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "CPF", HeaderText = "CPF"},
-
-                new DataGridViewTextBoxColumn { DataPropertyName = "RG", HeaderText = "RG"},
-
-                new DataGridViewTextBoxColumn { DataPropertyName = "CNH", HeaderText = "CNH"},
-
-                new DataGridViewTextBoxColumn { DataPropertyName = "VencimentoCNH", HeaderText = "Vencimento da CNH"},
-
                 new DataGridViewTextBoxColumn { DataPropertyName = "Telefone", HeaderText = "Telefone"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "Endereco", HeaderText = "Endereço"},
-
-                new DataGridViewTextBoxColumn { Name = "PessoaJuridica", DataPropertyName = "PessoaJuridica", HeaderText = "Empresa"}
+                new DataGridViewTextBoxColumn { DataPropertyName = "Email", HeaderText = "E-mail"},
             };
 
             return colunas;
