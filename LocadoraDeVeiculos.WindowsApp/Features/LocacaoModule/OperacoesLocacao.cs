@@ -8,6 +8,7 @@ using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using System.Windows.Forms;
 using LocadoraDeVeiculos.Controladores.PessoaFisicaModule;
 using LocadoraDeVeiculos.Controladores.LocacaoModule;
+using LocadoraDeVeiculos.Servicos.PDFModule;
 
 namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
 {
@@ -34,6 +35,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
                 tabelaLocacao.AtualizarRegistros(controlador.SelecionarTodos());
 
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Locação do veículo: [{tela.Locacao.Automovel}] inserida com sucesso");
+
+
             }
 
         }
