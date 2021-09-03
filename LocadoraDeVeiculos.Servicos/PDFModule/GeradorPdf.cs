@@ -14,6 +14,8 @@ namespace LocadoraDeVeiculos.Servicos.PDFModule
 {
     public class GeradorPdf
     {
+        private static int contadorPdf = 0;
+
         Relatorio relatorio = null;
 
         public GeradorPdf()
@@ -21,14 +23,17 @@ namespace LocadoraDeVeiculos.Servicos.PDFModule
 
         }
 
-        public void GerarPdf(Relatorio relatorio)
+        public string GerarPdf(Relatorio relatorio)
         {
             this.relatorio = relatorio;
             Document doc = new Document(PageSize.A4);
             doc.SetMargins(3, 2, 3, 2);
             doc.AddCreationDate();
 
-            string caminho = @"..\..\..\Arquivos\relatorio.pdf";
+            string nomeArquivo = $"relatorio{contadorPdf}.pdf";
+            contadorPdf++;
+
+            string caminho = $"..\\..\\..\\Arquivos\\{nomeArquivo}";
 
             PdfWriter writer = PdfWriter.GetInstance(doc,
                 new FileStream(caminho, FileMode.Create));
@@ -61,6 +66,8 @@ namespace LocadoraDeVeiculos.Servicos.PDFModule
 
             doc.Add(tabela);
             doc.Close();
+
+            return nomeArquivo;
         }
 
 

@@ -122,8 +122,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
                 {
                     string email = (locacao.Condutor.PessoaJuridica == null) ? locacao.Condutor.Email 
                         : locacao.Condutor.PessoaJuridica.Email;
-                    geradorPdf.GerarPdf(telaRelatorio.relatorio);
-                    new EnviadorEmail().Enviar("Aqui está o relatório de sua locação finalizada.", email, "relatorio.pdf");
+
+                    string pdf = geradorPdf.GerarPdf(telaRelatorio.relatorio);
+                    
+                    EnviadorEmail.AdicionarEmail("Aqui está o relatório de sua locação finalizada.", email, pdf);
+
+
                 }
                 DialogResult = telaRelatorio.DialogResult;
                 CupomFoiUsado = telaRelatorio.relatorio.CupomEstaValido;
