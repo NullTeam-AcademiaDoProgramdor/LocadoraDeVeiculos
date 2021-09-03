@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using LocadoraDeVeiculos.Controladores.AutomovelModule;
 using System.Drawing;
+using LocadoraDeVeiculos.Servicos.EmailModule;
+using System.Threading;
 
 namespace LocadoraDeVeiculos.WindowsApp
 {
@@ -20,10 +22,10 @@ namespace LocadoraDeVeiculos.WindowsApp
         {
 
             var a = Configuracoes.Configuracao.AbreNoDomingo;
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new TelaLoginForm());
-
         }
     }
 

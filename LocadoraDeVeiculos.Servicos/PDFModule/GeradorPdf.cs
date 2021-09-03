@@ -18,11 +18,15 @@ namespace LocadoraDeVeiculos.Servicos.PDFModule
 {
     public class GeradorPdf
     {
+        private static int contadorPdf = 0;
+
         Relatorio relatorio = null;
 
         public GeradorPdf(){}
 
-        public void GerarPdf(Relatorio relatorio)
+        }
+
+        public string GerarPdf(Relatorio relatorio)
         {
             this.relatorio = relatorio;
             string caminho = @"..\..\..\Arquivos\relatorio.pdf";
