@@ -12,7 +12,7 @@ namespace LocadoraDeVeiculos.Dominio.RelatorioModule
 {
     public class Relatorio
     {
-        private Locacao locacao;
+        public Locacao locacao;
         public Relatorio(Locacao locacao)
         {
             this.locacao = locacao;
