@@ -44,17 +44,17 @@ namespace LocadoraDeVeiculos.Servicos.PDFModule
             paragrafos.Add(new Paragraph("Plano: ", fonte));
             paragrafos.Add(new Paragraph("Dias Alugados: ", fonte));
             paragrafos.Add(new Paragraph("Kms Alugados: ", fonte));
-            paragrafos.Add(new Paragraph("Taxa Diária total: ", fonte));
-            paragrafos.Add(new Paragraph("Taxa de Quilometragem total: ", fonte));
-            paragrafos.Add(new Paragraph("Taxa de Quilometragem Extrapolada Total: ", fonte));
-            paragrafos.Add(new Paragraph("Subtotal dos planos: ", fonte));
-            paragrafos.Add(new Paragraph("Subtotal dos adicionais por dia: ", fonte));
-            paragrafos.Add(new Paragraph("Subtotal dos adicionais fixos: ", fonte));
+            paragrafos.Add(new Paragraph("Taxa Diária total: R$", fonte));
+            paragrafos.Add(new Paragraph("Taxa de Quilometragem total: R$", fonte));
+            paragrafos.Add(new Paragraph("Taxa de Quilometragem Extrapolada Total: R$", fonte));
+            paragrafos.Add(new Paragraph("Subtotal dos planos: R$", fonte));
+            paragrafos.Add(new Paragraph("Subtotal dos adicionais por dia: R$", fonte));
+            paragrafos.Add(new Paragraph("Subtotal dos adicionais fixos: R$", fonte));
             paragrafos.Add(new Paragraph("Tipo de combustível: ", fonte));
             paragrafos.Add(new Paragraph("Litros para encher: ", fonte));
-            paragrafos.Add(new Paragraph("Valor para abastecer: ", fonte));
-            paragrafos.Add(new Paragraph("Valor descontado com cupom: ", fonte));
-            paragrafos.Add(new Paragraph("Total a pagar: ", fonte));
+            paragrafos.Add(new Paragraph("Valor para abastecer: R$", fonte));
+            paragrafos.Add(new Paragraph("Valor descontado com cupom: R$", fonte));
+            paragrafos.Add(new Paragraph("Total a pagar: R$", fonte));
 
             CriarCelulasPDF(tabela, paragrafos);
 

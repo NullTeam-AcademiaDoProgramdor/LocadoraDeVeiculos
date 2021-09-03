@@ -120,10 +120,28 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
 
                 if (telaRelatorio.ShowDialog() == DialogResult.OK)
                 {
-                    string email = (locacao.Condutor.PessoaJuridica == null) ? locacao.Condutor.Email 
+                    string email = (locacao.Condutor.PessoaJuridica == null) ? locacao.Condutor.Email
                         : locacao.Condutor.PessoaJuridica.Email;
                     geradorPdf.GerarPdf(telaRelatorio.relatorio);
-                    new EnviadorEmail().Enviar("Aqui está o relatório de sua locação finalizada.", email, "relatorio.pdf");
+
+                    while (true)
+                    {
+                        try
+                        {
+                            new EnviadorEmail().Enviar("Aqui está o relatório de sua locação finalizada.", email, "relatorio.pdf");
+                            break;
+                        }
+                        catch (Exception)
+                        {
+                            DialogResult resultado = MessageBox.Show("Falha ao enviar relatório email!\nDeseja tentar novamente?", "Envio de Email",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+
+                            if (resultado == DialogResult.Yes)
+                                continue;
+
+                            break;
+                         }
+                    }
                 }
                 DialogResult = telaRelatorio.DialogResult;
                 CupomFoiUsado = telaRelatorio.relatorio.CupomEstaValido;
@@ -167,8 +185,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             try
             {
                 return Convert.ToInt32(campo.Text);
-            } catch (Exception) 
-            { 
+            }
+            catch (Exception)
+            {
                 return null;
             }
 
