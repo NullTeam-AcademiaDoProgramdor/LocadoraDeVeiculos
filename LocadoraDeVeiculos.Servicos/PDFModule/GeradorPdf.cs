@@ -18,8 +18,6 @@ namespace LocadoraDeVeiculos.Servicos.PDFModule
 {
     public class GeradorPdf
     {
-        private static int contadorPdf = 0;
-
         Relatorio relatorio = null;
 
         public GeradorPdf(){
@@ -29,9 +27,7 @@ namespace LocadoraDeVeiculos.Servicos.PDFModule
         public string GerarPdf(Relatorio relatorio)
         {
             this.relatorio = relatorio;
-
-            string nomeArquivo = $"relatorio{contadorPdf}.pdf";
-            contadorPdf++;
+            string nomeArquivo = GerarNomeUnico();
 
             string caminho = $"..\\..\\..\\Arquivos\\{nomeArquivo}";
 
@@ -52,6 +48,11 @@ namespace LocadoraDeVeiculos.Servicos.PDFModule
             }
 
             return nomeArquivo;
+        }
+
+        private string GerarNomeUnico()
+        {
+            return $"relatorio-{DateTime.Now:yyyy/MM/dd-HH:mm:ss-FFFF}.pdf";
         }
 
         private static void GerarParagrafos(Relatorio relatorio, Document doc)
@@ -85,7 +86,6 @@ namespace LocadoraDeVeiculos.Servicos.PDFModule
             doc.Add(new Paragraph("\n- Valor descontado com cupom: " + valorCupom));
             doc.Add(new Paragraph("\n- Total a pagar: R$" + relatorio.TotalAPagar.ToString()).SetBold().SetFont(fonte).SetFontSize(15));
         }
-
 
         //private void AdicionarPropriedades(string propriedade, PdfPTable tabela, PdfPCell celulaPrincipal)
         //{
