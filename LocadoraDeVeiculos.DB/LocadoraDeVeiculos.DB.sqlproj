@@ -73,5 +73,6 @@
     <Build Include="dbo\Tables\TaxasEServicosUsadas.sql" />
     <Build Include="dbo\Tables\Parceiro.sql" />
     <Build Include="dbo\Tables\Cupom.sql" />
+    <Build Include="dbo\Tables\RequisicaoEmail.sql" />
   </ItemGroup>
 </Project>
