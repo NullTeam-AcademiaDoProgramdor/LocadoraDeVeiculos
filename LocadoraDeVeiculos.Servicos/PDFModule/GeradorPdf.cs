@@ -52,7 +52,7 @@ namespace LocadoraDeVeiculos.Servicos.PDFModule
 
         private string GerarNomeUnico()
         {
-            return $"relatorio-{DateTime.Now:yyyy/MM/dd-HH:mm:ss-FFFF}.pdf";
+            return $"relatorio-{DateTime.Now:yyyyMMddHHmmssFFFF}.pdf";
         }
 
         private static void GerarParagrafos(Relatorio relatorio, Document doc)
