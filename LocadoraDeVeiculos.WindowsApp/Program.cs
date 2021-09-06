@@ -20,12 +20,13 @@ namespace LocadoraDeVeiculos.WindowsApp
         [STAThread]
         static void Main()
         {
-
-            var a = Configuracoes.Configuracao.AbreNoDomingo;
+            EnviadorEmail.Iniciar();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new TelaLoginForm());
+
+            EnviadorEmail.Parar();
         }
     }
 
