@@ -58,6 +58,7 @@
     <Compile Include="FuncionarioModule\Funcionario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RelatorioModule\Relatorio.cs" />
+    <Compile Include="RequisicaoEmailModule\RequisicaoEmail.cs" />
     <Compile Include="Shared\EntidadeBase.cs" />
     <Compile Include="TaxasEServicosModule\TaxaEServico.cs" />
   </ItemGroup>
