@@ -60,7 +60,7 @@ namespace LocadoraDeVeiculos.Servicos.EmailModule
 
         private static string GetEnderecoReal(string arquivo)
         {
-            return @"..\..\..\Arquivos\" + arquivo;
+            return @"..\..\..\..\Arquivos\" + arquivo;
         }
 
         private static void Enviar(RequisicaoEmail email)

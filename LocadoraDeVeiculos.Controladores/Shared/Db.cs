@@ -11,6 +11,7 @@ namespace LocadoraDeVeiculos.Controladores.Shared
 
     public static class Db
     {
+        
         private static readonly string bancoDeDados;
         private static readonly string connectionString = "";
         private static readonly string nomeProvider;
@@ -18,6 +19,8 @@ namespace LocadoraDeVeiculos.Controladores.Shared
 
         static Db()
         {
+            DbProviderFactories.RegisterFactory("System.Data.SqlClient", SqlClientFactory.Instance);
+
             bancoDeDados = ConfigurationManager.AppSettings["bancoDeDados"];
 
             connectionString = ConfigurationManager.ConnectionStrings[bancoDeDados].ConnectionString;

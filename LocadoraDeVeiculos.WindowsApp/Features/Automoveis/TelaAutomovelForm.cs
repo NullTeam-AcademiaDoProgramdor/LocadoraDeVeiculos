@@ -37,7 +37,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
                 txtTamanhoPortaMalas.Text = automovel.TamanhoPortaMalas.ToString();
                 txtKm.Text = automovel.KmRegistrada.ToString();
 
-                imageGallery.AddImages(automovel.Fotos);
+                imageGallery1.AddImages(automovel.Fotos);
 
                 SetarSelecaoComboTipoCombustivel(automovel.TipoCombustivel);
                 SetarSelecaoCombioCambio(automovel.Cambio);
@@ -120,7 +120,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
             DirecaoEnum direcao = (DirecaoEnum)comboDirecao.SelectedValue;
             GrupoAutomovel grupo = (GrupoAutomovel)comboGrupo.SelectedItem;
 
-            Image[] fotos = imageGallery.Images.ToArray();
+            Image[] fotos = imageGallery1.Images.ToArray();
 
             automovel = new Automovel(
                 modelo, marca, cor, placa, chassi, (int)ano, (int)portas,

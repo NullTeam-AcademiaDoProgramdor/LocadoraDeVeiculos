@@ -1,0 +1,438 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{66D0C03F-7909-4347-8FC7-D44C961EA3F7}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>LocadoraDeVeiculos.WindowsApp</RootNamespace>
+    <AssemblyName>LocadoraDeVeiculos.WindowsApp</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DataGridViewGrouper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DataGridViewGrouper.dll</HintPath>
+    </Reference>
+    <Reference Include="NullTeam.ImageGallery.Lib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Features\Automoveis\AgrupamentoAutomovelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Automoveis\AgrupamentoAutomovelForm.Designer.cs">
+      <DependentUpon>AgrupamentoAutomovelForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Automoveis\ConfiguracaoAutomovelTooBox.cs" />
+    <Compile Include="Features\Automoveis\FiltroAutomovelEnum.cs" />
+    <Compile Include="Features\Automoveis\OperacoesAutomovel.cs" />
+    <Compile Include="Features\Automoveis\TabelaAutomovelControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Features\Automoveis\TabelaAutomovelControl.Designer.cs">
+      <DependentUpon>TabelaAutomovelControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Automoveis\TelaAutomovelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Automoveis\TelaAutomovelForm.Designer.cs">
+      <DependentUpon>TelaAutomovelForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Automoveis\TelaInformaçõesAutomovelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Automoveis\TelaInformaçõesAutomovelForm.Designer.cs">
+      <DependentUpon>TelaInformaçõesAutomovelForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Cupons\ConfiguracaoCupomToolBox.cs" />
+    <Compile Include="Features\Cupons\OperacoesCupons.cs" />
+    <Compile Include="Features\Cupons\TabelaCupomControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Features\Cupons\TabelaCupomControl.Designer.cs">
+      <DependentUpon>TabelaCupomControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Cupons\TelaCupomForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Cupons\TelaCupomForm.Designer.cs">
+      <DependentUpon>TelaCupomForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\GruposAutomovel\ConfiguracaoGrupoAutomovelToolBox.cs" />
+    <Compile Include="Features\GruposAutomovel\OperacoesGrupoAutomovel.cs" />
+    <Compile Include="Features\GruposAutomovel\TabelaGrupoAutomovelControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Features\GruposAutomovel\TabelaGrupoAutomovelControl.Designer.cs">
+      <DependentUpon>TabelaGrupoAutomovelControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\GruposAutomovel\TelaGrupoAutomovelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\GruposAutomovel\TelaGrupoAutomovelForm.Designer.cs">
+      <DependentUpon>TelaGrupoAutomovelForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\LocacaoModule\ConfiguracaoLocacaoToolBox.cs" />
+    <Compile Include="Features\LocacaoModule\FiltroLocacaoEnum.cs" />
+    <Compile Include="Features\LocacaoModule\FiltroLocacaoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\LocacaoModule\FiltroLocacaoForm.Designer.cs">
+      <DependentUpon>FiltroLocacaoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\LocacaoModule\OperacoesLocacao.cs" />
+    <Compile Include="Features\LocacaoModule\TabelaLocacaoControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Features\LocacaoModule\TabelaLocacaoControl.Designer.cs">
+      <DependentUpon>TabelaLocacaoControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\LocacaoModule\TelaDevolucaoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\LocacaoModule\TelaDevolucaoForm.Designer.cs">
+      <DependentUpon>TelaDevolucaoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\LocacaoModule\TelaLocacaoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\LocacaoModule\TelaLocacaoForm.Designer.cs">
+      <DependentUpon>TelaLocacaoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Parceiros\ConfiguracaoParceiroToolBox.cs" />
+    <Compile Include="Features\Parceiros\OperacoesParceiro.cs" />
+    <Compile Include="Features\Parceiros\TabelaParceiroControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Features\Parceiros\TabelaParceiroControl.Designer.cs">
+      <DependentUpon>TabelaParceiroControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Parceiros\TelaParceiroForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Parceiros\TelaParceiroForm.Designer.cs">
+      <DependentUpon>TelaParceiroForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\PessoasFisicas\ConfiguracaoPessoaFisicaToolBox.cs" />
+    <Compile Include="Features\PessoasFisicas\OperacoesPessoaFisica.cs" />
+    <Compile Include="Features\PessoasFisicas\TabelaPessoaFisicaControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Features\PessoasFisicas\TabelaPessoaFisicaControl.Designer.cs">
+      <DependentUpon>TabelaPessoaFisicaControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\PessoasFisicas\TelaInformacoesPessoaFisicaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\PessoasFisicas\TelaInformacoesPessoaFisicaForm.Designer.cs">
+      <DependentUpon>TelaInformacoesPessoaFisicaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\PessoasFisicas\TelaPessoaFisicaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\PessoasFisicas\TelaPessoaFisicaForm.Designer.cs">
+      <DependentUpon>TelaPessoaFisicaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\PessoasFisicas\AgrupamentoPessoaFisicaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\PessoasFisicas\AgrupamentoPessoaFisicaForm.Designer.cs">
+      <DependentUpon>AgrupamentoPessoaFisicaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\GruposAutomovel\TelaInformacoesDetalhadasForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\GruposAutomovel\TelaInformacoesDetalhadasForm.Designer.cs">
+      <DependentUpon>TelaInformacoesDetalhadasForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Login\TelaLoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Login\TelaLoginForm.Designer.cs">
+      <DependentUpon>TelaLoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\PessoasJuridicas\ConfiguracaoPessoaJuridicaToolBox.cs" />
+    <Compile Include="Features\PessoasFisicas\FiltroPessoaFisicaEnum.cs" />
+    <Compile Include="Features\PessoasJuridicas\OperacoesPessoaJuridica.cs" />
+    <Compile Include="Features\PessoasJuridicas\TabelaPessoaJuridicaControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Features\PessoasJuridicas\TabelaPessoaJuridicaControl.Designer.cs">
+      <DependentUpon>TabelaPessoaJuridicaControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\PessoasJuridicas\TelaPessoaJuridicaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\PessoasJuridicas\TelaPessoaJuridicaForm.Designer.cs">
+      <DependentUpon>TelaPessoaJuridicaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\FuncionarioModule\ConfiguacaoFuncionarioToolBox.cs" />
+    <Compile Include="Features\FuncionarioModule\OperacoesFuncionario.cs" />
+    <Compile Include="Features\FuncionarioModule\TelaFuncionarioForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\FuncionarioModule\TelaFuncionarioForm.Designer.cs">
+      <DependentUpon>TelaFuncionarioForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\FuncionarioModule\TabelaFuncionarioControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Features\FuncionarioModule\TabelaFuncionarioControl.Designer.cs">
+      <DependentUpon>TabelaFuncionarioControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Relatorio\TelaRelatorioLocação.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\Relatorio\TelaRelatorioLocação.Designer.cs">
+      <DependentUpon>TelaRelatorioLocação.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\TaxasEServicos\ConfiguracaoTaxasEServicoToolBox.cs" />
+    <Compile Include="Features\TaxasEServicos\OperacoesTaxasESevicos.cs" />
+    <Compile Include="Features\TaxasEServicos\SeletorTaxasEServicosControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Features\TaxasEServicos\SeletorTaxasEServicosControl.Designer.cs">
+      <DependentUpon>SeletorTaxasEServicosControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\TaxasEServicos\SeletorTaxasEServicosForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\TaxasEServicos\SeletorTaxasEServicosForm.Designer.cs">
+      <DependentUpon>SeletorTaxasEServicosForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\TaxasEServicos\TabelaTaxasEServicosControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Features\TaxasEServicos\TabelaTaxasEServicosControl.Designer.cs">
+      <DependentUpon>TabelaTaxasEServicosControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\TaxasEServicos\TelaTaxasEServicosForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Features\TaxasEServicos\TelaTaxasEServicosForm.Designer.cs">
+      <DependentUpon>TelaTaxasEServicosForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Configuracoes\ConfiguracaoConfiguracoesToolBox.cs" />
+    <Compile Include="Features\Configuracoes\ConfiguracoesControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Features\Configuracoes\ConfiguracoesControl.Designer.cs">
+      <DependentUpon>ConfiguracoesControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Configuracoes\OperacoesConfiguracoes.cs" />
+    <Compile Include="Shared\ConfiguracoesBotoes.cs" />
+    <Compile Include="Shared\ConfiguracoesTooltip.cs" />
+    <Compile Include="Shared\DataGridViewExtensions.cs" />
+    <Compile Include="Shared\ICadastravel.cs" />
+    <Compile Include="Shared\IConfiguracaoToolBox.cs" />
+    <Compile Include="TelaPrincipalForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelaPrincipalForm.Designer.cs">
+      <DependentUpon>TelaPrincipalForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Features\Automoveis\AgrupamentoAutomovelForm.resx">
+      <DependentUpon>AgrupamentoAutomovelForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Automoveis\TabelaAutomovelControl.resx">
+      <DependentUpon>TabelaAutomovelControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Automoveis\TelaAutomovelForm.resx">
+      <DependentUpon>TelaAutomovelForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Automoveis\TelaInformaçõesAutomovelForm.resx">
+      <DependentUpon>TelaInformaçõesAutomovelForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Cupons\TabelaCupomControl.resx">
+      <DependentUpon>TabelaCupomControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Cupons\TelaCupomForm.resx">
+      <DependentUpon>TelaCupomForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\GruposAutomovel\TabelaGrupoAutomovelControl.resx">
+      <DependentUpon>TabelaGrupoAutomovelControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\GruposAutomovel\TelaGrupoAutomovelForm.resx">
+      <DependentUpon>TelaGrupoAutomovelForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\LocacaoModule\FiltroLocacaoForm.resx">
+      <DependentUpon>FiltroLocacaoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\LocacaoModule\TabelaLocacaoControl.resx">
+      <DependentUpon>TabelaLocacaoControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\LocacaoModule\TelaDevolucaoForm.resx">
+      <DependentUpon>TelaDevolucaoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\LocacaoModule\TelaLocacaoForm.resx">
+      <DependentUpon>TelaLocacaoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Parceiros\TabelaParceiroControl.resx">
+      <DependentUpon>TabelaParceiroControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Parceiros\TelaParceiroForm.resx">
+      <DependentUpon>TelaParceiroForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\PessoasFisicas\TabelaPessoaFisicaControl.resx">
+      <DependentUpon>TabelaPessoaFisicaControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\PessoasFisicas\TelaInformacoesPessoaFisicaForm.resx">
+      <DependentUpon>TelaInformacoesPessoaFisicaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\PessoasFisicas\TelaPessoaFisicaForm.resx">
+      <DependentUpon>TelaPessoaFisicaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\PessoasFisicas\AgrupamentoPessoaFisicaForm.resx">
+      <DependentUpon>AgrupamentoPessoaFisicaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\GruposAutomovel\TelaInformacoesDetalhadasForm.resx">
+      <DependentUpon>TelaInformacoesDetalhadasForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Login\TelaLoginForm.resx">
+      <DependentUpon>TelaLoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\PessoasJuridicas\TabelaPessoaJuridicaControl.resx">
+      <DependentUpon>TabelaPessoaJuridicaControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\PessoasJuridicas\TelaPessoaJuridicaForm.resx">
+      <DependentUpon>TelaPessoaJuridicaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\FuncionarioModule\TelaFuncionarioForm.resx">
+      <DependentUpon>TelaFuncionarioForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\FuncionarioModule\TabelaFuncionarioControl.resx">
+      <DependentUpon>TabelaFuncionarioControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\TaxasEServicos\SeletorTaxasEServicosControl.resx">
+      <DependentUpon>SeletorTaxasEServicosControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\TaxasEServicos\SeletorTaxasEServicosForm.resx">
+      <DependentUpon>SeletorTaxasEServicosForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Relatorio\TelaRelatorioLocação.resx">
+      <DependentUpon>TelaRelatorioLocação.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\TaxasEServicos\TabelaTaxasEServicosControl.resx">
+      <DependentUpon>TabelaTaxasEServicosControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\TaxasEServicos\TelaTaxasEServicosForm.resx">
+      <DependentUpon>TelaTaxasEServicosForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Configuracoes\ConfiguracoesControl.resx">
+      <DependentUpon>ConfiguracoesControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelaPrincipalForm.resx">
+      <DependentUpon>TelaPrincipalForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="App.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\outline_filter_alt_black_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\outline_add_circle_outline_black_24dp1.png" />
+    <None Include="Resources\outline_delete_black_24dp.png" />
+    <None Include="Resources\outline_mode_edit_black_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\outline_compress_black_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\outline_expand_black_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LocadoraDeVeiculos.Controladores\LocadoraDeVeiculos.Controladores.csproj">
+      <Project>{c0ca9d0a-9edb-41d2-afc0-f27abe5e84e7}</Project>
+      <Name>LocadoraDeVeiculos.Controladores</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LocadoraDeVeiculos.Dominio\LocadoraDeVeiculos.Dominio.csproj">
+      <Project>{5dbca542-da0b-4644-bffa-8f574e2c3f38}</Project>
+      <Name>LocadoraDeVeiculos.Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LocadoraDeVeiculos.Servicos\LocadoraDeVeiculos.Servicos.csproj">
+      <Project>{52bfcf8b-ca1d-468d-8450-befbc59befe1}</Project>
+      <Name>LocadoraDeVeiculos.Servicos</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Lib\DataGridViewGrouper.dll" />
+    <Content Include="Lib\NullTeam.ImageGallery.Lib.dll" />
+    <None Include="Resources\car-arrow-left.png" />
+    <None Include="Resources\pngwing.com-removebg-preview.png" />
+    <None Include="Resources\pngwing.com.png" />
+    <None Include="Resources\outline_info_black_24dp.png" />
+    <None Include="Resources\AlugaRech2.0 %282%29.png" />
+    <ProjectReference Include="..\LocadoraDeVeiculos.Controladores\LocadoraDeVeiculos.Controladores.csproj">
+      <Project>{c0ca9d0a-9edb-41d2-afc0-f27abe5e84e7}</Project>
+      <Name>LocadoraDeVeiculos.Controladores</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LocadoraDeVeiculos.Dominio\LocadoraDeVeiculos.Dominio.csproj">
+      <Project>{5dbca542-da0b-4644-bffa-8f574e2c3f38}</Project>
+      <Name>LocadoraDeVeiculos.Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LocadoraDeVeiculos.Configuracoes\LocadoraDeVeiculos.Configuracoes.csproj">
+      <Project>{12f59cd5-527f-4927-b9bd-dc8e91a14269}</Project>
+      <Name>LocadoraDeVeiculos.Configuracoes</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

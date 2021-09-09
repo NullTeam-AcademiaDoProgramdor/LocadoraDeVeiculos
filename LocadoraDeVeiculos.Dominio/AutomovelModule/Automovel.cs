@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Drawing;
 
-
 namespace LocadoraDeVeiculos.Dominio.AutomovelModule
 {
     public class Automovel : EntidadeBase, IEquatable<Automovel>
