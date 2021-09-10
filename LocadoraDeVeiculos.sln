@@ -17,6 +17,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocadoraDeVeiculos.Configur
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocadoraDeVeiculos.Servicos", "LocadoraDeVeiculos.Servicos\LocadoraDeVeiculos.Servicos.csproj", "{52BFCF8B-CA1D-468D-8450-BEFBC59BEFE1}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocadoraDeVeiculos.Dominio", "LocadoraDeVeiculos.Dominio\LocadoraDeVeiculos.Dominio.csproj", "{88C65592-BD1C-4FF2-AE32-37C3F434EDB1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocadoraDeVeiculos.Controladores", "LocadoraDeVeiculos.Controladores\LocadoraDeVeiculos.Controladores.csproj", "{88A4467A-1232-4CEE-9ED0-8EE93CCB76E1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +49,14 @@ Global
 		{52BFCF8B-CA1D-468D-8450-BEFBC59BEFE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52BFCF8B-CA1D-468D-8450-BEFBC59BEFE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52BFCF8B-CA1D-468D-8450-BEFBC59BEFE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88C65592-BD1C-4FF2-AE32-37C3F434EDB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88C65592-BD1C-4FF2-AE32-37C3F434EDB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88C65592-BD1C-4FF2-AE32-37C3F434EDB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88C65592-BD1C-4FF2-AE32-37C3F434EDB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88A4467A-1232-4CEE-9ED0-8EE93CCB76E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88A4467A-1232-4CEE-9ED0-8EE93CCB76E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88A4467A-1232-4CEE-9ED0-8EE93CCB76E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88A4467A-1232-4CEE-9ED0-8EE93CCB76E1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -54,6 +66,8 @@ Global
 		{6645A77B-2A33-437F-BDFF-12A7E2452220} = {C90BC848-DC4F-45A1-9E6D-EBBBC1C6C859}
 		{12F59CD5-527F-4927-B9BD-DC8E91A14269} = {C90BC848-DC4F-45A1-9E6D-EBBBC1C6C859}
 		{52BFCF8B-CA1D-468D-8450-BEFBC59BEFE1} = {C90BC848-DC4F-45A1-9E6D-EBBBC1C6C859}
+		{88C65592-BD1C-4FF2-AE32-37C3F434EDB1} = {C90BC848-DC4F-45A1-9E6D-EBBBC1C6C859}
+		{88A4467A-1232-4CEE-9ED0-8EE93CCB76E1} = {C90BC848-DC4F-45A1-9E6D-EBBBC1C6C859}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {538C4B65-C2C0-4534-8747-0B006E3B7EF1}
