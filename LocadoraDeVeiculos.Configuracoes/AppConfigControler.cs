@@ -32,6 +32,7 @@ namespace LocadoraDeVeiculos.Configuracoes
 
         public string Ler(string chave) => ConfigurationManager.AppSettings[chave];
 
+
         public void Setar(string chave, object valor)
         {
             var configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
