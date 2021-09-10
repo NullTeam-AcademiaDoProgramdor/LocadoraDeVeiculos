@@ -17,7 +17,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocadoraDeVeiculos.Configur
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NullTeam.ImageGallery.Lib", "..\..\..\..\source\repos\ImageGallery\NullTeam.ImageGallery.Lib\NullTeam.ImageGallery.Lib.csproj", "{F893AEF5-3E17-45CC-9268-4FEB54925ED2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocadoraDeVeiculos.Servicos", "LocadoraDeVeiculos.Servicos\LocadoraDeVeiculos.Servicos.csproj", "{A99357C3-BE8B-4A5D-B97B-9DDD8FFAF621}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocadoraDeVeiculos.Servicos", "LocadoraDeVeiculos.Servicos\LocadoraDeVeiculos.Servicos.csproj", "{A99357C3-BE8B-4A5D-B97B-9DDD8FFAF621}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocadoraDeVeiculos.Dominio", "LocadoraDeVeiculos.Dominio\LocadoraDeVeiculos.Dominio.csproj", "{B72E225D-1883-4EA6-A71D-5D1CC373D2FB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocadoraDeVeiculos.Controladores", "LocadoraDeVeiculos.Controladores\LocadoraDeVeiculos.Controladores.csproj", "{8C8602DC-DE88-4260-B1C0-A28F2B31C9B5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +55,14 @@ Global
 		{A99357C3-BE8B-4A5D-B97B-9DDD8FFAF621}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A99357C3-BE8B-4A5D-B97B-9DDD8FFAF621}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A99357C3-BE8B-4A5D-B97B-9DDD8FFAF621}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B72E225D-1883-4EA6-A71D-5D1CC373D2FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B72E225D-1883-4EA6-A71D-5D1CC373D2FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B72E225D-1883-4EA6-A71D-5D1CC373D2FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B72E225D-1883-4EA6-A71D-5D1CC373D2FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C8602DC-DE88-4260-B1C0-A28F2B31C9B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C8602DC-DE88-4260-B1C0-A28F2B31C9B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C8602DC-DE88-4260-B1C0-A28F2B31C9B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C8602DC-DE88-4260-B1C0-A28F2B31C9B5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -61,6 +73,8 @@ Global
 		{12F59CD5-527F-4927-B9BD-DC8E91A14269} = {C90BC848-DC4F-45A1-9E6D-EBBBC1C6C859}
 		{F893AEF5-3E17-45CC-9268-4FEB54925ED2} = {C90BC848-DC4F-45A1-9E6D-EBBBC1C6C859}
 		{A99357C3-BE8B-4A5D-B97B-9DDD8FFAF621} = {C90BC848-DC4F-45A1-9E6D-EBBBC1C6C859}
+		{B72E225D-1883-4EA6-A71D-5D1CC373D2FB} = {C90BC848-DC4F-45A1-9E6D-EBBBC1C6C859}
+		{8C8602DC-DE88-4260-B1C0-A28F2B31C9B5} = {C90BC848-DC4F-45A1-9E6D-EBBBC1C6C859}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {538C4B65-C2C0-4534-8747-0B006E3B7EF1}
