@@ -30,7 +30,7 @@ namespace LocadoraDeVeiculos.Configuracoes
             appConfigControler = new AppConfigControler(camposIniciais);
         }
 
-        public static double PrecoGasolina 
+        public static double PrecoGasolina
         {
             get
             {
@@ -42,13 +42,13 @@ namespace LocadoraDeVeiculos.Configuracoes
             }
         }
 
-        public static double PrecoGas 
+        public static double PrecoGas
         {
-            get 
+            get
             {
                 return Convert.ToDouble(appConfigControler.Ler("precoGas"));
             }
-            set 
+            set
             {
                 appConfigControler.Setar("precoGas", value);
             }

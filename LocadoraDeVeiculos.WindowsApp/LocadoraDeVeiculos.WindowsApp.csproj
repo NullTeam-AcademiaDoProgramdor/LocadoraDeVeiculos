@@ -66,9 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\..\source\repos\ImageGallery\NullTeam.ImageGallery.Lib\NullTeam.ImageGallery.Lib.csproj" />
-    <ProjectReference Include="..\LocadoraDeVeiculos.Configuracoes\LocadoraDeVeiculos.Configuracoes.csproj" />
     <ProjectReference Include="..\LocadoraDeVeiculos.Controladores\LocadoraDeVeiculos.Controladores.csproj" />
-    <ProjectReference Include="..\LocadoraDeVeiculos.Dominio\LocadoraDeVeiculos.Dominio.csproj" />
     <ProjectReference Include="..\LocadoraDeVeiculos.Servicos\LocadoraDeVeiculos.Servicos.csproj" />
   </ItemGroup>
 </Project>

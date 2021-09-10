@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Drawing;
 
+
 namespace LocadoraDeVeiculos.Dominio.AutomovelModule
 {
     public class Automovel : EntidadeBase, IEquatable<Automovel>
@@ -17,7 +18,7 @@ namespace LocadoraDeVeiculos.Dominio.AutomovelModule
         public string Marca { get; }
 
         public string Cor { get; }
-        
+
         public string Placa { get; }
 
         public string Chassi { get; }
@@ -42,9 +43,9 @@ namespace LocadoraDeVeiculos.Dominio.AutomovelModule
 
         public Image[] Fotos { get; set; }
 
-        public Automovel(string modelo, string marca, string cor, string placa, 
-            string chassi, int ano, int portas, int capacidadeTanque, int kmRegistrada, 
-            int tamanhoPortaMalas, TipoCombustivelEnum tipoCombustivel, 
+        public Automovel(string modelo, string marca, string cor, string placa,
+            string chassi, int ano, int portas, int capacidadeTanque, int kmRegistrada,
+            int tamanhoPortaMalas, TipoCombustivelEnum tipoCombustivel,
             CambioEnum cambio, DirecaoEnum direcao, GrupoAutomovel grupo)
         {
             Modelo = modelo;
@@ -64,10 +65,10 @@ namespace LocadoraDeVeiculos.Dominio.AutomovelModule
             Fotos = new Image[0];
         }
 
-        public Automovel(string modelo, string marca, string cor, string placa, 
+        public Automovel(string modelo, string marca, string cor, string placa,
             string chassi, int ano, int portas, int capacidadeTanque, int kmRegistrada,
             int tamanhoPortaMalas, TipoCombustivelEnum tipoCombustivel,
-            CambioEnum cambio, DirecaoEnum direcao, GrupoAutomovel grupo, 
+            CambioEnum cambio, DirecaoEnum direcao, GrupoAutomovel grupo,
             Image[] fotos)
         {
             Modelo = modelo;

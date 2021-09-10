@@ -30,10 +30,7 @@ namespace LocadoraDeVeiculos.Configuracoes
 
         }
 
-        public string Ler(string chave)
-        {
-            return ConfigurationManager.AppSettings[chave];
-        }
+        public string Ler(string chave) => ConfigurationManager.AppSettings[chave];
 
 
         public void Setar(string chave, object valor)

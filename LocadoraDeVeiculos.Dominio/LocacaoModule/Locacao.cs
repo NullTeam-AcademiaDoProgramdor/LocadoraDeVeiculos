@@ -24,7 +24,7 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
             this.DataSaida = dataSaida;
             this.DataDevolucaoEsperada = dataDevolucaoEsperada;
             this.Caucao = caucao;
-            this.PlanoSelecionado = planoSelecionado;          
+            this.PlanoSelecionado = planoSelecionado;
             this.DataDevolucao = null;
             this.KmAutomovelFinal = null;
             this.PorcentagemFinalCombustivel = null;
@@ -38,7 +38,7 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
         }
 
         public Locacao(PessoaFisica condutor, Automovel automovel, Funcionario funcionario, DateTime dataSaida,
-            DateTime dataDevolucaoEsperada, int caucao, int kmAutomovelIncial, int planoSelecionado, 
+            DateTime dataDevolucaoEsperada, int caucao, int kmAutomovelIncial, int planoSelecionado,
              int kmAutomovelFinal, int porcentagemFinalCombustivel, DateTime dataDevolucao, TaxaEServico[] taxasEServicos = null, Cupom cupom = null)
         {
             Condutor = condutor;
@@ -70,10 +70,10 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
         public DateTime? DataDevolucao { get; }
         public int PlanoSelecionado { get; }
         public TaxaEServico[] TaxasEServicos { get; set; }
-        public int Caucao { get; }      
-        public string Situacao { get; }      
-        public int KmAutomovelIncial { get; }      
-        public int? KmAutomovelFinal { get; }      
+        public int Caucao { get; }
+        public string Situacao { get; }
+        public int KmAutomovelIncial { get; }
+        public int? KmAutomovelFinal { get; }
         public int? PorcentagemFinalCombustivel { get; }
 
         public override bool Equals(object obj)
@@ -128,15 +128,15 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
 
             if (Condutor == null)
                 resultadoValidacao = "Selecione um condutor";
-            
+
             if (Automovel == null)
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "Selecione um automóvel";
 
-            if(Caucao <= 0)
+            if (Caucao <= 0)
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O valor de caução não pode ser menor ou igual a 0";
-                      
 
-            if(DataDevolucaoEsperada <= DataSaida)
+
+            if (DataDevolucaoEsperada <= DataSaida)
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "A data de devolução esperada não pode ser menor ou igual que a data de saída";
 
             if (resultadoValidacao == "")

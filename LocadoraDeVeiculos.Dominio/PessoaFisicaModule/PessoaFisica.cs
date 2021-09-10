@@ -89,9 +89,9 @@ namespace LocadoraDeVeiculos.Dominio.PessoaFisicaModule
 
             if (string.IsNullOrEmpty(CPF))
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo 'CPF' não pode estar vazio.";
-            else if(CPF.Length != 14)
+            else if (CPF.Length != 14)
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "CPF inválido.";
-            
+
             if (string.IsNullOrEmpty(RG))
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo 'RG' não pode estar vazio.";
 
@@ -112,10 +112,10 @@ namespace LocadoraDeVeiculos.Dominio.PessoaFisicaModule
             {
                 MailAddress email = new MailAddress(Email);
             }
-            catch(Exception)
+            catch (Exception)
             {
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "Digite um E-mail válido";
-            }               
+            }
 
             if (VencimentoCNH == DateTime.MinValue)
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo 'data de vencimento' não pode estar vazio.";
