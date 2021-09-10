@@ -26,7 +26,6 @@ namespace LocadoraDeVeiculos.Controladores.ParceiroModule
             @" UPDATE [PARCEIRO]
                 SET 
                     [NOME] = @NOME
-
                 WHERE [ID] = @ID";
 
         private const string sqlExcluirParceiro =
@@ -71,7 +70,7 @@ namespace LocadoraDeVeiculos.Controladores.ParceiroModule
             return resultadoValidacao;
         }
 
-        
+
         public override string Editar(int id, Parceiro registro)
         {
             string resultadoValidacao = registro.Validar();
@@ -110,7 +109,7 @@ namespace LocadoraDeVeiculos.Controladores.ParceiroModule
             return Db.Get(sqlSelecionarParceiroPorId, ConverterEmParceiro, AdicionarParametro("ID", id));
         }
 
-        
+
 
         public override List<Parceiro> SelecionarTodos()
         {

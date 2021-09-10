@@ -55,7 +55,7 @@ namespace LocadoraDeVeiculos.Controladores.AutomovelModule
 
         private void Inserir(Image[] imagens, int automovelId)
         {
-            foreach(Image foto in imagens)
+            foreach (Image foto in imagens)
             {
                 Db.Insert(sqlInserirImagens, ObtemParametrosFoto(foto, automovelId));
             }
@@ -99,7 +99,7 @@ namespace LocadoraDeVeiculos.Controladores.AutomovelModule
         {
             List<EntidadeImage> fotosJaInseridas = BuscarEntidades(automovelId);
 
-            Dictionary<EntidadeImage, char> tabelaDeAlteracoes = 
+            Dictionary<EntidadeImage, char> tabelaDeAlteracoes =
                 CriarTabelaDeAlteracoes(imagens, automovelId, fotosJaInseridas);
 
             foreach (var alteracao in tabelaDeAlteracoes)

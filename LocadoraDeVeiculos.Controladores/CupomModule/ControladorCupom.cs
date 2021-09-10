@@ -73,7 +73,6 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
                         C.VALORMINIMO,  
                         C.DATAVENCIMENTO,
                         C.QTDUSOS,
-
                         P.NOME
                     FROM
 	                    [CUPOM] as C LEFT JOIN
@@ -93,7 +92,6 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
                         C.VALORMINIMO,  
                         C.DATAVENCIMENTO,
                         C.QTDUSOS,
-
                         P.NOME
                      FROM
 	                    [CUPOM] as C LEFT JOIN
@@ -113,7 +111,6 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
                         C.VALORMINIMO,  
                         C.DATAVENCIMENTO,
                         C.QTDUSOS,
-
                         P.NOME
                      FROM
 	                    [CUPOM] as C LEFT JOIN
@@ -133,14 +130,13 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
                         C.VALORMINIMO,  
                         C.DATAVENCIMENTO,
                         C.QTDUSOS,
-
                         P.NOME
 	                FROM
 	                    [CUPOM] as C LEFT JOIN
 	                    [PARCEIRO] AS P
                     ON
 	                    P.ID = C.PARCEIRO;";
-#endregion
+        #endregion
 
         public override string InserirNovo(Cupom cupom)
         {
@@ -233,7 +229,7 @@ namespace LocadoraDeVeiculos.Controladores.CupomModule
         {
             var id = Convert.ToInt32(reader["ID"]);
             var codigo = Convert.ToString(reader["CODIGO"]);
-            
+
             var tipo = Convert.ToString(reader["TIPO"]);
             var valor = Convert.ToDouble(reader["VALOR"]);
             var valorMinimo = Convert.ToDouble(reader["VALORMINIMO"]);

@@ -26,7 +26,7 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
 
         public ControladorLocacao()
         {
-         //   this.controladorPessoaFisica = new ControladorPessoaFisica();
+            //   this.controladorPessoaFisica = new ControladorPessoaFisica();
             this.controladorFuncionario = new ControladorFuncionario();
             this.controladorAutomovel = new ControladorAutomovel();
             this.controladorCupom = new ControladorCupom();
@@ -81,7 +81,6 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
                     [KMAUTOMOVELFINAL] = @KMAUTOMOVELFINAL,
                     [PORCENTAGEMFINALCOMBUSTIVEL] = @PORCENTAGEMFINALCOMBUSTIVEL,
                     [CUPOM] = @CUPOM
-
                 WHERE [ID] = @ID";
 
         private const string sqlExcluirLocacao =
@@ -132,7 +131,7 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
             FROM 
                 [Locacao]
             WHERE 
-                [ID] = @ID";        
+                [ID] = @ID";
 
         #endregion
 
@@ -155,7 +154,7 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
 
             if (resultadoValidacao == "ESTA_VALIDO")
             {
-                if(locacao.Cupom != null && cupomFoiUsado)
+                if (locacao.Cupom != null && cupomFoiUsado)
                     controladorCupom.EditarQtdUsos(locacao.Cupom);
 
                 locacao.Id = id;
@@ -198,7 +197,7 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
         {
             string resultadoValidacao = locacao.Validar();
 
-            if(resultadoValidacao == "ESTA_VALIDO")
+            if (resultadoValidacao == "ESTA_VALIDO")
             {
                 locacao.Automovel.KmRegistrada = (int)locacao.KmAutomovelFinal;
 

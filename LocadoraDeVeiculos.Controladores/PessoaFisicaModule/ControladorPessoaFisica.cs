@@ -52,7 +52,6 @@ namespace LocadoraDeVeiculos.Controladores.PessoaFisicaModule
                     [ENDERECO] = @ENDERECO,     
                     [EMPRESALIGADA] = @EMPRESALIGADA, 
                     [EMAIL] = @EMAIL
-
                 WHERE [ID] = @ID";
 
         private const string sqlExcluirPessoaFisica =
@@ -146,8 +145,8 @@ namespace LocadoraDeVeiculos.Controladores.PessoaFisicaModule
         public override bool Excluir(int id)
         {
             try
-            {                
-                Db.Delete(sqlExcluirPessoaFisica, AdicionarParametro("ID", id));                    
+            {
+                Db.Delete(sqlExcluirPessoaFisica, AdicionarParametro("ID", id));
             }
             catch (Exception)
             {
@@ -171,7 +170,7 @@ namespace LocadoraDeVeiculos.Controladores.PessoaFisicaModule
         {
             return Db.GetAll(sqlSelecionarTodasPessoasFisicas, ConverterEmPessoaFisica);
         }
-        
+
         private PessoaFisica ConverterEmPessoaFisica(IDataReader reader)
         {
             var nome = Convert.ToString(reader["NOME"]);
@@ -186,8 +185,8 @@ namespace LocadoraDeVeiculos.Controladores.PessoaFisicaModule
             var nomePJuridica = Convert.ToString(reader["NOMEPJ"]);
             var CNPJ = Convert.ToString(reader["CNPJ"]);
             var enderecoPJuridica = Convert.ToString(reader["ENDERECOPJ"]);
-            var telefonePJuridica = Convert.ToString(reader["TELEFONEPJ"]);            
-            var emailPJuridica = Convert.ToString(reader["EMAILPJ"]);            
+            var telefonePJuridica = Convert.ToString(reader["TELEFONEPJ"]);
+            var emailPJuridica = Convert.ToString(reader["EMAILPJ"]);
 
             PessoaJuridica pJuridica = null;
             if (reader["EMPRESALIGADA"] != DBNull.Value)
@@ -219,6 +218,6 @@ namespace LocadoraDeVeiculos.Controladores.PessoaFisicaModule
 
             return parametros;
         }
-        
+
     }
 }

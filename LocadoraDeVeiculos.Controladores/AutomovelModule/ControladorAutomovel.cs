@@ -70,7 +70,6 @@ namespace LocadoraDeVeiculos.Controladores.AutomovelModule
 	            [direcao] = @direcao,
 		        [grupo] = @grupo,
                 [kmRegistrada] = @kmRegistrada
-
 	        WHERE [id] = @id;";
 
         private const string sqlExcluirAutomovel =
@@ -102,7 +101,6 @@ namespace LocadoraDeVeiculos.Controladores.AutomovelModule
 	            A.direcao,
 	            A.grupo,
                 A.kmRegistrada,
-
 	            G.nome,
 	            G.planoDIario_precoDIa,
 	            G.planoDiario_precoKm,
@@ -115,7 +113,7 @@ namespace LocadoraDeVeiculos.Controladores.AutomovelModule
 	            [GrupoAutomovel] AS G
             ON
 	            G.id = A.grupo;";
-        
+
         private const string sqlSelecionarDisponíveis =
             @"SELECT
 	            A.id,
@@ -133,7 +131,6 @@ namespace LocadoraDeVeiculos.Controladores.AutomovelModule
 	            A.direcao,
 	            A.grupo,
                 A.kmRegistrada,
-
 	            G.nome,
 	            G.planoDIario_precoDIa,
 	            G.planoDiario_precoKm,
@@ -145,7 +142,6 @@ namespace LocadoraDeVeiculos.Controladores.AutomovelModule
                 [Locacao] L RIGHT JOIN
                 [Automovel] A on L.automovel = A.id LEFT JOIN
                 [GrupoAutomovel] G on A.grupo = G.id
-
             WHERE L.id is NULL or L.dataDevolucao is NOT NULL;";
 
         private const string sqlSelecioneAutomovelPorId =
@@ -165,7 +161,6 @@ namespace LocadoraDeVeiculos.Controladores.AutomovelModule
 	            A.direcao,
 	            A.grupo,
                 A.kmRegistrada,
-
 	            G.nome,
 	            G.planoDIario_precoDIa,
 	            G.planoDiario_precoKm,
@@ -185,7 +180,6 @@ namespace LocadoraDeVeiculos.Controladores.AutomovelModule
             @"UPDATE [Automovel]
 	        SET		        
                 [kmRegistrada] = @kmRegistrada
-
 	        WHERE [id] = @id";
 
         #endregion
@@ -224,7 +218,7 @@ namespace LocadoraDeVeiculos.Controladores.AutomovelModule
             if (resultadoValidacao == "ESTA_VALIDO")
             {
                 registro.id = id;
-                Db.Update(sqlEditarKmAutomovel, ObtemParametrosAutomovel(registro));                
+                Db.Update(sqlEditarKmAutomovel, ObtemParametrosAutomovel(registro));
             }
 
             return resultadoValidacao;
@@ -236,7 +230,7 @@ namespace LocadoraDeVeiculos.Controladores.AutomovelModule
             {
                 Db.Delete(sqlExcluirAutomovel, AdicionarParametro("id", id));
             }
-            catch(Exception)
+            catch (Exception)
             {
                 return false;
             }
@@ -262,7 +256,7 @@ namespace LocadoraDeVeiculos.Controladores.AutomovelModule
         public List<Automovel> SelecionarDisponiveis()
         {
             List<Automovel> automovels = new List<Automovel>();
-            int[] idsDisponiveis = 
+            int[] idsDisponiveis =
                 controladorSelecionarDisponiveis.SelecionarIdsDisponiveis();
 
             foreach (int id in idsDisponiveis)
@@ -316,7 +310,7 @@ namespace LocadoraDeVeiculos.Controladores.AutomovelModule
             PlanoKmLivreStruct planoKmLivre =
                 new PlanoKmLivreStruct(planoKmLivre_precoDia);
 
-            GrupoAutomovel grupoAutomovel = 
+            GrupoAutomovel grupoAutomovel =
                 new GrupoAutomovel(nome, planoDiario, planoKmControlado, planoKmLivre)
                 {
                     Id = grupo_id
@@ -324,7 +318,7 @@ namespace LocadoraDeVeiculos.Controladores.AutomovelModule
 
             #endregion
 
-            Automovel automovel = new Automovel(modelo, marca, cor, placa, chassi, ano, 
+            Automovel automovel = new Automovel(modelo, marca, cor, placa, chassi, ano,
                 portas, capacidadeTanque, kmInicial, tamanhoPortaMalas,
                 (TipoCombustivelEnum)tipoCombustivel, (CambioEnum)cambio,
                 (DirecaoEnum)direcao, grupoAutomovel);

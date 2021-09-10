@@ -11,7 +11,7 @@ namespace LocadoraDeVeiculos.Controladores.Shared
 
     public static class Db
     {
-        
+
         private static readonly string bancoDeDados;
         private static readonly string connectionString = "";
         private static readonly string nomeProvider;

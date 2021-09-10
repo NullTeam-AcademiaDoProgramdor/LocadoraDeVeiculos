@@ -38,7 +38,6 @@ namespace LocadoraDeVeiculos.Controladores.PessoaJuridicaModule
                     [ENDERECO] = @ENDERECO,
                     [TELEFONE] = @TELEFONE,         
                     [EMAIL] = @EMAIL
-
                 WHERE [ID] = @ID";
 
         private const string sqlExcluirPessoaJuridica =

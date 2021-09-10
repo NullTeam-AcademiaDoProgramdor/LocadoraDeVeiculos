@@ -45,7 +45,6 @@ namespace LocadoraDeVeiculos.Controladores.GrupoAutomovelModule
                     [planoKmControlado_precoDia] = @planoKmControlado_precoDia,
                     [planoKmControlado_precoKmExtrapolado] = @planoKmControlado_precoKmExtrapolado,
                     [planoKmLivre_precoDia] = @planoKmLivre_precoDia
-
                 WHERE [id] = @id";
 
 
@@ -112,7 +111,8 @@ namespace LocadoraDeVeiculos.Controladores.GrupoAutomovelModule
             try
             {
                 Db.Delete(sqlExcluirGrupo, AdicionarParametro("id", id));
-            }catch (Exception)
+            }
+            catch (Exception)
             {
                 return false;
             }
@@ -160,10 +160,10 @@ namespace LocadoraDeVeiculos.Controladores.GrupoAutomovelModule
 
             double planoKmLivre_precoDia = Convert.ToDouble(reader["planoKmLivre_precoDia"]);
 
-            PlanoDiarioStruct planoDiario = 
+            PlanoDiarioStruct planoDiario =
                 new PlanoDiarioStruct(planoDiario_precoDia, planoDiario_precoKm);
 
-            PlanoKmControladoStruct planoKmControlado = 
+            PlanoKmControladoStruct planoKmControlado =
                 new PlanoKmControladoStruct(planoKmControlado_precoDia, planoKmControlado_precoKmExtrapolado, planoKmControlado_kmDisponiveis);
 
             PlanoKmLivreStruct planoKmLivre =

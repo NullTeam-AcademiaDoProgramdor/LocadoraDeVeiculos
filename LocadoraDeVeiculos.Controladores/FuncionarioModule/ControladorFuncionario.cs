@@ -32,7 +32,7 @@ namespace LocadoraDeVeiculos.Controladores.FuncionarioModule
 		                [SALARIO] = @SALARIO,
                         [SENHA] = @SENHA
                     WHERE 
-                        ID = @ID";        
+                        ID = @ID";
 
         private const string sqlExcluirFuncionario =
             @"DELETE 
@@ -127,10 +127,10 @@ namespace LocadoraDeVeiculos.Controladores.FuncionarioModule
         public override bool Existe(int id)
         {
             return Db.Exists(sqlExisteFuncionario, AdicionarParametro("ID", id));
-        }        
+        }
 
         public override Funcionario SelecionarPorId(int id)
-        {            
+        {
             return Db.Get(sqlSelecionarFuncionarioPorId, ConverterEmFuncionario, AdicionarParametro("ID", id));
         }
 

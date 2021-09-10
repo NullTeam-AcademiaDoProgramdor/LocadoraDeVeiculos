@@ -78,7 +78,7 @@ namespace LocadoraDeVeiculos.Controladores.TaxasEServicosModule
             WHERE 
                 [ID] = @ID";
 
-        
+
 
         #endregion
 
@@ -149,7 +149,7 @@ namespace LocadoraDeVeiculos.Controladores.TaxasEServicosModule
 
             TaxaEServico taxaOuServicos = new TaxaEServico(nome, preco, ehFixo);
 
-            taxaOuServicos.Id = Convert.ToInt32(reader["ID"]);           
+            taxaOuServicos.Id = Convert.ToInt32(reader["ID"]);
 
             return taxaOuServicos;
         }
@@ -161,7 +161,7 @@ namespace LocadoraDeVeiculos.Controladores.TaxasEServicosModule
             parametros.Add("ID", taxaOuServico.Id);
             parametros.Add("NOME", taxaOuServico.Nome);
             parametros.Add("PRECO", taxaOuServico.Preco);
-            parametros.Add("EHFIXO", taxaOuServico.EhFixo);           
+            parametros.Add("EHFIXO", taxaOuServico.EhFixo);
 
             return parametros;
         }

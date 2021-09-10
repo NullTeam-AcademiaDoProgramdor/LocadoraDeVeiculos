@@ -60,7 +60,8 @@ namespace LocadoraDeVeiculos.Controladores.RequisicaoEmailModule
 
                 Db.Delete(sqlExcluirEmail, parametro);
 
-            } catch (Exception)
+            }
+            catch (Exception)
             {
                 return false;
             }
@@ -131,7 +132,7 @@ namespace LocadoraDeVeiculos.Controladores.RequisicaoEmailModule
             string emailDestino = Convert.ToString(reader["emailDestino"]);
             string[] arquivos = SeperarNomesPdf(Convert.ToString(reader["nomePdf"]));
 
-            RequisicaoEmail email 
+            RequisicaoEmail email
                 = new RequisicaoEmail(mensagem, emailDestino, arquivos);
 
             email.id = id;

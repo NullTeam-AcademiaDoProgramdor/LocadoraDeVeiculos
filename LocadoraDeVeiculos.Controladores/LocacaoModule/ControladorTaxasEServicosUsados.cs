@@ -38,7 +38,7 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
             WHERE
                 [locacao] = @locacao";
 
-        private ControladorTaxasEServicos controladorTaxas 
+        private ControladorTaxasEServicos controladorTaxas
             = new ControladorTaxasEServicos();
 
         private class TaxaEServicoUsado
@@ -72,11 +72,11 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
                     {"id", taxaEServicoUsadoId }
                 };
 
-                Db.Delete(sqlExcluirTaxaEServicoUsado, parametro );
+                Db.Delete(sqlExcluirTaxaEServicoUsado, parametro);
             }
-            catch(Exception)
+            catch (Exception)
             {
-               return false;
+                return false;
             }
 
             return true;
@@ -150,7 +150,7 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
         {
             int id = Convert.ToInt32(reader["id"]);
 
-            TaxaEServico taxaEServico = 
+            TaxaEServico taxaEServico =
                 controladorTaxas.SelecionarPorId(
                     Convert.ToInt32(reader["taxaEServico"]
                  )
