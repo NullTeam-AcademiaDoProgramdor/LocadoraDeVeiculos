@@ -20,6 +20,8 @@ namespace LocadoraDeVeiculos.Servicos.EmailModule
         private static ControladorRequisicaoEmail controlador;
         private static Thread thread;
 
+        private static bool EstaRodando = true;
+
         static EnviadorEmail()
         {
             controlador = new ControladorRequisicaoEmail();
@@ -34,7 +36,7 @@ namespace LocadoraDeVeiculos.Servicos.EmailModule
 
         public static void Parar()
         {
-            thread.Abort();
+            EstaRodando = false;
         }
 
         public static void AdicionarEmail(string mensagem, string emailDestino,
@@ -60,7 +62,7 @@ namespace LocadoraDeVeiculos.Servicos.EmailModule
 
         private static string GetEnderecoReal(string arquivo)
         {
-            return @"..\..\..\..\Arquivos\" + arquivo;
+            return @"..\..\..\Arquivos\" + arquivo;
         }
 
         private static void Enviar(RequisicaoEmail email)
@@ -77,7 +79,7 @@ namespace LocadoraDeVeiculos.Servicos.EmailModule
                 foreach (var pdf in email.arquivos)
                 {
                     mail.Attachments.Add(
-                        new Attachment(GetEnderecoReal(pdf), 
+                        new Attachment(GetEnderecoReal(pdf),
                         MediaTypeNames.Application.Pdf));
                 }
 
@@ -87,7 +89,7 @@ namespace LocadoraDeVeiculos.Servicos.EmailModule
 
         private static void IniciarFila()
         {
-            while (true)
+            while (EstaRodando)
             {
                 if (!IsConnectedToInternet() || !controlador.ExisteAlgum())
                 {
@@ -95,7 +97,7 @@ namespace LocadoraDeVeiculos.Servicos.EmailModule
                     Thread.Sleep(10 * 1000);
                     continue;
                 }
-               
+
                 List<RequisicaoEmail> emails = controlador.SelecionarTodos();
 
                 foreach (var email in emails)
@@ -105,7 +107,7 @@ namespace LocadoraDeVeiculos.Servicos.EmailModule
                     controlador.Excluir(email.id);
                     ExcluirArquivos(email.arquivos);
                 }
-                
+
             }
         }
 
