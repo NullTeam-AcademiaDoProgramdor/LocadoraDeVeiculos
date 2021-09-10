@@ -55,15 +55,15 @@ namespace LocadoraDeVeiculos.Dominio.PessoaJuridicaModule
         {
             string resultadoValidacao = "";
 
-            if(string.IsNullOrEmpty(Nome))
+            if (string.IsNullOrEmpty(Nome))
                 resultadoValidacao = "O campo 'nome' não pode estar vazio.";
 
             if (string.IsNullOrEmpty(Cnpj))
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo 'CNPJ' não pode estar vazio.";
-            
+
             if (string.IsNullOrEmpty(Telefone))
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo 'telefone' não pode estar vazio.";
-            
+
             if (string.IsNullOrEmpty(Endereco))
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao) + "O campo 'endereço' não pode estar vazio.";
 

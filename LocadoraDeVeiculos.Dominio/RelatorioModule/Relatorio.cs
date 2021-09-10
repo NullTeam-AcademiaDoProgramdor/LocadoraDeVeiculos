@@ -229,7 +229,7 @@ namespace LocadoraDeVeiculos.Dominio.RelatorioModule
                 double total = TotalAPagarSemCupom;
 
                 if (ValorDecontadoCupom != null)
-                    total -= (double) ValorDecontadoCupom;
+                    total -= (double)ValorDecontadoCupom;
 
                 return total;
             }
