@@ -11,14 +11,14 @@ namespace LocadoraDeVeiculos.Dominio.GrupoAutomovelModule
     {
 
         public string Nome { get; }
-        
+
         public PlanoDiarioStruct PlanoDiario { get; }
 
         public PlanoKmControladoStruct PlanoKmControlado { get; }
 
         public PlanoKmLivreStruct PlanoKmLivre { get; }
 
-        public GrupoAutomovel(string nome, PlanoDiarioStruct planoDiario, 
+        public GrupoAutomovel(string nome, PlanoDiarioStruct planoDiario,
             PlanoKmControladoStruct planoKmControlado, PlanoKmLivreStruct planoKmLivre)
         {
             Nome = nome;
@@ -59,8 +59,8 @@ namespace LocadoraDeVeiculos.Dominio.GrupoAutomovelModule
                 resultadoValidacao += "O campo nome é obrigatorio";
 
             if (PlanoDiario.PrecoDia <= 0)
-                resultadoValidacao += 
-                    QuebraDeLinha(resultadoValidacao) + 
+                resultadoValidacao +=
+                    QuebraDeLinha(resultadoValidacao) +
                     "O campo Preco Dia do Plano Diario não pode ser 0 ou negativo";
 
             if (PlanoDiario.PrecoKm <= 0)
