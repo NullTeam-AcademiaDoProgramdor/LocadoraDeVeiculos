@@ -483,8 +483,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
             this.imageGallery1.Location = new System.Drawing.Point(4, 3);
             this.imageGallery1.MostrarContador = true;
             this.imageGallery1.Name = "imageGallery1";
-            this.imageGallery1.PermitirAdicao = true;
-            this.imageGallery1.PermitirRemocao = true;
+            this.imageGallery1.PermitirAdicao = false;
+            this.imageGallery1.PermitirRemocao = false;
             this.imageGallery1.Size = new System.Drawing.Size(367, 271);
             this.imageGallery1.TabIndex = 0;
             // 

@@ -45,8 +45,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(45, 141);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(52, 163);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(51, 20);
             this.label1.TabIndex = 0;
@@ -55,9 +56,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
             // txtNome
             // 
             this.txtNome.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.txtNome.Location = new System.Drawing.Point(57, 164);
+            this.txtNome.Location = new System.Drawing.Point(66, 189);
+            this.txtNome.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(216, 20);
+            this.txtNome.Size = new System.Drawing.Size(251, 23);
             this.txtNome.TabIndex = 1;
             this.txtNome.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TelaLoginForm_KeyDown);
             // 
@@ -65,8 +67,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(45, 213);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(52, 246);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(56, 20);
             this.label2.TabIndex = 2;
@@ -75,10 +78,11 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
             // txtSenha
             // 
             this.txtSenha.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.txtSenha.Location = new System.Drawing.Point(57, 236);
+            this.txtSenha.Location = new System.Drawing.Point(66, 272);
+            this.txtSenha.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.PasswordChar = '*';
-            this.txtSenha.Size = new System.Drawing.Size(216, 20);
+            this.txtSenha.Size = new System.Drawing.Size(251, 23);
             this.txtSenha.TabIndex = 3;
             this.txtSenha.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TelaLoginForm_KeyDown);
             // 
@@ -86,9 +90,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
             // 
             this.btnEntrar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnEntrar.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btnEntrar.Location = new System.Drawing.Point(127, 291);
+            this.btnEntrar.Location = new System.Drawing.Point(148, 336);
+            this.btnEntrar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnEntrar.Name = "btnEntrar";
-            this.btnEntrar.Size = new System.Drawing.Size(75, 23);
+            this.btnEntrar.Size = new System.Drawing.Size(88, 27);
             this.btnEntrar.TabIndex = 4;
             this.btnEntrar.Text = "Entrar";
             this.btnEntrar.UseVisualStyleBackColor = false;
@@ -98,9 +103,10 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.labelRodape});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 339);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 395);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(314, 22);
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 16, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(366, 22);
             this.statusStrip1.TabIndex = 5;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -114,18 +120,19 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
             // pictureBox1
             // 
             this.pictureBox1.Image = global::LocadoraDeVeiculos.WindowsApp.Properties.Resources.AlugaRech2_0__2_;
-            this.pictureBox1.Location = new System.Drawing.Point(49, 22);
+            this.pictureBox1.Location = new System.Drawing.Point(57, 25);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(224, 88);
+            this.pictureBox1.Size = new System.Drawing.Size(261, 102);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             // 
             // TelaLoginForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(314, 361);
+            this.ClientSize = new System.Drawing.Size(366, 417);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.btnEntrar);
@@ -134,6 +141,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "TelaLoginForm";

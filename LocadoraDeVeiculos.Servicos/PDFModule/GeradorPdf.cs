@@ -30,7 +30,7 @@ namespace LocadoraDeVeiculos.Servicos.PDFModule
             this.relatorio = relatorio;
             string nomeArquivo = GerarNomeUnico();
 
-            string caminho = $"..\\..\\..\\Arquivos\\{nomeArquivo}";
+            string caminho = $"..\\..\\..\\..\\Arquivos\\{nomeArquivo}";
 
             using (PdfWriter writer = new PdfWriter(caminho, new WriterProperties().SetPdfVersion(PdfVersion.PDF_2_0)))
             {
