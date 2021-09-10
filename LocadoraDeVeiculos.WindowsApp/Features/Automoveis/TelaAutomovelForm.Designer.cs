@@ -69,7 +69,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
             this.txtPortas = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.imageGallery1 = new NullTeam.ImageGallery.Lib.ImageGallery();
+            this.imageGallery1 = new LocadoraDeVeiculos.WindowsApp.Features.Imagem.ImageGallery();
             this.groupBox1.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -577,6 +577,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TextBox txtKm;
         private System.Windows.Forms.Label labelKmRegistrada;
-        private NullTeam.ImageGallery.Lib.ImageGallery imageGallery1;
+        private Imagem.ImageGallery imageGallery1;
     }
 }

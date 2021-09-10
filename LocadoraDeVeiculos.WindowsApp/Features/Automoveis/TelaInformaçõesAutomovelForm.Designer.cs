@@ -65,8 +65,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
             this.label22 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.imageGallery1 = new NullTeam.ImageGallery.Lib.ImageGallery();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.imageGallery1 = new LocadoraDeVeiculos.WindowsApp.Features.Imagem.ImageGallery();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -462,20 +462,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
             this.tabPage3.Text = "Fotos";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // imageGallery1
-            // 
-            this.imageGallery1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.imageGallery1.Images = ((System.Collections.Generic.List<System.Drawing.Image>)(resources.GetObject("imageGallery1.Images")));
-            this.imageGallery1.LimiteImagens = ((uint)(0u));
-            this.imageGallery1.Location = new System.Drawing.Point(4, 3);
-            this.imageGallery1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.imageGallery1.MostrarContador = true;
-            this.imageGallery1.Name = "imageGallery1";
-            this.imageGallery1.PermitirAdicao = false;
-            this.imageGallery1.PermitirRemocao = false;
-            this.imageGallery1.Size = new System.Drawing.Size(367, 271);
-            this.imageGallery1.TabIndex = 0;
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.tabControl);
@@ -488,6 +474,19 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
             this.groupBox1.TabIndex = 43;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Veículo";
+            // 
+            // imageGallery1
+            // 
+            this.imageGallery1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.imageGallery1.Images = ((System.Collections.Generic.List<System.Drawing.Image>)(resources.GetObject("imageGallery1.Images")));
+            this.imageGallery1.LimiteImagens = ((uint)(0u));
+            this.imageGallery1.Location = new System.Drawing.Point(4, 3);
+            this.imageGallery1.MostrarContador = true;
+            this.imageGallery1.Name = "imageGallery1";
+            this.imageGallery1.PermitirAdicao = true;
+            this.imageGallery1.PermitirRemocao = true;
+            this.imageGallery1.Size = new System.Drawing.Size(367, 271);
+            this.imageGallery1.TabIndex = 0;
             // 
             // TelaInformaçõesAutomovelForm
             // 
@@ -551,6 +550,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.GroupBox groupBox1;
-        private NullTeam.ImageGallery.Lib.ImageGallery imageGallery1;
+        private Imagem.ImageGallery imageGallery1;
     }
 }
