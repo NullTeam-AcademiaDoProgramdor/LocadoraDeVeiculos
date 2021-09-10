@@ -19,9 +19,7 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "LocadoraDeVeiculos.DB", "Lo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocadoraDeVeiculos.Servicos", "LocadoraDeVeiculos.Servicos\LocadoraDeVeiculos.Servicos.csproj", "{52BFCF8B-CA1D-468D-8450-BEFBC59BEFE1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NullTeam.ImageGallery.Lib", "..\..\..\..\source\repos\ImageGallery\NullTeam.ImageGallery.Lib\NullTeam.ImageGallery.Lib.csproj", "{F893AEF5-3E17-45CC-9268-4FEB54925ED2}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocadoraDeVeiculos.Configuracoes", "LocadoraDeVeiculos.Configuracoes\LocadoraDeVeiculos.Configuracoes.csproj", "{2FBE5DB6-163C-4DD8-95E0-6560EFDF1564}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocadoraDeVeiculos.Configuracoes", "LocadoraDeVeiculos.Configuracoes\LocadoraDeVeiculos.Configuracoes.csproj", "{2FBE5DB6-163C-4DD8-95E0-6560EFDF1564}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,10 +53,6 @@ Global
 		{52BFCF8B-CA1D-468D-8450-BEFBC59BEFE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52BFCF8B-CA1D-468D-8450-BEFBC59BEFE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52BFCF8B-CA1D-468D-8450-BEFBC59BEFE1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F893AEF5-3E17-45CC-9268-4FEB54925ED2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F893AEF5-3E17-45CC-9268-4FEB54925ED2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F893AEF5-3E17-45CC-9268-4FEB54925ED2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F893AEF5-3E17-45CC-9268-4FEB54925ED2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2FBE5DB6-163C-4DD8-95E0-6560EFDF1564}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2FBE5DB6-163C-4DD8-95E0-6560EFDF1564}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2FBE5DB6-163C-4DD8-95E0-6560EFDF1564}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -74,7 +68,6 @@ Global
 		{66D0C03F-7909-4347-8FC7-D44C961EA3F7} = {C90BC848-DC4F-45A1-9E6D-EBBBC1C6C859}
 		{6645A77B-2A33-437F-BDFF-12A7E2452220} = {C90BC848-DC4F-45A1-9E6D-EBBBC1C6C859}
 		{52BFCF8B-CA1D-468D-8450-BEFBC59BEFE1} = {C90BC848-DC4F-45A1-9E6D-EBBBC1C6C859}
-		{F893AEF5-3E17-45CC-9268-4FEB54925ED2} = {C90BC848-DC4F-45A1-9E6D-EBBBC1C6C859}
 		{2FBE5DB6-163C-4DD8-95E0-6560EFDF1564} = {C90BC848-DC4F-45A1-9E6D-EBBBC1C6C859}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
