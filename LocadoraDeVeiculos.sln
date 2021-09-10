@@ -9,15 +9,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C90BC848-DC4
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocadoraDeVeiculos.Controladores", "LocadoraDeVeiculos.Controladores\LocadoraDeVeiculos.Controladores.csproj", "{C0CA9D0A-9EDB-41D2-AFC0-F27ABE5E84E7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocadoraDeVeiculos.Tests", "LocadoraDeVeiculos.Tests\LocadoraDeVeiculos.Tests.csproj", "{9228AF4C-C57C-4903-BEEC-7A7A68C52602}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocadoraDeVeiculos.Tests", "LocadoraDeVeiculos.Tests\LocadoraDeVeiculos.Tests.csproj", "{9228AF4C-C57C-4903-BEEC-7A7A68C52602}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "testes", "testes", "{0B6E14EC-C6E7-4A2F-B221-2E4F321992E4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocadoraDeVeiculos.WindowsApp", "LocadoraDeVeiculos.WindowsApp\LocadoraDeVeiculos.WindowsApp.csproj", "{66D0C03F-7909-4347-8FC7-D44C961EA3F7}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "LocadoraDeVeiculos.DB", "LocadoraDeVeiculos.DB\LocadoraDeVeiculos.DB.sqlproj", "{6645A77B-2A33-437F-BDFF-12A7E2452220}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocadoraDeVeiculos.Configuracoes", "LocadoraDeVeiculos.Configuracoes\LocadoraDeVeiculos.Configuracoes.csproj", "{12F59CD5-527F-4927-B9BD-DC8E91A14269}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocadoraDeVeiculos.Servicos", "LocadoraDeVeiculos.Servicos\LocadoraDeVeiculos.Servicos.csproj", "{52BFCF8B-CA1D-468D-8450-BEFBC59BEFE1}"
 EndProject
@@ -51,10 +49,6 @@ Global
 		{6645A77B-2A33-437F-BDFF-12A7E2452220}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6645A77B-2A33-437F-BDFF-12A7E2452220}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6645A77B-2A33-437F-BDFF-12A7E2452220}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{12F59CD5-527F-4927-B9BD-DC8E91A14269}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{12F59CD5-527F-4927-B9BD-DC8E91A14269}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{12F59CD5-527F-4927-B9BD-DC8E91A14269}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{12F59CD5-527F-4927-B9BD-DC8E91A14269}.Release|Any CPU.Build.0 = Release|Any CPU
 		{52BFCF8B-CA1D-468D-8450-BEFBC59BEFE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{52BFCF8B-CA1D-468D-8450-BEFBC59BEFE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52BFCF8B-CA1D-468D-8450-BEFBC59BEFE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -73,7 +67,6 @@ Global
 		{9228AF4C-C57C-4903-BEEC-7A7A68C52602} = {0B6E14EC-C6E7-4A2F-B221-2E4F321992E4}
 		{66D0C03F-7909-4347-8FC7-D44C961EA3F7} = {C90BC848-DC4F-45A1-9E6D-EBBBC1C6C859}
 		{6645A77B-2A33-437F-BDFF-12A7E2452220} = {C90BC848-DC4F-45A1-9E6D-EBBBC1C6C859}
-		{12F59CD5-527F-4927-B9BD-DC8E91A14269} = {C90BC848-DC4F-45A1-9E6D-EBBBC1C6C859}
 		{52BFCF8B-CA1D-468D-8450-BEFBC59BEFE1} = {C90BC848-DC4F-45A1-9E6D-EBBBC1C6C859}
 		{F893AEF5-3E17-45CC-9268-4FEB54925ED2} = {C90BC848-DC4F-45A1-9E6D-EBBBC1C6C859}
 	EndGlobalSection
