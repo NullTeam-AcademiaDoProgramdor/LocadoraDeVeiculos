@@ -20,7 +20,8 @@ namespace LocadoraDeVeiculos.Servicos.PDFModule
     {
         Relatorio relatorio = null;
 
-        public GeradorPdf(){
+        public GeradorPdf()
+        {
 
         }
 
@@ -29,7 +30,7 @@ namespace LocadoraDeVeiculos.Servicos.PDFModule
             this.relatorio = relatorio;
             string nomeArquivo = GerarNomeUnico();
 
-            string caminho = $"..\\..\\..\\..\\Arquivos\\{nomeArquivo}";
+            string caminho = $"..\\..\\..\\Arquivos\\{nomeArquivo}";
 
             using (PdfWriter writer = new PdfWriter(caminho, new WriterProperties().SetPdfVersion(PdfVersion.PDF_2_0)))
             {
@@ -63,7 +64,7 @@ namespace LocadoraDeVeiculos.Servicos.PDFModule
             string documentoLocatario = relatorio.locacao.Condutor.PessoaJuridica == null ?
                 relatorio.locacao.Condutor.CPF : relatorio.locacao.Condutor.PessoaJuridica.Cnpj;
 
-            string valorCupom = (relatorio.CupomEstaValido == false)? "Nenhum cupom aplicado" : "R$" + relatorio.ValorDecontadoCupom.ToString();
+            string valorCupom = (relatorio.CupomEstaValido == false) ? "Nenhum cupom aplicado" : "R$" + relatorio.ValorDecontadoCupom.ToString();
 
             PdfFont fonte = PdfFontFactory.CreateFont(FontConstants.HELVETICA_BOLD);
 
