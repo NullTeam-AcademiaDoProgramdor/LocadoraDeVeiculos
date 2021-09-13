@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeículos.Aplicacao.TaxaEServicoModule
 {
-    class TaxaEServicoAppService : ICadastravel<TaxaEServico>
+    public class TaxaEServicoAppService : ICadastravel<TaxaEServico>
     {
         IRepositor<TaxaEServico> repositorio;
 
