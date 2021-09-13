@@ -33,6 +33,8 @@ using LocadoraDeVeículos.Aplicacao.ParceiroModule;
 using LocadoraDeVeículos.Infra.SQL.ParceiroModule;
 using LocadoraDeVeículos.Aplicacao.GrupoAutomovelModule;
 using LocadoraDeVeículos.Infra.SQL.GrupoAutomovelModule;
+using LocadoraDeVeículos.Aplicacao.PessoaJuridicaModule;
+using LocadoraDeVeículos.Infra.SQL.PessoaJuridicaModule;
 
 namespace LocadoraDeVeiculos.WindowsApp
 {
@@ -115,8 +117,8 @@ namespace LocadoraDeVeiculos.WindowsApp
 
         private void ConfiguracaoDeEntradaNaTelaPrincipal()
         {
-            operacoesPessoaJuridica = new OperacoesPessoaJuridica(new ControladorPessoaJuridica());
             operacoesGrupoAutomovel = new OperacoesGrupoAutomovel(new GrupoAutomovelAppService(new GrupoAutomovelDao()));
+            operacoesPessoaJuridica = new OperacoesPessoaJuridica(new PessoaJuridicaAppService(new PessoaJuridicaDao()));
             operacoesFuncionario = new OperacoesFuncionario(new ControladorFuncionario());
             operacoesTaxasEServicos = new OperacoesTaxasESevicos(new ControladorTaxasEServicos());
             operacoesPessoaFisica = new OperacoesPessoaFisica(new ControladorPessoaFisica());
