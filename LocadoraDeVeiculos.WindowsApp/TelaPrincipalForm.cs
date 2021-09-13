@@ -31,6 +31,8 @@ using LocadoraDeVeiculos.WindowsApp.Features.Cupons;
 using LocadoraDeVeiculos.Controladores.CupomModule;
 using LocadoraDeVeículos.Aplicacao.ParceiroModule;
 using LocadoraDeVeículos.Infra.SQL.ParceiroModule;
+using LocadoraDeVeículos.Aplicacao.PessoaJuridicaModule;
+using LocadoraDeVeículos.Infra.SQL.PessoaJuridicaModule;
 
 namespace LocadoraDeVeiculos.WindowsApp
 {
@@ -113,7 +115,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
         private void ConfiguracaoDeEntradaNaTelaPrincipal()
         {
-            operacoesPessoaJuridica = new OperacoesPessoaJuridica(new ControladorPessoaJuridica());
+            operacoesPessoaJuridica = new OperacoesPessoaJuridica(new PessoaJuridicaAppService(new PessoaJuridicaDao()));
             operacoesGrupoAutomovel = new OperacoesGrupoAutomovel(new ControladorGrupoAutomovel());
             operacoesFuncionario = new OperacoesFuncionario(new ControladorFuncionario());
             operacoesTaxasEServicos = new OperacoesTaxasESevicos(new ControladorTaxasEServicos());
