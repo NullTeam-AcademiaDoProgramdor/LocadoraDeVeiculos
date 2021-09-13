@@ -31,6 +31,8 @@ using LocadoraDeVeiculos.WindowsApp.Features.Cupons;
 using LocadoraDeVeiculos.Controladores.CupomModule;
 using LocadoraDeVeículos.Aplicacao.ParceiroModule;
 using LocadoraDeVeículos.Infra.SQL.ParceiroModule;
+using LocadoraDeVeículos.Aplicacao.TaxaEServicoModule;
+using LocadoraDeVeículos.Infra.SQL.TaxasEServicosModule;
 using LocadoraDeVeículos.Aplicacao.GrupoAutomovelModule;
 using LocadoraDeVeículos.Infra.SQL.GrupoAutomovelModule;
 using LocadoraDeVeículos.Aplicacao.PessoaJuridicaModule;
@@ -120,7 +122,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             operacoesGrupoAutomovel = new OperacoesGrupoAutomovel(new GrupoAutomovelAppService(new GrupoAutomovelDao()));
             operacoesPessoaJuridica = new OperacoesPessoaJuridica(new PessoaJuridicaAppService(new PessoaJuridicaDao()));
             operacoesFuncionario = new OperacoesFuncionario(new ControladorFuncionario());
-            operacoesTaxasEServicos = new OperacoesTaxasESevicos(new ControladorTaxasEServicos());
+            operacoesTaxasEServicos = new OperacoesTaxasESevicos(new TaxaEServicoAppService(new TaxasEServicosDao()));
             operacoesPessoaFisica = new OperacoesPessoaFisica(new ControladorPessoaFisica());
             operacoesConfiguracoes = new OperacoesConfiguracoes();
             operacoesLocacao = new OperacoesLocacao(new ControladorLocacao());
