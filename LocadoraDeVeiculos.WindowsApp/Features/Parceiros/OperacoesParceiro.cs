@@ -1,4 +1,5 @@
-﻿using LocadoraDeVeiculos.Controladores.ParceiroModule;
+﻿using LocadoraDeVeículos.Aplicacao.ParceiroModule;
+using LocadoraDeVeiculos.Controladores.ParceiroModule;
 using LocadoraDeVeiculos.Dominio.ParceiroModule;
 using LocadoraDeVeiculos.WindowsApp.Shared;
 using System;
@@ -13,10 +14,11 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
     public class OperacoesParceiro : ICadastravel
     {
 
-        private readonly ControladorParceiro controlador = null;
+        //private readonly ControladorParceiro controlador = null;
         private readonly TabelaParceiroControl tabelaParceiro = null;
+        private readonly ParceiroAppService controlador = null;
 
-        public OperacoesParceiro(ControladorParceiro controlador)
+        public OperacoesParceiro(ParceiroAppService controlador)
         {
             this.controlador = controlador;
             this.tabelaParceiro = new TabelaParceiroControl();

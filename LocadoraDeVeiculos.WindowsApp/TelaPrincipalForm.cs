@@ -29,6 +29,8 @@ using LocadoraDeVeiculos.WindowsApp.Features.Parceiros;
 using LocadoraDeVeiculos.Controladores.ParceiroModule;
 using LocadoraDeVeiculos.WindowsApp.Features.Cupons;
 using LocadoraDeVeiculos.Controladores.CupomModule;
+using LocadoraDeVeículos.Aplicacao.ParceiroModule;
+using LocadoraDeVeículos.Infra.SQL.ParceiroModule;
 
 namespace LocadoraDeVeiculos.WindowsApp
 {
@@ -118,7 +120,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             operacoesPessoaFisica = new OperacoesPessoaFisica(new ControladorPessoaFisica());
             operacoesConfiguracoes = new OperacoesConfiguracoes();
             operacoesLocacao = new OperacoesLocacao(new ControladorLocacao());
-            operacoesParceiro = new OperacoesParceiro(new ControladorParceiro());
+            operacoesParceiro = new OperacoesParceiro(new ParceiroAppService(new ParceiroDao()));
             operacoesCupom = new OperacoesCupons(new ControladorCupom());
 
             operacoesAutomovel = new OperacoesAutomovel(new ControladorAutomovel(), new ControladorGrupoAutomovel());
