@@ -8,7 +8,6 @@ using LocadoraDeVeiculos.Dominio.PessoaFisicaModule;
 using LocadoraDeVeiculos.Dominio.TaxasEServicosModule;
 using LocadoraDeVeiculos.Servicos.EmailModule;
 using LocadoraDeVeiculos.WindowsApp.Features.Relatorios;
-using LocadoraDeVeículos.Servicos.PDFModule;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +18,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LocadoraDeVeículos.Infra.PDF.PDFModule;
 
 namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
 {
