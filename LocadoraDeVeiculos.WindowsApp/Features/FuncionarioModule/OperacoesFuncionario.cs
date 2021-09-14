@@ -1,4 +1,5 @@
-﻿using LocadoraDeVeiculos.Controladores.FuncionarioModule;
+﻿using LocadoraDeVeículos.Aplicacao.FuncionarioModule;
+using LocadoraDeVeiculos.Controladores.FuncionarioModule;
 using LocadoraDeVeiculos.Dominio.FuncionarioModule;
 using LocadoraDeVeiculos.WindowsApp.Shared;
 using System;
@@ -12,10 +13,11 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.FuncionarioModule
 {
     public class OperacoesFuncionario : ICadastravel
     {
-        private readonly ControladorFuncionario controlador = null;
+        //private readonly ControladorFuncionario controlador = null;
+        private readonly FuncionarioAppService controlador = null;
         private readonly TabelaFuncionarioControl tabelaFuncionario = null;
 
-        public OperacoesFuncionario(ControladorFuncionario controladorFuncionario)
+        public OperacoesFuncionario(FuncionarioAppService controladorFuncionario)
         {
             this.controlador = controladorFuncionario;
             tabelaFuncionario = new TabelaFuncionarioControl(); 
