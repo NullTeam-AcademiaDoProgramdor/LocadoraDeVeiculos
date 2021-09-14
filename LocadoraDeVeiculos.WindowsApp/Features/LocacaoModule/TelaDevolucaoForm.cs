@@ -7,8 +7,8 @@ using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using LocadoraDeVeiculos.Dominio.PessoaFisicaModule;
 using LocadoraDeVeiculos.Dominio.TaxasEServicosModule;
 using LocadoraDeVeiculos.Servicos.EmailModule;
-using LocadoraDeVeiculos.Servicos.PDFModule;
 using LocadoraDeVeiculos.WindowsApp.Features.Relatorios;
+using LocadoraDeVeículos.Servicos.PDFModule;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,14 +28,14 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
         private Locacao locacao;
         private ControladorTaxasEServicos controladorTaxasEServicos;
         private ControladorCupom controladorCupom;
-        private GeradorPdf geradorPdf;
+        private GeradorPDF geradorPdf;
         public bool CupomFoiUsado { get; private set; }
 
         public TelaDevolucaoForm()
         {
             controladorCupom = new ControladorCupom();
             controladorTaxasEServicos = new ControladorTaxasEServicos();
-            geradorPdf = new GeradorPdf();
+            geradorPdf = new GeradorPDF();
 
             InitializeComponent();
 
