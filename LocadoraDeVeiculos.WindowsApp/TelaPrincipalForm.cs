@@ -33,6 +33,8 @@ using LocadoraDeVeículos.Aplicacao.ParceiroModule;
 using LocadoraDeVeículos.Infra.SQL.ParceiroModule;
 using LocadoraDeVeículos.Aplicacao.GrupoAutomovelModule;
 using LocadoraDeVeículos.Infra.SQL.GrupoAutomovelModule;
+using LocadoraDeVeículos.Aplicacao.AutomovelModule;
+using LocadoraDeVeículos.Infra.SQL.AutomovelModule;
 
 namespace LocadoraDeVeiculos.WindowsApp
 {
@@ -125,7 +127,9 @@ namespace LocadoraDeVeiculos.WindowsApp
             operacoesParceiro = new OperacoesParceiro(new ParceiroAppService(new ParceiroDao()));
             operacoesCupom = new OperacoesCupons(new ControladorCupom());
 
-            operacoesAutomovel = new OperacoesAutomovel(new ControladorAutomovel(), new ControladorGrupoAutomovel());
+            operacoesAutomovel = new OperacoesAutomovel(
+                new AutomovelAppService(new AutomovelDao(), new FotosAutomovelDao()), 
+                new GrupoAutomovelAppService(new GrupoAutomovelDao()));
 
             Instancia = this;
         }
