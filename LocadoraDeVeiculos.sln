@@ -39,16 +39,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocadoraDeVeículos.Aplicac
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PDF", "PDF", "{D9773F9E-1328-4AC1-B066-4995C9B19136}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocadoraDeVeículos.Infra.PDF", "LocadoraDeVeículos.Infra.PDF\LocadoraDeVeículos.Infra.PDF.csproj", "{88E767AC-A19D-4C49-BD97-B3EFC681BFF2}"
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocadoraDeVeículos.Aplicacao", "LocadoraDeVeículos.Aplicacao\LocadoraDeVeículos.Aplicacao.csproj", "{FCF09A5C-0F24-467A-8952-3D3F415B9BFC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocadoraDeVeículos.Infra.PDF", "LocadoraDeVeículos.Infra.PDF\LocadoraDeVeículos.Infra.PDF.csproj", "{88E767AC-A19D-4C49-BD97-B3EFC681BFF2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Internet", "Internet", "{C3BD3A1F-B365-44A5-A459-B57070E4F784}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocadoraDeVeiculos.Infra.Internet", "LocadoraDeVeiculos.Infra.Internet\LocadoraDeVeiculos.Infra.Internet.csproj", "{BDDCCD33-77D4-4423-80A3-4DBC9151DF9D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocadoraDeVeiculos.Infra.Internet", "LocadoraDeVeiculos.Infra.Internet\LocadoraDeVeiculos.Infra.Internet.csproj", "{BDDCCD33-77D4-4423-80A3-4DBC9151DF9D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Arquivos", "Arquivos", "{0B29E7FC-95AE-43D2-AB0D-D9D8F018CDF9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocadoraDeVeiculos.Infra.Arquivos", "LocadoraDeVeiculos.Infra.Arquivos\LocadoraDeVeiculos.Infra.Arquivos.csproj", "{6D98FE40-0222-4CAE-9EFC-1B8302C73052}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocadoraDeVeiculos.Infra.Arquivos", "LocadoraDeVeiculos.Infra.Arquivos\LocadoraDeVeiculos.Infra.Arquivos.csproj", "{6D98FE40-0222-4CAE-9EFC-1B8302C73052}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

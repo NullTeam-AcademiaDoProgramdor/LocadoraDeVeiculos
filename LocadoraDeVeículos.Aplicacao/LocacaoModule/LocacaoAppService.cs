@@ -1,5 +1,6 @@
 ﻿using LocadoraDeVeículos.Aplicacao.Shared;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
+using LocadoraDeVeículos.Infra.SQL.LocacaoModule;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +11,20 @@ namespace LocadoraDeVeículos.Aplicacao.LocacaoModule
 {
     public class LocacaoAppService : ICadastravel<Locacao>
     {
+        LocacaoDao
+        TaxasEServicosUsadosDao repositorioTaxas = null;
+
         public string InserirNovo(Locacao registro)
         {
-            throw new NotImplementedException();
+            string resultadoValidacao = registro.Validar();
+
+            if (resultadoValidacao == "ESTA_VALIDO")
+            {
+                repositorio.InserirNovo(registro);
+                repositorioTaxas.Modificar(registro.TaxasEServicos, registro.id);
+            }
+
+            return resultadoValidacao;
         }
         
         public string Editar(int id, Locacao registro)

@@ -5,6 +5,11 @@ using LocadoraDeVeículos.Aplicacao.PessoaFisicaModule;
 using LocadoraDeVeículos.Aplicacao.TaxaEServicoModule;
 using LocadoraDeVeiculos.Dominio.CupomModule;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
+using LocadoraDeVeiculos.Infra.Shared;
+using LocadoraDeVeículos.Infra.SQL.AutomovelModule;
+using LocadoraDeVeículos.Infra.SQL.CupomModule;
+using LocadoraDeVeículos.Infra.SQL.FuncionarioModule;
+using LocadoraDeVeículos.Infra.SQL.PessoaFisicaModule;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -20,16 +25,123 @@ namespace LocadoraDeVeículos.Infra.SQL.LocacaoModule
         AutomovelAppService controladorAutomovel = null;
         FuncionarioAppService controladorFuncionario = null;
         CupomAppService controladorCupom = null;
-        TaxaEServicoAppService controladorTaxas = null;
+        TaxasEServicosUsadosDao controladorTaxas = null;
 
         public LocacaoDao()
         {
-
+            controladorPessoaFisica = new PessoaFisicaAppService(new PessoaFisicaDao());
+            controladorAutomovel = new AutomovelAppService(new AutomovelDao(), new FotosAutomovelDao());
+            controladorFuncionario = new FuncionarioAppService(new FuncionarioDao());
+            controladorCupom = new CupomAppService(new CupomDao());
+            controladorTaxas = new TaxasEServicosUsadosDao();
         }
+
+        #region Queries
+        private const string sqlInserirLocacao =
+            @"INSERT INTO [Locacao]
+                (   
+                    [CONDUTOR],
+                    [AUTOMOVEL],            
+                    [DATASAIDA],                 
+                    [DATADEVOLUCAOESPERADA],
+                    [DATADEVOLUCAO],
+                    [CAUCAO],       
+                    [PLANOSELECIONADO],
+                    [FUNCIONARIO],                
+                    [KMREGISTRADA],         
+                    [KMAUTOMOVELFINAL],          
+                    [PORCENTAGEMFINALCOMBUSTIVEL],
+                    [CUPOM]
+                )
+            VALUES
+                (
+                    @CONDUTOR,
+                    @AUTOMOVEL,
+                    @DATASAIDA,
+                    @DATADEVOLUCAOESPERADA,
+                    @DATADEVOLUCAO,
+                    @CAUCAO,       
+                    @PLANOSELECIONADO,
+                    @FUNCIONARIO,
+                    @KMREGISTRADA,
+                    @KMAUTOMOVELFINAL,
+                    @PORCENTAGEMFINALCOMBUSTIVEL,
+                    @CUPOM
+                )";
+        private const string sqlEditarLocacao =
+            @" UPDATE [Locacao]
+                SET 
+                    [CONDUTOR] = @CONDUTOR, 
+                    [AUTOMOVEL] = @AUTOMOVEL,
+                    [DATASAIDA] = @DATASAIDA,                    
+                    [DATADEVOLUCAOESPERADA] = @DATADEVOLUCAOESPERADA,     
+                    [DATADEVOLUCAO] = @DATADEVOLUCAO,     
+                    [CAUCAO] = @CAUCAO,       
+                    [PLANOSELECIONADO] = @PLANOSELECIONADO,     
+                    [FUNCIONARIO] = @FUNCIONARIO,     
+                    [KMREGISTRADA] = @KMREGISTRADA,
+                    [KMAUTOMOVELFINAL] = @KMAUTOMOVELFINAL,
+                    [PORCENTAGEMFINALCOMBUSTIVEL] = @PORCENTAGEMFINALCOMBUSTIVEL,
+                    [CUPOM] = @CUPOM
+                WHERE [ID] = @ID";
+
+        private const string sqlExcluirLocacao =
+            @"DELETE FROM [Locacao] 
+                WHERE [ID] = @ID";
+
+        private const string sqlSelecionarTodasLocacao =
+            @"SELECT 
+                    [ID],
+                    [CONDUTOR],
+                    [AUTOMOVEL],            
+                    [DATASAIDA],                 
+                    [DATADEVOLUCAOESPERADA],
+                    [DATADEVOLUCAO],
+                    [CAUCAO],           
+                    [PLANOSELECIONADO],
+                    [FUNCIONARIO],                
+                    [KMREGISTRADA],         
+                    [KMAUTOMOVELFINAL],          
+                    [PORCENTAGEMFINALCOMBUSTIVEL],
+                    [CUPOM]
+            FROM
+                    [Locacao]";
+
+        private const string sqlSelecionarLocacaoPorId =
+            @"SELECT 
+                    [ID],
+                    [CONDUTOR],
+                    [AUTOMOVEL],            
+                    [DATASAIDA],                 
+                    [DATADEVOLUCAOESPERADA],
+                    [DATADEVOLUCAO],
+                    [CAUCAO],        
+                    [PLANOSELECIONADO],                 
+                    [FUNCIONARIO],                
+                    [KMREGISTRADA],         
+                    [KMAUTOMOVELFINAL],          
+                    [PORCENTAGEMFINALCOMBUSTIVEL],
+                    [CUPOM]
+            FROM
+                    [Locacao]
+            WHERE 
+                    [ID] = @ID";
+
+        private const string sqlExisteLocacao =
+            @"SELECT 
+                COUNT(*) 
+            FROM 
+                [Locacao]
+            WHERE 
+                [ID] = @ID";
+
+        #endregion
 
         public override bool InserirNovo(Locacao registro)
         {
-            throw new NotImplementedException();
+            registro.id = Db.Insert(sqlInserirLocacao, ObtemParametrosLocacao(registro));            
+
+            return registro.Id != 0;
         }
 
         public override bool Devolver(int id, Locacao locacao, bool cupomFoiUsado)

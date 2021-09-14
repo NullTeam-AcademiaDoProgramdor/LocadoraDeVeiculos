@@ -12,7 +12,7 @@ using LocadoraDeVeículos.Infra.SQL.TaxasEServicosModule;
 
 namespace LocadoraDeVeículos.Infra.SQL.LocacaoModule
 {
-    class TaxasEServicosUsadosDao
+    public class TaxasEServicosUsadosDao
     {
         #region QUERIES
         private readonly string sqlInserirTaxaEServicoUsado =
