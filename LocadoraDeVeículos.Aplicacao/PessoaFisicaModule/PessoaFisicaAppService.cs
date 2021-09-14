@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeículos.Aplicacao.PessoaFisicaModule
 {
-    class PessoaFisicaAppService : ICadastravel<PessoaFisica>
+    public class PessoaFisicaAppService : ICadastravel<PessoaFisica>
     {
         private IRepositor<PessoaFisica> repositorio;
 

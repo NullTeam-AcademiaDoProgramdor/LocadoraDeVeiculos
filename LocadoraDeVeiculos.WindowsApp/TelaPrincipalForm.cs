@@ -14,19 +14,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using LocadoraDeVeiculos.Controladores.TaxasEServicosModule;
 using LocadoraDeVeiculos.Dominio.FuncionarioModule;
 using LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos;
 
 using LocadoraDeVeiculos.WindowsApp.Features.Configuracoes;
 using LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas;
-using LocadoraDeVeiculos.Controladores.PessoaFisicaModule;
+
 using LocadoraDeVeiculos.WindowsApp.Features.Automoveis;
 using LocadoraDeVeiculos.Controladores.AutomovelModule;
 using LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule;
 using LocadoraDeVeiculos.Controladores.LocacaoModule;
 using LocadoraDeVeiculos.WindowsApp.Features.Parceiros;
-using LocadoraDeVeiculos.Controladores.ParceiroModule;
+
 using LocadoraDeVeiculos.WindowsApp.Features.Cupons;
 using LocadoraDeVeiculos.Controladores.CupomModule;
 using LocadoraDeVeículos.Aplicacao.ParceiroModule;
@@ -37,6 +36,8 @@ using LocadoraDeVeículos.Aplicacao.GrupoAutomovelModule;
 using LocadoraDeVeículos.Infra.SQL.GrupoAutomovelModule;
 using LocadoraDeVeículos.Aplicacao.PessoaJuridicaModule;
 using LocadoraDeVeículos.Infra.SQL.PessoaJuridicaModule;
+using LocadoraDeVeículos.Aplicacao.PessoaFisicaModule;
+using LocadoraDeVeículos.Infra.SQL.PessoaFisicaModule;
 
 namespace LocadoraDeVeiculos.WindowsApp
 {
@@ -123,7 +124,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             operacoesPessoaJuridica = new OperacoesPessoaJuridica(new PessoaJuridicaAppService(new PessoaJuridicaDao()));
             operacoesFuncionario = new OperacoesFuncionario(new ControladorFuncionario());
             operacoesTaxasEServicos = new OperacoesTaxasESevicos(new TaxaEServicoAppService(new TaxasEServicosDao()));
-            operacoesPessoaFisica = new OperacoesPessoaFisica(new ControladorPessoaFisica());
+            operacoesPessoaFisica = new OperacoesPessoaFisica(new PessoaFisicaAppService(new PessoaFisicaDao()));
             operacoesConfiguracoes = new OperacoesConfiguracoes();
             operacoesLocacao = new OperacoesLocacao(new ControladorLocacao());
             operacoesParceiro = new OperacoesParceiro(new ParceiroAppService(new ParceiroDao()));

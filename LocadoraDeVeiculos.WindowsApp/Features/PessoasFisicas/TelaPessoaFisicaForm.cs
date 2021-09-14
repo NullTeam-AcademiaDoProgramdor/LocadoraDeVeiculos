@@ -1,4 +1,5 @@
-﻿using LocadoraDeVeiculos.Controladores.PessoaFisicaModule;
+﻿using LocadoraDeVeículos.Aplicacao.PessoaFisicaModule;
+using LocadoraDeVeiculos.Controladores.PessoaFisicaModule;
 using LocadoraDeVeiculos.Controladores.PessoaJuridicaModule;
 using LocadoraDeVeiculos.Dominio.PessoaFisicaModule;
 using LocadoraDeVeiculos.Dominio.PessoaJuridicaModule;
@@ -27,7 +28,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
             CarregarPessoasJuridicas(controladorPessoaJuridica.SelecionarTodos());
         }
 
-        public TelaPessoaFisicaForm(List<PessoaJuridica> pessoasJuridicas, ControladorPessoaFisica controlador) : this()
+        public TelaPessoaFisicaForm(List<PessoaJuridica> pessoasJuridicas, PessoaFisicaAppService controlador) : this()
         {
             CarregarPessoasJuridicas(pessoasJuridicas);
         }
