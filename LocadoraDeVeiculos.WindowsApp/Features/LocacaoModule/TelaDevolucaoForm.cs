@@ -1,4 +1,5 @@
-﻿using LocadoraDeVeiculos.Controladores.CupomModule;
+﻿using LocadoraDeVeículos.Aplicacao.RequisicaoEmailModule;
+using LocadoraDeVeiculos.Controladores.CupomModule;
 using LocadoraDeVeiculos.Controladores.TaxasEServicosModule;
 using LocadoraDeVeiculos.Dominio.AutomovelModule;
 using LocadoraDeVeiculos.Dominio.CupomModule;
@@ -125,7 +126,11 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
 
                     string pdf = geradorPdf.GerarPdf(telaRelatorio.relatorio);
                     
-                    EnviadorEmail.AdicionarEmail("Aqui está o relatório de sua locação finalizada.", email, pdf);
+                    EmailAppService
+                        .GetInstance()
+                        .AdicionarEmail("Aqui está o relatório de sua locação finalizada.",
+                                        email,
+                                        pdf);
 
 
                 }
