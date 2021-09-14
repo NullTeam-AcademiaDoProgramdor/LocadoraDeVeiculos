@@ -1,18 +1,19 @@
-﻿using LocadoraDeVeiculos.Controladores.Shared;
-using LocadoraDeVeiculos.Controladores.TaxasEServicosModule;
-using LocadoraDeVeiculos.Dominio.TaxasEServicosModule;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LocadoraDeVeículos.Aplicacao.LocacaoModule;
+using LocadoraDeVeículos.Aplicacao.TaxaEServicoModule;
+using LocadoraDeVeiculos.Dominio.TaxasEServicosModule;
+using LocadoraDeVeiculos.Infra.Shared;
+using LocadoraDeVeículos.Infra.SQL.TaxasEServicosModule;
 
-namespace LocadoraDeVeiculos.Controladores.LocacaoModule
+namespace LocadoraDeVeículos.Infra.SQL.LocacaoModule
 {
-    public class ControladorTaxasEServicosUsados
+    class TaxasEServicosUsadosDao
     {
-
         #region QUERIES
         private readonly string sqlInserirTaxaEServicoUsado =
             @"INSERT INTO [TaxasEServicosUsadas]
@@ -41,9 +42,6 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
                 [locacao] = @locacao";
         #endregion
 
-        private ControladorTaxasEServicos controladorTaxas
-            = new ControladorTaxasEServicos();
-
         private class TaxaEServicoUsado
         {
             public int id;
@@ -57,6 +55,8 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
                 this.locacao = locacao;
             }
         }
+
+        private TaxaEServicoAppService controladorTaxas = new (new TaxasEServicosDao());
 
         private void InserirTaxaEServicosUsados(TaxaEServico[] taxasEServicos, int locacaoId)
         {
@@ -100,7 +100,6 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
 
             return taxas.Select(t => t.taxaEServico).ToArray();
         }
-
         public void Modificar(TaxaEServico[] taxasEServicos, int locacaoId)
         {
             List<TaxaEServicoUsado> taxasEmServidoDoDb = this.BuscarUsados(locacaoId);
@@ -118,7 +117,6 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
             }
 
         }
-
         private static Dictionary<TaxaEServicoUsado, char> GerarTabelaDeAlteracoes(TaxaEServico[] taxasEServicos, int locacaoId, List<TaxaEServicoUsado> taxasEmServidoDoDb)
         {
             Dictionary<TaxaEServicoUsado, char> tabelaDeAlteracoes =
