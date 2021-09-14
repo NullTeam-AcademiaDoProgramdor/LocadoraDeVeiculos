@@ -6,6 +6,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\LocadoraDeVeiculos.Dominio\LocadoraDeVeiculos.Dominio.csproj" />
+    <ProjectReference Include="..\LocadoraDeVeiculos.Infra.Arquivos\LocadoraDeVeiculos.Infra.Arquivos.csproj" />
+    <ProjectReference Include="..\LocadoraDeVeiculos.Infra.Internet\LocadoraDeVeiculos.Infra.Internet.csproj" />
   </ItemGroup>
 
 </Project>
