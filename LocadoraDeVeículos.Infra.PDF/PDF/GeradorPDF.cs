@@ -14,13 +14,13 @@ using iText.Layout.Properties;
 using iText.Kernel.Font;
 using iText.IO.Font;
 
-namespace LocadoraDeVeiculos.Servicos.PDFModule
+namespace LocadoraDeVeículos.Infra.PDF.PDFModule
 {
-    public class GeradorPdf
+    public class GeradorPDF
     {
         Relatorio relatorio = null;
 
-        public GeradorPdf()
+        public GeradorPDF()
         {
 
         }
@@ -87,7 +87,7 @@ namespace LocadoraDeVeiculos.Servicos.PDFModule
             doc.Add(new Paragraph("\n- Valor descontado com cupom: " + valorCupom));
             doc.Add(new Paragraph("\n- Total a pagar: R$" + relatorio.TotalAPagar.ToString()).SetBold().SetFont(fonte).SetFontSize(15));
         }
-        
+
 
     }
 }
