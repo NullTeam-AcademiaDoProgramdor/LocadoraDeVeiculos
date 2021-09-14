@@ -39,6 +39,8 @@ using LocadoraDeVeículos.Aplicacao.PessoaJuridicaModule;
 using LocadoraDeVeículos.Infra.SQL.PessoaJuridicaModule;
 using LocadoraDeVeículos.Aplicacao.AutomovelModule;
 using LocadoraDeVeículos.Infra.SQL.AutomovelModule;
+using LocadoraDeVeículos.Aplicacao.FuncionarioModule;
+using LocadoraDeVeículos.Infra.SQL.FuncionarioModule;
 
 namespace LocadoraDeVeiculos.WindowsApp
 {
@@ -123,7 +125,7 @@ namespace LocadoraDeVeiculos.WindowsApp
         {
             operacoesGrupoAutomovel = new OperacoesGrupoAutomovel(new GrupoAutomovelAppService(new GrupoAutomovelDao()));
             operacoesPessoaJuridica = new OperacoesPessoaJuridica(new PessoaJuridicaAppService(new PessoaJuridicaDao()));
-            operacoesFuncionario = new OperacoesFuncionario(new ControladorFuncionario());
+            operacoesFuncionario = new OperacoesFuncionario(new FuncionarioAppService(new FuncionarioDao()));
             operacoesTaxasEServicos = new OperacoesTaxasESevicos(new TaxaEServicoAppService(new TaxasEServicosDao()));
             operacoesPessoaFisica = new OperacoesPessoaFisica(new ControladorPessoaFisica());
             operacoesConfiguracoes = new OperacoesConfiguracoes();
