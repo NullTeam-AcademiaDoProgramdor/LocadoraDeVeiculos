@@ -1,4 +1,6 @@
-﻿using LocadoraDeVeiculos.Controladores.AutomovelModule;
+﻿using LocadoraDeVeículos.Aplicacao.AutomovelModule;
+using LocadoraDeVeículos.Aplicacao.GrupoAutomovelModule;
+using LocadoraDeVeiculos.Controladores.AutomovelModule;
 using LocadoraDeVeiculos.Controladores.GrupoAutomovelModule;
 using LocadoraDeVeiculos.Dominio.AutomovelModule;
 using LocadoraDeVeiculos.WindowsApp.Shared;
@@ -13,11 +15,11 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
 {
     class OperacoesAutomovel : ICadastravel
     {
-        private readonly ControladorAutomovel controlador = null;
-        private readonly ControladorGrupoAutomovel controladorGrupo = null;
+        private readonly AutomovelAppService controlador = null;
+        private readonly GrupoAutomovelAppService controladorGrupo = null;
         private readonly TabelaAutomovelControl tabelaAutomovel = null;
 
-        public OperacoesAutomovel(ControladorAutomovel controlador, ControladorGrupoAutomovel controladorGrupo)
+        public OperacoesAutomovel(AutomovelAppService controlador, GrupoAutomovelAppService controladorGrupo)
         {
             this.controlador = controlador;
             this.controladorGrupo = controladorGrupo;
