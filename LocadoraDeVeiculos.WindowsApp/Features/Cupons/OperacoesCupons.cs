@@ -1,4 +1,6 @@
-﻿using LocadoraDeVeiculos.Controladores.CupomModule;
+﻿using LocadoraDeVeículos.Aplicacao.CupomModule;
+using LocadoraDeVeículos.Aplicacao.ParceiroModule;
+using LocadoraDeVeiculos.Controladores.CupomModule;
 using LocadoraDeVeiculos.Controladores.ParceiroModule;
 using LocadoraDeVeiculos.Dominio.CupomModule;
 using LocadoraDeVeiculos.WindowsApp.Shared;
@@ -13,14 +15,15 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
 {
     public class OperacoesCupons : ICadastravel
     {
-        private readonly ControladorCupom controlador = null;
-        private readonly ControladorParceiro controladorParceiro = null;
+        private readonly CupomAppService controlador = null;
+        private readonly ParceiroAppService controladorParceiro = null;
         private readonly TabelaCupomControl tabelaCupom = null;
 
-        public OperacoesCupons(ControladorCupom controladorCupom)
+        public OperacoesCupons(CupomAppService controladorCupom,
+                               ParceiroAppService controladorParceiro)
         {
             this.controlador = controladorCupom;
-            controladorParceiro = new ControladorParceiro();
+            this.controladorParceiro = controladorParceiro;
             tabelaCupom = new TabelaCupomControl();
         }
 
