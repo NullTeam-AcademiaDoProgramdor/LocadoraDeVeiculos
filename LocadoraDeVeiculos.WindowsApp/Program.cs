@@ -8,6 +8,8 @@ using LocadoraDeVeiculos.Controladores.AutomovelModule;
 using System.Drawing;
 using LocadoraDeVeiculos.Servicos.EmailModule;
 using System.Threading;
+using LocadoraDeVeículos.Aplicacao.RequisicaoEmailModule;
+using LocadoraDeVeículos.Infra.SQL.RequisicaoEmailModule;
 
 namespace LocadoraDeVeiculos.WindowsApp
 {

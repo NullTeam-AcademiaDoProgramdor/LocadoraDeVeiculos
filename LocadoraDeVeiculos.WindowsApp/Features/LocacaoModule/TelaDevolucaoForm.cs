@@ -19,6 +19,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LocadoraDeVeículos.Infra.PDF.PDFModule;
+using LocadoraDeVeículos.Aplicacao.RequisicaoEmailModule;
 
 namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
 {
