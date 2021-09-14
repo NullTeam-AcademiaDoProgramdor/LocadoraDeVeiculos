@@ -14,9 +14,9 @@ using iText.Layout.Properties;
 using iText.Kernel.Font;
 using iText.IO.Font;
 
-namespace LocadoraDeVeiculos.Servicos.PDFModule
+namespace LocadoraDeVeículos.Servicos.PDFModule
 {
-    public class GeradorPdf
+    class GeradorPdf
     {
         Relatorio relatorio = null;
 
@@ -87,7 +87,7 @@ namespace LocadoraDeVeiculos.Servicos.PDFModule
             doc.Add(new Paragraph("\n- Valor descontado com cupom: " + valorCupom));
             doc.Add(new Paragraph("\n- Total a pagar: R$" + relatorio.TotalAPagar.ToString()).SetBold().SetFont(fonte).SetFontSize(15));
         }
-        
+
 
     }
 }
