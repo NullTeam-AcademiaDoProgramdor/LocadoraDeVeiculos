@@ -1,7 +1,9 @@
 ﻿using FluentAssertions;
+using LocadoraDeVeículos.Aplicacao.ParceiroModule;
 using LocadoraDeVeiculos.Controladores.ParceiroModule;
 using LocadoraDeVeiculos.Controladores.Shared;
 using LocadoraDeVeiculos.Dominio.ParceiroModule;
+using LocadoraDeVeículos.Infra.SQL.ParceiroModule;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -12,11 +14,11 @@ namespace LocadoraDeVeiculos.Tests.ParceiroModule
     [TestCategory("Controladores")]
     public class ControladorParceiroTest
     {
-        ControladorParceiro controlador;
+        ParceiroAppService controlador;
 
         public ControladorParceiroTest()
         {
-            controlador = new ControladorParceiro();
+            controlador = new ParceiroAppService(new ParceiroDao());
         }
 
         [TestCleanup]
