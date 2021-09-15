@@ -15,7 +15,7 @@ namespace LocadoraDeVeiculos.Tests.AutomovelModule
     public class ControladorFotosTest
     {
         private readonly string CaminhoImagens =
-            @"..\..\AutomovelModule\TestImages";
+            @"..\..\..\AutomovelModule\TestImages";
 
         ControladorGrupoAutomovel controladorGrupoAutomovel = null;
         ControladorAutomovel controlador = null;

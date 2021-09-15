@@ -20,10 +20,14 @@
     <Compile Remove="ConfiguracoesModule\ConfiguracoesTestcs.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="appsettings.json" />
+    <Content Include="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LocadoraDeVeiculos.Configuracoes\LocadoraDeVeiculos.Configuracoes.csproj" />
     <ProjectReference Include="..\LocadoraDeVeiculos.Controladores\LocadoraDeVeiculos.Controladores.csproj" />
     <ProjectReference Include="..\LocadoraDeVeiculos.Dominio\LocadoraDeVeiculos.Dominio.csproj" />
+    <ProjectReference Include="..\LocadoraDeVeiculos.Servicos\LocadoraDeVeiculos.Servicos.csproj" />
   </ItemGroup>
 </Project>
