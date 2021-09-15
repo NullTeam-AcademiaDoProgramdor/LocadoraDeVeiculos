@@ -1,5 +1,8 @@
-﻿using LocadoraDeVeículos.Aplicacao.Shared;
+﻿using LocadoraDeVeículos.Aplicacao.RequisicaoEmailModule;
+using LocadoraDeVeículos.Aplicacao.Shared;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
+using LocadoraDeVeiculos.Dominio.RelatorioModule;
+using LocadoraDeVeículos.Infra.PDF.PDFModule;
 using LocadoraDeVeículos.Infra.SQL.CupomModule;
 using LocadoraDeVeículos.Infra.SQL.LocacaoModule;
 using System;
@@ -15,12 +18,16 @@ namespace LocadoraDeVeículos.Aplicacao.LocacaoModule
         LocacaoDao repositorioLocacao = null;
         TaxasEServicosUsadosDao repositorioTaxas = null;
         CupomDao repositorioCupom = null;
+        GeradorPDF repositorioPDF = null;
+        EmailAppService emailAppService = null;
 
         public LocacaoAppService(LocacaoDao locacaoDao)
         {
             repositorioLocacao = locacaoDao;
             repositorioTaxas = new();
             repositorioCupom = new();
+            repositorioPDF = new();
+            emailAppService = EmailAppService.GetInstance();
         }
 
         public string InserirNovo(Locacao registro)
@@ -47,6 +54,17 @@ namespace LocadoraDeVeículos.Aplicacao.LocacaoModule
                     repositorioCupom.EditarQtdUsos(locacao.Cupom);
 
                 repositorioLocacao.Devolver(id, locacao);
+
+                string email = (locacao.Condutor.PessoaJuridica == null) ? locacao.Condutor.Email
+                        : locacao.Condutor.PessoaJuridica.Email;
+
+                string pdf = repositorioPDF.GerarPdf(new Relatorio(locacao));
+
+                EmailAppService
+                    .GetInstance()
+                    .AdicionarEmail("Aqui está o relatório de sua locação finalizada.",
+                                    email,
+                                    pdf);
             }
 
             return resultadoValidacao;

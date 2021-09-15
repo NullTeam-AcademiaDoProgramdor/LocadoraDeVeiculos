@@ -11,9 +11,9 @@ namespace LocadoraDeVeículos.Aplicacao.PessoaFisicaModule
 {
     public class PessoaFisicaAppService : ICadastravel<PessoaFisica>
     {
-        private IRepositor<PessoaFisica> repositorio;
+        private RepositorBase<PessoaFisica> repositorio;
 
-        public PessoaFisicaAppService(IRepositor<PessoaFisica> repositor)
+        public PessoaFisicaAppService(RepositorBase<PessoaFisica> repositor)
         {
             repositorio = repositor;
         }

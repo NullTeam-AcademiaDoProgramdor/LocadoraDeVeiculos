@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeículos.Infra.SQL.TaxasEServicosModule
 {
-    public class TaxasEServicosDao : IRepositor<TaxaEServico>
+    public class TaxasEServicosDao : RepositorBase<TaxaEServico>
     {
 
         #region Queries

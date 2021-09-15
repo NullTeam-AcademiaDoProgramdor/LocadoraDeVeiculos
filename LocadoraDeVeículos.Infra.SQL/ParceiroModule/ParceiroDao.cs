@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeículos.Infra.SQL.ParceiroModule
 {
-    public class ParceiroDao : IRepositor<Parceiro>
+    public class ParceiroDao : RepositorBase<Parceiro>
     {
         #region Queries
         private const string sqlInserirParceiro =

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeículos.Infra.SQL.GrupoAutomovelModule
 {
-    public class GrupoAutomovelDao : IRepositor<GrupoAutomovel>
+    public class GrupoAutomovelDao : RepositorBase<GrupoAutomovel>
     {
         #region Queries
         private const string sqlInserirGrupo =

@@ -11,9 +11,9 @@ namespace LocadoraDeVeículos.Aplicacao.GrupoAutomovelModule
 {
     public class GrupoAutomovelAppService : ICadastravel<GrupoAutomovel>
     {
-        private IRepositor<GrupoAutomovel> repositorio;
+        private RepositorBase<GrupoAutomovel> repositorio;
 
-        public GrupoAutomovelAppService(IRepositor<GrupoAutomovel> repositorio)
+        public GrupoAutomovelAppService(RepositorBase<GrupoAutomovel> repositorio)
         {
             this.repositorio = repositorio;
         }

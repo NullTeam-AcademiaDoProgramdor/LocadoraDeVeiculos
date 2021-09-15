@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Dominio.CupomModule
 {
-    public abstract class RepositorCupomBase : IRepositor<Cupom>
+    public abstract class RepositorCupomBase : RepositorBase<Cupom>
     {
         public abstract bool EditarQtdUsos(Cupom cupom);
 

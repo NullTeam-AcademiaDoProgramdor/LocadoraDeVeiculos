@@ -11,9 +11,9 @@ namespace LocadoraDeVeículos.Aplicacao.ParceiroModule
 {
     public class ParceiroAppService : ICadastravel<Parceiro>
     {
-        private IRepositor<Parceiro> repositorio;
+        private RepositorBase<Parceiro> repositorio;
 
-        public ParceiroAppService(IRepositor<Parceiro> repositor)
+        public ParceiroAppService(RepositorBase<Parceiro> repositor)
         {
             repositorio = repositor;
         }

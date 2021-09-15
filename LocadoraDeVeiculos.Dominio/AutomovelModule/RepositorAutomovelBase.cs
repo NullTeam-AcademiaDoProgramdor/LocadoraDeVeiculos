@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Dominio.AutomovelModule
 {
-    public abstract class RepositorAutomovelBase : IRepositor<Automovel>
+    public abstract class RepositorAutomovelBase : RepositorBase<Automovel>
     {
         public abstract bool EditarKmRegistrada(int id, Automovel registro);
         public abstract List<Automovel> SelecionarAutomoveisDisponiveis();

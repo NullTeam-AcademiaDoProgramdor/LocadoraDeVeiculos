@@ -11,9 +11,9 @@ namespace LocadoraDeVeículos.Aplicacao.TaxaEServicoModule
 {
     public class TaxaEServicoAppService : ICadastravel<TaxaEServico>
     {
-        IRepositor<TaxaEServico> repositorio;
+        RepositorBase<TaxaEServico> repositorio;
 
-        public TaxaEServicoAppService(IRepositor<TaxaEServico> repositorio)
+        public TaxaEServicoAppService(RepositorBase<TaxaEServico> repositorio)
         {
             this.repositorio = repositorio;
         }

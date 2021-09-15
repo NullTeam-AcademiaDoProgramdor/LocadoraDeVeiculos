@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeículos.Infra.Shared
 {
-    public abstract class IRepositor<T> where T : EntidadeBase
+    public abstract class RepositorBase<T> where T : EntidadeBase
     {
         public abstract bool InserirNovo(T registro);
         public abstract bool Editar(int id, T registro);

@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeículos.Infra.SQL.PessoaFisicaModule
 {
-    public class PessoaFisicaDao : IRepositor<PessoaFisica>
+    public class PessoaFisicaDao : RepositorBase<PessoaFisica>
     {
         #region Queries
         private const string sqlInserirPessoaFisica =

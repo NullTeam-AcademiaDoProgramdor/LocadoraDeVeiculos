@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using LocadoraDeVeiculos.Configuracoes;
+using LocadoraDeVeiculos.Infra.Configuracoes;
 
 namespace LocadoraDeVeiculos.WindowsApp.Features.Configuracoes
 {

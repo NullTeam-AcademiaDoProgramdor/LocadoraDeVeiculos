@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LocadoraDeVeiculos.Configuracoes
+namespace LocadoraDeVeiculos.Infra.Configuracoes
 {
     public static class Configuracao
     {

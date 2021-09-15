@@ -119,21 +119,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             {
                 TelaRelatorioLocação telaRelatorio = new TelaRelatorioLocação(locacao);
 
-                if (telaRelatorio.ShowDialog() == DialogResult.OK)
-                {
-                    string email = (locacao.Condutor.PessoaJuridica == null) ? locacao.Condutor.Email
-                        : locacao.Condutor.PessoaJuridica.Email;
+                telaRelatorio.ShowDialog();
 
-                    string pdf = geradorPdf.GerarPdf(telaRelatorio.relatorio);
-
-                    EmailAppService
-                        .GetInstance()
-                        .AdicionarEmail("Aqui está o relatório de sua locação finalizada.",
-                                        email,
-                                        pdf);
-
-
-                }
                 DialogResult = telaRelatorio.DialogResult;
                 CupomFoiUsado = telaRelatorio.relatorio.CupomEstaValido;
 
