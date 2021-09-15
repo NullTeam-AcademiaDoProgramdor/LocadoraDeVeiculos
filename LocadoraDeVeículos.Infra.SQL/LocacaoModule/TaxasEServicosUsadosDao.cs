@@ -4,15 +4,13 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using LocadoraDeVeículos.Aplicacao.LocacaoModule;
-using LocadoraDeVeículos.Aplicacao.TaxaEServicoModule;
 using LocadoraDeVeiculos.Dominio.TaxasEServicosModule;
 using LocadoraDeVeiculos.Infra.Shared;
 using LocadoraDeVeículos.Infra.SQL.TaxasEServicosModule;
 
 namespace LocadoraDeVeículos.Infra.SQL.LocacaoModule
 {
-    class TaxasEServicosUsadosDao
+    public class TaxasEServicosUsadosDao
     {
         #region QUERIES
         private readonly string sqlInserirTaxaEServicoUsado =
@@ -56,7 +54,7 @@ namespace LocadoraDeVeículos.Infra.SQL.LocacaoModule
             }
         }
 
-        private TaxaEServicoAppService controladorTaxas = new (new TaxasEServicosDao());
+        private TaxasEServicosDao controladorTaxas = new TaxasEServicosDao();
 
         private void InserirTaxaEServicosUsados(TaxaEServico[] taxasEServicos, int locacaoId)
         {
