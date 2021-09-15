@@ -1,9 +1,4 @@
-﻿using LocadoraDeVeículos.Aplicacao.AutomovelModule;
-using LocadoraDeVeículos.Aplicacao.CupomModule;
-using LocadoraDeVeículos.Aplicacao.FuncionarioModule;
-using LocadoraDeVeículos.Aplicacao.PessoaFisicaModule;
-using LocadoraDeVeículos.Aplicacao.TaxaEServicoModule;
-using LocadoraDeVeiculos.Dominio.CupomModule;
+﻿using LocadoraDeVeiculos.Dominio.CupomModule;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using LocadoraDeVeiculos.Infra.Shared;
 using LocadoraDeVeículos.Infra.SQL.AutomovelModule;
@@ -21,19 +16,19 @@ namespace LocadoraDeVeículos.Infra.SQL.LocacaoModule
 {
     public class LocacaoDao : RepositorLocacaoBase
     {
-        PessoaFisicaAppService controladorPessoaFisica = null;
-        AutomovelAppService controladorAutomovel = null;
-        FuncionarioAppService controladorFuncionario = null;
-        CupomAppService controladorCupom = null;
+        PessoaFisicaDao controladorPessoaFisica = null;
+        AutomovelDao controladorAutomovel = null;
+        FuncionarioDao controladorFuncionario = null;
+        CupomDao controladorCupom = null;
         TaxasEServicosUsadosDao controladorTaxas = null;
 
         public LocacaoDao()
         {
-            controladorPessoaFisica = new PessoaFisicaAppService(new PessoaFisicaDao());
-            controladorAutomovel = new AutomovelAppService(new AutomovelDao(), new FotosAutomovelDao());
-            controladorFuncionario = new FuncionarioAppService(new FuncionarioDao());
-            controladorCupom = new CupomAppService(new CupomDao());
-            controladorTaxas = new TaxasEServicosUsadosDao();
+            controladorPessoaFisica = new();
+            controladorAutomovel = new();
+            controladorFuncionario = new();
+            controladorCupom = new();
+            controladorTaxas = new();
         }
 
         #region Queries
@@ -144,39 +139,78 @@ namespace LocadoraDeVeículos.Infra.SQL.LocacaoModule
             return registro.Id != 0;
         }
 
-        public override bool Devolver(int id, Locacao locacao, bool cupomFoiUsado)
+        public override bool Devolver(int id, Locacao locacao)
         {
-            throw new NotImplementedException();
+            try
+            {
+                locacao.Id = id;
+                Db.Update(sqlEditarLocacao, ObtemParametrosLocacao(locacao));
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
-        public override bool Editar(int id, Locacao registro)
+        public override bool Editar(int id, Locacao locacao)
         {
-            throw new NotImplementedException();
+            try
+            {
+                locacao.Id = id;
+                Db.Update(sqlEditarLocacao, ObtemParametrosLocacao(locacao));
+                
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public override bool EditarKmRegistrada(Locacao locacao)
         {
-            throw new NotImplementedException();
+            try
+            {
+                locacao.Automovel.KmRegistrada = (int)locacao.KmAutomovelFinal;
+                controladorAutomovel.EditarKmRegistrada(locacao.Automovel.id, locacao.Automovel);
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public override bool Excluir(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Db.Delete(sqlExcluirLocacao, AdicionarParametro("ID", id));
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
         }
 
         public override bool Existe(int id)
         {
-            throw new NotImplementedException();
+            return Db.Exists(sqlExisteLocacao, AdicionarParametro("ID", id));
         }
 
         public override Locacao SelecionarPorId(int id)
         {
-            throw new NotImplementedException();
+            return Db.Get(sqlSelecionarLocacaoPorId, ConverterEmLocacao, AdicionarParametro("ID", id));
         }
 
         public override List<Locacao> SelecionarTodos()
         {
-            throw new NotImplementedException();
+            return Db.GetAll(sqlSelecionarTodasLocacao, ConverterEmLocacao);
         }
 
         private Locacao ConverterEmLocacao(IDataReader reader)

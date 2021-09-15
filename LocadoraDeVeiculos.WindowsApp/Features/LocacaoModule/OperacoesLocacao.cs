@@ -9,15 +9,16 @@ using System.Windows.Forms;
 using LocadoraDeVeiculos.Controladores.PessoaFisicaModule;
 using LocadoraDeVeiculos.Controladores.LocacaoModule;
 using LocadoraDeVeiculos.Servicos.PDFModule;
+using LocadoraDeVeículos.Aplicacao.LocacaoModule;
 
 namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
 {
     class OperacoesLocacao : ICadastravel
     {
 
-        private readonly ControladorLocacao controlador = null;
+        private readonly LocacaoAppService controlador = null;
         private readonly TabelaLocacaoControl tabelaLocacao = null;
-        public OperacoesLocacao(ControladorLocacao controlador)
+        public OperacoesLocacao(LocacaoAppService controlador)
         {
             this.controlador = controlador;
             tabelaLocacao = new TabelaLocacaoControl();
@@ -35,8 +36,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
                 tabelaLocacao.AtualizarRegistros(controlador.SelecionarTodos());
 
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Locação do veículo: [{tela.Locacao.Automovel}] inserida com sucesso");
-
-
             }
 
         }

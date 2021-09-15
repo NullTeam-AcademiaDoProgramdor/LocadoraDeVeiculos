@@ -9,7 +9,7 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
 {
     public abstract class RepositorLocacaoBase : IRepositor<Locacao>
     {
-        public abstract bool Devolver(int id, Locacao locacao, bool cupomFoiUsado);
+        public abstract bool Devolver(int id, Locacao locacao);
 
         public abstract bool EditarKmRegistrada(Locacao locacao);
 

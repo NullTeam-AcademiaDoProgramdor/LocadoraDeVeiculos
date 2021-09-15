@@ -1,5 +1,6 @@
 ﻿using LocadoraDeVeículos.Aplicacao.Shared;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
+using LocadoraDeVeículos.Infra.SQL.CupomModule;
 using LocadoraDeVeículos.Infra.SQL.LocacaoModule;
 using System;
 using System.Collections.Generic;
@@ -11,8 +12,16 @@ namespace LocadoraDeVeículos.Aplicacao.LocacaoModule
 {
     public class LocacaoAppService : ICadastravel<Locacao>
     {
-        LocacaoDao
+        LocacaoDao repositorioLocacao = null;
         TaxasEServicosUsadosDao repositorioTaxas = null;
+        CupomDao repositorioCupom = null;
+
+        public LocacaoAppService(LocacaoDao locacaoDao)
+        {
+            repositorioLocacao = locacaoDao;
+            repositorioTaxas = new();
+            repositorioCupom = new();
+        }
 
         public string InserirNovo(Locacao registro)
         {
@@ -20,36 +29,74 @@ namespace LocadoraDeVeículos.Aplicacao.LocacaoModule
 
             if (resultadoValidacao == "ESTA_VALIDO")
             {
-                repositorio.InserirNovo(registro);
+                repositorioLocacao.InserirNovo(registro);
+
                 repositorioTaxas.Modificar(registro.TaxasEServicos, registro.id);
             }
 
             return resultadoValidacao;
         }
-        
-        public string Editar(int id, Locacao registro)
+
+        public string Devolver(int id, Locacao locacao, bool cupomFoiUsado)
         {
-            throw new NotImplementedException();
+            string resultadoValidacao = locacao.ValidarDevolucao();
+
+            if (resultadoValidacao == "ESTA_VALIDO")
+            {
+                if (locacao.Cupom != null && cupomFoiUsado)
+                    repositorioCupom.EditarQtdUsos(locacao.Cupom);
+
+                repositorioLocacao.Devolver(id, locacao);
+            }
+
+            return resultadoValidacao;
+        }
+
+        public string Editar(int id, Locacao locacao)
+        {
+            string resultadoValidacao = locacao.Validar();
+
+            if (resultadoValidacao == "ESTA_VALIDO")
+            {
+                repositorioLocacao.Editar(id, locacao);
+
+                repositorioTaxas.Modificar(locacao.TaxasEServicos, locacao.id);
+            }
+
+            return resultadoValidacao;
         }
 
         public bool Excluir(int id)
         {
-            throw new NotImplementedException();
+            return repositorioLocacao.Excluir(id);
         }
 
         public bool Existe(int id)
         {
-            throw new NotImplementedException();
+            return repositorioLocacao.Existe(id);
         }
 
         public Locacao SelecionarPorId(int id)
         {
-            throw new NotImplementedException();
+            return repositorioLocacao.SelecionarPorId(id);
         }
 
         public List<Locacao> SelecionarTodos()
         {
-            throw new NotImplementedException();
+            return repositorioLocacao.SelecionarTodos();
         }
+
+        public string EditarKmRegistrada(Locacao locacao)
+        {
+            string resultadoValidacao = locacao.Validar();
+
+            if (resultadoValidacao == "ESTA_VALIDO")
+            {
+                repositorioLocacao.EditarKmRegistrada(locacao);
+            }
+
+            return resultadoValidacao;
+        }
+
     }
 }
