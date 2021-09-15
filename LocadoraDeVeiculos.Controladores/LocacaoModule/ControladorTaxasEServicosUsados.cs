@@ -12,6 +12,8 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
 {
     public class ControladorTaxasEServicosUsados
     {
+
+        #region QUERIES
         private readonly string sqlInserirTaxaEServicoUsado =
             @"INSERT INTO [TaxasEServicosUsadas]
                 (
@@ -37,6 +39,7 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
                 [TaxasEServicosUsadas]
             WHERE
                 [locacao] = @locacao";
+        #endregion
 
         private ControladorTaxasEServicos controladorTaxas
             = new ControladorTaxasEServicos();

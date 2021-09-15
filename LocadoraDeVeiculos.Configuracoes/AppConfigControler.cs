@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LocadoraDeVeiculos.Configuracoes
+namespace LocadoraDeVeiculos.Infra.Configuracoes
 {
     internal class AppConfigControler
     {

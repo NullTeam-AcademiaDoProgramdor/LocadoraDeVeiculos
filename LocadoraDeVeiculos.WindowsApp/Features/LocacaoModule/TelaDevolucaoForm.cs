@@ -7,7 +7,6 @@ using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using LocadoraDeVeiculos.Dominio.PessoaFisicaModule;
 using LocadoraDeVeiculos.Dominio.TaxasEServicosModule;
 using LocadoraDeVeiculos.Servicos.EmailModule;
-using LocadoraDeVeiculos.Servicos.PDFModule;
 using LocadoraDeVeiculos.WindowsApp.Features.Relatorios;
 using System;
 using System.Collections.Generic;
@@ -19,6 +18,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LocadoraDeVeículos.Infra.PDF.PDFModule;
+using LocadoraDeVeículos.Aplicacao.RequisicaoEmailModule;
 
 namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
 {
@@ -28,14 +29,14 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
         private Locacao locacao;
         private ControladorTaxasEServicos controladorTaxasEServicos;
         private ControladorCupom controladorCupom;
-        private GeradorPdf geradorPdf;
+        private GeradorPDF geradorPdf;
         public bool CupomFoiUsado { get; private set; }
 
         public TelaDevolucaoForm()
         {
             controladorCupom = new ControladorCupom();
             controladorTaxasEServicos = new ControladorTaxasEServicos();
-            geradorPdf = new GeradorPdf();
+            geradorPdf = new GeradorPDF();
 
             InitializeComponent();
 
@@ -118,17 +119,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             {
                 TelaRelatorioLocação telaRelatorio = new TelaRelatorioLocação(locacao);
 
-                if (telaRelatorio.ShowDialog() == DialogResult.OK)
-                {
-                    string email = (locacao.Condutor.PessoaJuridica == null) ? locacao.Condutor.Email
-                        : locacao.Condutor.PessoaJuridica.Email;
+                telaRelatorio.ShowDialog();
 
-                    string pdf = geradorPdf.GerarPdf(telaRelatorio.relatorio);
-                    
-                    EnviadorEmail.AdicionarEmail("Aqui está o relatório de sua locação finalizada.", email, pdf);
-
-
-                }
                 DialogResult = telaRelatorio.DialogResult;
                 CupomFoiUsado = telaRelatorio.relatorio.CupomEstaValido;
 

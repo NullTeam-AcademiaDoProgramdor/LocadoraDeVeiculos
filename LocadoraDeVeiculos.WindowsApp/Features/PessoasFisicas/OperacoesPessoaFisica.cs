@@ -1,4 +1,5 @@
-﻿using LocadoraDeVeiculos.Controladores.PessoaFisicaModule;
+﻿using LocadoraDeVeículos.Aplicacao.PessoaFisicaModule;
+using LocadoraDeVeiculos.Controladores.PessoaFisicaModule;
 using LocadoraDeVeiculos.Controladores.PessoaJuridicaModule;
 using LocadoraDeVeiculos.Dominio.PessoaFisicaModule;
 using LocadoraDeVeiculos.WindowsApp.Features.PessoasJuridicas;
@@ -14,11 +15,11 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
 {
     public class OperacoesPessoaFisica : ICadastravel
     {
-        private readonly ControladorPessoaFisica controlador = null;
+        private readonly PessoaFisicaAppService controlador = null;
         private readonly ControladorPessoaJuridica controladorPJuridica = null;
         private readonly TabelaPessoaFisicaControl tabelaPessoaFisica = null;
 
-        public OperacoesPessoaFisica(ControladorPessoaFisica ctrl)
+        public OperacoesPessoaFisica(PessoaFisicaAppService ctrl)
         {
             controlador = ctrl;
             tabelaPessoaFisica = new TabelaPessoaFisicaControl();
