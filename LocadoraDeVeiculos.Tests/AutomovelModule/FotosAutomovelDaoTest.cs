@@ -7,23 +7,26 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Drawing;
 using FluentAssertions;
+using LocadoraDeVeículos.Infra.SQL.GrupoAutomovelModule;
+using LocadoraDeVeículos.Infra.SQL.AutomovelModule;
+using LocadoraDeVeículos.Aplicacao.AutomovelModule;
 
 namespace LocadoraDeVeiculos.Tests.AutomovelModule
 {
     [TestClass]
     [TestCategory("Controladores")]
-    public class ControladorFotosTest
+    public class FotosAutomovelDaoTest
     {
         private readonly string CaminhoImagens =
             @"..\..\..\AutomovelModule\TestImages";
 
-        ControladorGrupoAutomovel controladorGrupoAutomovel = null;
-        ControladorAutomovel controlador = null;
+        GrupoAutomovelDao controladorGrupoAutomovel = null;
+        AutomovelAppService controlador = null;
 
-        public ControladorFotosTest()
+        public FotosAutomovelDaoTest()
         {
-            controlador = new ControladorAutomovel();
-            controladorGrupoAutomovel = new ControladorGrupoAutomovel();
+            controlador = new(new AutomovelDao(), new FotosAutomovelDao());
+            controladorGrupoAutomovel = new();
         }
 
         [TestCleanup()]

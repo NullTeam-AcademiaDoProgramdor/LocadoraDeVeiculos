@@ -98,7 +98,7 @@ namespace LocadoraDeVeículos.Infra.SQL.AutomovelModule
             return BuscarEntidades(automovelId).Select(e => e.foto).ToArray();
         }
 
-        public void Modificar(Image[] imagens, int automovelId)
+        public virtual void Modificar(Image[] imagens, int automovelId)
         {
             List<EntidadeImage> fotosJaInseridas = BuscarEntidades(automovelId);
 
