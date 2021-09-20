@@ -79,6 +79,28 @@ namespace LocadoraDeVeiculos.Tests.TaxaEServicoModule
             taxaEncontrada.Should().Be(taxa);
         }
 
+        [TestMethod]
+        public void DeveSelecionar_TodasTaxas()
+        {
+            TaxaEServico taxa1 = new("gps", 10, true);
 
+            controlador.InserirNovo(taxa1);
+
+            TaxaEServico taxa2 = new("gps", 10, true);
+
+            controlador.InserirNovo(taxa2);
+
+            TaxaEServico taxa3 = new("gps", 10, true);
+
+            controlador.InserirNovo(taxa3);
+
+            TaxaEServico taxa4 = new("gps", 10, true);
+
+            controlador.InserirNovo(taxa4);
+
+            var automoveis = controlador.SelecionarTodos();
+
+            automoveis.Should().HaveCount(4);
+        }
     }
 }
