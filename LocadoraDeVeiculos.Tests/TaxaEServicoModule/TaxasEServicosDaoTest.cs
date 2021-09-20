@@ -98,9 +98,9 @@ namespace LocadoraDeVeiculos.Tests.TaxaEServicoModule
 
             controlador.InserirNovo(taxa4);
 
-            var automoveis = controlador.SelecionarTodos();
+            var taxas = controlador.SelecionarTodos();
 
-            automoveis.Should().HaveCount(4);
+            taxas.Should().HaveCount(4);
         }
 
     }
