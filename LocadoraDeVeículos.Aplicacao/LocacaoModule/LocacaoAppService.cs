@@ -2,6 +2,7 @@
 using LocadoraDeVeículos.Aplicacao.Shared;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using LocadoraDeVeiculos.Dominio.RelatorioModule;
+using LocadoraDeVeiculos.Dominio.RequisicaoEmailModule;
 using LocadoraDeVeículos.Infra.PDF.PDFModule;
 using LocadoraDeVeículos.Infra.SQL.CupomModule;
 using LocadoraDeVeículos.Infra.SQL.LocacaoModule;
@@ -19,15 +20,19 @@ namespace LocadoraDeVeículos.Aplicacao.LocacaoModule
         TaxasEServicosUsadosDao repositorioTaxas = null;
         CupomDao repositorioCupom = null;
         GeradorPDF repositorioPDF = null;
-        EmailAppService emailAppService = null;
+        IEmailAppService emailAppService = null;
 
-        public LocacaoAppService(LocacaoDao locacaoDao)
+        public LocacaoAppService(LocacaoDao repositorioLocacao,
+                                 TaxasEServicosUsadosDao repositorioTaxas,
+                                 CupomDao repositorioCupom,
+                                 GeradorPDF repositorioPDF,
+                                 IEmailAppService emailAppService)
         {
-            repositorioLocacao = locacaoDao;
-            repositorioTaxas = new();
-            repositorioCupom = new();
-            repositorioPDF = new();
-            emailAppService = EmailAppService.GetInstance();
+            this.repositorioLocacao = repositorioLocacao;
+            this.repositorioTaxas = repositorioTaxas;
+            this.repositorioCupom = repositorioCupom;
+            this.repositorioPDF = repositorioPDF;
+            this.emailAppService = emailAppService;
         }
 
         public string InserirNovo(Locacao registro)
@@ -60,8 +65,7 @@ namespace LocadoraDeVeículos.Aplicacao.LocacaoModule
 
                 string pdf = repositorioPDF.GerarPdf(new Relatorio(locacao));
 
-                EmailAppService
-                    .GetInstance()
+                emailAppService
                     .AdicionarEmail("Aqui está o relatório de sua locação finalizada.",
                                     email,
                                     pdf);

@@ -25,7 +25,7 @@ namespace LocadoraDeVeículos.Infra.PDF.PDFModule
 
         }
 
-        public string GerarPdf(Relatorio relatorio)
+        public virtual string GerarPdf(Relatorio relatorio)
         {
             this.relatorio = relatorio;
             string nomeArquivo = GerarNomeUnico();

@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeículos.Aplicacao.RequisicaoEmailModule
 {
-    public class EmailAppService
+    public class EmailAppService : IEmailAppService
     {
 
         private IRepositorRequisicaoEmail repositorio;
@@ -59,6 +59,7 @@ namespace LocadoraDeVeículos.Aplicacao.RequisicaoEmailModule
             repositorio.InserirNovo(
                 new RequisicaoEmail(mensagem, emailDestino, pdfs));
         }
+
 
         private static void GerarClient(Action<SmtpClient> action)
         {
