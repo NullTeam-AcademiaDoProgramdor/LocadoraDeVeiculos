@@ -6,19 +6,20 @@ using FluentAssertions;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using LocadoraDeVeículos.Infra.SQL.GrupoAutomovelModule;
 
 namespace LocadoraDeVeiculos.Tests.GrupoAutomovelModule
 {
    
     [TestClass]
     [TestCategory("Controladores")]
-    public class ControladorGupoAutomovelTest
+    public class GrupoAutomovelDaoTest
     {
-        ControladorGrupoAutomovel controlador = null;
+        GrupoAutomovelDao controlador = null;
 
-        public ControladorGupoAutomovelTest()
+        public GrupoAutomovelDaoTest()
         {
-            controlador = new ControladorGrupoAutomovel();
+            controlador = new GrupoAutomovelDao();
         }
         
         [TestCleanup()]
