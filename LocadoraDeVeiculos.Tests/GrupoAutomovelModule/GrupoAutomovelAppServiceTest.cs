@@ -69,9 +69,24 @@ namespace LocadoraDeVeiculos.Tests.GrupoAutomovelModule
             grupoAutomovelAppService.Editar(grupoAutomovelMock.Object.Id, grupoAutomovelMock.Object);
 
             grupoAutomovelMock.Verify(x => x.Validar());
-            grupoAutomovelDaoMock.Verify(x => x.InserirNovo(It.IsAny<GrupoAutomovel>()), Times.Never);
+            grupoAutomovelDaoMock.Verify(x => x.Editar(It.IsAny<int>(),It.IsAny<GrupoAutomovel>()));
         }
+        
+        [TestMethod]
+        public void NaoDeveEditar_GrupoDeAutomovel()
+        {
+            Mock<GrupoAutomovel> grupoAutomovelMock = new("Economico", planoDiario, planoKmControlado, planoKmLivre);
 
+            grupoAutomovelMock.Setup(x => x.Validar()).Returns("NAO_ESTA_VALIDO");
+
+            Mock<GrupoAutomovelDao> grupoAutomovelDaoMock = new();
+            GrupoAutomovelAppService grupoAutomovelAppService = new(grupoAutomovelDaoMock.Object);
+
+            grupoAutomovelAppService.Editar(grupoAutomovelMock.Object.Id, grupoAutomovelMock.Object);
+
+            grupoAutomovelMock.Verify(x => x.Validar());
+            grupoAutomovelDaoMock.Verify(x => x.Editar(It.IsAny<int>(),It.IsAny<GrupoAutomovel>()), Times.Never);
+        }
 
         private PlanoDiarioStruct gerarPlanoDiario()
         {
