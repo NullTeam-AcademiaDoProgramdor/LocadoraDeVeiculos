@@ -20,6 +20,25 @@ namespace LocadoraDeVeiculos.Tests.ParceiroModule
             parceiro.Nome.Should().Be("Josue");
         }
 
+        [TestMethod]
+        public void DeveValidar_NomeVazio()
+        {
+            Parceiro parceiro = new("");
+
+            var resultado = parceiro.Validar();
+
+            resultado.Should().Be("O campo 'nome' não pode estar vazio.");
+        }
+
+        [TestMethod]
+        public void DeveValidar_Nome()
+        {
+            Parceiro parceiro = new("Josue");
+
+            var resultado = parceiro.Validar();
+
+            resultado.Should().Be("ESTA_VALIDO");
+        }
 
     }
 }
