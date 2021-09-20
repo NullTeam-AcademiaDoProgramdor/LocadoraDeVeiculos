@@ -4,6 +4,8 @@ using LocadoraDeVeiculos.Controladores.PessoaJuridicaModule;
 using LocadoraDeVeiculos.Controladores.Shared;
 using LocadoraDeVeiculos.Dominio.PessoaFisicaModule;
 using LocadoraDeVeiculos.Dominio.PessoaJuridicaModule;
+using LocadoraDeVeículos.Infra.SQL.PessoaFisicaModule;
+using LocadoraDeVeículos.Infra.SQL.PessoaJuridicaModule;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -12,15 +14,15 @@ namespace LocadoraDeVeiculos.Tests.PessoaFisicaModule
 {
     [TestClass]
     [TestCategory("Controladores")]
-    public class ControladorPessoaFisicaTest
+    public class PessoaFisicaDaoTest
     {
-        ControladorPessoaFisica controlador;
-        ControladorPessoaJuridica controladorPJuridica;
+        PessoaFisicaDao controlador;
+        PessoaJuridicaDao controladorPJuridica;
 
-        public ControladorPessoaFisicaTest()
+        public PessoaFisicaDaoTest()
         {
-            controlador = new ControladorPessoaFisica();
-            controladorPJuridica = new ControladorPessoaJuridica();
+            controlador = new();
+            controladorPJuridica = new();
             Db.Update("DELETE FROM [PESSOAFISICA]");
             Db.Update("DELETE FROM [PESSOAJURIDICA]");
         }
