@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LocadoraDeVeiculos.Dominio\LocadoraDeVeiculos.Dominio.csproj" />
+    <ProjectReference Include="..\LocadoraDeVeiculos.Infra.Arquivos\LocadoraDeVeiculos.Infra.Arquivos.csproj" />
+    <ProjectReference Include="..\LocadoraDeVeiculos.Infra.Internet\LocadoraDeVeiculos.Infra.Internet.csproj" />
+    <ProjectReference Include="..\LocadoraDeVeículos.Infra.PDF\LocadoraDeVeículos.Infra.PDF.csproj" />
+    <ProjectReference Include="..\LocadoraDeVeículos.Infra.SQL\LocadoraDeVeículos.Infra.SQL.csproj" />
+  </ItemGroup>
+
+</Project>

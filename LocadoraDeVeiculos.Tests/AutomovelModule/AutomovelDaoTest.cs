@@ -6,20 +6,22 @@ using LocadoraDeVeiculos.Dominio.GrupoAutomovelModule;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using FluentAssertions;
+using LocadoraDeVeículos.Infra.SQL.AutomovelModule;
+using LocadoraDeVeículos.Infra.SQL.GrupoAutomovelModule;
 
 namespace LocadoraDeVeiculos.Tests.AutomovelModule
 {
     [TestClass]
     [TestCategory("Controladores")]
-    public class ControladorAutomovelTest
+    public class AutomovelDaoTest
     {
-        ControladorAutomovel controlador = null;
-        ControladorGrupoAutomovel controladorGrupoAutomovel = null;
+        AutomovelDao controlador = null;
+        GrupoAutomovelDao controladorGrupoAutomovel = null;
 
-        public ControladorAutomovelTest()
+        public AutomovelDaoTest()
         {
-            controlador = new ControladorAutomovel();
-            controladorGrupoAutomovel = new ControladorGrupoAutomovel();
+            controlador = new();
+            controladorGrupoAutomovel = new();
         }
 
         [TestCleanup()]

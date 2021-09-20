@@ -14,21 +14,38 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using LocadoraDeVeiculos.Controladores.TaxasEServicosModule;
 using LocadoraDeVeiculos.Dominio.FuncionarioModule;
 using LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos;
 
 using LocadoraDeVeiculos.WindowsApp.Features.Configuracoes;
 using LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas;
-using LocadoraDeVeiculos.Controladores.PessoaFisicaModule;
+
 using LocadoraDeVeiculos.WindowsApp.Features.Automoveis;
 using LocadoraDeVeiculos.Controladores.AutomovelModule;
 using LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule;
 using LocadoraDeVeiculos.Controladores.LocacaoModule;
 using LocadoraDeVeiculos.WindowsApp.Features.Parceiros;
-using LocadoraDeVeiculos.Controladores.ParceiroModule;
+
 using LocadoraDeVeiculos.WindowsApp.Features.Cupons;
 using LocadoraDeVeiculos.Controladores.CupomModule;
+using LocadoraDeVeículos.Aplicacao.ParceiroModule;
+using LocadoraDeVeículos.Infra.SQL.ParceiroModule;
+using LocadoraDeVeículos.Aplicacao.TaxaEServicoModule;
+using LocadoraDeVeículos.Infra.SQL.TaxasEServicosModule;
+using LocadoraDeVeículos.Aplicacao.GrupoAutomovelModule;
+using LocadoraDeVeículos.Infra.SQL.GrupoAutomovelModule;
+using LocadoraDeVeículos.Aplicacao.PessoaJuridicaModule;
+using LocadoraDeVeículos.Infra.SQL.PessoaJuridicaModule;
+using LocadoraDeVeículos.Aplicacao.PessoaFisicaModule;
+using LocadoraDeVeículos.Infra.SQL.PessoaFisicaModule;
+using LocadoraDeVeículos.Aplicacao.AutomovelModule;
+using LocadoraDeVeículos.Infra.SQL.AutomovelModule;
+using LocadoraDeVeículos.Aplicacao.CupomModule;
+using LocadoraDeVeículos.Infra.SQL.CupomModule;
+using LocadoraDeVeículos.Aplicacao.FuncionarioModule;
+using LocadoraDeVeículos.Infra.SQL.FuncionarioModule;
+using LocadoraDeVeículos.Aplicacao.LocacaoModule;
+using LocadoraDeVeículos.Infra.SQL.LocacaoModule;
 
 namespace LocadoraDeVeiculos.WindowsApp
 {
@@ -111,17 +128,22 @@ namespace LocadoraDeVeiculos.WindowsApp
 
         private void ConfiguracaoDeEntradaNaTelaPrincipal()
         {
-            operacoesPessoaJuridica = new OperacoesPessoaJuridica(new ControladorPessoaJuridica());
-            operacoesGrupoAutomovel = new OperacoesGrupoAutomovel(new ControladorGrupoAutomovel());
-            operacoesFuncionario = new OperacoesFuncionario(new ControladorFuncionario());
-            operacoesTaxasEServicos = new OperacoesTaxasESevicos(new ControladorTaxasEServicos());
-            operacoesPessoaFisica = new OperacoesPessoaFisica(new ControladorPessoaFisica());
+            operacoesGrupoAutomovel = new OperacoesGrupoAutomovel(new GrupoAutomovelAppService(new GrupoAutomovelDao()));
+            operacoesPessoaJuridica = new OperacoesPessoaJuridica(new PessoaJuridicaAppService(new PessoaJuridicaDao()));
+            operacoesFuncionario = new OperacoesFuncionario(new FuncionarioAppService(new FuncionarioDao()));
+            operacoesTaxasEServicos = new OperacoesTaxasESevicos(new TaxaEServicoAppService(new TaxasEServicosDao()));
+            operacoesPessoaFisica = new OperacoesPessoaFisica(new PessoaFisicaAppService(new PessoaFisicaDao()));
             operacoesConfiguracoes = new OperacoesConfiguracoes();
-            operacoesLocacao = new OperacoesLocacao(new ControladorLocacao());
-            operacoesParceiro = new OperacoesParceiro(new ControladorParceiro());
-            operacoesCupom = new OperacoesCupons(new ControladorCupom());
+            operacoesLocacao = new OperacoesLocacao(new LocacaoAppService(new LocacaoDao()));
+            operacoesParceiro = new OperacoesParceiro(new ParceiroAppService(new ParceiroDao()));
 
-            operacoesAutomovel = new OperacoesAutomovel(new ControladorAutomovel(), new ControladorGrupoAutomovel());
+            operacoesCupom = new OperacoesCupons(
+                new CupomAppService(new CupomDao()),
+                new ParceiroAppService(new ParceiroDao()));
+
+            operacoesAutomovel = new OperacoesAutomovel(
+                new AutomovelAppService(new AutomovelDao(), new FotosAutomovelDao()), 
+                new GrupoAutomovelAppService(new GrupoAutomovelDao()));
 
             Instancia = this;
         }

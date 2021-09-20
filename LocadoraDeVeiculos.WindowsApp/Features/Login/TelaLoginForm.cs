@@ -1,5 +1,7 @@
-﻿using LocadoraDeVeiculos.Controladores.FuncionarioModule;
+﻿using LocadoraDeVeículos.Aplicacao.FuncionarioModule;
+using LocadoraDeVeiculos.Controladores.FuncionarioModule;
 using LocadoraDeVeiculos.Dominio.FuncionarioModule;
+using LocadoraDeVeículos.Infra.SQL.FuncionarioModule;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,12 +17,12 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
     public partial class TelaLoginForm : Form
     {
         private Funcionario funcionario;
-        private ControladorFuncionario controladorFuncionario;
+        private FuncionarioAppService controladorFuncionario;
 
         public TelaLoginForm()
         {
             InitializeComponent();
-            controladorFuncionario = new ControladorFuncionario();
+            controladorFuncionario = new FuncionarioAppService(new FuncionarioDao());
         }
 
         private void btnEntrar_Click(object sender, EventArgs e)

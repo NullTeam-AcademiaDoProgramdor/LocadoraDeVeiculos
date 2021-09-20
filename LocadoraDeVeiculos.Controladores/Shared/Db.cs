@@ -4,6 +4,8 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Data.Common;
+using Microsoft.Extensions.Configuration;
+using System.IO;
 
 namespace LocadoraDeVeiculos.Controladores.Shared
 {
@@ -16,19 +18,33 @@ namespace LocadoraDeVeiculos.Controladores.Shared
         private static readonly string connectionString = "";
         private static readonly string nomeProvider;
         private static readonly DbProviderFactory fabricaProvedor;
+        private static readonly IConfiguration configuration;
 
         static Db()
         {
+            configuration = InitConfiguration();
             DbProviderFactories.RegisterFactory("System.Data.SqlClient", SqlClientFactory.Instance);
 
-            bancoDeDados = ConfigurationManager.AppSettings["bancoDeDados"];
+            //bancoDeDados = ConfigurationManager.AppSettings["bancoDeDados"];
+            bancoDeDados = configuration.GetSection("bancoDeDados").Value;
 
-            connectionString = ConfigurationManager.ConnectionStrings[bancoDeDados].ConnectionString;
+            //connectionString = ConfigurationManager.ConnectionStrings[bancoDeDados].ConnectionString;
 
-            nomeProvider = ConfigurationManager.ConnectionStrings[bancoDeDados].ProviderName;
+            connectionString = configuration.GetConnectionString(bancoDeDados);
+            nomeProvider = configuration.GetSection("SQLProvider").Value;
 
             fabricaProvedor = DbProviderFactories.GetFactory(nomeProvider);
         }
+
+        public static IConfiguration InitConfiguration()
+        {
+            var config = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json")
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .Build();
+            return config;
+        }
+
 
         public static int Insert(string sql, Dictionary<string, object> parameters)
         {

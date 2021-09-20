@@ -87,47 +87,7 @@ namespace LocadoraDeVeiculos.Servicos.PDFModule
             doc.Add(new Paragraph("\n- Valor descontado com cupom: " + valorCupom));
             doc.Add(new Paragraph("\n- Total a pagar: R$" + relatorio.TotalAPagar.ToString()).SetBold().SetFont(fonte).SetFontSize(15));
         }
-
-        //private void AdicionarPropriedades(string propriedade, PdfPTable tabela, PdfPCell celulaPrincipal)
-        //{
-        //    tabela.AddCell(celulaPrincipal);
-        //    Phrase frase = new Phrase(propriedade);
-        //    var celula = new PdfPCell(frase);
-        //    tabela.AddCell(celula);
-        //}
-
-        //public void CriarCelulasPDF(PdfPTable tabela, List<Paragraph> paragrafos)
-        //{
-        //    List<string> listaPropriedades = new List<string>()
-        //    {
-        //        {relatorio.Plano },
-        //        {relatorio.DiasAlugados.ToString() },
-        //        {relatorio.KmsAlugados.ToString() },
-        //        {relatorio.TaxaDiariaTotal.ToString() },
-        //        {relatorio.TaxaKmTotal.ToString() },
-        //        {relatorio.TaxaKmExtrapoladadaTotal.ToString() },
-        //        {relatorio.SubTotalPlanos.ToString() },
-        //        {relatorio.SubTotalAdicionaisDia.ToString() },
-        //        {relatorio.SubTotalAdicionaisFixos.ToString() },
-        //        {relatorio.TipoCombustivel },
-        //        {relatorio.LitrosParaEncher.ToString()},
-        //        {relatorio.ValorParaAbastecer.ToString()},
-        //        {relatorio.ValorDecontadoCupom.ToString()},
-        //        {relatorio.TotalAPagar.ToString()}
-        //    };
-
-
-        //    for (int i = 0; i < paragrafos.Count; i++)
-        //    {
-        //        Paragraph item = paragrafos[i];
-        //        var celula = new PdfPCell();
-        //        celula.AddElement(item);
-
-        //        AdicionarPropriedades(listaPropriedades[i], tabela, celula);
-        //    }
-
-
-        //}
+        
 
     }
 }

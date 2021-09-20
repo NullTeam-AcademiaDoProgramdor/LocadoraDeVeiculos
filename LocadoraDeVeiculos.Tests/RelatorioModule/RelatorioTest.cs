@@ -7,7 +7,7 @@ using LocadoraDeVeiculos.Dominio.RelatorioModule;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using FluentAssertions;
 using System;
-using LocadoraDeVeiculos.Configuracoes;
+using LocadoraDeVeiculos.Infra.Configuracoes;
 using LocadoraDeVeiculos.Dominio.TaxasEServicosModule;
 
 namespace LocadoraDeVeiculos.Tests.RelatorioModule

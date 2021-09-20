@@ -1,8 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using FluentAssertions;
-using LocadoraDeVeiculos.Configuracoes;
-
+using LocadoraDeVeiculos.Infra.Configuracoes;
 namespace LocadoraDeVeiculos.Tests.ConfiguracoesModule
 {
     [TestClass]

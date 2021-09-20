@@ -30,16 +30,6 @@ namespace LocadoraDeVeículos.Aplicacao.LocacaoModule
             emailAppService = EmailAppService.GetInstance();
         }
 
-        public LocacaoAppService(LocacaoDao repositorioLocacao, TaxasEServicosUsadosDao repositorioTaxas, 
-            CupomDao repositorioCupom, GeradorPDF repositorioPDF, EmailAppService emailAppService)
-        {
-            this.repositorioLocacao = repositorioLocacao;
-            this.repositorioTaxas = repositorioTaxas;
-            this.repositorioCupom = repositorioCupom;
-            this.repositorioPDF = repositorioPDF;
-            this.emailAppService = emailAppService;
-        }
-
         public string InserirNovo(Locacao registro)
         {
             string resultadoValidacao = registro.Validar();

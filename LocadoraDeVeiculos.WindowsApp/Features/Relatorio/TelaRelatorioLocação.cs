@@ -1,4 +1,4 @@
-﻿using LocadoraDeVeiculos.Configuracoes;
+﻿using LocadoraDeVeiculos.Infra.Configuracoes;
 using LocadoraDeVeiculos.Dominio.AutomovelModule;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using LocadoraDeVeiculos.Dominio.RelatorioModule;

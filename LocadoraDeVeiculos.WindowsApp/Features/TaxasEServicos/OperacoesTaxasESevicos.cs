@@ -3,20 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using LocadoraDeVeiculos.Controladores.TaxasEServicosModule;
 using LocadoraDeVeiculos.WindowsApp.Shared;
 using LocadoraDeVeiculos.Dominio.TaxasEServicosModule;
 using System.IO;
 using System.Windows.Forms;
+using LocadoraDeVeículos.Aplicacao.TaxaEServicoModule;
 
 namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
 {
     class OperacoesTaxasESevicos : ICadastravel
     {
-        private readonly ControladorTaxasEServicos controlador = null;
+        private readonly TaxaEServicoAppService controlador = null;
         private readonly TabelaTaxasEServicosControl tabelaTaxasEServicos = null;
 
-        public OperacoesTaxasESevicos(ControladorTaxasEServicos controlador)
+        public OperacoesTaxasESevicos(TaxaEServicoAppService controlador)
         {
             this.controlador = controlador;
             tabelaTaxasEServicos = new TabelaTaxasEServicosControl();
