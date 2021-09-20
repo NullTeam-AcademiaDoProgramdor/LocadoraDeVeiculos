@@ -59,7 +59,6 @@
     <PackageReference Include="Microsoft.Windows.Compatibility" Version="5.0.2" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="appsettings.json" />
     <Content Include="Lib\DataGridViewGrouper.dll" />
     <Content Include="Lib\NullTeam.ImageGallery.Lib.dll" />
     <None Include="Resources\AlugaRech2.0 %282%29.png" />
@@ -73,4 +72,10 @@
     <ProjectReference Include="..\LocadoraDeVeículos.Infra.PDF\LocadoraDeVeículos.Infra.PDF.csproj" />
     <ProjectReference Include="..\LocadoraDeVeículos.Infra.SQL\LocadoraDeVeículos.Infra.SQL.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
 </Project>
