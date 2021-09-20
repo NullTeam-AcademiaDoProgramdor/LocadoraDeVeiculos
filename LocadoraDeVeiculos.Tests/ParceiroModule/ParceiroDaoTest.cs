@@ -38,5 +38,20 @@ namespace LocadoraDeVeiculos.Tests.ParceiroModule
 
             parceiroEncontrado.Should().Be(novoParceiro);
         }
+
+        [TestMethod]
+        public void DeveEditar_UmParceiro()
+        {
+            Parceiro parceiro = new("Josue");
+
+            controlador.InserirNovo(parceiro);
+
+            Parceiro novoParceiro = new("Jose");
+
+            controlador.Editar(parceiro.Id, novoParceiro);
+
+            Parceiro parceiroEncontrado = controlador.SelecionarPorId(parceiro.Id);
+            parceiroEncontrado.Should().Be(novoParceiro);
+        }
     }
 }
