@@ -41,5 +41,15 @@ namespace LocadoraDeVeiculos.Tests.TaxaEServicoModule
 
             resultado.Should().Be(" O campo nome está inválido");
         }
+
+        [TestMethod]
+        public void DeveValidar_Preco()
+        {
+            TaxaEServico taxa = new("GPS", 0, true);
+
+            var resultado = taxa.Validar();
+
+            resultado.Should().Be(" O campo preço está inválido");
+        }
     }
 }
