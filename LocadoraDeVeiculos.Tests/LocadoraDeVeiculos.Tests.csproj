@@ -27,4 +27,9 @@
     <ProjectReference Include="..\LocadoraDeVeiculos.Servicos\LocadoraDeVeiculos.Servicos.csproj" />
     <ProjectReference Include="..\LocadoraDeVeículos.Aplicacao\LocadoraDeVeículos.Aplicacao.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>

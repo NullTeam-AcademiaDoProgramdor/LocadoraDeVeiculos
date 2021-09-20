@@ -39,5 +39,19 @@ namespace LocadoraDeVeiculos.Tests.TaxaEServicoModule
             taxaEncontrada.Should().Be(novaTaxa);
         }
 
+        [TestMethod]
+        public void DeveEditar_UmaTaxa()
+        {
+            TaxaEServico taxa = new("gps", 10, true);
+
+            controlador.InserirNovo(taxa);
+
+            TaxaEServico novaTaxa = new("GPS", 20, false);
+
+            controlador.Editar(taxa.Id, novaTaxa);
+
+            TaxaEServico taxaEncontrada = controlador.SelecionarPorId(taxa.Id);
+            taxaEncontrada.Should().Be(novaTaxa);
+        }
     }
 }
