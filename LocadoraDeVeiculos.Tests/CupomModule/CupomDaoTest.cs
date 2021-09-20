@@ -4,23 +4,25 @@ using LocadoraDeVeiculos.Controladores.ParceiroModule;
 using LocadoraDeVeiculos.Controladores.Shared;
 using LocadoraDeVeiculos.Dominio.CupomModule;
 using LocadoraDeVeiculos.Dominio.ParceiroModule;
+using LocadoraDeVeículos.Infra.SQL.CupomModule;
+using LocadoraDeVeículos.Infra.SQL.ParceiroModule;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
 namespace LocadoraDeVeiculos.Tests.CupomModule
 {
     [TestClass]
-    public class ControladorCupomTest
+    public class CupomDaoTest
     {
         private Parceiro parceiro;
-        private ControladorParceiro controladorParceiro;
-        private ControladorCupom controlador = null;
+        private ParceiroDao controladorParceiro;
+        private CupomDao controlador = null;
 
-        public ControladorCupomTest()
+        public CupomDaoTest()
         {
             parceiro = new Parceiro("Pedro");
-            controladorParceiro = new ControladorParceiro();
-            controlador = new ControladorCupom();
+            controladorParceiro = new ParceiroDao();
+            controlador = new CupomDao();
         }
 
         [TestCleanup]
