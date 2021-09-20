@@ -25,12 +25,21 @@ namespace LocadoraDeVeiculos.Tests.TaxaEServicoModule
         [TestMethod]
         public void DeveRetornar_TaxaValida()
         {
-
             TaxaEServico taxa = new("GPS", 10, true);
 
             var resultado = taxa.Validar();
 
             resultado.Should().Be("ESTA_VALIDO");
+        }
+
+        [TestMethod]
+        public void DeveValidar_Nome()
+        {
+            TaxaEServico taxa = new("", 10, true);
+
+            var resultado = taxa.Validar();
+
+            resultado.Should().Be(" O campo nome está inválido");
         }
     }
 }
