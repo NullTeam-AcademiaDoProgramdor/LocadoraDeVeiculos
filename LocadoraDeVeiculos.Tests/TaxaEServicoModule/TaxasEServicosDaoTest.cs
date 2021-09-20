@@ -53,5 +53,18 @@ namespace LocadoraDeVeiculos.Tests.TaxaEServicoModule
             TaxaEServico taxaEncontrada = controlador.SelecionarPorId(taxa.Id);
             taxaEncontrada.Should().Be(novaTaxa);
         }
+
+        [TestMethod]
+        public void DeveExcluir_UmaTaxa()
+        {
+            TaxaEServico taxa = new("gps", 10, true);
+
+            controlador.InserirNovo(taxa);
+
+            controlador.Excluir(taxa.Id);
+
+            TaxaEServico taxaEncontrada = controlador.SelecionarPorId(taxa.Id);
+            taxaEncontrada.Should().BeNull();
+        }
     }
 }
