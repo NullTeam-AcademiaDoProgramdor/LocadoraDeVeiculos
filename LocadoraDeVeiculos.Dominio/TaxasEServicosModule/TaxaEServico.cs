@@ -43,17 +43,17 @@ namespace LocadoraDeVeiculos.Dominio.TaxasEServicosModule
             string resultadoValidacao = "";
 
             if (string.IsNullOrEmpty(Nome))
-                resultadoValidacao += " O campo nome está inválido";
+                resultadoValidacao += " O campo Nome é obrigatório";
 
             if (VerificaSeNomeEhNumero(Nome))
                 resultadoValidacao +=
                     QuebraDeLinha(resultadoValidacao) +
-                    " O campo nome está inválido";
+                    " O campo Nome está inválido";
 
             if (preco <= 0)
                 resultadoValidacao +=
                     QuebraDeLinha(resultadoValidacao) +
-                    " O campo preço está inválido";
+                    " O campo Preço está inválido";
 
             if (resultadoValidacao == "")
                 resultadoValidacao = "ESTA_VALIDO";

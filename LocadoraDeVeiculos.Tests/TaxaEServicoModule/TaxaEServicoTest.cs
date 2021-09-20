@@ -33,13 +33,23 @@ namespace LocadoraDeVeiculos.Tests.TaxaEServicoModule
         }
 
         [TestMethod]
-        public void DeveValidar_Nome()
+        public void DeveValidar_NomeVazio()
         {
             TaxaEServico taxa = new("", 10, true);
 
             var resultado = taxa.Validar();
 
-            resultado.Should().Be(" O campo nome está inválido");
+            resultado.Should().Be(" O campo Nome é obrigatório");
+        }
+
+        [TestMethod]
+        public void DeveValidar_Nome()
+        {
+            TaxaEServico taxa = new("123", 10, true);
+
+            var resultado = taxa.Validar();
+
+            resultado.Should().Be(" O campo Nome está inválido");
         }
 
         [TestMethod]
@@ -49,7 +59,9 @@ namespace LocadoraDeVeiculos.Tests.TaxaEServicoModule
 
             var resultado = taxa.Validar();
 
-            resultado.Should().Be(" O campo preço está inválido");
+            resultado.Should().Be(" O campo Preço está inválido");
         }
+
+
     }
 }
