@@ -21,5 +21,16 @@ namespace LocadoraDeVeiculos.Tests.TaxaEServicoModule
             taxa.Preco.Should().Be(10);
             taxa.EhFixo.Should().Be(true);
         }
+
+        [TestMethod]
+        public void DeveRetornar_TaxaValida()
+        {
+
+            TaxaEServico taxa = new("GPS", 10, true);
+
+            var resultado = taxa.Validar();
+
+            resultado.Should().Be("ESTA_VALIDO");
+        }
     }
 }
