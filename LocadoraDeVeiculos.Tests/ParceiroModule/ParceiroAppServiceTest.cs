@@ -47,5 +47,22 @@ namespace LocadoraDeVeiculos.Tests.ParceiroModule
             parceiroMock.Verify(x => x.Validar());
             parceiroDaoMock.Verify(x => x.InserirNovo(It.IsAny<Parceiro>()), Times.Never);
         }
+
+        [TestMethod]
+        public void DeveEditar_Parceiro()
+        {
+            Mock<Parceiro> parceiroMock = new("Josue");
+
+            parceiroMock.Setup(x => x.Validar()).Returns("ESTA_VALIDO");
+
+            Mock<ParceiroDao> parceiroDaoMock = new();
+
+            ParceiroAppService parceiroAppService = new(parceiroDaoMock.Object);
+
+            parceiroAppService.Editar(0, parceiroMock.Object);
+
+            parceiroMock.Verify(x => x.Validar());
+            parceiroDaoMock.Verify(x => x.Editar(It.IsAny<int>(), It.IsAny<Parceiro>()));
+        }
     }
 }
