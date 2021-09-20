@@ -75,7 +75,26 @@ namespace LocadoraDeVeiculos.Tests.CupomModule
             CupomMock.Verify(x => x.Validar());
             CupomDaoMock.Verify(x => x.Editar(It.IsAny<int>(),It.IsAny<Cupom>()));
         }
-        
+
+
+        [TestMethod]
+        public void NaoDeveEditar_Cupom()
+        {
+            Mock<Cupom> CupomMock = new("DezOff", parceiro, "Porcentagem", 10, 1000, DateTime.Today, 1);
+
+            CupomMock.Setup(x => x.Validar()).Returns("NAO_ESTA_VALIDO");
+
+            Mock<CupomDao> CupomDaoMock = new();
+
+            CupomAppService cupomAppService =
+                new(CupomDaoMock.Object);
+
+            cupomAppService.Editar(CupomMock.Object.Id, CupomMock.Object);
+
+            CupomMock.Verify(x => x.Validar());
+            CupomDaoMock.Verify(x => x.Editar(It.IsAny<int>(), It.IsAny<Cupom>()), Times.Never);
+        }
+
         private Parceiro gerarParceiro()
         {
             return new Parceiro("Pedro");
