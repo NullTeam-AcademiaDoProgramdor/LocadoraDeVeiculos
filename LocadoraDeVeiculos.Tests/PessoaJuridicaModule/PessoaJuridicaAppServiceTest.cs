@@ -70,5 +70,24 @@ namespace LocadoraDeVeiculos.Tests.PessoaJuridicaModule
             pessoaJuridicaDaoMock.Verify(x => x.Editar(It.IsAny<int>(), It.IsAny<PessoaJuridica>()));
 
         }
+
+        [TestMethod]
+        public void NaoDeveEditar_PessoaJuridica()
+        {
+            Mock<PessoaJuridica> pessoaJuridicaMock = new("Matheus", "22.000.000/0001-00", "(49)000000000", "Lagi", "aaaa@gmail.com");
+
+            pessoaJuridicaMock.Setup(x => x.Validar()).Returns("NAO_ESTA_VALIDO");
+
+            Mock<PessoaJuridicaDao> pessoaJuridicaDaoMock = new();
+
+            PessoaJuridicaAppService pessoaJuridicaAppService =
+                new(pessoaJuridicaDaoMock.Object);
+
+            pessoaJuridicaAppService.Editar(pessoaJuridicaMock.Object.Id, pessoaJuridicaMock.Object);
+
+            pessoaJuridicaMock.Verify(x => x.Validar());
+            pessoaJuridicaDaoMock.Verify(x => x.Editar(It.IsAny<int>(), It.IsAny<PessoaJuridica>()), Times.Never);
+
+        }
     }
 }
