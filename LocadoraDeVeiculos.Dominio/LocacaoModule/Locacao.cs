@@ -61,8 +61,13 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
                 this.TaxasEServicos = taxasEServicos;
         }
 
+        public Locacao()
+        {
+            this.TaxasEServicos = new TaxaEServico[0];
+        }
+
         public Cupom Cupom { get; set; }
-        public PessoaFisica Condutor { get; }
+        public PessoaFisica Condutor { get; set; }
         public Automovel Automovel { get; }
         public Funcionario Funcionario { get; }
         public DateTime DataSaida { get; }
@@ -145,7 +150,7 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
             return resultadoValidacao;
         }
 
-        public string ValidarDevolucao()
+        public virtual string ValidarDevolucao()
         {
             string resultadoValidacao = "";
             if (KmAutomovelFinal == 0)

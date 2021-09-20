@@ -98,7 +98,7 @@ namespace LocadoraDeVeículos.Infra.SQL.LocacaoModule
 
             return taxas.Select(t => t.taxaEServico).ToArray();
         }
-        public void Modificar(TaxaEServico[] taxasEServicos, int locacaoId)
+        public virtual void Modificar(TaxaEServico[] taxasEServicos, int locacaoId)
         {
             List<TaxaEServicoUsado> taxasEmServidoDoDb = this.BuscarUsados(locacaoId);
 

@@ -1,4 +1,10 @@
 ﻿using FluentAssertions;
+using LocadoraDeVeículos.Aplicacao.AutomovelModule;
+using LocadoraDeVeículos.Aplicacao.FuncionarioModule;
+using LocadoraDeVeículos.Aplicacao.GrupoAutomovelModule;
+using LocadoraDeVeículos.Aplicacao.LocacaoModule;
+using LocadoraDeVeículos.Aplicacao.PessoaFisicaModule;
+using LocadoraDeVeículos.Aplicacao.RequisicaoEmailModule;
 using LocadoraDeVeiculos.Controladores.AutomovelModule;
 using LocadoraDeVeiculos.Controladores.FuncionarioModule;
 using LocadoraDeVeiculos.Controladores.GrupoAutomovelModule;
@@ -10,6 +16,14 @@ using LocadoraDeVeiculos.Dominio.FuncionarioModule;
 using LocadoraDeVeiculos.Dominio.GrupoAutomovelModule;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using LocadoraDeVeiculos.Dominio.PessoaFisicaModule;
+using LocadoraDeVeículos.Infra.PDF.PDFModule;
+using LocadoraDeVeículos.Infra.SQL.AutomovelModule;
+using LocadoraDeVeículos.Infra.SQL.CupomModule;
+using LocadoraDeVeículos.Infra.SQL.FuncionarioModule;
+using LocadoraDeVeículos.Infra.SQL.GrupoAutomovelModule;
+using LocadoraDeVeículos.Infra.SQL.LocacaoModule;
+using LocadoraDeVeículos.Infra.SQL.PessoaFisicaModule;
+using LocadoraDeVeículos.Infra.SQL.RequisicaoEmailModule;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -18,25 +32,34 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
 {
     [TestClass]
     [TestCategory("Controladores")]
-    public class ControladorLocacaoTest
+    public class LocacaoDaoTest
     {
-        ControladorLocacao controladorLocacao;
-        ControladorGrupoAutomovel ctrlGrupo;
-        ControladorAutomovel ctrlAutomovel;
-        ControladorFuncionario ctrlFuncionario;
-        ControladorPessoaFisica ctrlCondutor;
+        LocacaoAppService controladorLocacao;
+        GrupoAutomovelAppService ctrlGrupo;
+        AutomovelAppService ctrlAutomovel;
+        FuncionarioAppService ctrlFuncionario;
+        PessoaFisicaAppService ctrlCondutor;
+
         GrupoAutomovel grupo;
         Automovel automovel = null;
         Funcionario funcionario = null;
         PessoaFisica condutor = null;
 
-        public ControladorLocacaoTest()
+        public LocacaoDaoTest()
         {
-            this.controladorLocacao = new ControladorLocacao();
-            this.ctrlAutomovel = new ControladorAutomovel();
-            this.ctrlGrupo = new ControladorGrupoAutomovel();
-            this.ctrlFuncionario = new ControladorFuncionario();
-            this.ctrlCondutor = new ControladorPessoaFisica();
+            EmailAppService.GetInstance(new RequisicaoEmailDao());
+
+            this.controladorLocacao = new(
+                new LocacaoDao(),
+                    new TaxasEServicosUsadosDao(),
+                    new CupomDao(),
+                    new GeradorPDF(),
+                    EmailAppService.GetInstance());
+
+            this.ctrlAutomovel = new(new AutomovelDao(), new FotosAutomovelDao());
+            this.ctrlGrupo = new(new GrupoAutomovelDao());
+            this.ctrlFuncionario = new(new FuncionarioDao());
+            this.ctrlCondutor = new(new PessoaFisicaDao());
             grupo = CriarGrupo();
             automovel = CriarAutomovel(grupo);
             funcionario = CriarFuncionario();
