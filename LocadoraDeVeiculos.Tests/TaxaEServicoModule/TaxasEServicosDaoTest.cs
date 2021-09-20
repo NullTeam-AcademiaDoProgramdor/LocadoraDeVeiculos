@@ -102,5 +102,6 @@ namespace LocadoraDeVeiculos.Tests.TaxaEServicoModule
 
             automoveis.Should().HaveCount(4);
         }
+
     }
 }
