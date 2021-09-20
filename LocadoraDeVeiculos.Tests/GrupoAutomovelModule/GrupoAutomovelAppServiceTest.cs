@@ -38,7 +38,38 @@ namespace LocadoraDeVeiculos.Tests.GrupoAutomovelModule
 
             grupoAutomovelMock.Verify(x => x.Validar());
             grupoAutomovelDaoMock.Verify(x => x.InserirNovo(It.IsAny<GrupoAutomovel>()));
+        }
 
+        [TestMethod]
+        public void NaoDeveInserir_SeEstaInvalido()
+        {
+            Mock<GrupoAutomovel> grupoAutomovelMock = new("Economico", planoDiario, planoKmControlado, planoKmLivre);
+
+            grupoAutomovelMock.Setup(x => x.Validar()).Returns("NAO_ESTA_VALIDO");
+
+            Mock<GrupoAutomovelDao> grupoAutomovelDaoMock = new();
+            GrupoAutomovelAppService grupoAutomovelAppService = new(grupoAutomovelDaoMock.Object);
+
+            grupoAutomovelAppService.InserirNovo(grupoAutomovelMock.Object);
+
+            grupoAutomovelMock.Verify(x => x.Validar());
+            grupoAutomovelDaoMock.Verify(x => x.InserirNovo(It.IsAny<GrupoAutomovel>()), Times.Never);
+        }
+
+        [TestMethod]
+        public void DeveEditar_GrupoDeAutomovel()
+        {
+            Mock<GrupoAutomovel> grupoAutomovelMock = new("Economico", planoDiario, planoKmControlado, planoKmLivre);
+
+            grupoAutomovelMock.Setup(x => x.Validar()).Returns("ESTA_VALIDO");
+
+            Mock<GrupoAutomovelDao> grupoAutomovelDaoMock = new();
+            GrupoAutomovelAppService grupoAutomovelAppService = new(grupoAutomovelDaoMock.Object);
+
+            grupoAutomovelAppService.Editar(grupoAutomovelMock.Object.Id, grupoAutomovelMock.Object);
+
+            grupoAutomovelMock.Verify(x => x.Validar());
+            grupoAutomovelDaoMock.Verify(x => x.InserirNovo(It.IsAny<GrupoAutomovel>()), Times.Never);
         }
 
 
