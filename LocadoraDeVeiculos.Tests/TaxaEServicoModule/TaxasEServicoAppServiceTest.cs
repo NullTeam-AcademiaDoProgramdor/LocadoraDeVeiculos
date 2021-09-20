@@ -47,5 +47,22 @@ namespace LocadoraDeVeiculos.Tests.TaxaEServicoModule
             taxaMock.Verify(x => x.Validar());
             taxasEServicosDaoMock.Verify(x => x.InserirNovo(It.IsAny<TaxaEServico>()), Times.Never);            
         }
+
+        [TestMethod]
+        public void DeveEditar_TaxaOuServico()
+        {
+            Mock<TaxaEServico> taxaMock = new("gps", 10, false);
+
+            taxaMock.Setup(x => x.Validar()).Returns("ESTA_VALIDO");
+
+            Mock<TaxasEServicosDao> taxasEServicosDaoMock = new();
+
+            TaxaEServicoAppService taxasEServicosAppService = new(taxasEServicosDaoMock.Object);
+
+            taxasEServicosAppService.Editar(0, taxaMock.Object);
+
+            taxaMock.Verify(x => x.Validar());
+            taxasEServicosDaoMock.Verify(x => x.Editar(It.IsAny<int>(), It.IsAny<TaxaEServico>()));           
+        }
     }
 }
