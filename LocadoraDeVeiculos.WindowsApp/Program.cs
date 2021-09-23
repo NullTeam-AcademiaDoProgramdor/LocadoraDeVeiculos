@@ -10,6 +10,7 @@ using LocadoraDeVeiculos.Servicos.EmailModule;
 using System.Threading;
 using LocadoraDeVeículos.Aplicacao.RequisicaoEmailModule;
 using LocadoraDeVeículos.Infra.SQL.RequisicaoEmailModule;
+using LocadoraDeVeiculos.Infra.Log;
 
 namespace LocadoraDeVeiculos.WindowsApp
 {
@@ -22,6 +23,7 @@ namespace LocadoraDeVeiculos.WindowsApp
         [STAThread]
         static void Main()
         {
+            Log.log.Info("info");
             EmailAppService emailService =
                 EmailAppService.GetInstance(new RequisicaoEmailDao());
 
