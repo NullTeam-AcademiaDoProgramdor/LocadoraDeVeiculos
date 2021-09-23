@@ -23,17 +23,23 @@ namespace LocadoraDeVeiculos.WindowsApp
         [STAThread]
         static void Main()
         {
-            Log.log.Info("info");
-            EmailAppService emailService =
-                EmailAppService.GetInstance(new RequisicaoEmailDao());
+            try
+            {
+                EmailAppService emailService =
+                    EmailAppService.GetInstance(new RequisicaoEmailDao());
 
-            emailService.Iniciar();
+                emailService.Iniciar();
 
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TelaLoginForm());
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(new TelaLoginForm());
 
-            emailService.Parar();
+                emailService.Parar();
+            }
+            catch(Exception e)
+            {
+                Log.log.Fatal(e.Message, e);
+            }
         }
     }
 
