@@ -39,6 +39,7 @@ namespace LocadoraDeVeículos.Aplicacao.LocacaoModule
         public string InserirNovo(Locacao registro)
         {
             string resultadoValidacao = registro.Validar();
+            Log.log.Info($"Validando Locação [{registro.Id}], Resultado: {resultadoValidacao}");
 
             if (resultadoValidacao == "ESTA_VALIDO")
             {
@@ -53,6 +54,7 @@ namespace LocadoraDeVeículos.Aplicacao.LocacaoModule
         public string Devolver(int id, Locacao locacao, bool cupomFoiUsado)
         {
             string resultadoValidacao = locacao.ValidarDevolucao();
+            Log.log.Info($"Validando Devolução da Locação [{id}], Resultado: {resultadoValidacao}");
 
             if (resultadoValidacao == "ESTA_VALIDO")
             {
@@ -79,6 +81,7 @@ namespace LocadoraDeVeículos.Aplicacao.LocacaoModule
         public string Editar(int id, Locacao locacao)
         {
             string resultadoValidacao = locacao.Validar();
+            Log.log.Info($"Validando Locação [{locacao.Id}], Resultado: {resultadoValidacao}");
 
             if (resultadoValidacao == "ESTA_VALIDO")
             {
@@ -113,6 +116,7 @@ namespace LocadoraDeVeículos.Aplicacao.LocacaoModule
         public string EditarKmRegistrada(Locacao locacao)
         {
             string resultadoValidacao = locacao.Validar();
+            Log.log.Info($"Validando Locação [{locacao.Id}], Resultado: {resultadoValidacao}");
 
             if (resultadoValidacao == "ESTA_VALIDO")
             {
