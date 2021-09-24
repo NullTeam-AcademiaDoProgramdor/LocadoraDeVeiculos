@@ -13,6 +13,7 @@ using iText.Layout.Element;
 using iText.Layout.Properties;
 using iText.Kernel.Font;
 using iText.IO.Font;
+using LocadoraDeVeiculos.Infra.Log;
 
 namespace LocadoraDeVeículos.Infra.PDF.PDFModule
 {
