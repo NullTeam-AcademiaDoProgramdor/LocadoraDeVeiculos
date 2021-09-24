@@ -28,7 +28,10 @@ namespace LocadoraDeVeículos.Infra.PDF.PDFModule
         public virtual string GerarPdf(Relatorio relatorio)
         {
             this.relatorio = relatorio;
+            Log.log.Info($"Recebendo relatorio [{relatorio}]");
+
             string nomeArquivo = GerarNomeUnico();
+
 
             string caminho = $"..\\..\\..\\..\\Arquivos\\{nomeArquivo}";
 
@@ -47,6 +50,8 @@ namespace LocadoraDeVeículos.Infra.PDF.PDFModule
                 doc.Close();
 
             }
+
+            Log.log.Info($"Gerando PDF do Relatorio [{relatorio}]");
 
             return nomeArquivo;
         }
