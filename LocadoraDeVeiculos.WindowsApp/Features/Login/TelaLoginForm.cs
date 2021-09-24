@@ -1,6 +1,7 @@
 ﻿using LocadoraDeVeículos.Aplicacao.FuncionarioModule;
 using LocadoraDeVeiculos.Controladores.FuncionarioModule;
 using LocadoraDeVeiculos.Dominio.FuncionarioModule;
+using LocadoraDeVeiculos.Infra.Log;
 using LocadoraDeVeículos.Infra.SQL.FuncionarioModule;
 using System;
 using System.Collections.Generic;
@@ -37,6 +38,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
             }
 
             funcionario = controladorFuncionario.SelecionarPorNomeESenha(txtNome.Text, txtSenha.Text);
+            Log.log.Info("Tentativa de Login");
 
             if (funcionario != null)
             {
