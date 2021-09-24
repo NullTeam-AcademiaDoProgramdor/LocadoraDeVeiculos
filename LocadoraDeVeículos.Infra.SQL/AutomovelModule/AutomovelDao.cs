@@ -1,5 +1,6 @@
 ﻿using LocadoraDeVeiculos.Dominio.AutomovelModule;
 using LocadoraDeVeiculos.Dominio.GrupoAutomovelModule;
+using LocadoraDeVeiculos.Infra.Log;
 using LocadoraDeVeículos.Infra.Shared;
 using LocadoraDeVeiculos.Infra.Shared;
 using System;
@@ -209,6 +210,10 @@ namespace LocadoraDeVeículos.Infra.SQL.AutomovelModule
         {
 			try
             {
+				Log.log.Info($"Editando Automovel [{registro.Modelo}]:{id}");
+
+				Log.log.Debug($"SQL editar automovel: {sqlEditarAutomovel}");
+
 				registro.id = id;
 				Db.Update(sqlEditarAutomovel, ObtemParametrosAutomovel(registro));
 
@@ -222,7 +227,11 @@ namespace LocadoraDeVeículos.Infra.SQL.AutomovelModule
 		public override bool EditarKmRegistrada(int id, Automovel registro)
 		{
 			try 
-			{ 
+			{
+				Log.log.Info($"Editando Km Registrada do Automovel [{registro.Modelo}]:{id}");
+
+				Log.log.Debug($"SQL editar km automovel: {sqlEditarKmAutomovel}");
+
 				registro.id = id;
 				Db.Update(sqlEditarKmAutomovel, ObtemParametrosAutomovel(registro));
 
@@ -238,6 +247,10 @@ namespace LocadoraDeVeículos.Infra.SQL.AutomovelModule
         {
 			try
 			{
+				Log.log.Info($"Excluindo Automovel {id}");
+
+				Log.log.Debug($"SQL excluir automovel: {sqlExcluirAutomovel}");
+
 				Db.Delete(sqlExcluirAutomovel, AdicionarParametro("id", id));
 			}
 			catch (Exception)
@@ -255,6 +268,10 @@ namespace LocadoraDeVeículos.Infra.SQL.AutomovelModule
 
         public override bool InserirNovo(Automovel registro)
         {
+			Log.log.Info($"Inserindo Automovel [{registro.Modelo}]");
+
+			Log.log.Debug($"SQL inserir automovel: {sqlInserirAutomovel}");
+
 			registro.id = Db.Insert(sqlInserirAutomovel, ObtemParametrosAutomovel(registro));
 
 			return registro.Id != 0;
@@ -262,24 +279,34 @@ namespace LocadoraDeVeículos.Infra.SQL.AutomovelModule
 
         public override Automovel SelecionarPorId(int id)
         {
+			Log.log.Info($"Selecionando Automovel por id: {id}");
+
+			Log.log.Debug($"SQL Selecionar automovel por id: {sqlSelecioneAutomovelPorId}");
+
 			return Db.Get(sqlSelecioneAutomovelPorId, ConverterEmAutomovel, AdicionarParametro("id", id));
 		}
 
         public override List<Automovel> SelecionarAutomoveisDisponiveis()
         {
 			List<Automovel> automovels = new List<Automovel>();
-			int[] idsDisponiveis = this.SelecionarIdsDisponiveis();
+			int[] idsDisponiveis = this.SelecionarIdsDisponiveis();					
 
 			foreach (int id in idsDisponiveis)
 			{
 				automovels.Add(this.SelecionarPorId(id));
 			}
 
+			Log.log.Info($"Selecionando Automoveis disponiveis: {automovels}");
+
 			return automovels;
 		}
 
         public override List<Automovel> SelecionarTodos()
         {
+			Log.log.Info($"Selecionando Automoveis todos os automoveis");
+
+			Log.log.Debug($"SQL Selecionar todos os automoveis: {sqlSelecionarTodosAutomoveis}");
+
 			return Db.GetAll(sqlSelecionarTodosAutomoveis, ConverterEmAutomovel);
 		}
 

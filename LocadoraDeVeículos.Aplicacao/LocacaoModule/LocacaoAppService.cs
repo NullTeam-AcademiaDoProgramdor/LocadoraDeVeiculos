@@ -6,6 +6,7 @@ using LocadoraDeVeiculos.Dominio.RequisicaoEmailModule;
 using LocadoraDeVeículos.Infra.PDF.PDFModule;
 using LocadoraDeVeículos.Infra.SQL.CupomModule;
 using LocadoraDeVeículos.Infra.SQL.LocacaoModule;
+using LocadoraDeVeículos.Infra.Log;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -64,6 +65,7 @@ namespace LocadoraDeVeículos.Aplicacao.LocacaoModule
                         : locacao.Condutor.PessoaJuridica.Email;
 
                 string pdf = repositorioPDF.GerarPdf(new Relatorio(locacao));
+                Log.log.Info($"Enviando locacao [{locacao}] para GeradorPDF");
 
                 emailAppService
                     .AdicionarEmail("Aqui está o relatório de sua locação finalizada.",

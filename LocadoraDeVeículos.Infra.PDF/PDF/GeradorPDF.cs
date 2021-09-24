@@ -13,6 +13,7 @@ using iText.Layout.Element;
 using iText.Layout.Properties;
 using iText.Kernel.Font;
 using iText.IO.Font;
+using LocadoraDeVeiculos.Infra.Log;
 
 namespace LocadoraDeVeículos.Infra.PDF.PDFModule
 {
@@ -28,7 +29,10 @@ namespace LocadoraDeVeículos.Infra.PDF.PDFModule
         public virtual string GerarPdf(Relatorio relatorio)
         {
             this.relatorio = relatorio;
+            Log.log.Info($"Recebendo relatorio [{relatorio}]");
+
             string nomeArquivo = GerarNomeUnico();
+
 
             string caminho = $"..\\..\\..\\..\\Arquivos\\{nomeArquivo}";
 
@@ -47,6 +51,8 @@ namespace LocadoraDeVeículos.Infra.PDF.PDFModule
                 doc.Close();
 
             }
+
+            Log.log.Info($"Gerando PDF do Relatorio [{relatorio}]");
 
             return nomeArquivo;
         }

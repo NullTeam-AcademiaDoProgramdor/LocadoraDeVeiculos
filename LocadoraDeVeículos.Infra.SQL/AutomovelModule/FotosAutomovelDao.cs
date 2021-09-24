@@ -1,5 +1,6 @@
 ﻿using LocadoraDeVeiculos.Dominio.AutomovelModule;
 using LocadoraDeVeiculos.Infra.Shared;
+using LocadoraDeVeiculos.Infra.Log;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -58,6 +59,10 @@ namespace LocadoraDeVeículos.Infra.SQL.AutomovelModule
 
         private void Inserir(Image[] imagens, int automovelId)
         {
+            Log.log.Info($"Inserindo Imagens [{imagens}]");
+
+            Log.log.Debug($"SQL inserir imagens: {sqlInserirImagens}");
+
             foreach (Image foto in imagens)
             {
                 Db.Insert(sqlInserirImagens, ObtemParametrosFoto(foto, automovelId));
@@ -73,6 +78,10 @@ namespace LocadoraDeVeículos.Infra.SQL.AutomovelModule
 
             try
             {
+                Log.log.Info($"Excluindo Imagens {id}");
+
+                Log.log.Debug($"SQL excluir imagens: {sqlExcluirImagens}");
+
                 Db.Delete(sqlExcluirImagens, parametros);
             }
             catch (Exception)
