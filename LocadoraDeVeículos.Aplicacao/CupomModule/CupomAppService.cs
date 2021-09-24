@@ -44,6 +44,7 @@ namespace LocadoraDeVeículos.Aplicacao.CupomModule
         public string InserirNovo(Cupom registro)
         {
             string resultadoValidacao = registro.Validar();
+            Log.log.Info($"Validando cupom [{registro.Codigo}], Resultado: {resultadoValidacao}");
 
             if (resultadoValidacao == "ESTA_VALIDO")
             {
