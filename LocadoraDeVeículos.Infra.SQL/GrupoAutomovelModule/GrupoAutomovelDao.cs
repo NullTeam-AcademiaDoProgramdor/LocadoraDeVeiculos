@@ -1,4 +1,5 @@
 ﻿using LocadoraDeVeiculos.Dominio.GrupoAutomovelModule;
+using LocadoraDeVeiculos.Infra.Log;
 using LocadoraDeVeículos.Infra.Shared;
 using LocadoraDeVeiculos.Infra.Shared;
 using System;
@@ -96,6 +97,9 @@ namespace LocadoraDeVeículos.Infra.SQL.GrupoAutomovelModule
 
         public override bool InserirNovo(GrupoAutomovel registro)
         {
+            Log.log.Info($"Inserindo Grupo de Automóvel [{registro.Nome}]");
+
+            Log.log.Debug($"SQL inserir Grupo de Automóvel: {sqlInserirGrupo}");
             registro.id = Db.Insert(sqlInserirGrupo, ObtemParametrosGrupo(registro));
             return registro.Id != 0;
         }
@@ -104,6 +108,9 @@ namespace LocadoraDeVeículos.Infra.SQL.GrupoAutomovelModule
         {
             try
             {
+                Log.log.Info($"Editando Grupo de Automóvel [{registro.Nome}]:{id}");
+
+                Log.log.Debug($"SQL editar Grupo de Automóvel: {sqlEditarGrupo}");
                 registro.id = id;
                 Db.Update(sqlEditarGrupo, ObtemParametrosGrupo(registro));
 
@@ -118,6 +125,9 @@ namespace LocadoraDeVeículos.Infra.SQL.GrupoAutomovelModule
         {
             try
             {
+                Log.log.Info($"Excluindo Grupo de Automóvel {id}");
+
+                Log.log.Debug($"SQL excluir Grupo de Automóvel: {sqlExcluirGrupo}");
                 Db.Delete(sqlExcluirGrupo, AdicionarParametro("id", id));
             }
             catch (Exception)
@@ -136,11 +146,17 @@ namespace LocadoraDeVeículos.Infra.SQL.GrupoAutomovelModule
 
         public override GrupoAutomovel SelecionarPorId(int id)
         {
+            Log.log.Info($"Selecionando Grupo de Automóvel por id: {id}");
+
+            Log.log.Debug($"SQL Selecionar Grupo de Automóvel por id: {sqlSelecionaGrupoPorId}");
             return Db.Get(sqlSelecionaGrupoPorId, ConverterEmGrupoAutomovel, AdicionarParametro("id", id));
         }
 
         public override List<GrupoAutomovel> SelecionarTodos()
         {
+            Log.log.Info($"Selecionando todos os Grupos de Automóvel");
+
+            Log.log.Debug($"SQL Selecionar todos os Grupos de Automóvel: {sqlSelecionaTodosGrupos}");
             return Db.GetAll(sqlSelecionaTodosGrupos, ConverterEmGrupoAutomovel);
         }
 
