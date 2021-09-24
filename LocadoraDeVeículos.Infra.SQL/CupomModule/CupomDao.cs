@@ -1,5 +1,6 @@
 ﻿using LocadoraDeVeiculos.Dominio.CupomModule;
 using LocadoraDeVeiculos.Dominio.ParceiroModule;
+using LocadoraDeVeículos.Infra.Log;
 using LocadoraDeVeículos.Infra.Shared;
 using LocadoraDeVeiculos.Infra.Shared;
 using System;
@@ -143,6 +144,10 @@ namespace LocadoraDeVeículos.Infra.SQL.CupomModule
         {
             try
             {
+                Log.log.Info($"Editando Cupom [{registro.Codigo}]:{id}");
+
+                Log.log.Debug($"SQL editar cupom: {sqlEditarCupom}");
+
                 registro.Id = id;
                 Db.Update(sqlEditarCupom, ObtemParametrosCupom(registro));
                 return true;
@@ -155,6 +160,8 @@ namespace LocadoraDeVeículos.Infra.SQL.CupomModule
 
         public override bool EditarQtdUsos(Cupom cupom)
         {
+            Log.log.Inf($"Editando a quantidade de usos do cupom [{cupom.Codigo}]");
+
             cupom.QtdUsos++;
             return Editar(cupom.Id, cupom);
         }
@@ -163,6 +170,10 @@ namespace LocadoraDeVeículos.Infra.SQL.CupomModule
         {
             try
             {
+                Log.log.Info($"Excluindo Cupom {id}");
+
+                Log.log.Debug($"SQL excluir cupom: {sqlExcluirCupom}");
+
                 Db.Delete(sqlExcluirCupom, AdicionarParametro("ID", id));
             }
             catch (Exception)
@@ -180,27 +191,48 @@ namespace LocadoraDeVeículos.Infra.SQL.CupomModule
 
         public override bool InserirNovo(Cupom registro)
         {
+            Log.log.Info($"Inserindo Cupom [{registro.Codigo}]");
+
+            Log.log.Debug($"SQL inserir cupom: {sqlInserirCupom}");
+
             registro.Id = Db.Insert(sqlInserirCupom, ObtemParametrosCupom(registro));
             return registro.id != 0;
         }
 
         public override Cupom SelecionarPorId(int id)
         {
+
+            Log.log.Info($"Selecionando Cupom por id: {id}");
+
+            Log.log.Debug($"SQL Selecionar cupom por id: {sqlSelecionarCupomPorId}");
+
             return Db.Get(sqlSelecionarCupomPorId, ConverterEmCupom, AdicionarParametro("ID", id));
         }
 
         public override List<Cupom> SelecionarTodos()
         {
+            Log.log.Info($"Selecionando Cupom todos os cupons");
+
+            Log.log.Debug($"SQL Selecionar todos os cupons: {sqlSelecionarTodosCupons}");
+
             return Db.GetAll(sqlSelecionarTodosCupons, ConverterEmCupom);
         }
 
         public override Cupom SelecionarPorCodigo(string codigo)
         {
+            Log.log.Info($"Selecionando Cupom por codigo: {codigo}");
+
+            Log.log.Debug($"SQL Selecionar cupom por codigo: {sqlSelecionarCupomPorCodigo}");
+
             return Db.Get(sqlSelecionarCupomPorCodigo, ConverterEmCupom, AdicionarParametro("CODIGO", codigo));
         }
 
         public override List<Cupom> SelecionarValidos()
         {
+            Log.log.Info($"Selecionando Cupons validos");
+
+            Log.log.Debug($"SQL Selecionar cupons validos: {sqlSelecionarCuponsAindaValidos}");
+
             return Db.GetAll(sqlSelecionarCuponsAindaValidos, ConverterEmCupom, AdicionarParametro("DATADEHOJE", DateTime.Today));
         }
 
