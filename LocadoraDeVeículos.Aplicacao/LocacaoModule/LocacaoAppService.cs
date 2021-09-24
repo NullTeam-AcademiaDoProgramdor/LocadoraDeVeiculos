@@ -6,12 +6,12 @@ using LocadoraDeVeiculos.Dominio.RequisicaoEmailModule;
 using LocadoraDeVeículos.Infra.PDF.PDFModule;
 using LocadoraDeVeículos.Infra.SQL.CupomModule;
 using LocadoraDeVeículos.Infra.SQL.LocacaoModule;
-using LocadoraDeVeículos.Infra.Log;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LocadoraDeVeiculos.Infra.Log;
 
 namespace LocadoraDeVeículos.Aplicacao.LocacaoModule
 {
