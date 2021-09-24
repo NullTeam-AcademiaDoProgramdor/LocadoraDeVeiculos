@@ -1,5 +1,6 @@
 ﻿using LocadoraDeVeículos.Aplicacao.Shared;
 using LocadoraDeVeiculos.Dominio.TaxasEServicosModule;
+using LocadoraDeVeiculos.Infra.Log;
 using LocadoraDeVeículos.Infra.Shared;
 using System;
 using System.Collections.Generic;
