@@ -154,7 +154,7 @@ namespace LocadoraDeVeículos.Infra.SQL.GrupoAutomovelModule
 
         public override List<GrupoAutomovel> SelecionarTodos()
         {
-            Log.log.Info($"Selecionando Grupo de Automóvel todos os parceiros");
+            Log.log.Info($"Selecionando todos os Grupos de Automóvel");
 
             Log.log.Debug($"SQL Selecionar todos os Grupos de Automóvel: {sqlSelecionaTodosGrupos}");
             return Db.GetAll(sqlSelecionaTodosGrupos, ConverterEmGrupoAutomovel);
