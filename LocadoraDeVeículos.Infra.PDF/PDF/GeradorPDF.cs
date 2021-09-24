@@ -49,7 +49,6 @@ namespace LocadoraDeVeículos.Infra.PDF.PDFModule
                 GerarParagrafos(relatorio, doc);
 
                 doc.Close();
-
             }
 
             Log.log.Info($"Gerando PDF do Relatorio [{relatorio}]");

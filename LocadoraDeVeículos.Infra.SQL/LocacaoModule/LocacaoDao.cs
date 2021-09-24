@@ -1,5 +1,6 @@
 ﻿using LocadoraDeVeiculos.Dominio.CupomModule;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
+using LocadoraDeVeiculos.Infra.Log;
 using LocadoraDeVeiculos.Infra.Shared;
 using LocadoraDeVeículos.Infra.SQL.AutomovelModule;
 using LocadoraDeVeículos.Infra.SQL.CupomModule;
@@ -134,6 +135,9 @@ namespace LocadoraDeVeículos.Infra.SQL.LocacaoModule
 
         public override bool InserirNovo(Locacao registro)
         {
+            Log.log.Info($"Inserindo Locação, id: [{registro.id}]");
+
+            Log.log.Debug($"SQL inserir Locação: {sqlInserirLocacao}");
             registro.id = Db.Insert(sqlInserirLocacao, ObtemParametrosLocacao(registro));            
 
             return registro.Id != 0;
@@ -143,6 +147,9 @@ namespace LocadoraDeVeículos.Infra.SQL.LocacaoModule
         {
             try
             {
+                Log.log.Info($"Devolvendo Locação, id: [{id}]");
+
+                Log.log.Debug($"SQL devolver Locação: {sqlEditarLocacao}");
                 locacao.Id = id;
                 Db.Update(sqlEditarLocacao, ObtemParametrosLocacao(locacao));
 
@@ -158,6 +165,9 @@ namespace LocadoraDeVeículos.Infra.SQL.LocacaoModule
         {
             try
             {
+                Log.log.Info($"Editando Locação, id: [{locacao.id}]");
+
+                Log.log.Debug($"SQL editar Locação: {sqlEditarLocacao}");
                 locacao.Id = id;
                 Db.Update(sqlEditarLocacao, ObtemParametrosLocacao(locacao));
                 
@@ -173,6 +183,8 @@ namespace LocadoraDeVeículos.Infra.SQL.LocacaoModule
         {
             try
             {
+                Log.log.Info($"Editando Quilometragem registrada do veículo [{locacao.Automovel.Modelo}]");
+
                 locacao.Automovel.KmRegistrada = (int)locacao.KmAutomovelFinal;
                 controladorAutomovel.EditarKmRegistrada(locacao.Automovel.id, locacao.Automovel);
 
@@ -188,6 +200,9 @@ namespace LocadoraDeVeículos.Infra.SQL.LocacaoModule
         {
             try
             {
+                Log.log.Info($"Excluindo Locação, id: [{id}]");
+
+                Log.log.Debug($"SQL excluir Locação: {sqlExcluirLocacao}");
                 Db.Delete(sqlExcluirLocacao, AdicionarParametro("ID", id));
             }
             catch (Exception)
@@ -205,11 +220,17 @@ namespace LocadoraDeVeículos.Infra.SQL.LocacaoModule
 
         public override Locacao SelecionarPorId(int id)
         {
+            Log.log.Info($"Selecionando Locação por id: [{id}]");
+
+            Log.log.Debug($"SQL selecionar Locação por id: {sqlSelecionarLocacaoPorId}");
             return Db.Get(sqlSelecionarLocacaoPorId, ConverterEmLocacao, AdicionarParametro("ID", id));
         }
 
         public override List<Locacao> SelecionarTodos()
         {
+            Log.log.Info($"Selecionando todas as Locações");
+
+            Log.log.Debug($"SQL selecionar todas as Locações: {sqlSelecionarTodasLocacao}");
             return Db.GetAll(sqlSelecionarTodasLocacao, ConverterEmLocacao);
         }
 
