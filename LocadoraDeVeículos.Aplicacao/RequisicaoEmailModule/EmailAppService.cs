@@ -10,6 +10,7 @@ using System.Net.Mime;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using LocadoraDeVeículos.Infra.Log;
 
 namespace LocadoraDeVeículos.Aplicacao.RequisicaoEmailModule
 {
@@ -56,6 +57,7 @@ namespace LocadoraDeVeículos.Aplicacao.RequisicaoEmailModule
         public void AdicionarEmail(string mensagem, string emailDestino,
             params string[] pdfs)
         {
+            Log.log.Info($"Inserindo email para enviar");
             repositorio.InserirNovo(
                 new RequisicaoEmail(mensagem, emailDestino, pdfs));
         }
@@ -93,6 +95,8 @@ namespace LocadoraDeVeículos.Aplicacao.RequisicaoEmailModule
                         MediaTypeNames.Application.Pdf));
                 }
 
+                Log.log.Info($"Enviando email [{mail}] para o cliente");
+
                 GerarClient(s => s.Send(mail));
             }
         }
@@ -114,6 +118,7 @@ namespace LocadoraDeVeículos.Aplicacao.RequisicaoEmailModule
                 {
                     Console.WriteLine($"Enviando email para {email.emailDestino}");
                     Enviar(email);
+                    Log.log.Info($"Email {email} enviado, excluindo do sistema.");
                     repositorio.Excluir(email.id);
 
                     foreach (var arquivo in email.arquivos)
