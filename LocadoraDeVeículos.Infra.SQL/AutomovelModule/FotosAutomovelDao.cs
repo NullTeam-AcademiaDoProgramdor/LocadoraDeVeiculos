@@ -1,5 +1,6 @@
 ﻿using LocadoraDeVeiculos.Dominio.AutomovelModule;
 using LocadoraDeVeiculos.Infra.Shared;
+using LocadoraDeVeiculos.Infra.Log;
 using System;
 using System.Collections;
 using System.Collections.Generic;
