@@ -1,5 +1,6 @@
 ﻿using LocadoraDeVeículos.Aplicacao.Shared;
 using LocadoraDeVeiculos.Dominio.PessoaJuridicaModule;
+using LocadoraDeVeiculos.Infra.Log;
 using LocadoraDeVeículos.Infra.Shared;
 using System;
 using System.Collections.Generic;
@@ -21,6 +22,7 @@ namespace LocadoraDeVeículos.Aplicacao.PessoaJuridicaModule
         public string InserirNovo(PessoaJuridica registro)
         {
             string resultadoValidacao = registro.Validar();
+            Log.log.Info($"Validando Pessoa Jurídica [{registro.Nome}], Resultado: {resultadoValidacao}");
 
             if (resultadoValidacao == "ESTA_VALIDO")
             {
@@ -33,6 +35,7 @@ namespace LocadoraDeVeículos.Aplicacao.PessoaJuridicaModule
         public string Editar(int id, PessoaJuridica registro)
         {
             string resultadoValidacao = registro.Validar();
+            Log.log.Info($"Validando Pessoa Jurídica [{registro.Nome}]: {id}, Resultado: {resultadoValidacao}");
 
             if (resultadoValidacao == "ESTA_VALIDO")
             {
