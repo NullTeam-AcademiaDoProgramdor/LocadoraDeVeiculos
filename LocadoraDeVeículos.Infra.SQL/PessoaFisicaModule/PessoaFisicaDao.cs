@@ -117,6 +117,10 @@ namespace LocadoraDeVeículos.Infra.SQL.PessoaFisicaModule
 
         public override bool InserirNovo(PessoaFisica registro)
         {
+            Log.log.Info($"Inserindo Pessoa Fisica [{registro.Nome}]");
+
+            Log.log.Debug($"SQL inserir pessoa fisica: {sqlInserirPessoaFisica}");
+
             registro.Id = Db.Insert(sqlInserirPessoaFisica, ObtemParametrosPessoaFisica(registro));
             return registro.Id != 0;
         }
@@ -125,6 +129,10 @@ namespace LocadoraDeVeículos.Infra.SQL.PessoaFisicaModule
         {
             try
             {
+                Log.log.Info($"Editando Pessoa Fisica [{registro.Nome}]:{id}");
+
+                Log.log.Debug($"SQL editar pessoa fisica: {sqlEditarPessoaFisica}");
+
                 registro.Id = id;
                 Db.Update(sqlEditarPessoaFisica, ObtemParametrosPessoaFisica(registro));
                 return true;
@@ -139,6 +147,10 @@ namespace LocadoraDeVeículos.Infra.SQL.PessoaFisicaModule
         {
             try 
             {
+                Log.log.Info($"Excluindo Pessoa Fisica {id}");
+
+                Log.log.Debug($"SQL excluir pessoa fisica: {sqlExcluirPessoaFisica}");
+
                 Db.Delete(sqlExcluirPessoaFisica, AdicionarParametro("ID", id));
                 return true;
             }
@@ -155,11 +167,19 @@ namespace LocadoraDeVeículos.Infra.SQL.PessoaFisicaModule
 
         public override PessoaFisica SelecionarPorId(int id)
         {
+            Log.log.Info($"Selecionando Pessoa Fisica por id: {id}");
+
+            Log.log.Debug($"SQL Selecionar pessoa fisica por id: {sqlSelecionarPessoaFisicaPorId}");
+
             return Db.Get(sqlSelecionarPessoaFisicaPorId, ConverterEmPessoaFisica, AdicionarParametro("ID", id));
         }
 
         public override List<PessoaFisica> SelecionarTodos()
         {
+            Log.log.Info($"Selecionando Pessoa Fisica todas as pessoas fisicas");
+
+            Log.log.Debug($"SQL Selecionar todas as pessoas fisicas: {sqlSelecionarTodasPessoasFisicas}");
+
             return Db.GetAll(sqlSelecionarTodasPessoasFisicas, ConverterEmPessoaFisica);
         }
 
