@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LocadoraDeVeiculos.Infra.Log;
 
 namespace LocadoraDeVeiculos.Infra.Configuracoes
 {
@@ -34,10 +35,13 @@ namespace LocadoraDeVeiculos.Infra.Configuracoes
         {
             get
             {
-                return Convert.ToDouble(appConfigControler.Ler("precoGasolina"));
+                double preco = Convert.ToDouble(appConfigControler.Ler("precoGasolina"));
+                Log.Log.log.Info($"Lendo o preço da gasolina, valor lido: {preco}");
+                return preco;
             }
             set
             {
+                Log.Log.log.Info($"Setando o preço da gasolina: {value}");
                 appConfigControler.Setar("precoGasolina", value);
             }
         }
@@ -46,10 +50,13 @@ namespace LocadoraDeVeiculos.Infra.Configuracoes
         {
             get
             {
-                return Convert.ToDouble(appConfigControler.Ler("precoGas"));
+                double preco = Convert.ToDouble(appConfigControler.Ler("precoGas"));
+                Log.Log.log.Info($"Lendo o preço do gas, valor lido: {preco}");
+                return preco;
             }
             set
             {
+                Log.Log.log.Info($"Setando o preço do gas: {value}");
                 appConfigControler.Setar("precoGas", value);
             }
         }
@@ -58,10 +65,13 @@ namespace LocadoraDeVeiculos.Infra.Configuracoes
         {
             get
             {
-                return Convert.ToDouble(appConfigControler.Ler("precoDieses"));
+                double preco = Convert.ToDouble(appConfigControler.Ler("precoDieses"));
+                Log.Log.log.Info($"Lendo o preço do diesel, valor lido: {preco}");
+                return preco;
             }
             set
             {
+                Log.Log.log.Info($"Setando o preço do diesel: {value}");
                 appConfigControler.Setar("precoDieses", value);
             }
         }
@@ -70,10 +80,13 @@ namespace LocadoraDeVeiculos.Infra.Configuracoes
         {
             get
             {
-                return Convert.ToDouble(appConfigControler.Ler("precoAlcool"));
+                double preco = Convert.ToDouble(appConfigControler.Ler("precoAlcool"));
+                Log.Log.log.Info($"Lendo o preço do alcool, valor lido: {preco}");
+                return preco;
             }
             set
             {
+                Log.Log.log.Info($"Setando o preço do alcool: {value}");
                 appConfigControler.Setar("precoAlcool", value);
             }
         }
@@ -82,10 +95,13 @@ namespace LocadoraDeVeiculos.Infra.Configuracoes
         {
             get
             {
-                return TimeSpan.Parse(appConfigControler.Ler("horaAbertura"));
+                TimeSpan hora = TimeSpan.Parse(appConfigControler.Ler("horaAbertura"));
+                Log.Log.log.Info($"Lendo a hora de abertura, valor lido: {hora}");
+                return hora;
             }
             set
             {
+                Log.Log.log.Info($"Setando a hora de abertura: {value}");
                 appConfigControler.Setar("horaAbertura", value);
             }
         }
@@ -94,10 +110,13 @@ namespace LocadoraDeVeiculos.Infra.Configuracoes
         {
             get
             {
-                return TimeSpan.Parse(appConfigControler.Ler("horaFechamento"));
+                TimeSpan hora = TimeSpan.Parse(appConfigControler.Ler("horaFechamento"));
+                Log.Log.log.Info($"Lendo a hora de fechamento, valor lido: {hora}");
+                return hora;
             }
             set
             {
+                Log.Log.log.Info($"Setando a hora de fechamento: {value}");
                 appConfigControler.Setar("horaFechamento", value);
             }
         }
@@ -106,10 +125,13 @@ namespace LocadoraDeVeiculos.Infra.Configuracoes
         {
             get
             {
-                return Convert.ToBoolean(appConfigControler.Ler("abreNoSabado"));
+                bool valor = Convert.ToBoolean(appConfigControler.Ler("abreNoSabado"));
+                Log.Log.log.Info($"Lendo abre no sabado, valor lido: {valor}");
+                return valor;
             }
             set
             {
+                Log.Log.log.Info($"Setando abre no sabado: {value}");
                 appConfigControler.Setar("abreNoSabado", value);
             }
         }
@@ -118,10 +140,13 @@ namespace LocadoraDeVeiculos.Infra.Configuracoes
         {
             get
             {
-                return Convert.ToBoolean(appConfigControler.Ler("abreNoDomingo"));
+                bool valor = Convert.ToBoolean(appConfigControler.Ler("abreNoDomingo"));
+                Log.Log.log.Info($"Lendo abre no domingo, valor lido: {valor}");
+                return valor;
             }
             set
             {
+                Log.Log.log.Info($"Setando abre no domingo: {value}");
                 appConfigControler.Setar("abreNoDomingo", value);
             }
         }
