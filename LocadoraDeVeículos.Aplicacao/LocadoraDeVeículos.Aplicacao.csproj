@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="log4net" Version="2.0.12" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\LocadoraDeVeiculos.Dominio\LocadoraDeVeiculos.Dominio.csproj" />
     <ProjectReference Include="..\LocadoraDeVeiculos.Infra.Arquivos\LocadoraDeVeiculos.Infra.Arquivos.csproj" />
     <ProjectReference Include="..\LocadoraDeVeiculos.Infra.Internet\LocadoraDeVeiculos.Infra.Internet.csproj" />
