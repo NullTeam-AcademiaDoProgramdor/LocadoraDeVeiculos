@@ -10,7 +10,7 @@ namespace LocadoraDeVeiculos.Infra.Log
         public static void ConfigurarLog()
         {
             Serilog.Log.Logger = new LoggerConfiguration()
-                .WriteTo.File("logs/myapp.txt", rollingInterval: RollingInterval.Day)
+                .WriteTo.File("logs/log-.txt", rollingInterval: RollingInterval.Day)
                 .WriteTo.Seq("http://localhost:5341")
                 .CreateLogger();
         }

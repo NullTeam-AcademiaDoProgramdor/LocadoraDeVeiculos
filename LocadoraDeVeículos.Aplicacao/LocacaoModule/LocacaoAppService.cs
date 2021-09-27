@@ -3,6 +3,7 @@ using LocadoraDeVeículos.Aplicacao.Shared;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using LocadoraDeVeiculos.Dominio.RelatorioModule;
 using LocadoraDeVeiculos.Dominio.RequisicaoEmailModule;
+using LocadoraDeVeiculos.Infra.Log;
 using LocadoraDeVeículos.Infra.PDF.PDFModule;
 using LocadoraDeVeículos.Infra.SQL.CupomModule;
 using LocadoraDeVeículos.Infra.SQL.LocacaoModule;
@@ -11,7 +12,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using LocadoraDeVeiculos.Infra.Log;
 
 namespace LocadoraDeVeículos.Aplicacao.LocacaoModule
 {
@@ -39,6 +39,7 @@ namespace LocadoraDeVeículos.Aplicacao.LocacaoModule
         public string InserirNovo(Locacao registro)
         {
             string resultadoValidacao = registro.Validar();
+            Serilog.Log.Information($"Validando Locação [{registro.Id}], Resultado: {resultadoValidacao}");
 
             if (resultadoValidacao == "ESTA_VALIDO")
             {
@@ -53,6 +54,7 @@ namespace LocadoraDeVeículos.Aplicacao.LocacaoModule
         public string Devolver(int id, Locacao locacao, bool cupomFoiUsado)
         {
             string resultadoValidacao = locacao.ValidarDevolucao();
+            Serilog.Log.Information($"Validando Devolução da Locação [{id}], Resultado: {resultadoValidacao}");
 
             if (resultadoValidacao == "ESTA_VALIDO")
             {
@@ -79,6 +81,7 @@ namespace LocadoraDeVeículos.Aplicacao.LocacaoModule
         public string Editar(int id, Locacao locacao)
         {
             string resultadoValidacao = locacao.Validar();
+            Serilog.Log.Information($"Validando Locação [{locacao.Id}], Resultado: {resultadoValidacao}");
 
             if (resultadoValidacao == "ESTA_VALIDO")
             {
@@ -113,6 +116,7 @@ namespace LocadoraDeVeículos.Aplicacao.LocacaoModule
         public string EditarKmRegistrada(Locacao locacao)
         {
             string resultadoValidacao = locacao.Validar();
+            Serilog.Log.Information($"Validando Locação [{locacao.Id}], Resultado: {resultadoValidacao}");
 
             if (resultadoValidacao == "ESTA_VALIDO")
             {

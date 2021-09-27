@@ -1,5 +1,6 @@
 ﻿using LocadoraDeVeiculos.Dominio.CupomModule;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
+using LocadoraDeVeiculos.Infra.Log;
 using LocadoraDeVeiculos.Infra.Shared;
 using LocadoraDeVeículos.Infra.SQL.AutomovelModule;
 using LocadoraDeVeículos.Infra.SQL.CupomModule;
@@ -134,6 +135,9 @@ namespace LocadoraDeVeículos.Infra.SQL.LocacaoModule
 
         public override bool InserirNovo(Locacao registro)
         {
+            Serilog.Log.Information("Inserindo {Feature}", "Locação");
+
+            Serilog.Log.Debug($"SQL inserir Locação: {sqlInserirLocacao}");
             registro.id = Db.Insert(sqlInserirLocacao, ObtemParametrosLocacao(registro));            
 
             return registro.Id != 0;
@@ -143,6 +147,9 @@ namespace LocadoraDeVeículos.Infra.SQL.LocacaoModule
         {
             try
             {
+                Serilog.Log.Information("Devolvendo {Feature}, id: {Id}", "Locação", id);
+
+                Serilog.Log.Debug($"SQL devolver Locação: {sqlEditarLocacao}");
                 locacao.Id = id;
                 Db.Update(sqlEditarLocacao, ObtemParametrosLocacao(locacao));
 
@@ -158,6 +165,9 @@ namespace LocadoraDeVeículos.Infra.SQL.LocacaoModule
         {
             try
             {
+                Serilog.Log.Information("Editando {Feature}, id: {Id}", "Locação", id);
+
+                Serilog.Log.Debug($"SQL editar Locação: {sqlEditarLocacao}");
                 locacao.Id = id;
                 Db.Update(sqlEditarLocacao, ObtemParametrosLocacao(locacao));
                 
@@ -173,6 +183,8 @@ namespace LocadoraDeVeículos.Infra.SQL.LocacaoModule
         {
             try
             {
+                Serilog.Log.Information($"Editando Quilometragem registrada do veículo [{locacao.Automovel.Modelo}]");
+
                 locacao.Automovel.KmRegistrada = (int)locacao.KmAutomovelFinal;
                 controladorAutomovel.EditarKmRegistrada(locacao.Automovel.id, locacao.Automovel);
 
@@ -188,6 +200,9 @@ namespace LocadoraDeVeículos.Infra.SQL.LocacaoModule
         {
             try
             {
+                Serilog.Log.Information("Excluindo {Feature}, id: {Id}", "Locação", id);
+
+                Serilog.Log.Debug($"SQL excluir Locação: {sqlExcluirLocacao}");
                 Db.Delete(sqlExcluirLocacao, AdicionarParametro("ID", id));
             }
             catch (Exception)
@@ -205,11 +220,17 @@ namespace LocadoraDeVeículos.Infra.SQL.LocacaoModule
 
         public override Locacao SelecionarPorId(int id)
         {
+            Serilog.Log.Information("Selecionando {Feature}, id: {Id}", "Locação", id);
+
+            Serilog.Log.Debug($"SQL selecionar Locação por id: {sqlSelecionarLocacaoPorId}");
             return Db.Get(sqlSelecionarLocacaoPorId, ConverterEmLocacao, AdicionarParametro("ID", id));
         }
 
         public override List<Locacao> SelecionarTodos()
         {
+            Serilog.Log.Information("Selecionando todas as {Feature}", "Locação");
+
+            Serilog.Log.Debug($"SQL selecionar todas as Locações: {sqlSelecionarTodasLocacao}");
             return Db.GetAll(sqlSelecionarTodasLocacao, ConverterEmLocacao);
         }
 

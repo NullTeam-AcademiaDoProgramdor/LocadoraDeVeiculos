@@ -49,7 +49,6 @@ namespace LocadoraDeVeículos.Infra.PDF.PDFModule
                 GerarParagrafos(relatorio, doc);
 
                 doc.Close();
-
             }
 
             Serilog.Log.Information($"Gerando PDF do Relatorio [{relatorio}]");
