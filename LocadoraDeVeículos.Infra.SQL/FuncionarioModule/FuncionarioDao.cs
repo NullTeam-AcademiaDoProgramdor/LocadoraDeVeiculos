@@ -94,8 +94,8 @@ namespace LocadoraDeVeículos.Infra.SQL.FuncionarioModule
 
         public override bool InserirNovo(Funcionario registro)
         {
-            Log.log.Info($"Inserindo Funcionario [{registro.Nome}]");
-            Log.log.Debug($"SQL inserir Funcionario: {sqlInserirFuncionario}");
+            Serilog.Log.Information($"Inserindo Funcionario [{registro.Nome}]");
+            Serilog.Log.Debug($"SQL inserir Funcionario: {sqlInserirFuncionario}");
             registro.Id = Db.Insert(sqlInserirFuncionario, ObtemParametrosFuncionario(registro));
             return registro.Id != 0;
 
@@ -106,8 +106,8 @@ namespace LocadoraDeVeículos.Infra.SQL.FuncionarioModule
         {
             try
             {
-                Log.log.Info($"Editando Funcionario [{registro.Nome}]:{id}");
-                Log.log.Debug($"SQL editar pessoa fisica: {sqlEditarFuncionario}");
+                Serilog.Log.Information($"Editando Funcionario [{registro.Nome}]:{id}");
+                Serilog.Log.Debug($"SQL editar pessoa fisica: {sqlEditarFuncionario}");
 
                 registro.Id = id;
                 Db.Update(sqlEditarFuncionario, ObtemParametrosFuncionario(registro));
@@ -124,9 +124,9 @@ namespace LocadoraDeVeículos.Infra.SQL.FuncionarioModule
         {
             try
             {
-                Log.log.Info($"Excluindo Funcionario{id}");
+                Serilog.Log.Information($"Excluindo Funcionario{id}");
 
-                Log.log.Debug($"SQL excluir pessoa fisica: {sqlExcluirFuncionario}");
+                Serilog.Log.Debug($"SQL excluir pessoa fisica: {sqlExcluirFuncionario}");
 
                 Db.Delete(sqlExcluirFuncionario, AdicionarParametro("ID", id));
                 return true;
@@ -144,18 +144,18 @@ namespace LocadoraDeVeículos.Infra.SQL.FuncionarioModule
 
         public override Funcionario SelecionarPorId(int id)
         {
-            Log.log.Info($"Selecionando Funcionario por id: {id}");
+            Serilog.Log.Information($"Selecionando Funcionario por id: {id}");
 
-            Log.log.Debug($"SQL Selecionar Funcionario por id: {sqlSelecionarFuncionarioPorId}");
+            Serilog.Log.Debug($"SQL Selecionar Funcionario por id: {sqlSelecionarFuncionarioPorId}");
 
             return Db.Get(sqlSelecionarFuncionarioPorId, ConverterEmFuncionario, AdicionarParametro("ID", id));
         }
 
         public override List<Funcionario> SelecionarTodos()
         {
-            Log.log.Info($"Selecionando Todos os Funcionarios");
+            Serilog.Log.Information($"Selecionando Todos os Funcionarios");
 
-            Log.log.Debug($"SQL Selecionar Todos os Funcionarios: {sqlSelecionarTodosFuncionarios}");
+            Serilog.Log.Debug($"SQL Selecionar Todos os Funcionarios: {sqlSelecionarTodosFuncionarios}");
 
             return Db.GetAll(sqlSelecionarTodosFuncionarios, ConverterEmFuncionario);
         }

@@ -22,7 +22,7 @@ namespace LocadoraDeVeículos.Aplicacao.FuncionarioModule
         public string InserirNovo(Funcionario registro) 
         {
             string resultadoValidacao = registro.Validar();
-            Log.log.Info($"Validando Funcionario [{registro.Nome}], Resultado: {resultadoValidacao}");
+            Serilog.Log.Information($"Validando Funcionario [{registro.Nome}], Resultado: {resultadoValidacao}");
             if (resultadoValidacao == "ESTA_VALIDO")
             {
                 repositorio.InserirNovo(registro);
@@ -34,7 +34,7 @@ namespace LocadoraDeVeículos.Aplicacao.FuncionarioModule
         public string Editar(int id, Funcionario registro)
         {
             string resultadoValidacao = registro.Validar();
-            Log.log.Info($"Validando Funcionario [{registro.Nome}]: {id}, Resultado: {resultadoValidacao}");
+            Serilog.Log.Information($"Validando Funcionario [{registro.Nome}]: {id}, Resultado: {resultadoValidacao}");
             if (resultadoValidacao == "ESTA_VALIDO")
             {
                 repositorio.Editar(id, registro);
