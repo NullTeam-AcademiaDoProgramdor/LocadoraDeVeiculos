@@ -8,6 +8,7 @@ namespace LocadoraDeVeiculos.Controladores.FuncionarioModule
 {
     public class ControladorFuncionario : Controlador<Funcionario>
     {
+        #region Queries
         private const string sqlInserirFuncionario =
             @"INSERT INTO FUNCIONARIO 
 	                (
@@ -85,26 +86,27 @@ namespace LocadoraDeVeiculos.Controladores.FuncionarioModule
 	                FROM
                         FUNCIONARIO";
 
-        public override string InserirNovo(Funcionario funcionario)
+        #endregion
+        public override string InserirNovo(Funcionario registro)
         {
-            string resultadoValidacao = funcionario.Validar();
+            string resultadoValidacao = registro.Validar();
 
             if (resultadoValidacao == "ESTA_VALIDO")
             {
-                funcionario.Id = Db.Insert(sqlInserirFuncionario, ObtemParametrosFuncionario(funcionario));
+                registro.Id = Db.Insert(sqlInserirFuncionario, ObtemParametrosFuncionario(registro));
             }
 
             return resultadoValidacao;
         }
 
-        public override string Editar(int id, Funcionario funcionario)
+        public override string Editar(int id, Funcionario registro)
         {
-            string resultadoValidacao = funcionario.Validar();
+            string resultadoValidacao = registro.Validar();
 
             if (resultadoValidacao == "ESTA_VALIDO")
             {
-                funcionario.Id = id;
-                Db.Update(sqlEditarFuncionario, ObtemParametrosFuncionario(funcionario));
+                registro.Id = id;
+                Db.Update(sqlEditarFuncionario, ObtemParametrosFuncionario(registro));
             }
 
             return resultadoValidacao;

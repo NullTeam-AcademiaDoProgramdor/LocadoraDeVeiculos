@@ -1,4 +1,5 @@
 ﻿using LocadoraDeVeiculos.Dominio.FuncionarioModule;
+using LocadoraDeVeiculos.Infra.Log;
 using LocadoraDeVeículos.Infra.Shared;
 using LocadoraDeVeiculos.Infra.Shared;
 using System;
@@ -91,41 +92,49 @@ namespace LocadoraDeVeículos.Infra.SQL.FuncionarioModule
                         FUNCIONARIO";
         #endregion
 
-        public override bool InserirNovo(Funcionario funcionario)
+        public override bool InserirNovo(Funcionario registro)
         {
-            funcionario.Id = Db.Insert(sqlInserirFuncionario, ObtemParametrosFuncionario(funcionario));
-            return funcionario.Id != 0;
-        }
+            Log.log.Info($"Inserindo Funcionario [{registro.Nome}]");
+            Log.log.Debug($"SQL inserir Funcionario: {sqlInserirFuncionario}");
+            registro.Id = Db.Insert(sqlInserirFuncionario, ObtemParametrosFuncionario(registro));
+            return registro.Id != 0;
 
-        public override bool Editar(int id, Funcionario funcionario)
+          
+        }
+       
+        public override bool Editar(int id, Funcionario registro)
         {
-            funcionario.Id = id;
-            Db.Update(sqlEditarFuncionario, ObtemParametrosFuncionario(funcionario));
             try
             {
-                funcionario.Id = id;
-                Db.Update(sqlEditarFuncionario, ObtemParametrosFuncionario(funcionario));
+                Log.log.Info($"Editando Funcionario [{registro.Nome}]:{id}");
+                Log.log.Debug($"SQL editar pessoa fisica: {sqlEditarFuncionario}");
 
+                registro.Id = id;
+                Db.Update(sqlEditarFuncionario, ObtemParametrosFuncionario(registro));
                 return true;
             }
             catch (Exception)
             {
                 return false;
             }
+
         }
 
         public override bool Excluir(int id)
         {
             try
             {
+                Log.log.Info($"Excluindo Funcionario{id}");
+
+                Log.log.Debug($"SQL excluir pessoa fisica: {sqlExcluirFuncionario}");
+
                 Db.Delete(sqlExcluirFuncionario, AdicionarParametro("ID", id));
+                return true;
             }
             catch (Exception)
             {
                 return false;
             }
-
-            return true;
         }
 
         public override bool Existe(int id)
@@ -135,11 +144,19 @@ namespace LocadoraDeVeículos.Infra.SQL.FuncionarioModule
 
         public override Funcionario SelecionarPorId(int id)
         {
+            Log.log.Info($"Selecionando Funcionario por id: {id}");
+
+            Log.log.Debug($"SQL Selecionar Funcionario por id: {sqlSelecionarFuncionarioPorId}");
+
             return Db.Get(sqlSelecionarFuncionarioPorId, ConverterEmFuncionario, AdicionarParametro("ID", id));
         }
 
         public override List<Funcionario> SelecionarTodos()
         {
+            Log.log.Info($"Selecionando Todos os Funcionarios");
+
+            Log.log.Debug($"SQL Selecionar Todos os Funcionarios: {sqlSelecionarTodosFuncionarios}");
+
             return Db.GetAll(sqlSelecionarTodosFuncionarios, ConverterEmFuncionario);
         }
 
