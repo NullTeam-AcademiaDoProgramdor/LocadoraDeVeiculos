@@ -65,7 +65,7 @@ namespace LocadoraDeVeículos.Aplicacao.LocacaoModule
                         : locacao.Condutor.PessoaJuridica.Email;
 
                 string pdf = repositorioPDF.GerarPdf(new Relatorio(locacao));
-                Log.log.Info($"Enviando locacao [{locacao}] para GeradorPDF");
+                Serilog.Log.Information($"Enviando locacao [{locacao}] para GeradorPDF");
 
                 emailAppService
                     .AdicionarEmail("Aqui está o relatório de sua locação finalizada.",

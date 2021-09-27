@@ -59,9 +59,9 @@ namespace LocadoraDeVeículos.Infra.SQL.AutomovelModule
 
         private void Inserir(Image[] imagens, int automovelId)
         {
-            Log.log.Info($"Inserindo Imagens [{imagens}]");
+            Serilog.Log.Information($"Inserindo Imagens [{imagens}]");
 
-            Log.log.Debug($"SQL inserir imagens: {sqlInserirImagens}");
+            Serilog.Log.Debug($"SQL inserir imagens: {sqlInserirImagens}");
 
             foreach (Image foto in imagens)
             {
@@ -78,9 +78,9 @@ namespace LocadoraDeVeículos.Infra.SQL.AutomovelModule
 
             try
             {
-                Log.log.Info($"Excluindo Imagens {id}");
+                Serilog.Log.Information($"Excluindo Imagens {id}");
 
-                Log.log.Debug($"SQL excluir imagens: {sqlExcluirImagens}");
+                Serilog.Log.Debug($"SQL excluir imagens: {sqlExcluirImagens}");
 
                 Db.Delete(sqlExcluirImagens, parametros);
             }

@@ -62,9 +62,9 @@ namespace LocadoraDeVeículos.Infra.SQL.ParceiroModule
 
         public override bool InserirNovo(Parceiro registro)
         {
-            Log.log.Info($"Inserindo Parceiro [{registro.Nome}]");
+            Serilog.Log.Information($"Inserindo Parceiro [{registro.Nome}]");
 
-            Log.log.Debug($"SQL inserir parceiro: {sqlInserirParceiro}");
+            Serilog.Log.Debug($"SQL inserir parceiro: {sqlInserirParceiro}");
             registro.Id = Db.Insert(sqlInserirParceiro, ObtemParametrosParceiro(registro));
             return registro.Id != 0;
         }
@@ -73,9 +73,9 @@ namespace LocadoraDeVeículos.Infra.SQL.ParceiroModule
         {
             try
             {
-                Log.log.Info($"Editando Parceiro [{registro.Nome}]:{id}");
+                Serilog.Log.Information($"Editando Parceiro [{registro.Nome}]:{id}");
 
-                Log.log.Debug($"SQL editar parceiro: {sqlEditarParceiro}");
+                Serilog.Log.Debug($"SQL editar parceiro: {sqlEditarParceiro}");
 
                 registro.Id = id;
                 Db.Update(sqlEditarParceiro, ObtemParametrosParceiro(registro));
@@ -91,9 +91,9 @@ namespace LocadoraDeVeículos.Infra.SQL.ParceiroModule
         {
             try
             {
-                Log.log.Info($"Excluindo Parceiro {id}");
+                Serilog.Log.Information($"Excluindo Parceiro {id}");
 
-                Log.log.Debug($"SQL excluir parceiro: {sqlExcluirParceiro}");
+                Serilog.Log.Debug($"SQL excluir parceiro: {sqlExcluirParceiro}");
                 Db.Delete(sqlExcluirParceiro, AdicionarParametro("ID", id));
             }
             catch (Exception)
@@ -112,17 +112,17 @@ namespace LocadoraDeVeículos.Infra.SQL.ParceiroModule
 
         public override Parceiro SelecionarPorId(int id)
         {
-            Log.log.Info($"Selecionando Parceiro por id: {id}");
+            Serilog.Log.Information($"Selecionando Parceiro por id: {id}");
 
-            Log.log.Debug($"SQL Selecionar parceiro por id: {sqlSelecionarParceiroPorId}");
+            Serilog.Log.Debug($"SQL Selecionar parceiro por id: {sqlSelecionarParceiroPorId}");
             return Db.Get(sqlSelecionarParceiroPorId, ConverterEmParceiro, AdicionarParametro("ID", id));
         }
 
         public override List<Parceiro> SelecionarTodos()
         {
-            Log.log.Info($"Selecionando Parceiro todos os parceiros");
+            Serilog.Log.Information($"Selecionando Parceiro todos os parceiros");
 
-            Log.log.Debug($"SQL Selecionar todos os parceiros: {sqlSelecionarTodosParceiros}");
+            Serilog.Log.Debug($"SQL Selecionar todos os parceiros: {sqlSelecionarTodosParceiros}");
             return Db.GetAll(sqlSelecionarTodosParceiros, ConverterEmParceiro);
         }
 

@@ -22,7 +22,7 @@ namespace LocadoraDeVeículos.Aplicacao.TaxaEServicoModule
         public string InserirNovo(TaxaEServico registro)
         {
             string resultadoValidacao = registro.Validar();
-            Log.log.Info($"Validando Taxa e Serviço [{registro.Nome}], Resultado: {resultadoValidacao}");
+            Serilog.Log.Information($"Validando Taxa e Serviço [{registro.Nome}], Resultado: {resultadoValidacao}");
 
             if (resultadoValidacao == "ESTA_VALIDO")
             {
@@ -35,7 +35,7 @@ namespace LocadoraDeVeículos.Aplicacao.TaxaEServicoModule
         public string Editar(int id, TaxaEServico registro)
         {
             string resultadoValidacao = registro.Validar();
-            Log.log.Info($"Validando Taxa e Serviço [{registro.Nome}]: {id}, Resultado: {resultadoValidacao}");
+            Serilog.Log.Information($"Validando Taxa e Serviço [{registro.Nome}]: {id}, Resultado: {resultadoValidacao}");
 
             if (resultadoValidacao == "ESTA_VALIDO")
             {

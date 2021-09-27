@@ -38,7 +38,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
             }
 
             funcionario = controladorFuncionario.SelecionarPorNomeESenha(txtNome.Text, txtSenha.Text);
-            Log.log.Info("Tentativa de Login");
+            Serilog.Log.Information("Tentativa de Login");
 
             if (funcionario != null)
             {

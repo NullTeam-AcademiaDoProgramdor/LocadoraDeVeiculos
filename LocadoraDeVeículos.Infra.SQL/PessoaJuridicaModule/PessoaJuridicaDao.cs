@@ -82,9 +82,9 @@ namespace LocadoraDeVeículos.Infra.SQL.PessoaJuridicaModule
 
         public override bool InserirNovo(PessoaJuridica registro)
         {
-            Log.log.Info($"Inserindo Pessoa Jurídica [{registro.Nome}]");
+            Serilog.Log.Information($"Inserindo Pessoa Jurídica [{registro.Nome}]");
 
-            Log.log.Debug($"SQL inserir Pessoa Jurídica: {sqlInserirPessoaJuridica}");
+            Serilog.Log.Debug($"SQL inserir Pessoa Jurídica: {sqlInserirPessoaJuridica}");
             registro.Id = Db.Insert(sqlInserirPessoaJuridica, ObtemParametrosPessoaJuridica(registro));
             return registro.Id != 0;
         }
@@ -93,9 +93,9 @@ namespace LocadoraDeVeículos.Infra.SQL.PessoaJuridicaModule
         {
             try
             {
-                Log.log.Info($"Editando Pessoa Jurídica [{registro.Nome}]:{id}");
+                Serilog.Log.Information($"Editando Pessoa Jurídica [{registro.Nome}]:{id}");
 
-                Log.log.Debug($"SQL editar Pessoa Jurídica: {sqlEditarPessoaJuridica}");
+                Serilog.Log.Debug($"SQL editar Pessoa Jurídica: {sqlEditarPessoaJuridica}");
                 registro.Id = id;
                 Db.Update(sqlEditarPessoaJuridica, ObtemParametrosPessoaJuridica(registro));
                 return true;
@@ -110,9 +110,9 @@ namespace LocadoraDeVeículos.Infra.SQL.PessoaJuridicaModule
         {
             try
             {
-                Log.log.Info($"Excluindo Pessoa Jurídica {id}");
+                Serilog.Log.Information($"Excluindo Pessoa Jurídica {id}");
 
-                Log.log.Debug($"SQL excluir Pessoa Jurídica: {sqlExcluirPessoaJuridica}");
+                Serilog.Log.Debug($"SQL excluir Pessoa Jurídica: {sqlExcluirPessoaJuridica}");
                 Db.Delete(sqlExcluirPessoaJuridica, AdicionarParametro("ID", id));
             }
             catch (Exception)
@@ -131,17 +131,17 @@ namespace LocadoraDeVeículos.Infra.SQL.PessoaJuridicaModule
 
         public override PessoaJuridica SelecionarPorId(int id)
         {
-            Log.log.Info($"Selecionando Pessoa Jurídica por id: {id}");
+            Serilog.Log.Information($"Selecionando Pessoa Jurídica por id: {id}");
 
-            Log.log.Debug($"SQL Selecionar Pessoa Jurídica por id: {sqlSelecionarPessoaJuridicaPorId}");
+            Serilog.Log.Debug($"SQL Selecionar Pessoa Jurídica por id: {sqlSelecionarPessoaJuridicaPorId}");
             return Db.Get(sqlSelecionarPessoaJuridicaPorId, ConverterEmPessoaJuridica, AdicionarParametro("ID", id));
         }
 
         public override List<PessoaJuridica> SelecionarTodos()
         {
-            Log.log.Info($"Selecionando todas as Pessoa Jurídica");
+            Serilog.Log.Information($"Selecionando todas as Pessoa Jurídica");
 
-            Log.log.Debug($"SQL Selecionar todas as Pessoa Jurídica: {sqlSelecionarTodosPessoasJuridicas}");
+            Serilog.Log.Debug($"SQL Selecionar todas as Pessoa Jurídica: {sqlSelecionarTodosPessoasJuridicas}");
             return Db.GetAll(sqlSelecionarTodosPessoasJuridicas, ConverterEmPessoaJuridica);
         }
 

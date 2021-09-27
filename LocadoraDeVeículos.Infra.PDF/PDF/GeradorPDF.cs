@@ -29,7 +29,7 @@ namespace LocadoraDeVeículos.Infra.PDF.PDFModule
         public virtual string GerarPdf(Relatorio relatorio)
         {
             this.relatorio = relatorio;
-            Log.log.Info($"Recebendo relatorio [{relatorio}]");
+            Serilog.Log.Information($"Recebendo relatorio [{relatorio}]");
 
             string nomeArquivo = GerarNomeUnico();
 
@@ -52,7 +52,7 @@ namespace LocadoraDeVeículos.Infra.PDF.PDFModule
 
             }
 
-            Log.log.Info($"Gerando PDF do Relatorio [{relatorio}]");
+            Serilog.Log.Information($"Gerando PDF do Relatorio [{relatorio}]");
 
             return nomeArquivo;
         }

@@ -21,7 +21,7 @@ namespace LocadoraDeVeículos.Aplicacao.CupomModule
         public string Editar(int id, Cupom registro)
         {
             string resultadoValidacao = registro.Validar();
-            Log.log.Info($"Validando cupom [{registro.Codigo}]: {id}, Resultado: {resultadoValidacao}");
+            Serilog.Log.Information($"Validando cupom [{registro.Codigo}]: {id}, Resultado: {resultadoValidacao}");
 
             if (resultadoValidacao == "ESTA_VALIDO")
             {
@@ -44,7 +44,7 @@ namespace LocadoraDeVeículos.Aplicacao.CupomModule
         public string InserirNovo(Cupom registro)
         {
             string resultadoValidacao = registro.Validar();
-            Log.log.Info($"Validando cupom [{registro.Codigo}], Resultado: {resultadoValidacao}");
+            Serilog.Log.Information($"Validando cupom [{registro.Codigo}], Resultado: {resultadoValidacao}");
 
             if (resultadoValidacao == "ESTA_VALIDO")
             {

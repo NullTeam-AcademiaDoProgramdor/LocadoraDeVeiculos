@@ -25,7 +25,7 @@ namespace LocadoraDeVeículos.Aplicacao.AutomovelModule
         public string Editar(int id, Automovel registro)
         {
             string resultadoValidacao = registro.Validar();
-            Log.log.Info($"Validando automovel [{registro.Modelo}]: {id}, Resultado: {resultadoValidacao}");
+            Serilog.Log.Information($"Validando automovel [{registro.Modelo}]: {id}, Resultado: {resultadoValidacao}");
 
             if (resultadoValidacao == "ESTA_VALIDO")
             {
@@ -49,7 +49,7 @@ namespace LocadoraDeVeículos.Aplicacao.AutomovelModule
         public string EditarKmRegistrada(int id, Automovel registro)
         {
             string resultadoValidacao = registro.Validar();
-            Log.log.Info($"Validando automovel [{registro.Modelo}], Resultado: {resultadoValidacao}");
+            Serilog.Log.Information($"Validando automovel [{registro.Modelo}], Resultado: {resultadoValidacao}");
 
             if (resultadoValidacao == "ESTA_VALIDO")
             {
@@ -62,7 +62,7 @@ namespace LocadoraDeVeículos.Aplicacao.AutomovelModule
         public string InserirNovo(Automovel registro)
         {
             string resultadoValidacao = registro.Validar();
-            Log.log.Info($"Validando automovel [{registro.Modelo}], Resultado: {resultadoValidacao}");
+            Serilog.Log.Information($"Validando automovel [{registro.Modelo}], Resultado: {resultadoValidacao}");
 
             if (resultadoValidacao == "ESTA_VALIDO")
             {

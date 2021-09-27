@@ -23,6 +23,12 @@ namespace LocadoraDeVeiculos.WindowsApp
         [STAThread]
         static void Main()
         {
+            Log.ConfigurarLog();
+
+            string contexto = "Locação";
+
+            Serilog.Log.Information("Log de {Feature}", contexto);
+
             try
             {
                 EmailAppService emailService =
@@ -38,7 +44,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             }
             catch(Exception e)
             {
-                Log.log.Fatal(e.Message, e);
+                Serilog.Log.Fatal(e.Message, e);
             }
         }
     }

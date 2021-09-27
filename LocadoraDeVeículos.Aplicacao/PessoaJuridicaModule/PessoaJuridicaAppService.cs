@@ -22,7 +22,7 @@ namespace LocadoraDeVeículos.Aplicacao.PessoaJuridicaModule
         public string InserirNovo(PessoaJuridica registro)
         {
             string resultadoValidacao = registro.Validar();
-            Log.log.Info($"Validando Pessoa Jurídica [{registro.Nome}], Resultado: {resultadoValidacao}");
+            Serilog.Log.Information($"Validando Pessoa Jurídica [{registro.Nome}], Resultado: {resultadoValidacao}");
 
             if (resultadoValidacao == "ESTA_VALIDO")
             {
@@ -35,7 +35,7 @@ namespace LocadoraDeVeículos.Aplicacao.PessoaJuridicaModule
         public string Editar(int id, PessoaJuridica registro)
         {
             string resultadoValidacao = registro.Validar();
-            Log.log.Info($"Validando Pessoa Jurídica [{registro.Nome}]: {id}, Resultado: {resultadoValidacao}");
+            Serilog.Log.Information($"Validando Pessoa Jurídica [{registro.Nome}]: {id}, Resultado: {resultadoValidacao}");
 
             if (resultadoValidacao == "ESTA_VALIDO")
             {
