@@ -1,6 +1,6 @@
 ﻿using LocadoraDeVeiculos.Dominio.CupomModule;
 using LocadoraDeVeiculos.Dominio.ParceiroModule;
-using LocadoraDeVeículos.Infra.Log;
+using LocadoraDeVeiculos.Infra.Log;
 using LocadoraDeVeículos.Infra.Shared;
 using LocadoraDeVeiculos.Infra.Shared;
 using System;
@@ -160,7 +160,7 @@ namespace LocadoraDeVeículos.Infra.SQL.CupomModule
 
         public override bool EditarQtdUsos(Cupom cupom)
         {
-            Log.log.Inf($"Editando a quantidade de usos do cupom [{cupom.Codigo}]");
+            Log.log.Info($"Editando a quantidade de usos do cupom [{cupom.Codigo}]");
 
             cupom.QtdUsos++;
             return Editar(cupom.Id, cupom);

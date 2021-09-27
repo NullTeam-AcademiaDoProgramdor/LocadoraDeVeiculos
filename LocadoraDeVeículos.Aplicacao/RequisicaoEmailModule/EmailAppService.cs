@@ -10,7 +10,7 @@ using System.Net.Mime;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using LocadoraDeVeículos.Infra.Log;
+using LocadoraDeVeiculos.Infra.Log;
 
 namespace LocadoraDeVeículos.Aplicacao.RequisicaoEmailModule
 {
