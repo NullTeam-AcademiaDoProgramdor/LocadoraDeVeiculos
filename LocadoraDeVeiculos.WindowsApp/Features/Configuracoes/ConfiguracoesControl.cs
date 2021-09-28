@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LocadoraDeVeiculos.Infra.Configuracoes;
+using LocadoraDeVeiculos.Infra.Log;
 
 namespace LocadoraDeVeiculos.WindowsApp.Features.Configuracoes
 {
@@ -30,6 +31,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Configuracoes
 
             checkBSabados.Checked = Configuracao.AbreNoSabado;
             checkBDomingos.Checked = Configuracao.AbreNoDomingo;
+
+            checkBLogDetalhado.Checked = Configuracao.LogDetalhado;
         }
 
         private DateTime ConverterTimeSpanParaDateTime(TimeSpan hora)
@@ -87,6 +90,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Configuracoes
 
                 Configuracao.AbreNoSabado = checkBSabados.Checked;
                 Configuracao.AbreNoDomingo = checkBDomingos.Checked;
+
+                Configuracao.LogDetalhado = checkBLogDetalhado.Checked;
+                Log.SetDetalharLog(checkBLogDetalhado.Checked);
 
                 TelaPrincipalForm.Instancia.AtualizarRodape("Configurações salvadas com sucesso!");
             }

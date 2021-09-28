@@ -25,10 +25,6 @@ namespace LocadoraDeVeiculos.WindowsApp
         {
             Log.ConfigurarLog();
 
-            string contexto = "Locação";
-
-            Serilog.Log.Information("Log de {Feature}", contexto);
-
             try
             {
                 EmailAppService emailService =

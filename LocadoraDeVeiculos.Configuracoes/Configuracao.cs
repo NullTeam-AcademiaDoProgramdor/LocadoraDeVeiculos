@@ -22,6 +22,8 @@ namespace LocadoraDeVeiculos.Infra.Configuracoes
 
                 {"abreNoSabado", "false" },
                 {"abreNoDomingo", "false" },
+
+                {"logDetalhado", "false" }
             };
 
         private static AppConfigControler appConfigControler;
@@ -148,6 +150,22 @@ namespace LocadoraDeVeiculos.Infra.Configuracoes
             {
                 Serilog.Log.Information($"Setando abre no domingo: {value}");
                 appConfigControler.Setar("abreNoDomingo", value);
+            }
+        }
+
+        public static bool LogDetalhado
+        {
+            get
+            {
+                bool valor = Convert.ToBoolean(appConfigControler.Ler("logDetalhado"));
+                Serilog.Log.Information($"Lendo log detalhado, valor lido: {valor}");
+                return valor;
+            }
+
+            set
+            {
+                Serilog.Log.Information($"Setando log detalhado: {value}");
+                appConfigControler.Setar("logDetalhado", value);
             }
         }
     }
