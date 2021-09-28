@@ -11,14 +11,18 @@ namespace LocadoraDeVeiculos.Infra.Log
 {
     public static class Log
     {
-
+        private const LogEventLevel LOG_OFF = ((LogEventLevel)1 + (int)LogEventLevel.Fatal);
         private static LoggingLevelSwitch levelSwitch = new();
 
         public static void ConfigurarLog()
         {
+            if (LogEstaAtivado())
+            {
+                bool logDetalhado = LerSeLogEstaDetalhado();
+                SetDetalharLog(logDetalhado);
+            } else
+                levelSwitch.MinimumLevel = LOG_OFF;
 
-            bool logDetalhado = LerSeLogEstaDetalhado();
-            SetDetalharLog(logDetalhado);
 
             Serilog.Log.Logger = new LoggerConfiguration()
                 .MinimumLevel.ControlledBy(levelSwitch)
@@ -29,6 +33,9 @@ namespace LocadoraDeVeiculos.Infra.Log
         }
         public static void SetDetalharLog(bool ativo)
         {
+            if (!LogEstaAtivado())
+                return;
+
             if (ativo)
                 levelSwitch.MinimumLevel = LogEventLevel.Debug;
             else
@@ -38,5 +45,7 @@ namespace LocadoraDeVeiculos.Infra.Log
         private static bool LerSeLogEstaDetalhado() 
             => Convert.ToBoolean(ConfigurationManager.AppSettings["logDetalhado"]);
 
+        private static bool LogEstaAtivado()
+            => Convert.ToBoolean(ConfigurationManager.AppSettings["ativarLog"]);
     }
 }

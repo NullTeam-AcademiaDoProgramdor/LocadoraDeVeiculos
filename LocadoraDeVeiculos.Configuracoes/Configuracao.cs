@@ -23,7 +23,8 @@ namespace LocadoraDeVeiculos.Infra.Configuracoes
                 {"abreNoSabado", "false" },
                 {"abreNoDomingo", "false" },
 
-                {"logDetalhado", "false" }
+                {"logDetalhado", "false" },
+                {"ativarLog", "true" }
             };
 
         private static AppConfigControler appConfigControler;
@@ -168,5 +169,7 @@ namespace LocadoraDeVeiculos.Infra.Configuracoes
                 appConfigControler.Setar("logDetalhado", value);
             }
         }
+
+
     }
 }
