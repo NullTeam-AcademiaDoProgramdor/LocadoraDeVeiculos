@@ -100,8 +100,9 @@ namespace LocadoraDeVeículos.Infra.SQL.PessoaJuridicaModule
                 Db.Update(sqlEditarPessoaJuridica, ObtemParametrosPessoaJuridica(registro));
                 return true;
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                Serilog.Log.Error(e, e.Message);
                 return false;
             }
         }
@@ -115,8 +116,9 @@ namespace LocadoraDeVeículos.Infra.SQL.PessoaJuridicaModule
                 Serilog.Log.Debug($"SQL excluir Pessoa Jurídica: {sqlExcluirPessoaJuridica}");
                 Db.Delete(sqlExcluirPessoaJuridica, AdicionarParametro("ID", id));
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                Serilog.Log.Error(e, e.Message);
                 return false;
             }
 

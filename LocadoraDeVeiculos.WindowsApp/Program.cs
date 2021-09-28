@@ -42,9 +42,9 @@ namespace LocadoraDeVeiculos.WindowsApp
 
                 emailService.Parar();
             }
-            catch(Exception e)
+            catch (Exception e)
             {
-                Serilog.Log.Fatal(e.Message, e);
+                Serilog.Log.Fatal(e, e.Message);
             }
         }
     }

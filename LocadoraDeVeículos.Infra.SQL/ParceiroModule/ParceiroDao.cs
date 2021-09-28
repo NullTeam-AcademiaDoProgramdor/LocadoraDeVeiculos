@@ -81,8 +81,9 @@ namespace LocadoraDeVeículos.Infra.SQL.ParceiroModule
                 Db.Update(sqlEditarParceiro, ObtemParametrosParceiro(registro));
                 return true;
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                Serilog.Log.Error(e, e.Message);
                 return false;
             }
         }
@@ -96,8 +97,9 @@ namespace LocadoraDeVeículos.Infra.SQL.ParceiroModule
                 Serilog.Log.Debug($"SQL excluir parceiro: {sqlExcluirParceiro}");
                 Db.Delete(sqlExcluirParceiro, AdicionarParametro("ID", id));
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                Serilog.Log.Error(e, e.Message);
                 return false;
             }
 

@@ -113,8 +113,9 @@ namespace LocadoraDeVeículos.Infra.SQL.FuncionarioModule
                 Db.Update(sqlEditarFuncionario, ObtemParametrosFuncionario(registro));
                 return true;
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                Serilog.Log.Error(e, e.Message);
                 return false;
             }
 
@@ -131,8 +132,9 @@ namespace LocadoraDeVeículos.Infra.SQL.FuncionarioModule
                 Db.Delete(sqlExcluirFuncionario, AdicionarParametro("ID", id));
                 return true;
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                Serilog.Log.Error(e, e.Message);
                 return false;
             }
         }

@@ -115,8 +115,10 @@ namespace LocadoraDeVeículos.Infra.SQL.GrupoAutomovelModule
                 Db.Update(sqlEditarGrupo, ObtemParametrosGrupo(registro));
 
                 return true;
-            } catch (Exception)
+            }
+            catch (Exception e )
             {
+                Serilog.Log.Error(e, e.Message);
                 return false;
             }
         }
@@ -130,8 +132,9 @@ namespace LocadoraDeVeículos.Infra.SQL.GrupoAutomovelModule
                 Serilog.Log.Debug($"SQL excluir Grupo de Automóvel: {sqlExcluirGrupo}");
                 Db.Delete(sqlExcluirGrupo, AdicionarParametro("id", id));
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                Serilog.Log.Error(e, e.Message);
                 return false;
             }
 

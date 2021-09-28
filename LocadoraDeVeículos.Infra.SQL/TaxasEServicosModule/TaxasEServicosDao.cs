@@ -107,8 +107,9 @@ namespace LocadoraDeVeículos.Infra.SQL.TaxasEServicosModule
                 Db.Update(sqlEditarTaxaEServico, ObtemParametrosTaxaEServico(taxaOuServico));
                 return true;
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                Serilog.Log.Error(e, e.Message);
                 return false;
             }
         }
@@ -123,8 +124,9 @@ namespace LocadoraDeVeículos.Infra.SQL.TaxasEServicosModule
 
                 Db.Delete(sqlExcluirTaxaEServico, AdicionarParametro("ID", id));
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                Serilog.Log.Error(e, e.Message);
                 return false;
             }
 

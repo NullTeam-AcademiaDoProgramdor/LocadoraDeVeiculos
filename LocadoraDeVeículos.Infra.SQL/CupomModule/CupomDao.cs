@@ -152,8 +152,9 @@ namespace LocadoraDeVeículos.Infra.SQL.CupomModule
                 Db.Update(sqlEditarCupom, ObtemParametrosCupom(registro));
                 return true;
             } 
-            catch (Exception)
+            catch (Exception e)
             {
+                Serilog.Log.Error(e, e.Message);
                 return false;
             }
         }
@@ -176,8 +177,9 @@ namespace LocadoraDeVeículos.Infra.SQL.CupomModule
 
                 Db.Delete(sqlExcluirCupom, AdicionarParametro("ID", id));
             }
-            catch (Exception)
+            catch (Exception e )
             {
+                Serilog.Log.Error(e, e.Message);
                 return false;
             }
 

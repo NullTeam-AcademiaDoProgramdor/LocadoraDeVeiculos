@@ -62,8 +62,9 @@ namespace LocadoraDeVeículos.Infra.SQL.RequisicaoEmailModule
                 Db.Delete(sqlExcluirEmail, parametro);
 
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                Serilog.Log.Error(e, e.Message);
                 return false;
             }
 

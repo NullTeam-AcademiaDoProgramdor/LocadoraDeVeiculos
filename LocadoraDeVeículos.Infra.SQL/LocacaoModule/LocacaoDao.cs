@@ -155,8 +155,9 @@ namespace LocadoraDeVeículos.Infra.SQL.LocacaoModule
 
                 return true;
             }
-            catch (Exception)
+            catch (Exception e )
             {
+                Serilog.Log.Error(e, e.Message);
                 return false;
             }
         }
@@ -173,8 +174,9 @@ namespace LocadoraDeVeículos.Infra.SQL.LocacaoModule
                 
                 return true;
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                Serilog.Log.Error(e, e.Message);
                 return false;
             }
         }
@@ -190,8 +192,9 @@ namespace LocadoraDeVeículos.Infra.SQL.LocacaoModule
 
                 return true;
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                Serilog.Log.Error(e, e.Message);
                 return false;
             }
         }
@@ -205,8 +208,9 @@ namespace LocadoraDeVeículos.Infra.SQL.LocacaoModule
                 Serilog.Log.Debug($"SQL excluir Locação: {sqlExcluirLocacao}");
                 Db.Delete(sqlExcluirLocacao, AdicionarParametro("ID", id));
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                Serilog.Log.Error(e, e.Message);
                 return false;
             }
 

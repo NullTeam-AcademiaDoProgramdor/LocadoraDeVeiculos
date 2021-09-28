@@ -138,8 +138,9 @@ namespace LocadoraDeVeículos.Infra.SQL.PessoaFisicaModule
                 Db.Update(sqlEditarPessoaFisica, ObtemParametrosPessoaFisica(registro));
                 return true;
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                Serilog.Log.Error(e, e.Message);
                 return false;
             }
         }
@@ -155,8 +156,9 @@ namespace LocadoraDeVeículos.Infra.SQL.PessoaFisicaModule
                 Db.Delete(sqlExcluirPessoaFisica, AdicionarParametro("ID", id));
                 return true;
             }
-            catch(Exception)
+            catch(Exception e)
             {
+                Serilog.Log.Error(e, e.Message);
                 return false;
             }
         }

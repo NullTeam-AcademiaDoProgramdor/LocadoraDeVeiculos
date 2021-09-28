@@ -84,8 +84,9 @@ namespace LocadoraDeVeículos.Infra.SQL.AutomovelModule
 
                 Db.Delete(sqlExcluirImagens, parametros);
             }
-            catch (Exception)
+            catch (Exception e )
             {
+                Serilog.Log.Error(e, e.Message);
                 return false;
             }
 

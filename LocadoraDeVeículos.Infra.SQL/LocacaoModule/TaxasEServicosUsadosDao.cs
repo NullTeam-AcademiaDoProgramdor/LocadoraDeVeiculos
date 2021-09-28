@@ -75,8 +75,9 @@ namespace LocadoraDeVeículos.Infra.SQL.LocacaoModule
 
                 Db.Delete(sqlExcluirTaxaEServicoUsado, parametro);
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                Serilog.Log.Error(e, e.Message);
                 return false;
             }
 
