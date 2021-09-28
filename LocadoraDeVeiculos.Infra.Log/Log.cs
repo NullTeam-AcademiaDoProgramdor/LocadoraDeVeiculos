@@ -11,7 +11,7 @@ namespace LocadoraDeVeiculos.Infra.Log
     public static class Log
     {
 
-        public static LoggingLevelSwitch levelSwitch = new();
+        private static LoggingLevelSwitch levelSwitch = new();
 
         public static void ConfigurarLog()
         {
