@@ -83,7 +83,7 @@ namespace LocadoraDeVeículos.Infra.SQL.ParceiroModule
             }
             catch (Exception e)
             {
-                Serilog.Log.Error(e, e.Message);
+                Serilog.Log.Error(e, e.Message + $"\nID: {id}");
                 return false;
             }
         }
@@ -99,7 +99,7 @@ namespace LocadoraDeVeículos.Infra.SQL.ParceiroModule
             }
             catch (Exception e)
             {
-                Serilog.Log.Error(e, e.Message);
+                Serilog.Log.Error(e, e.Message + $"\nID: {id}");
                 return false;
             }
 

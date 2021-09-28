@@ -77,7 +77,7 @@ namespace LocadoraDeVeículos.Infra.SQL.LocacaoModule
             }
             catch (Exception e)
             {
-                Serilog.Log.Error(e, e.Message);
+                Serilog.Log.Error(e, e.Message + $"\nID: {taxaEServicoUsadoId}");
                 return false;
             }
 
