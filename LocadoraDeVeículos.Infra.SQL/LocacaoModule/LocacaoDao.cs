@@ -9,6 +9,7 @@ using LocadoraDeVeículos.Infra.SQL.PessoaFisicaModule;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -192,7 +193,7 @@ namespace LocadoraDeVeículos.Infra.SQL.LocacaoModule
 
                 return true;
             }
-            catch (Exception e)
+            catch (DbException e)
             {
                 Serilog.Log.Error(e, e.Message + $"\nID: {locacao.Automovel.Id}");
                 return false;

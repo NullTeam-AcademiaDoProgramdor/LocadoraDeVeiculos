@@ -2,6 +2,7 @@
 using System;
 using System.IO;
 using System.Reflection;
+using Serilog.Exceptions;
 
 namespace LocadoraDeVeiculos.Infra.Log
 {
@@ -10,6 +11,7 @@ namespace LocadoraDeVeiculos.Infra.Log
         public static void ConfigurarLog()
         {
             Serilog.Log.Logger = new LoggerConfiguration()
+                .Enrich.WithExceptionDetails()
                 .WriteTo.File("logs/log-.txt", rollingInterval: RollingInterval.Day)
                 .WriteTo.Seq("http://localhost:5341")
                 .CreateLogger();
