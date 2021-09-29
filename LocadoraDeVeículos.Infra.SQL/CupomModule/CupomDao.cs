@@ -144,7 +144,7 @@ namespace LocadoraDeVeículos.Infra.SQL.CupomModule
         {
             try
             {
-                Serilog.Log.Information($"Editando Cupom [{registro.Codigo}]:{id}");
+                Serilog.Log.Logger.Aqui().Information($"Editando Cupom [{registro.Codigo}]:{id}");
 
                 Serilog.Log.Debug($"SQL editar cupom: {sqlEditarCupom}");
 
@@ -161,7 +161,7 @@ namespace LocadoraDeVeículos.Infra.SQL.CupomModule
 
         public override bool EditarQtdUsos(Cupom cupom)
         {
-            Serilog.Log.Information($"Editando a quantidade de usos do cupom [{cupom.Codigo}]");
+            Serilog.Log.Logger.Aqui().Information($"Editando a quantidade de usos do cupom [{cupom.Codigo}]");
 
             cupom.QtdUsos++;
             return Editar(cupom.Id, cupom);
@@ -171,7 +171,7 @@ namespace LocadoraDeVeículos.Infra.SQL.CupomModule
         {
             try
             {
-                Serilog.Log.Information($"Excluindo Cupom {id}");
+                Serilog.Log.Logger.Aqui().Information($"Excluindo Cupom {id}");
 
                 Serilog.Log.Debug($"SQL excluir cupom: {sqlExcluirCupom}");
 
@@ -193,7 +193,7 @@ namespace LocadoraDeVeículos.Infra.SQL.CupomModule
 
         public override bool InserirNovo(Cupom registro)
         {
-            Serilog.Log.Information($"Inserindo Cupom [{registro.Codigo}]");
+            Serilog.Log.Logger.Aqui().Information($"Inserindo Cupom [{registro.Codigo}]");
 
             Serilog.Log.Debug($"SQL inserir cupom: {sqlInserirCupom}");
 
@@ -204,7 +204,7 @@ namespace LocadoraDeVeículos.Infra.SQL.CupomModule
         public override Cupom SelecionarPorId(int id)
         {
 
-            Serilog.Log.Information($"Selecionando Cupom por id: {id}");
+            Serilog.Log.Logger.Aqui().Information($"Selecionando Cupom por id: {id}");
 
             Serilog.Log.Debug($"SQL Selecionar cupom por id: {sqlSelecionarCupomPorId}");
 
@@ -213,7 +213,7 @@ namespace LocadoraDeVeículos.Infra.SQL.CupomModule
 
         public override List<Cupom> SelecionarTodos()
         {
-            Serilog.Log.Information($"Selecionando Cupom todos os cupons");
+            Serilog.Log.Logger.Aqui().Information($"Selecionando Cupom todos os cupons");
 
             Serilog.Log.Debug($"SQL Selecionar todos os cupons: {sqlSelecionarTodosCupons}");
 
@@ -222,7 +222,7 @@ namespace LocadoraDeVeículos.Infra.SQL.CupomModule
 
         public override Cupom SelecionarPorCodigo(string codigo)
         {
-            Serilog.Log.Information($"Selecionando Cupom por codigo: {codigo}");
+            Serilog.Log.Logger.Aqui().Information($"Selecionando Cupom por codigo: {codigo}");
 
             Serilog.Log.Debug($"SQL Selecionar cupom por codigo: {sqlSelecionarCupomPorCodigo}");
 
@@ -231,7 +231,7 @@ namespace LocadoraDeVeículos.Infra.SQL.CupomModule
 
         public override List<Cupom> SelecionarValidos()
         {
-            Serilog.Log.Information($"Selecionando Cupons validos");
+            Serilog.Log.Logger.Aqui().Information($"Selecionando Cupons validos");
 
             Serilog.Log.Debug($"SQL Selecionar cupons validos: {sqlSelecionarCuponsAindaValidos}");
 

@@ -39,12 +39,12 @@ namespace LocadoraDeVeiculos.Infra.Configuracoes
             get
             {
                 double preco = Convert.ToDouble(appConfigControler.Ler("precoGasolina"));
-                Serilog.Log.Information($"Lendo o preço da gasolina, valor lido: {preco}");
+                Serilog.Log.Logger.Aqui().Information($"Lendo o preço da gasolina, valor lido: {preco}");
                 return preco;
             }
             set
             {
-                Serilog.Log.Information($"Setando o preço da gasolina: {value}");
+                Serilog.Log.Logger.Aqui().Information($"Setando o preço da gasolina: {value}");
                 appConfigControler.Setar("precoGasolina", value);
             }
         }
@@ -54,12 +54,12 @@ namespace LocadoraDeVeiculos.Infra.Configuracoes
             get
             {
                 double preco = Convert.ToDouble(appConfigControler.Ler("precoGas"));
-                Serilog.Log.Information($"Lendo o preço do gas, valor lido: {preco}");
+                Serilog.Log.Logger.Aqui().Information($"Lendo o preço do gas, valor lido: {preco}");
                 return preco;
             }
             set
             {
-                Serilog.Log.Information($"Setando o preço do gas: {value}");
+                Serilog.Log.Logger.Aqui().Information($"Setando o preço do gas: {value}");
                 appConfigControler.Setar("precoGas", value);
             }
         }
@@ -69,12 +69,12 @@ namespace LocadoraDeVeiculos.Infra.Configuracoes
             get
             {
                 double preco = Convert.ToDouble(appConfigControler.Ler("precoDieses"));
-                Serilog.Log.Information($"Lendo o preço do diesel, valor lido: {preco}");
+                Serilog.Log.Logger.Aqui().Information($"Lendo o preço do diesel, valor lido: {preco}");
                 return preco;
             }
             set
             {
-                Serilog.Log.Information($"Setando o preço do diesel: {value}");
+                Serilog.Log.Logger.Aqui().Information($"Setando o preço do diesel: {value}");
                 appConfigControler.Setar("precoDieses", value);
             }
         }
@@ -84,12 +84,12 @@ namespace LocadoraDeVeiculos.Infra.Configuracoes
             get
             {
                 double preco = Convert.ToDouble(appConfigControler.Ler("precoAlcool"));
-                Serilog.Log.Information($"Lendo o preço do alcool, valor lido: {preco}");
+                Serilog.Log.Logger.Aqui().Information($"Lendo o preço do alcool, valor lido: {preco}");
                 return preco;
             }
             set
             {
-                Serilog.Log.Information($"Setando o preço do alcool: {value}");
+                Serilog.Log.Logger.Aqui().Information($"Setando o preço do alcool: {value}");
                 appConfigControler.Setar("precoAlcool", value);
             }
         }
@@ -99,12 +99,12 @@ namespace LocadoraDeVeiculos.Infra.Configuracoes
             get
             {
                 TimeSpan hora = TimeSpan.Parse(appConfigControler.Ler("horaAbertura"));
-                Serilog.Log.Information($"Lendo a hora de abertura, valor lido: {hora}");
+                Serilog.Log.Logger.Aqui().Information($"Lendo a hora de abertura, valor lido: {hora}");
                 return hora;
             }
             set
             {
-                Serilog.Log.Information($"Setando a hora de abertura: {value}");
+                Serilog.Log.Logger.Aqui().Information($"Setando a hora de abertura: {value}");
                 appConfigControler.Setar("horaAbertura", value);
             }
         }
@@ -114,12 +114,12 @@ namespace LocadoraDeVeiculos.Infra.Configuracoes
             get
             {
                 TimeSpan hora = TimeSpan.Parse(appConfigControler.Ler("horaFechamento"));
-                Serilog.Log.Information($"Lendo a hora de fechamento, valor lido: {hora}");
+                Serilog.Log.Logger.Aqui().Information($"Lendo a hora de fechamento, valor lido: {hora}");
                 return hora;
             }
             set
             {
-                Serilog.Log.Information($"Setando a hora de fechamento: {value}");
+                Serilog.Log.Logger.Aqui().Information($"Setando a hora de fechamento: {value}");
                 appConfigControler.Setar("horaFechamento", value);
             }
         }
@@ -129,12 +129,12 @@ namespace LocadoraDeVeiculos.Infra.Configuracoes
             get
             {
                 bool valor = Convert.ToBoolean(appConfigControler.Ler("abreNoSabado"));
-                Serilog.Log.Information($"Lendo abre no sabado, valor lido: {valor}");
+                Serilog.Log.Logger.Aqui().Information($"Lendo abre no sabado, valor lido: {valor}");
                 return valor;
             }
             set
             {
-                Serilog.Log.Information($"Setando abre no sabado: {value}");
+                Serilog.Log.Logger.Aqui().Information($"Setando abre no sabado: {value}");
                 appConfigControler.Setar("abreNoSabado", value);
             }
         }
@@ -144,12 +144,12 @@ namespace LocadoraDeVeiculos.Infra.Configuracoes
             get
             {
                 bool valor = Convert.ToBoolean(appConfigControler.Ler("abreNoDomingo"));
-                Serilog.Log.Information($"Lendo abre no domingo, valor lido: {valor}");
+                Serilog.Log.Logger.Aqui().Information($"Lendo abre no domingo, valor lido: {valor}");
                 return valor;
             }
             set
             {
-                Serilog.Log.Information($"Setando abre no domingo: {value}");
+                Serilog.Log.Logger.Aqui().Information($"Setando abre no domingo: {value}");
                 appConfigControler.Setar("abreNoDomingo", value);
             }
         }
@@ -159,13 +159,13 @@ namespace LocadoraDeVeiculos.Infra.Configuracoes
             get
             {
                 bool valor = Convert.ToBoolean(appConfigControler.Ler("logDetalhado"));
-                Serilog.Log.Information($"Lendo log detalhado, valor lido: {valor}");
+                Serilog.Log.Logger.Aqui().Information($"Lendo log detalhado, valor lido: {valor}");
                 return valor;
             }
 
             set
             {
-                Serilog.Log.Information($"Setando log detalhado: {value}");
+                Serilog.Log.Logger.Aqui().Information($"Setando log detalhado: {value}");
                 appConfigControler.Setar("logDetalhado", value);
             }
         }

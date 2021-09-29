@@ -22,7 +22,7 @@ namespace LocadoraDeVeículos.Aplicacao.ParceiroModule
         public string InserirNovo(Parceiro registro)
         {
             string resultadoValidacao = registro.Validar();
-            Serilog.Log.Information($"Validando parceiro [{registro.Nome}], Resultado: {resultadoValidacao}");
+            Serilog.Log.Logger.Aqui().Information($"Validando parceiro [{registro.Nome}], Resultado: {resultadoValidacao}");
 
             if (resultadoValidacao == "ESTA_VALIDO")
             {
@@ -35,7 +35,7 @@ namespace LocadoraDeVeículos.Aplicacao.ParceiroModule
         public string Editar(int id, Parceiro registro)
         {
             string resultadoValidacao = registro.Validar();
-            Serilog.Log.Information($"Validando parceiro [{registro.Nome}]: {id}, Resultado: {resultadoValidacao}");
+            Serilog.Log.Logger.Aqui().Information($"Validando parceiro [{registro.Nome}]: {id}, Resultado: {resultadoValidacao}");
 
             if (resultadoValidacao == "ESTA_VALIDO")
             {

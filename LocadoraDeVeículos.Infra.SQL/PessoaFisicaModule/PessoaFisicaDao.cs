@@ -118,7 +118,7 @@ namespace LocadoraDeVeículos.Infra.SQL.PessoaFisicaModule
 
         public override bool InserirNovo(PessoaFisica registro)
         {
-            Serilog.Log.Information($"Inserindo Pessoa Fisica [{registro.Nome}]");
+            Serilog.Log.Logger.Aqui().Information($"Inserindo Pessoa Fisica [{registro.Nome}]");
 
             Serilog.Log.Debug($"SQL inserir pessoa fisica: {sqlInserirPessoaFisica}");
 
@@ -130,7 +130,7 @@ namespace LocadoraDeVeículos.Infra.SQL.PessoaFisicaModule
         {
             try
             {
-                Serilog.Log.Information($"Editando Pessoa Fisica [{registro.Nome}]:{id}");
+                Serilog.Log.Logger.Aqui().Information($"Editando Pessoa Fisica [{registro.Nome}]:{id}");
 
                 Serilog.Log.Debug($"SQL editar pessoa fisica: {sqlEditarPessoaFisica}");
 
@@ -149,7 +149,7 @@ namespace LocadoraDeVeículos.Infra.SQL.PessoaFisicaModule
         {
             try 
             {
-                Serilog.Log.Information($"Excluindo Pessoa Fisica {id}");
+                Serilog.Log.Logger.Aqui().Information($"Excluindo Pessoa Fisica {id}");
 
                 Serilog.Log.Debug($"SQL excluir pessoa fisica: {sqlExcluirPessoaFisica}");
 
@@ -170,7 +170,7 @@ namespace LocadoraDeVeículos.Infra.SQL.PessoaFisicaModule
 
         public override PessoaFisica SelecionarPorId(int id)
         {
-            Serilog.Log.Information($"Selecionando Pessoa Fisica por id: {id}");
+            Serilog.Log.Logger.Aqui().Information($"Selecionando Pessoa Fisica por id: {id}");
 
             Serilog.Log.Debug($"SQL Selecionar pessoa fisica por id: {sqlSelecionarPessoaFisicaPorId}");
 
@@ -179,7 +179,7 @@ namespace LocadoraDeVeículos.Infra.SQL.PessoaFisicaModule
 
         public override List<PessoaFisica> SelecionarTodos()
         {
-            Serilog.Log.Information($"Selecionando Pessoa Fisica todas as pessoas fisicas");
+            Serilog.Log.Logger.Aqui().Information($"Selecionando Pessoa Fisica todas as pessoas fisicas");
 
             Serilog.Log.Debug($"SQL Selecionar todas as pessoas fisicas: {sqlSelecionarTodasPessoasFisicas}");
 

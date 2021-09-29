@@ -94,7 +94,7 @@ namespace LocadoraDeVeículos.Infra.SQL.FuncionarioModule
 
         public override bool InserirNovo(Funcionario registro)
         {
-            Serilog.Log.Information($"Inserindo Funcionario [{registro.Nome}]");
+            Serilog.Log.Logger.Aqui().Information($"Inserindo Funcionario [{registro.Nome}]");
             Serilog.Log.Debug($"SQL inserir Funcionario: {sqlInserirFuncionario}");
             registro.Id = Db.Insert(sqlInserirFuncionario, ObtemParametrosFuncionario(registro));
             return registro.Id != 0;
@@ -106,7 +106,7 @@ namespace LocadoraDeVeículos.Infra.SQL.FuncionarioModule
         {
             try
             {
-                Serilog.Log.Information($"Editando Funcionario [{registro.Nome}]:{id}");
+                Serilog.Log.Logger.Aqui().Information($"Editando Funcionario [{registro.Nome}]:{id}");
                 Serilog.Log.Debug($"SQL editar pessoa fisica: {sqlEditarFuncionario}");
 
                 registro.Id = id;
@@ -125,7 +125,7 @@ namespace LocadoraDeVeículos.Infra.SQL.FuncionarioModule
         {
             try
             {
-                Serilog.Log.Information($"Excluindo Funcionario{id}");
+                Serilog.Log.Logger.Aqui().Information($"Excluindo Funcionario{id}");
 
                 Serilog.Log.Debug($"SQL excluir pessoa fisica: {sqlExcluirFuncionario}");
 
@@ -146,7 +146,7 @@ namespace LocadoraDeVeículos.Infra.SQL.FuncionarioModule
 
         public override Funcionario SelecionarPorId(int id)
         {
-            Serilog.Log.Information($"Selecionando Funcionario por id: {id}");
+            Serilog.Log.Logger.Aqui().Information($"Selecionando Funcionario por id: {id}");
 
             Serilog.Log.Debug($"SQL Selecionar Funcionario por id: {sqlSelecionarFuncionarioPorId}");
 
@@ -155,7 +155,7 @@ namespace LocadoraDeVeículos.Infra.SQL.FuncionarioModule
 
         public override List<Funcionario> SelecionarTodos()
         {
-            Serilog.Log.Information($"Selecionando Todos os Funcionarios");
+            Serilog.Log.Logger.Aqui().Information($"Selecionando Todos os Funcionarios");
 
             Serilog.Log.Debug($"SQL Selecionar Todos os Funcionarios: {sqlSelecionarTodosFuncionarios}");
 

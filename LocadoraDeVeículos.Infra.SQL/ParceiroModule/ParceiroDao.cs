@@ -62,7 +62,7 @@ namespace LocadoraDeVeículos.Infra.SQL.ParceiroModule
 
         public override bool InserirNovo(Parceiro registro)
         {
-            Serilog.Log.Information($"Inserindo Parceiro [{registro.Nome}]");
+            Serilog.Log.Logger.Aqui().Information($"Inserindo Parceiro [{registro.Nome}]");
 
             Serilog.Log.Debug($"SQL inserir parceiro: {sqlInserirParceiro}");
             registro.Id = Db.Insert(sqlInserirParceiro, ObtemParametrosParceiro(registro));
@@ -73,7 +73,7 @@ namespace LocadoraDeVeículos.Infra.SQL.ParceiroModule
         {
             try
             {
-                Serilog.Log.Information($"Editando Parceiro [{registro.Nome}]:{id}");
+                Serilog.Log.Logger.Aqui().Information($"Editando Parceiro [{registro.Nome}]:{id}");
 
                 Serilog.Log.Debug($"SQL editar parceiro: {sqlEditarParceiro}");
 
@@ -92,7 +92,7 @@ namespace LocadoraDeVeículos.Infra.SQL.ParceiroModule
         {
             try
             {
-                Serilog.Log.Information($"Excluindo Parceiro {id}");
+                Serilog.Log.Logger.Aqui().Information($"Excluindo Parceiro {id}");
 
                 Serilog.Log.Debug($"SQL excluir parceiro: {sqlExcluirParceiro}");
                 Db.Delete(sqlExcluirParceiro, AdicionarParametro("ID", id));
@@ -114,7 +114,7 @@ namespace LocadoraDeVeículos.Infra.SQL.ParceiroModule
 
         public override Parceiro SelecionarPorId(int id)
         {
-            Serilog.Log.Information($"Selecionando Parceiro por id: {id}");
+            Serilog.Log.Logger.Aqui().Information($"Selecionando Parceiro por id: {id}");
 
             Serilog.Log.Debug($"SQL Selecionar parceiro por id: {sqlSelecionarParceiroPorId}");
             return Db.Get(sqlSelecionarParceiroPorId, ConverterEmParceiro, AdicionarParametro("ID", id));
@@ -122,7 +122,7 @@ namespace LocadoraDeVeículos.Infra.SQL.ParceiroModule
 
         public override List<Parceiro> SelecionarTodos()
         {
-            Serilog.Log.Information($"Selecionando Parceiro todos os parceiros");
+            Serilog.Log.Logger.Aqui().Information($"Selecionando Parceiro todos os parceiros");
 
             Serilog.Log.Debug($"SQL Selecionar todos os parceiros: {sqlSelecionarTodosParceiros}");
             return Db.GetAll(sqlSelecionarTodosParceiros, ConverterEmParceiro);

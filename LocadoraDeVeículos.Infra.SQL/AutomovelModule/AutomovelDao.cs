@@ -211,7 +211,7 @@ namespace LocadoraDeVeículos.Infra.SQL.AutomovelModule
         {
             try
             {
-                Serilog.Log.Information($"Editando Automovel [{registro.Modelo}]:{id}");
+                Serilog.Log.Logger.Aqui().Information($"Editando Automovel [{registro.Modelo}]:{id}");
 
                 Serilog.Log.Debug($"SQL editar automovel: {sqlEditarAutomovel}");
 
@@ -231,7 +231,7 @@ namespace LocadoraDeVeículos.Infra.SQL.AutomovelModule
         {
             try
             {
-                Serilog.Log.Information($"Editando Km Registrada do Automovel [{registro.Modelo}]:{id}");
+                Serilog.Log.Logger.Aqui().Information($"Editando Km Registrada do Automovel [{registro.Modelo}]:{id}");
 
                 Serilog.Log.Debug($"SQL editar km automovel: {sqlEditarKmAutomovel}");
 
@@ -252,7 +252,7 @@ namespace LocadoraDeVeículos.Infra.SQL.AutomovelModule
         {
             try
             {
-                Serilog.Log.Information($"Excluindo Automovel {id}");
+                Serilog.Log.Logger.Aqui().Information($"Excluindo Automovel {id}");
 
                 Serilog.Log.Debug($"SQL excluir automovel: {sqlExcluirAutomovel}");
 
@@ -274,7 +274,7 @@ namespace LocadoraDeVeículos.Infra.SQL.AutomovelModule
 
         public override bool InserirNovo(Automovel registro)
         {
-            Serilog.Log.Information($"Inserindo Automovel [{registro.Modelo}]");
+            Serilog.Log.Logger.Aqui().Information($"Inserindo Automovel [{registro.Modelo}]");
 
             Serilog.Log.Debug($"SQL inserir automovel: {sqlInserirAutomovel}");
 
@@ -285,7 +285,7 @@ namespace LocadoraDeVeículos.Infra.SQL.AutomovelModule
 
         public override Automovel SelecionarPorId(int id)
         {
-            Serilog.Log.Information($"Selecionando Automovel por id: {id}");
+            Serilog.Log.Logger.Aqui().Information($"Selecionando Automovel por id: {id}");
 
             Serilog.Log.Debug($"SQL Selecionar automovel por id: {sqlSelecioneAutomovelPorId}");
 
@@ -302,14 +302,14 @@ namespace LocadoraDeVeículos.Infra.SQL.AutomovelModule
                 automovels.Add(this.SelecionarPorId(id));
             }
 
-            Serilog.Log.Information($"Selecionando Automoveis disponiveis: {automovels}");
+            Serilog.Log.Logger.Aqui().Information($"Selecionando Automoveis disponiveis: {automovels}");
 
             return automovels;
         }
 
         public override List<Automovel> SelecionarTodos()
         {
-            Serilog.Log.Information($"Selecionando Automoveis todos os automoveis");
+            Serilog.Log.Logger.Aqui().Information($"Selecionando Automoveis todos os automoveis");
 
             Serilog.Log.Debug($"SQL Selecionar todos os automoveis: {sqlSelecionarTodosAutomoveis}");
 

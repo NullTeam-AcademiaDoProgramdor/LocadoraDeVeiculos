@@ -59,7 +59,7 @@ namespace LocadoraDeVeículos.Infra.SQL.AutomovelModule
 
         private void Inserir(Image[] imagens, int automovelId)
         {
-            Serilog.Log.Information($"Inserindo Imagens [{imagens}]");
+            Serilog.Log.Logger.Aqui().Information($"Inserindo Imagens [{imagens}]");
 
             Serilog.Log.Debug($"SQL inserir imagens: {sqlInserirImagens}");
 
@@ -78,7 +78,7 @@ namespace LocadoraDeVeículos.Infra.SQL.AutomovelModule
 
             try
             {
-                Serilog.Log.Information($"Excluindo Imagens {id}");
+                Serilog.Log.Logger.Aqui().Information($"Excluindo Imagens {id}");
 
                 Serilog.Log.Debug($"SQL excluir imagens: {sqlExcluirImagens}");
 

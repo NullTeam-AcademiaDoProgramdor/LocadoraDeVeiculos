@@ -22,7 +22,7 @@ namespace LocadoraDeVeículos.Aplicacao.PessoaFisicaModule
         public string InserirNovo(PessoaFisica registro)
         {
             string resultadoValidacao = registro.Validar();
-            Serilog.Log.Information($"Validando Pessoa Fisica [{registro.Nome}], Resultado: {resultadoValidacao}");
+            Serilog.Log.Logger.Aqui().Information($"Validando Pessoa Fisica [{registro.Nome}], Resultado: {resultadoValidacao}");
 
             if (resultadoValidacao == "ESTA_VALIDO")
             {
@@ -35,7 +35,7 @@ namespace LocadoraDeVeículos.Aplicacao.PessoaFisicaModule
         public string Editar(int id, PessoaFisica registro)
         {
             string resultadoValidacao = registro.Validar();
-            Serilog.Log.Information($"Validando Pessoa Fisica [{registro.Nome}]: {id}, Resultado: {resultadoValidacao}");
+            Serilog.Log.Logger.Aqui().Information($"Validando Pessoa Fisica [{registro.Nome}]: {id}, Resultado: {resultadoValidacao}");
 
             if (resultadoValidacao == "ESTA_VALIDO")
             {

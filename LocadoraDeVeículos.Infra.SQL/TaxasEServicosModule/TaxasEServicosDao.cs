@@ -87,7 +87,7 @@ namespace LocadoraDeVeículos.Infra.SQL.TaxasEServicosModule
 
         public override bool InserirNovo(TaxaEServico taxaOuServico)
         {
-            Serilog.Log.Information($"Inserindo Taxa ou Serviço [{taxaOuServico.Nome}]");
+            Serilog.Log.Logger.Aqui().Information($"Inserindo Taxa ou Serviço [{taxaOuServico.Nome}]");
 
             Serilog.Log.Debug($"SQL inserir Taxa ou Serviço: {sqlInserirTaxaEServico}");
 
@@ -99,7 +99,7 @@ namespace LocadoraDeVeículos.Infra.SQL.TaxasEServicosModule
         {
             try
             {
-                Serilog.Log.Information($"Editando Taxa ou Serviço [{taxaOuServico.Nome}]:{id}");
+                Serilog.Log.Logger.Aqui().Information($"Editando Taxa ou Serviço [{taxaOuServico.Nome}]:{id}");
 
                 Serilog.Log.Debug($"SQL editar Taxa ou Serviço: {sqlEditarTaxaEServico}");
 
@@ -118,7 +118,7 @@ namespace LocadoraDeVeículos.Infra.SQL.TaxasEServicosModule
         {
             try
             {
-                Serilog.Log.Information($"Excluindo Taxa ou Serviço {id}");
+                Serilog.Log.Logger.Aqui().Information($"Excluindo Taxa ou Serviço {id}");
 
                 Serilog.Log.Debug($"SQL excluir Taxa ou Serviço: {sqlExcluirTaxaEServico}");
 
@@ -140,7 +140,7 @@ namespace LocadoraDeVeículos.Infra.SQL.TaxasEServicosModule
 
         public override TaxaEServico SelecionarPorId(int id)
         {
-            Serilog.Log.Information($"Selecionando Taxa ou Serviço por id: {id}");
+            Serilog.Log.Logger.Aqui().Information($"Selecionando Taxa ou Serviço por id: {id}");
 
             Serilog.Log.Debug($"SQL Selecionar Taxa ou Serviço por id: {sqlSelecionarTaxaEServicoPorId}");
 
@@ -149,7 +149,7 @@ namespace LocadoraDeVeículos.Infra.SQL.TaxasEServicosModule
 
         public override List<TaxaEServico> SelecionarTodos()
         {
-            Serilog.Log.Information($"Selecionando Taxa ou Serviço todas as taxas e serviços");
+            Serilog.Log.Logger.Aqui().Information($"Selecionando Taxa ou Serviço todas as taxas e serviços");
 
             Serilog.Log.Debug($"SQL Selecionar todas as Taxa ou Serviço: {sqlSelecionarTodasTaxasEServicos}");
 

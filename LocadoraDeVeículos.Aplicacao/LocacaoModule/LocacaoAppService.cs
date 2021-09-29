@@ -39,7 +39,7 @@ namespace LocadoraDeVeículos.Aplicacao.LocacaoModule
         public string InserirNovo(Locacao registro)
         {
             string resultadoValidacao = registro.Validar();
-            Serilog.Log.Information($"Validando Locação [{registro.Id}], Resultado: {resultadoValidacao}");
+            Serilog.Log.Logger.Aqui().Information($"Validando Locação [{registro.Id}], Resultado: {resultadoValidacao}");
 
             if (resultadoValidacao == "ESTA_VALIDO")
             {
@@ -54,7 +54,7 @@ namespace LocadoraDeVeículos.Aplicacao.LocacaoModule
         public string Devolver(int id, Locacao locacao, bool cupomFoiUsado)
         {
             string resultadoValidacao = locacao.ValidarDevolucao();
-            Serilog.Log.Information($"Validando Devolução da Locação [{id}], Resultado: {resultadoValidacao}");
+            Serilog.Log.Logger.Aqui().Information($"Validando Devolução da Locação [{id}], Resultado: {resultadoValidacao}");
 
             if (resultadoValidacao == "ESTA_VALIDO")
             {
@@ -67,7 +67,7 @@ namespace LocadoraDeVeículos.Aplicacao.LocacaoModule
                         : locacao.Condutor.PessoaJuridica.Email;
 
                 string pdf = repositorioPDF.GerarPdf(new Relatorio(locacao));
-                Serilog.Log.Information($"Enviando locacao [{locacao}] para GeradorPDF");
+                Serilog.Log.Logger.Aqui().Information($"Enviando locacao [{locacao}] para GeradorPDF");
 
                 emailAppService
                     .AdicionarEmail("Aqui está o relatório de sua locação finalizada.",
@@ -81,7 +81,7 @@ namespace LocadoraDeVeículos.Aplicacao.LocacaoModule
         public string Editar(int id, Locacao locacao)
         {
             string resultadoValidacao = locacao.Validar();
-            Serilog.Log.Information($"Validando Locação [{locacao.Id}], Resultado: {resultadoValidacao}");
+            Serilog.Log.Logger.Aqui().Information($"Validando Locação [{locacao.Id}], Resultado: {resultadoValidacao}");
 
             if (resultadoValidacao == "ESTA_VALIDO")
             {
@@ -116,7 +116,7 @@ namespace LocadoraDeVeículos.Aplicacao.LocacaoModule
         public string EditarKmRegistrada(Locacao locacao)
         {
             string resultadoValidacao = locacao.Validar();
-            Serilog.Log.Information($"Validando Locação [{locacao.Id}], Resultado: {resultadoValidacao}");
+            Serilog.Log.Logger.Aqui().Information($"Validando Locação [{locacao.Id}], Resultado: {resultadoValidacao}");
 
             if (resultadoValidacao == "ESTA_VALIDO")
             {

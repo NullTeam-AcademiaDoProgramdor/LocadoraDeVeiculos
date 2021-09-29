@@ -22,7 +22,7 @@ namespace LocadoraDeVeículos.Aplicacao.GrupoAutomovelModule
         public string Editar(int id, GrupoAutomovel registro)
         {
             string resultadoValidacao = registro.Validar();
-            Serilog.Log.Information($"Validando Grupo de Automóvel [{registro.Nome}]: {id}, Resultado: {resultadoValidacao}");
+            Serilog.Log.Logger.Aqui().Information($"Validando Grupo de Automóvel [{registro.Nome}]: {id}, Resultado: {resultadoValidacao}");
 
             if (resultadoValidacao == "ESTA_VALIDO")
             {
@@ -45,7 +45,7 @@ namespace LocadoraDeVeículos.Aplicacao.GrupoAutomovelModule
         public string InserirNovo(GrupoAutomovel registro)
         {
             string resultadoValidacao = registro.Validar();
-            Serilog.Log.Information($"Validando Grupo de Automóvel [{registro.Nome}], Resultado: {resultadoValidacao}");
+            Serilog.Log.Logger.Aqui().Information($"Validando Grupo de Automóvel [{registro.Nome}], Resultado: {resultadoValidacao}");
 
             if (resultadoValidacao == "ESTA_VALIDO")
             {

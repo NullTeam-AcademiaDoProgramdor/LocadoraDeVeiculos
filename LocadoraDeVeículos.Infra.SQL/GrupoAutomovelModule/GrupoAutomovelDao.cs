@@ -97,7 +97,7 @@ namespace LocadoraDeVeículos.Infra.SQL.GrupoAutomovelModule
 
         public override bool InserirNovo(GrupoAutomovel registro)
         {
-            Serilog.Log.Information($"Inserindo Grupo de Automóvel [{registro.Nome}]");
+            Serilog.Log.Logger.Aqui().Information($"Inserindo Grupo de Automóvel [{registro.Nome}]");
 
             Serilog.Log.Debug($"SQL inserir Grupo de Automóvel: {sqlInserirGrupo}");
             registro.id = Db.Insert(sqlInserirGrupo, ObtemParametrosGrupo(registro));
@@ -108,7 +108,7 @@ namespace LocadoraDeVeículos.Infra.SQL.GrupoAutomovelModule
         {
             try
             {
-                Serilog.Log.Information($"Editando Grupo de Automóvel [{registro.Nome}]:{id}");
+                Serilog.Log.Logger.Aqui().Information($"Editando Grupo de Automóvel [{registro.Nome}]:{id}");
 
                 Serilog.Log.Debug($"SQL editar Grupo de Automóvel: {sqlEditarGrupo}");
                 registro.id = id;
@@ -127,7 +127,7 @@ namespace LocadoraDeVeículos.Infra.SQL.GrupoAutomovelModule
         {
             try
             {
-                Serilog.Log.Information($"Excluindo Grupo de Automóvel {id}");
+                Serilog.Log.Logger.Aqui().Information($"Excluindo Grupo de Automóvel {id}");
 
                 Serilog.Log.Debug($"SQL excluir Grupo de Automóvel: {sqlExcluirGrupo}");
                 Db.Delete(sqlExcluirGrupo, AdicionarParametro("id", id));
@@ -149,7 +149,7 @@ namespace LocadoraDeVeículos.Infra.SQL.GrupoAutomovelModule
 
         public override GrupoAutomovel SelecionarPorId(int id)
         {
-            Serilog.Log.Information($"Selecionando Grupo de Automóvel por id: {id}");
+            Serilog.Log.Logger.Aqui().Information($"Selecionando Grupo de Automóvel por id: {id}");
 
             Serilog.Log.Debug($"SQL Selecionar Grupo de Automóvel por id: {sqlSelecionaGrupoPorId}");
             return Db.Get(sqlSelecionaGrupoPorId, ConverterEmGrupoAutomovel, AdicionarParametro("id", id));
@@ -157,7 +157,7 @@ namespace LocadoraDeVeículos.Infra.SQL.GrupoAutomovelModule
 
         public override List<GrupoAutomovel> SelecionarTodos()
         {
-            Serilog.Log.Information($"Selecionando todos os Grupos de Automóvel");
+            Serilog.Log.Logger.Aqui().Information($"Selecionando todos os Grupos de Automóvel");
 
             Serilog.Log.Debug($"SQL Selecionar todos os Grupos de Automóvel: {sqlSelecionaTodosGrupos}");
             return Db.GetAll(sqlSelecionaTodosGrupos, ConverterEmGrupoAutomovel);
