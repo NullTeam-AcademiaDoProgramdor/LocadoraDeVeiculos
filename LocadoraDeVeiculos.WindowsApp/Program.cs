@@ -11,6 +11,7 @@ using System.Threading;
 using LocadoraDeVeículos.Aplicacao.RequisicaoEmailModule;
 using LocadoraDeVeículos.Infra.SQL.RequisicaoEmailModule;
 using LocadoraDeVeiculos.Infra.Log;
+using LocadoraDeVeiculos.Infra.ORM.Models;
 
 namespace LocadoraDeVeiculos.WindowsApp
 {
@@ -23,24 +24,33 @@ namespace LocadoraDeVeiculos.WindowsApp
         [STAThread]
         static void Main()
         {
-            Log.ConfigurarLog();
+            //Log.ConfigurarLog();
 
-            try
+            //try
+            //{
+            //    EmailAppService emailService =
+            //        EmailAppService.GetInstance(new RequisicaoEmailDao());
+
+            //    emailService.Iniciar();
+
+            //    Application.EnableVisualStyles();
+            //    Application.SetCompatibleTextRenderingDefault(false);
+            //    Application.Run(new TelaLoginForm());
+
+            //    emailService.Parar();
+            //}
+            //catch (Exception e)
+            //{
+            //    Serilog.Log.Fatal(e, e.Message);
+            //}
+
+            var db = new DBLocadoraContext();
+
+            var parceiros = db.Automovels.ToList();
+
+            foreach(var parceiro in parceiros)
             {
-                EmailAppService emailService =
-                    EmailAppService.GetInstance(new RequisicaoEmailDao());
-
-                emailService.Iniciar();
-
-                Application.EnableVisualStyles();
-                Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new TelaLoginForm());
-
-                emailService.Parar();
-            }
-            catch (Exception e)
-            {
-                Serilog.Log.Fatal(e, e.Message);
+                Console.WriteLine(parceiro.Include);
             }
         }
     }

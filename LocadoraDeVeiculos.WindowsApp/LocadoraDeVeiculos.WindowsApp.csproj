@@ -68,6 +68,7 @@
     <ProjectReference Include="..\LocadoraDeVeiculos.Controladores\LocadoraDeVeiculos.Controladores.csproj" />
     <ProjectReference Include="..\LocadoraDeVeiculos.Dominio\LocadoraDeVeiculos.Dominio.csproj" />
     <ProjectReference Include="..\LocadoraDeVeiculos.Infra.Log\LocadoraDeVeiculos.Infra.Log.csproj" />
+    <ProjectReference Include="..\LocadoraDeVeiculos.Infra.ORM\LocadoraDeVeiculos.Infra.ORM.csproj" />
     <ProjectReference Include="..\LocadoraDeVeiculos.Servicos\LocadoraDeVeiculos.Servicos.csproj" />
     <ProjectReference Include="..\LocadoraDeVeículos.Aplicacao\LocadoraDeVeículos.Aplicacao.csproj" />
     <ProjectReference Include="..\LocadoraDeVeículos.Infra.PDF\LocadoraDeVeículos.Infra.PDF.csproj" />
