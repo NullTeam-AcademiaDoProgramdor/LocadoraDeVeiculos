@@ -12,6 +12,7 @@ using LocadoraDeVeículos.Aplicacao.RequisicaoEmailModule;
 using LocadoraDeVeículos.Infra.SQL.RequisicaoEmailModule;
 using LocadoraDeVeiculos.Infra.Log;
 using LocadoraDeVeiculos.Infra.ORM.Models;
+using LocadoraDeVeiculos.Infra.ORM.ParceiroModule;
 
 namespace LocadoraDeVeiculos.WindowsApp
 {
@@ -44,13 +45,9 @@ namespace LocadoraDeVeiculos.WindowsApp
             //    Serilog.Log.Fatal(e, e.Message);
             //}
 
-            var db = new DBLocadoraContext();
+            ParceiroORMDao d = new();
 
-            var parceiros = db.Cupoms.ToList();
-
-            foreach (var parceiro in parceiros)
-            {
-            }
+            d.InserirNovo(new("TESTE"));
         }
     }
 

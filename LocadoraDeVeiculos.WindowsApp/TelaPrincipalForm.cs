@@ -48,6 +48,7 @@ using LocadoraDeVeículos.Aplicacao.LocacaoModule;
 using LocadoraDeVeículos.Infra.SQL.LocacaoModule;
 using LocadoraDeVeículos.Infra.PDF.PDFModule;
 using LocadoraDeVeículos.Aplicacao.RequisicaoEmailModule;
+using LocadoraDeVeiculos.Infra.ORM.ParceiroModule;
 
 namespace LocadoraDeVeiculos.WindowsApp
 {
@@ -145,7 +146,7 @@ namespace LocadoraDeVeiculos.WindowsApp
                     new GeradorPDF(),
                     EmailAppService.GetInstance()));
 
-            operacoesParceiro = new OperacoesParceiro(new ParceiroAppService(new ParceiroDao()));
+            operacoesParceiro = new OperacoesParceiro(new ParceiroAppService(new ParceiroORMDao()));
 
             operacoesCupom = new OperacoesCupons(
                 new CupomAppService(new CupomDao()),
