@@ -14,7 +14,11 @@ namespace LocadoraDeVeiculos.Dominio.ParceiroModule
             Nome = nome;
         }
 
-        public string Nome { get; }
+        public Parceiro()
+        {
+        }
+
+        public string Nome { get; set; }
 
         public override bool Equals(object obj)
         {

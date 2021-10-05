@@ -13,46 +13,88 @@ namespace LocadoraDeVeiculos.Infra.ORM.ParceiroModule
     {
         public override bool Editar(int id, Parceiro registro)
         {
-            using var db = new DBLocadoraContext();
+            try 
+            {
 
-            registro.Id = id;
+                using var db = new DBLocadoraContext();
 
-            db.Parceiros.Update(registro);
+                registro.Id = id;
 
-            db.SaveChanges();
+                db.Parceiros.Update(registro);
 
-            return true;
+                db.SaveChanges();
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public override bool Excluir(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using var db = new DBLocadoraContext();
+
+                Parceiro temp = new()
+                {
+                    Id = id
+                };
+
+                db.Parceiros.Remove(temp);
+
+                db.SaveChanges();
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public override bool Existe(int id)
         {
-            throw new NotImplementedException();
+            using var db = new DBLocadoraContext();
+
+            return db.Parceiros.Any(x => x.Id == id);
         }
 
         public override bool InserirNovo(Parceiro registro)
         {
-            using var db = new DBLocadoraContext();
+            try
+            {
+                using var db = new DBLocadoraContext();
 
-            db.Parceiros.Update(registro);
+                db.Parceiros.Update(registro);
 
-            db.SaveChanges();
+                db.SaveChanges();
 
-            return true; 
+                return true; 
+            } 
+            catch (Exception)
+            {
+                // Logar o erro aqui
+                return false;
+            }
         }
 
         public override Parceiro SelecionarPorId(int id)
         {
-            throw new NotImplementedException();
+            using var db = new DBLocadoraContext();
+
+            return db.Parceiros
+                .Where(x => x.Id == id)
+                .FirstOrDefault();
         }
 
         public override List<Parceiro> SelecionarTodos()
         {
-            throw new NotImplementedException();
+            using var db = new DBLocadoraContext();
+
+            return db.Parceiros.ToList();
         }
     }
 }
