@@ -46,11 +46,10 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             var db = new DBLocadoraContext();
 
-            var parceiros = db.Automovels.ToList();
+            var parceiros = db.Cupoms.ToList();
 
-            foreach(var parceiro in parceiros)
+            foreach (var parceiro in parceiros)
             {
-                Console.WriteLine(parceiro.Include);
             }
         }
     }

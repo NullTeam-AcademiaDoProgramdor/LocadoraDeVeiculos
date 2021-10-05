@@ -21,8 +21,12 @@ namespace LocadoraDeVeiculos.Dominio.CupomModule
             QtdUsos = qtdUsos;
         }
 
+        public Cupom()
+        {
+        }
+
         public string Codigo { get; }
-        public Parceiro Parceiro { get; }
+        public virtual Parceiro Parceiro { get; }
         public string Tipo { get; }
         public double Valor { get; }
         public double ValorMinimo { get; }
