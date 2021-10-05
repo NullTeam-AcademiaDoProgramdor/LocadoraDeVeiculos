@@ -13,11 +13,13 @@ namespace LocadoraDeVeiculos.Infra.ORM.Configurations
     {
         public void Configure(EntityTypeBuilder<Parceiro> builder)
         {
-            builder.ToTable("Parceiro");
+            builder.ToTable("TBParceiro");
 
             builder.HasKey(e => e.Id);
 
-            builder.Property(e => e.Nome).IsRequired();
+            builder.Property(e => e.Nome)
+                .HasColumnType("VARCHAR(100)")
+                .IsRequired();
         }
     }
 }

@@ -26,7 +26,7 @@ namespace LocadoraDeVeiculos.Dominio.CupomModule
         }
 
         public string Codigo { get; }
-        public virtual Parceiro Parceiro { get; }
+        public virtual Parceiro Parceiro { get; set; }
         public string Tipo { get; }
         public double Valor { get; }
         public double ValorMinimo { get; }
