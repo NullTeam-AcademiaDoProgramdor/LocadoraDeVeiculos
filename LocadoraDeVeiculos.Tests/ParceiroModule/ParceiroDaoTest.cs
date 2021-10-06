@@ -1,6 +1,8 @@
 ﻿using FluentAssertions;
 using LocadoraDeVeiculos.Controladores.Shared;
 using LocadoraDeVeiculos.Dominio.ParceiroModule;
+using LocadoraDeVeiculos.Infra.ORM.ParceiroModule;
+using LocadoraDeVeículos.Infra.Shared;
 using LocadoraDeVeículos.Infra.SQL.ParceiroModule;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
@@ -14,17 +16,17 @@ namespace LocadoraDeVeiculos.Tests.ParceiroModule
     [TestClass]
     public class ParceiroDaoTest
     {
-        ParceiroDao controlador = null;
+        RepositorBase<Parceiro> controlador = null;
 
         public ParceiroDaoTest()
         {
-            controlador = new();
+            controlador = new ParceiroORMDao();
         }
 
         [TestCleanup()]
         public void LimparTeste()
         {
-            Db.Update("DELETE FROM [Parceiro]");
+            Db.Update("DELETE FROM [TBParceiro]");
         }
 
         [TestMethod]
