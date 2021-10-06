@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Data.Common;
+using System.Data.SqlClient;
+using System.IO;
 using LocadoraDeVeiculos.Dominio.CupomModule;
 using LocadoraDeVeiculos.Dominio.ParceiroModule;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.Extensions.Configuration;
 
 #nullable disable
 
@@ -10,14 +13,28 @@ namespace LocadoraDeVeiculos.Infra.ORM.Models
 {
     public class DBLocadoraContext : DbContext
     {
+        private string connectionString;
         public DbSet<Parceiro> Parceiros { get; set; }
         public DbSet<Cupom> Cupoms { get; set; }
+
+        public DBLocadoraContext()
+        {
+            IConfiguration configuration = 
+                new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json")
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .Build();
+
+            string bancoDeDados = configuration.GetSection("bancoDeDados").Value;
+
+            connectionString = configuration.GetConnectionString(bancoDeDados);
+        }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder
                 .UseLazyLoadingProxies()
-                .UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=DBLocadoraORM;Integrated Security=True;Pooling=False");
+                .UseSqlServer(connectionString);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
