@@ -1,8 +1,8 @@
 ﻿using FluentAssertions;
-using LocadoraDeVeiculos.Controladores.Shared;
 using LocadoraDeVeiculos.Dominio.ParceiroModule;
+using LocadoraDeVeiculos.Dominio.Shared;
 using LocadoraDeVeiculos.Infra.ORM.ParceiroModule;
-using LocadoraDeVeículos.Infra.Shared;
+using LocadoraDeVeiculos.Infra.Shared;
 using LocadoraDeVeículos.Infra.SQL.ParceiroModule;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
@@ -16,7 +16,7 @@ namespace LocadoraDeVeiculos.Tests.ParceiroModule
     [TestClass]
     public class ParceiroDaoTest
     {
-        RepositorBase<Parceiro> controlador = null;
+        IRepositorBase<Parceiro> controlador = null;
 
         public ParceiroDaoTest()
         {

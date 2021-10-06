@@ -1,6 +1,8 @@
 ﻿using LocadoraDeVeiculos.Dominio.ParceiroModule;
+using LocadoraDeVeiculos.Dominio.Shared;
 using LocadoraDeVeiculos.Infra.Log;
-using LocadoraDeVeículos.Infra.Shared;
+using LocadoraDeVeiculos.Infra.ORM.Shared;
+using LocadoraDeVeiculos.Infra.Shared;
 using LocadoraDeVeiculos.Infra.Shared;
 using System;
 using System.Collections.Generic;
@@ -11,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeículos.Infra.SQL.ParceiroModule
 {
-    public class ParceiroDao : RepositorBase<Parceiro>
+    public class ParceiroDao : SQLDAOBase, IRepositorBase<Parceiro>
     {
         #region Queries
         private const string sqlInserirParceiro =
@@ -60,7 +62,7 @@ namespace LocadoraDeVeículos.Infra.SQL.ParceiroModule
 
         #endregion
 
-        public override bool InserirNovo(Parceiro registro)
+        public bool InserirNovo(Parceiro registro)
         {
             Serilog.Log.Logger.Aqui().Information($"Inserindo Parceiro [{registro.Nome}]");
 
@@ -69,7 +71,7 @@ namespace LocadoraDeVeículos.Infra.SQL.ParceiroModule
             return registro.Id != 0;
         }
 
-        public override bool Editar(int id, Parceiro registro)
+        public bool Editar(int id, Parceiro registro)
         {
             try
             {
@@ -88,7 +90,7 @@ namespace LocadoraDeVeículos.Infra.SQL.ParceiroModule
             }
         }
 
-        public override bool Excluir(int id)
+        public bool Excluir(int id)
         {
             try
             {
@@ -106,13 +108,13 @@ namespace LocadoraDeVeículos.Infra.SQL.ParceiroModule
             return true;
         }
 
-        public override bool Existe(int id)
+        public bool Existe(int id)
         {
             return Db.Exists(sqlExisteParceiro, AdicionarParametro("ID", id));
         }
 
 
-        public override Parceiro SelecionarPorId(int id)
+        public Parceiro SelecionarPorId(int id)
         {
             Serilog.Log.Logger.Aqui().Information($"Selecionando Parceiro por id: {id}");
 
@@ -120,7 +122,7 @@ namespace LocadoraDeVeículos.Infra.SQL.ParceiroModule
             return Db.Get(sqlSelecionarParceiroPorId, ConverterEmParceiro, AdicionarParametro("ID", id));
         }
 
-        public override List<Parceiro> SelecionarTodos()
+        public List<Parceiro> SelecionarTodos()
         {
             Serilog.Log.Logger.Aqui().Information($"Selecionando Parceiro todos os parceiros");
 

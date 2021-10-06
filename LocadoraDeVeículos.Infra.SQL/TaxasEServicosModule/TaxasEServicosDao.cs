@@ -1,6 +1,8 @@
-﻿using LocadoraDeVeiculos.Dominio.TaxasEServicosModule;
+﻿using LocadoraDeVeiculos.Dominio.Shared;
+using LocadoraDeVeiculos.Dominio.TaxasEServicosModule;
 using LocadoraDeVeiculos.Infra.Log;
-using LocadoraDeVeículos.Infra.Shared;
+using LocadoraDeVeiculos.Infra.ORM.Shared;
+using LocadoraDeVeiculos.Infra.Shared;
 using LocadoraDeVeiculos.Infra.Shared;
 using System;
 using System.Collections.Generic;
@@ -12,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeículos.Infra.SQL.TaxasEServicosModule
 {
-    public class TaxasEServicosDao : RepositorBase<TaxaEServico>
+    public class TaxasEServicosDao : SQLDAOBase, IRepositorBase<TaxaEServico>
     {
 
         #region Queries
@@ -85,7 +87,7 @@ namespace LocadoraDeVeículos.Infra.SQL.TaxasEServicosModule
 
         #endregion
 
-        public override bool InserirNovo(TaxaEServico taxaOuServico)
+        public bool InserirNovo(TaxaEServico taxaOuServico)
         {
             Serilog.Log.Logger.Aqui().Information($"Inserindo Taxa ou Serviço [{taxaOuServico.Nome}]");
 
@@ -95,7 +97,7 @@ namespace LocadoraDeVeículos.Infra.SQL.TaxasEServicosModule
             return taxaOuServico.Id != 0;
         }
 
-        public override bool Editar(int id, TaxaEServico taxaOuServico)
+        public bool Editar(int id, TaxaEServico taxaOuServico)
         {
             try
             {
@@ -114,7 +116,7 @@ namespace LocadoraDeVeículos.Infra.SQL.TaxasEServicosModule
             }
         }
 
-        public override bool Excluir(int id)
+        public bool Excluir(int id)
         {
             try
             {
@@ -133,12 +135,12 @@ namespace LocadoraDeVeículos.Infra.SQL.TaxasEServicosModule
             return true;
         }
 
-        public override bool Existe(int id)
+        public bool Existe(int id)
         {
             return Db.Exists(sqlExisteTaxaEServico, AdicionarParametro("ID", id));
         }        
 
-        public override TaxaEServico SelecionarPorId(int id)
+        public TaxaEServico SelecionarPorId(int id)
         {
             Serilog.Log.Logger.Aqui().Information($"Selecionando Taxa ou Serviço por id: {id}");
 
@@ -147,7 +149,7 @@ namespace LocadoraDeVeículos.Infra.SQL.TaxasEServicosModule
             return Db.Get(sqlSelecionarTaxaEServicoPorId, ConverterEmTaxaEServico, AdicionarParametro("ID", id));
         }
 
-        public override List<TaxaEServico> SelecionarTodos()
+        public List<TaxaEServico> SelecionarTodos()
         {
             Serilog.Log.Logger.Aqui().Information($"Selecionando Taxa ou Serviço todas as taxas e serviços");
 

@@ -1,6 +1,7 @@
 ﻿using LocadoraDeVeiculos.Dominio.FuncionarioModule;
 using LocadoraDeVeiculos.Infra.Log;
-using LocadoraDeVeículos.Infra.Shared;
+using LocadoraDeVeiculos.Infra.ORM.Shared;
+using LocadoraDeVeiculos.Infra.Shared;
 using LocadoraDeVeiculos.Infra.Shared;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeículos.Infra.SQL.FuncionarioModule
 {
-    public class FuncionarioDao : RepositorFuncionarioBase
+    public class FuncionarioDao : SQLDAOBase, IRepositorFuncionarioBase
     {
         #region queries
         private const string sqlInserirFuncionario =
@@ -92,7 +93,7 @@ namespace LocadoraDeVeículos.Infra.SQL.FuncionarioModule
                         FUNCIONARIO";
         #endregion
 
-        public override bool InserirNovo(Funcionario registro)
+        public bool InserirNovo(Funcionario registro)
         {
             Serilog.Log.Logger.Aqui().Information($"Inserindo Funcionario [{registro.Nome}]");
             Serilog.Log.Debug($"SQL inserir Funcionario: {sqlInserirFuncionario}");
@@ -102,7 +103,7 @@ namespace LocadoraDeVeículos.Infra.SQL.FuncionarioModule
           
         }
        
-        public override bool Editar(int id, Funcionario registro)
+        public bool Editar(int id, Funcionario registro)
         {
             try
             {
@@ -121,7 +122,7 @@ namespace LocadoraDeVeículos.Infra.SQL.FuncionarioModule
 
         }
 
-        public override bool Excluir(int id)
+        public bool Excluir(int id)
         {
             try
             {
@@ -139,12 +140,12 @@ namespace LocadoraDeVeículos.Infra.SQL.FuncionarioModule
             }
         }
 
-        public override bool Existe(int id)
+        public bool Existe(int id)
         {
             return Db.Exists(sqlExisteFuncionario, AdicionarParametro("ID", id));
         }
 
-        public override Funcionario SelecionarPorId(int id)
+        public Funcionario SelecionarPorId(int id)
         {
             Serilog.Log.Logger.Aqui().Information($"Selecionando Funcionario por id: {id}");
 
@@ -153,7 +154,7 @@ namespace LocadoraDeVeículos.Infra.SQL.FuncionarioModule
             return Db.Get(sqlSelecionarFuncionarioPorId, ConverterEmFuncionario, AdicionarParametro("ID", id));
         }
 
-        public override List<Funcionario> SelecionarTodos()
+        public List<Funcionario> SelecionarTodos()
         {
             Serilog.Log.Logger.Aqui().Information($"Selecionando Todos os Funcionarios");
 
@@ -162,7 +163,7 @@ namespace LocadoraDeVeículos.Infra.SQL.FuncionarioModule
             return Db.GetAll(sqlSelecionarTodosFuncionarios, ConverterEmFuncionario);
         }
 
-        public override Funcionario SelecionarPorNomeESenha(string nome, string senha)
+        public Funcionario SelecionarPorNomeESenha(string nome, string senha)
         {
             Dictionary<string, object> parametros = new Dictionary<string, object>()
             {

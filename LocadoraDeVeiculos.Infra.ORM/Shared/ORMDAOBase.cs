@@ -1,6 +1,5 @@
 ﻿using LocadoraDeVeiculos.Dominio.Shared;
 using LocadoraDeVeiculos.Infra.ORM.Models;
-using LocadoraDeVeículos.Infra.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Infra.ORM.Shared
 {
-    public abstract class ORMDAOBase<T> : RepositorBase<T>
+    public abstract class ORMDAOBase<T> : IRepositorBase<T>
         where T : EntidadeBase, new()
     {
-        public override bool Editar(int id, T registro)
+        public bool Editar(int id, T registro)
         {
             try
             {
@@ -32,7 +31,7 @@ namespace LocadoraDeVeiculos.Infra.ORM.Shared
             }
         }
 
-        public override bool Excluir(int id)
+        public bool Excluir(int id)
         {
             try
             {
@@ -55,14 +54,14 @@ namespace LocadoraDeVeiculos.Infra.ORM.Shared
             }
         }
 
-        public override bool Existe(int id)
+        public bool Existe(int id)
         {
             using var db = new DBLocadoraContext();
 
             return db.Set<T>().Any(x => x.Id == id);
         }
 
-        public override bool InserirNovo(T registro)
+        public bool InserirNovo(T registro)
         {
             try 
             { 
@@ -81,7 +80,7 @@ namespace LocadoraDeVeiculos.Infra.ORM.Shared
 
         }
 
-        public override T SelecionarPorId(int id)
+        public T SelecionarPorId(int id)
         {
             using var db = new DBLocadoraContext();
 
@@ -90,7 +89,7 @@ namespace LocadoraDeVeiculos.Infra.ORM.Shared
                 .FirstOrDefault();
         }
 
-        public override List<T> SelecionarTodos()
+        public List<T> SelecionarTodos()
         {
             using var db = new DBLocadoraContext();
 

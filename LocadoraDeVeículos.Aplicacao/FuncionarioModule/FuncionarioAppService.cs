@@ -1,7 +1,7 @@
 ﻿using LocadoraDeVeículos.Aplicacao.Shared;
 using LocadoraDeVeiculos.Dominio.FuncionarioModule;
 using LocadoraDeVeiculos.Infra.Log;
-using LocadoraDeVeículos.Infra.Shared;
+using LocadoraDeVeiculos.Infra.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,9 +12,9 @@ namespace LocadoraDeVeículos.Aplicacao.FuncionarioModule
 {
     public class FuncionarioAppService : ICadastravel<Funcionario>
     {
-        private RepositorFuncionarioBase repositorio;
+        private IRepositorFuncionarioBase repositorio;
 
-        public FuncionarioAppService(RepositorFuncionarioBase repositor)
+        public FuncionarioAppService(IRepositorFuncionarioBase repositor)
         {
             repositorio = repositor;
         }

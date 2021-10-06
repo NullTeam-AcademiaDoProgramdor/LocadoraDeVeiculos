@@ -1,6 +1,7 @@
 ﻿using LocadoraDeVeiculos.Dominio.CupomModule;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using LocadoraDeVeiculos.Infra.Log;
+using LocadoraDeVeiculos.Infra.ORM.Shared;
 using LocadoraDeVeiculos.Infra.Shared;
 using LocadoraDeVeículos.Infra.SQL.AutomovelModule;
 using LocadoraDeVeículos.Infra.SQL.CupomModule;
@@ -16,7 +17,7 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeículos.Infra.SQL.LocacaoModule
 {
-    public class LocacaoDao : RepositorLocacaoBase
+    public class LocacaoDao : SQLDAOBase, IRepositorLocacaoBase
     {
         PessoaFisicaDao controladorPessoaFisica = null;
         AutomovelDao controladorAutomovel = null;
@@ -134,7 +135,7 @@ namespace LocadoraDeVeículos.Infra.SQL.LocacaoModule
 
         #endregion
 
-        public override bool InserirNovo(Locacao registro)
+        public bool InserirNovo(Locacao registro)
         {
             Serilog.Log.Logger.Aqui().Information("Inserindo {Feature}", "Locação");
 
@@ -144,7 +145,7 @@ namespace LocadoraDeVeículos.Infra.SQL.LocacaoModule
             return registro.Id != 0;
         }
 
-        public override bool Devolver(int id, Locacao locacao)
+        public bool Devolver(int id, Locacao locacao)
         {
             try
             {
@@ -163,7 +164,7 @@ namespace LocadoraDeVeículos.Infra.SQL.LocacaoModule
             }
         }
 
-        public override bool Editar(int id, Locacao locacao)
+        public bool Editar(int id, Locacao locacao)
         {
             try
             {
@@ -182,7 +183,7 @@ namespace LocadoraDeVeículos.Infra.SQL.LocacaoModule
             }
         }
 
-        public override bool EditarKmRegistrada(Locacao locacao)
+        public bool EditarKmRegistrada(Locacao locacao)
         {
             try
             {
@@ -200,7 +201,7 @@ namespace LocadoraDeVeículos.Infra.SQL.LocacaoModule
             }
         }
 
-        public override bool Excluir(int id)
+        public bool Excluir(int id)
         {
             try
             {
@@ -218,12 +219,12 @@ namespace LocadoraDeVeículos.Infra.SQL.LocacaoModule
             return true;
         }
 
-        public override bool Existe(int id)
+        public bool Existe(int id)
         {
             return Db.Exists(sqlExisteLocacao, AdicionarParametro("ID", id));
         }
 
-        public override Locacao SelecionarPorId(int id)
+        public Locacao SelecionarPorId(int id)
         {
             Serilog.Log.Logger.Aqui().Information("Selecionando {Feature}, id: {Id}", "Locação", id);
 
@@ -231,7 +232,7 @@ namespace LocadoraDeVeículos.Infra.SQL.LocacaoModule
             return Db.Get(sqlSelecionarLocacaoPorId, ConverterEmLocacao, AdicionarParametro("ID", id));
         }
 
-        public override List<Locacao> SelecionarTodos()
+        public List<Locacao> SelecionarTodos()
         {
             Serilog.Log.Logger.Aqui().Information("Selecionando todas as {Feature}", "Locação");
 

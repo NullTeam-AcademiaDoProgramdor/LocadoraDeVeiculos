@@ -1,7 +1,7 @@
 ﻿using LocadoraDeVeiculos.Dominio.CupomModule;
 using LocadoraDeVeiculos.Dominio.ParceiroModule;
 using LocadoraDeVeiculos.Infra.Log;
-using LocadoraDeVeículos.Infra.Shared;
+using LocadoraDeVeiculos.Infra.ORM.Shared;
 using LocadoraDeVeiculos.Infra.Shared;
 using System;
 using System.Collections.Generic;
@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeículos.Infra.SQL.CupomModule
 {
-    public class CupomDao : RepositorCupomBase
+    public class CupomDao : SQLDAOBase, IRepositorCupomBase
     {
         #region Queries
         private const string sqlInserirCupom =
@@ -140,7 +140,7 @@ namespace LocadoraDeVeículos.Infra.SQL.CupomModule
 	                    P.ID = C.PARCEIRO;";
         #endregion
 
-        public override bool Editar(int id, Cupom registro)
+        public  bool Editar(int id, Cupom registro)
         {
             try
             {
@@ -159,7 +159,7 @@ namespace LocadoraDeVeículos.Infra.SQL.CupomModule
             }
         }
 
-        public override bool EditarQtdUsos(Cupom cupom)
+        public  bool EditarQtdUsos(Cupom cupom)
         {
             Serilog.Log.Logger.Aqui().Information($"Editando a quantidade de usos do cupom [{cupom.Codigo}]");
 
@@ -167,7 +167,7 @@ namespace LocadoraDeVeículos.Infra.SQL.CupomModule
             return Editar(cupom.Id, cupom);
         }
 
-        public override bool Excluir(int id)
+        public  bool Excluir(int id)
         {
             try
             {
@@ -186,12 +186,12 @@ namespace LocadoraDeVeículos.Infra.SQL.CupomModule
             return true;
         }
 
-        public override bool Existe(int id)
+        public  bool Existe(int id)
         {
             return Db.Exists(sqlExisteCupom, AdicionarParametro("ID", id));
         }
 
-        public override bool InserirNovo(Cupom registro)
+        public  bool InserirNovo(Cupom registro)
         {
             Serilog.Log.Logger.Aqui().Information($"Inserindo Cupom [{registro.Codigo}]");
 
@@ -201,7 +201,7 @@ namespace LocadoraDeVeículos.Infra.SQL.CupomModule
             return registro.id != 0;
         }
 
-        public override Cupom SelecionarPorId(int id)
+        public  Cupom SelecionarPorId(int id)
         {
 
             Serilog.Log.Logger.Aqui().Information($"Selecionando Cupom por id: {id}");
@@ -211,7 +211,7 @@ namespace LocadoraDeVeículos.Infra.SQL.CupomModule
             return Db.Get(sqlSelecionarCupomPorId, ConverterEmCupom, AdicionarParametro("ID", id));
         }
 
-        public override List<Cupom> SelecionarTodos()
+        public  List<Cupom> SelecionarTodos()
         {
             Serilog.Log.Logger.Aqui().Information($"Selecionando Cupom todos os cupons");
 
@@ -220,7 +220,7 @@ namespace LocadoraDeVeículos.Infra.SQL.CupomModule
             return Db.GetAll(sqlSelecionarTodosCupons, ConverterEmCupom);
         }
 
-        public override Cupom SelecionarPorCodigo(string codigo)
+        public  Cupom SelecionarPorCodigo(string codigo)
         {
             Serilog.Log.Logger.Aqui().Information($"Selecionando Cupom por codigo: {codigo}");
 
@@ -229,7 +229,7 @@ namespace LocadoraDeVeículos.Infra.SQL.CupomModule
             return Db.Get(sqlSelecionarCupomPorCodigo, ConverterEmCupom, AdicionarParametro("CODIGO", codigo));
         }
 
-        public override List<Cupom> SelecionarValidos()
+        public  List<Cupom> SelecionarValidos()
         {
             Serilog.Log.Logger.Aqui().Information($"Selecionando Cupons validos");
 

@@ -1,4 +1,4 @@
-﻿using LocadoraDeVeículos.Infra.Shared;
+﻿using LocadoraDeVeiculos.Dominio.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Dominio.CupomModule
 {
-    public abstract class RepositorCupomBase : RepositorBase<Cupom>
+    public interface IRepositorCupomBase : IRepositorBase<Cupom>
     {
         public abstract bool EditarQtdUsos(Cupom cupom);
 

@@ -1,6 +1,7 @@
 ﻿using LocadoraDeVeiculos.Dominio.GrupoAutomovelModule;
+using LocadoraDeVeiculos.Dominio.Shared;
 using LocadoraDeVeiculos.Infra.Log;
-using LocadoraDeVeículos.Infra.Shared;
+using LocadoraDeVeiculos.Infra.ORM.Shared;
 using LocadoraDeVeiculos.Infra.Shared;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeículos.Infra.SQL.GrupoAutomovelModule
 {
-    public class GrupoAutomovelDao : RepositorBase<GrupoAutomovel>
+    public class GrupoAutomovelDao : SQLDAOBase, IRepositorBase<GrupoAutomovel>
     {
         #region Queries
         private const string sqlInserirGrupo =
@@ -95,7 +96,7 @@ namespace LocadoraDeVeículos.Infra.SQL.GrupoAutomovelModule
 
         #endregion
 
-        public override bool InserirNovo(GrupoAutomovel registro)
+        public bool InserirNovo(GrupoAutomovel registro)
         {
             Serilog.Log.Logger.Aqui().Information($"Inserindo Grupo de Automóvel [{registro.Nome}]");
 
@@ -104,7 +105,7 @@ namespace LocadoraDeVeículos.Infra.SQL.GrupoAutomovelModule
             return registro.Id != 0;
         }
 
-        public override bool Editar(int id, GrupoAutomovel registro)
+        public bool Editar(int id, GrupoAutomovel registro)
         {
             try
             {
@@ -123,7 +124,7 @@ namespace LocadoraDeVeículos.Infra.SQL.GrupoAutomovelModule
             }
         }
 
-        public override bool Excluir(int id)
+        public bool Excluir(int id)
         {
             try
             {
@@ -141,13 +142,13 @@ namespace LocadoraDeVeículos.Infra.SQL.GrupoAutomovelModule
             return true;
         }
 
-        public override bool Existe(int id)
+        public bool Existe(int id)
         {
             return Db.Exists(sqlExisteGrupo, AdicionarParametro("id", id));
         }
 
 
-        public override GrupoAutomovel SelecionarPorId(int id)
+        public GrupoAutomovel SelecionarPorId(int id)
         {
             Serilog.Log.Logger.Aqui().Information($"Selecionando Grupo de Automóvel por id: {id}");
 
@@ -155,7 +156,7 @@ namespace LocadoraDeVeículos.Infra.SQL.GrupoAutomovelModule
             return Db.Get(sqlSelecionaGrupoPorId, ConverterEmGrupoAutomovel, AdicionarParametro("id", id));
         }
 
-        public override List<GrupoAutomovel> SelecionarTodos()
+        public List<GrupoAutomovel> SelecionarTodos()
         {
             Serilog.Log.Logger.Aqui().Information($"Selecionando todos os Grupos de Automóvel");
 

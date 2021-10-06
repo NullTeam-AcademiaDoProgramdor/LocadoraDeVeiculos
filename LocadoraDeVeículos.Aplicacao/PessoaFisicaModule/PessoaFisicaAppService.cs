@@ -1,7 +1,8 @@
 ﻿using LocadoraDeVeículos.Aplicacao.Shared;
 using LocadoraDeVeiculos.Dominio.PessoaFisicaModule;
+using LocadoraDeVeiculos.Dominio.Shared;
 using LocadoraDeVeiculos.Infra.Log;
-using LocadoraDeVeículos.Infra.Shared;
+using LocadoraDeVeiculos.Infra.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,9 +13,9 @@ namespace LocadoraDeVeículos.Aplicacao.PessoaFisicaModule
 {
     public class PessoaFisicaAppService : ICadastravel<PessoaFisica>
     {
-        private RepositorBase<PessoaFisica> repositorio;
+        private IRepositorBase<PessoaFisica> repositorio;
 
-        public PessoaFisicaAppService(RepositorBase<PessoaFisica> repositor)
+        public PessoaFisicaAppService(IRepositorBase<PessoaFisica> repositor)
         {
             repositorio = repositor;
         }

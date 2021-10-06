@@ -2,7 +2,6 @@
 using LocadoraDeVeiculos.Dominio.ParceiroModule;
 using LocadoraDeVeiculos.Infra.ORM.Models;
 using LocadoraDeVeiculos.Infra.ORM.Shared;
-using LocadoraDeVeículos.Infra.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;

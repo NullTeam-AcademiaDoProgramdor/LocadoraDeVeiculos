@@ -1,6 +1,8 @@
 ﻿using LocadoraDeVeiculos.Dominio.PessoaJuridicaModule;
+using LocadoraDeVeiculos.Dominio.Shared;
 using LocadoraDeVeiculos.Infra.Log;
-using LocadoraDeVeículos.Infra.Shared;
+using LocadoraDeVeiculos.Infra.ORM.Shared;
+using LocadoraDeVeiculos.Infra.Shared;
 using LocadoraDeVeiculos.Infra.Shared;
 using System;
 using System.Collections.Generic;
@@ -11,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeículos.Infra.SQL.PessoaJuridicaModule
 {
-    public class PessoaJuridicaDao : RepositorBase<PessoaJuridica>
+    public class PessoaJuridicaDao : SQLDAOBase, IRepositorBase<PessoaJuridica>
     {
         #region Queries
         private const string sqlInserirPessoaJuridica =
@@ -80,7 +82,7 @@ namespace LocadoraDeVeículos.Infra.SQL.PessoaJuridicaModule
 
         #endregion
 
-        public override bool InserirNovo(PessoaJuridica registro)
+        public bool InserirNovo(PessoaJuridica registro)
         {
             Serilog.Log.Logger.Aqui().Information($"Inserindo Pessoa Jurídica [{registro.Nome}]");
 
@@ -89,7 +91,7 @@ namespace LocadoraDeVeículos.Infra.SQL.PessoaJuridicaModule
             return registro.Id != 0;
         }
 
-        public override bool Editar(int id, PessoaJuridica registro)
+        public bool Editar(int id, PessoaJuridica registro)
         {
             try
             {
@@ -107,7 +109,7 @@ namespace LocadoraDeVeículos.Infra.SQL.PessoaJuridicaModule
             }
         }
 
-        public override bool Excluir(int id)
+        public bool Excluir(int id)
         {
             try
             {
@@ -125,13 +127,13 @@ namespace LocadoraDeVeículos.Infra.SQL.PessoaJuridicaModule
             return true;
         }
 
-        public override bool Existe(int id)
+        public bool Existe(int id)
         {
             return Db.Exists(sqlExistePessoaJuridica, AdicionarParametro("ID", id));
         }
 
 
-        public override PessoaJuridica SelecionarPorId(int id)
+        public PessoaJuridica SelecionarPorId(int id)
         {
             Serilog.Log.Logger.Aqui().Information($"Selecionando Pessoa Jurídica por id: {id}");
 
@@ -139,7 +141,7 @@ namespace LocadoraDeVeículos.Infra.SQL.PessoaJuridicaModule
             return Db.Get(sqlSelecionarPessoaJuridicaPorId, ConverterEmPessoaJuridica, AdicionarParametro("ID", id));
         }
 
-        public override List<PessoaJuridica> SelecionarTodos()
+        public List<PessoaJuridica> SelecionarTodos()
         {
             Serilog.Log.Logger.Aqui().Information($"Selecionando todas as Pessoa Jurídica");
 

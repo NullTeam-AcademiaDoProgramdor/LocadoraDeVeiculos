@@ -1,7 +1,9 @@
 ﻿using LocadoraDeVeiculos.Dominio.PessoaFisicaModule;
 using LocadoraDeVeiculos.Dominio.PessoaJuridicaModule;
+using LocadoraDeVeiculos.Dominio.Shared;
 using LocadoraDeVeiculos.Infra.Log;
-using LocadoraDeVeículos.Infra.Shared;
+using LocadoraDeVeiculos.Infra.ORM.Shared;
+using LocadoraDeVeiculos.Infra.Shared;
 using LocadoraDeVeiculos.Infra.Shared;
 using System;
 using System.Collections.Generic;
@@ -12,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeículos.Infra.SQL.PessoaFisicaModule
 {
-    public class PessoaFisicaDao : RepositorBase<PessoaFisica>
+    public class PessoaFisicaDao : SQLDAOBase, IRepositorBase<PessoaFisica>
     {
         #region Queries
         private const string sqlInserirPessoaFisica =
@@ -116,7 +118,7 @@ namespace LocadoraDeVeículos.Infra.SQL.PessoaFisicaModule
 
         #endregion   
 
-        public override bool InserirNovo(PessoaFisica registro)
+        public bool InserirNovo(PessoaFisica registro)
         {
             Serilog.Log.Logger.Aqui().Information($"Inserindo Pessoa Fisica [{registro.Nome}]");
 
@@ -126,7 +128,7 @@ namespace LocadoraDeVeículos.Infra.SQL.PessoaFisicaModule
             return registro.Id != 0;
         }
 
-        public override bool Editar(int id, PessoaFisica registro)
+        public bool Editar(int id, PessoaFisica registro)
         {
             try
             {
@@ -145,7 +147,7 @@ namespace LocadoraDeVeículos.Infra.SQL.PessoaFisicaModule
             }
         }
 
-        public override bool Excluir(int id)
+        public bool Excluir(int id)
         {
             try 
             {
@@ -163,12 +165,12 @@ namespace LocadoraDeVeículos.Infra.SQL.PessoaFisicaModule
             }
         }
 
-        public override bool Existe(int id)
+        public bool Existe(int id)
         {
             return Db.Exists(sqlExistePessoaFisica, AdicionarParametro("ID", id));
         }    
 
-        public override PessoaFisica SelecionarPorId(int id)
+        public PessoaFisica SelecionarPorId(int id)
         {
             Serilog.Log.Logger.Aqui().Information($"Selecionando Pessoa Fisica por id: {id}");
 
@@ -177,7 +179,7 @@ namespace LocadoraDeVeículos.Infra.SQL.PessoaFisicaModule
             return Db.Get(sqlSelecionarPessoaFisicaPorId, ConverterEmPessoaFisica, AdicionarParametro("ID", id));
         }
 
-        public override List<PessoaFisica> SelecionarTodos()
+        public List<PessoaFisica> SelecionarTodos()
         {
             Serilog.Log.Logger.Aqui().Information($"Selecionando Pessoa Fisica todas as pessoas fisicas");
 

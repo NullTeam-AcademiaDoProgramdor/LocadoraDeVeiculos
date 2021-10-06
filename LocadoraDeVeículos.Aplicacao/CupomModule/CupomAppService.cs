@@ -11,9 +11,9 @@ namespace LocadoraDeVeículos.Aplicacao.CupomModule
 {
     public class CupomAppService : ICadastravel<Cupom>
     {
-        private RepositorCupomBase repositorio;
+        private IRepositorCupomBase repositorio;
 
-        public CupomAppService(RepositorCupomBase repositorio)
+        public CupomAppService(IRepositorCupomBase repositorio)
         {
             this.repositorio = repositorio;
         }

@@ -1,7 +1,8 @@
 ﻿using LocadoraDeVeículos.Aplicacao.Shared;
+using LocadoraDeVeiculos.Dominio.Shared;
 using LocadoraDeVeiculos.Dominio.TaxasEServicosModule;
 using LocadoraDeVeiculos.Infra.Log;
-using LocadoraDeVeículos.Infra.Shared;
+using LocadoraDeVeiculos.Infra.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,9 +13,9 @@ namespace LocadoraDeVeículos.Aplicacao.TaxaEServicoModule
 {
     public class TaxaEServicoAppService : ICadastravel<TaxaEServico>
     {
-        RepositorBase<TaxaEServico> repositorio;
+        IRepositorBase<TaxaEServico> repositorio;
 
-        public TaxaEServicoAppService(RepositorBase<TaxaEServico> repositorio)
+        public TaxaEServicoAppService(IRepositorBase<TaxaEServico> repositorio)
         {
             this.repositorio = repositorio;
         }

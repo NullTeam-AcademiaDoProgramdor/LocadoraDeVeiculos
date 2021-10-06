@@ -1,7 +1,8 @@
 ﻿using LocadoraDeVeículos.Aplicacao.Shared;
 using LocadoraDeVeiculos.Dominio.ParceiroModule;
+using LocadoraDeVeiculos.Dominio.Shared;
 using LocadoraDeVeiculos.Infra.Log;
-using LocadoraDeVeículos.Infra.Shared;
+using LocadoraDeVeiculos.Infra.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,9 +13,9 @@ namespace LocadoraDeVeículos.Aplicacao.ParceiroModule
 {
     public class ParceiroAppService : ICadastravel<Parceiro>
     {
-        private RepositorBase<Parceiro> repositorio;
+        private IRepositorBase<Parceiro> repositorio;
 
-        public ParceiroAppService(RepositorBase<Parceiro> repositor)
+        public ParceiroAppService(IRepositorBase<Parceiro> repositor)
         {
             repositorio = repositor;
         }

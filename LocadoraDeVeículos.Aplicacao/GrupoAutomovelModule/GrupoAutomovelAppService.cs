@@ -1,7 +1,8 @@
 ﻿using LocadoraDeVeículos.Aplicacao.Shared;
 using LocadoraDeVeiculos.Dominio.GrupoAutomovelModule;
+using LocadoraDeVeiculos.Dominio.Shared;
 using LocadoraDeVeiculos.Infra.Log;
-using LocadoraDeVeículos.Infra.Shared;
+using LocadoraDeVeiculos.Infra.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,9 +13,9 @@ namespace LocadoraDeVeículos.Aplicacao.GrupoAutomovelModule
 {
     public class GrupoAutomovelAppService : ICadastravel<GrupoAutomovel>
     {
-        private RepositorBase<GrupoAutomovel> repositorio;
+        private IRepositorBase<GrupoAutomovel> repositorio;
 
-        public GrupoAutomovelAppService(RepositorBase<GrupoAutomovel> repositorio)
+        public GrupoAutomovelAppService(IRepositorBase<GrupoAutomovel> repositorio)
         {
             this.repositorio = repositorio;
         }
