@@ -67,6 +67,8 @@ namespace LocadoraDeVeiculos.Infra.ORM.Shared
             { 
                 using var db = new DBLocadoraContext();
 
+                db.Attach(registro);
+
                 db.Add(registro);
 
                 db.SaveChanges();
