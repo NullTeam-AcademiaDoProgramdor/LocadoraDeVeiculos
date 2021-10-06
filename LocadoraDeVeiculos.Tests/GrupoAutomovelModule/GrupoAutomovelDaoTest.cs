@@ -7,6 +7,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using LocadoraDeVeículos.Infra.SQL.GrupoAutomovelModule;
+using LocadoraDeVeiculos.Infra.ORM.Models;
+using LocadoraDeVeiculos.Dominio.Shared;
+using LocadoraDeVeiculos.Infra.ORM.GrupoAutomovelModule;
 
 namespace LocadoraDeVeiculos.Tests.GrupoAutomovelModule
 {
@@ -15,17 +18,19 @@ namespace LocadoraDeVeiculos.Tests.GrupoAutomovelModule
     [TestCategory("Controladores")]
     public class GrupoAutomovelDaoTest
     {
-        GrupoAutomovelDao controlador = null;
+        IRepositorBase<GrupoAutomovel> controlador = null;
+        DBLocadoraContext db;
 
         public GrupoAutomovelDaoTest()
         {
-            controlador = new GrupoAutomovelDao();
+            this.db = new();
+            controlador = new GrupoAutomovelORMDao(db);
         }
         
         [TestCleanup()]
         public void LimparTeste()
         {
-            Db.Update("DELETE FROM [GrupoAutomovel]");
+            Db.Update("DELETE FROM [TBGrupoAutomovel]");
         }
 
         [TestMethod]
@@ -39,6 +44,7 @@ namespace LocadoraDeVeiculos.Tests.GrupoAutomovelModule
             );
 
             controlador.InserirNovo(novoGrupo);
+            db.SaveChanges();
 
             GrupoAutomovel grupoEncontrado = controlador.SelecionarPorId(novoGrupo.id);
             grupoEncontrado.Should().Be(novoGrupo);
@@ -54,7 +60,7 @@ namespace LocadoraDeVeiculos.Tests.GrupoAutomovelModule
                 new PlanoKmLivreStruct(300)
             );
             controlador.InserirNovo(grupo);
-
+            db.SaveChanges();
 
             GrupoAutomovel novoGrupo = new GrupoAutomovel(
                 "SUV",
@@ -64,6 +70,7 @@ namespace LocadoraDeVeiculos.Tests.GrupoAutomovelModule
             );
 
             controlador.Editar(grupo.id, novoGrupo);
+            db.SaveChanges();
 
             GrupoAutomovel grupoEncontrado = controlador.SelecionarPorId(grupo.id);
             grupoEncontrado.Should().Be(novoGrupo);
@@ -79,8 +86,10 @@ namespace LocadoraDeVeiculos.Tests.GrupoAutomovelModule
                new PlanoKmLivreStruct(300)
             );
             controlador.InserirNovo(grupo);
+            db.SaveChanges();
 
             controlador.Excluir(grupo.id);
+            db.SaveChanges();
 
             GrupoAutomovel grupoEncontrado = controlador.SelecionarPorId(grupo.id);
             grupoEncontrado.Should().BeNull();
@@ -96,6 +105,7 @@ namespace LocadoraDeVeiculos.Tests.GrupoAutomovelModule
               new PlanoKmLivreStruct(300)
             );
             controlador.InserirNovo(grupo);
+            db.SaveChanges();
 
             GrupoAutomovel grupoEncontrado = controlador.SelecionarPorId(grupo.id);
             grupoEncontrado.Should().Be(grupo);
@@ -127,6 +137,7 @@ namespace LocadoraDeVeiculos.Tests.GrupoAutomovelModule
               new PlanoKmLivreStruct(1000)
             );
             controlador.InserirNovo(g3);
+            db.SaveChanges();
 
             var grupos = controlador.SelecionarTodos();
 
