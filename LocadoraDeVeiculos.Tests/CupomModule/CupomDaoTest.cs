@@ -4,6 +4,10 @@ using LocadoraDeVeiculos.Controladores.ParceiroModule;
 using LocadoraDeVeiculos.Controladores.Shared;
 using LocadoraDeVeiculos.Dominio.CupomModule;
 using LocadoraDeVeiculos.Dominio.ParceiroModule;
+using LocadoraDeVeiculos.Dominio.Shared;
+using LocadoraDeVeiculos.Infra.ORM.CupomModule;
+using LocadoraDeVeiculos.Infra.ORM.Models;
+using LocadoraDeVeiculos.Infra.ORM.ParceiroModule;
 using LocadoraDeVeículos.Infra.SQL.CupomModule;
 using LocadoraDeVeículos.Infra.SQL.ParceiroModule;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -15,21 +19,26 @@ namespace LocadoraDeVeiculos.Tests.CupomModule
     public class CupomDaoTest
     {
         private Parceiro parceiro;
-        private ParceiroDao controladorParceiro;
-        private CupomDao controlador = null;
+        private IRepositorBase<Parceiro> controladorParceiro;
+        private IRepositorCupomBase controlador = null;
+
+        private DBLocadoraContext db;
 
         public CupomDaoTest()
         {
             parceiro = new Parceiro("Pedro");
-            controladorParceiro = new ParceiroDao();
-            controlador = new CupomDao();
+
+            this.db = new();
+
+            controladorParceiro = new ParceiroORMDao(db);
+            controlador = new CupomORMDao(db);
         }
 
         [TestCleanup]
         public void LimparTabelas()
         {
-            Db.Update(@"DELETE FROM CUPOM");
-            Db.Update(@"DELETE FROM PARCEIRO");
+            Db.Update(@"DELETE FROM TBCUPOM");
+            Db.Update(@"DELETE FROM TBPARCEIRO");
         }
 
         [TestMethod]
@@ -39,6 +48,7 @@ namespace LocadoraDeVeiculos.Tests.CupomModule
             controladorParceiro.InserirNovo(parceiro);
 
             controlador.InserirNovo(novoCupom);
+            db.SaveChanges();
 
             var cupomEncontrado = controlador.SelecionarPorId(novoCupom.Id);
             cupomEncontrado.Should().Be(novoCupom);
@@ -50,9 +60,11 @@ namespace LocadoraDeVeiculos.Tests.CupomModule
             var cupom = new Cupom("DezOff", parceiro, "Porcentagem", 10, 1000, DateTime.Today, 1);
             controladorParceiro.InserirNovo(parceiro);
             controlador.InserirNovo(cupom);
+            db.SaveChanges();
 
             Cupom novoCupom = new Cupom("VinteOff", parceiro, "Porcentagem", 20, 2000, DateTime.Today, 3);
             controlador.Editar(cupom.Id, novoCupom);
+            db.SaveChanges();
 
             Cupom cupomEncontrado = controlador.SelecionarPorId(cupom.Id);
             cupomEncontrado.Should().Be(novoCupom);
@@ -64,8 +76,10 @@ namespace LocadoraDeVeiculos.Tests.CupomModule
             var cupom = new Cupom("DezOff", parceiro, "Porcentagem", 10, 1000, DateTime.Today, 1);
             controladorParceiro.InserirNovo(parceiro);
             controlador.InserirNovo(cupom);
-            
+            db.SaveChanges();
+
             controlador.Excluir(cupom.Id);
+            db.SaveChanges();
 
             Cupom cupomEncontrado = controlador.SelecionarPorId(cupom.Id);
             cupomEncontrado.Should().BeNull();
@@ -77,6 +91,7 @@ namespace LocadoraDeVeiculos.Tests.CupomModule
             var cupom = new Cupom("DezOff", parceiro, "Porcentagem", 10, 1000, DateTime.Today, 1);
             controladorParceiro.InserirNovo(parceiro);
             controlador.InserirNovo(cupom);
+            db.SaveChanges();
 
             Cupom cupomEncontrado = controlador.SelecionarPorId(cupom.Id);
 
@@ -89,6 +104,8 @@ namespace LocadoraDeVeiculos.Tests.CupomModule
             var cupom = new Cupom("DezOff", parceiro, "Porcentagem", 10, 1000, DateTime.Today, 1);
             controladorParceiro.InserirNovo(parceiro);
             controlador.InserirNovo(cupom);
+
+            db.SaveChanges();
 
             Cupom cupomEncontrado = controlador.SelecionarPorCodigo(cupom.Codigo);
 
@@ -105,6 +122,8 @@ namespace LocadoraDeVeiculos.Tests.CupomModule
 
             var novoCupom = new Cupom("VinteOff", parceiro, "Porcentagem", 20, 2000, DateTime.Today,  1);
             controlador.InserirNovo(novoCupom);
+
+            db.SaveChanges();
 
             var cupons = controlador.SelecionarTodos();
 

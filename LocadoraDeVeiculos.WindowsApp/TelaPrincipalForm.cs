@@ -50,6 +50,7 @@ using LocadoraDeVeículos.Infra.PDF.PDFModule;
 using LocadoraDeVeículos.Aplicacao.RequisicaoEmailModule;
 using LocadoraDeVeiculos.Infra.ORM.ParceiroModule;
 using LocadoraDeVeiculos.Infra.ORM.Models;
+using LocadoraDeVeiculos.Infra.ORM.CupomModule;
 
 namespace LocadoraDeVeiculos.WindowsApp
 {
@@ -72,7 +73,6 @@ namespace LocadoraDeVeiculos.WindowsApp
         private OperacoesConfiguracoes operacoesConfiguracoes;
         private OperacoesPessoaFisica operacoesPessoaFisica;
         private OperacoesLocacao operacoesLocacao;
-        private OperacoesCupons operacoesCupom;
 
         private OperacoesAutomovel operacoesAutomovel;
 
@@ -145,10 +145,6 @@ namespace LocadoraDeVeiculos.WindowsApp
                     new CupomDao(), 
                     new GeradorPDF(),
                     EmailAppService.GetInstance()));
-
-            //operacoesCupom = new OperacoesCupons(
-            //    new CupomAppService(new CupomDao()),
-            //    new ParceiroAppService(new ParceiroDao()));
 
             operacoesAutomovel = new OperacoesAutomovel(
                 new AutomovelAppService(new AutomovelDao(), new FotosAutomovelDao()), 
@@ -418,7 +414,19 @@ namespace LocadoraDeVeiculos.WindowsApp
             AtualizarRodape(configuracoes.Tooltip.TipoCadastro);
             AtualizarFuncionarioConectado(funcionarioConectado.Nome);
 
-            operacoes = operacoesCupom;
+            DBLocadoraContext context = new();
+
+            CupomAppService controlador = new(
+                new CupomORMDao(context),
+                context
+            );
+
+            ParceiroAppService controladorParceiro = new ParceiroAppService(
+                new ParceiroORMDao(context),
+                context
+            );
+
+            operacoes = new OperacoesCupons(controlador, controladorParceiro);
 
             ConfigurarPainelRegistros();
         }

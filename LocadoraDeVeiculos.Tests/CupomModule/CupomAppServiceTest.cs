@@ -28,7 +28,7 @@ namespace LocadoraDeVeiculos.Tests.CupomModule
             Mock<CupomDao> CupomDaoMock = new();
 
             CupomAppService cupomAppService =
-                new(CupomDaoMock.Object);
+                new(CupomDaoMock.Object, null);
 
             cupomAppService.InserirNovo(CupomMock.Object);
 
@@ -46,7 +46,7 @@ namespace LocadoraDeVeiculos.Tests.CupomModule
             Mock<CupomDao> CupomDaoMock = new();
 
             CupomAppService cupomAppService =
-                new(CupomDaoMock.Object);
+                new(CupomDaoMock.Object, null);
 
             cupomAppService.InserirNovo(CupomMock.Object);
 
@@ -64,7 +64,7 @@ namespace LocadoraDeVeiculos.Tests.CupomModule
             Mock<CupomDao> CupomDaoMock = new();
 
             CupomAppService cupomAppService =
-                new(CupomDaoMock.Object);
+                new(CupomDaoMock.Object, null);
 
             cupomAppService.Editar(CupomMock.Object.Id, CupomMock.Object);
 
@@ -83,7 +83,7 @@ namespace LocadoraDeVeiculos.Tests.CupomModule
             Mock<CupomDao> CupomDaoMock = new();
 
             CupomAppService cupomAppService =
-                new(CupomDaoMock.Object);
+                new(CupomDaoMock.Object, null);
 
             cupomAppService.Editar(CupomMock.Object.Id, CupomMock.Object);
 

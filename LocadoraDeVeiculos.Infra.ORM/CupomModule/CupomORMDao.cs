@@ -24,8 +24,6 @@ namespace LocadoraDeVeiculos.Infra.ORM.CupomModule
 
                 db.Update(cupom);
 
-                db.SaveChanges();
-
                 return true;
             }
             catch (Exception)

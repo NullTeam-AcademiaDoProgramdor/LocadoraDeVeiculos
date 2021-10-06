@@ -6,16 +6,19 @@ using System.Text;
 using System.Threading.Tasks;
 using LocadoraDeVeículos.Aplicacao.Shared;
 using LocadoraDeVeiculos.Dominio.CupomModule;
+using LocadoraDeVeiculos.Infra.ORM.Models;
 
 namespace LocadoraDeVeículos.Aplicacao.CupomModule
 {
     public class CupomAppService : ICadastravel<Cupom>
     {
         private IRepositorCupomBase repositorio;
+        private DBLocadoraContext db;
 
-        public CupomAppService(IRepositorCupomBase repositorio)
+        public CupomAppService(IRepositorCupomBase repositorio, DBLocadoraContext db)
         {
             this.repositorio = repositorio;
+            this.db = db;
         }
 
         public string Editar(int id, Cupom registro)
@@ -26,6 +29,7 @@ namespace LocadoraDeVeículos.Aplicacao.CupomModule
             if (resultadoValidacao == "ESTA_VALIDO")
             {
                 repositorio.Editar(id, registro);
+                db.SaveChanges();
             }
 
             return resultadoValidacao;
@@ -33,7 +37,10 @@ namespace LocadoraDeVeículos.Aplicacao.CupomModule
 
         public bool Excluir(int id)
         {
-            return repositorio.Excluir(id);
+            bool resultado = repositorio.Excluir(id);
+            db.SaveChanges();
+
+            return resultado;
         }
 
         public bool Existe(int id)
@@ -49,6 +56,7 @@ namespace LocadoraDeVeículos.Aplicacao.CupomModule
             if (resultadoValidacao == "ESTA_VALIDO")
             {
                 repositorio.InserirNovo(registro);
+                db.SaveChanges();
             }
 
             return resultadoValidacao;
@@ -67,6 +75,7 @@ namespace LocadoraDeVeículos.Aplicacao.CupomModule
         public void EditarQtdUsos(Cupom cupom)
         {
             repositorio.EditarQtdUsos(cupom);
+            db.SaveChanges();
         }
 
         public Cupom SelecionarPorCodigo(string codigo)
