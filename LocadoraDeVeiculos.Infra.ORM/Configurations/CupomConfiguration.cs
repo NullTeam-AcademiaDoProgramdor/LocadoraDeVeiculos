@@ -18,6 +18,7 @@ namespace LocadoraDeVeiculos.Infra.ORM.Configurations
             builder.HasKey(e => e.Id);
 
             builder.Property(e => e.Codigo)
+                .HasColumnType("VARCHAR(100)")
                 .IsRequired();
                 
             builder.Property(e => e.DataVencimento)
@@ -27,6 +28,7 @@ namespace LocadoraDeVeiculos.Infra.ORM.Configurations
                 .IsRequired();
 
             builder.Property(e => e.Tipo)
+                .HasColumnType("VARCHAR(100)")
                 .IsRequired();
 
             builder.Property(e => e.Valor)
