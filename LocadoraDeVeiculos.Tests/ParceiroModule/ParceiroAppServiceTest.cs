@@ -1,5 +1,7 @@
 ﻿using LocadoraDeVeículos.Aplicacao.ParceiroModule;
 using LocadoraDeVeiculos.Dominio.ParceiroModule;
+using LocadoraDeVeiculos.Infra.ORM.Models;
+using LocadoraDeVeiculos.Infra.ORM.ParceiroModule;
 using LocadoraDeVeículos.Infra.SQL.ParceiroModule;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -14,6 +16,14 @@ namespace LocadoraDeVeiculos.Tests.ParceiroModule
     [TestClass]
     public class ParceiroAppServiceTest
     {
+
+        private DBLocadoraContext db;
+
+        public ParceiroAppServiceTest()
+        {
+            this.db = new();
+        }
+
         [TestMethod]
         public void DeveInserir_NovoParceiro()
         {
@@ -21,9 +31,9 @@ namespace LocadoraDeVeiculos.Tests.ParceiroModule
 
             parceiroMock.Setup(x => x.Validar()).Returns("ESTA_VALIDO");
 
-            Mock<ParceiroDao> parceiroDaoMock = new();
+            Mock<ParceiroORMDao> parceiroDaoMock = new(db);
 
-            ParceiroAppService parceiroAppService = new(parceiroDaoMock.Object);
+            ParceiroAppService parceiroAppService = new(parceiroDaoMock.Object, db);
 
             parceiroAppService.InserirNovo(parceiroMock.Object);
 
@@ -38,9 +48,9 @@ namespace LocadoraDeVeiculos.Tests.ParceiroModule
 
             parceiroMock.Setup(x => x.Validar()).Returns("NAO_ESTA_VALIDO");
 
-            Mock<ParceiroDao> parceiroDaoMock = new();
+            Mock<ParceiroORMDao> parceiroDaoMock = new(db);
 
-            ParceiroAppService parceiroAppService = new(parceiroDaoMock.Object);
+            ParceiroAppService parceiroAppService = new(parceiroDaoMock.Object, db);
 
             parceiroAppService.InserirNovo(parceiroMock.Object);
 
@@ -55,9 +65,9 @@ namespace LocadoraDeVeiculos.Tests.ParceiroModule
 
             parceiroMock.Setup(x => x.Validar()).Returns("ESTA_VALIDO");
 
-            Mock<ParceiroDao> parceiroDaoMock = new();
+            Mock<ParceiroORMDao> parceiroDaoMock = new(db);
 
-            ParceiroAppService parceiroAppService = new(parceiroDaoMock.Object);
+            ParceiroAppService parceiroAppService = new(parceiroDaoMock.Object, db);
 
             parceiroAppService.Editar(0, parceiroMock.Object);
 

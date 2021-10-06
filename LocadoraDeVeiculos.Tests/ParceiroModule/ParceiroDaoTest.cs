@@ -1,6 +1,7 @@
 ﻿using FluentAssertions;
 using LocadoraDeVeiculos.Dominio.ParceiroModule;
 using LocadoraDeVeiculos.Dominio.Shared;
+using LocadoraDeVeiculos.Infra.ORM.Models;
 using LocadoraDeVeiculos.Infra.ORM.ParceiroModule;
 using LocadoraDeVeiculos.Infra.Shared;
 using LocadoraDeVeículos.Infra.SQL.ParceiroModule;
@@ -17,10 +18,12 @@ namespace LocadoraDeVeiculos.Tests.ParceiroModule
     public class ParceiroDaoTest
     {
         IRepositorBase<Parceiro> controlador = null;
+        private DBLocadoraContext db;
 
         public ParceiroDaoTest()
         {
-            controlador = new ParceiroORMDao();
+            this.db = new();
+            controlador = new ParceiroORMDao(db);
         }
 
         [TestCleanup()]
@@ -35,6 +38,7 @@ namespace LocadoraDeVeiculos.Tests.ParceiroModule
             Parceiro novoParceiro = new("Josue");
 
             controlador.InserirNovo(novoParceiro);
+            db.SaveChanges();
 
             Parceiro parceiroEncontrado = controlador.SelecionarPorId(novoParceiro.id);
 
@@ -47,10 +51,12 @@ namespace LocadoraDeVeiculos.Tests.ParceiroModule
             Parceiro parceiro = new("Josue");
 
             controlador.InserirNovo(parceiro);
+            db.SaveChanges();
 
             Parceiro novoParceiro = new("Jose");
 
             controlador.Editar(parceiro.Id, novoParceiro);
+            db.SaveChanges();
 
             Parceiro parceiroEncontrado = controlador.SelecionarPorId(parceiro.Id);
             parceiroEncontrado.Should().Be(novoParceiro);
@@ -62,8 +68,10 @@ namespace LocadoraDeVeiculos.Tests.ParceiroModule
             Parceiro parceiro = new("Josue");
 
             controlador.InserirNovo(parceiro);
+            db.SaveChanges();
 
             controlador.Excluir(parceiro.Id);
+            db.SaveChanges();
 
             Parceiro parceiroEncontrado = controlador.SelecionarPorId(parceiro.Id);
             parceiroEncontrado.Should().BeNull();
@@ -76,6 +84,7 @@ namespace LocadoraDeVeiculos.Tests.ParceiroModule
             Parceiro parceiro = new("Josue");
 
             controlador.InserirNovo(parceiro);
+            db.SaveChanges();
 
             Parceiro parceiroEncontrado = controlador.SelecionarPorId(parceiro.Id);
             parceiroEncontrado.Should().Be(parceiro);
@@ -99,6 +108,8 @@ namespace LocadoraDeVeiculos.Tests.ParceiroModule
             Parceiro parceiro4 = new("Joao");
 
             controlador.InserirNovo(parceiro4);
+
+            db.SaveChanges();
 
             var parceiros = controlador.SelecionarTodos();
 

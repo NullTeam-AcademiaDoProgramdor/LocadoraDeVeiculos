@@ -25,29 +25,26 @@ namespace LocadoraDeVeiculos.WindowsApp
         [STAThread]
         static void Main()
         {
-            //Log.ConfigurarLog();
+            Log.ConfigurarLog();
 
-            //try
-            //{
-            //    EmailAppService emailService =
-            //        EmailAppService.GetInstance(new RequisicaoEmailDao());
+            try
+            {
+                EmailAppService emailService =
+                    EmailAppService.GetInstance(new RequisicaoEmailDao());
 
-            //    emailService.Iniciar();
+                emailService.Iniciar();
 
-            //    Application.EnableVisualStyles();
-            //    Application.SetCompatibleTextRenderingDefault(false);
-            //    Application.Run(new TelaLoginForm());
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(new TelaLoginForm());
 
-            //    emailService.Parar();
-            //}
-            //catch (Exception e)
-            //{
-            //    Serilog.Log.Fatal(e, e.Message);
-            //}
+                emailService.Parar();
+            }
+            catch (Exception e)
+            {
+                Serilog.Log.Fatal(e, e.Message);
+            }
 
-            ParceiroORMDao d = new();
-
-            d.InserirNovo(new("TESTE"));
         }
     }
 

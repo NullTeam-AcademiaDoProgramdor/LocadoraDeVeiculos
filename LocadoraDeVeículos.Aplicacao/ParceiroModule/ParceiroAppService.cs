@@ -2,6 +2,7 @@
 using LocadoraDeVeiculos.Dominio.ParceiroModule;
 using LocadoraDeVeiculos.Dominio.Shared;
 using LocadoraDeVeiculos.Infra.Log;
+using LocadoraDeVeiculos.Infra.ORM.Models;
 using LocadoraDeVeiculos.Infra.Shared;
 using System;
 using System.Collections.Generic;
@@ -14,10 +15,12 @@ namespace LocadoraDeVeículos.Aplicacao.ParceiroModule
     public class ParceiroAppService : ICadastravel<Parceiro>
     {
         private IRepositorBase<Parceiro> repositorio;
-
-        public ParceiroAppService(IRepositorBase<Parceiro> repositor)
+        private DBLocadoraContext db;
+        public ParceiroAppService(IRepositorBase<Parceiro> repositor,
+                                  DBLocadoraContext db)
         {
             repositorio = repositor;
+            this.db = db;
         }
 
         public string InserirNovo(Parceiro registro)
@@ -28,6 +31,7 @@ namespace LocadoraDeVeículos.Aplicacao.ParceiroModule
             if (resultadoValidacao == "ESTA_VALIDO")
             {
                 repositorio.InserirNovo(registro);
+                db.SaveChanges();
             }
 
             return resultadoValidacao;
@@ -41,6 +45,7 @@ namespace LocadoraDeVeículos.Aplicacao.ParceiroModule
             if (resultadoValidacao == "ESTA_VALIDO")
             {
                 repositorio.Editar(id, registro);
+                db.SaveChanges();
             }
 
             return resultadoValidacao;
@@ -48,7 +53,10 @@ namespace LocadoraDeVeículos.Aplicacao.ParceiroModule
 
         public bool Excluir(int id)
         {
-            return repositorio.Excluir(id);
+            bool resultado = repositorio.Excluir(id);
+            db.SaveChanges();
+
+            return resultado;
         }
 
         public bool Existe(int id)

@@ -12,12 +12,14 @@ namespace LocadoraDeVeiculos.Infra.ORM.CupomModule
     public class CupomORMDao : ORMDAOBase<Cupom>, IRepositorCupomBase
 
     {
+        public CupomORMDao(DBLocadoraContext db) : base(db)
+        {
+        }
+
         public bool EditarQtdUsos(Cupom cupom)
         {
             try
             {
-                using var db = new DBLocadoraContext();
-
                 cupom.QtdUsos++;
 
                 db.Update(cupom);
@@ -34,8 +36,6 @@ namespace LocadoraDeVeiculos.Infra.ORM.CupomModule
 
         public Cupom SelecionarPorCodigo(string codigo)
         {
-            using var db = new DBLocadoraContext();
-
             return db.Cupoms
                 .Where(x => x.Codigo == codigo)
                 .FirstOrDefault();
@@ -43,8 +43,6 @@ namespace LocadoraDeVeiculos.Infra.ORM.CupomModule
 
         public List<Cupom> SelecionarValidos()
         {
-            using var db = new DBLocadoraContext();
-
             var dataHoje = DateTime.Now;
 
             return db.Cupoms

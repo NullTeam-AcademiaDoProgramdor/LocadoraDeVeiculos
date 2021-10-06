@@ -12,6 +12,8 @@ namespace LocadoraDeVeiculos.Infra.ORM.ParceiroModule
 {
     public class ParceiroORMDao : ORMDAOBase<Parceiro>
     {
-       
+        public ParceiroORMDao(DBLocadoraContext db) : base(db)
+        {
+        }
     }
 }

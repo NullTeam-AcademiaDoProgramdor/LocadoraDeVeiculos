@@ -11,21 +11,31 @@ namespace LocadoraDeVeiculos.Infra.ORM.Shared
     public abstract class ORMDAOBase<T> : IRepositorBase<T>
         where T : EntidadeBase, new()
     {
-        public bool Editar(int id, T registro)
+
+        protected DBLocadoraContext db;
+
+        protected ORMDAOBase(DBLocadoraContext db)
+        {
+            this.db = db;
+        }
+
+        public virtual bool Editar(int id, T registro)
         {
             try
             {
-                using var db = new DBLocadoraContext();
+                T temp = db.Set<T>()
+                    .Where(x => x.Id == id)
+                    .FirstOrDefault();
 
                 registro.Id = id;
 
-                db.Update(registro);
+                db.Entry(temp).CurrentValues.SetValues(registro);
 
-                db.SaveChanges();
+                db.Update(temp);
 
                 return true;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 return false;
             }
@@ -35,20 +45,15 @@ namespace LocadoraDeVeiculos.Infra.ORM.Shared
         {
             try
             {
-                using var db = new DBLocadoraContext();
-
-                T temp = new()
-                {
-                    Id = id
-                };
+                T temp = db.Set<T>()
+                    .Where(x => x.Id == id)
+                    .FirstOrDefault(); 
 
                 db.Remove(temp);
-
-                db.SaveChanges();
-
+                 
                 return true;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 return false;
             }
@@ -56,22 +61,14 @@ namespace LocadoraDeVeiculos.Infra.ORM.Shared
 
         public bool Existe(int id)
         {
-            using var db = new DBLocadoraContext();
-
             return db.Set<T>().Any(x => x.Id == id);
         }
 
-        public bool InserirNovo(T registro)
+        public virtual bool InserirNovo(T registro)
         {
             try 
             { 
-                using var db = new DBLocadoraContext();
-
-                db.Attach(registro);
-
                 db.Add(registro);
-
-                db.SaveChanges();
 
                 return true;
             }
@@ -84,8 +81,6 @@ namespace LocadoraDeVeiculos.Infra.ORM.Shared
 
         public T SelecionarPorId(int id)
         {
-            using var db = new DBLocadoraContext();
-
             return db.Set<T>()
                 .Where(x => x.Id == id)
                 .FirstOrDefault();
@@ -93,8 +88,6 @@ namespace LocadoraDeVeiculos.Infra.ORM.Shared
 
         public List<T> SelecionarTodos()
         {
-            using var db = new DBLocadoraContext();
-
             return db.Set<T>().ToList();
         }
 
