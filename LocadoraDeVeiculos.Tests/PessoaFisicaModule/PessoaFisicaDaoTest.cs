@@ -4,6 +4,9 @@ using LocadoraDeVeiculos.Controladores.PessoaJuridicaModule;
 using LocadoraDeVeiculos.Controladores.Shared;
 using LocadoraDeVeiculos.Dominio.PessoaFisicaModule;
 using LocadoraDeVeiculos.Dominio.PessoaJuridicaModule;
+using LocadoraDeVeiculos.Infra.ORM.Models;
+using LocadoraDeVeiculos.Infra.ORM.PessoaFisicaModule;
+using LocadoraDeVeiculos.Infra.ORM.PessoaJuridicaModule;
 using LocadoraDeVeículos.Infra.SQL.PessoaFisicaModule;
 using LocadoraDeVeículos.Infra.SQL.PessoaJuridicaModule;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -16,15 +19,17 @@ namespace LocadoraDeVeiculos.Tests.PessoaFisicaModule
     [TestCategory("Controladores")]
     public class PessoaFisicaDaoTest
     {
-        PessoaFisicaDao controlador;
-        PessoaJuridicaDao controladorPJuridica;
+        PessoaFisicaORMDao controlador;
+        PessoaJuridicaORMDao controladorPJuridica;
+        DBLocadoraContext db;
 
         public PessoaFisicaDaoTest()
         {
-            controlador = new();
-            controladorPJuridica = new();
-            Db.Update("DELETE FROM [PESSOAFISICA]");
-            Db.Update("DELETE FROM [PESSOAJURIDICA]");
+            db = new();
+            controlador = new(db);
+            controladorPJuridica = new(db);
+            Db.Update("DELETE FROM [TBPESSOAFISICA]");
+            Db.Update("DELETE FROM [TBPESSOAJURIDICA]");
         }
 
         [TestMethod]
@@ -33,12 +38,14 @@ namespace LocadoraDeVeiculos.Tests.PessoaFisicaModule
             //arrange
             PessoaJuridica pessoaJuridica = new PessoaJuridica("Matheus", "22.000.000/0001-00", "(49)000000000", "Lagi", "aaaa@gmail.com");
             controladorPJuridica.InserirNovo(pessoaJuridica);
+            db.SaveChanges();
 
             PessoaFisica pessoaFisica = new PessoaFisica("Matheus", "123.456.789-02", "12.098.098-02",
                 "123456789123", new DateTime(2022, 02, 20), "(49)000000000", "Lagi", pessoaJuridica, "aaaaa@gmail.com");
 
             //action
             controlador.InserirNovo(pessoaFisica);
+            db.SaveChanges();
 
             //assert
             var pessoaFisicaEncontrada = controlador.SelecionarPorId(pessoaFisica.Id);
@@ -52,6 +59,7 @@ namespace LocadoraDeVeiculos.Tests.PessoaFisicaModule
             PessoaFisica pessoaFisica = new PessoaFisica("Matheus", "123.456.789-02", "12.098.098-02",
                 "123456789123", new DateTime(2022, 02, 20), "(49)000000000", "Lagi", null, "aaaaa@gmail.com");
             controlador.InserirNovo(pessoaFisica);
+            db.SaveChanges();
 
             string telefone = "(49)000000111";
 
@@ -59,6 +67,7 @@ namespace LocadoraDeVeiculos.Tests.PessoaFisicaModule
                 "123456789123", new DateTime(2022, 02, 20), telefone, "Lagi", null, "aaaaa@gmail.com");
             //action
             controlador.Editar(pessoaFisica.Id, novaPessoaFisica);
+            db.SaveChanges();
 
             //assert
             PessoaFisica pessoaFisicaEncontrada = controlador.SelecionarPorId(pessoaFisica.Id);
@@ -72,6 +81,7 @@ namespace LocadoraDeVeiculos.Tests.PessoaFisicaModule
             PessoaFisica pessoaFisica = new PessoaFisica("Matheus", "123.456.789-02", "12.098.098-02",
                 "123456789123", new DateTime(2022, 02, 20), "(49)000000000", "Lagi", null, "aaaaa@gmail.com");
             controlador.InserirNovo(pessoaFisica);
+            db.SaveChanges();
 
             //action
             PessoaFisica pessoaFisicaEncontrada = controlador.SelecionarPorId(pessoaFisica.Id);
@@ -101,6 +111,7 @@ namespace LocadoraDeVeiculos.Tests.PessoaFisicaModule
 
             foreach (var c in pessoasFisicas)
                 controlador.InserirNovo(c);
+            db.SaveChanges();
 
             //action
             var pessoasFisicasEncotradas = controlador.SelecionarTodos();
@@ -117,9 +128,11 @@ namespace LocadoraDeVeiculos.Tests.PessoaFisicaModule
                 "123456789123", new DateTime(2022, 02, 20), "(49)000000000", "Lagi", null, "aaaaa@gmail.com");
 
             controlador.InserirNovo(pessoaFisica);
+            db.SaveChanges();
 
             //action            
             controlador.Excluir(pessoaFisica.Id);
+            db.SaveChanges();
 
             //assert
             PessoaFisica pessoaFisicaEncontrada = controlador.SelecionarPorId(pessoaFisica.Id);
