@@ -16,6 +16,7 @@ using LocadoraDeVeiculos.Dominio.FuncionarioModule;
 using LocadoraDeVeiculos.Dominio.GrupoAutomovelModule;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using LocadoraDeVeiculos.Dominio.PessoaFisicaModule;
+using LocadoraDeVeiculos.Infra.ORM.Models;
 using LocadoraDeVeículos.Infra.PDF.PDFModule;
 using LocadoraDeVeículos.Infra.SQL.AutomovelModule;
 using LocadoraDeVeículos.Infra.SQL.CupomModule;
@@ -39,6 +40,7 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
         AutomovelAppService ctrlAutomovel;
         FuncionarioAppService ctrlFuncionario;
         PessoaFisicaAppService ctrlCondutor;
+        DBLocadoraContext db;
 
         GrupoAutomovel grupo;
         Automovel automovel = null;
@@ -49,6 +51,7 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
         {
             EmailAppService.GetInstance(new RequisicaoEmailDao());
 
+            this.db = new();
             this.controladorLocacao = new(
                 new LocacaoDao(),
                     new TaxasEServicosUsadosDao(),
@@ -59,7 +62,7 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
             this.ctrlAutomovel = new(new AutomovelDao(), new FotosAutomovelDao());
             this.ctrlGrupo = new(new GrupoAutomovelDao(), null);
             this.ctrlFuncionario = new(new FuncionarioDao());
-            this.ctrlCondutor = new(new PessoaFisicaDao());
+            this.ctrlCondutor = new(new PessoaFisicaDao(), db);
             grupo = CriarGrupo();
             automovel = CriarAutomovel(grupo);
             funcionario = CriarFuncionario();

@@ -26,6 +26,11 @@ namespace LocadoraDeVeiculos.Dominio.PessoaFisicaModule
             Email = email;
         }
 
+        public PessoaFisica()
+        {
+
+        }
+
         public string Nome { get; }
         public string CPF { get; }
         public string RG { get; }
@@ -34,7 +39,7 @@ namespace LocadoraDeVeiculos.Dominio.PessoaFisicaModule
         public string Telefone { get; }
         public string Endereco { get; }
         public string Email { get; }
-        public PessoaJuridica PessoaJuridica { get; }
+        public virtual PessoaJuridica PessoaJuridica { get; }
 
         public override bool Equals(object obj)
         {
