@@ -34,7 +34,7 @@ namespace LocadoraDeVeiculos.Infra.ORM.CupomModule
 
         public Cupom SelecionarPorCodigo(string codigo)
         {
-            return db.Cupoms
+            return db.Cupons
                 .Where(x => x.Codigo == codigo)
                 .FirstOrDefault();
         }
@@ -43,7 +43,7 @@ namespace LocadoraDeVeiculos.Infra.ORM.CupomModule
         {
             var dataHoje = DateTime.Now;
 
-            return db.Cupoms
+            return db.Cupons
                 .Where(x => x.DataVencimento >= dataHoje)
                 .ToList();
         }

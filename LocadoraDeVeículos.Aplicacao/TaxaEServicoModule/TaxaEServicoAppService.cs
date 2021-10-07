@@ -2,6 +2,7 @@
 using LocadoraDeVeiculos.Dominio.Shared;
 using LocadoraDeVeiculos.Dominio.TaxasEServicosModule;
 using LocadoraDeVeiculos.Infra.Log;
+using LocadoraDeVeiculos.Infra.ORM.Models;
 using LocadoraDeVeiculos.Infra.Shared;
 using System;
 using System.Collections.Generic;
@@ -13,11 +14,14 @@ namespace LocadoraDeVeículos.Aplicacao.TaxaEServicoModule
 {
     public class TaxaEServicoAppService : ICadastravel<TaxaEServico>
     {
-        IRepositorBase<TaxaEServico> repositorio;
+        IRepositorTaxaEServicoBase repositorio;
 
-        public TaxaEServicoAppService(IRepositorBase<TaxaEServico> repositorio)
+        private DBLocadoraContext db;
+
+        public TaxaEServicoAppService(IRepositorTaxaEServicoBase repositorio, DBLocadoraContext db)
         {
             this.repositorio = repositorio;
+            this.db = db;
         }
 
         public string InserirNovo(TaxaEServico registro)
@@ -28,6 +32,7 @@ namespace LocadoraDeVeículos.Aplicacao.TaxaEServicoModule
             if (resultadoValidacao == "ESTA_VALIDO")
             {
                 repositorio.InserirNovo(registro);
+                db.SaveChanges();
             }
 
             return resultadoValidacao;
@@ -41,6 +46,7 @@ namespace LocadoraDeVeículos.Aplicacao.TaxaEServicoModule
             if (resultadoValidacao == "ESTA_VALIDO")
             {
                 repositorio.Editar(id, registro);
+                db.SaveChanges();
             }
 
             return resultadoValidacao;
@@ -48,11 +54,14 @@ namespace LocadoraDeVeículos.Aplicacao.TaxaEServicoModule
 
         public bool Excluir(int id)
         {
-            return repositorio.Excluir(id);
+            bool resultado = repositorio.Excluir(id);
+            db.SaveChanges();
+
+            return resultado;
         }
 
         public bool Existe(int id)
-        {
+        {           
             return repositorio.Existe(id);
         }
 

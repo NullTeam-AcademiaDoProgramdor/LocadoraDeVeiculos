@@ -21,6 +21,11 @@ namespace LocadoraDeVeiculos.Dominio.TaxasEServicosModule
             this.EhFixo = ehFixo;
         }
 
+        public TaxaEServico()
+        {
+
+        }
+
         public string Nome { get => nome; set => nome = value; }
         public double Preco { get => preco; set => preco = value; }
         public bool EhFixo { get => ehFixo; set => ehFixo = value; }
