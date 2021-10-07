@@ -30,7 +30,7 @@ namespace LocadoraDeVeículos.Aplicacao.AutomovelModule
             if (resultadoValidacao == "ESTA_VALIDO")
             {
                 repositorio.Editar(id, registro);
-                repositorioFotos.Modificar(registro.Fotos, registro.id);
+                //repositorioFotos.Modificar(registro.Fotos, registro.id);
             }
 
             return resultadoValidacao;
@@ -67,7 +67,7 @@ namespace LocadoraDeVeículos.Aplicacao.AutomovelModule
             if (resultadoValidacao == "ESTA_VALIDO")
             {
                 repositorio.InserirNovo(registro);
-                repositorioFotos.Modificar(registro.Fotos, registro.id);
+                //repositorioFotos.Modificar(registro.Fotos, registro.id);
             }
 
             return resultadoValidacao;
@@ -99,7 +99,7 @@ namespace LocadoraDeVeículos.Aplicacao.AutomovelModule
 
         private void AdicionarFotosNoAutomovel(Automovel automovel)
         {
-            automovel.Fotos = repositorioFotos.Buscar(automovel.id);
+            //automovel.Fotos = repositorioFotos.Buscar(automovel.id);
         }
     }
 }

@@ -39,9 +39,13 @@ namespace LocadoraDeVeiculos.Dominio.AutomovelModule
 
         public DirecaoEnum Direcao { get; }
 
-        public GrupoAutomovel Grupo { get; }
+        public virtual GrupoAutomovel Grupo { get; }
 
-        public Image[] Fotos { get; set; }
+        public List<Image> Fotos { get; set; }
+
+        public Automovel()
+        {
+        }
 
         public Automovel(string modelo, string marca, string cor, string placa,
             string chassi, int ano, int portas, int capacidadeTanque, int kmRegistrada,
@@ -62,14 +66,14 @@ namespace LocadoraDeVeiculos.Dominio.AutomovelModule
             Cambio = cambio;
             Direcao = direcao;
             Grupo = grupo;
-            Fotos = new Image[0];
+            Fotos = new List<Image>();
         }
 
         public Automovel(string modelo, string marca, string cor, string placa,
             string chassi, int ano, int portas, int capacidadeTanque, int kmRegistrada,
             int tamanhoPortaMalas, TipoCombustivelEnum tipoCombustivel,
             CambioEnum cambio, DirecaoEnum direcao, GrupoAutomovel grupo,
-            Image[] fotos)
+            List<Image> fotos)
         {
             Modelo = modelo;
             Marca = marca;
@@ -212,7 +216,7 @@ namespace LocadoraDeVeiculos.Dominio.AutomovelModule
             hashCode = hashCode * -1521134295 + Cambio.GetHashCode();
             hashCode = hashCode * -1521134295 + Direcao.GetHashCode();
             hashCode = hashCode * -1521134295 + EqualityComparer<GrupoAutomovel>.Default.GetHashCode(Grupo);
-            hashCode = hashCode * -1521134295 + EqualityComparer<Image[]>.Default.GetHashCode(Fotos);
+            //hashCode = hashCode * -1521134295 + EqualityComparer<Image[]>.Default.GetHashCode(Fotos);
             return hashCode;
         }
     }

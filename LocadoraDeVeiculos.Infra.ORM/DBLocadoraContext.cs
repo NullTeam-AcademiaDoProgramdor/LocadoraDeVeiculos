@@ -2,6 +2,7 @@
 using System.Data.Common;
 using System.Data.SqlClient;
 using System.IO;
+using LocadoraDeVeiculos.Dominio.AutomovelModule;
 using LocadoraDeVeiculos.Dominio.CupomModule;
 using LocadoraDeVeiculos.Dominio.GrupoAutomovelModule;
 using LocadoraDeVeiculos.Dominio.ParceiroModule;
@@ -16,6 +17,7 @@ namespace LocadoraDeVeiculos.Infra.ORM.Models
     {
         private string connectionString;
 
+        public DbSet<Automovel> Automoveis { get; set; }
         public DbSet<GrupoAutomovel> GruposAutomovel { get; set; }
         public DbSet<Parceiro> Parceiros { get; set; }
         public DbSet<Cupom> Cupoms { get; set; }
