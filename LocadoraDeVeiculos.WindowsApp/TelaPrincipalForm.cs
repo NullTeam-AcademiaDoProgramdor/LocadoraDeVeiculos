@@ -51,6 +51,7 @@ using LocadoraDeVeículos.Aplicacao.RequisicaoEmailModule;
 using LocadoraDeVeiculos.Infra.ORM.ParceiroModule;
 using LocadoraDeVeiculos.Infra.ORM.Models;
 using LocadoraDeVeiculos.Infra.ORM.CupomModule;
+using LocadoraDeVeiculos.Infra.ORM.TaxaEServicoModule;
 using LocadoraDeVeiculos.Infra.ORM.PessoaJuridicaModule;
 using LocadoraDeVeiculos.Infra.ORM.GrupoAutomovelModule;
 
@@ -70,7 +71,7 @@ namespace LocadoraDeVeiculos.WindowsApp
         //Operacoes
         private OperacoesPessoaJuridica operacoesPessoaJuridica;        
         private OperacoesFuncionario operacoesFuncionario;
-        private OperacoesTaxasESevicos operacoesTaxasEServicos;
+       
         private OperacoesConfiguracoes operacoesConfiguracoes;
         private OperacoesPessoaFisica operacoesPessoaFisica;
         private OperacoesLocacao operacoesLocacao;
@@ -133,7 +134,7 @@ namespace LocadoraDeVeiculos.WindowsApp
         private void ConfiguracaoDeEntradaNaTelaPrincipal()
         {
             operacoesFuncionario = new OperacoesFuncionario(new FuncionarioAppService(new FuncionarioDao()));
-            operacoesTaxasEServicos = new OperacoesTaxasESevicos(new TaxaEServicoAppService(new TaxasEServicosDao()));
+            
             operacoesPessoaFisica = new OperacoesPessoaFisica(new PessoaFisicaAppService(new PessoaFisicaDao()));
             operacoesConfiguracoes = new OperacoesConfiguracoes();
 
@@ -289,7 +290,10 @@ namespace LocadoraDeVeiculos.WindowsApp
             AtualizarRodape(configuracoes.Tooltip.TipoCadastro);
             AtualizarFuncionarioConectado(funcionarioConectado.Nome);
 
-            operacoes = operacoesTaxasEServicos;
+            DBLocadoraContext db = new();
+            TaxaEServicoAppService controlador = new(new TaxaEServicoORMDao(db), db);
+
+            operacoes = new OperacoesTaxasESevicos(controlador);
 
             ConfigurarPainelRegistros();
         }
@@ -357,7 +361,10 @@ namespace LocadoraDeVeiculos.WindowsApp
             AtualizarRodape(configuracoes.Tooltip.TipoCadastro);
             AtualizarFuncionarioConectado(funcionarioConectado.Nome);
 
-            operacoes = operacoesTaxasEServicos;
+            DBLocadoraContext db = new();
+            TaxaEServicoAppService controlador = new(new TaxaEServicoORMDao(db), db);
+
+            operacoes = new OperacoesTaxasESevicos(controlador);
 
             ConfigurarPainelRegistros();
         }

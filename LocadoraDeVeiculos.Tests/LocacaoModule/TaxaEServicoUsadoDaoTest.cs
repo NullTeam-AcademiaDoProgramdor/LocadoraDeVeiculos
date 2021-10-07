@@ -30,6 +30,8 @@ using LocadoraDeVeículos.Aplicacao.RequisicaoEmailModule;
 using LocadoraDeVeículos.Infra.SQL.RequisicaoEmailModule;
 using LocadoraDeVeículos.Infra.SQL.CupomModule;
 using LocadoraDeVeículos.Infra.PDF.PDFModule;
+using LocadoraDeVeiculos.Infra.ORM.TaxaEServicoModule;
+using LocadoraDeVeiculos.Infra.ORM.Models;
 
 namespace LocadoraDeVeiculos.Tests.LocacaoModule
 {
@@ -49,11 +51,13 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
         Funcionario funcionario = null;
         PessoaFisica condutor = null;
 
+        DBLocadoraContext db = new();
+
         public TaxaEServicoUsadoDaoTest()
         {
             EmailAppService.GetInstance(new RequisicaoEmailDao());
 
-            this.controladorTaxasEServicos = new(new TaxasEServicosDao());
+            this.controladorTaxasEServicos = new(new TaxaEServicoORMDao(db), db);
             this.controladorLocacao = new(
                     new LocacaoDao(),
                     new TaxasEServicosUsadosDao(),
