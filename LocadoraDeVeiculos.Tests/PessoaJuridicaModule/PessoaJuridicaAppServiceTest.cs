@@ -1,5 +1,7 @@
 ﻿using LocadoraDeVeículos.Aplicacao.PessoaJuridicaModule;
 using LocadoraDeVeiculos.Dominio.PessoaJuridicaModule;
+using LocadoraDeVeiculos.Infra.ORM.Models;
+using LocadoraDeVeiculos.Infra.ORM.PessoaJuridicaModule;
 using LocadoraDeVeículos.Infra.SQL.PessoaJuridicaModule;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -14,6 +16,12 @@ namespace LocadoraDeVeiculos.Tests.PessoaJuridicaModule
     [TestClass]
     public class MyTestClass
     {
+        DBLocadoraContext dbContext = null;
+        public MyTestClass()
+        {
+            dbContext = new();
+        }
+
         [TestMethod]
         public void DeveInserir_NovaPessoaJuridica()
         {
@@ -21,10 +29,10 @@ namespace LocadoraDeVeiculos.Tests.PessoaJuridicaModule
 
             pessoaJuridicaMock.Setup(x => x.Validar()).Returns("ESTA_VALIDO");
 
-            Mock<PessoaJuridicaDao> pessoaJuridicaDaoMock = new();
+            Mock<PessoaJuridicaORMDao> pessoaJuridicaDaoMock = new(dbContext);
 
             PessoaJuridicaAppService pessoaJuridicaAppService =
-                new(pessoaJuridicaDaoMock.Object);
+                new(pessoaJuridicaDaoMock.Object, dbContext);
 
             pessoaJuridicaAppService.InserirNovo(pessoaJuridicaMock.Object);
 
@@ -40,10 +48,10 @@ namespace LocadoraDeVeiculos.Tests.PessoaJuridicaModule
 
             pessoaJuridicaMock.Setup(x => x.Validar()).Returns("NAO_ESTA_VALIDO");
 
-            Mock<PessoaJuridicaDao> pessoaJuridicaDaoMock = new();
+            Mock<PessoaJuridicaORMDao> pessoaJuridicaDaoMock = new(dbContext);
 
             PessoaJuridicaAppService pessoaJuridicaAppService =
-                new(pessoaJuridicaDaoMock.Object);
+                new(pessoaJuridicaDaoMock.Object, dbContext);
 
             pessoaJuridicaAppService.InserirNovo(pessoaJuridicaMock.Object);
 
@@ -59,10 +67,10 @@ namespace LocadoraDeVeiculos.Tests.PessoaJuridicaModule
 
             pessoaJuridicaMock.Setup(x => x.Validar()).Returns("ESTA_VALIDO");
 
-            Mock<PessoaJuridicaDao> pessoaJuridicaDaoMock = new();
+            Mock<PessoaJuridicaORMDao> pessoaJuridicaDaoMock = new(dbContext);
 
             PessoaJuridicaAppService pessoaJuridicaAppService =
-                new(pessoaJuridicaDaoMock.Object);
+                new(pessoaJuridicaDaoMock.Object, dbContext);
 
             pessoaJuridicaAppService.Editar(pessoaJuridicaMock.Object.Id, pessoaJuridicaMock.Object);
 
@@ -78,10 +86,10 @@ namespace LocadoraDeVeiculos.Tests.PessoaJuridicaModule
 
             pessoaJuridicaMock.Setup(x => x.Validar()).Returns("NAO_ESTA_VALIDO");
 
-            Mock<PessoaJuridicaDao> pessoaJuridicaDaoMock = new();
+            Mock<PessoaJuridicaORMDao> pessoaJuridicaDaoMock = new(dbContext);
 
             PessoaJuridicaAppService pessoaJuridicaAppService =
-                new(pessoaJuridicaDaoMock.Object);
+                new(pessoaJuridicaDaoMock.Object, dbContext);
 
             pessoaJuridicaAppService.Editar(pessoaJuridicaMock.Object.Id, pessoaJuridicaMock.Object);
 

@@ -51,6 +51,7 @@ using LocadoraDeVeículos.Aplicacao.RequisicaoEmailModule;
 using LocadoraDeVeiculos.Infra.ORM.ParceiroModule;
 using LocadoraDeVeiculos.Infra.ORM.Models;
 using LocadoraDeVeiculos.Infra.ORM.CupomModule;
+using LocadoraDeVeiculos.Infra.ORM.PessoaJuridicaModule;
 
 namespace LocadoraDeVeiculos.WindowsApp
 {
@@ -132,7 +133,6 @@ namespace LocadoraDeVeiculos.WindowsApp
         private void ConfiguracaoDeEntradaNaTelaPrincipal()
         {
             operacoesGrupoAutomovel = new OperacoesGrupoAutomovel(new GrupoAutomovelAppService(new GrupoAutomovelDao()));
-            operacoesPessoaJuridica = new OperacoesPessoaJuridica(new PessoaJuridicaAppService(new PessoaJuridicaDao()));
             operacoesFuncionario = new OperacoesFuncionario(new FuncionarioAppService(new FuncionarioDao()));
             operacoesTaxasEServicos = new OperacoesTaxasESevicos(new TaxaEServicoAppService(new TaxasEServicosDao()));
             operacoesPessoaFisica = new OperacoesPessoaFisica(new PessoaFisicaAppService(new PessoaFisicaDao()));
@@ -163,7 +163,11 @@ namespace LocadoraDeVeiculos.WindowsApp
             AtualizarRodape(configuracoes.Tooltip.TipoCadastro);
             AtualizarFuncionarioConectado(funcionarioConectado.Nome);
 
-            operacoes = operacoesPessoaJuridica;
+            DBLocadoraContext db = new();
+
+            operacoes = new OperacoesPessoaJuridica(
+                new PessoaJuridicaAppService(
+                    new PessoaJuridicaORMDao(db), db));
 
             ConfigurarPainelRegistros();
         }

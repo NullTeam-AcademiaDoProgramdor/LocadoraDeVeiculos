@@ -18,6 +18,9 @@ namespace LocadoraDeVeiculos.Dominio.PessoaJuridicaModule
             Endereco = endereco;
             Email = email;
         }
+        public PessoaJuridica()
+        {
+        }
 
         public string Nome { get; }
         public string Cnpj { get; }
