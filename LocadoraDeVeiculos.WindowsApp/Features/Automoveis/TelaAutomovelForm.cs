@@ -37,7 +37,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
                 txtTamanhoPortaMalas.Text = automovel.TamanhoPortaMalas.ToString();
                 txtKm.Text = automovel.KmRegistrada.ToString();
 
-                imageGallery1.AddImages(automovel.Fotos.ToArray());
+                //imageGallery1.AddImages(automovel.Fotos.ToArray());
 
                 SetarSelecaoComboTipoCombustivel(automovel.TipoCombustivel);
                 SetarSelecaoCombioCambio(automovel.Cambio);

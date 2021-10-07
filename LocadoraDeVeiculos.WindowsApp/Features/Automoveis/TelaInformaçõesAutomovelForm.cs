@@ -45,7 +45,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
             lblDirecao.Text = automovel.Direcao.ToString();
             lblGrupo.Text = automovel.Grupo.ToString();
 
-            imageGallery1.AddImages(automovel.Fotos.ToArray());
+            //imageGallery1.AddImages(automovel.Fotos.ToArray());
 
         }
     }

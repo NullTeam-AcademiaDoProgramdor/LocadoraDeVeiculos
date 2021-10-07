@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Drawing;
-
+using LocadoraDeVeiculos.Dominio.FotoModule;
 
 namespace LocadoraDeVeiculos.Dominio.AutomovelModule
 {
@@ -41,7 +41,7 @@ namespace LocadoraDeVeiculos.Dominio.AutomovelModule
 
         public virtual GrupoAutomovel Grupo { get; }
 
-        public List<Image> Fotos { get; set; }
+        public virtual List<Foto> Fotos { get; set; }
 
         public Automovel()
         {
@@ -66,14 +66,14 @@ namespace LocadoraDeVeiculos.Dominio.AutomovelModule
             Cambio = cambio;
             Direcao = direcao;
             Grupo = grupo;
-            Fotos = new List<Image>();
+            Fotos = new List<Foto>();
         }
 
         public Automovel(string modelo, string marca, string cor, string placa,
             string chassi, int ano, int portas, int capacidadeTanque, int kmRegistrada,
             int tamanhoPortaMalas, TipoCombustivelEnum tipoCombustivel,
             CambioEnum cambio, DirecaoEnum direcao, GrupoAutomovel grupo,
-            List<Image> fotos)
+            List<Foto> fotos)
         {
             Modelo = modelo;
             Marca = marca;
