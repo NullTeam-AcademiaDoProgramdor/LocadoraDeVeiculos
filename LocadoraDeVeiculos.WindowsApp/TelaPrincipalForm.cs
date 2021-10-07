@@ -52,6 +52,8 @@ using LocadoraDeVeiculos.Infra.ORM.ParceiroModule;
 using LocadoraDeVeiculos.Infra.ORM.Models;
 using LocadoraDeVeiculos.Infra.ORM.CupomModule;
 using LocadoraDeVeiculos.Infra.ORM.TaxaEServicoModule;
+using LocadoraDeVeiculos.Infra.ORM.PessoaJuridicaModule;
+using LocadoraDeVeiculos.Infra.ORM.GrupoAutomovelModule;
 
 namespace LocadoraDeVeiculos.WindowsApp
 {
@@ -67,7 +69,6 @@ namespace LocadoraDeVeiculos.WindowsApp
         public Funcionario funcionarioConectado;
         
         //Operacoes
-        private OperacoesGrupoAutomovel operacoesGrupoAutomovel;
         private OperacoesPessoaJuridica operacoesPessoaJuridica;        
         private OperacoesFuncionario operacoesFuncionario;
        
@@ -132,8 +133,6 @@ namespace LocadoraDeVeiculos.WindowsApp
 
         private void ConfiguracaoDeEntradaNaTelaPrincipal()
         {
-            operacoesGrupoAutomovel = new OperacoesGrupoAutomovel(new GrupoAutomovelAppService(new GrupoAutomovelDao()));
-            operacoesPessoaJuridica = new OperacoesPessoaJuridica(new PessoaJuridicaAppService(new PessoaJuridicaDao()));
             operacoesFuncionario = new OperacoesFuncionario(new FuncionarioAppService(new FuncionarioDao()));
             
             operacoesPessoaFisica = new OperacoesPessoaFisica(new PessoaFisicaAppService(new PessoaFisicaDao()));
@@ -147,9 +146,9 @@ namespace LocadoraDeVeiculos.WindowsApp
                     new GeradorPDF(),
                     EmailAppService.GetInstance()));
 
-            operacoesAutomovel = new OperacoesAutomovel(
-                new AutomovelAppService(new AutomovelDao(), new FotosAutomovelDao()), 
-                new GrupoAutomovelAppService(new GrupoAutomovelDao()));
+            //operacoesAutomovel = new OperacoesAutomovel(
+            //    new AutomovelAppService(new AutomovelDao(), new FotosAutomovelDao()), 
+            //    new GrupoAutomovelAppService(new GrupoAutomovelDao()));
 
             Instancia = this;
         }
@@ -164,7 +163,11 @@ namespace LocadoraDeVeiculos.WindowsApp
             AtualizarRodape(configuracoes.Tooltip.TipoCadastro);
             AtualizarFuncionarioConectado(funcionarioConectado.Nome);
 
-            operacoes = operacoesPessoaJuridica;
+            DBLocadoraContext db = new();
+
+            operacoes = new OperacoesPessoaJuridica(
+                new PessoaJuridicaAppService(
+                    new PessoaJuridicaORMDao(db), db));
 
             ConfigurarPainelRegistros();
         }
@@ -266,7 +269,13 @@ namespace LocadoraDeVeiculos.WindowsApp
             AtualizarRodape(configuracoes.Tooltip.TipoCadastro);
             AtualizarFuncionarioConectado(funcionarioConectado.Nome);
 
-            operacoes = operacoesGrupoAutomovel;
+            DBLocadoraContext context = new();
+
+            GrupoAutomovelAppService controlador = new(
+                new GrupoAutomovelORMDao(context), 
+                context);
+
+            operacoes = new OperacoesGrupoAutomovel(controlador);
 
             ConfigurarPainelRegistros();
         }

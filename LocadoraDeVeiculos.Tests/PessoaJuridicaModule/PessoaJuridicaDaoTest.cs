@@ -2,6 +2,8 @@
 using LocadoraDeVeiculos.Controladores.PessoaJuridicaModule;
 using LocadoraDeVeiculos.Controladores.Shared;
 using LocadoraDeVeiculos.Dominio.PessoaJuridicaModule;
+using LocadoraDeVeiculos.Infra.ORM.Models;
+using LocadoraDeVeiculos.Infra.ORM.PessoaJuridicaModule;
 using LocadoraDeVeículos.Infra.SQL.PessoaJuridicaModule;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
@@ -17,13 +19,16 @@ namespace LocadoraDeVeiculos.Tests.PessoaJuridicaModule
     [TestCategory("Controladores")]
     public class PessoaJuridicaDaoTest
     {
-        PessoaJuridicaDao controlador;
+        PessoaJuridicaORMDao controlador;
+        DBLocadoraContext dbContext = null;
 
         public PessoaJuridicaDaoTest()
         {
-            controlador = new PessoaJuridicaDao();
-            Db.Update("DELETE FROM [PESSOAJURIDICA]");
+            dbContext = new();
+            controlador = new PessoaJuridicaORMDao(dbContext);
+            Db.Update("DELETE FROM [TBPESSOAJURIDICA]");
         }
+
         [TestMethod]
         public void DeveInserir_PessoaJuridica()
         {
@@ -32,6 +37,7 @@ namespace LocadoraDeVeiculos.Tests.PessoaJuridicaModule
 
             //action
             controlador.InserirNovo(pessoaJuridica);
+            dbContext.SaveChanges();
 
             //assert
             PessoaJuridica pessoaJuridicaEncontrada = controlador.SelecionarPorId(pessoaJuridica.Id);
@@ -44,11 +50,13 @@ namespace LocadoraDeVeiculos.Tests.PessoaJuridicaModule
             //arrange
             PessoaJuridica pessoaJuridica = new PessoaJuridica("Matheus", "22.000.000/0001-00", "(49)000000000", "Lagi", "aaaa@gmail.com");
             controlador.InserirNovo(pessoaJuridica);
+            dbContext.SaveChanges();
 
             PessoaJuridica novaPessoaJuridica = new PessoaJuridica("Matheus", "22.000.000/0001-00", "(49)000000000", "Lagi", "aaaa@gmail.com");
 
             //action
             controlador.Editar(pessoaJuridica.Id, novaPessoaJuridica);
+            dbContext.SaveChanges();
 
             //assert
             PessoaJuridica pessoaJuridicaEncontrada = controlador.SelecionarPorId(pessoaJuridica.Id);
@@ -61,9 +69,11 @@ namespace LocadoraDeVeiculos.Tests.PessoaJuridicaModule
             //arrange            
             PessoaJuridica pessoaJuridica = new PessoaJuridica("Matheus", "22.000.000/0001-00", "(49)000000000", "Lagi", "aaaa@gmail.com");
             controlador.InserirNovo(pessoaJuridica);
+            dbContext.SaveChanges();
 
             //action            
             controlador.Excluir(pessoaJuridica.Id);
+            dbContext.SaveChanges();
 
             //assert
             PessoaJuridica pessoaJuridicaEncontrada = controlador.SelecionarPorId(pessoaJuridica.Id);
@@ -76,6 +86,7 @@ namespace LocadoraDeVeiculos.Tests.PessoaJuridicaModule
             //arrange
             PessoaJuridica pessoaJuridica = new PessoaJuridica("Matheus", "22.000.000/0001-00", "(49)000000000", "Lagi", "aaaa@gmail.com");
             controlador.InserirNovo(pessoaJuridica);
+            dbContext.SaveChanges();
 
             //action
             PessoaJuridica pessoaJuridicaEncontrada = controlador.SelecionarPorId(pessoaJuridica.Id);

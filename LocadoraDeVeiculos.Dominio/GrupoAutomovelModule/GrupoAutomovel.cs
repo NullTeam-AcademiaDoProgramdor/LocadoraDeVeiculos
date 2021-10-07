@@ -27,6 +27,10 @@ namespace LocadoraDeVeiculos.Dominio.GrupoAutomovelModule
             PlanoKmLivre = planoKmLivre;
         }
 
+        public GrupoAutomovel()
+        {
+        }
+
         public override bool Equals(object obj)
         {
             return Equals(obj as GrupoAutomovel);

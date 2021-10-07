@@ -57,7 +57,7 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
                     EmailAppService.GetInstance());
 
             this.ctrlAutomovel = new(new AutomovelDao(), new FotosAutomovelDao());
-            this.ctrlGrupo = new(new GrupoAutomovelDao());
+            this.ctrlGrupo = new(new GrupoAutomovelDao(), null);
             this.ctrlFuncionario = new(new FuncionarioDao());
             this.ctrlCondutor = new(new PessoaFisicaDao());
             grupo = CriarGrupo();
