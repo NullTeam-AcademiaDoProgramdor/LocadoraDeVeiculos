@@ -4,14 +4,16 @@ using LocadoraDeVeiculos.Infra.ORM.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace LocadoraDeVeiculos.Infra.ORM.Migrations
 {
     [DbContext(typeof(DBLocadoraContext))]
-    partial class DBLocadoraContextModelSnapshot : ModelSnapshot
+    [Migration("20211006200336_RemovidoTipoDoCampoNOme")]
+    partial class RemovidoTipoDoCampoNOme
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -56,34 +58,6 @@ namespace LocadoraDeVeiculos.Infra.ORM.Migrations
                     b.ToTable("TBCupom");
                 });
 
-            modelBuilder.Entity("LocadoraDeVeiculos.Dominio.GrupoAutomovelModule.GrupoAutomovel", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Nome")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PlanoDiario")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PlanoKmControlado")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PlanoKmLivre")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("TBGrupoAutomovel");
-                });
-
             modelBuilder.Entity("LocadoraDeVeiculos.Dominio.ParceiroModule.Parceiro", b =>
                 {
                     b.Property<int>("Id")
@@ -93,43 +67,11 @@ namespace LocadoraDeVeiculos.Infra.ORM.Migrations
 
                     b.Property<string>("Nome")
                         .IsRequired()
-                        .HasColumnType("VARCHAR(100)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("TBParceiro");
-                });
-
-            modelBuilder.Entity("LocadoraDeVeiculos.Dominio.PessoaJuridicaModule.PessoaJuridica", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Cnpj")
-                        .IsRequired()
-                        .HasColumnType("VARCHAR(100)");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("VARCHAR(100)");
-
-                    b.Property<string>("Endereco")
-                        .IsRequired()
-                        .HasColumnType("VARCHAR(100)");
-
-                    b.Property<string>("Nome")
-                        .IsRequired()
-                        .HasColumnType("VARCHAR(100)");
-
-                    b.Property<string>("Telefone")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("TBPessoaJuridica");
+                    b.ToTable("TBParceiro");
                 });
 
             modelBuilder.Entity("LocadoraDeVeiculos.Dominio.CupomModule.Cupom", b =>

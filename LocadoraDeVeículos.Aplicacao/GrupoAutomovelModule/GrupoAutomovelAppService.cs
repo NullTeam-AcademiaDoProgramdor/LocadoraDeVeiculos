@@ -2,6 +2,7 @@
 using LocadoraDeVeiculos.Dominio.GrupoAutomovelModule;
 using LocadoraDeVeiculos.Dominio.Shared;
 using LocadoraDeVeiculos.Infra.Log;
+using LocadoraDeVeiculos.Infra.ORM.Models;
 using LocadoraDeVeiculos.Infra.Shared;
 using System;
 using System.Collections.Generic;
@@ -14,10 +15,13 @@ namespace LocadoraDeVeículos.Aplicacao.GrupoAutomovelModule
     public class GrupoAutomovelAppService : ICadastravel<GrupoAutomovel>
     {
         private IRepositorBase<GrupoAutomovel> repositorio;
+        private DBLocadoraContext db;
 
-        public GrupoAutomovelAppService(IRepositorBase<GrupoAutomovel> repositorio)
+        public GrupoAutomovelAppService(IRepositorBase<GrupoAutomovel> repositorio,
+                                        DBLocadoraContext db)
         {
             this.repositorio = repositorio;
+            this.db = db;
         }
 
         public string Editar(int id, GrupoAutomovel registro)
@@ -28,6 +32,7 @@ namespace LocadoraDeVeículos.Aplicacao.GrupoAutomovelModule
             if (resultadoValidacao == "ESTA_VALIDO")
             {
                 repositorio.Editar(id, registro);
+                db.SaveChanges();
             }
 
             return resultadoValidacao;
@@ -36,6 +41,7 @@ namespace LocadoraDeVeículos.Aplicacao.GrupoAutomovelModule
         public bool Excluir(int id)
         {
             return repositorio.Excluir(id);
+            db.SaveChanges();
         }
 
         public bool Existe(int id)
@@ -51,6 +57,7 @@ namespace LocadoraDeVeículos.Aplicacao.GrupoAutomovelModule
             if (resultadoValidacao == "ESTA_VALIDO")
             {
                 repositorio.InserirNovo(registro);
+                db.SaveChanges();
             }
 
             return resultadoValidacao;

@@ -1,5 +1,7 @@
 ﻿using LocadoraDeVeículos.Aplicacao.GrupoAutomovelModule;
 using LocadoraDeVeiculos.Dominio.GrupoAutomovelModule;
+using LocadoraDeVeiculos.Infra.ORM.GrupoAutomovelModule;
+using LocadoraDeVeiculos.Infra.ORM.Models;
 using LocadoraDeVeículos.Infra.SQL.GrupoAutomovelModule;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -17,11 +19,16 @@ namespace LocadoraDeVeiculos.Tests.GrupoAutomovelModule
         private PlanoDiarioStruct planoDiario;
         private PlanoKmControladoStruct planoKmControlado;
         private PlanoKmLivreStruct planoKmLivre;
+
+        private DBLocadoraContext db;
+
         public GrupoAutomovelAppServiceTest()
         {
             planoDiario = gerarPlanoDiario();
             planoKmControlado = gerarPlanoKmControlado();
             planoKmLivre = gerarPlanoKmLivre();
+
+            this.db = new();
         }
 
         [TestMethod]
@@ -31,8 +38,8 @@ namespace LocadoraDeVeiculos.Tests.GrupoAutomovelModule
 
             grupoAutomovelMock.Setup(x => x.Validar()).Returns("ESTA_VALIDO");
 
-            Mock<GrupoAutomovelDao> grupoAutomovelDaoMock = new();
-            GrupoAutomovelAppService grupoAutomovelAppService = new(grupoAutomovelDaoMock.Object);
+            Mock<GrupoAutomovelORMDao> grupoAutomovelDaoMock = new(db);
+            GrupoAutomovelAppService grupoAutomovelAppService = new(grupoAutomovelDaoMock.Object, db);
 
             grupoAutomovelAppService.InserirNovo(grupoAutomovelMock.Object);
 
@@ -47,8 +54,8 @@ namespace LocadoraDeVeiculos.Tests.GrupoAutomovelModule
 
             grupoAutomovelMock.Setup(x => x.Validar()).Returns("NAO_ESTA_VALIDO");
 
-            Mock<GrupoAutomovelDao> grupoAutomovelDaoMock = new();
-            GrupoAutomovelAppService grupoAutomovelAppService = new(grupoAutomovelDaoMock.Object);
+            Mock<GrupoAutomovelORMDao> grupoAutomovelDaoMock = new(db);
+            GrupoAutomovelAppService grupoAutomovelAppService = new(grupoAutomovelDaoMock.Object, db);
 
             grupoAutomovelAppService.InserirNovo(grupoAutomovelMock.Object);
 
@@ -63,8 +70,8 @@ namespace LocadoraDeVeiculos.Tests.GrupoAutomovelModule
 
             grupoAutomovelMock.Setup(x => x.Validar()).Returns("ESTA_VALIDO");
 
-            Mock<GrupoAutomovelDao> grupoAutomovelDaoMock = new();
-            GrupoAutomovelAppService grupoAutomovelAppService = new(grupoAutomovelDaoMock.Object);
+            Mock<GrupoAutomovelORMDao> grupoAutomovelDaoMock = new(db);
+            GrupoAutomovelAppService grupoAutomovelAppService = new(grupoAutomovelDaoMock.Object, db);
 
             grupoAutomovelAppService.Editar(grupoAutomovelMock.Object.Id, grupoAutomovelMock.Object);
 
@@ -79,8 +86,8 @@ namespace LocadoraDeVeiculos.Tests.GrupoAutomovelModule
 
             grupoAutomovelMock.Setup(x => x.Validar()).Returns("NAO_ESTA_VALIDO");
 
-            Mock<GrupoAutomovelDao> grupoAutomovelDaoMock = new();
-            GrupoAutomovelAppService grupoAutomovelAppService = new(grupoAutomovelDaoMock.Object);
+            Mock<GrupoAutomovelORMDao> grupoAutomovelDaoMock = new(db);
+            GrupoAutomovelAppService grupoAutomovelAppService = new(grupoAutomovelDaoMock.Object, db);
 
             grupoAutomovelAppService.Editar(grupoAutomovelMock.Object.Id, grupoAutomovelMock.Object);
 

@@ -1,6 +1,8 @@
 ﻿using LocadoraDeVeículos.Aplicacao.CupomModule;
 using LocadoraDeVeiculos.Dominio.CupomModule;
 using LocadoraDeVeiculos.Dominio.ParceiroModule;
+using LocadoraDeVeiculos.Infra.ORM.CupomModule;
+using LocadoraDeVeiculos.Infra.ORM.Models;
 using LocadoraDeVeículos.Infra.SQL.CupomModule;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -12,10 +14,12 @@ namespace LocadoraDeVeiculos.Tests.CupomModule
     public class CupomAppServiceTest
     {
         private Parceiro parceiro;
+        private DBLocadoraContext db;
 
         public CupomAppServiceTest()
         {
             parceiro = gerarParceiro();
+            this.db = new();
         }
 
         [TestMethod]
@@ -25,10 +29,10 @@ namespace LocadoraDeVeiculos.Tests.CupomModule
 
             CupomMock.Setup(x => x.Validar()).Returns("ESTA_VALIDO");
 
-            Mock<CupomDao> CupomDaoMock = new();
+            Mock<CupomORMDao> CupomDaoMock = new(db);
 
             CupomAppService cupomAppService =
-                new(CupomDaoMock.Object, null);
+                new(CupomDaoMock.Object, db);
 
             cupomAppService.InserirNovo(CupomMock.Object);
 
@@ -43,10 +47,10 @@ namespace LocadoraDeVeiculos.Tests.CupomModule
 
             CupomMock.Setup(x => x.Validar()).Returns("NAO_ESTA_VALIDO");
 
-            Mock<CupomDao> CupomDaoMock = new();
-
+            Mock<CupomORMDao> CupomDaoMock = new(db);
+            
             CupomAppService cupomAppService =
-                new(CupomDaoMock.Object, null);
+                new(CupomDaoMock.Object, db);
 
             cupomAppService.InserirNovo(CupomMock.Object);
 
@@ -61,10 +65,10 @@ namespace LocadoraDeVeiculos.Tests.CupomModule
 
             CupomMock.Setup(x => x.Validar()).Returns("ESTA_VALIDO");
 
-            Mock<CupomDao> CupomDaoMock = new();
+            Mock<CupomORMDao> CupomDaoMock = new(db);
 
             CupomAppService cupomAppService =
-                new(CupomDaoMock.Object, null);
+                new(CupomDaoMock.Object, db);
 
             cupomAppService.Editar(CupomMock.Object.Id, CupomMock.Object);
 
@@ -80,10 +84,10 @@ namespace LocadoraDeVeiculos.Tests.CupomModule
 
             CupomMock.Setup(x => x.Validar()).Returns("NAO_ESTA_VALIDO");
 
-            Mock<CupomDao> CupomDaoMock = new();
+            Mock<CupomORMDao> CupomDaoMock = new(db);
 
             CupomAppService cupomAppService =
-                new(CupomDaoMock.Object, null);
+                new(CupomDaoMock.Object, db);
 
             cupomAppService.Editar(CupomMock.Object.Id, CupomMock.Object);
 
