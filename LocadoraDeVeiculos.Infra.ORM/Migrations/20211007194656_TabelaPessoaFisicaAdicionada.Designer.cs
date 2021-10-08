@@ -4,81 +4,22 @@ using LocadoraDeVeiculos.Infra.ORM.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace LocadoraDeVeiculos.Infra.ORM.Migrations
 {
     [DbContext(typeof(DBLocadoraContext))]
-    partial class DBLocadoraContextModelSnapshot : ModelSnapshot
+    [Migration("20211007194656_TabelaPessoaFisicaAdicionada")]
+    partial class TabelaPessoaFisicaAdicionada
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.10")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("LocadoraDeVeiculos.Dominio.AutomovelModule.Automovel", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("Ano")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Cambio")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CapacidadeTanque")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Chassi")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Cor")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Direcao")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("GrupoId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("KmRegistrada")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Marca")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Modelo")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Placa")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Portas")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TamanhoPortaMalas")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TipoCombustivel")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("GrupoId");
-
-                    b.ToTable("TBAutomovel");
-                });
 
             modelBuilder.Entity("LocadoraDeVeiculos.Dominio.CupomModule.Cupom", b =>
                 {
@@ -115,26 +56,6 @@ namespace LocadoraDeVeiculos.Infra.ORM.Migrations
                     b.HasIndex("ParceiroId");
 
                     b.ToTable("TBCupom");
-                });
-
-            modelBuilder.Entity("LocadoraDeVeiculos.Dominio.FotoModule.Foto", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("AutomovelId")
-                        .HasColumnType("int");
-
-                    b.Property<byte[]>("Imagem")
-                        .HasColumnType("varbinary(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AutomovelId");
-
-                    b.ToTable("TBFoto");
                 });
 
             modelBuilder.Entity("LocadoraDeVeiculos.Dominio.GrupoAutomovelModule.GrupoAutomovel", b =>
@@ -264,15 +185,6 @@ namespace LocadoraDeVeiculos.Infra.ORM.Migrations
                     b.ToTable("TBPessoaJuridica");
                 });
 
-            modelBuilder.Entity("LocadoraDeVeiculos.Dominio.AutomovelModule.Automovel", b =>
-                {
-                    b.HasOne("LocadoraDeVeiculos.Dominio.GrupoAutomovelModule.GrupoAutomovel", "Grupo")
-                        .WithMany()
-                        .HasForeignKey("GrupoId");
-
-                    b.Navigation("Grupo");
-                });
-
             modelBuilder.Entity("LocadoraDeVeiculos.Dominio.CupomModule.Cupom", b =>
                 {
                     b.HasOne("LocadoraDeVeiculos.Dominio.ParceiroModule.Parceiro", "Parceiro")
@@ -282,17 +194,13 @@ namespace LocadoraDeVeiculos.Infra.ORM.Migrations
                     b.Navigation("Parceiro");
                 });
 
-            modelBuilder.Entity("LocadoraDeVeiculos.Dominio.FotoModule.Foto", b =>
+            modelBuilder.Entity("LocadoraDeVeiculos.Dominio.PessoaFisicaModule.PessoaFisica", b =>
                 {
-                    b.HasOne("LocadoraDeVeiculos.Dominio.AutomovelModule.Automovel", null)
-                        .WithMany("Fotos")
-                        .HasForeignKey("AutomovelId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
+                    b.HasOne("LocadoraDeVeiculos.Dominio.PessoaJuridicaModule.PessoaJuridica", "PessoaJuridica")
+                        .WithMany()
+                        .HasForeignKey("PessoaJuridicaId");
 
-            modelBuilder.Entity("LocadoraDeVeiculos.Dominio.AutomovelModule.Automovel", b =>
-                {
-                    b.Navigation("Fotos");
+                    b.Navigation("PessoaJuridica");
                 });
 #pragma warning restore 612, 618
         }

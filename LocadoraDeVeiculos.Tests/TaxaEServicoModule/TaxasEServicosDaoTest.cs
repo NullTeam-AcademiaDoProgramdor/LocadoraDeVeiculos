@@ -1,6 +1,8 @@
 ﻿using FluentAssertions;
 using LocadoraDeVeiculos.Controladores.Shared;
 using LocadoraDeVeiculos.Dominio.TaxasEServicosModule;
+using LocadoraDeVeiculos.Infra.ORM.Models;
+using LocadoraDeVeiculos.Infra.ORM.TaxaEServicoModule;
 using LocadoraDeVeículos.Infra.SQL.TaxasEServicosModule;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
@@ -14,17 +16,19 @@ namespace LocadoraDeVeiculos.Tests.TaxaEServicoModule
     [TestClass]
     public class TaxasEServicosDaoTest
     {
-        TaxasEServicosDao controlador = null;        
+        IRepositorTaxaEServicoBase controlador = null;
+        DBLocadoraContext db = null;
 
         public TaxasEServicosDaoTest()
         {
-            controlador = new();            
+            db = new();
+            controlador = new TaxaEServicoORMDao(db);              
         }
 
         [TestCleanup()]
         public void LimparTeste()
         {
-            Db.Update("DELETE FROM [TaxaEServico]");            
+            Db.Update("DELETE FROM [TBTaxaEServico]");            
         }
 
         [TestMethod]
@@ -33,6 +37,7 @@ namespace LocadoraDeVeiculos.Tests.TaxaEServicoModule
             TaxaEServico novaTaxa = new("gps", 10, true);
 
             controlador.InserirNovo(novaTaxa);
+            db.SaveChanges();
 
             TaxaEServico taxaEncontrada = controlador.SelecionarPorId(novaTaxa.id);
 
@@ -45,10 +50,12 @@ namespace LocadoraDeVeiculos.Tests.TaxaEServicoModule
             TaxaEServico taxa = new("gps", 10, true);
 
             controlador.InserirNovo(taxa);
+            db.SaveChanges();
 
             TaxaEServico novaTaxa = new("GPS", 20, false);
 
             controlador.Editar(taxa.Id, novaTaxa);
+            db.SaveChanges();
 
             TaxaEServico taxaEncontrada = controlador.SelecionarPorId(taxa.Id);
             taxaEncontrada.Should().Be(novaTaxa);
@@ -60,8 +67,10 @@ namespace LocadoraDeVeiculos.Tests.TaxaEServicoModule
             TaxaEServico taxa = new("gps", 10, true);
 
             controlador.InserirNovo(taxa);
+            db.SaveChanges();
 
             controlador.Excluir(taxa.Id);
+            db.SaveChanges();
 
             TaxaEServico taxaEncontrada = controlador.SelecionarPorId(taxa.Id);
             taxaEncontrada.Should().BeNull();
@@ -74,6 +83,7 @@ namespace LocadoraDeVeiculos.Tests.TaxaEServicoModule
             TaxaEServico taxa = new("gps", 10, true);
 
             controlador.InserirNovo(taxa);
+            db.SaveChanges();
 
             TaxaEServico taxaEncontrada = controlador.SelecionarPorId(taxa.Id);
             taxaEncontrada.Should().Be(taxa);
@@ -97,6 +107,7 @@ namespace LocadoraDeVeiculos.Tests.TaxaEServicoModule
             TaxaEServico taxa4 = new("gps", 10, true);
 
             controlador.InserirNovo(taxa4);
+            db.SaveChanges();
 
             var taxas = controlador.SelecionarTodos();
 

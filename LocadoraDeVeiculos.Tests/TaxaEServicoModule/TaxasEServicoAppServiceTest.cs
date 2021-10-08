@@ -8,12 +8,21 @@ using System.Threading.Tasks;
 using LocadoraDeVeículos.Aplicacao.TaxaEServicoModule;
 using LocadoraDeVeiculos.Dominio.TaxasEServicosModule;
 using LocadoraDeVeículos.Infra.SQL.TaxasEServicosModule;
+using LocadoraDeVeiculos.Infra.ORM.Models;
+using LocadoraDeVeiculos.Infra.ORM.TaxaEServicoModule;
 
 namespace LocadoraDeVeiculos.Tests.TaxaEServicoModule
 {
     [TestClass]
     public class TaxasEServicoAppServiceTest
     {
+        DBLocadoraContext db = null;
+
+        public TaxasEServicoAppServiceTest()
+        {
+            db = new();
+        }
+
         [TestMethod]
         public void DeveInserir_NovaTaxaOuServico()
         {
@@ -21,9 +30,9 @@ namespace LocadoraDeVeiculos.Tests.TaxaEServicoModule
 
             taxaMock.Setup(x => x.Validar()).Returns("ESTA_VALIDO");
 
-            Mock<TaxasEServicosDao> taxasEServicosDaoMock = new();            
+            Mock<TaxaEServicoORMDao> taxasEServicosDaoMock = new(db);            
 
-            TaxaEServicoAppService taxasEServicosAppService = new(taxasEServicosDaoMock.Object);
+            TaxaEServicoAppService taxasEServicosAppService = new(taxasEServicosDaoMock.Object, db);
 
             taxasEServicosAppService.InserirNovo(taxaMock.Object);
 
@@ -38,9 +47,9 @@ namespace LocadoraDeVeiculos.Tests.TaxaEServicoModule
 
             taxaMock.Setup(x => x.Validar()).Returns("NAO_ESTA_VALIDO");
 
-            Mock<TaxasEServicosDao> taxasEServicosDaoMock = new();
+            Mock<TaxaEServicoORMDao> taxasEServicosDaoMock = new(db);
 
-            TaxaEServicoAppService taxasEServicosAppService = new(taxasEServicosDaoMock.Object);
+            TaxaEServicoAppService taxasEServicosAppService = new(taxasEServicosDaoMock.Object, db);
 
             taxasEServicosAppService.InserirNovo(taxaMock.Object);
 
@@ -55,9 +64,9 @@ namespace LocadoraDeVeiculos.Tests.TaxaEServicoModule
 
             taxaMock.Setup(x => x.Validar()).Returns("ESTA_VALIDO");
 
-            Mock<TaxasEServicosDao> taxasEServicosDaoMock = new();
+            Mock<TaxaEServicoORMDao> taxasEServicosDaoMock = new(db);
 
-            TaxaEServicoAppService taxasEServicosAppService = new(taxasEServicosDaoMock.Object);
+            TaxaEServicoAppService taxasEServicosAppService = new(taxasEServicosDaoMock.Object, db);
 
             taxasEServicosAppService.Editar(0, taxaMock.Object);
 
