@@ -4,14 +4,16 @@ using LocadoraDeVeiculos.Infra.ORM.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace LocadoraDeVeiculos.Infra.ORM.Migrations
 {
     [DbContext(typeof(DBLocadoraContext))]
-    partial class DBLocadoraContextModelSnapshot : ModelSnapshot
+    [Migration("20211008003225_AdicionadoDeleteEmCascadeParaAsFotos")]
+    partial class AdicionadoDeleteEmCascadeParaAsFotos
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -179,38 +181,6 @@ namespace LocadoraDeVeiculos.Infra.ORM.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("TBParceiro");
-                });
-
-            modelBuilder.Entity("LocadoraDeVeiculos.Dominio.PessoaJuridicaModule.PessoaJuridica", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Cnpj")
-                        .IsRequired()
-                        .HasColumnType("VARCHAR(100)");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("VARCHAR(100)");
-
-                    b.Property<string>("Endereco")
-                        .IsRequired()
-                        .HasColumnType("VARCHAR(100)");
-
-                    b.Property<string>("Nome")
-                        .IsRequired()
-                        .HasColumnType("VARCHAR(100)");
-
-                    b.Property<string>("Telefone")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("TBPessoaJuridica");
                 });
 
             modelBuilder.Entity("LocadoraDeVeiculos.Dominio.AutomovelModule.Automovel", b =>

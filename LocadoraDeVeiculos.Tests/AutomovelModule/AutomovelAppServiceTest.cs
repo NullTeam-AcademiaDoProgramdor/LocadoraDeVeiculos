@@ -10,12 +10,22 @@ using LocadoraDeVeiculos.Dominio.GrupoAutomovelModule;
 using LocadoraDeVeículos.Infra.SQL.AutomovelModule;
 using LocadoraDeVeículos.Aplicacao.AutomovelModule;
 using System.Drawing;
+using LocadoraDeVeiculos.Infra.ORM.Models;
+using LocadoraDeVeiculos.Infra.ORM.AutomovelModule;
 
 namespace LocadoraDeVeiculos.Tests.AutomovelModule
 {
     [TestClass]
     public class AutomovelAppServiceTest
     {
+
+        private DBLocadoraContext db;
+
+        public AutomovelAppServiceTest()
+        {
+            this.db = new();
+        }
+
         [TestMethod]
         public void DeveInserir_NovoAutomovel()
         {
@@ -25,18 +35,15 @@ namespace LocadoraDeVeiculos.Tests.AutomovelModule
 
             automovelMock.Setup(x => x.Validar()).Returns("ESTA_VALIDO");
 
-            Mock<AutomovelDao> automovelDaoMock = new();
-            Mock<FotosAutomovelDao> automovelFotosDaoMock = new();
+            Mock<AutomovelORMDao> automovelDaoMock = new(db);
 
             AutomovelAppService automovelAppService = 
-                new(automovelDaoMock.Object, automovelFotosDaoMock.Object);
+                new(automovelDaoMock.Object, db);
 
             automovelAppService.InserirNovo(automovelMock.Object);
 
             automovelMock.Verify(x => x.Validar());
             automovelDaoMock.Verify(x => x.InserirNovo(It.IsAny<Automovel>()));
-            automovelFotosDaoMock.Verify(x => x.Modificar(It.IsAny<Image[]>(), It.IsAny<int>()));
-
         }
 
         [TestMethod]
@@ -48,17 +55,15 @@ namespace LocadoraDeVeiculos.Tests.AutomovelModule
 
             automovelMock.Setup(x => x.Validar()).Returns("NAO_ESTA_VALIDO");
 
-            Mock<AutomovelDao> automovelDaoMock = new();
-            Mock<FotosAutomovelDao> automovelFotosDaoMock = new();
+            Mock<AutomovelORMDao> automovelDaoMock = new(db);
 
             AutomovelAppService automovelAppService =
-                new(automovelDaoMock.Object, automovelFotosDaoMock.Object);
+                new(automovelDaoMock.Object, db);
 
             automovelAppService.InserirNovo(automovelMock.Object);
 
             automovelMock.Verify(x => x.Validar());
             automovelDaoMock.Verify(x => x.InserirNovo(It.IsAny<Automovel>()), Times.Never);
-            automovelFotosDaoMock.Verify(x => x.Modificar(It.IsAny<Image[]>(), It.IsAny<int>()), Times.Never);
         }
 
         [TestMethod]
@@ -70,17 +75,15 @@ namespace LocadoraDeVeiculos.Tests.AutomovelModule
 
             automovelMock.Setup(x => x.Validar()).Returns("ESTA_VALIDO");
 
-            Mock<AutomovelDao> automovelDaoMock = new();
-            Mock<FotosAutomovelDao> automovelFotosDaoMock = new();
+            Mock<AutomovelORMDao> automovelDaoMock = new(db);
 
             AutomovelAppService automovelAppService =
-                new(automovelDaoMock.Object, automovelFotosDaoMock.Object);
+                new(automovelDaoMock.Object, db);
 
             automovelAppService.Editar(0, automovelMock.Object);
 
             automovelMock.Verify(x => x.Validar());
             automovelDaoMock.Verify(x => x.Editar(It.IsAny<int>(), It.IsAny<Automovel>()));
-            automovelFotosDaoMock.Verify(x => x.Modificar(It.IsAny<Image[]>(), It.IsAny<int>()));
         }
 
         [TestMethod]
@@ -92,11 +95,10 @@ namespace LocadoraDeVeiculos.Tests.AutomovelModule
 
             automovelMock.Setup(x => x.Validar()).Returns("ESTA_VALIDO");
 
-            Mock<AutomovelDao> automovelDaoMock = new();
-            Mock<FotosAutomovelDao> automovelFotosDaoMock = new();
+            Mock<AutomovelORMDao> automovelDaoMock = new(db);
 
             AutomovelAppService automovelAppService =
-                new(automovelDaoMock.Object, automovelFotosDaoMock.Object);
+                new(automovelDaoMock.Object, db);
 
             automovelAppService.EditarKmRegistrada(It.IsAny<int>(), automovelMock.Object);
 

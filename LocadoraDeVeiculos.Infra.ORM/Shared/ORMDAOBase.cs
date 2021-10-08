@@ -31,6 +31,15 @@ namespace LocadoraDeVeiculos.Infra.ORM.Shared
 
                 db.Entry(temp).CurrentValues.SetValues(registro);
 
+                foreach (var navObj in db.Entry(registro).Navigations)
+                {
+                    foreach (var navExist in db.Entry(temp).Navigations)
+                    {
+                        if (navObj.Metadata.Name == navExist.Metadata.Name)
+                            navExist.CurrentValue = navObj.CurrentValue;
+                    }
+                }
+
                 db.Update(temp);
 
                 return true;
