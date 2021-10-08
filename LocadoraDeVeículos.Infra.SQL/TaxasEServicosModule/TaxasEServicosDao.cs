@@ -3,7 +3,6 @@ using LocadoraDeVeiculos.Dominio.TaxasEServicosModule;
 using LocadoraDeVeiculos.Infra.Log;
 using LocadoraDeVeiculos.Infra.ORM.Shared;
 using LocadoraDeVeiculos.Infra.Shared;
-using LocadoraDeVeiculos.Infra.Shared;
 using System;
 using System.Collections.Generic;
 using System.Data;

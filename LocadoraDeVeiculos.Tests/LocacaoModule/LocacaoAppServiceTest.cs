@@ -55,7 +55,7 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
             locacaoMock.Verify(x => x.Validar());
 
             locacaoDaoMock.Verify(x => x.InserirNovo(It.IsAny<Locacao>()));
-            taxasEServicoUsadosMock.Verify(x => x.Modificar(It.IsAny<TaxaEServico[]>(), It.IsAny<int>()));
+            taxasEServicoUsadosMock.Verify(x => x.Modificar(It.IsAny<List<TaxaEServico>>(), It.IsAny<int>()));
         }
 
         [TestMethod]
@@ -79,7 +79,7 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
 
             locacaoMock.Verify(x => x.Validar());
             locacaoDaoMock.Verify(x => x.InserirNovo(It.IsAny<Locacao>()), Times.Never);
-            taxasEServicoUsadosMock.Verify(x => x.Modificar(It.IsAny<TaxaEServico[]>(), It.IsAny<int>()), Times.Never);
+            taxasEServicoUsadosMock.Verify(x => x.Modificar(It.IsAny<List<TaxaEServico>>(), It.IsAny<int>()), Times.Never);
         }
 
         [TestMethod]
@@ -211,7 +211,7 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
             locacaoMock.Verify(x => x.Validar());
 
             locacaoDaoMock.Verify(x => x.Editar(It.IsAny<int>(), It.IsAny<Locacao>()));
-            taxasEServicoUsadosMock.Verify(x => x.Modificar(It.IsAny<TaxaEServico[]>(), It.IsAny<int>()));
+            taxasEServicoUsadosMock.Verify(x => x.Modificar(It.IsAny<List<TaxaEServico>>(), It.IsAny<int>()));
         }
 
         [TestMethod]

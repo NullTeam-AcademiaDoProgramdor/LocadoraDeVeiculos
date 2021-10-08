@@ -1,4 +1,6 @@
 ﻿
+using System.Linq;
+
 namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
 {
     partial class TelaLocacaoForm
@@ -227,7 +229,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             this.seletorTaxasEServicosControl1.Size = new System.Drawing.Size(288, 48);
             this.seletorTaxasEServicosControl1.TabIndex = 8;
             this.seletorTaxasEServicosControl1.TaxasEServicos = null;
-            this.seletorTaxasEServicosControl1.TaxasEServicosSelecionados = new LocadoraDeVeiculos.Dominio.TaxasEServicosModule.TaxaEServico[0];
+            this.seletorTaxasEServicosControl1.TaxasEServicosSelecionados = new LocadoraDeVeiculos.Dominio.TaxasEServicosModule.TaxaEServico[0].ToList();
             // 
             // btnCupom
             // 

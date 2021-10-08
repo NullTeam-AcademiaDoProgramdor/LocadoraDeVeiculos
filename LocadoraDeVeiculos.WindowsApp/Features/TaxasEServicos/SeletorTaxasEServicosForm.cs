@@ -13,15 +13,15 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
 {
     public partial class SeletorTaxasEServicosForm : Form
     {
-        private TaxaEServico[] taxaEServicos;
-        public TaxaEServico[] TaxasEServicosSelecionados { get; set; }
+        private List<TaxaEServico> taxaEServicos;
+        public List<TaxaEServico> TaxasEServicosSelecionados { get; set; }
 
         private SeletorTaxasEServicosForm()
         {
             InitializeComponent();
         }
 
-        public SeletorTaxasEServicosForm(TaxaEServico[] taxasEServicos)
+        public SeletorTaxasEServicosForm(List<TaxaEServico> taxasEServicos)
         {
             InitializeComponent();
 
@@ -30,13 +30,13 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
             CriarTabelaDeCheckboxs();
         }
 
-        public void SetarSelecionados(TaxaEServico[] taxaEServicosParaSelecionar)
+        public void SetarSelecionados(List<TaxaEServico> taxaEServicosParaSelecionar)
         {
             var controlsList = tableTaxaEServicos.Controls;
 
-            for (int i = 0; i < taxaEServicosParaSelecionar.Length; i++)
+            for (int i = 0; i < taxaEServicosParaSelecionar.Count; i++)
             {
-                for (int j = 0; j < taxaEServicos.Length; j++)
+                for (int j = 0; j < taxaEServicos.Count; j++)
                 {
                     if (taxaEServicosParaSelecionar[i].Id == taxaEServicos[j].Id)
                     {
@@ -54,7 +54,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
             //TODO: Trocar para CheckListBox para aumentar o desempenho
             tableTaxaEServicos.Controls.Clear();
             tableTaxaEServicos.RowStyles.Clear();
-            tableTaxaEServicos.RowCount = taxaEServicos.Length;
+            tableTaxaEServicos.RowCount = taxaEServicos.Count;
 
             tableTaxaEServicos.Controls.Add(
                     new Label()
@@ -83,7 +83,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
                    0
                 );
 
-            for (int i = 0; i < taxaEServicos.Length; i++)
+            for (int i = 0; i < taxaEServicos.Count; i++)
             {
                 TaxaEServico taxaEServico = taxaEServicos[i];
 
@@ -148,7 +148,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
                     tempTaxasEServicos.Add(this.taxaEServicos[(i / 3) - 1]);
             }
 
-            this.TaxasEServicosSelecionados = tempTaxasEServicos.ToArray();
+            this.TaxasEServicosSelecionados = tempTaxasEServicos.ToList();
         }
     }
 }

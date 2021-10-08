@@ -276,7 +276,7 @@ namespace LocadoraDeVeículos.Infra.SQL.LocacaoModule
 
             locacao.Id = id;
             locacao.Cupom = cupom;
-            locacao.TaxasEServicos = controladorTaxas.Buscar(locacao.id).ToArray();
+            locacao.TaxasEServicos = controladorTaxas.Buscar(locacao.id).ToList();
 
             return locacao;
         }

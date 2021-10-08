@@ -67,7 +67,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
 
         private void CarregarTaxasEServicos(List<TaxaEServico> taxaEServicos)
         {
-            seletorTaxasEServicosControl1.TaxasEServicos = taxaEServicos.ToArray();
+            seletorTaxasEServicosControl1.TaxasEServicos = taxaEServicos.ToList();
         }
 
         private void btnGravar_Click(object sender, EventArgs e)
@@ -103,7 +103,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             }
             //inserindo
 
-            locacao = new Locacao(condutor, automovel, funcionario, dataSaida, dataDevolucaoEsperada, caucao, kmInicial, planoSelecionado, (int)kmAutomovelFinal, porcentagemFinalCombustivel, dataDevolucao, taxasEServicos, cupom);
+            locacao = new Locacao(condutor, automovel, funcionario, dataSaida, dataDevolucaoEsperada, caucao, kmInicial, planoSelecionado, (int)kmAutomovelFinal, porcentagemFinalCombustivel, dataDevolucao, taxasEServicos.ToArray(), cupom);
 
             string resultadoValidacao = locacao.ValidarDevolucao();
 
