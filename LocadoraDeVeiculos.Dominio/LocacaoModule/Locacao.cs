@@ -32,9 +32,9 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
             this.Cupom = cupom;
 
             if (taxaEServicos == null)
-                this.TaxasEServicos = new TaxaEServico[0];
+                this.TaxasEServicos = new List<TaxaEServico>();
             else
-                this.TaxasEServicos = taxaEServicos;
+                this.TaxasEServicos = taxaEServicos.ToList();
         }
 
         public Locacao(PessoaFisica condutor, Automovel automovel, Funcionario funcionario, DateTime dataSaida,
@@ -56,25 +56,25 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
             this.Cupom = cupom;
 
             if (taxasEServicos == null)
-                this.TaxasEServicos = new TaxaEServico[0];
+                this.TaxasEServicos = new List<TaxaEServico>();
             else
-                this.TaxasEServicos = taxasEServicos;
+                this.TaxasEServicos = taxasEServicos.ToList();
         }
 
         public Locacao()
         {
-            this.TaxasEServicos = new TaxaEServico[0];
+            this.TaxasEServicos = new List<TaxaEServico>();
         }
 
-        public Cupom Cupom { get; set; }
-        public PessoaFisica Condutor { get; set; }
-        public Automovel Automovel { get; }
-        public Funcionario Funcionario { get; }
+        public virtual Cupom Cupom { get; set; }
+        public virtual PessoaFisica Condutor { get; set; }
+        public virtual Automovel Automovel { get; }
+        public virtual Funcionario Funcionario { get; }
         public DateTime DataSaida { get; }
         public DateTime DataDevolucaoEsperada { get; }
         public DateTime? DataDevolucao { get; }
         public int PlanoSelecionado { get; }
-        public TaxaEServico[] TaxasEServicos { get; set; }
+        public virtual List<TaxaEServico> TaxasEServicos { get; set; }
         public int Caucao { get; }
         public string Situacao { get; }
         public int KmAutomovelIncial { get; }

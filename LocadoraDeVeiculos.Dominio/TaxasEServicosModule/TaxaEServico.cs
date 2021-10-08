@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using LocadoraDeVeiculos.Dominio.Shared;
 
 namespace LocadoraDeVeiculos.Dominio.TaxasEServicosModule
@@ -29,6 +30,7 @@ namespace LocadoraDeVeiculos.Dominio.TaxasEServicosModule
         public string Nome { get => nome; set => nome = value; }
         public double Preco { get => preco; set => preco = value; }
         public bool EhFixo { get => ehFixo; set => ehFixo = value; }
+        public virtual List<Locacao> Locacoes { get ; set; }
 
 
         public override bool Equals(object obj)

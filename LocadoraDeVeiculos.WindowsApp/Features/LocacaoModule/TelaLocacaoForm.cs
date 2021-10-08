@@ -101,7 +101,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
 
         private void CarregarTaxasEServicos(List<TaxaEServico> taxaEServicos)
         {
-            seletorTaxasEServicosControl1.TaxasEServicos = taxaEServicos.ToArray();
+            seletorTaxasEServicosControl1.TaxasEServicos = taxaEServicos.ToList();
         }
 
 
@@ -115,7 +115,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             int caucao = 0;            
             VerificarValoresNumericos(ref caucao);
             int planoSelecionado = Convert.ToInt32(cmbPlano.SelectedIndex);
-            var taxasEServicos = seletorTaxasEServicosControl1.TaxasEServicosSelecionados;
+            var taxasEServicos = seletorTaxasEServicosControl1.TaxasEServicosSelecionados.ToArray();
             var cupom = controladorCupom.SelecionarPorCodigo(txtCupom.Text);
 
             //inserindo

@@ -56,7 +56,7 @@ namespace LocadoraDeVeículos.Infra.SQL.LocacaoModule
 
         private TaxasEServicosDao controladorTaxas = new TaxasEServicosDao();
 
-        private void InserirTaxaEServicosUsados(TaxaEServico[] taxasEServicos, int locacaoId)
+        private void InserirTaxaEServicosUsados(List<TaxaEServico> taxasEServicos, int locacaoId)
         {
             foreach (var taxaEServico in taxasEServicos)
             {
@@ -93,13 +93,13 @@ namespace LocadoraDeVeículos.Infra.SQL.LocacaoModule
             return Db.GetAll(sqlSelecionarTodosUsados, ConverterParaTaxaEServicoUsado, parametro);
         }
 
-        public TaxaEServico[] Buscar(int locacaoId)
+        public List<TaxaEServico> Buscar(int locacaoId)
         {
             var taxas = this.BuscarUsados(locacaoId);
 
-            return taxas.Select(t => t.taxaEServico).ToArray();
+            return taxas.Select(t => t.taxaEServico).ToList();
         }
-        public virtual void Modificar(TaxaEServico[] taxasEServicos, int locacaoId)
+        public virtual void Modificar(List<TaxaEServico> taxasEServicos, int locacaoId)
         {
             List<TaxaEServicoUsado> taxasEmServidoDoDb = this.BuscarUsados(locacaoId);
 
@@ -111,12 +111,12 @@ namespace LocadoraDeVeículos.Infra.SQL.LocacaoModule
                     this.ExcluirTaxaEServicoUsado(alteraco.Key.id);
                 else if (alteraco.Value == 'A')
                     this.InserirTaxaEServicosUsados(
-                        new TaxaEServico[] { alteraco.Key.taxaEServico },
+                        new List<TaxaEServico> { alteraco.Key.taxaEServico },
                         alteraco.Key.locacao);
             }
 
         }
-        private static Dictionary<TaxaEServicoUsado, char> GerarTabelaDeAlteracoes(TaxaEServico[] taxasEServicos, int locacaoId, List<TaxaEServicoUsado> taxasEmServidoDoDb)
+        private static Dictionary<TaxaEServicoUsado, char> GerarTabelaDeAlteracoes(List<TaxaEServico> taxasEServicos, int locacaoId, List<TaxaEServicoUsado> taxasEmServidoDoDb)
         {
             Dictionary<TaxaEServicoUsado, char> tabelaDeAlteracoes =
                 new Dictionary<TaxaEServicoUsado, char>();

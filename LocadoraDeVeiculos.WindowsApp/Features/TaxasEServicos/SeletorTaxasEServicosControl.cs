@@ -14,15 +14,15 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
 {
     public partial class SeletorTaxasEServicosControl : UserControl
     {
-        private TaxaEServico[] taxasEServicos;
-        public TaxaEServico[] TaxasEServicos
+        private List<TaxaEServico> taxasEServicos;
+        public List<TaxaEServico> TaxasEServicos
         {
             get => taxasEServicos;
             set => taxasEServicos = value;
         }
 
-        private TaxaEServico[] taxasEServicosSelecionados = new TaxaEServico[0];
-        public TaxaEServico[] TaxasEServicosSelecionados
+        private List<TaxaEServico> taxasEServicosSelecionados = new List<TaxaEServico>();
+        public List<TaxaEServico> TaxasEServicosSelecionados
         {
             get => taxasEServicosSelecionados;
             set
@@ -51,7 +51,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos
             }
         }
 
-        private void GerarTextoDeSelecioandos(TaxaEServico[] taxasSelecioandas)
+        private void GerarTextoDeSelecioandos(List<TaxaEServico> taxasSelecioandas)
         {
             StringBuilder str = new StringBuilder();
 

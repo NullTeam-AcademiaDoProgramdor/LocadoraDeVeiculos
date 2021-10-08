@@ -58,7 +58,7 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
             }
         }
 
-        private void InserirTaxaEServicosUsados(TaxaEServico[] taxasEServicos, int locacaoId)
+        private void InserirTaxaEServicosUsados(List<TaxaEServico> taxasEServicos, int locacaoId)
         {
             foreach (var taxaEServico in taxasEServicos)
             {
@@ -101,7 +101,7 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
             return taxas.Select(t => t.taxaEServico).ToArray();
         }
 
-        public void Modificar(TaxaEServico[] taxasEServicos, int locacaoId)
+        public void Modificar(List<TaxaEServico> taxasEServicos, int locacaoId)
         {
             List<TaxaEServicoUsado> taxasEmServidoDoDb = this.BuscarUsados(locacaoId);
 
@@ -113,13 +113,13 @@ namespace LocadoraDeVeiculos.Controladores.LocacaoModule
                     this.ExcluirTaxaEServicoUsado(alteraco.Key.id);
                 else if (alteraco.Value == 'A')
                     this.InserirTaxaEServicosUsados(
-                        new TaxaEServico[] { alteraco.Key.taxaEServico },
+                        new List<TaxaEServico> { alteraco.Key.taxaEServico },
                         alteraco.Key.locacao);
             }
 
         }
 
-        private static Dictionary<TaxaEServicoUsado, char> GerarTabelaDeAlteracoes(TaxaEServico[] taxasEServicos, int locacaoId, List<TaxaEServicoUsado> taxasEmServidoDoDb)
+        private static Dictionary<TaxaEServicoUsado, char> GerarTabelaDeAlteracoes(List<TaxaEServico> taxasEServicos, int locacaoId, List<TaxaEServicoUsado> taxasEmServidoDoDb)
         {
             Dictionary<TaxaEServicoUsado, char> tabelaDeAlteracoes =
                 new Dictionary<TaxaEServicoUsado, char>();
