@@ -9,25 +9,34 @@ namespace LocadoraDeVeiculos.Dominio.RequisicaoEmailModule
 {
     public class RequisicaoEmail : EntidadeBase
     {
-        public string mensagem;
-        public string emailDestino;
-        public string[] arquivos;
+        private string mensagem;
+        private string emailDestino;
+        private string[] arquivos;
+
+        public string Mensagem { get => mensagem; set => mensagem = value; }
+        public string EmailDestino { get => emailDestino; set => emailDestino = value; }
+        public string[] Arquivos { get => arquivos; set => arquivos = value; }
 
         public RequisicaoEmail(string mensagem, string emailDestino, string[] arquivos)
         {
-            this.mensagem = mensagem;
-            this.emailDestino = emailDestino;
-            this.arquivos = arquivos;
+            this.Mensagem = mensagem;
+            this.EmailDestino = emailDestino;
+            this.Arquivos = arquivos;
+        }
+
+        public RequisicaoEmail()
+        {
+
         }
 
         public override string Validar()
         {
             string resultadoValidacao = "";
 
-            if (string.IsNullOrEmpty(mensagem))
+            if (string.IsNullOrEmpty(Mensagem))
                 resultadoValidacao += "O campo 'mensagem' nao pode ficar vazio";
 
-            if (string.IsNullOrEmpty(emailDestino))
+            if (string.IsNullOrEmpty(EmailDestino))
                 resultadoValidacao += QuebraDeLinha(resultadoValidacao)
                     + "O campo 'emailDestino' nao pode ficar vazio";
 

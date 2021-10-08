@@ -83,12 +83,12 @@ namespace LocadoraDeVeículos.Aplicacao.RequisicaoEmailModule
             {
                 mail.From = new MailAddress("locadoranull@gmail.com");
 
-                mail.To.Add(new MailAddress(email.emailDestino));
+                mail.To.Add(new MailAddress(email.EmailDestino));
 
                 mail.Subject = "Relatório de Locação";
-                mail.Body = email.mensagem;
+                mail.Body = email.Mensagem;
 
-                foreach (var pdf in email.arquivos)
+                foreach (var pdf in email.Arquivos)
                 {
                     mail.Attachments.Add(
                         new Attachment(ArquivosUtils.GetEnderecoPastaArquivos(pdf),
@@ -116,12 +116,12 @@ namespace LocadoraDeVeículos.Aplicacao.RequisicaoEmailModule
 
                 foreach (var email in emails)
                 {
-                    Console.WriteLine($"Enviando email para {email.emailDestino}");
+                    Console.WriteLine($"Enviando email para {email.EmailDestino}");
                     Enviar(email);
                     Serilog.Log.Logger.Aqui().Information($"Email {email} enviado, excluindo do sistema.");
                     repositorio.Excluir(email.id);
 
-                    foreach (var arquivo in email.arquivos)
+                    foreach (var arquivo in email.Arquivos)
                     {
                         string caminho = 
                             ArquivosUtils.GetEnderecoPastaArquivos(arquivo);

@@ -98,9 +98,9 @@ namespace LocadoraDeVeiculos.Controladores.RequisicaoEmailModule
         {
             var parametros = new Dictionary<string, object>();
 
-            parametros.Add("mensagem", email.mensagem);
-            parametros.Add("emailDestino", email.emailDestino);
-            parametros.Add("nomePdf", JuntarNomesPdf(email.arquivos));
+            parametros.Add("mensagem", email.Mensagem);
+            parametros.Add("emailDestino", email.EmailDestino);
+            parametros.Add("nomePdf", JuntarNomesPdf(email.Arquivos));
 
             return parametros;
         }

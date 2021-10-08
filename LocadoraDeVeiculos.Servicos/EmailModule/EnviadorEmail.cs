@@ -71,12 +71,12 @@ namespace LocadoraDeVeiculos.Servicos.EmailModule
             {
                 mail.From = new MailAddress("locadoranull@gmail.com");
 
-                mail.To.Add(new MailAddress(email.emailDestino));
+                mail.To.Add(new MailAddress(email.EmailDestino));
 
                 mail.Subject = "Relatório de Locação";
-                mail.Body = email.mensagem;
+                mail.Body = email.Mensagem;
 
-                foreach (var pdf in email.arquivos)
+                foreach (var pdf in email.Arquivos)
                 {
                     mail.Attachments.Add(
                         new Attachment(GetEnderecoReal(pdf),
@@ -102,10 +102,10 @@ namespace LocadoraDeVeiculos.Servicos.EmailModule
 
                 foreach (var email in emails)
                 {
-                    Console.WriteLine($"Enviando email para {email.emailDestino}");
+                    Console.WriteLine($"Enviando email para {email.EmailDestino}");
                     Enviar(email);
                     controlador.Excluir(email.id);
-                    ExcluirArquivos(email.arquivos);
+                    ExcluirArquivos(email.Arquivos);
                 }
 
             }

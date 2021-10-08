@@ -12,6 +12,7 @@ using LocadoraDeVeiculos.Dominio.PessoaFisicaModule;
 using LocadoraDeVeiculos.Dominio.PessoaJuridicaModule;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using LocadoraDeVeiculos.Dominio.RequisicaoEmailModule;
 
 #nullable disable
 
@@ -24,10 +25,11 @@ namespace LocadoraDeVeiculos.Infra.ORM.Models
         public DbSet<Automovel> Automoveis { get; set; }
         public DbSet<GrupoAutomovel> GruposAutomovel { get; set; }
         public DbSet<Parceiro> Parceiros { get; set; }
-        public DbSet<TaxaEServico> TaxasEServicos { get; set; }        
+        public DbSet<TaxaEServico> TaxasEServicos { get; set; }
         public DbSet<Cupom> Cupons { get; set; }
         public DbSet<PessoaJuridica> PessoasJuridicas { get; set; }
         public DbSet<PessoaFisica> PessoasFisicas { get; set; }
+        public DbSet<RequisicaoEmail> RequisicaoEmails { get; set; }
 
         public DBLocadoraContext()
         {

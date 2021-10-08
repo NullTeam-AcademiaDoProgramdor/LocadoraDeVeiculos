@@ -13,6 +13,7 @@ using LocadoraDeVeículos.Infra.SQL.RequisicaoEmailModule;
 using LocadoraDeVeiculos.Infra.Log;
 using LocadoraDeVeiculos.Infra.ORM.Models;
 using LocadoraDeVeiculos.Infra.ORM.ParceiroModule;
+using LocadoraDeVeiculos.Infra.ORM.RequisicaoEmailModule;
 
 namespace LocadoraDeVeiculos.WindowsApp
 {
@@ -29,8 +30,10 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             try
             {
+                
+
                 EmailAppService emailService =
-                    EmailAppService.GetInstance(new RequisicaoEmailDao());
+                    EmailAppService.GetInstance(new RequisicaoEmailORMDao());
 
                 emailService.Iniciar();
 
