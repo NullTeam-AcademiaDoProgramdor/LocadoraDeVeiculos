@@ -8,6 +8,10 @@ using System;
 using FluentAssertions;
 using LocadoraDeVeículos.Infra.SQL.AutomovelModule;
 using LocadoraDeVeículos.Infra.SQL.GrupoAutomovelModule;
+using LocadoraDeVeiculos.Dominio.Shared;
+using LocadoraDeVeiculos.Infra.ORM.Models;
+using LocadoraDeVeiculos.Infra.ORM.AutomovelModule;
+using LocadoraDeVeiculos.Infra.ORM.GrupoAutomovelModule;
 
 namespace LocadoraDeVeiculos.Tests.AutomovelModule
 {
@@ -15,21 +19,23 @@ namespace LocadoraDeVeiculos.Tests.AutomovelModule
     [TestCategory("Controladores")]
     public class AutomovelDaoTest
     {
-        AutomovelDao controlador = null;
-        GrupoAutomovelDao controladorGrupoAutomovel = null;
+        DBLocadoraContext db;
+        IRepositorAutomovelBase controlador = null;
+        IRepositorBase<GrupoAutomovel> controladorGrupoAutomovel = null;
 
         public AutomovelDaoTest()
         {
-            controlador = new();
-            controladorGrupoAutomovel = new();
+            this.db = new();
+            controlador = new AutomovelORMDao(db);
+            controladorGrupoAutomovel = new GrupoAutomovelORMDao(db);
         }
 
         [TestCleanup()]
         public void LimparTeste()
         {
-            Db.Update("DELETE FROM [FotoAutomovel]");
-            Db.Update("DELETE FROM [Automovel]");
-            Db.Update("DELETE FROM [GrupoAutomovel]");
+            Db.Update("DELETE FROM [TBFoto]");
+            Db.Update("DELETE FROM [TBAutomovel]");
+            Db.Update("DELETE FROM [TBGrupoAutomovel]");
         }
 
         [TestMethod]
@@ -42,6 +48,7 @@ namespace LocadoraDeVeiculos.Tests.AutomovelModule
                 DirecaoEnum.Mecanica, grupo);
 
             controlador.InserirNovo(novoAutomovel);
+            db.SaveChanges();
 
             Automovel automovelEncontrado = controlador.SelecionarPorId(novoAutomovel.id);
 
@@ -58,6 +65,7 @@ namespace LocadoraDeVeiculos.Tests.AutomovelModule
                 DirecaoEnum.Mecanica, grupo);
 
             controlador.InserirNovo(automovel);
+            db.SaveChanges();
 
             GrupoAutomovel novoGrupo = CriarGrupo();
             Automovel novoAutomovel =
@@ -66,6 +74,7 @@ namespace LocadoraDeVeiculos.Tests.AutomovelModule
                 DirecaoEnum.Mecanica, novoGrupo);
 
             controlador.Editar(automovel.Id, novoAutomovel);
+            db.SaveChanges();
 
             Automovel automovelEncontrado = controlador.SelecionarPorId(automovel.Id);
             automovelEncontrado.Should().Be(novoAutomovel);
@@ -81,8 +90,10 @@ namespace LocadoraDeVeiculos.Tests.AutomovelModule
                 DirecaoEnum.Mecanica, grupo);
 
             controlador.InserirNovo(automovel);
+            db.SaveChanges();
 
             controlador.Excluir(automovel.Id);
+            db.SaveChanges();
 
             Automovel automovelEncontrado = controlador.SelecionarPorId(automovel.Id);
             automovelEncontrado.Should().BeNull();
@@ -98,6 +109,7 @@ namespace LocadoraDeVeiculos.Tests.AutomovelModule
                 DirecaoEnum.Mecanica, grupo);
 
             controlador.InserirNovo(automovel);
+            db.SaveChanges();
 
             Automovel automovelEncontrado = controlador.SelecionarPorId(automovel.Id);
             automovelEncontrado.Should().Be(automovel);
@@ -133,6 +145,8 @@ namespace LocadoraDeVeiculos.Tests.AutomovelModule
                 DirecaoEnum.Mecanica, grupo2);
             controlador.InserirNovo(automovel4);
 
+            db.SaveChanges();
+
             var automoveis = controlador.SelecionarTodos();
 
             automoveis.Should().HaveCount(4);
@@ -148,6 +162,7 @@ namespace LocadoraDeVeiculos.Tests.AutomovelModule
                 DirecaoEnum.Mecanica, grupo);
 
             controlador.InserirNovo(automovel);
+            db.SaveChanges();
 
             Automovel novoAutomovel =
                 new Automovel("Gol", "Ford", "Branco", "ABCD123", "12YG2J31G23H123",
@@ -155,6 +170,7 @@ namespace LocadoraDeVeiculos.Tests.AutomovelModule
                 DirecaoEnum.Mecanica, grupo);
 
             controlador.EditarKmRegistrada(automovel.id, novoAutomovel);
+            db.SaveChanges();
 
             Automovel automovelEditado = controlador.SelecionarPorId(automovel.id);
             automovelEditado.Should().Be(novoAutomovel);
@@ -170,6 +186,7 @@ namespace LocadoraDeVeiculos.Tests.AutomovelModule
             );
 
             controladorGrupoAutomovel.InserirNovo(novoGrupo);
+            db.SaveChanges();
 
             return novoGrupo;
         }

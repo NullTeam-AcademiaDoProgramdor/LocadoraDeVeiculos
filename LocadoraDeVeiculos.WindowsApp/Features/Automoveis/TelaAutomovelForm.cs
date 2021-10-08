@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LocadoraDeVeiculos.Dominio.FotoModule;
 
 namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
 {
@@ -37,7 +38,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
                 txtTamanhoPortaMalas.Text = automovel.TamanhoPortaMalas.ToString();
                 txtKm.Text = automovel.KmRegistrada.ToString();
 
-                imageGallery1.AddImages(automovel.Fotos);
+                imageGallery1.AddImages(automovel.Fotos.ToImageArray());
 
                 SetarSelecaoComboTipoCombustivel(automovel.TipoCombustivel);
                 SetarSelecaoCombioCambio(automovel.Cambio);
@@ -128,8 +129,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
                 tipoCombustivel, cambio, direcao, grupo
             );
 
-            automovel.Fotos = fotos;
-
+            automovel.Fotos = fotos.ToFotoList();
+            
             string resultadoValidacao = automovel.Validar();
 
             if (resultadoValidacao != "ESTA_VALIDO")

@@ -54,6 +54,8 @@ using LocadoraDeVeiculos.Infra.ORM.CupomModule;
 using LocadoraDeVeiculos.Infra.ORM.TaxaEServicoModule;
 using LocadoraDeVeiculos.Infra.ORM.PessoaJuridicaModule;
 using LocadoraDeVeiculos.Infra.ORM.GrupoAutomovelModule;
+using LocadoraDeVeiculos.Infra.ORM.AutomovelModule;
+using LocadoraDeVeiculos.Infra.ORM.PessoaFisicaModule;
 
 namespace LocadoraDeVeiculos.WindowsApp
 {
@@ -67,16 +69,14 @@ namespace LocadoraDeVeiculos.WindowsApp
         public string nomeAdmin = "Rech";
 
         public Funcionario funcionarioConectado;
-        
+
         //Operacoes
-        private OperacoesPessoaJuridica operacoesPessoaJuridica;        
+        private OperacoesPessoaJuridica operacoesPessoaJuridica;
         private OperacoesFuncionario operacoesFuncionario;
        
         private OperacoesConfiguracoes operacoesConfiguracoes;
         private OperacoesPessoaFisica operacoesPessoaFisica;
         private OperacoesLocacao operacoesLocacao;
-
-        private OperacoesAutomovel operacoesAutomovel;
 
         public TelaPrincipalForm(Funcionario funcionarioConectado)
         {
@@ -93,10 +93,10 @@ namespace LocadoraDeVeiculos.WindowsApp
             AtualizarFuncionarioConectado(this.funcionarioConectado.Nome);
 
             Instancia = this;
-        }                
+        }
 
         public TelaPrincipalForm()
-        {            
+        {
             InitializeComponent();
             DesativarBotoesToolBoxAcoes();
 
@@ -108,7 +108,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             ConfiguraçõesParaAdmin();
 
             funcionarioConectado = new Funcionario("Rech", new DateTime(), 0, "admin");
-            AtualizarFuncionarioConectado("Rech");            
+            AtualizarFuncionarioConectado("Rech");
 
             Instancia = this;
         }
@@ -134,21 +134,16 @@ namespace LocadoraDeVeiculos.WindowsApp
         private void ConfiguracaoDeEntradaNaTelaPrincipal()
         {
             operacoesFuncionario = new OperacoesFuncionario(new FuncionarioAppService(new FuncionarioDao()));
-            
-            operacoesPessoaFisica = new OperacoesPessoaFisica(new PessoaFisicaAppService(new PessoaFisicaDao()));
+            //operacoesTaxasEServicos = new OperacoesTaxasESevicos(new TaxaEServicoAppService(new TaxasEServicosDao()));
             operacoesConfiguracoes = new OperacoesConfiguracoes();
 
             operacoesLocacao = new OperacoesLocacao(
                 new LocacaoAppService(
-                    new LocacaoDao(), 
-                    new TaxasEServicosUsadosDao(), 
-                    new CupomDao(), 
+                    new LocacaoDao(),
+                    new TaxasEServicosUsadosDao(),
+                    new CupomDao(),
                     new GeradorPDF(),
                     EmailAppService.GetInstance()));
-
-            //operacoesAutomovel = new OperacoesAutomovel(
-            //    new AutomovelAppService(new AutomovelDao(), new FotosAutomovelDao()), 
-            //    new GrupoAutomovelAppService(new GrupoAutomovelDao()));
 
             Instancia = this;
         }
@@ -174,7 +169,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
         public void AtualizarFuncionarioConectado(string nomeFuncionario)
         {
-            if(nomeFuncionario == "Rech")
+            if (nomeFuncionario == "Rech")
                 labelFuncionarioConectado.Text = $"{nomeFuncionario} : Admin";
             else
                 labelFuncionarioConectado.Text = $"{nomeFuncionario} : Funcionário";
@@ -272,7 +267,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             DBLocadoraContext context = new();
 
             GrupoAutomovelAppService controlador = new(
-                new GrupoAutomovelORMDao(context), 
+                new GrupoAutomovelORMDao(context),
                 context);
 
             operacoes = new OperacoesGrupoAutomovel(controlador);
@@ -321,7 +316,15 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             AtualizarRodape(configuracoes.Tooltip.TipoCadastro);
 
-            operacoes = operacoesAutomovel;
+            DBLocadoraContext context = new();
+
+            AutomovelAppService controlador 
+                = new(new AutomovelORMDao(context), context);
+
+            GrupoAutomovelAppService controladorGrupo 
+                = new(new GrupoAutomovelORMDao(context), context);
+
+            operacoes = new OperacoesAutomovel(controlador, controladorGrupo);
 
             ConfigurarPainelRegistros();
         }
@@ -346,10 +349,14 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             AtualizarRodape(configuracoes.Tooltip.TipoCadastro);
 
-            operacoes = operacoesPessoaFisica;
+            DBLocadoraContext dbContext = new();
+
+            operacoes = new OperacoesPessoaFisica(
+                new PessoaFisicaAppService(
+                    new PessoaFisicaORMDao(dbContext), dbContext));
 
             ConfigurarPainelRegistros();
-        }        
+        }
 
         private void taxasEServiçosToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -411,7 +418,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             DBLocadoraContext context = new();
 
             ParceiroAppService controlador = new ParceiroAppService(
-                    new ParceiroORMDao(context), 
+                    new ParceiroORMDao(context),
                     context
                 );
 
@@ -461,14 +468,14 @@ namespace LocadoraDeVeiculos.WindowsApp
                     btnExcluir.Visible = true;
                     btnEditar.Enabled = false;
                     btnDevolverAutomovel.Visible = false;
-                } 
+                }
                 else
                 {
                     btnExcluir.Visible = false;
                     btnEditar.Enabled = true;
-                    btnDevolverAutomovel.Visible =  btnDevolverAutomovel.Enabled = true;
+                    btnDevolverAutomovel.Visible = btnDevolverAutomovel.Enabled = true;
                 }
-            } 
+            }
             else
             {
                 btnExcluir.Visible = true;
@@ -479,7 +486,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             }
         }
 
-        
+
 
         private void btnDevolverAutomovel_Click(object sender, EventArgs e)
         {
@@ -491,6 +498,6 @@ namespace LocadoraDeVeiculos.WindowsApp
             panelRegistros_Click(sender, e);
         }
 
-        
+
     }
 }

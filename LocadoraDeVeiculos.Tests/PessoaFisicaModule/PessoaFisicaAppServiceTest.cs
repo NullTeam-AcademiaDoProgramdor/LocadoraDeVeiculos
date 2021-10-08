@@ -1,5 +1,7 @@
 ﻿using LocadoraDeVeículos.Aplicacao.PessoaFisicaModule;
 using LocadoraDeVeiculos.Dominio.PessoaFisicaModule;
+using LocadoraDeVeiculos.Infra.ORM.Models;
+using LocadoraDeVeiculos.Infra.ORM.PessoaFisicaModule;
 using LocadoraDeVeículos.Infra.SQL.PessoaFisicaModule;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -14,6 +16,12 @@ namespace LocadoraDeVeiculos.Tests.PessoaFisicaModule
     [TestClass]
     public class PessoaFisicaAppServiceTest
     {
+        DBLocadoraContext db;
+
+        public PessoaFisicaAppServiceTest()
+        {
+            db = new();
+        }
 
         [TestMethod]
         public void DeveInserir_NovaPessoaFisica()
@@ -23,10 +31,10 @@ namespace LocadoraDeVeiculos.Tests.PessoaFisicaModule
 
             pessoaFisicaMock.Setup(x => x.Validar()).Returns("ESTA_VALIDO");
 
-            Mock<PessoaFisicaDao> pessoaFisicaDaoMock = new();
+            Mock<PessoaFisicaORMDao> pessoaFisicaDaoMock = new(db);
 
             PessoaFisicaAppService pessoaFisicaAppService = 
-                new(pessoaFisicaDaoMock.Object); ;
+                new(pessoaFisicaDaoMock.Object, db); ;
 
             pessoaFisicaAppService.InserirNovo(pessoaFisicaMock.Object);
 
@@ -42,10 +50,10 @@ namespace LocadoraDeVeiculos.Tests.PessoaFisicaModule
 
             pessoaFisicaMock.Setup(x => x.Validar()).Returns("NAO_ESTA_VALIDO");
 
-            Mock<PessoaFisicaDao> pessoaFisicaDaoMock = new();
+            Mock<PessoaFisicaORMDao> pessoaFisicaDaoMock = new(db);
 
             PessoaFisicaAppService pessoaFisicaAppService =
-                new(pessoaFisicaDaoMock.Object); ;
+                new(pessoaFisicaDaoMock.Object, db);
 
             pessoaFisicaAppService.InserirNovo(pessoaFisicaMock.Object);
 
@@ -61,10 +69,10 @@ namespace LocadoraDeVeiculos.Tests.PessoaFisicaModule
 
             pessoaFisicaMock.Setup(x => x.Validar()).Returns("ESTA_VALIDO");
 
-            Mock<PessoaFisicaDao> pessoaFisicaDaoMock = new();
+            Mock<PessoaFisicaORMDao> pessoaFisicaDaoMock = new(db);
 
             PessoaFisicaAppService pessoaFisicaAppService =
-                new(pessoaFisicaDaoMock.Object); ;
+                new(pessoaFisicaDaoMock.Object, db);
 
             pessoaFisicaAppService.Editar(It.IsAny<int>(), pessoaFisicaMock.Object);
 

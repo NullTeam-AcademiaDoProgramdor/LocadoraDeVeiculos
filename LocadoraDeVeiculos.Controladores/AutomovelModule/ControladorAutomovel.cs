@@ -191,7 +191,7 @@ namespace LocadoraDeVeiculos.Controladores.AutomovelModule
             if (resultadoValidacao == "ESTA_VALIDO")
             {
                 registro.id = Db.Insert(sqlInserirAutomovel, ObtemParametrosAutomovel(registro));
-                controladorFotos.Modificar(registro.Fotos, registro.id);
+                //controladorFotos.Modificar(registro.Fotos, registro.id);
             }
 
             return resultadoValidacao;
@@ -205,7 +205,7 @@ namespace LocadoraDeVeiculos.Controladores.AutomovelModule
             {
                 registro.id = id;
                 Db.Update(sqlEditarAutomovel, ObtemParametrosAutomovel(registro));
-                controladorFotos.Modificar(registro.Fotos, registro.id);
+                //controladorFotos.Modificar(registro.Fotos, registro.id);
             }
 
             return resultadoValidacao;
@@ -327,7 +327,7 @@ namespace LocadoraDeVeiculos.Controladores.AutomovelModule
 
             var fotos = controladorFotos.Buscar(automovel.id);
 
-            automovel.Fotos = fotos;
+            //automovel.Fotos = fotos;
 
             return automovel;
         }

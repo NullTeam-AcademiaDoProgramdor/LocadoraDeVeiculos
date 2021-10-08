@@ -45,29 +45,29 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
         AutomovelAppService ctrlAutomovel;
         FuncionarioAppService ctrlFuncionario;
         PessoaFisicaAppService ctrlCondutor;
+        DBLocadoraContext db;
 
         GrupoAutomovel grupo;
         Automovel automovel = null;
         Funcionario funcionario = null;
         PessoaFisica condutor = null;
 
-        DBLocadoraContext db = new();
-
         public TaxaEServicoUsadoDaoTest()
         {
             EmailAppService.GetInstance(new RequisicaoEmailDao());
 
-            this.controladorTaxasEServicos = new(new TaxaEServicoORMDao(db), db);
+            this.db = new();
+            //this.controladorTaxasEServicos = new(new TaxasEServicosDao());
             this.controladorLocacao = new(
                     new LocacaoDao(),
                     new TaxasEServicosUsadosDao(),
                     new CupomDao(),
                     new GeradorPDF(),
                     EmailAppService.GetInstance());
-            this.ctrlAutomovel = new(new AutomovelDao(), new FotosAutomovelDao());
+            this.ctrlAutomovel = new(new AutomovelDao(), null);
             this.ctrlGrupo = new(new GrupoAutomovelDao(), null);
             this.ctrlFuncionario = new(new FuncionarioDao());
-            this.ctrlCondutor = new(new PessoaFisicaDao());
+            this.ctrlCondutor = new(new PessoaFisicaDao(), db);
 
             grupo = CriarGrupo();
             automovel = CriarAutomovel(grupo);
