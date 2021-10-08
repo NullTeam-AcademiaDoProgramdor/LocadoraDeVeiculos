@@ -57,7 +57,7 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
             EmailAppService.GetInstance(new RequisicaoEmailDao());
 
             this.db = new();
-            this.controladorTaxasEServicos = new(new TaxasEServicosDao());
+            //this.controladorTaxasEServicos = new(new TaxasEServicosDao());
             this.controladorLocacao = new(
                     new LocacaoDao(),
                     new TaxasEServicosUsadosDao(),

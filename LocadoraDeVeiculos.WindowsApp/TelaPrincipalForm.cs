@@ -134,7 +134,7 @@ namespace LocadoraDeVeiculos.WindowsApp
         private void ConfiguracaoDeEntradaNaTelaPrincipal()
         {
             operacoesFuncionario = new OperacoesFuncionario(new FuncionarioAppService(new FuncionarioDao()));
-            operacoesTaxasEServicos = new OperacoesTaxasESevicos(new TaxaEServicoAppService(new TaxasEServicosDao()));
+            //operacoesTaxasEServicos = new OperacoesTaxasESevicos(new TaxaEServicoAppService(new TaxasEServicosDao()));
             operacoesConfiguracoes = new OperacoesConfiguracoes();
 
             operacoesLocacao = new OperacoesLocacao(
