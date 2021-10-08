@@ -32,6 +32,9 @@ using LocadoraDeVeículos.Infra.SQL.CupomModule;
 using LocadoraDeVeículos.Infra.PDF.PDFModule;
 using LocadoraDeVeiculos.Infra.ORM.TaxaEServicoModule;
 using LocadoraDeVeiculos.Infra.ORM.Models;
+using LocadoraDeVeiculos.Infra.ORM.CupomModule;
+using LocadoraDeVeiculos.Infra.ORM.LocacaoModule;
+using LocadoraDeVeiculos.Infra.ORM.AutomovelModule;
 
 namespace LocadoraDeVeiculos.Tests.LocacaoModule
 {
@@ -59,11 +62,12 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
             this.db = new();
             this.controladorTaxasEServicos = new(new TaxaEServicoORMDao(db),db);
             this.controladorLocacao = new(
-                    new LocacaoDao(),
-                    new TaxasEServicosUsadosDao(),
-                    new CupomDao(),
+                    new LocacaoORMDao(db),                    
+                    new CupomORMDao(db),
+                    new AutomovelORMDao(db),
                     new GeradorPDF(),
-                    EmailAppService.GetInstance());
+                    EmailAppService.GetInstance(),
+                    db);
             this.ctrlAutomovel = new(new AutomovelDao(), null);
             this.ctrlGrupo = new(new GrupoAutomovelDao(), null);
             this.ctrlFuncionario = new(new FuncionarioDao());
@@ -78,13 +82,12 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
         [TestCleanup()]
         public void LimparTestes()
         {
-            Db.Update("DELETE FROM [TaxasEServicosUsadas]");
-            Db.Update("DELETE FROM [TAXAESERVICO]");
-            Db.Update("DELETE FROM [LOCACAO]");
-            Db.Update("DELETE FROM [PESSOAFISICA]");
-            Db.Update("DELETE FROM [AUTOMOVEL]");
-            Db.Update("DELETE FROM [GRUPOAUTOMOVEL]");
-            Db.Update("DELETE FROM [FUNCIONARIO]");
+            Db.Update("DELETE FROM [TBTAXAESERVICO]");
+            Db.Update("DELETE FROM [TBLOCACAO]");
+            Db.Update("DELETE FROM [TBPESSOAFISICA]");
+            Db.Update("DELETE FROM [TBAUTOMOVEL]");
+            Db.Update("DELETE FROM [TBGRUPOAUTOMOVEL]");
+            Db.Update("DELETE FROM [TBFUNCIONARIO]");
         }
 
         [TestMethod]
@@ -96,6 +99,8 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
             Locacao locacao = GerarLocacao(taxa1);
 
             controladorLocacao.InserirNovo(locacao);
+
+            db.SaveChanges();
 
             Locacao locacaoEncontrada = controladorLocacao.SelecionarPorId(locacao.id);
 
@@ -112,9 +117,13 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
 
             controladorLocacao.InserirNovo(locacao);
 
+            db.SaveChanges();
+
             Locacao novaLocacao = GerarLocacao();
 
             controladorLocacao.Editar(locacao.Id, novaLocacao);
+
+            db.SaveChanges();
 
             Locacao locacaoEncontrada = controladorLocacao.SelecionarPorId(locacao.id);
 
@@ -132,9 +141,13 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
             controladorTaxasEServicos.InserirNovo(taxa2);
             controladorTaxasEServicos.InserirNovo(taxa3);
 
+            db.SaveChanges();
+
             Locacao locacao = GerarLocacao(taxa1, taxa2, taxa3);
 
             controladorLocacao.InserirNovo(locacao);
+
+            db.SaveChanges();
 
             Locacao locacaoEncontrada = controladorLocacao.SelecionarPorId(locacao.id);
 
@@ -152,13 +165,19 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
             controladorTaxasEServicos.InserirNovo(taxa2);
             controladorTaxasEServicos.InserirNovo(taxa3);
 
+            db.SaveChanges();
+
             Locacao locacao = GerarLocacao(taxa1, taxa2, taxa3);
 
             controladorLocacao.InserirNovo(locacao);
 
+            db.SaveChanges();
+
             Locacao novaLocacao = GerarLocacao();
 
             controladorLocacao.Editar(locacao.Id, novaLocacao);
+
+            db.SaveChanges();
 
             Locacao locacaoEncontrada = controladorLocacao.SelecionarPorId(locacao.id);
 
@@ -174,13 +193,19 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
             controladorTaxasEServicos.InserirNovo(taxa1);
             controladorTaxasEServicos.InserirNovo(taxa2);
 
+            db.SaveChanges();
+
             Locacao locacao = GerarLocacao(taxa1);
 
             controladorLocacao.InserirNovo(locacao);
 
+            db.SaveChanges();
+
             Locacao novaLocacao = GerarLocacao(taxa2);
 
             controladorLocacao.Editar(locacao.Id, novaLocacao);
+
+            db.SaveChanges();
 
             Locacao locacaoEncontrada = controladorLocacao.SelecionarPorId(locacao.id);
 
@@ -200,13 +225,19 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
             controladorTaxasEServicos.InserirNovo(taxa3);
             controladorTaxasEServicos.InserirNovo(taxa4);
 
+            db.SaveChanges();
+
             Locacao locacao = GerarLocacao(taxa1, taxa2, taxa3);
 
             controladorLocacao.InserirNovo(locacao);
 
+            db.SaveChanges();
+
             Locacao novaLocacao = GerarLocacao(taxa2, taxa3, taxa4);
 
             controladorLocacao.Editar(locacao.Id, novaLocacao);
+
+            db.SaveChanges();
 
             Locacao locacaoEncontrada = controladorLocacao.SelecionarPorId(locacao.id);
 
@@ -219,6 +250,7 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
                 2020, 4, 100, 0, 30, TipoCombustivelEnum.Gasolina, CambioEnum.Manual,
                 DirecaoEnum.Mecanica, grupo);
             ctrlAutomovel.InserirNovo(automovel);
+            db.SaveChanges();
             return automovel;
 
         }
@@ -240,6 +272,7 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
                 new PlanoKmLivreStruct(300)
             );
             ctrlGrupo.InserirNovo(novoGrupo);
+            db.SaveChanges();
             return novoGrupo;
         }
         private Funcionario CriarFuncionario()
@@ -247,6 +280,7 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
             var funcionario = new Funcionario("Pedro", new DateTime(2020, 01, 01), 5000,
                             "senha");
             ctrlFuncionario.InserirNovo(funcionario);
+            db.SaveChanges();
             return funcionario;
         }
         private PessoaFisica CriarCondutor()

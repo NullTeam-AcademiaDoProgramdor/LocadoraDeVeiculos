@@ -43,7 +43,8 @@ namespace LocadoraDeVeiculos.Infra.ORM.Configurations
 
             builder.HasOne(p => p.Cupom);
 
-            builder.HasMany(p => p.TaxasEServicos);
+            builder.HasMany(p => p.TaxasEServicos)
+                .WithMany(p => p.Locacoes);
         }
     }
 }

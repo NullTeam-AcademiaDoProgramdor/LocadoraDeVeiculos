@@ -11,7 +11,7 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
     {
         bool Devolver(int id, Locacao locacao);
 
-        bool EditarKmRegistrada(Locacao locacao);
+        //bool EditarKmRegistrada(Locacao locacao);
 
     }
 }

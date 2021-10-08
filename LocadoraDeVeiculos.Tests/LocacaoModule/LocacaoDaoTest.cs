@@ -16,7 +16,12 @@ using LocadoraDeVeiculos.Dominio.FuncionarioModule;
 using LocadoraDeVeiculos.Dominio.GrupoAutomovelModule;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using LocadoraDeVeiculos.Dominio.PessoaFisicaModule;
+using LocadoraDeVeiculos.Infra.ORM.AutomovelModule;
+using LocadoraDeVeiculos.Infra.ORM.CupomModule;
+using LocadoraDeVeiculos.Infra.ORM.GrupoAutomovelModule;
+using LocadoraDeVeiculos.Infra.ORM.LocacaoModule;
 using LocadoraDeVeiculos.Infra.ORM.Models;
+using LocadoraDeVeiculos.Infra.ORM.PessoaFisicaModule;
 using LocadoraDeVeículos.Infra.PDF.PDFModule;
 using LocadoraDeVeículos.Infra.SQL.AutomovelModule;
 using LocadoraDeVeículos.Infra.SQL.CupomModule;
@@ -53,30 +58,32 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
 
             this.db = new();
             this.controladorLocacao = new(
-                new LocacaoDao(),
-                    new TaxasEServicosUsadosDao(),
-                    new CupomDao(),
+                new LocacaoORMDao(db),                    
+                    new CupomORMDao(db),
+                    new AutomovelORMDao(db),
                     new GeradorPDF(),
-                    EmailAppService.GetInstance());
+                    EmailAppService.GetInstance(),
+                    db);
 
-            this.ctrlAutomovel = new(new AutomovelDao(), null);
-            this.ctrlGrupo = new(new GrupoAutomovelDao(), null);
+            this.ctrlAutomovel = new(new AutomovelORMDao(db), db);
+            this.ctrlGrupo = new(new GrupoAutomovelORMDao(db), db);
             this.ctrlFuncionario = new(new FuncionarioDao());
-            this.ctrlCondutor = new(new PessoaFisicaDao(), db);
+            this.ctrlCondutor = new(new PessoaFisicaORMDao(db), db);
             grupo = CriarGrupo();
             automovel = CriarAutomovel(grupo);
             funcionario = CriarFuncionario();
             condutor = CriarCondutor();
+            db.SaveChanges();
         }
 
         [TestCleanup()]
         public void LimparTestes()
         {
-            Db.Update("DELETE FROM [LOCACAO]");
-            Db.Update("DELETE FROM [PESSOAFISICA]");
-            Db.Update("DELETE FROM [AUTOMOVEL]");
-            Db.Update("DELETE FROM [GRUPOAUTOMOVEL]");
-            Db.Update("DELETE FROM [FUNCIONARIO]");
+            Db.Update("DELETE FROM [TBLOCACAO]");
+            Db.Update("DELETE FROM [TBPESSOAFISICA]");
+            Db.Update("DELETE FROM [TBAUTOMOVEL]");
+            Db.Update("DELETE FROM [TBGRUPOAUTOMOVEL]");
+            Db.Update("DELETE FROM [TBFUNCIONARIO]");
         }
 
         [TestMethod]
@@ -145,9 +152,7 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
             Locacao novaLocacao = new Locacao(condutor, automovel, funcionario
                 , DateTime.Today, DateTime.Today.AddDays(1), 1000, 50000, 1, 100, 10, DateTime.Today.AddDays(1));
 
-            controladorLocacao.Devolver(locacao.id, novaLocacao, false);  
-
-            controladorLocacao.EditarKmRegistrada(novaLocacao);           
+            controladorLocacao.Devolver(locacao.id, novaLocacao, false); 
 
             Automovel automovelEncontrado = ctrlAutomovel.SelecionarPorId(automovel.id);          
 

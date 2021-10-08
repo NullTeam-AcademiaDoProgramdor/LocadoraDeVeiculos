@@ -56,6 +56,7 @@ using LocadoraDeVeiculos.Infra.ORM.PessoaJuridicaModule;
 using LocadoraDeVeiculos.Infra.ORM.GrupoAutomovelModule;
 using LocadoraDeVeiculos.Infra.ORM.AutomovelModule;
 using LocadoraDeVeiculos.Infra.ORM.PessoaFisicaModule;
+using LocadoraDeVeiculos.Infra.ORM.LocacaoModule;
 
 namespace LocadoraDeVeiculos.WindowsApp
 {
@@ -71,11 +72,9 @@ namespace LocadoraDeVeiculos.WindowsApp
         public Funcionario funcionarioConectado;
 
         //Operacoes
-        private OperacoesPessoaJuridica operacoesPessoaJuridica;
         private OperacoesFuncionario operacoesFuncionario;
        
         private OperacoesConfiguracoes operacoesConfiguracoes;
-        private OperacoesPessoaFisica operacoesPessoaFisica;
         private OperacoesLocacao operacoesLocacao;
 
         public TelaPrincipalForm(Funcionario funcionarioConectado)
@@ -137,13 +136,17 @@ namespace LocadoraDeVeiculos.WindowsApp
             //operacoesTaxasEServicos = new OperacoesTaxasESevicos(new TaxaEServicoAppService(new TaxasEServicosDao()));
             operacoesConfiguracoes = new OperacoesConfiguracoes();
 
-            operacoesLocacao = new OperacoesLocacao(
-                new LocacaoAppService(
-                    new LocacaoDao(),
-                    new TaxasEServicosUsadosDao(),
-                    new CupomDao(),
+            DBLocadoraContext db = new();
+
+            LocacaoAppService controladorLocacao = new(
+                new LocacaoORMDao(db),
+                    new CupomORMDao(db),
+                    new AutomovelORMDao(db),
                     new GeradorPDF(),
-                    EmailAppService.GetInstance()));
+                    EmailAppService.GetInstance(),
+                    db);
+
+            operacoesLocacao = new(controladorLocacao);
 
             Instancia = this;
         }

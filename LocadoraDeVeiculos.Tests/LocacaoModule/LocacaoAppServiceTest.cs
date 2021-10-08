@@ -22,15 +22,21 @@ using LocadoraDeVeiculos.Dominio.CupomModule;
 using LocadoraDeVeiculos.Dominio.RelatorioModule;
 using LocadoraDeVeiculos.Dominio.ParceiroModule;
 using LocadoraDeVeiculos.Dominio.RequisicaoEmailModule;
+using LocadoraDeVeiculos.Infra.ORM.Models;
+using LocadoraDeVeiculos.Infra.ORM.LocacaoModule;
+using LocadoraDeVeiculos.Infra.ORM.AutomovelModule;
+using LocadoraDeVeiculos.Infra.ORM.CupomModule;
 
 namespace LocadoraDeVeiculos.Tests.LocacaoModule
 {
     [TestClass]
     public class LocacaoAppServiceTest
     {
+        private readonly DBLocadoraContext db;
 
-        public LocacaoAppServiceTest()
+        public LocacaoAppServiceTest(DBLocadoraContext db)
         {
+            this.db = db;
         }
 
         [TestMethod]
@@ -40,22 +46,21 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
 
             locacaoMock.Setup(x => x.Validar()).Returns("ESTA_VALIDO");
 
-            Mock<LocacaoDao> locacaoDaoMock = new();
-            Mock<TaxasEServicosUsadosDao> taxasEServicoUsadosMock = new();
+            Mock<LocacaoORMDao> locacaoDaoMock = new();
 
             LocacaoAppService locacaoAppService = new(
-                locacaoDaoMock.Object, 
-                taxasEServicoUsadosMock.Object,
+                locacaoDaoMock.Object,  
+                null,
                 null, 
                 null,
-                null);
+                null,
+                db);
 
             locacaoAppService.InserirNovo(locacaoMock.Object);
 
             locacaoMock.Verify(x => x.Validar());
 
             locacaoDaoMock.Verify(x => x.InserirNovo(It.IsAny<Locacao>()));
-            taxasEServicoUsadosMock.Verify(x => x.Modificar(It.IsAny<List<TaxaEServico>>(), It.IsAny<int>()));
         }
 
         [TestMethod]
@@ -65,21 +70,20 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
 
             locacaoMock.Setup(x => x.Validar()).Returns("NAO_ESTA_VALIDO");
 
-            Mock<LocacaoDao> locacaoDaoMock = new();
-            Mock<TaxasEServicosUsadosDao> taxasEServicoUsadosMock = new();
+            Mock<LocacaoORMDao> locacaoDaoMock = new();
 
             LocacaoAppService locacaoAppService = new(
-                locacaoDaoMock.Object,
-                taxasEServicoUsadosMock.Object,
+                locacaoDaoMock.Object,                
                 null,
                 null,
-                null);
+                null,
+                null,
+                db);
 
             locacaoAppService.InserirNovo(locacaoMock.Object);
 
             locacaoMock.Verify(x => x.Validar());
             locacaoDaoMock.Verify(x => x.InserirNovo(It.IsAny<Locacao>()), Times.Never);
-            taxasEServicoUsadosMock.Verify(x => x.Modificar(It.IsAny<List<TaxaEServico>>(), It.IsAny<int>()), Times.Never);
         }
 
         [TestMethod]
@@ -90,20 +94,21 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
 
             locacaoMock.Setup(x => x.ValidarDevolucao()).Returns("ESTA_VALIDO");
 
-            Mock<LocacaoDao> locacaoDaoMock = new();
-            Mock<TaxasEServicosUsadosDao> taxasEServicoUsadosMock = new();
+            Mock<LocacaoORMDao> locacaoDaoMock = new();
 
-            Mock<CupomDao> cupomDaoMock = new();
+            Mock<CupomORMDao> cupomDaoMock = new();
             Mock<GeradorPDF> geradorPdfMock = new();
+            Mock<AutomovelORMDao> automovelDao = new();
 
             Mock<IEmailAppService> emailAppServiceMock = new();
 
             LocacaoAppService locacaoAppService = new(
                 locacaoDaoMock.Object, 
-                taxasEServicoUsadosMock.Object,
                 cupomDaoMock.Object,
+                automovelDao.Object,
                 geradorPdfMock.Object,
-                emailAppServiceMock.Object);
+                emailAppServiceMock.Object,
+                db);
 
             locacaoAppService.Devolver(It.IsAny<int>(), locacaoMock.Object, false);
 
@@ -125,20 +130,21 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
 
             locacaoMock.Setup(x => x.ValidarDevolucao()).Returns("NAO_ESTA_VALIDO");
 
-            Mock<LocacaoDao> locacaoDaoMock = new();
-            Mock<TaxasEServicosUsadosDao> taxasEServicoUsadosMock = new();
+            Mock<LocacaoORMDao> locacaoDaoMock = new();
 
-            Mock<CupomDao> cupomDaoMock = new();
+            Mock<CupomORMDao> cupomDaoMock = new();
             Mock<GeradorPDF> geradorPdfMock = new();
+            Mock<AutomovelORMDao> automovelDao = new();
 
             Mock<IEmailAppService> emailAppServiceMock = new();
 
             LocacaoAppService locacaoAppService = new(
                 locacaoDaoMock.Object,
-                taxasEServicoUsadosMock.Object,
                 cupomDaoMock.Object,
+                automovelDao.Object,
                 geradorPdfMock.Object,
-                emailAppServiceMock.Object);
+                emailAppServiceMock.Object,
+                db);
 
             locacaoAppService.Devolver(It.IsAny<int>(), locacaoMock.Object, false);
 
@@ -161,21 +167,21 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
 
             locacaoMock.Setup(x => x.ValidarDevolucao()).Returns("ESTA_VALIDO");
 
-            Mock<LocacaoDao> locacaoDaoMock = new();
-            Mock<TaxasEServicosUsadosDao> taxasEServicoUsadosMock = new();
+            Mock<LocacaoORMDao> locacaoDaoMock = new();
 
-            Mock<CupomDao> cupomDaoMock = new();
+            Mock<CupomORMDao> cupomDaoMock = new();
             Mock<GeradorPDF> geradorPdfMock = new();
-
+            Mock<AutomovelORMDao> automovelDao = new();
 
             Mock<IEmailAppService> emailAppServiceMock = new();
 
             LocacaoAppService locacaoAppService = new(
                 locacaoDaoMock.Object,
-                taxasEServicoUsadosMock.Object,
                 cupomDaoMock.Object,
+                automovelDao.Object,
                 geradorPdfMock.Object,
-                emailAppServiceMock.Object);
+                emailAppServiceMock.Object,
+                db);
 
             locacaoAppService.Devolver(It.IsAny<int>(), locacaoMock.Object, true);
 
@@ -196,47 +202,22 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
 
             locacaoMock.Setup(x => x.Validar()).Returns("ESTA_VALIDO");
 
-            Mock<LocacaoDao> locacaoDaoMock = new();
-            Mock<TaxasEServicosUsadosDao> taxasEServicoUsadosMock = new();
+            Mock<LocacaoORMDao> locacaoDaoMock = new();
 
             LocacaoAppService locacaoAppService = new(
                 locacaoDaoMock.Object,
-                taxasEServicoUsadosMock.Object,
                 null,
                 null,
-                null);
+                null,
+                null,
+                db);
 
             locacaoAppService.Editar(It.IsAny<int>(), locacaoMock.Object);
 
             locacaoMock.Verify(x => x.Validar());
 
             locacaoDaoMock.Verify(x => x.Editar(It.IsAny<int>(), It.IsAny<Locacao>()));
-            taxasEServicoUsadosMock.Verify(x => x.Modificar(It.IsAny<List<TaxaEServico>>(), It.IsAny<int>()));
-        }
-
-        [TestMethod]
-        public void DeveEditar_LocacaoKmRegistrada()
-        {
-            Mock<Locacao> locacaoMock = new();
-
-            locacaoMock.Setup(x => x.Validar()).Returns("ESTA_VALIDO");
-
-            Mock<LocacaoDao> locacaoDaoMock = new();
-            Mock<TaxasEServicosUsadosDao> taxasEServicoUsadosMock = new();
-
-            LocacaoAppService locacaoAppService = new(
-                locacaoDaoMock.Object,
-                taxasEServicoUsadosMock.Object,
-                null,
-                null,
-                null);
-
-            locacaoAppService.EditarKmRegistrada(locacaoMock.Object);
-
-            locacaoMock.Verify(x => x.Validar());
-
-            locacaoDaoMock.Verify(x => x.EditarKmRegistrada(It.IsAny<Locacao>()));
-        }
+        }       
 
         private static Cupom CriarCupom()
         {

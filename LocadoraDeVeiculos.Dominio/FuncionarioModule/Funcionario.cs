@@ -17,6 +17,10 @@ namespace LocadoraDeVeiculos.Dominio.FuncionarioModule
             Senha = senha;
         }
 
+        public Funcionario()
+        {
+        }
+
         public string Nome { get; }
         public DateTime DataAdmissao { get; }
         public double Salario { get; }
