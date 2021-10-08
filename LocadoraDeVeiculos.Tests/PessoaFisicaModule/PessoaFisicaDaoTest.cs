@@ -28,8 +28,14 @@ namespace LocadoraDeVeiculos.Tests.PessoaFisicaModule
             db = new();
             controlador = new(db);
             controladorPJuridica = new(db);
-            Db.Update("DELETE FROM [TBPESSOAFISICA]");
-            Db.Update("DELETE FROM [TBPESSOAJURIDICA]");
+        }
+
+        [TestCleanup]
+        public void LimparTeste()
+        {
+            Db.Update("DELETE FROM [TBPessoaFisica]");
+            Db.Update("DELETE FROM [TBPessoaJuridica]");
+
         }
 
         [TestMethod]

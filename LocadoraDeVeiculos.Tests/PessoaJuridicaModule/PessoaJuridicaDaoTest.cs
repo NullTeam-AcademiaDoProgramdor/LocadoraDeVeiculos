@@ -26,7 +26,13 @@ namespace LocadoraDeVeiculos.Tests.PessoaJuridicaModule
         {
             dbContext = new();
             controlador = new PessoaJuridicaORMDao(dbContext);
-            Db.Update("DELETE FROM [TBPESSOAJURIDICA]");
+        }
+
+        [TestCleanup]
+        public void LimparTeste()
+        {
+            Db.Update("DELETE FROM [TBPessoaJuridica]");
+
         }
 
         [TestMethod]

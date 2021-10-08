@@ -14,10 +14,10 @@ using System.Threading.Tasks;
 namespace LocadoraDeVeiculos.Tests.PessoaJuridicaModule
 {
     [TestClass]
-    public class MyTestClass
+    public class PessoaJuridiaAppServiceTest
     {
         DBLocadoraContext dbContext = null;
-        public MyTestClass()
+        public PessoaJuridiaAppServiceTest()
         {
             dbContext = new();
         }
