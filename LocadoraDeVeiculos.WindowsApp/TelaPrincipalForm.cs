@@ -54,6 +54,7 @@ using LocadoraDeVeiculos.Infra.ORM.CupomModule;
 using LocadoraDeVeiculos.Infra.ORM.TaxaEServicoModule;
 using LocadoraDeVeiculos.Infra.ORM.PessoaJuridicaModule;
 using LocadoraDeVeiculos.Infra.ORM.GrupoAutomovelModule;
+using LocadoraDeVeiculos.Infra.ORM.AutomovelModule;
 using LocadoraDeVeiculos.Infra.ORM.PessoaFisicaModule;
 
 namespace LocadoraDeVeiculos.WindowsApp
@@ -76,8 +77,6 @@ namespace LocadoraDeVeiculos.WindowsApp
         private OperacoesConfiguracoes operacoesConfiguracoes;
         private OperacoesPessoaFisica operacoesPessoaFisica;
         private OperacoesLocacao operacoesLocacao;
-
-        private OperacoesAutomovel operacoesAutomovel;
 
         public TelaPrincipalForm(Funcionario funcionarioConectado)
         {
@@ -145,10 +144,6 @@ namespace LocadoraDeVeiculos.WindowsApp
                     new CupomDao(),
                     new GeradorPDF(),
                     EmailAppService.GetInstance()));
-
-            //operacoesAutomovel = new OperacoesAutomovel(
-            //    new AutomovelAppService(new AutomovelDao(), new FotosAutomovelDao()), 
-            //    new GrupoAutomovelAppService(new GrupoAutomovelDao()));
 
             Instancia = this;
         }
@@ -321,7 +316,15 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             AtualizarRodape(configuracoes.Tooltip.TipoCadastro);
 
-            operacoes = operacoesAutomovel;
+            DBLocadoraContext context = new();
+
+            AutomovelAppService controlador 
+                = new(new AutomovelORMDao(context), context);
+
+            GrupoAutomovelAppService controladorGrupo 
+                = new(new GrupoAutomovelORMDao(context), context);
+
+            operacoes = new OperacoesAutomovel(controlador, controladorGrupo);
 
             ConfigurarPainelRegistros();
         }
