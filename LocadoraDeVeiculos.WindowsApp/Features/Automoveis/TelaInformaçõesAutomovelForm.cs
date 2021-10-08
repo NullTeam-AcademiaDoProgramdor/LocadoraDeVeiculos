@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LocadoraDeVeiculos.Dominio.FotoModule;
 
 namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
 {
@@ -45,7 +46,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Automoveis
             lblDirecao.Text = automovel.Direcao.ToString();
             lblGrupo.Text = automovel.Grupo.ToString();
 
-            //imageGallery1.AddImages(automovel.Fotos.ToArray());
+            imageGallery1.AddImages(automovel.Fotos.ToImageArray());
 
         }
     }
