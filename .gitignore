@@ -362,3 +362,4 @@ FodyWeavers.xsd
 App.config
 appsettings.json
 Arquivos/
+LocadoraDeVeiculos.Infra.ORM/Migrations/

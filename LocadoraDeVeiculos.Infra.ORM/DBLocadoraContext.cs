@@ -26,7 +26,6 @@ namespace LocadoraDeVeiculos.Infra.ORM.Models
         public DbSet<Parceiro> Parceiros { get; set; }
         public DbSet<TaxaEServico> TaxasEServicos { get; set; }        
         public DbSet<Cupom> Cupons { get; set; }
-        public DbSet<Cupom> Cupoms { get; set; }
         public DbSet<PessoaJuridica> PessoasJuridicas { get; set; }
         public DbSet<PessoaFisica> PessoasFisicas { get; set; }
 
