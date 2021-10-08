@@ -15,7 +15,7 @@ namespace LocadoraDeVeiculos.Infra.ORM.AutomovelModule
         {
         }
 
-        public bool EditarKmRegistrada(int id, Automovel registro)
+        public virtual bool EditarKmRegistrada(int id, Automovel registro)
         {
             return this.Editar(id, registro);
         }

@@ -58,7 +58,9 @@ namespace LocadoraDeVeiculos.Infra.ORM.Configurations
 
             builder.HasOne(e => e.Grupo);
 
-            builder.HasMany(e => e.Fotos);
+            builder.HasMany(e => e.Fotos)
+                .WithOne()
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

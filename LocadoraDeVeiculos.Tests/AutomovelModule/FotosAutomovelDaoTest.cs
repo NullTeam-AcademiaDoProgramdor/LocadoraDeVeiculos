@@ -10,6 +10,11 @@ using FluentAssertions;
 using LocadoraDeVeículos.Infra.SQL.GrupoAutomovelModule;
 using LocadoraDeVeículos.Infra.SQL.AutomovelModule;
 using LocadoraDeVeículos.Aplicacao.AutomovelModule;
+using LocadoraDeVeiculos.Dominio.FotoModule;
+using LocadoraDeVeiculos.Dominio.Shared;
+using LocadoraDeVeiculos.Infra.ORM.AutomovelModule;
+using LocadoraDeVeiculos.Infra.ORM.Models;
+using LocadoraDeVeiculos.Infra.ORM.GrupoAutomovelModule;
 
 namespace LocadoraDeVeiculos.Tests.AutomovelModule
 {
@@ -20,21 +25,24 @@ namespace LocadoraDeVeiculos.Tests.AutomovelModule
         private readonly string CaminhoImagens =
             @"..\..\..\AutomovelModule\TestImages";
 
-        GrupoAutomovelDao controladorGrupoAutomovel = null;
+        private DBLocadoraContext db;
+        IRepositorBase<GrupoAutomovel> controladorGrupoAutomovel = null;
         AutomovelAppService controlador = null;
 
         public FotosAutomovelDaoTest()
         {
-            controlador = new(new AutomovelDao(), new FotosAutomovelDao());
-            controladorGrupoAutomovel = new();
+            this.db = new();
+
+            controlador = new(new AutomovelORMDao(db), db);
+            controladorGrupoAutomovel = new GrupoAutomovelORMDao(db);
         }
 
         [TestCleanup()]
         public void LimparTeste()
         {
-            Db.Update("DELETE FROM [FotoAutomovel]");
-            Db.Update("DELETE FROM [Automovel]");
-            Db.Update("DELETE FROM [GrupoAutomovel]");
+            Db.Update("DELETE FROM [TBFoto]");
+            Db.Update("DELETE FROM [TBAutomovel]");
+            Db.Update("DELETE FROM [TBGrupoAutomovel]");
         }
 
         [TestMethod]
@@ -44,7 +52,7 @@ namespace LocadoraDeVeiculos.Tests.AutomovelModule
 
             Image image = Image.FromFile(PegarCaminhoImagem("img1.jpg"));
 
-            //automovel.Fotos = new Image[]{ image };
+            automovel.Fotos = new Image[]{ image }.ToFotoList();
 
             controlador.InserirNovo(automovel);
 
@@ -62,7 +70,7 @@ namespace LocadoraDeVeiculos.Tests.AutomovelModule
             Image image2 = Image.FromFile(PegarCaminhoImagem("img2.jpg"));
             Image image3 = Image.FromFile(PegarCaminhoImagem("img3.jpg"));
 
-            //automovel.Fotos = new Image[] { image1, image2, image3 };
+            automovel.Fotos = new Image[] { image1, image2, image3 }.ToFotoList();
 
             controlador.InserirNovo(automovel);
 
@@ -76,13 +84,13 @@ namespace LocadoraDeVeiculos.Tests.AutomovelModule
         {
             Automovel automovel = GerarAutomovel();
             Image image = Image.FromFile(PegarCaminhoImagem("img1.jpg"));
-            //automovel.Fotos = new Image[] { image };
+            automovel.Fotos = new Image[] { image }.ToFotoList();
             controlador.InserirNovo(automovel);
 
             //----
 
             Automovel novoAutomovel = GerarAutomovel();
-            //novoAutomovel.Fotos = new Image[0];
+            novoAutomovel.Fotos = new Image[0].ToFotoList();
             controlador.Editar(automovel.id, novoAutomovel);
 
             Automovel automovelRecuperado = controlador.SelecionarPorId(automovel.id);
@@ -96,13 +104,13 @@ namespace LocadoraDeVeiculos.Tests.AutomovelModule
             Image image1 = Image.FromFile(PegarCaminhoImagem("img1.jpg"));
             Image image2 = Image.FromFile(PegarCaminhoImagem("img2.jpg"));
             Image image3 = Image.FromFile(PegarCaminhoImagem("img3.jpg"));
-            //automovel.Fotos = new Image[] { image1, image2, image3 };
+            automovel.Fotos = new Image[] { image1, image2, image3 }.ToFotoList();
             controlador.InserirNovo(automovel);
 
             //----
 
             Automovel novoAutomovel = GerarAutomovel();
-            //novoAutomovel.Fotos = new Image[0];
+            novoAutomovel.Fotos = new Image[0].ToFotoList();
             controlador.Editar(automovel.id, novoAutomovel);
 
             Automovel automovelRecuperado = controlador.SelecionarPorId(automovel.id);
@@ -114,14 +122,14 @@ namespace LocadoraDeVeiculos.Tests.AutomovelModule
         {
             Automovel automovel = GerarAutomovel();
             Image image = Image.FromFile(PegarCaminhoImagem("img1.jpg"));
-            //automovel.Fotos = new Image[] { image };
+            automovel.Fotos = new Image[] { image }.ToFotoList();
             controlador.InserirNovo(automovel);
 
             //----
 
             Automovel novoAutomovel = GerarAutomovel();
             Image image2 = Image.FromFile(PegarCaminhoImagem("img2.jpg"));
-            //novoAutomovel.Fotos = new Image[] { image2 };
+            novoAutomovel.Fotos = new Image[] { image2 }.ToFotoList();
             controlador.Editar(automovel.id, novoAutomovel);
 
             Automovel automovelRecuperado = controlador.SelecionarPorId(automovel.id);
@@ -135,14 +143,14 @@ namespace LocadoraDeVeiculos.Tests.AutomovelModule
             Image image1 = Image.FromFile(PegarCaminhoImagem("img1.jpg"));
             Image image2 = Image.FromFile(PegarCaminhoImagem("img2.jpg"));
             Image image3 = Image.FromFile(PegarCaminhoImagem("img3.jpg"));
-            //automovel.Fotos = new Image[] { image1, image2, image3 };
+            automovel.Fotos = new Image[] { image1, image2, image3 }.ToFotoList();
             controlador.InserirNovo(automovel);
 
             //----
 
             Automovel novoAutomovel = GerarAutomovel();
             Image image4 = Image.FromFile(PegarCaminhoImagem("img4.jpg"));
-            //novoAutomovel.Fotos = new Image[] { image2, image3, image4 };
+            novoAutomovel.Fotos = new Image[] { image2, image3, image4 }.ToFotoList();
             controlador.Editar(automovel.id, novoAutomovel);
 
             Automovel automovelRecuperado = controlador.SelecionarPorId(automovel.id);
