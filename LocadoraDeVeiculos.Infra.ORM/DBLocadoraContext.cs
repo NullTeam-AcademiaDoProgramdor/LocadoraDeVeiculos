@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using LocadoraDeVeiculos.Dominio.AutomovelModule;
 using LocadoraDeVeiculos.Dominio.CupomModule;
+using LocadoraDeVeiculos.Dominio.FuncionarioModule;
 using LocadoraDeVeiculos.Dominio.GrupoAutomovelModule;
 using LocadoraDeVeiculos.Dominio.ParceiroModule;
 using LocadoraDeVeiculos.Dominio.TaxasEServicosModule;
@@ -34,8 +35,9 @@ namespace LocadoraDeVeiculos.Infra.ORM.Models
         public DbSet<Locacao> Locacoes { get; set; }
 
         
+        public DbSet<Funcionario> Funcionarios{ get; set;}
 
-        public DBLocadoraContext()
+    public DBLocadoraContext()
         {
             IConfiguration configuration =
                 new ConfigurationBuilder()

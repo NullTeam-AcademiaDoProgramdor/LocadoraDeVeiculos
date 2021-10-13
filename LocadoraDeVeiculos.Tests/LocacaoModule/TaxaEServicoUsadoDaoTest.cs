@@ -59,19 +59,17 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
         {
             EmailAppService.GetInstance(new RequisicaoEmailDao());
 
-            this.db = new();
-            this.controladorTaxasEServicos = new(new TaxaEServicoORMDao(db),db);
+            this.controladorTaxasEServicos = new(new TaxasEServicosDao());
             this.controladorLocacao = new(
-                    new LocacaoORMDao(db),                    
-                    new CupomORMDao(db),
-                    new AutomovelORMDao(db),
+                    new LocacaoDao(),
+                    new TaxasEServicosUsadosDao(),
+                    new CupomDao(),
                     new GeradorPDF(),
-                    EmailAppService.GetInstance(),
-                    db);
-            this.ctrlAutomovel = new(new AutomovelDao(), null);
+                    EmailAppService.GetInstance());
+            this.ctrlAutomovel = new(new AutomovelDao(), new FotosAutomovelDao());
             this.ctrlGrupo = new(new GrupoAutomovelDao(), null);
-            this.ctrlFuncionario = new(new FuncionarioDao());
-            this.ctrlCondutor = new(new PessoaFisicaDao(), db);
+            //this.ctrlFuncionario = new(new FuncionarioDao());
+            this.ctrlCondutor = new(new PessoaFisicaDao());
 
             grupo = CriarGrupo();
             automovel = CriarAutomovel(grupo);
@@ -82,12 +80,13 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
         [TestCleanup()]
         public void LimparTestes()
         {
-            Db.Update("DELETE FROM [TBTAXAESERVICO]");
-            Db.Update("DELETE FROM [TBLOCACAO]");
-            Db.Update("DELETE FROM [TBPESSOAFISICA]");
-            Db.Update("DELETE FROM [TBAUTOMOVEL]");
-            Db.Update("DELETE FROM [TBGRUPOAUTOMOVEL]");
-            Db.Update("DELETE FROM [TBFUNCIONARIO]");
+            Db.Update("DELETE FROM [TaxasEServicosUsadas]");
+            Db.Update("DELETE FROM [TAXAESERVICO]");
+            Db.Update("DELETE FROM [LOCACAO]");
+            Db.Update("DELETE FROM [PESSOAFISICA]");
+            Db.Update("DELETE FROM [AUTOMOVEL]");
+            Db.Update("DELETE FROM [GRUPOAUTOMOVEL]");
+            Db.Update("DELETE FROM [FUNCIONARIO]");
         }
 
         [TestMethod]

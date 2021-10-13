@@ -22,17 +22,5 @@ namespace LocadoraDeVeiculos.WindowsApp.Properties {
                 return defaultInstance;
             }
         }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string Configuração {
-            get {
-                return ((string)(this["Configuração"]));
-            }
-            set {
-                this["Configuração"] = value;
-            }
-        }
     }
 }

@@ -54,6 +54,7 @@ using LocadoraDeVeiculos.Infra.ORM.CupomModule;
 using LocadoraDeVeiculos.Infra.ORM.TaxaEServicoModule;
 using LocadoraDeVeiculos.Infra.ORM.PessoaJuridicaModule;
 using LocadoraDeVeiculos.Infra.ORM.GrupoAutomovelModule;
+using LocadoraDeVeiculos.Infra.ORM.FuncionarioModule;
 using LocadoraDeVeiculos.Infra.ORM.AutomovelModule;
 using LocadoraDeVeiculos.Infra.ORM.PessoaFisicaModule;
 using LocadoraDeVeiculos.Infra.ORM.LocacaoModule;
@@ -72,8 +73,8 @@ namespace LocadoraDeVeiculos.WindowsApp
         public Funcionario funcionarioConectado;
 
         //Operacoes
-        private OperacoesFuncionario operacoesFuncionario;
-       
+        private OperacoesPessoaJuridica operacoesPessoaJuridica;        
+        private OperacoesTaxasESevicos operacoesTaxasEServicos;
         private OperacoesConfiguracoes operacoesConfiguracoes;
         private OperacoesLocacao operacoesLocacao;
 
@@ -132,8 +133,8 @@ namespace LocadoraDeVeiculos.WindowsApp
 
         private void ConfiguracaoDeEntradaNaTelaPrincipal()
         {
-            operacoesFuncionario = new OperacoesFuncionario(new FuncionarioAppService(new FuncionarioDao()));
-            //operacoesTaxasEServicos = new OperacoesTaxasESevicos(new TaxaEServicoAppService(new TaxasEServicosDao()));
+            operacoesTaxasEServicos = new OperacoesTaxasESevicos(new TaxaEServicoAppService(new TaxasEServicosDao()));
+            operacoesPessoaFisica = new OperacoesPessoaFisica(new PessoaFisicaAppService(new PessoaFisicaDao()));
             operacoesConfiguracoes = new OperacoesConfiguracoes();
 
             DBLocadoraContext db = new();
@@ -389,8 +390,9 @@ namespace LocadoraDeVeiculos.WindowsApp
             AtualizarRodape(configuracoes.Tooltip.TipoCadastro);
             AtualizarFuncionarioConectado(funcionarioConectado.Nome);
 
-            operacoes = operacoesFuncionario;
-
+            DBLocadoraContext db = new();
+            FuncionarioAppService controlador = new(new FuncionarioORMDao(db),db);
+            operacoes = new OperacoesFuncionario(controlador);
             ConfigurarPainelRegistros();
         }
         private void locaçõesToolStripMenuItem_Click(object sender, EventArgs e)

@@ -2,6 +2,8 @@
 using LocadoraDeVeiculos.Controladores.FuncionarioModule;
 using LocadoraDeVeiculos.Dominio.FuncionarioModule;
 using LocadoraDeVeiculos.Infra.Log;
+using LocadoraDeVeiculos.Infra.ORM.FuncionarioModule;
+using LocadoraDeVeiculos.Infra.ORM.Models;
 using LocadoraDeVeículos.Infra.SQL.FuncionarioModule;
 using System;
 using System.Collections.Generic;
@@ -23,7 +25,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
         public TelaLoginForm()
         {
             InitializeComponent();
-            controladorFuncionario = new FuncionarioAppService(new FuncionarioDao());
+            DBLocadoraContext db = new();
+            controladorFuncionario = new FuncionarioAppService (new FuncionarioORMDao(db), db);
         }
 
         private void btnEntrar_Click(object sender, EventArgs e)
