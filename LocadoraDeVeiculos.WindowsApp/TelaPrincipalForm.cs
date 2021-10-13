@@ -53,6 +53,7 @@ using LocadoraDeVeiculos.Infra.ORM.Models;
 using LocadoraDeVeiculos.Infra.ORM.CupomModule;
 using LocadoraDeVeiculos.Infra.ORM.PessoaJuridicaModule;
 using LocadoraDeVeiculos.Infra.ORM.GrupoAutomovelModule;
+using LocadoraDeVeiculos.Infra.ORM.FuncionarioModule;
 
 namespace LocadoraDeVeiculos.WindowsApp
 {
@@ -69,7 +70,6 @@ namespace LocadoraDeVeiculos.WindowsApp
         
         //Operacoes
         private OperacoesPessoaJuridica operacoesPessoaJuridica;        
-        private OperacoesFuncionario operacoesFuncionario;
         private OperacoesTaxasESevicos operacoesTaxasEServicos;
         private OperacoesConfiguracoes operacoesConfiguracoes;
         private OperacoesPessoaFisica operacoesPessoaFisica;
@@ -132,7 +132,6 @@ namespace LocadoraDeVeiculos.WindowsApp
 
         private void ConfiguracaoDeEntradaNaTelaPrincipal()
         {
-            operacoesFuncionario = new OperacoesFuncionario(new FuncionarioAppService(new FuncionarioDao()));
             operacoesTaxasEServicos = new OperacoesTaxasESevicos(new TaxaEServicoAppService(new TaxasEServicosDao()));
             operacoesPessoaFisica = new OperacoesPessoaFisica(new PessoaFisicaAppService(new PessoaFisicaDao()));
             operacoesConfiguracoes = new OperacoesConfiguracoes();
@@ -372,8 +371,9 @@ namespace LocadoraDeVeiculos.WindowsApp
             AtualizarRodape(configuracoes.Tooltip.TipoCadastro);
             AtualizarFuncionarioConectado(funcionarioConectado.Nome);
 
-            operacoes = operacoesFuncionario;
-
+            DBLocadoraContext db = new();
+            FuncionarioAppService controlador = new(new FuncionarioORMDao(db),db);
+            operacoes = new OperacoesFuncionario(controlador);
             ConfigurarPainelRegistros();
         }
         private void locaçõesToolStripMenuItem_Click(object sender, EventArgs e)

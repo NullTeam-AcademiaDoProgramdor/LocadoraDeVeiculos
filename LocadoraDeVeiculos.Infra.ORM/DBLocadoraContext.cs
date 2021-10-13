@@ -3,6 +3,7 @@ using System.Data.Common;
 using System.Data.SqlClient;
 using System.IO;
 using LocadoraDeVeiculos.Dominio.CupomModule;
+using LocadoraDeVeiculos.Dominio.FuncionarioModule;
 using LocadoraDeVeiculos.Dominio.GrupoAutomovelModule;
 using LocadoraDeVeiculos.Dominio.ParceiroModule;
 using LocadoraDeVeiculos.Dominio.PessoaJuridicaModule;
@@ -21,8 +22,9 @@ namespace LocadoraDeVeiculos.Infra.ORM.Models
         public DbSet<Parceiro> Parceiros { get; set; }
         public DbSet<Cupom> Cupoms { get; set; }
         public DbSet<PessoaJuridica> PessoasJuridicas { get; set; }
+        public DbSet<Funcionario> Funcionarios{ get; set;}
 
-        public DBLocadoraContext()
+    public DBLocadoraContext()
         {
             IConfiguration configuration = 
                 new ConfigurationBuilder()

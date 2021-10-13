@@ -1,6 +1,7 @@
 ﻿using LocadoraDeVeículos.Aplicacao.Shared;
 using LocadoraDeVeiculos.Dominio.FuncionarioModule;
 using LocadoraDeVeiculos.Infra.Log;
+using LocadoraDeVeiculos.Infra.ORM.Models;
 using LocadoraDeVeiculos.Infra.Shared;
 using System;
 using System.Collections.Generic;
@@ -13,10 +14,13 @@ namespace LocadoraDeVeículos.Aplicacao.FuncionarioModule
     public class FuncionarioAppService : ICadastravel<Funcionario>
     {
         private IRepositorFuncionarioBase repositorio;
+        private  DBLocadoraContext db;
 
-        public FuncionarioAppService(IRepositorFuncionarioBase repositor)
+        public FuncionarioAppService(IRepositorFuncionarioBase repositor, DBLocadoraContext db)
         {
             repositorio = repositor;
+            this.db = db;
+            
         }
 
         public string InserirNovo(Funcionario registro) 
@@ -26,6 +30,8 @@ namespace LocadoraDeVeículos.Aplicacao.FuncionarioModule
             if (resultadoValidacao == "ESTA_VALIDO")
             {
                 repositorio.InserirNovo(registro);
+                db.SaveChanges();
+
             }
 
             return resultadoValidacao;
@@ -38,6 +44,7 @@ namespace LocadoraDeVeículos.Aplicacao.FuncionarioModule
             if (resultadoValidacao == "ESTA_VALIDO")
             {
                 repositorio.Editar(id, registro);
+                db.SaveChanges();
             }
 
             return resultadoValidacao;
@@ -45,12 +52,15 @@ namespace LocadoraDeVeículos.Aplicacao.FuncionarioModule
 
         public bool Excluir(int id)
         {
-            return repositorio.Excluir(id);
+            bool resultado = repositorio.Excluir(id);
+            db.SaveChanges();
+            return resultado;
         }
 
         public bool Existe(int id)
         {
             return repositorio.Existe(id);
+
         }
 
         public Funcionario SelecionarPorId(int id)

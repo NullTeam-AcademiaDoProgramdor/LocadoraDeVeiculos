@@ -4,20 +4,32 @@ using LocadoraDeVeiculos.Dominio.FuncionarioModule;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using FluentAssertions;
-
+using LocadoraDeVeículos.Aplicacao.FuncionarioModule;
+using LocadoraDeVeiculos.Infra.ORM.Models;
+using LocadoraDeVeiculos.Infra.ORM.FuncionarioModule;
 
 namespace LocadoraDeVeiculos.Tests.FuncionarioModule
 {
     [TestClass]
     public class ControladorFuncionarioTest
     {
-        ControladorFuncionario controlador = null;
+        FuncionarioAppService controlador = null;
+
 
         public ControladorFuncionarioTest()
         {
-            controlador = new ControladorFuncionario();
-            Db.Update(@"DELETE FROM LOCACAO");
-            Db.Update(@"DELETE FROM FUNCIONARIO");
+            DBLocadoraContext db = new();
+            controlador = new FuncionarioAppService(new FuncionarioORMDao(db),db);
+         
+        }
+
+        [TestCleanup]
+
+        public void LimparText()
+        {
+     
+            Db.Update(@"DELETE FROM TBFUNCIONARIO");
+
         }
 
         [TestMethod]
