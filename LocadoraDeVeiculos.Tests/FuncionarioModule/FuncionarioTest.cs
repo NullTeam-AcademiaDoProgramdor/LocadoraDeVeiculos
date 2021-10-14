@@ -81,7 +81,7 @@ namespace LocadoraDeVeiculos.Tests.FuncionarioModule
                 Environment.NewLine +
                 "O campo senha é obrigatório" +
                 Environment.NewLine +
-                "O campo Salário não pode ser 0 ou negativo"); 
+                "O campo Salário não pode ser 0 ou negativo");
         }
 
     }
