@@ -15,6 +15,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using LocadoraDeVeiculos.Dominio.RequisicaoEmailModule;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
+using Microsoft.Extensions.Logging;
+using Serilog.Extensions.Logging;
+using Serilog;
 
 #nullable disable
 
@@ -23,6 +26,9 @@ namespace LocadoraDeVeiculos.Infra.ORM.Models
     public class DBLocadoraContext : DbContext
     {
         private string connectionString;
+
+        private static ILoggerFactory loggerFactorySerilog =
+            LoggerFactory.Create(builder => builder.AddSerilog());
 
         public DbSet<Automovel> Automoveis { get; set; }
         public DbSet<GrupoAutomovel> GruposAutomovel { get; set; }
@@ -54,6 +60,7 @@ namespace LocadoraDeVeiculos.Infra.ORM.Models
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder
+                .UseLoggerFactory(loggerFactorySerilog)
                 .UseLazyLoadingProxies()
                 .UseSqlServer(connectionString);
         }
