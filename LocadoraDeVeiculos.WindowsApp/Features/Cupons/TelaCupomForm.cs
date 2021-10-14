@@ -19,16 +19,15 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
         private Cupom cupom;
         private string codigoAntigoCupom = "";
         List<Cupom> cuponsValidos;
-        ControladorParceiro controladorParceiro;
         private bool estaEditando = false;
 
-        public TelaCupomForm(List<Cupom> cupons)
+        public TelaCupomForm(List<Cupom> cupons, List<Parceiro> parceiros)
         {
             InitializeComponent();
 
             cuponsValidos = cupons;
-            controladorParceiro = new ControladorParceiro();
-            CarregarParceiros();
+
+            CarregarParceiros(parceiros);
 
             dtpDataVencimento.Value = DateTime.Today;
             cmbTipo.SelectedIndex = 0;
@@ -56,10 +55,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
             }
         }
 
-        private void CarregarParceiros()
+        private void CarregarParceiros(List<Parceiro> parceiros)
         {
             cmbParceiro.Items.Clear();
-            var parceiros = controladorParceiro.SelecionarTodos();
 
             foreach (var item in parceiros)
             {

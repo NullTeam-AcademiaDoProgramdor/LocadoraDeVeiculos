@@ -32,7 +32,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
             {
                 controlador.InserirNovo(tela.Parceiro);
 
-                tabelaParceiro.AtualizarRegistros();
+                tabelaParceiro.AtualizarRegistros(controlador.SelecionarTodos());
 
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Parceiro: [{tela.Parceiro.Nome}] inserido com sucesso");
             }
@@ -59,7 +59,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
             {
                 controlador.Editar(id, tela.Parceiro);
 
-                tabelaParceiro.AtualizarRegistros();
+                tabelaParceiro.AtualizarRegistros(controlador.SelecionarTodos());
 
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Parceiro: [{tela.Parceiro.Nome}] editado com sucesso");
             }
@@ -86,7 +86,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
 
                 List<Parceiro> parceiros = controlador.SelecionarTodos();
 
-                tabelaParceiro.AtualizarRegistros();
+                tabelaParceiro.AtualizarRegistros(parceiros);
 
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Parceiro: [{parceiroEncontrado.Nome}] removido com sucesso");
             }
@@ -96,7 +96,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
         {
             List<Parceiro> parceiros = controlador.SelecionarTodos();
 
-            tabelaParceiro.AtualizarRegistros();
+            tabelaParceiro.AtualizarRegistros(parceiros);
 
             return tabelaParceiro;
         }

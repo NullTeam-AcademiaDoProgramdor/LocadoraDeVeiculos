@@ -1,4 +1,5 @@
 ﻿using LocadoraDeVeículos.Aplicacao.PessoaFisicaModule;
+using LocadoraDeVeículos.Aplicacao.PessoaJuridicaModule;
 using LocadoraDeVeiculos.Controladores.PessoaFisicaModule;
 using LocadoraDeVeiculos.Controladores.PessoaJuridicaModule;
 using LocadoraDeVeiculos.Dominio.PessoaFisicaModule;
@@ -16,28 +17,28 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
     public class OperacoesPessoaFisica : ICadastravel
     {
         private readonly PessoaFisicaAppService controlador = null;
-        private readonly ControladorPessoaJuridica controladorPJuridica = null;
+        private readonly PessoaJuridicaAppService controladorPJuridica = null;
         private readonly TabelaPessoaFisicaControl tabelaPessoaFisica = null;
 
-        public OperacoesPessoaFisica(PessoaFisicaAppService ctrl)
+        public OperacoesPessoaFisica(PessoaFisicaAppService controlador, PessoaJuridicaAppService controladorPJuridica)
         {
-            controlador = ctrl;
+            this.controlador = controlador;
+            this.controladorPJuridica = controladorPJuridica;
             tabelaPessoaFisica = new TabelaPessoaFisicaControl();
-            controladorPJuridica = new ControladorPessoaJuridica();
         }
 
         public void InserirNovoRegistro()
         {
             var pessoasJuridicas = controladorPJuridica.SelecionarTodos();
 
-            TelaPessoaFisicaForm tela = new TelaPessoaFisicaForm(pessoasJuridicas, controlador);
+            TelaPessoaFisicaForm tela = new TelaPessoaFisicaForm(pessoasJuridicas);
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
                 controlador.InserirNovo(tela.PessoaFisica);
 
                 tabelaPessoaFisica.DesagruparRegistros();
-                tabelaPessoaFisica.AtualizarRegistros();
+                tabelaPessoaFisica.AtualizarRegistros(controlador.SelecionarTodos());
                 tabelaPessoaFisica.AgruparRegistros();
 
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Pessoa física: [{tela.PessoaFisica.Nome}] inserido com sucesso");
@@ -58,8 +59,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
 
             PessoaFisica pessoaFisicaSeleciada = controlador.SelecionarPorId(id);
 
-
-            TelaPessoaFisicaForm tela = new TelaPessoaFisicaForm();
+            TelaPessoaFisicaForm tela = new TelaPessoaFisicaForm(controladorPJuridica.SelecionarTodos());
 
             tela.PessoaFisica = pessoaFisicaSeleciada;
 
@@ -68,7 +68,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
                 controlador.Editar(id, tela.PessoaFisica);
 
                 tabelaPessoaFisica.DesagruparRegistros();
-                tabelaPessoaFisica.AtualizarRegistros();
+                tabelaPessoaFisica.AtualizarRegistros(controlador.SelecionarTodos());
                 tabelaPessoaFisica.AgruparRegistros();
 
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Pessoa física: [{tela.PessoaFisica.Nome}] editada com sucesso");
@@ -100,7 +100,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
                 }
 
                 tabelaPessoaFisica.DesagruparRegistros();
-                tabelaPessoaFisica.AtualizarRegistros();
+                tabelaPessoaFisica.AtualizarRegistros(controlador.SelecionarTodos());
                 tabelaPessoaFisica.AgruparRegistros();
 
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Pessoa física: [{pessoaFisicaSelecionada.Nome}] removida com sucesso");
@@ -109,7 +109,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
 
         public UserControl ObterTabela()
         {
-            tabelaPessoaFisica.AtualizarRegistros();
+            tabelaPessoaFisica.AtualizarRegistros(controlador.SelecionarTodos());
 
             return tabelaPessoaFisica;
         }

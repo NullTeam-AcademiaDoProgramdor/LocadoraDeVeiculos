@@ -40,8 +40,11 @@ namespace LocadoraDeVeículos.Aplicacao.AutomovelModule
 
         public bool Excluir(int id)
         {
-            return repositorio.Excluir(id);
+            bool resultado = repositorio.Excluir(id);
+
             db.SaveChanges();
+
+            return resultado;
         }
 
         public bool Existe(int id)

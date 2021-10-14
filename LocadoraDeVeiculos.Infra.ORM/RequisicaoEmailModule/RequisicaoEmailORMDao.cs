@@ -27,6 +27,8 @@ namespace LocadoraDeVeiculos.Infra.ORM.RequisicaoEmailModule
 
                 db.Remove(temp);
 
+                db.SaveChanges();
+
                 return true;
             }
             catch (Exception e)
@@ -49,6 +51,7 @@ namespace LocadoraDeVeiculos.Infra.ORM.RequisicaoEmailModule
                 using DBLocadoraContext db = new();
 
                 db.Add(registro);
+                db.SaveChanges();
 
                 return true;
             }

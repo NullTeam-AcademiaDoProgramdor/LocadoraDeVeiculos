@@ -10,6 +10,10 @@ using LocadoraDeVeiculos.Controladores.PessoaFisicaModule;
 using LocadoraDeVeiculos.Controladores.LocacaoModule;
 using LocadoraDeVeiculos.Servicos.PDFModule;
 using LocadoraDeVeículos.Aplicacao.LocacaoModule;
+using LocadoraDeVeículos.Aplicacao.AutomovelModule;
+using LocadoraDeVeículos.Aplicacao.PessoaFisicaModule;
+using LocadoraDeVeículos.Aplicacao.TaxaEServicoModule;
+using LocadoraDeVeículos.Aplicacao.CupomModule;
 
 namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
 {
@@ -18,16 +22,36 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
 
         private readonly LocacaoAppService controlador = null;
         private readonly TabelaLocacaoControl tabelaLocacao = null;
-        public OperacoesLocacao(LocacaoAppService controlador)
+
+        private AutomovelAppService controladorAutomovel;
+        private PessoaFisicaAppService controladorCondutor;
+        private TaxaEServicoAppService controladorTaxaEServico;
+        private CupomAppService controladorCupom;
+
+        public OperacoesLocacao(LocacaoAppService controlador,
+                                AutomovelAppService controladorAutomovel,
+                                PessoaFisicaAppService controladorCondutor,
+                                TaxaEServicoAppService controladorTaxaEServico,
+                                CupomAppService controladorCupom)
         {
             this.controlador = controlador;
+
+            this.controladorAutomovel = controladorAutomovel;
+            this.controladorCondutor = controladorCondutor;
+            this.controladorCupom = controladorCupom;
+            this.controladorTaxaEServico = controladorTaxaEServico;
+
             tabelaLocacao = new TabelaLocacaoControl();
         }
 
         public void InserirNovoRegistro()
         {
 
-            TelaLocacaoForm tela = new TelaLocacaoForm();
+            TelaLocacaoForm tela = new TelaLocacaoForm(
+                controladorCupom, 
+                controladorAutomovel.SelecionarDisponiveis(), 
+                controladorCondutor.SelecionarTodos(), 
+                controladorTaxaEServico.SelecionarTodos());
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
@@ -54,7 +78,11 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
             Locacao locacaoSelecionada = controlador.SelecionarPorId(id);
 
 
-            TelaLocacaoForm tela = new TelaLocacaoForm();
+            TelaLocacaoForm tela = new TelaLocacaoForm(
+                controladorCupom,
+                controladorAutomovel.SelecionarDisponiveis(),
+                controladorCondutor.SelecionarTodos(),
+                controladorTaxaEServico.SelecionarTodos());
 
             tela.Locacao = locacaoSelecionada;
 
@@ -175,7 +203,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
 
             Locacao locacaoSelecionada = controlador.SelecionarPorId(id);
 
-            TelaDevolucaoForm tela = new TelaDevolucaoForm();
+            TelaDevolucaoForm tela = new TelaDevolucaoForm(controladorCupom, controladorTaxaEServico.SelecionarTodos());
 
             tela.Locacao = locacaoSelecionada;
 

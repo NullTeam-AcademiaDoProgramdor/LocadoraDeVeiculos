@@ -20,6 +20,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using LocadoraDeVeículos.Infra.PDF.PDFModule;
 using LocadoraDeVeículos.Aplicacao.RequisicaoEmailModule;
+using LocadoraDeVeículos.Aplicacao.CupomModule;
 
 namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
 {
@@ -27,20 +28,18 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
     {
 
         private Locacao locacao;
-        private ControladorTaxasEServicos controladorTaxasEServicos;
-        private ControladorCupom controladorCupom;
+        private CupomAppService controladorCupom;
         private GeradorPDF geradorPdf;
         public bool CupomFoiUsado { get; private set; }
 
-        public TelaDevolucaoForm()
+        public TelaDevolucaoForm(CupomAppService controladorCupom, List<TaxaEServico> taxaEServicos)
         {
-            controladorCupom = new ControladorCupom();
-            controladorTaxasEServicos = new ControladorTaxasEServicos();
+            this.controladorCupom = controladorCupom;
             geradorPdf = new GeradorPDF();
 
             InitializeComponent();
 
-            CarregarTaxasEServicos(controladorTaxasEServicos.SelecionarTodos());
+            CarregarTaxasEServicos(taxaEServicos);
         }
 
         public Locacao Locacao

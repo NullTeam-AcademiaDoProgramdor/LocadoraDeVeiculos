@@ -50,10 +50,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasJuridicas
             return gridPessoasJuridicas.SelecionarId<int>();
         }
 
-        public void AtualizarRegistros()
+        public void AtualizarRegistros(List<PessoaJuridica> pessoasJuridicas)
         {
-            var pessoasJuridicas = controlador.SelecionarTodos();
-
             CarregarTabela(pessoasJuridicas);
         }
         private void CarregarTabela(List<PessoaJuridica> pessoasJuridicas)

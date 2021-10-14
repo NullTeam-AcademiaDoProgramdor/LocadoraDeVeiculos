@@ -59,17 +59,17 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
         {
             EmailAppService.GetInstance(new RequisicaoEmailDao());
 
-            this.controladorTaxasEServicos = new(new TaxasEServicosDao());
-            this.controladorLocacao = new(
-                    new LocacaoDao(),
-                    new TaxasEServicosUsadosDao(),
-                    new CupomDao(),
-                    new GeradorPDF(),
-                    EmailAppService.GetInstance());
-            this.ctrlAutomovel = new(new AutomovelDao(), new FotosAutomovelDao());
+            //this.controladorTaxasEServicos = new(new TaxasEServicosDao());
+            //this.controladorLocacao = new(
+            //        new LocacaoDao(),
+            //        new TaxasEServicosUsadosDao(),
+            //        new CupomDao(),
+            //        new GeradorPDF(),
+            //        EmailAppService.GetInstance());
+            //this.ctrlAutomovel = new(new AutomovelDao(), new FotosAutomovelDao());
             this.ctrlGrupo = new(new GrupoAutomovelDao(), null);
             //this.ctrlFuncionario = new(new FuncionarioDao());
-            this.ctrlCondutor = new(new PessoaFisicaDao());
+            //this.ctrlCondutor = new(new PessoaFisicaDao());
 
             grupo = CriarGrupo();
             automovel = CriarAutomovel(grupo);

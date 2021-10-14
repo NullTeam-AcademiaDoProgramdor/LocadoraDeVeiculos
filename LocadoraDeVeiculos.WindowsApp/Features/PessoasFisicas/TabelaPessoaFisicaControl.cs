@@ -17,7 +17,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
     public partial class TabelaPessoaFisicaControl : UserControl
     {
         private Subro.Controls.DataGridViewGrouper gridPessoasFisicasAgrupadas;
-        ControladorPessoaFisica controlador;
         private FiltroPessoaFisicaEnum filtroPFisicaCache = FiltroPessoaFisicaEnum.PessoaSemOrdem;
         public TabelaPessoaFisicaControl()
         {
@@ -26,7 +25,6 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
             gridPessoasFisicas.ConfigurarGridSomenteLeitura();
             gridPessoasFisicas.Columns.AddRange(ObterColunas());
             gridPessoasFisicasAgrupadas = new Subro.Controls.DataGridViewGrouper();
-            controlador = new ControladorPessoaFisica();
         }
 
         public DataGridViewColumn[] ObterColunas()
@@ -50,10 +48,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
             return gridPessoasFisicas.SelecionarId<int>();
         }
 
-        public void AtualizarRegistros()
+        public void AtualizarRegistros(List<PessoaFisica> pessoasFisicas)
         {
-            var pessoasFisicas = controlador.SelecionarTodos();
-
             CarregarTabela(pessoasFisicas);
         }
 

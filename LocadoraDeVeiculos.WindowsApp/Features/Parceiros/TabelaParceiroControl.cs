@@ -40,10 +40,8 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Parceiros
         {
             return gridParceiros.SelecionarId<int>();
         }
-        public void AtualizarRegistros()
+        public void AtualizarRegistros(List<Parceiro> parceiros)
         {
-            var parceiros = controlador.SelecionarTodos();
-
             CarregarTabela(parceiros);
         }
         private void CarregarTabela(List<Parceiro> parceiros)

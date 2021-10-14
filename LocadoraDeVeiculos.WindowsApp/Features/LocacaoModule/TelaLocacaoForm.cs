@@ -1,4 +1,5 @@
-﻿using LocadoraDeVeiculos.Controladores.AutomovelModule;
+﻿using LocadoraDeVeículos.Aplicacao.CupomModule;
+using LocadoraDeVeiculos.Controladores.AutomovelModule;
 using LocadoraDeVeiculos.Controladores.CupomModule;
 using LocadoraDeVeiculos.Controladores.LocacaoModule;
 using LocadoraDeVeiculos.Controladores.PessoaFisicaModule;
@@ -26,27 +27,25 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule
     public partial class TelaLocacaoForm : Form
     {
         private Locacao locacao;
-        private ControladorAutomovel controladorAutomovel;
-        private ControladorPessoaFisica controladorPessoaFisica;
-        private ControladorTaxasEServicos controladorTaxasEServicos;
-        private ControladorCupom controladorCupom;
+        private CupomAppService controladorCupom;
 
-        public TelaLocacaoForm()
+        public TelaLocacaoForm(CupomAppService controladorCupom,
+                               List<Automovel> automoveis,
+                               List<PessoaFisica> pessoaFisicas,
+                               List<TaxaEServico> taxaEServicos)
         {
-            controladorAutomovel = new ControladorAutomovel();
-            controladorPessoaFisica = new ControladorPessoaFisica();
-            controladorTaxasEServicos = new ControladorTaxasEServicos();
-            controladorCupom = new ControladorCupom();
-
+           
             InitializeComponent();
+
+            this.controladorCupom = controladorCupom;
 
             cmbPlano.SelectedIndex = 0;
             dtpdataSaida.Value = DateTime.Now;
             dtpdataDevolucaoEsperada.Value = DateTime.Now.AddDays(1);
 
-            CarregarAutomoveis(controladorAutomovel.SelecionarDisponiveis());
-            CarregarCondutores(controladorPessoaFisica.SelecionarTodos());
-            CarregarTaxasEServicos(controladorTaxasEServicos.SelecionarTodos());
+            CarregarAutomoveis(automoveis);
+            CarregarCondutores(pessoaFisicas);
+            CarregarTaxasEServicos(taxaEServicos);
         }
 
        

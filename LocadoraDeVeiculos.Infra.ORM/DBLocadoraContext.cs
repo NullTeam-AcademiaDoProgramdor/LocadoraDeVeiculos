@@ -33,8 +33,6 @@ namespace LocadoraDeVeiculos.Infra.ORM.Models
         public DbSet<PessoaFisica> PessoasFisicas { get; set; }
         public DbSet<RequisicaoEmail> RequisicaoEmails { get; set; }
         public DbSet<Locacao> Locacoes { get; set; }
-
-        
         public DbSet<Funcionario> Funcionarios{ get; set;}
 
     public DBLocadoraContext()

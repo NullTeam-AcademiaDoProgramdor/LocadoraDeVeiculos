@@ -71,6 +71,8 @@ namespace LocadoraDeVeículos.Aplicacao.LocacaoModule
                 if (locacao.Cupom != null && cupomFoiUsado)
                     repositorioCupom.EditarQtdUsos(locacao.Cupom);
 
+                locacao.Automovel.KmRegistrada = (int)locacao.KmAutomovelFinal;
+
                 repositorioLocacao.Devolver(id, locacao);
                 repositorioAutomovel.EditarKmRegistrada(locacao.Automovel.Id, locacao.Automovel);
 

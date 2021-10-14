@@ -72,11 +72,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
         public Funcionario funcionarioConectado;
 
-        //Operacoes
-        private OperacoesPessoaJuridica operacoesPessoaJuridica;        
-        private OperacoesTaxasESevicos operacoesTaxasEServicos;
         private OperacoesConfiguracoes operacoesConfiguracoes;
-        private OperacoesLocacao operacoesLocacao;
 
         public TelaPrincipalForm(Funcionario funcionarioConectado)
         {
@@ -133,22 +129,8 @@ namespace LocadoraDeVeiculos.WindowsApp
 
         private void ConfiguracaoDeEntradaNaTelaPrincipal()
         {
-            operacoesTaxasEServicos = new OperacoesTaxasESevicos(new TaxaEServicoAppService(new TaxasEServicosDao()));
-            operacoesPessoaFisica = new OperacoesPessoaFisica(new PessoaFisicaAppService(new PessoaFisicaDao()));
             operacoesConfiguracoes = new OperacoesConfiguracoes();
-
-            DBLocadoraContext db = new();
-
-            LocacaoAppService controladorLocacao = new(
-                new LocacaoORMDao(db),
-                    new CupomORMDao(db),
-                    new AutomovelORMDao(db),
-                    new GeradorPDF(),
-                    EmailAppService.GetInstance(),
-                    db);
-
-            operacoesLocacao = new(controladorLocacao);
-
+            
             Instancia = this;
         }
 
@@ -355,9 +337,13 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             DBLocadoraContext dbContext = new();
 
-            operacoes = new OperacoesPessoaFisica(
-                new PessoaFisicaAppService(
-                    new PessoaFisicaORMDao(dbContext), dbContext));
+            PessoaFisicaAppService controlador = 
+                new(new PessoaFisicaORMDao(dbContext), dbContext);
+
+            PessoaJuridicaAppService controladorPJuridica = 
+                new(new PessoaJuridicaORMDao(dbContext), dbContext);
+
+            operacoes = new OperacoesPessoaFisica(controlador, controladorPJuridica);
 
             ConfigurarPainelRegistros();
         }
@@ -405,7 +391,33 @@ namespace LocadoraDeVeiculos.WindowsApp
             AtualizarRodape(configuracoes.Tooltip.TipoCadastro);
             AtualizarFuncionarioConectado(funcionarioConectado.Nome);
 
-            operacoes = operacoesLocacao;
+            DBLocadoraContext db = new();
+
+            db.Attach(funcionarioConectado);
+
+            AutomovelORMDao automovelORMDao = new(db);
+            AutomovelAppService controladorAutomovel = new(automovelORMDao, db);
+
+            CupomORMDao cupomORMDao = new(db);
+            CupomAppService controladorCupom = new(cupomORMDao, db);
+
+            PessoaFisicaAppService controladorPessoaFisica = new(new PessoaFisicaORMDao(db), db);
+
+            TaxaEServicoAppService controladorTaxaEServico = new(new TaxaEServicoORMDao(db), db);
+
+            LocacaoAppService controlador = new(
+                new LocacaoORMDao(db), 
+                cupomORMDao, 
+                automovelORMDao, 
+                new GeradorPDF(), 
+                EmailAppService.GetInstance(), db);
+
+            operacoes = new OperacoesLocacao(
+                controlador, 
+                controladorAutomovel, 
+                controladorPessoaFisica, 
+                controladorTaxaEServico, 
+                controladorCupom);
 
             ConfigurarPainelRegistros();
         }
@@ -466,7 +478,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             if (panelRegistros.Controls[0] is TabelaLocacaoControl)
             {
-                bool estaDevolvido = operacoesLocacao.RegistroSelecionadoEstaDevolvido();
+                bool estaDevolvido = (operacoes as OperacoesLocacao).RegistroSelecionadoEstaDevolvido();
 
                 if (estaDevolvido)
                 {

@@ -32,7 +32,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
             if (!PodeCadastrar())
                 return;
 
-            TelaCupomForm tela = new TelaCupomForm(controlador.SelecionarValidos());
+            TelaCupomForm tela = new TelaCupomForm(
+                controlador.SelecionarValidos(), 
+                controladorParceiro.SelecionarTodos());
 
             if (tela.ShowDialog() == DialogResult.OK)
             {
@@ -64,7 +66,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Cupons
 
             Cupom cupomSelecionado = controlador.SelecionarPorId(id);
 
-            TelaCupomForm tela = new TelaCupomForm(controlador.SelecionarValidos());
+            TelaCupomForm tela = new TelaCupomForm(
+                controlador.SelecionarValidos(), 
+                controladorParceiro.SelecionarTodos());
 
             tela.Cupom = cupomSelecionado;
 

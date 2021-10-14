@@ -31,7 +31,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasJuridicas
             {
                 controlador.InserirNovo(tela.PessoaJuridica);
 
-                tabelaPessoasJuridicas.AtualizarRegistros();
+                List<PessoaJuridica> pessoasJuridicas = controlador.SelecionarTodos();
+
+                tabelaPessoasJuridicas.AtualizarRegistros(pessoasJuridicas);
 
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Pessoa jurídica: [{tela.PessoaJuridica.Nome}] inserida com sucesso");
             }
@@ -58,7 +60,9 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasJuridicas
             {
                 controlador.Editar(id, tela.PessoaJuridica);
 
-                tabelaPessoasJuridicas.AtualizarRegistros();
+                List<PessoaJuridica> pessoasJuridicas = controlador.SelecionarTodos();
+
+                tabelaPessoasJuridicas.AtualizarRegistros(pessoasJuridicas);
 
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Pessoa jurídica: [{tela.PessoaJuridica.Nome}] editada com sucesso");
             }
@@ -84,7 +88,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasJuridicas
 
                 List<PessoaJuridica> pessoasJuridicas = controlador.SelecionarTodos();
 
-                tabelaPessoasJuridicas.AtualizarRegistros();
+                tabelaPessoasJuridicas.AtualizarRegistros(pessoasJuridicas);
 
                 TelaPrincipalForm.Instancia.AtualizarRodape($"Pessoa jurídica: [{pessoaJuridicaSelecionada.Nome}] removida com sucesso");
             }
@@ -99,7 +103,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasJuridicas
         {
             List<PessoaJuridica> pessoasJuridicas = controlador.SelecionarTodos();
 
-            tabelaPessoasJuridicas.AtualizarRegistros();
+            tabelaPessoasJuridicas.AtualizarRegistros(pessoasJuridicas);
 
             return tabelaPessoasJuridicas;
         }

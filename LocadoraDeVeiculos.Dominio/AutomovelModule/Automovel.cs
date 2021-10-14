@@ -196,26 +196,5 @@ namespace LocadoraDeVeiculos.Dominio.AutomovelModule
                    EqualityComparer<GrupoAutomovel>.Default.Equals(Grupo, other.Grupo);
         }
 
-        public override int GetHashCode()
-        {
-            HashCode hash = new HashCode();
-            hash.Add(id);
-            hash.Add(Id);
-            hash.Add(Modelo);
-            hash.Add(Marca);
-            hash.Add(Cor);
-            hash.Add(Placa);
-            hash.Add(Chassi);
-            hash.Add(Ano);
-            hash.Add(Portas);
-            hash.Add(CapacidadeTanque);
-            hash.Add(TamanhoPortaMalas);
-            hash.Add(KmRegistrada);
-            hash.Add(TipoCombustivel);
-            hash.Add(Cambio);
-            hash.Add(Direcao);
-            hash.Add(Grupo);
-            return hash.ToHashCode();
-        }
     }
 }

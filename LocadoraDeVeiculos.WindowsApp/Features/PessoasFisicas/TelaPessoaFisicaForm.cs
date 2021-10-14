@@ -19,16 +19,13 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas
     public partial class TelaPessoaFisicaForm : Form
     {
         PessoaFisica pessoaFisica;
-        private ControladorPessoaJuridica controladorPessoaJuridica;
         public TelaPessoaFisicaForm()
         {
             InitializeComponent();
             cmbPJuridica.Items.Clear();
-            controladorPessoaJuridica = new ControladorPessoaJuridica();
-            CarregarPessoasJuridicas(controladorPessoaJuridica.SelecionarTodos());
         }
 
-        public TelaPessoaFisicaForm(List<PessoaJuridica> pessoasJuridicas, PessoaFisicaAppService controlador) : this()
+        public TelaPessoaFisicaForm(List<PessoaJuridica> pessoasJuridicas) : this()
         {
             CarregarPessoasJuridicas(pessoasJuridicas);
         }
