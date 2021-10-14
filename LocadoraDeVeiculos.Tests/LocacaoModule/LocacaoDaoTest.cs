@@ -18,6 +18,7 @@ using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using LocadoraDeVeiculos.Dominio.PessoaFisicaModule;
 using LocadoraDeVeiculos.Infra.ORM.AutomovelModule;
 using LocadoraDeVeiculos.Infra.ORM.CupomModule;
+using LocadoraDeVeiculos.Infra.ORM.FuncionarioModule;
 using LocadoraDeVeiculos.Infra.ORM.GrupoAutomovelModule;
 using LocadoraDeVeiculos.Infra.ORM.LocacaoModule;
 using LocadoraDeVeiculos.Infra.ORM.Models;
@@ -40,11 +41,11 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
     [TestCategory("Controladores")]
     public class LocacaoDaoTest
     {
-        LocacaoAppService controladorLocacao;
-        GrupoAutomovelAppService ctrlGrupo;
-        AutomovelAppService ctrlAutomovel;
-        FuncionarioAppService ctrlFuncionario;
-        PessoaFisicaAppService ctrlCondutor;
+        LocacaoORMDao controladorLocacao;
+        GrupoAutomovelORMDao ctrlGrupo;
+        AutomovelORMDao ctrlAutomovel;
+        FuncionarioORMDao ctrlFuncionario;
+        PessoaFisicaORMDao ctrlCondutor;
         DBLocadoraContext db;
 
         GrupoAutomovel grupo;
@@ -57,18 +58,12 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
             EmailAppService.GetInstance(new RequisicaoEmailDao());
 
             this.db = new();
-            this.controladorLocacao = new(
-                new LocacaoORMDao(db),                    
-                    new CupomORMDao(db),
-                    new AutomovelORMDao(db),
-                    new GeradorPDF(),
-                    EmailAppService.GetInstance(),
-                    db);
+            this.controladorLocacao = new(db);
 
-            //this.ctrlAutomovel = new(new AutomovelDao());
-            this.ctrlGrupo = new(new GrupoAutomovelDao(), null);
-           // this.ctrlFuncionario = new(new FuncionarioDao());
-            //this.ctrlCondutor = new(new PessoaFisicaDao());
+            this.ctrlAutomovel = new(db);
+            this.ctrlGrupo = new(db);
+            this.ctrlFuncionario = new(db);
+            this.ctrlCondutor = new(db);
             grupo = CriarGrupo();
             automovel = CriarAutomovel(grupo);
             funcionario = CriarFuncionario();
@@ -96,6 +91,7 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
 
             //action
             controladorLocacao.InserirNovo(locacao);
+            db.SaveChanges();
 
             //assert
             var locacaoEncontrada = controladorLocacao.SelecionarPorId(locacao.Id);
@@ -109,12 +105,15 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
             Locacao locacao = new Locacao(condutor, automovel, funcionario
                 , DateTime.Today, DateTime.Today.AddDays(1), 1000, 50000);
             controladorLocacao.InserirNovo(locacao);
+            db.SaveChanges();
 
             Locacao novaLocacao = new Locacao(condutor, automovel, funcionario
                 , DateTime.Today, DateTime.Today.AddDays(2), 1000, 50000);
+            
         
             //action
             controladorLocacao.Editar(locacao.Id, novaLocacao);
+            db.SaveChanges();
 
             //assert
             Locacao locacaoEncontrada = controladorLocacao.SelecionarPorId(locacao.Id);
@@ -129,13 +128,15 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
             Locacao locacao = new Locacao(condutor, automovel, funcionario
                 , DateTime.Today, DateTime.Today.AddDays(1), 1000, 50000);
             controladorLocacao.InserirNovo(locacao);
+            db.SaveChanges();
 
             Locacao novaLocacao = new Locacao(condutor, automovel, funcionario
                 , DateTime.Today, DateTime.Today.AddDays(1), 1000, 50000, 1, 600000, 10, DateTime.Today.AddDays(1));
 
 
             //action
-            controladorLocacao.Devolver(locacao.Id, novaLocacao, false);
+            controladorLocacao.Devolver(locacao.Id, novaLocacao);
+            db.SaveChanges();
 
             //assert
             Locacao locacaoEncontrada = controladorLocacao.SelecionarPorId(locacao.Id);
@@ -148,11 +149,15 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
             Locacao locacao = new Locacao(condutor, automovel, funcionario
                 , DateTime.Today, DateTime.Today.AddDays(1), 1000, 50000);
             controladorLocacao.InserirNovo(locacao);
+            db.SaveChanges();
 
             Locacao novaLocacao = new Locacao(condutor, automovel, funcionario
                 , DateTime.Today, DateTime.Today.AddDays(1), 1000, 50000, 1, 100, 10, DateTime.Today.AddDays(1));
 
-            controladorLocacao.Devolver(locacao.id, novaLocacao, false); 
+            locacao.Automovel.KmRegistrada = 100;
+            controladorLocacao.Devolver(locacao.id, novaLocacao);
+            ctrlAutomovel.EditarKmRegistrada(novaLocacao.Automovel.id, locacao.Automovel);
+            db.SaveChanges();
 
             Automovel automovelEncontrado = ctrlAutomovel.SelecionarPorId(automovel.id);          
 
@@ -167,6 +172,7 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
             Locacao locacao = new Locacao(condutor, automovel, funcionario,
                 DateTime.Today, DateTime.Today.AddDays(1), 1000, 50000);
             controladorLocacao.InserirNovo(locacao);
+            db.SaveChanges();
 
             //action
             Locacao locacaoEncontrada = controladorLocacao.SelecionarPorId(locacao.Id);
@@ -191,8 +197,9 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
 
             };
 
-            foreach (var loc in locacoes)
+            foreach (var loc in locacoes)            
                 controladorLocacao.InserirNovo(loc);
+            db.SaveChanges();
 
             //action
             var locacoesEncontradas = controladorLocacao.SelecionarTodos();
@@ -209,14 +216,17 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
                     DateTime.Today, DateTime.Today.AddDays(1), 1000, 50000);
 
             controladorLocacao.InserirNovo(locacao);
+            db.SaveChanges();
 
             Locacao novaLocacao = new Locacao(condutor, automovel, funcionario
                 , DateTime.Today, DateTime.Today.AddDays(1), 1000, 50000, 1, 600000, 10, DateTime.Today.AddDays(1));
 
-            controladorLocacao.Devolver(locacao.Id, novaLocacao, false);
+            controladorLocacao.Devolver(locacao.Id, novaLocacao);
+            db.SaveChanges();
 
             //action            
             controladorLocacao.Excluir(locacao.Id);
+            db.SaveChanges();
 
             //assert
             Locacao locacaoEncontrada = controladorLocacao.SelecionarPorId(locacao.Id);

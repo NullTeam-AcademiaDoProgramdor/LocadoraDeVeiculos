@@ -1,22 +1,9 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Moq;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
-using LocadoraDeVeiculos.Dominio.AutomovelModule;
-using LocadoraDeVeiculos.Dominio.GrupoAutomovelModule;
-using LocadoraDeVeiculos.Dominio.FuncionarioModule;
 using LocadoraDeVeiculos.Dominio.PessoaFisicaModule;
-using LocadoraDeVeículos.Aplicacao.RequisicaoEmailModule;
-using LocadoraDeVeículos.Infra.SQL.RequisicaoEmailModule;
-using LocadoraDeVeículos.Infra.SQL.LocacaoModule;
-using LocadoraDeVeiculos.Dominio.TaxasEServicosModule;
 using LocadoraDeVeículos.Aplicacao.LocacaoModule;
-using LocadoraDeVeiculos.Servicos.PDFModule;
-using LocadoraDeVeículos.Infra.SQL.CupomModule;
 using LocadoraDeVeículos.Infra.PDF.PDFModule;
 using LocadoraDeVeiculos.Dominio.CupomModule;
 using LocadoraDeVeiculos.Dominio.RelatorioModule;
@@ -26,6 +13,8 @@ using LocadoraDeVeiculos.Infra.ORM.Models;
 using LocadoraDeVeiculos.Infra.ORM.LocacaoModule;
 using LocadoraDeVeiculos.Infra.ORM.AutomovelModule;
 using LocadoraDeVeiculos.Infra.ORM.CupomModule;
+using LocadoraDeVeiculos.Dominio.AutomovelModule;
+using LocadoraDeVeiculos.Dominio.GrupoAutomovelModule;
 
 namespace LocadoraDeVeiculos.Tests.LocacaoModule
 {
@@ -34,9 +23,9 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
     {
         private readonly DBLocadoraContext db;
 
-        public LocacaoAppServiceTest(DBLocadoraContext db)
+        public LocacaoAppServiceTest()
         {
-            this.db = db;
+            this.db = new();
         }
 
         [TestMethod]
@@ -46,7 +35,7 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
 
             locacaoMock.Setup(x => x.Validar()).Returns("ESTA_VALIDO");
 
-            Mock<LocacaoORMDao> locacaoDaoMock = new();
+            Mock<LocacaoORMDao> locacaoDaoMock = new(db);
 
             LocacaoAppService locacaoAppService = new(
                 locacaoDaoMock.Object,  
@@ -70,7 +59,7 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
 
             locacaoMock.Setup(x => x.Validar()).Returns("NAO_ESTA_VALIDO");
 
-            Mock<LocacaoORMDao> locacaoDaoMock = new();
+            Mock<LocacaoORMDao> locacaoDaoMock = new(db);
 
             LocacaoAppService locacaoAppService = new(
                 locacaoDaoMock.Object,                
@@ -90,15 +79,17 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
         public void DeveDevolver_Locacao_SemCupom()
         {
             Mock<Locacao> locacaoMock = new();
-            locacaoMock.Object.Condutor = CriarCondutor();
+            locacaoMock.Setup(x => x.Condutor).Returns(CriarCondutor());
+            locacaoMock.Setup(x => x.Automovel).Returns(criarAutomovel());
+            locacaoMock.Object.KmAutomovelFinal = 100;
 
             locacaoMock.Setup(x => x.ValidarDevolucao()).Returns("ESTA_VALIDO");
 
-            Mock<LocacaoORMDao> locacaoDaoMock = new();
+            Mock<LocacaoORMDao> locacaoDaoMock = new(db);
 
-            Mock<CupomORMDao> cupomDaoMock = new();
+            Mock<CupomORMDao> cupomDaoMock = new(db);
             Mock<GeradorPDF> geradorPdfMock = new();
-            Mock<AutomovelORMDao> automovelDao = new();
+            Mock<AutomovelORMDao> automovelDao = new(db);
 
             Mock<IEmailAppService> emailAppServiceMock = new();
 
@@ -130,11 +121,11 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
 
             locacaoMock.Setup(x => x.ValidarDevolucao()).Returns("NAO_ESTA_VALIDO");
 
-            Mock<LocacaoORMDao> locacaoDaoMock = new();
+            Mock<LocacaoORMDao> locacaoDaoMock = new(db);
 
-            Mock<CupomORMDao> cupomDaoMock = new();
+            Mock<CupomORMDao> cupomDaoMock = new(db);
             Mock<GeradorPDF> geradorPdfMock = new();
-            Mock<AutomovelORMDao> automovelDao = new();
+            Mock<AutomovelORMDao> automovelDao = new(db);
 
             Mock<IEmailAppService> emailAppServiceMock = new();
 
@@ -162,16 +153,18 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
         public void DeveDevolver_Locacao_ComCupom()
         {
             Mock<Locacao> locacaoMock = new();
-            locacaoMock.Object.Condutor = CriarCondutor();
-            locacaoMock.Object.Cupom = CriarCupom();
+            locacaoMock.Setup(x => x.Condutor).Returns(CriarCondutor());
+            locacaoMock.Setup(x => x.Cupom).Returns(CriarCupom());
+            locacaoMock.Setup(x => x.Automovel).Returns(criarAutomovel());
+            locacaoMock.Object.KmAutomovelFinal = 100;
 
             locacaoMock.Setup(x => x.ValidarDevolucao()).Returns("ESTA_VALIDO");
 
-            Mock<LocacaoORMDao> locacaoDaoMock = new();
+            Mock<LocacaoORMDao> locacaoDaoMock = new(db);
 
-            Mock<CupomORMDao> cupomDaoMock = new();
+            Mock<CupomORMDao> cupomDaoMock = new(db);
             Mock<GeradorPDF> geradorPdfMock = new();
-            Mock<AutomovelORMDao> automovelDao = new();
+            Mock<AutomovelORMDao> automovelDao = new(db);
 
             Mock<IEmailAppService> emailAppServiceMock = new();
 
@@ -202,7 +195,7 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
 
             locacaoMock.Setup(x => x.Validar()).Returns("ESTA_VALIDO");
 
-            Mock<LocacaoORMDao> locacaoDaoMock = new();
+            Mock<LocacaoORMDao> locacaoDaoMock = new(db);
 
             LocacaoAppService locacaoAppService = new(
                 locacaoDaoMock.Object,
@@ -231,6 +224,28 @@ namespace LocadoraDeVeiculos.Tests.LocacaoModule
                 "12.098.098-02", "123456789123", new DateTime(2022, 02, 20),
                 "(49)000000000", "Lagi", null, "aaaaa@gmail.com");
             return condutor;
+        }
+
+        private GrupoAutomovel CriarGrupo()
+        {
+            GrupoAutomovel novoGrupo = new GrupoAutomovel(
+                "Economicos",
+                new PlanoDiarioStruct(150, 5),
+                new PlanoKmControladoStruct(100, 15, 100),
+                new PlanoKmLivreStruct(300)
+            );
+
+            return novoGrupo;
+        }
+
+
+        private Automovel criarAutomovel()
+        {
+            GrupoAutomovel grupo = CriarGrupo();
+
+            return new Automovel("Gol", "Ford", "Branco", "ABCD123", "12YG2J31G23H123",
+                2020, 4, 100, 0, 30, TipoCombustivelEnum.Gasolina, CambioEnum.Manual,
+                DirecaoEnum.Mecanica, grupo);
         }
     }
 }

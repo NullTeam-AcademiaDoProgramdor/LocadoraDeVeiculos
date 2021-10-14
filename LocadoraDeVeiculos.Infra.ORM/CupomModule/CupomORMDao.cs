@@ -16,7 +16,7 @@ namespace LocadoraDeVeiculos.Infra.ORM.CupomModule
         {
         }
 
-        public bool EditarQtdUsos(Cupom cupom)
+        public virtual bool EditarQtdUsos(Cupom cupom)
         {
             try
             {

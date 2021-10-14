@@ -16,7 +16,7 @@ namespace LocadoraDeVeiculos.Infra.ORM.LocacaoModule
         {
         }
 
-        public bool Devolver(int id, Locacao locacao)
+        public virtual bool Devolver(int id, Locacao locacao)
         {
             return this.Editar(id,locacao);
         }

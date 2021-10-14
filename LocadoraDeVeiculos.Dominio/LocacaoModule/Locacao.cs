@@ -68,7 +68,7 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
 
         public virtual Cupom Cupom { get; set; }
         public virtual PessoaFisica Condutor { get; set; }
-        public virtual Automovel Automovel { get; }
+        public virtual Automovel Automovel { get; set; }
         public virtual Funcionario Funcionario { get; }
         public DateTime DataSaida { get; }
         public DateTime DataDevolucaoEsperada { get; }
@@ -78,7 +78,7 @@ namespace LocadoraDeVeiculos.Dominio.LocacaoModule
         public int Caucao { get; }
         public string Situacao { get; }
         public int KmAutomovelIncial { get; }
-        public int? KmAutomovelFinal { get; }
+        public int? KmAutomovelFinal { get; set; }
         public int? PorcentagemFinalCombustivel { get; }
 
         public override bool Equals(object obj)

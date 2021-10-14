@@ -1,5 +1,4 @@
-﻿using LocadoraDeVeículos.Aplicacao.RequisicaoEmailModule;
-using LocadoraDeVeículos.Aplicacao.Shared;
+﻿using LocadoraDeVeículos.Aplicacao.Shared;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using LocadoraDeVeiculos.Dominio.RelatorioModule;
 using LocadoraDeVeiculos.Dominio.RequisicaoEmailModule;
@@ -9,13 +8,7 @@ using LocadoraDeVeiculos.Infra.ORM.CupomModule;
 using LocadoraDeVeiculos.Infra.ORM.LocacaoModule;
 using LocadoraDeVeiculos.Infra.ORM.Models;
 using LocadoraDeVeículos.Infra.PDF.PDFModule;
-using LocadoraDeVeículos.Infra.SQL.CupomModule;
-using LocadoraDeVeículos.Infra.SQL.LocacaoModule;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LocadoraDeVeículos.Aplicacao.LocacaoModule
 {
