@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeículos.Aplicacao.Shared
 {
-    interface ICadastravel<T> where T : EntidadeBase
+    public interface ICadastravel<T> where T : EntidadeBase
     {
         public string InserirNovo(T registro);
         public string Editar(int id, T registro);

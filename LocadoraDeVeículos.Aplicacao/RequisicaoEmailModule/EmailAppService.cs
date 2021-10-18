@@ -24,6 +24,10 @@ namespace LocadoraDeVeículos.Aplicacao.RequisicaoEmailModule
 
         private static EmailAppService _instancia;
 
+        public EmailAppService()
+        {
+
+        }
 
         private EmailAppService(IRepositorRequisicaoEmail repositorio)
         {

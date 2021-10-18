@@ -1,4 +1,6 @@
 ﻿using LocadoraDeVeículos.Aplicacao.Shared;
+using LocadoraDeVeiculos.Dominio.AutomovelModule;
+using LocadoraDeVeiculos.Dominio.CupomModule;
 using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using LocadoraDeVeiculos.Dominio.RelatorioModule;
 using LocadoraDeVeiculos.Dominio.RequisicaoEmailModule;
@@ -14,17 +16,17 @@ namespace LocadoraDeVeículos.Aplicacao.LocacaoModule
 {
     public class LocacaoAppService : ICadastravel<Locacao>
     {
-        LocacaoORMDao repositorioLocacao = null;
+        IRepositorLocacaoBase repositorioLocacao = null;
         //TaxasEServicosUsadosDao repositorioTaxas = null;
-        CupomORMDao repositorioCupom = null;
-        AutomovelORMDao repositorioAutomovel = null;
+        IRepositorCupomBase repositorioCupom = null;
+        IRepositorAutomovelBase repositorioAutomovel = null;
         GeradorPDF repositorioPDF = null;
         IEmailAppService emailAppService = null;
         DBLocadoraContext db = null;
 
-        public LocacaoAppService(LocacaoORMDao repositorioLocacao,
-                                 CupomORMDao repositorioCupom,
-                                 AutomovelORMDao repositorioAutomovel,
+        public LocacaoAppService(IRepositorLocacaoBase repositorioLocacao,
+                                 IRepositorCupomBase repositorioCupom,
+                                 IRepositorAutomovelBase repositorioAutomovel,
                                  GeradorPDF repositorioPDF,
                                  IEmailAppService emailAppService,
                                  DBLocadoraContext db)

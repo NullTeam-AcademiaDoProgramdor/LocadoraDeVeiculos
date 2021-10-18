@@ -1,18 +1,8 @@
-﻿using LocadoraDeVeiculos.Controladores.GrupoAutomovelModule;
-using LocadoraDeVeiculos.WindowsApp.Features.GruposAutomovel;
-using LocadoraDeVeiculos.Controladores.PessoaJuridicaModule;
+﻿using LocadoraDeVeiculos.WindowsApp.Features.GruposAutomovel;
 using LocadoraDeVeiculos.WindowsApp.Features.PessoasJuridicas;
-using LocadoraDeVeiculos.Controladores.FuncionarioModule;
 using LocadoraDeVeiculos.WindowsApp.Features.FuncionarioModule;
 using LocadoraDeVeiculos.WindowsApp.Shared;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using LocadoraDeVeiculos.Dominio.FuncionarioModule;
 using LocadoraDeVeiculos.WindowsApp.Features.TaxasEServicos;
@@ -21,43 +11,12 @@ using LocadoraDeVeiculos.WindowsApp.Features.Configuracoes;
 using LocadoraDeVeiculos.WindowsApp.Features.PessoasFisicas;
 
 using LocadoraDeVeiculos.WindowsApp.Features.Automoveis;
-using LocadoraDeVeiculos.Controladores.AutomovelModule;
 using LocadoraDeVeiculos.WindowsApp.Features.LocacaoModule;
-using LocadoraDeVeiculos.Controladores.LocacaoModule;
 using LocadoraDeVeiculos.WindowsApp.Features.Parceiros;
 
 using LocadoraDeVeiculos.WindowsApp.Features.Cupons;
-using LocadoraDeVeiculos.Controladores.CupomModule;
-using LocadoraDeVeículos.Aplicacao.ParceiroModule;
-using LocadoraDeVeículos.Infra.SQL.ParceiroModule;
-using LocadoraDeVeículos.Aplicacao.TaxaEServicoModule;
-using LocadoraDeVeículos.Infra.SQL.TaxasEServicosModule;
-using LocadoraDeVeículos.Aplicacao.GrupoAutomovelModule;
-using LocadoraDeVeículos.Infra.SQL.GrupoAutomovelModule;
-using LocadoraDeVeículos.Aplicacao.PessoaJuridicaModule;
-using LocadoraDeVeículos.Infra.SQL.PessoaJuridicaModule;
-using LocadoraDeVeículos.Aplicacao.PessoaFisicaModule;
-using LocadoraDeVeículos.Infra.SQL.PessoaFisicaModule;
-using LocadoraDeVeículos.Aplicacao.AutomovelModule;
-using LocadoraDeVeículos.Infra.SQL.AutomovelModule;
-using LocadoraDeVeículos.Aplicacao.CupomModule;
-using LocadoraDeVeículos.Infra.SQL.CupomModule;
-using LocadoraDeVeículos.Aplicacao.FuncionarioModule;
-using LocadoraDeVeículos.Infra.SQL.FuncionarioModule;
-using LocadoraDeVeículos.Aplicacao.LocacaoModule;
-using LocadoraDeVeículos.Infra.SQL.LocacaoModule;
-using LocadoraDeVeículos.Infra.PDF.PDFModule;
-using LocadoraDeVeículos.Aplicacao.RequisicaoEmailModule;
-using LocadoraDeVeiculos.Infra.ORM.ParceiroModule;
 using LocadoraDeVeiculos.Infra.ORM.Models;
-using LocadoraDeVeiculos.Infra.ORM.CupomModule;
-using LocadoraDeVeiculos.Infra.ORM.TaxaEServicoModule;
-using LocadoraDeVeiculos.Infra.ORM.PessoaJuridicaModule;
-using LocadoraDeVeiculos.Infra.ORM.GrupoAutomovelModule;
-using LocadoraDeVeiculos.Infra.ORM.FuncionarioModule;
-using LocadoraDeVeiculos.Infra.ORM.AutomovelModule;
-using LocadoraDeVeiculos.Infra.ORM.PessoaFisicaModule;
-using LocadoraDeVeiculos.Infra.ORM.LocacaoModule;
+using Autofac;
 
 namespace LocadoraDeVeiculos.WindowsApp
 {
@@ -130,7 +89,7 @@ namespace LocadoraDeVeiculos.WindowsApp
         private void ConfiguracaoDeEntradaNaTelaPrincipal()
         {
             operacoesConfiguracoes = new OperacoesConfiguracoes();
-            
+
             Instancia = this;
         }
 
@@ -144,11 +103,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             AtualizarRodape(configuracoes.Tooltip.TipoCadastro);
             AtualizarFuncionarioConectado(funcionarioConectado.Nome);
 
-            DBLocadoraContext db = new();
-
-            operacoes = new OperacoesPessoaJuridica(
-                new PessoaJuridicaAppService(
-                    new PessoaJuridicaORMDao(db), db));
+            operacoes = AutoFacBuilder.Container.Resolve<OperacoesPessoaJuridica>();
 
             ConfigurarPainelRegistros();
         }
@@ -250,34 +205,11 @@ namespace LocadoraDeVeiculos.WindowsApp
             AtualizarRodape(configuracoes.Tooltip.TipoCadastro);
             AtualizarFuncionarioConectado(funcionarioConectado.Nome);
 
-            DBLocadoraContext context = new();
-
-            GrupoAutomovelAppService controlador = new(
-                new GrupoAutomovelORMDao(context),
-                context);
-
-            operacoes = new OperacoesGrupoAutomovel(controlador);
+            operacoes = AutoFacBuilder.Container.Resolve<OperacoesGrupoAutomovel>();
 
             ConfigurarPainelRegistros();
         }
 
-        private void menuItemTaxasEServicos_Click(object sender, EventArgs e)
-        {
-            configuracoes = new ConfiguracaoTaxasEServicoToolBox();
-
-            ConfigurarTooltips(configuracoes.Tooltip);
-            ConfigurarBotoes(configuracoes.Botoes);
-
-            AtualizarRodape(configuracoes.Tooltip.TipoCadastro);
-            AtualizarFuncionarioConectado(funcionarioConectado.Nome);
-
-            DBLocadoraContext db = new();
-            TaxaEServicoAppService controlador = new(new TaxaEServicoORMDao(db), db);
-
-            operacoes = new OperacoesTaxasESevicos(controlador);
-
-            ConfigurarPainelRegistros();
-        }
         private void configuraçõesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             configuracoes = new ConfiguracaoConfiguracoesToolBox();
@@ -302,15 +234,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             AtualizarRodape(configuracoes.Tooltip.TipoCadastro);
 
-            DBLocadoraContext context = new();
-
-            AutomovelAppService controlador 
-                = new(new AutomovelORMDao(context), context);
-
-            GrupoAutomovelAppService controladorGrupo 
-                = new(new GrupoAutomovelORMDao(context), context);
-
-            operacoes = new OperacoesAutomovel(controlador, controladorGrupo);
+            operacoes = AutoFacBuilder.Container.Resolve<OperacoesAutomovel>();
 
             ConfigurarPainelRegistros();
         }
@@ -335,15 +259,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             AtualizarRodape(configuracoes.Tooltip.TipoCadastro);
 
-            DBLocadoraContext dbContext = new();
-
-            PessoaFisicaAppService controlador = 
-                new(new PessoaFisicaORMDao(dbContext), dbContext);
-
-            PessoaJuridicaAppService controladorPJuridica = 
-                new(new PessoaJuridicaORMDao(dbContext), dbContext);
-
-            operacoes = new OperacoesPessoaFisica(controlador, controladorPJuridica);
+            operacoes = AutoFacBuilder.Container.Resolve<OperacoesPessoaFisica>();
 
             ConfigurarPainelRegistros();
         }
@@ -358,10 +274,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             AtualizarRodape(configuracoes.Tooltip.TipoCadastro);
             AtualizarFuncionarioConectado(funcionarioConectado.Nome);
 
-            DBLocadoraContext db = new();
-            TaxaEServicoAppService controlador = new(new TaxaEServicoORMDao(db), db);
-
-            operacoes = new OperacoesTaxasESevicos(controlador);
+            operacoes = AutoFacBuilder.Container.Resolve<OperacoesTaxasESevicos>();
 
             ConfigurarPainelRegistros();
         }
@@ -376,9 +289,8 @@ namespace LocadoraDeVeiculos.WindowsApp
             AtualizarRodape(configuracoes.Tooltip.TipoCadastro);
             AtualizarFuncionarioConectado(funcionarioConectado.Nome);
 
-            DBLocadoraContext db = new();
-            FuncionarioAppService controlador = new(new FuncionarioORMDao(db),db);
-            operacoes = new OperacoesFuncionario(controlador);
+            operacoes = AutoFacBuilder.Container.Resolve<OperacoesFuncionario>();
+
             ConfigurarPainelRegistros();
         }
         private void locaçõesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -391,33 +303,11 @@ namespace LocadoraDeVeiculos.WindowsApp
             AtualizarRodape(configuracoes.Tooltip.TipoCadastro);
             AtualizarFuncionarioConectado(funcionarioConectado.Nome);
 
-            DBLocadoraContext db = new();
+            DBLocadoraContext db = AutoFacBuilder.Container.Resolve<DBLocadoraContext>();
 
             db.Attach(funcionarioConectado);
 
-            AutomovelORMDao automovelORMDao = new(db);
-            AutomovelAppService controladorAutomovel = new(automovelORMDao, db);
-
-            CupomORMDao cupomORMDao = new(db);
-            CupomAppService controladorCupom = new(cupomORMDao, db);
-
-            PessoaFisicaAppService controladorPessoaFisica = new(new PessoaFisicaORMDao(db), db);
-
-            TaxaEServicoAppService controladorTaxaEServico = new(new TaxaEServicoORMDao(db), db);
-
-            LocacaoAppService controlador = new(
-                new LocacaoORMDao(db), 
-                cupomORMDao, 
-                automovelORMDao, 
-                new GeradorPDF(), 
-                EmailAppService.GetInstance(), db);
-
-            operacoes = new OperacoesLocacao(
-                controlador, 
-                controladorAutomovel, 
-                controladorPessoaFisica, 
-                controladorTaxaEServico, 
-                controladorCupom);
+            operacoes = AutoFacBuilder.Container.Resolve<OperacoesLocacao>();
 
             ConfigurarPainelRegistros();
         }
@@ -432,14 +322,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             AtualizarRodape(configuracoes.Tooltip.TipoCadastro);
             AtualizarFuncionarioConectado(funcionarioConectado.Nome);
 
-            DBLocadoraContext context = new();
-
-            ParceiroAppService controlador = new ParceiroAppService(
-                    new ParceiroORMDao(context),
-                    context
-                );
-
-            operacoes = new OperacoesParceiro(controlador);
+            operacoes = AutoFacBuilder.Container.Resolve<OperacoesParceiro>();
 
             ConfigurarPainelRegistros();
         }
@@ -453,20 +336,8 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             AtualizarRodape(configuracoes.Tooltip.TipoCadastro);
             AtualizarFuncionarioConectado(funcionarioConectado.Nome);
-
-            DBLocadoraContext context = new();
-
-            CupomAppService controlador = new(
-                new CupomORMDao(context),
-                context
-            );
-
-            ParceiroAppService controladorParceiro = new ParceiroAppService(
-                new ParceiroORMDao(context),
-                context
-            );
-
-            operacoes = new OperacoesCupons(controlador, controladorParceiro);
+                       
+            operacoes = AutoFacBuilder.Container.Resolve<OperacoesCupons>();
 
             ConfigurarPainelRegistros();
         }

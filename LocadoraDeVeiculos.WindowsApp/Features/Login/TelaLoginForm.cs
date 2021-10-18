@@ -1,18 +1,8 @@
-﻿using LocadoraDeVeículos.Aplicacao.FuncionarioModule;
-using LocadoraDeVeiculos.Controladores.FuncionarioModule;
+﻿using Autofac;
+using LocadoraDeVeículos.Aplicacao.FuncionarioModule;
 using LocadoraDeVeiculos.Dominio.FuncionarioModule;
 using LocadoraDeVeiculos.Infra.Log;
-using LocadoraDeVeiculos.Infra.ORM.FuncionarioModule;
-using LocadoraDeVeiculos.Infra.ORM.Models;
-using LocadoraDeVeículos.Infra.SQL.FuncionarioModule;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LocadoraDeVeiculos.WindowsApp.Features.Login
@@ -25,8 +15,7 @@ namespace LocadoraDeVeiculos.WindowsApp.Features.Login
         public TelaLoginForm()
         {
             InitializeComponent();
-            DBLocadoraContext db = new();
-            controladorFuncionario = new FuncionarioAppService (new FuncionarioORMDao(db), db);
+            controladorFuncionario = AutoFacBuilder.Container.Resolve<FuncionarioAppService>();
         }
 
         private void btnEntrar_Click(object sender, EventArgs e)
