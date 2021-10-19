@@ -374,8 +374,6 @@ namespace LocadoraDeVeiculos.WindowsApp
             }
         }
 
-
-
         private void btnDevolverAutomovel_Click(object sender, EventArgs e)
         {
             (operacoes as OperacoesLocacao).DevolverRegistro();

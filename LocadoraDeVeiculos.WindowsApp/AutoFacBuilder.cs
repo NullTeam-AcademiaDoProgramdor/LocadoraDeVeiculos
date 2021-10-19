@@ -54,7 +54,7 @@ namespace LocadoraDeVeiculos.WindowsApp
             var builder = new ContainerBuilder();
 
             builder.RegisterType<DBLocadoraContext>().InstancePerLifetimeScope();
-
+            
             RegistrarORM(builder);
             RegistrarAppService(builder);
             RegistrarOperacoes(builder);
@@ -79,9 +79,7 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             builder.RegisterType<PessoaFisicaORMDao>().As<IRepositorBase<PessoaFisica>>().InstancePerDependency();
 
-            builder.RegisterType<TaxaEServicoORMDao>().As<IRepositorTaxaEServicoBase>().InstancePerDependency();
-
-            //builder.RegisterType<RequisicaoEmailORMDao>().As<IRepositorRequisicaoEmail>().InstancePerDependency();
+            builder.RegisterType<TaxaEServicoORMDao>().As<IRepositorTaxaEServicoBase>().InstancePerDependency();            
 
             builder.RegisterType<GeradorPDF>().InstancePerDependency();
 
@@ -110,7 +108,6 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             builder.RegisterType<LocacaoAppService>().InstancePerDependency();
         }
-
         private static void RegistrarOperacoes(ContainerBuilder builder)
         {
             builder.RegisterType<OperacoesParceiro>().InstancePerDependency();
