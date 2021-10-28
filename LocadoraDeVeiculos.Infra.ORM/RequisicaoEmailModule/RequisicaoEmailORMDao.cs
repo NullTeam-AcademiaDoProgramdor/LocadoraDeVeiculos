@@ -11,23 +11,21 @@ namespace LocadoraDeVeiculos.Infra.ORM.RequisicaoEmailModule
 {
     public class RequisicaoEmailORMDao : IRepositorRequisicaoEmail
     {
-        public RequisicaoEmailORMDao()
+        private DBLocadoraContext db;
+        public RequisicaoEmailORMDao(DBLocadoraContext db)
         {
+            this.db = db;
         }
 
         public bool Excluir(int id)
         {
             try
             {
-                using DBLocadoraContext db = new();
-
                 RequisicaoEmail temp = db.Set<RequisicaoEmail>()
                     .Where(x => x.Id == id)
                     .FirstOrDefault();
 
                 db.Remove(temp);
-
-                db.SaveChanges();
 
                 return true;
             }
@@ -39,8 +37,6 @@ namespace LocadoraDeVeiculos.Infra.ORM.RequisicaoEmailModule
 
         public bool ExisteAlgum()
         {
-            using DBLocadoraContext db = new();
-
             return db.RequisicaoEmails.Any();
         }
 
@@ -48,10 +44,7 @@ namespace LocadoraDeVeiculos.Infra.ORM.RequisicaoEmailModule
         {
             try
             {
-                using DBLocadoraContext db = new();
-
                 db.Add(registro);
-                db.SaveChanges();
 
                 return true;
             }
@@ -63,8 +56,6 @@ namespace LocadoraDeVeiculos.Infra.ORM.RequisicaoEmailModule
 
         public List<RequisicaoEmail> SelecionarTodos()
         {
-            using DBLocadoraContext db = new();
-
             return db.Set<RequisicaoEmail>().ToList();
         }
     }

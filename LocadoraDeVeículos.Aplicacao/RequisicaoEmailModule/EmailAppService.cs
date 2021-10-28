@@ -11,6 +11,8 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using LocadoraDeVeiculos.Infra.Log;
+using System.Collections.Concurrent;
+using LocadoraDeVeiculos.Infra.ORM.Models;
 
 namespace LocadoraDeVeículos.Aplicacao.RequisicaoEmailModule
 {
@@ -18,44 +20,12 @@ namespace LocadoraDeVeículos.Aplicacao.RequisicaoEmailModule
     {
 
         private IRepositorRequisicaoEmail repositorio;
-        private Thread thread;
+        private DBLocadoraContext db;
 
-        private bool EstaRodando = true;
-
-        private static EmailAppService _instancia;
-
-        public EmailAppService()
+        public EmailAppService(IRepositorRequisicaoEmail repositor , DBLocadoraContext db)
         {
-
-        }
-
-        private EmailAppService(IRepositorRequisicaoEmail repositorio)
-        {
-            // verifica se o repositorio é null
-            this.repositorio = repositorio ?? throw new ArgumentNullException(nameof(repositorio));
-            thread = new Thread(IniciarFila);
-        }
-
-        public static EmailAppService GetInstance(
-            IRepositorRequisicaoEmail repositorio = null)
-        {
-
-            if (_instancia == null)
-            {
-                _instancia = new EmailAppService(repositorio);
-            }
-
-            return _instancia;
-        }
-
-        public void Iniciar()
-        {
-            thread.Start();
-        }
-
-        public void Parar()
-        {
-            EstaRodando = false;
+            repositorio = repositor;
+            this.db = db;
         }
 
         public void AdicionarEmail(string mensagem, string emailDestino,
@@ -64,77 +34,97 @@ namespace LocadoraDeVeículos.Aplicacao.RequisicaoEmailModule
             Serilog.Log.Logger.Aqui().Information($"Inserindo email para enviar");
             repositorio.InserirNovo(
                 new RequisicaoEmail(mensagem, emailDestino, pdfs));
+
+            db.SaveChanges();
         }
 
 
-        private static void GerarClient(Action<SmtpClient> action)
-        {
-            using (SmtpClient smtp = new SmtpClient())
-            {
-                smtp.Host = "smtp.gmail.com";
-                smtp.Port = 587;
-                smtp.EnableSsl = true;
-                smtp.UseDefaultCredentials = false;
-                smtp.Credentials = new NetworkCredential("locadoranull@gmail.com", "nullteam123");
+        //private static void GerarClient(Action<SmtpClient> action)
+        //{
+        //    using (SmtpClient smtp = new SmtpClient())
+        //    {
+        //        smtp.Host = "smtp.gmail.com";
+        //        smtp.Port = 587;
+        //        smtp.EnableSsl = true;
+        //        smtp.UseDefaultCredentials = false;
+        //        smtp.Credentials = new NetworkCredential("locadoranull@gmail.com", "nullteam123");
 
-                action(smtp);
-            }
+        //        action(smtp);
+        //    }
+        //}
+
+        //private void Enviar(RequisicaoEmail email)
+        //{
+        //    using (MailMessage mail = new MailMessage())
+        //    {
+        //        mail.From = new MailAddress("locadoranull@gmail.com");
+
+        //        mail.To.Add(new MailAddress(email.EmailDestino));
+
+        //        mail.Subject = "Relatório de Locação";
+        //        mail.Body = email.Mensagem;
+
+        //        foreach (var pdf in email.Arquivos)
+        //        {
+        //            mail.Attachments.Add(
+        //                new Attachment(ArquivosUtils.GetEnderecoPastaArquivos(pdf),
+        //                MediaTypeNames.Application.Pdf));
+        //        }
+
+        //        Serilog.Log.Logger.Aqui().Information($"Enviando email [{mail}] para o cliente");
+
+        //        GerarClient(s => s.Send(mail));
+        //    }
+        //}
+
+        //private void IniciarFila()
+        //{
+        //    while (EstaRodando)
+        //    {
+        //        if (!StatusInternet.EstaConectada() || !repositorio.ExisteAlgum())
+        //        {
+        //            Console.WriteLine("Esperando 10s para a proxima verificação de email");
+        //            Thread.Sleep(10 * 1000);
+        //            continue;
+        //        }
+
+        //        List<RequisicaoEmail> emails = repositorio.SelecionarTodos();
+
+        //        foreach (var email in emails)
+        //        {
+        //            Console.WriteLine($"Enviando email para {email.EmailDestino}");
+        //            Enviar(email);
+        //            Serilog.Log.Logger.Aqui().Information($"Email {email} enviado, excluindo do sistema.");
+        //            repositorio.Excluir(email.id);
+
+        //            foreach (var arquivo in email.Arquivos)
+        //            {
+        //                string caminho = 
+        //                    ArquivosUtils.GetEnderecoPastaArquivos(arquivo);
+        //                ArquivosUtils.ExcluirArquivo(caminho);
+        //            }
+
+        //        }
+
+        //    }
+        //}
+
+        public bool Excluir(int id)
+        {
+            var resultado = repositorio.Excluir(id);
+            db.SaveChanges();
+
+            return resultado;
         }
 
-        private void Enviar(RequisicaoEmail email)
+        public bool ExisteAlgum()
         {
-            using (MailMessage mail = new MailMessage())
-            {
-                mail.From = new MailAddress("locadoranull@gmail.com");
-
-                mail.To.Add(new MailAddress(email.EmailDestino));
-
-                mail.Subject = "Relatório de Locação";
-                mail.Body = email.Mensagem;
-
-                foreach (var pdf in email.Arquivos)
-                {
-                    mail.Attachments.Add(
-                        new Attachment(ArquivosUtils.GetEnderecoPastaArquivos(pdf),
-                        MediaTypeNames.Application.Pdf));
-                }
-
-                Serilog.Log.Logger.Aqui().Information($"Enviando email [{mail}] para o cliente");
-
-                GerarClient(s => s.Send(mail));
-            }
+            return repositorio.ExisteAlgum();
         }
 
-        private void IniciarFila()
+        public ConcurrentBag<RequisicaoEmail> SelecionarTodos()
         {
-            while (EstaRodando)
-            {
-                if (!StatusInternet.EstaConectada() || !repositorio.ExisteAlgum())
-                {
-                    Console.WriteLine("Esperando 10s para a proxima verificação de email");
-                    Thread.Sleep(10 * 1000);
-                    continue;
-                }
-
-                List<RequisicaoEmail> emails = repositorio.SelecionarTodos();
-
-                foreach (var email in emails)
-                {
-                    Console.WriteLine($"Enviando email para {email.EmailDestino}");
-                    Enviar(email);
-                    Serilog.Log.Logger.Aqui().Information($"Email {email} enviado, excluindo do sistema.");
-                    repositorio.Excluir(email.id);
-
-                    foreach (var arquivo in email.Arquivos)
-                    {
-                        string caminho = 
-                            ArquivosUtils.GetEnderecoPastaArquivos(arquivo);
-                        ArquivosUtils.ExcluirArquivo(caminho);
-                    }
-
-                }
-
-            }
+            return new ConcurrentBag<RequisicaoEmail>(repositorio.SelecionarTodos());
         }
     }
 }

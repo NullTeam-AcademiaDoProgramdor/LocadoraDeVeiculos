@@ -7,6 +7,9 @@
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="App.config" />
+  </ItemGroup>
+  <ItemGroup>
     <Reference Include="DataGridViewGrouper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\DataGridViewGrouper.dll</HintPath>
@@ -64,6 +67,11 @@
     <PackageReference Include="Microsoft.Windows.Compatibility" Version="5.0.2" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
     <Content Include="Lib\DataGridViewGrouper.dll" />
     <Content Include="Lib\NullTeam.ImageGallery.Lib.dll" />
     <None Include="Resources\AlugaRech2.0 %282%29.png" />
@@ -75,6 +83,7 @@
     <ProjectReference Include="..\LocadoraDeVeiculos.Infra.Log\LocadoraDeVeiculos.Infra.Log.csproj" />
     <ProjectReference Include="..\LocadoraDeVeiculos.Infra.ORM\LocadoraDeVeiculos.Infra.ORM.csproj" />
     <ProjectReference Include="..\LocadoraDeVeiculos.Servicos\LocadoraDeVeiculos.Servicos.csproj" />
+    <ProjectReference Include="..\LocadoraDeVeiculos.WindowsServices\LocadoraDeVeiculos.WindowsServices.csproj" />
     <ProjectReference Include="..\LocadoraDeVeículos.Aplicacao\LocadoraDeVeículos.Aplicacao.csproj" />
     <ProjectReference Include="..\LocadoraDeVeículos.Infra.PDF\LocadoraDeVeículos.Infra.PDF.csproj" />
     <ProjectReference Include="..\LocadoraDeVeículos.Infra.SQL\LocadoraDeVeículos.Infra.SQL.csproj" />

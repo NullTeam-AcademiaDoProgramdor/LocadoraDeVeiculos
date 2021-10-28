@@ -12,7 +12,7 @@ namespace LocadoraDeVeiculos.Infra.Arquivos
 
         public static string GetEnderecoPastaArquivos(string nomeArquivo)
         {
-            return @"..\..\..\..\Arquivos\" + nomeArquivo;
+            return @"C:\Users\pedro\OneDrive\Área de Trabalho\NDD\Projetos\ProjetosTime\teste\Arquivos\" + nomeArquivo;
         }
     }
 }

@@ -18,6 +18,7 @@ using LocadoraDeVeiculos.Dominio.LocacaoModule;
 using Microsoft.Extensions.Logging;
 using Serilog.Extensions.Logging;
 using Serilog;
+using System.Reflection;
 
 #nullable disable
 
@@ -28,7 +29,14 @@ namespace LocadoraDeVeiculos.Infra.ORM.Models
         private string connectionString;
 
         private static ILoggerFactory loggerFactorySerilog =
-            LoggerFactory.Create(builder => builder.AddSerilog());
+            LoggerFactory.Create(builder =>
+            {
+                builder
+                .AddSerilog()
+                .AddFilter((category, level) =>
+                        category == DbLoggerCategory.Database.Command.Name
+                        && level == LogLevel.Information);
+            });
 
         public DbSet<Automovel> Automoveis { get; set; }
         public DbSet<GrupoAutomovel> GruposAutomovel { get; set; }
@@ -39,14 +47,14 @@ namespace LocadoraDeVeiculos.Infra.ORM.Models
         public DbSet<PessoaFisica> PessoasFisicas { get; set; }
         public DbSet<RequisicaoEmail> RequisicaoEmails { get; set; }
         public DbSet<Locacao> Locacoes { get; set; }
-        public DbSet<Funcionario> Funcionarios{ get; set;}
+        public DbSet<Funcionario> Funcionarios { get; set; }
 
-    public DBLocadoraContext()
+        public DBLocadoraContext()
         {
             IConfiguration configuration =
                 new ConfigurationBuilder()
+                .SetBasePath(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location))
                 .AddJsonFile("appsettings.json")
-                .SetBasePath(Directory.GetCurrentDirectory())
                 .Build();
 
             string bancoDeDados = configuration.GetSection("bancoDeDados").Value;

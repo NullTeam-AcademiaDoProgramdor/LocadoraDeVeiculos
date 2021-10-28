@@ -14,6 +14,7 @@ using LocadoraDeVeiculos.Infra.Log;
 using LocadoraDeVeiculos.Infra.ORM.Models;
 using LocadoraDeVeiculos.Infra.ORM.ParceiroModule;
 using LocadoraDeVeiculos.Infra.ORM.RequisicaoEmailModule;
+using Microsoft.Extensions.Hosting;
 
 namespace LocadoraDeVeiculos.WindowsApp
 {
@@ -24,24 +25,16 @@ namespace LocadoraDeVeiculos.WindowsApp
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        static void Main(string[] args)
         {
             Log.ConfigurarLog();
 
             try
             {
-                
-
-                EmailAppService emailService =
-                    EmailAppService.GetInstance(new RequisicaoEmailORMDao());
-
-                emailService.Iniciar();
-
+                throw new Exception("erro");
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
                 Application.Run(new TelaLoginForm());
-
-                emailService.Parar();
             }
             catch (Exception e)
             {

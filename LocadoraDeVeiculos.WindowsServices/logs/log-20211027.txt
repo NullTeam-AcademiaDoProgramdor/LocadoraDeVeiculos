@@ -1,0 +1,749 @@
+2021-10-27 15:34:12.790 -03:00 [DBG] An additional 'IServiceProvider' was created for internal use by Entity Framework. An existing service provider was not used due to the following configuration changes: configuration added for 'Core:UseMemoryCache', configuration added for 'Core:EnableSensitiveDataLogging', configuration added for 'Core:EnableDetailedErrors', configuration added for 'Core:ConfigureWarnings', configuration added for 'Proxies:UseLazyLoadingProxies', configuration added for 'Proxies:UseChangeTrackingProxies', configuration added for 'SqlServer'.
+2021-10-27 15:34:13.642 -03:00 [DBG] The index {'LocacoesId'} was not created on entity type 'LocacaoTaxaEServico (Dictionary<string, object>)' as the properties are already covered by the index {'LocacoesId', 'TaxasEServicosId'}.
+2021-10-27 15:34:14.292 -03:00 [WRN] The property 'Arquivos.RequisicaoEmail' is a collection or enumeration type with a value converter but with no value comparer. Set a value comparer to ensure the collection/enumeration elements are compared correctly.
+2021-10-27 15:34:14.294 -03:00 [DBG] The property 'LocacoesId.LocacaoTaxaEServico (Dictionary<string, object>)' was created in shadow state because there are no eligible CLR members with a matching name.
+2021-10-27 15:34:14.294 -03:00 [DBG] The property 'TaxasEServicosId.LocacaoTaxaEServico (Dictionary<string, object>)' was created in shadow state because there are no eligible CLR members with a matching name.
+2021-10-27 15:34:14.294 -03:00 [DBG] The property 'GrupoId.Automovel' was created in shadow state because there are no eligible CLR members with a matching name.
+2021-10-27 15:34:14.294 -03:00 [DBG] The property 'ParceiroId.Cupom' was created in shadow state because there are no eligible CLR members with a matching name.
+2021-10-27 15:34:14.294 -03:00 [DBG] The property 'AutomovelId.Foto' was created in shadow state because there are no eligible CLR members with a matching name.
+2021-10-27 15:34:14.294 -03:00 [DBG] The property 'AutomovelId.Locacao' was created in shadow state because there are no eligible CLR members with a matching name.
+2021-10-27 15:34:14.294 -03:00 [DBG] The property 'CondutorId.Locacao' was created in shadow state because there are no eligible CLR members with a matching name.
+2021-10-27 15:34:14.294 -03:00 [DBG] The property 'CupomId.Locacao' was created in shadow state because there are no eligible CLR members with a matching name.
+2021-10-27 15:34:14.294 -03:00 [DBG] The property 'FuncionarioId.Locacao' was created in shadow state because there are no eligible CLR members with a matching name.
+2021-10-27 15:34:14.294 -03:00 [DBG] The property 'PessoaJuridicaId.PessoaFisica' was created in shadow state because there are no eligible CLR members with a matching name.
+2021-10-27 15:34:14.513 -03:00 [INF] Entity Framework Core 5.0.10 initialized 'DBLocadoraContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: using lazy-loading proxies 
+2021-10-27 15:34:14.560 -03:00 [DBG] Compiling query expression: 
+'DbSet<RequisicaoEmail>()
+    .Any()'
+2021-10-27 15:34:14.692 -03:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<bool>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.SelectExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> 0
+        SELECT EXISTS (
+            Projection Mapping:
+            SELECT 1
+            FROM TBRequisicaoEmail AS t)), 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, bool>, 
+    LocadoraDeVeiculos.Infra.ORM.Models.DBLocadoraContext, 
+    False, 
+    False
+)
+    .Single()'
+2021-10-27 15:34:14.727 -03:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-10-27 15:34:14.759 -03:00 [DBG] Created DbCommand for 'ExecuteReader' (28ms).
+2021-10-27 15:34:14.761 -03:00 [DBG] Opening connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:34:15.060 -03:00 [DBG] Opened connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:34:15.068 -03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:34:15.102 -03:00 [INF] Executed DbCommand (35ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:34:15.115 -03:00 [DBG] A data reader was disposed.
+2021-10-27 15:34:15.117 -03:00 [DBG] Closing connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:34:15.123 -03:00 [DBG] Closed connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:34:15.124 -03:00 [DBG] Esperando 10s para a proxima verificação de email
+2021-10-27 15:34:25.215 -03:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-10-27 15:34:25.215 -03:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2021-10-27 15:34:25.215 -03:00 [DBG] Opening connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:34:25.259 -03:00 [DBG] Opened connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:34:25.260 -03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:34:25.268 -03:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:34:25.268 -03:00 [DBG] A data reader was disposed.
+2021-10-27 15:34:25.268 -03:00 [DBG] Closing connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:34:25.268 -03:00 [DBG] Closed connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:34:25.269 -03:00 [DBG] Esperando 10s para a proxima verificação de email
+2021-10-27 15:34:35.357 -03:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-10-27 15:34:35.357 -03:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2021-10-27 15:34:35.357 -03:00 [DBG] Opening connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:34:35.414 -03:00 [DBG] Opened connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:34:35.414 -03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:34:35.422 -03:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:34:35.422 -03:00 [DBG] A data reader was disposed.
+2021-10-27 15:34:35.422 -03:00 [DBG] Closing connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:34:35.422 -03:00 [DBG] Closed connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:34:35.422 -03:00 [DBG] Esperando 10s para a proxima verificação de email
+2021-10-27 15:34:45.505 -03:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-10-27 15:34:45.505 -03:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2021-10-27 15:34:45.505 -03:00 [DBG] Opening connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:34:45.554 -03:00 [DBG] Opened connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:34:45.554 -03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:34:45.561 -03:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:34:45.561 -03:00 [DBG] A data reader was disposed.
+2021-10-27 15:34:45.561 -03:00 [DBG] Closing connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:34:45.561 -03:00 [DBG] Closed connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:34:45.562 -03:00 [DBG] Esperando 10s para a proxima verificação de email
+2021-10-27 15:34:55.651 -03:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-10-27 15:34:55.651 -03:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2021-10-27 15:34:55.651 -03:00 [DBG] Opening connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:34:55.701 -03:00 [DBG] Opened connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:34:55.701 -03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:34:55.709 -03:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:34:55.709 -03:00 [DBG] A data reader was disposed.
+2021-10-27 15:34:55.709 -03:00 [DBG] Closing connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:34:55.709 -03:00 [DBG] Closed connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:34:55.709 -03:00 [DBG] Esperando 10s para a proxima verificação de email
+2021-10-27 15:35:05.798 -03:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-10-27 15:35:05.798 -03:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2021-10-27 15:35:05.798 -03:00 [DBG] Opening connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:35:05.841 -03:00 [DBG] Opened connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:35:05.841 -03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:35:05.850 -03:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:35:05.850 -03:00 [DBG] A data reader was disposed.
+2021-10-27 15:35:05.850 -03:00 [DBG] Closing connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:35:05.850 -03:00 [DBG] Closed connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:35:05.850 -03:00 [DBG] Esperando 10s para a proxima verificação de email
+2021-10-27 15:35:15.939 -03:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-10-27 15:35:15.939 -03:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2021-10-27 15:35:15.940 -03:00 [DBG] Opening connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:35:15.986 -03:00 [DBG] Opened connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:35:15.986 -03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:35:15.994 -03:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:35:15.994 -03:00 [DBG] A data reader was disposed.
+2021-10-27 15:35:15.995 -03:00 [DBG] Closing connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:35:15.995 -03:00 [DBG] Closed connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:35:15.995 -03:00 [DBG] Esperando 10s para a proxima verificação de email
+2021-10-27 15:35:26.081 -03:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-10-27 15:35:26.081 -03:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2021-10-27 15:35:26.081 -03:00 [DBG] Opening connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:35:26.141 -03:00 [DBG] Opened connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:35:26.141 -03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:35:26.150 -03:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:35:26.150 -03:00 [DBG] A data reader was disposed.
+2021-10-27 15:35:26.150 -03:00 [DBG] Closing connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:35:26.150 -03:00 [DBG] Closed connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:35:26.150 -03:00 [DBG] Esperando 10s para a proxima verificação de email
+2021-10-27 15:35:36.244 -03:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-10-27 15:35:36.244 -03:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2021-10-27 15:35:36.244 -03:00 [DBG] Opening connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:35:36.292 -03:00 [DBG] Opened connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:35:36.292 -03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:35:36.299 -03:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:35:36.300 -03:00 [DBG] A data reader was disposed.
+2021-10-27 15:35:36.300 -03:00 [DBG] Closing connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:35:36.300 -03:00 [DBG] Closed connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:35:36.300 -03:00 [DBG] Esperando 10s para a proxima verificação de email
+2021-10-27 15:35:46.386 -03:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-10-27 15:35:46.386 -03:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2021-10-27 15:35:46.386 -03:00 [DBG] Opening connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:35:46.473 -03:00 [DBG] Opened connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:35:46.473 -03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:35:46.493 -03:00 [INF] Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:35:46.493 -03:00 [DBG] A data reader was disposed.
+2021-10-27 15:35:46.493 -03:00 [DBG] Closing connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:35:46.493 -03:00 [DBG] Closed connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:35:46.493 -03:00 [DBG] Esperando 10s para a proxima verificação de email
+2021-10-27 15:36:03.362 -03:00 [DBG] An additional 'IServiceProvider' was created for internal use by Entity Framework. An existing service provider was not used due to the following configuration changes: configuration added for 'Core:UseMemoryCache', configuration added for 'Core:EnableSensitiveDataLogging', configuration added for 'Core:EnableDetailedErrors', configuration added for 'Core:ConfigureWarnings', configuration added for 'Proxies:UseLazyLoadingProxies', configuration added for 'Proxies:UseChangeTrackingProxies', configuration added for 'SqlServer'.
+2021-10-27 15:36:03.915 -03:00 [DBG] The index {'LocacoesId'} was not created on entity type 'LocacaoTaxaEServico (Dictionary<string, object>)' as the properties are already covered by the index {'LocacoesId', 'TaxasEServicosId'}.
+2021-10-27 15:36:04.320 -03:00 [WRN] The property 'Arquivos.RequisicaoEmail' is a collection or enumeration type with a value converter but with no value comparer. Set a value comparer to ensure the collection/enumeration elements are compared correctly.
+2021-10-27 15:36:04.322 -03:00 [DBG] The property 'LocacoesId.LocacaoTaxaEServico (Dictionary<string, object>)' was created in shadow state because there are no eligible CLR members with a matching name.
+2021-10-27 15:36:04.322 -03:00 [DBG] The property 'TaxasEServicosId.LocacaoTaxaEServico (Dictionary<string, object>)' was created in shadow state because there are no eligible CLR members with a matching name.
+2021-10-27 15:36:04.322 -03:00 [DBG] The property 'GrupoId.Automovel' was created in shadow state because there are no eligible CLR members with a matching name.
+2021-10-27 15:36:04.322 -03:00 [DBG] The property 'ParceiroId.Cupom' was created in shadow state because there are no eligible CLR members with a matching name.
+2021-10-27 15:36:04.323 -03:00 [DBG] The property 'AutomovelId.Foto' was created in shadow state because there are no eligible CLR members with a matching name.
+2021-10-27 15:36:04.323 -03:00 [DBG] The property 'AutomovelId.Locacao' was created in shadow state because there are no eligible CLR members with a matching name.
+2021-10-27 15:36:04.323 -03:00 [DBG] The property 'CondutorId.Locacao' was created in shadow state because there are no eligible CLR members with a matching name.
+2021-10-27 15:36:04.323 -03:00 [DBG] The property 'CupomId.Locacao' was created in shadow state because there are no eligible CLR members with a matching name.
+2021-10-27 15:36:04.323 -03:00 [DBG] The property 'FuncionarioId.Locacao' was created in shadow state because there are no eligible CLR members with a matching name.
+2021-10-27 15:36:04.323 -03:00 [DBG] The property 'PessoaJuridicaId.PessoaFisica' was created in shadow state because there are no eligible CLR members with a matching name.
+2021-10-27 15:36:04.449 -03:00 [INF] Entity Framework Core 5.0.10 initialized 'DBLocadoraContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: using lazy-loading proxies 
+2021-10-27 15:36:04.491 -03:00 [DBG] Compiling query expression: 
+'DbSet<RequisicaoEmail>()
+    .Any()'
+2021-10-27 15:36:04.608 -03:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<bool>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.SelectExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> 0
+        SELECT EXISTS (
+            Projection Mapping:
+            SELECT 1
+            FROM TBRequisicaoEmail AS t)), 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, bool>, 
+    LocadoraDeVeiculos.Infra.ORM.Models.DBLocadoraContext, 
+    False, 
+    False
+)
+    .Single()'
+2021-10-27 15:36:04.638 -03:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-10-27 15:36:04.669 -03:00 [DBG] Created DbCommand for 'ExecuteReader' (27ms).
+2021-10-27 15:36:04.672 -03:00 [DBG] Opening connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:36:04.847 -03:00 [DBG] Opened connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:36:04.853 -03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:36:04.882 -03:00 [INF] Executed DbCommand (30ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:36:04.895 -03:00 [DBG] A data reader was disposed.
+2021-10-27 15:36:04.896 -03:00 [DBG] Closing connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:36:04.901 -03:00 [DBG] Closed connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:36:04.902 -03:00 [DBG] Esperando 10s para a proxima verificação de email
+2021-10-27 15:36:15.005 -03:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-10-27 15:36:15.005 -03:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2021-10-27 15:36:15.006 -03:00 [DBG] Opening connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:36:15.066 -03:00 [DBG] Opened connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:36:15.066 -03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:36:15.075 -03:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:36:15.075 -03:00 [DBG] A data reader was disposed.
+2021-10-27 15:36:15.075 -03:00 [DBG] Closing connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:36:15.076 -03:00 [DBG] Closed connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:36:15.076 -03:00 [DBG] Esperando 10s para a proxima verificação de email
+2021-10-27 15:36:25.183 -03:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-10-27 15:36:25.183 -03:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2021-10-27 15:36:25.183 -03:00 [DBG] Opening connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:36:25.235 -03:00 [DBG] Opened connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:36:25.235 -03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:36:25.244 -03:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:36:25.244 -03:00 [DBG] A data reader was disposed.
+2021-10-27 15:36:25.244 -03:00 [DBG] Closing connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:36:25.244 -03:00 [DBG] Closed connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:36:25.244 -03:00 [DBG] Esperando 10s para a proxima verificação de email
+2021-10-27 15:36:35.342 -03:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-10-27 15:36:35.342 -03:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2021-10-27 15:36:35.342 -03:00 [DBG] Opening connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:36:35.389 -03:00 [DBG] Opened connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:36:35.389 -03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:36:35.397 -03:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:36:35.397 -03:00 [DBG] A data reader was disposed.
+2021-10-27 15:36:35.397 -03:00 [DBG] Closing connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:36:35.397 -03:00 [DBG] Closed connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:36:35.397 -03:00 [DBG] Esperando 10s para a proxima verificação de email
+2021-10-27 15:36:45.483 -03:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-10-27 15:36:45.483 -03:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2021-10-27 15:36:45.483 -03:00 [DBG] Opening connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:36:45.534 -03:00 [DBG] Opened connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:36:45.534 -03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:36:45.542 -03:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:36:45.543 -03:00 [DBG] A data reader was disposed.
+2021-10-27 15:36:45.543 -03:00 [DBG] Closing connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:36:45.543 -03:00 [DBG] Closed connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:36:45.543 -03:00 [DBG] Esperando 10s para a proxima verificação de email
+2021-10-27 15:36:55.632 -03:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-10-27 15:36:55.633 -03:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2021-10-27 15:36:55.633 -03:00 [DBG] Opening connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:36:55.682 -03:00 [DBG] Opened connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:36:55.682 -03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:36:55.690 -03:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:36:55.690 -03:00 [DBG] A data reader was disposed.
+2021-10-27 15:36:55.690 -03:00 [DBG] Closing connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:36:55.692 -03:00 [DBG] Closed connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:36:55.692 -03:00 [DBG] Esperando 10s para a proxima verificação de email
+2021-10-27 15:37:05.783 -03:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-10-27 15:37:05.783 -03:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2021-10-27 15:37:05.783 -03:00 [DBG] Opening connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:37:05.835 -03:00 [DBG] Opened connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:37:05.835 -03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:37:05.843 -03:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:37:05.843 -03:00 [DBG] A data reader was disposed.
+2021-10-27 15:37:05.843 -03:00 [DBG] Closing connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:37:05.843 -03:00 [DBG] Closed connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:37:05.843 -03:00 [DBG] Esperando 10s para a proxima verificação de email
+2021-10-27 15:37:15.928 -03:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-10-27 15:37:15.928 -03:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2021-10-27 15:37:15.928 -03:00 [DBG] Opening connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:37:15.980 -03:00 [DBG] Opened connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:37:15.980 -03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:37:15.987 -03:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:37:15.988 -03:00 [DBG] A data reader was disposed.
+2021-10-27 15:37:15.988 -03:00 [DBG] Closing connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:37:15.988 -03:00 [DBG] Closed connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:37:15.988 -03:00 [DBG] Esperando 10s para a proxima verificação de email
+2021-10-27 15:37:26.079 -03:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-10-27 15:37:26.079 -03:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2021-10-27 15:37:26.079 -03:00 [DBG] Opening connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:37:26.132 -03:00 [DBG] Opened connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:37:26.133 -03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:37:26.141 -03:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:37:26.141 -03:00 [DBG] A data reader was disposed.
+2021-10-27 15:37:26.141 -03:00 [DBG] Closing connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:37:26.142 -03:00 [DBG] Closed connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:37:26.142 -03:00 [DBG] Esperando 10s para a proxima verificação de email
+2021-10-27 15:37:36.262 -03:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-10-27 15:37:36.262 -03:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2021-10-27 15:37:36.262 -03:00 [DBG] Opening connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:37:36.311 -03:00 [DBG] Opened connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:37:36.311 -03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:37:36.319 -03:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:37:36.319 -03:00 [DBG] A data reader was disposed.
+2021-10-27 15:37:36.319 -03:00 [DBG] Closing connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:37:36.319 -03:00 [DBG] Closed connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:37:36.320 -03:00 [DBG] Esperando 10s para a proxima verificação de email
+2021-10-27 15:37:46.405 -03:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-10-27 15:37:46.405 -03:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2021-10-27 15:37:46.405 -03:00 [DBG] Opening connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:37:46.458 -03:00 [DBG] Opened connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:37:46.458 -03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:37:46.466 -03:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:37:46.466 -03:00 [DBG] A data reader was disposed.
+2021-10-27 15:37:46.466 -03:00 [DBG] Closing connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:37:46.466 -03:00 [DBG] Closed connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:37:46.466 -03:00 [DBG] Esperando 10s para a proxima verificação de email
+2021-10-27 15:37:56.555 -03:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-10-27 15:37:56.556 -03:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2021-10-27 15:37:56.556 -03:00 [DBG] Opening connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:37:56.603 -03:00 [DBG] Opened connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:37:56.603 -03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:37:56.611 -03:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:37:56.611 -03:00 [DBG] A data reader was disposed.
+2021-10-27 15:37:56.611 -03:00 [DBG] Closing connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:37:56.611 -03:00 [DBG] Closed connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:37:56.611 -03:00 [DBG] Esperando 10s para a proxima verificação de email
+2021-10-27 15:38:06.694 -03:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-10-27 15:38:06.694 -03:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2021-10-27 15:38:06.694 -03:00 [DBG] Opening connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:38:06.745 -03:00 [DBG] Opened connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:38:06.745 -03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:38:06.752 -03:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:38:06.752 -03:00 [DBG] A data reader was disposed.
+2021-10-27 15:38:06.752 -03:00 [DBG] Closing connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:38:06.752 -03:00 [DBG] Closed connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:38:06.752 -03:00 [DBG] Esperando 10s para a proxima verificação de email
+2021-10-27 15:38:16.837 -03:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-10-27 15:38:16.837 -03:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2021-10-27 15:38:16.837 -03:00 [DBG] Opening connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:38:16.889 -03:00 [DBG] Opened connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:38:16.889 -03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:38:16.897 -03:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:38:16.897 -03:00 [DBG] A data reader was disposed.
+2021-10-27 15:38:16.897 -03:00 [DBG] Closing connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:38:16.897 -03:00 [DBG] Closed connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:38:16.897 -03:00 [DBG] Esperando 10s para a proxima verificação de email
+2021-10-27 15:38:26.983 -03:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-10-27 15:38:26.983 -03:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2021-10-27 15:38:26.983 -03:00 [DBG] Opening connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:38:27.030 -03:00 [DBG] Opened connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:38:27.030 -03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:38:27.039 -03:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:38:27.039 -03:00 [DBG] A data reader was disposed.
+2021-10-27 15:38:27.039 -03:00 [DBG] Closing connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:38:27.039 -03:00 [DBG] Closed connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:38:27.039 -03:00 [DBG] Esperando 10s para a proxima verificação de email
+2021-10-27 15:38:37.139 -03:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-10-27 15:38:37.139 -03:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2021-10-27 15:38:37.139 -03:00 [DBG] Opening connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:38:37.188 -03:00 [DBG] Opened connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:38:37.188 -03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:38:37.199 -03:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:38:37.199 -03:00 [DBG] A data reader was disposed.
+2021-10-27 15:38:37.200 -03:00 [DBG] Closing connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:38:37.200 -03:00 [DBG] Closed connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:38:37.200 -03:00 [DBG] Esperando 10s para a proxima verificação de email
+2021-10-27 15:38:47.282 -03:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-10-27 15:38:47.282 -03:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2021-10-27 15:38:47.282 -03:00 [DBG] Opening connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:38:47.335 -03:00 [DBG] Opened connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:38:47.335 -03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:38:47.344 -03:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:38:47.344 -03:00 [DBG] A data reader was disposed.
+2021-10-27 15:38:47.344 -03:00 [DBG] Closing connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:38:47.344 -03:00 [DBG] Closed connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:38:47.344 -03:00 [DBG] Esperando 10s para a proxima verificação de email
+2021-10-27 15:38:57.422 -03:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-10-27 15:38:57.422 -03:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2021-10-27 15:38:57.422 -03:00 [DBG] Opening connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:38:57.478 -03:00 [DBG] Opened connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:38:57.478 -03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:38:57.486 -03:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:38:57.486 -03:00 [DBG] A data reader was disposed.
+2021-10-27 15:38:57.486 -03:00 [DBG] Closing connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:38:57.486 -03:00 [DBG] Closed connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:38:57.486 -03:00 [DBG] Esperando 10s para a proxima verificação de email
+2021-10-27 15:39:07.568 -03:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-10-27 15:39:07.568 -03:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2021-10-27 15:39:07.568 -03:00 [DBG] Opening connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:39:07.615 -03:00 [DBG] Opened connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:39:07.615 -03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:39:07.622 -03:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:39:07.623 -03:00 [DBG] A data reader was disposed.
+2021-10-27 15:39:07.623 -03:00 [DBG] Closing connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:39:07.623 -03:00 [DBG] Closed connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:39:07.623 -03:00 [DBG] Esperando 10s para a proxima verificação de email
+2021-10-27 15:39:17.704 -03:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-10-27 15:39:17.704 -03:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2021-10-27 15:39:17.704 -03:00 [DBG] Opening connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:39:17.755 -03:00 [DBG] Opened connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:39:17.755 -03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:39:17.762 -03:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:39:17.762 -03:00 [DBG] A data reader was disposed.
+2021-10-27 15:39:17.762 -03:00 [DBG] Closing connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:39:17.763 -03:00 [DBG] Closed connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:39:17.763 -03:00 [DBG] Esperando 10s para a proxima verificação de email
+2021-10-27 15:39:27.859 -03:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2021-10-27 15:39:27.859 -03:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2021-10-27 15:39:27.859 -03:00 [DBG] Opening connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:39:27.905 -03:00 [DBG] Opened connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:39:27.905 -03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:39:27.913 -03:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [TBRequisicaoEmail] AS [t]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2021-10-27 15:39:27.914 -03:00 [DBG] A data reader was disposed.
+2021-10-27 15:39:27.914 -03:00 [DBG] Closing connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:39:27.914 -03:00 [DBG] Closed connection to database 'DBLocadoraORM' on server '(localdb)\MSSQLLocalDB'.
+2021-10-27 15:39:27.914 -03:00 [DBG] Esperando 10s para a proxima verificação de email
+2021-10-27 15:39:37.933 -03:00 [DBG] 'DBLocadoraContext' disposed.

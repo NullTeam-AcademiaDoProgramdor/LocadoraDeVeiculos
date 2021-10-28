@@ -79,7 +79,9 @@ namespace LocadoraDeVeiculos.WindowsApp
 
             builder.RegisterType<PessoaFisicaORMDao>().As<IRepositorBase<PessoaFisica>>().InstancePerDependency();
 
-            builder.RegisterType<TaxaEServicoORMDao>().As<IRepositorTaxaEServicoBase>().InstancePerDependency();            
+            builder.RegisterType<TaxaEServicoORMDao>().As<IRepositorTaxaEServicoBase>().InstancePerDependency();   
+            
+            builder.RegisterType<RequisicaoEmailORMDao>().As<IRepositorRequisicaoEmail>().InstancePerDependency();            
 
             builder.RegisterType<GeradorPDF>().InstancePerDependency();
 
