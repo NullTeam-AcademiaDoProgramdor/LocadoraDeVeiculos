@@ -15,4 +15,10 @@
   <ItemGroup>
     <ProjectReference Include="..\LocadoraDeVeículos.Aplicacao\LocadoraDeVeículos.Aplicacao.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <None Update="workerInstaler.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>
